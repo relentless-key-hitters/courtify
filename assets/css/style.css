@@ -225,7 +225,8 @@ span {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #71c55d;
+  color: #45702D;
+  font-weight: 500;
 }
 
 .navbar .dropdown ul {
@@ -260,7 +261,9 @@ span {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #71c55d;
+  color: #45702D;
+  font-weight: 500;
+
 }
 
 .navbar .dropdown:hover>ul {
