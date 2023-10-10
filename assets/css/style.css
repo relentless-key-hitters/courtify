@@ -206,7 +206,6 @@ span {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Roboto", sans-serif;
   font-size: 15px;
   color: #222;
   white-space: nowrap;
@@ -468,7 +467,6 @@ span {
   color: #777;
   margin-bottom: 30px;
   font-size: 20px;
-  font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
 
@@ -486,7 +484,6 @@ span {
 }
 
 #hero .btn-get-started {
-  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 13px;
@@ -557,7 +554,6 @@ section {
 }
 
 .section-title h2 {
-  font-family: "Roboto", sans-serif;
   font-size: 45px;
   font-weight: 100;
   letter-spacing: 2px;
@@ -570,7 +566,6 @@ section {
 
 .separator {
   color: #626262;
-  font-family: "Roboto", sans-serif;
   font-size: 15px;
   font-weight: 300;
   margin-bottom: 30px;
@@ -708,7 +703,6 @@ section {
 
 #about-us .about-content h2 {
   color: #252525;
-  font-family: "roboto";
   font-size: 39px;
   font-weight: 100;
   letter-spacing: 2px;
@@ -964,7 +958,6 @@ section {
 }
 
 #testimonials .top-top>h2 {
-  font-family: "Roboto" sans-serif;
   font-size: 45px;
   font-weight: 100;
   letter-spacing: 2px;
