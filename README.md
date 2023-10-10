@@ -1,2 +1,0 @@
-# Courtify
-Play. Share. Win.
