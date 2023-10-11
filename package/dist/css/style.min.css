@@ -17281,7 +17281,7 @@
   --bs-dark-rgb: 42, 53, 71;
   --bs-muted-rgb: 90, 106, 133;
   --bs-indigo-rgb: 102, 16, 242;
-  --bs-light-primary-rgb: 222, 243, 252;
+  --bs-light-primary-rgb: 235, 249, 255;
   --bs-light-secondary-rgb: 232, 247, 255;
   --bs-light-info-rgb: 235, 243, 254;
   --bs-light-success-rgb: 224, 250, 210;
@@ -20788,7 +20788,7 @@ fieldset:disabled .btn {
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: #def3fc;
   --bs-btn-hover-border-color: #def3fc;
-  --bs-btn-focus-shadow-rgb: 222, 243, 252;
+  --bs-btn-focus-shadow-rgb: 235, 249, 255;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #def3fc;
   --bs-btn-active-border-color: #def3fc;
@@ -24739,7 +24739,7 @@ fieldset:disabled .btn {
 }
 .text-bg-light-primary {
   color: #000 !important;
-  background-color: RGBA(222, 243, 252, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(235, 249, 255, var(--bs-bg-opacity, 1)) !important;
 }
 .text-bg-light-secondary {
   color: #000 !important;
