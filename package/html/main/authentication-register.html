@@ -46,8 +46,9 @@
                   <p class="text-center">Faça o seu registo no formulário em baixo</p>
                   <form class="mt-5">
                     <div class="form-floating mb-3">
+
                       <input type="text" class="form-control" placeholder="Nome" id="nomeUser">
-                      <label><i class="ti ti-user-circle me-2 fs-4"></i>Nome Completo</label>
+                      <label><i class="ti ti-user-circle me-2 fs-4"></i>Nome Completo<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
                       <div id="feedbackNome" class="invalid-feedback">
                         Introduza o seu nome.
                       </div>
@@ -62,7 +63,7 @@
                     </div>
                     <div class="form-floating mb-3 col-md-6">
                       <input type="number" class="form-control" placeholder="NIF" id="nifUser">
-                      <label><i class="ti ti-archive me-2 fs-4"></i>NIF</label>
+                      <label><i class="ti ti-archive me-2 fs-4"></i>NIF<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
                       <div id="feedbackNif" class="invalid-feedback">
                         Introduza o seu NIF (ou verifique se é válido).
                       </div>
@@ -94,25 +95,26 @@
                   </select>
                     <div class="form-floating mb-3">
                       <input type="email" class="form-control" placeholder="Email" id="emailUser">
-                      <label><i class="ti ti-mail me-2 fs-4"></i>Email</label>
+                      <label><i class="ti ti-mail me-2 fs-4"></i>Email<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
                       <div id="feedbackEmail" class="invalid-feedback">
                         Introduza o seu email (ou verifique se é válido).
                       </div>
                     </div>
                     <div class="form-floating mb-3">
                       <input type="password" class="form-control" placeholder="Password" id="passUser">
-                      <label><i class="ti ti-lock me-2 fs-4"></i>Password</label>
+                      <label><i class="ti ti-lock me-2 fs-4"></i>Password<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
                       <div id="feedbackPPEmpty" class="invalid-feedback">
                         Introduza a sua palavra-passe.
                       </div>
                     </div>
                     <div class="form-floating mb-3">
                       <input type="password" class="form-control" placeholder="CPassword" id="passCUser">
-                      <label><i class="ti ti-lock me-2 fs-4"></i>Confirmar Password</label>
+                      <label><i class="ti ti-lock me-2 fs-4"></i>Confirmar Password<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
                       <div id="feedbackPPDif" class="invalid-feedback">
                         As palavras-passe não coincidem.
                       </div>
                     </div>
+                    <small class="text-muted">Campos com <span class="text-danger">*</span> são obrigatórios.</small>
                     <div class="d-md-flex align-items-center">
                       <div class="mt-3 mt-md-0 ms-auto">
                         <a href="../../../landingpage/index.html">
