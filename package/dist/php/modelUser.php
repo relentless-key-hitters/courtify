@@ -23,7 +23,7 @@ class User{
         
         if ($stmt) {
             // Bind parameters to the statement
-            $stmt->bind_param("sssssss", $tipo, $nome, $telemovel, $email, $nif, $morada, $codP);
+            $stmt->bind_param("isisiss", $tipo, $nome, $telemovel, $email, $nif, $morada, $codP);
             
             // Execute the statement
             if ($stmt->execute()) {
@@ -35,7 +35,7 @@ class User{
                 
                 if ($stmt2) {
                     // Bind parameters to the second statement
-                    $stmt2->bind_param("ss", $id, $pass);
+                    $stmt2->bind_param("is", $id, $pass);
                     
                     // Execute the second statement
                     if ($stmt2->execute()) {
