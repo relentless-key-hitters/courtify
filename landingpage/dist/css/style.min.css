@@ -31904,3 +31904,7 @@ a {
     padding-top: 30px;
   }
 }
+
+section {
+  scroll-margin-top: 80px;
+}
