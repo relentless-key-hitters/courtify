@@ -1,4 +1,8 @@
 function registaUser(){
+
+    var password = $("#passUser").val();
+    var hashedPassword = CryptoJS.MD5(password).toString();
+
     limparCampos();
 
     if(verifPP($("#passUser").val(),$("#passCUser").val()) && verifEmail($("#emailUser").val()) && verifCodPostal($("#codPUser").val()) && verifEmpty($("#nomeUser").val()) && verifEmpty($("#nifUser").val()) && verifEmpty($("#emailUser").val()) && verifEmpty($("#passUser").val())){
@@ -17,7 +21,7 @@ function registaUser(){
         dados.append("codP", $("#codPUser").val());
         dados.append("local", $("#localUser").val());
         dados.append("email", $("#emailUser").val());
-        dados.append("pass", $("#passUser").val());
+        dados.append("pass", hashedPassword);
         
         $.ajax({
             url: "../../dist/php/controllerUser.php",
