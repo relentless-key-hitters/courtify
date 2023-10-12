@@ -42,9 +42,24 @@
                   <img src="../../dist/images/logos/logo_courtify.png"alt="" width="300px">
                 </div>
                 <div class="col-sm-8 col-md-6 col-xl-9">
-                  <h2 class="mb-3 fs-7 fw-bolder text-center">Um mundo de emoções aguarda-o<br></h2>
+                  <h2 class="fs-7 fw-bolder text-center">Um mundo de emoções aguarda-o<br></h2>
                   <p class="text-center">Faça o seu registo no formulário em baixo</p>
                   <form class="mt-5">
+                    <div class="row py-2 mb-3">
+                      <div class="col-md-4">
+                          <label>Tipo de utilizador</label>
+                      </div>
+                      <div class="col-md-8">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="tipoUser1" value="1">
+                                <label class="form-check-label" for="primary-outline-radio">Atleta</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="tipoUser2" value="2">
+                                <label class="form-check-label" for="primary2-outline-radio">Clube</label>
+                              </div>
+                      </div>
+                  </div>
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control" placeholder="Nome" id="nomeUser">
                       <label><i class="ti ti-user-circle me-2 fs-4"></i>Nome Completo<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
@@ -115,20 +130,24 @@
                     </div>
                     <small class="text-muted">Campos com <span class="text-danger">*</span> são obrigatórios.</small>
                     <div class="d-md-flex align-items-center">
-                      <div class="mt-3 mt-md-0 ms-auto">
-                        <a href="../../../landingpage/index.html">
-                          <button type="button" class="btn btn-success font-medium rounded-pill px-4">
-                            <div class="d-flex align-items-center">
-                              Voltar
-                            </div>
-                          </button>
-                        </a>
-                        <button type="button" class="btn btn-primary font-medium rounded-pill px-4" onclick="registaUser()">
+                      <div class="d-flex align-items-center justify-content-start">
+                        <p class="fs-4 mb-0 fw-medium">Já tem conta?</p>
+                        <a class="text-primary fw-medium ms-2" href="./authentication-login2.html">Faça login.</a>
+                      </div>
+                    </div>
+                    <div class="mt-3 mt-md-0 ms-auto d-flex justify-content-end">
+                      <a href="../../../landingpage/index.html">
+                        <button type="button" class="btn btn-success font-medium rounded-pill px-4">
                           <div class="d-flex align-items-center">
-                            Registar
+                            Voltar
                           </div>
                         </button>
-                      </div>
+                      </a>
+                      <button type="button" class="btn btn-primary font-medium rounded-pill px-4" onclick="registaUser()">
+                        <div class="d-flex align-items-center">
+                          Registar
+                        </div>
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -141,7 +160,9 @@
     </div>
     
     <!--  Import Js Files -->
+
     <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../dist/js/js_courtify/sweatalert.js"></script>
     <script src="../../dist/js/js_courtify/user.js"></script>
     <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
     <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
