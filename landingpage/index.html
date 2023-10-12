@@ -153,11 +153,15 @@
               </div>
               <h3 class="fs-8 fw-semibold text-body-emphasis mb-4">Comunidade</h3>
               <p class="mb-0 fs-5 text-dark mb-4 border-bottom">Partilha momentos com outros <span class="text-success">Atletas</span></p>
-              <a href="#" class="icon-link text-primary fs-5">
-                Mais Info
-                <i class="d-block ti ti-arrow-badge-right text-primary fs-9"></i>
-              </a>
-              
+              <div class="dropdown1">
+                <p class="icon-link text-primary fs-5" onclick="toggleDropdown1()">
+                  <small>Info</small>
+                  <i id="icon1" class="d-block ti ti-arrow-badge-right text-primary fs-9"></i>
+                </p>
+                <div id="dropdownContent1" class="hidden">
+                  <p>This is the hidden content that will be revealed when you click 'Mais Info'.</p>
+                </div>
+              </div>
             </div>
             <div class="feature col">
               <div class="">
@@ -165,10 +169,15 @@
               </div>
               <h3 class="fs-8 fw-semibold text-body-emphasis mb-4">Progressão</h3>
               <p class="mb-0 fs-5 text-dark mb-4 border-bottom">Analisa a tua <span class="text-primary">performance</span> diáriamente</p>
-              <a href="#" class="icon-link text-success fs-5">
-                Mais Info
-                <i class="d-block ti ti-arrow-badge-right text-success fs-9"></i>
-              </a>
+              <div class="dropdown">
+                <p class="icon-link text-success fs-5" onclick="toggleDropdown()">
+                  <small>Info</small>
+                  <i id="icon" class="d-block ti ti-arrow-badge-right text-success fs-9"></i>
+                </p>
+                <div id="dropdownContent" class="hidden">
+                  <p>This is the hidden content that will be revealed when you click 'Mais Info'.</p>
+                </div>
+              </div>
             </div>
             <div class="feature col">
               <div class="">
@@ -176,10 +185,15 @@
               </div>
               <h3 class="fs-8 fw-semibold text-body-emphasis mb-4">Desporto</h3>
               <p class="mb-0 fs-5 text-dark mb-4 border-bottom">A razão para estares aqui. Pratica e <span class="text-success">Vence</span></p>
-              <a href="#" class="icon-link text-primary fs-5">
-                Mais Info
-                <i class="d-block ti ti-arrow-badge-right text-primary fs-9"></i>
-              </a>
+              <div class="dropdown2">
+                <p class="icon-link text-primary fs-5" onclick="toggleDropdown2()">
+                  <small>Info</small>
+                  <i id="icon2" class="d-block ti ti-arrow-badge-right text-primary fs-9"></i>
+                </p>
+                <div id="dropdownContent2" class="hidden">
+                  <p>This is the hidden content that will be revealed when you click 'Mais Info'.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -581,6 +595,53 @@
   </script>
 
   <script>
+
+    function toggleDropdown() {
+      const dropdownContent = document.getElementById('dropdownContent');
+      const icon = document.getElementById('icon');
+      
+      dropdownContent.classList.toggle('hidden');
+      
+      if (dropdownContent.classList.contains('hidden')) {
+        icon.classList.remove('ti-arrow-badge-down');
+        icon.classList.add('ti-arrow-badge-right');
+      } else {
+        icon.classList.remove('ti-arrow-badge-right');
+        icon.classList.add('ti-arrow-badge-down');
+      }
+    }
+
+    function toggleDropdown1() {
+      const dropdownContent = document.getElementById('dropdownContent1');
+      const icon = document.getElementById('icon1');
+      
+      dropdownContent.classList.toggle('hidden');
+      
+      if (dropdownContent.classList.contains('hidden')) {
+        icon.classList.remove('ti-arrow-badge-down');
+        icon.classList.add('ti-arrow-badge-right');
+      } else {
+        icon.classList.remove('ti-arrow-badge-right');
+        icon.classList.add('ti-arrow-badge-down');
+      }
+    }
+
+    function toggleDropdown2() {
+      const dropdownContent = document.getElementById('dropdownContent2');
+      const icon = document.getElementById('icon2');
+      
+      dropdownContent.classList.toggle('hidden');
+      
+      if (dropdownContent.classList.contains('hidden')) {
+        icon.classList.remove('ti-arrow-badge-down');
+        icon.classList.add('ti-arrow-badge-right');
+      } else {
+        icon.classList.remove('ti-arrow-badge-right');
+        icon.classList.add('ti-arrow-badge-down');
+      }
+    }
+
+
     const btn = document.getElementById('button');
 
     document.getElementById('form')
