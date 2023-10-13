@@ -94,19 +94,18 @@
                         Verifique se o código-postal é válido.
                       </div>
                     </div>
-                    <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="localUser">
-                      <option>Select</option>
-                      <optgroup label="Alaskan/Hawaiian Time Zone">
-                        <option value="AK">Alaska</option>
-                        <option value="HI">Hawaii</option>
-                      </optgroup>
-                      <optgroup label="Pacific Time Zone">
-                        <option value="CA">California</option>
-                        <option value="NV">Nevada</option>
-                        <option value="OR">Oregon</option>
-                        <option value="WA">Washington</option>
-                      </optgroup>
+                    <div class="row">
+                      <div class="col-6 mb-3 ">
+                    <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="distritoUser" onchange="getConcelhos(this.value)">
+                      <option>Distrito</option>
                     </select>
+                  </div>
+                  <div class="col-6 mb-3 ">
+                    <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="concelhoUser">
+                      <option>Concelho</option>
+                    </select>
+                  </div>
+                  </div>
                     <div class="form-floating mb-3">
                       <input type="email" class="form-control" placeholder="Email" id="emailUser">
                       <label><i class="ti ti-mail me-2 fs-4"></i>Email<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
