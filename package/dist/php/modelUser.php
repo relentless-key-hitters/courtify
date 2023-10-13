@@ -6,7 +6,7 @@ class User{
 
     function getDistritos(){
         global $conn; 
-        $msg = "<option value = '-1'>Distrito</option>";
+        $msg = "<option value = '-1' selected disabled >Distrito</option><option disabled>---------------</option>";
         $sql = "SELECT * FROM distrito";
         $result = $conn->query($sql);
     
@@ -23,7 +23,7 @@ class User{
 
     function getConcelhos($distrito){
         global $conn; 
-        $msg = "<option value = '-1'>Concelho</option>";
+        $msg = "<option value = '-1' selected disabled>Escolha um concelho</option><option disabled>---------------</option>";
         $sql = "SELECT concelho.id , concelho.descricao FROM concelho INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho WHERE distrito_concelho.id_distrito = '".$distrito."'";
         $result = $conn->query($sql);
     
