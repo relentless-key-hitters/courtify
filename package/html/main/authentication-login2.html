@@ -34,6 +34,13 @@
             <div class="col-md-8 col-lg-6 col-xxl-3">
               <div class="card mb-0">
                 <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-end">
+                    <a href="../../../landingpage/index.html">
+                      <button type="button" class="btn btn-sm btn-success rounded-circle" data-toggle="tooltip" data-placement="top" title="Fechar">
+                        <i class="ti ti-x"></i>
+                      </button>
+                    </a>
+                  </div>
                   <a href="./index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
                     <img src="../../dist/images/logos/logo_courtify.png" width="180" alt="">
                   </a>
@@ -80,5 +87,11 @@
     <script src="../../dist/js/sidebarmenu.js"></script>
     
     <script src="../../dist/js/custom.js"></script>
+
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
   </body>
 </html>
