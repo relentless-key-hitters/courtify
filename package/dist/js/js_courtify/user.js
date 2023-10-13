@@ -79,6 +79,58 @@ function registaUser(){
 
 }
 
+function getDistritos(){
+
+    let dados = new FormData();
+    dados.append("op", 2);
+    
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            $("#distritoUser").html(msg)
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
+function getConcelhos(dis){
+
+    let dados = new FormData();
+    dados.append("op", 3);
+    dados.append("distrito", dis)
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            $("#concelhoUser").html(msg)
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+
+}
+
+
 function limparCampos(){
 
     $("#nomeUser").removeClass("is-invalid");
@@ -153,6 +205,7 @@ function alerta(titulo,msg){
 
 
 $(function() {
+    getDistritos()
     $("#feedbackNome").hide();
     $("#feedbackTel").hide();
     $("#feedbackNif").hide();

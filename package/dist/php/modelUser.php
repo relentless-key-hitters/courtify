@@ -4,12 +4,38 @@ require_once 'connection.php';
 
 class User{
 
+    function getDistritos(){
+        global $conn; 
+        $msg = "<option value = '-1'>Distrito</option>";
+        $sql = "SELECT * FROM distrito";
+        $result = $conn->query($sql);
+    
+        if ($result->num_rows > 0) {
+        // output data of each row
+            while($row = $result->fetch_assoc()) {
+               $msg .= "<option value = '".$row['id']."'>".$row['descricao']."</option>";
+            }
+        }
 
-    function getListagemDistritos(){
+        $conn->close();
+        return ($msg);
+    }
 
-        
+    function getConcelhos($distrito){
+        global $conn; 
+        $msg = "<option value = '-1'>Concelho</option>";
+        $sql = "SELECT concelho.id , concelho.descricao FROM concelho INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho WHERE distrito_concelho.id_distrito = '".$distrito."'";
+        $result = $conn->query($sql);
+    
+        if ($result->num_rows > 0) {
+        // output data of each row
+            while($row = $result->fetch_assoc()) {
+               $msg .= "<option value = '".$row['id']."'>".$row['descricao']."</option>";
+            }
+        }
 
-
+        $conn->close();
+        return ($msg);
     }
 
     function registarUser($nome, $tipo, $telemovel, $nif, $morada, $codP, $local, $email, $pass){
