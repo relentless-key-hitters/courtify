@@ -5,7 +5,7 @@ function registaUser(){
 
     limparCampos();
 
-    if(verifPP($("#passUser").val(),$("#passCUser").val()) && verifEmail($("#emailUser").val()) && verifCodPostal($("#codPUser").val()) && verifEmpty($("#nomeUser").val()) && verifEmpty($("#nifUser").val()) && verifEmpty($("#emailUser").val()) && verifEmpty($("#passUser").val())){
+    if(verifPP($("#passUser").val(),$("#passCUser").val()) && verifNIF($("#nifUser").val()) && verifEmail($("#emailUser").val()) && verifCodPostal($("#codPUser").val()) && verifEmpty($("#nomeUser").val()) && verifEmpty($("#nifUser").val()) && verifEmpty($("#emailUser").val()) && verifEmpty($("#passUser").val())){
         
         let dados = new FormData();
         dados.append("op", 1);
@@ -19,7 +19,7 @@ function registaUser(){
         dados.append("nif", $("#nifUser").val());
         dados.append("morada", $("#moradaUser").val());
         dados.append("codP", $("#codPUser").val());
-        dados.append("local", $("#localUser").val());
+        dados.append("local", $("#concelhoUser").val());
         dados.append("email", $("#emailUser").val());
         dados.append("pass", hashedPassword);
         
@@ -35,10 +35,12 @@ function registaUser(){
             
             .done(function(msg) {
                 let resp = JSON.parse(msg);
-                alerta("Utilizador", "Registo efetuado com sucesso!")
-                setTimeout(function(){ 
-                    window.location.href = "../../html/horizontal/index.html";
-                }, 2000);
+                alerta("Utilizador", resp.msg, resp.icon)
+                if( resp.icon == "success"){
+                    setTimeout(function(){ 
+                        window.location.href = "../../html/horizontal/index.html";
+                    }, 2000);
+                }
             })
             
             .fail(function( jqXHR, textStatus ) {
@@ -74,6 +76,9 @@ function registaUser(){
         }if(!verifCodPostal($("#codPUser").val())){
             $("#codPUser").addClass("is-invalid");
             $("#feedbackCP").show();
+        }if(!verifNIF($("#nifUser").val())){
+            $("#nifUser").addClass("is-invalid");
+            $("#feedbackNif").show();
         }
     } 
 
@@ -126,10 +131,7 @@ function getConcelhos(dis){
         .fail(function( jqXHR, textStatus ) {
         alert( "Request failed: " + textStatus );
         });
-
-
 }
-
 
 function limparCampos(){
 
@@ -148,7 +150,6 @@ function limparCampos(){
     $("#feedbackPPDif").hide();
 
 }
-
 
 function verifPP(pp, ppc){
     let flag = true;
@@ -192,10 +193,18 @@ function verifCodPostal(cod){
     return (flag);
 }
 
-function alerta(titulo,msg){
+function verifNIF(nif){
+    let flag = true;
+    if(nif.length != 9){
+        flag = false;
+    }
+    return (flag);
+}
+
+function alerta(titulo,msg,icon){
     Swal.fire({
         position: 'center',
-        icon: "success",
+        icon: icon,
         title: titulo,
         text: msg,
         showConfirmButton: true,
