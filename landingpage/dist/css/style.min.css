@@ -31913,26 +31913,92 @@ section {
   display: none;
 }
 
-/* Hide the background of the scrollbar */
+
 ::-webkit-scrollbar {
-  width: 12px; /* You can adjust the width as needed */
+  width: 12px; 
   
 }
 
-/* Style the scrollbar track (background behind the scrollbar) */
 ::-webkit-scrollbar-track {
-  background: transparent; /* Set the background to transparent or any other color you prefer */
+  background: transparent; 
 }
 
-/* Style the scrollbar thumb (the draggable part of the scrollbar) */
+
 ::-webkit-scrollbar-thumb {
-  background: #043f59; /* Set the background color for the scrollbar thumb */
-  border-radius: 6px; /* Adjust the border radius as needed for rounded corners */
+  background: #043f59; 
+  border-radius: 6px; /
 }
 
-/* Style the scrollbar thumb on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #032f42; /* Change the background color on hover */
+  background: #032f42; 
+}
+
+@keyframes rotatePlus {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes rotatePlusReverse {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotatePlus2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes rotatePlusReverse2 {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotatePlus3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes rotatePlusReverse3 {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 
