@@ -32650,6 +32650,7 @@ fieldset:disabled .btn {
 }
 #main-wrapper[data-layout="horizontal"] .app-header .navbar {
   min-height: 70px;
+  min-width: 95%;
 }
 #main-wrapper[data-layout="horizontal"]
   .app-header
