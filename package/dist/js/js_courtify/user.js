@@ -38,7 +38,7 @@ function registaUser(){
                 alerta("Utilizador", resp.msg, resp.icon)
                 if( resp.icon == "success"){
                     setTimeout(function(){ 
-                        window.location.href = "../../html/horizontal/index.html";
+                        window.location.href = "../../html/main/authentication-login2.html";
                     }, 2000);
                 }
             })
@@ -131,6 +131,39 @@ function getConcelhos(dis){
         .fail(function( jqXHR, textStatus ) {
         alert( "Request failed: " + textStatus );
         });
+}
+
+function login(){
+
+    let dados = new FormData();
+    dados.append("op", 4);
+    dados.append("email", $("#emailLogin").val());
+    dados.append("pass", $("#passLogin").val());
+    
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta(obj.title, obj.msg, obj.icon); 
+            if(obj.flag){
+                setTimeout(function(){ 
+                    window.location.href = "../../html/horizontal/index.html";
+                }, 2000);
+            }
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
 }
 
 function limparCampos(){
