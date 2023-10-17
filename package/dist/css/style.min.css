@@ -32762,7 +32762,7 @@ fieldset:disabled .btn {
   #main-wrapper[data-layout="horizontal"][data-sidebar-position="fixed"]
     .body-wrapper
     > .container-xxl {
-    padding-top: 200px !important;
+    
   }
   #main-wrapper[data-layout="horizontal"] .left-sidebar {
     position: relative;
@@ -37337,7 +37337,7 @@ html[dir="rtl"] .welcome-bg-img {
   z-index: 50;
   width: 100%;
   background: #fff;
-  padding: 0 25px;
+  padding: 0 0px;
 }
 .app-header .container-fluid,
 .app-header .container-lg,
@@ -37833,7 +37833,7 @@ html[dir="rtl"] .welcome-bg-img {
   .body-wrapper > .container-sm,
   .body-wrapper > .container-xl,
   .body-wrapper > .container-xxl {
-    padding: 30px 20px;
+   
   }
 }
 .simplebar-scrollbar:before {
