@@ -83,6 +83,49 @@ class User{
         ));
         return ($resp);
     }
+    
+    function login($email, $pass){
+        
+        global $conn;
+        $sql = "SELECT user.id, user.tipo_user FROM user WHERE email = '".$email."'";
+        $result = $conn->query($sql);
+        $msg = "";
+        $icon = "success";
+        $flag = true;
+        $title = "Sucesso";
+        session_start();
+        if ($result->num_rows > 0){
+            while($row = $result->fetch_assoc()) {
+                $sql2 = "SELECT login.id_user FROM login WHERE id_user = '".$row['id']."' AND password = '".md5($pass)."'";
+                $result2 = $conn->query($sql2);
+                if($result2->num_rows > 0){
+                    while($row2 = $result2->fetch_assoc()) {
+                        $msg = "Login efetuado com sucesso!";
+                        $_SESSION['tipo'] = $row['tipo_user'];
+                        $_SESSION['id'] = $row['id'];
+                    }  
+                }else{
+                    $msg = "A palavra-passe e o email não coincidem!";
+                    $icon = "error";
+                    $title = "Erro";
+                    $flag = false;
+                }  
+        }}else{
+            $msg = "Não há nenhuma conta registada com este email.";
+            $icon = "error";
+            $title = "Erro";
+            $flag = false;
+        }
+
+        $resp = json_encode(array(
+            "flag" => $flag,
+            "msg" => $msg,
+            "icon" => $icon,
+            "title" => $title
+        ));
+        return ($resp); 
+    }
 }
+
 
 ?>
