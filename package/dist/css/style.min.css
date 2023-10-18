@@ -38003,7 +38003,7 @@ html[dir="rtl"] .welcome-bg-img {
   transition: all 0.2s ease-in 0s;
 }
 .hover-img:hover {
-  transform: scale(1.01);
+  transform: scale(1.05);
 }
 .z-1 {
   position: relative;
