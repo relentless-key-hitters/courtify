@@ -101,11 +101,11 @@
                           </div>
                           <div class="col-md-8">
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="ms" value="1">
+                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="ms1" value="1">
                                     <label class="form-check-label" for="primary-outline-radio">Direita</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="ms" value="2">
+                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="ms2" value="2">
                                     <label class="form-check-label" for="primary2-outline-radio">Esquerda</label>
                                   </div>
                           </div>
@@ -118,11 +118,11 @@
                             </div>
                             <div class="col-md-8">
                                     <div class="form-check form-check-inline">
-                                      <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="mi" value="1">
+                                      <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary1"  id="mi1" value="1">
                                       <label class="form-check-label" for="primary-outline-radio">Direita</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                      <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="mi" value="2">
+                                      <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary1"  id="mi2" value="2">
                                       <label class="form-check-label" for="primary2-outline-radio">Esquerda</label>
                                     </div>
                             </div>
@@ -136,9 +136,12 @@
                       <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="formFile" class="form-label">Fotografia</label>
-                            <input class="form-control" type="file" id="foto">
+                            <input class="form-control" type="file" id="fotoPerfil">
                         </div>
-                        
+                        <div class="col-md-6 mb-3">
+                          <label for="formFile" class="form-label">Fotografia de capa</label>
+                          <input class="form-control" type="file" id="fotoCapa">
+                      </div>
                       </div>
                       <div class="row">
                         <div class="col-md-12">
@@ -162,79 +165,42 @@
                           <!-- ---------------------
                                                               start Nav Pills Tabs - Left Align
                                                           ---------------- -->
-                          <div class="card">
-                            <div class="card-body">
-                              <div class="mb-2">
-                                <h5 class="mb-0">Nav Pills Tabs - Left Align</h5>
-                              </div>
-                              <p class="mb-3 card-subtitle">
-                                Use default tab with class
-                                <mark><code>justify-content-start</code></mark>
-                              </p>
-                              <div>
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-pills" role="tablist">
-                                  <li class="nav-item" role="presentation">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#navpill-1" role="tab" aria-selected="false" tabindex="-1">
-                                      <span>Tab 1</span>
-                                    </a>
-                                  </li>
-                                  <li class="nav-item" role="presentation">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#navpill-2" role="tab" aria-selected="false" tabindex="-1">
-                                      <span>Tab 2</span>
-                                    </a>
-                                  </li>
-                                  <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#navpill-3" role="tab" aria-selected="true">
-                                      <span>Tab 3</span>
-                                    </a>
-                                  </li>
-                                </ul>
-                                <!-- Tab panes -->
-                                <div class="tab-content border mt-2">
-                                  <div class="tab-pane p-3" id="navpill-1" role="tabpanel">
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                        <img src="../../dist/images/big/img1.jpg" alt="" class="img-fluid">
-                                      </div>
-                                      <div class="col-md-8">
-                                        Raw denim you probably haven't heard of them jean
-                                        shorts Austin. Nesciunt tofu stumptown aliqua,
-                                        retro synth master cleanse. Mustache cliche
-                                        tempor, williamsburg carles vegan helvetica.
-                                      </div>
+                          <div class="mb-3">
+                            <p>Selecione as modalidades que prentende praticar:</p>
+                            <div class="col-md-12">
+                              <div class="row py-2">
+                                <div class="col-md-12 col-xl-10">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input success" type="checkbox" id="success-check" value="option1">
+                                        <label class="form-check-label" for="success-check">Basquetebol</label>
                                     </div>
-                                  </div>
-                                  <div class="tab-pane p-3" id="navpill-2" role="tabpanel">
-                                    <div class="row">
-                                      <div class="col-md-8">
-                                        Raw denim you probably haven't heard of them jean
-                                        shorts Austin. Nesciunt tofu stumptown aliqua,
-                                        retro synth master cleanse. Mustache cliche
-                                        tempor, williamsburg carles vegan helvetica.
-                                      </div>
-                                      <div class="col-md-4">
-                                        <img src="../../dist/images/big/img2.jpg" alt="" class="img-fluid">
-                                      </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input success" type="checkbox" id="success2-check" value="option1" onclick="getFormFutsal()">
+                                        <label class="form-check-label" for="success2-check">Futsal</label>
                                     </div>
-                                  </div>
-                                  <div class="tab-pane p-3 active show" id="navpill-3" role="tabpanel">
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                        <img src="../../dist/images/big/img3.jpg" alt="" class="img-fluid">
-                                      </div>
-                                      <div class="col-md-8">
-                                        Raw denim you probably haven't heard of them jean
-                                        shorts Austin. Nesciunt tofu stumptown aliqua,
-                                        retro synth master cleanse. Mustache cliche
-                                        tempor, williamsburg carles vegan helvetica.
-                                      </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input success" type="checkbox" id="success3-check" value="option1" onclick="getFormPadel()">
+                                        <label class="form-check-label" for="success3-check">Padel</label>
                                     </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input success" type="checkbox" id="success4-check" value="option1">
+                                      <label class="form-check-label" for="success3-check">Ténis</label>
                                   </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                              <div id="formFutsal">
+                                Estou aqui.
+                              </div>
+                              <div id="formPadel">
+                                Estou aquiiiiiiiii
                               </div>
                             </div>
+                      </div>
+
                           </div>
+
+
                           <!-- ---------------------
                                                               end Nav Pills Tabs - Left Align
                                                           ---------------- -->
@@ -387,6 +353,7 @@
     <script src="../../dist/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="../../dist/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="../../dist/js/forms/form-wizard.js"></script>
+    <script src="../../dist/js/js_courtify/getForm.js"></script>
     
     <script>
       $(function () {
