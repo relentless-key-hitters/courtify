@@ -36,7 +36,7 @@
                 <div class="card-body wizard-content">
                   <div class="text-center">
                     <img src="../../dist/images/logos/logo_courtify.png" width="180px">
-                    <h4 class="card-title mb-0 mt-3">Perfil</h4>
+                    <h4 class="card-title mb-0 mt-3">Complete com a sua informação</h4>
                   </div>
                   <h6 class="card-subtitle mb-3"></h6>
                   <form action="#" class="tab-wizard wizard-circle">
@@ -244,122 +244,74 @@
                     <!-- Step 4 -->
                     <h6>Subscrição</h6>
                     <section>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="mb-3">
-                            <label for="behName1">Behaviour :</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="behName1"
-                            />
-                          </div>
-                          <div class="mb-3">
-                            <label for="participants1">Confidance</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="participants1"
-                            />
-                          </div>
-                          <div class="mb-3">
-                            <label for="participants1">Result</label>
-                            <select
-                              class="form-select"
-                              id="participants1"
-                              name="location"
-                            >
-                              <option value="">Select Result</option>
-                              <option value="Selected">Selected</option>
-                              <option value="Rejected">Rejected</option>
-                              <option value="Call Second-time">
-                                Call Second-time
-                              </option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="mb-3">
-                            <label for="decisions1">Comments</label>
-                            <textarea
-                              name="decisions"
-                              id="decisions1"
-                              rows="4"
-                              class="form-control"
-                            ></textarea>
-                          </div>
-                          <div class="mb-3">
-                            <label>Rate Interviwer :</label>
-                            <div class="c-inputs-stacked">
-                              <div class="form-check">
-                                <input
-                                  type="radio"
-                                  id="customRadio1"
-                                  name="customRadio"
-                                  class="form-check-input"
-                                />
-                                <label
-                                  class="form-check-label"
-                                  for="customRadio1"
-                                  >1 star</label
-                                >
+                        <div class="row ms-3">
+                          <div class="col-sm-6 col-lg-6">
+                            <div class="card">
+                              <div class="card-body">
+                                <span class="fw-bolder text-primary text-uppercase fs-4 d-block mb-7">Atleta</span>
+                                <h2 class="fw-bolder fs-6 mb-3">Grátis</h2>
+                                <ul class="list-unstyled mb-7">
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-check text-primary fs-4"></i>
+                                    <span class="text-dark">3 Members</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-check text-primary fs-2"></i>
+                                    <span class="text-dark">Single Devise</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-x text-muted fs-4"></i>
+                                    <span class="text-muted">50GB Storage</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-x text-muted fs-4"></i>
+                                    <span class="text-muted">Monthly Backups</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-x text-muted fs-4"></i>
+                                    <span class="text-muted">Permissions & workflows</span>
+                                  </li>
+                                </ul>
+                                <button class="btn btn-primary fw-bolder rounded-2 py-0 w-100 text-capitalize">Escolher</button>
                               </div>
-                              <div class="form-check">
-                                <input
-                                  type="radio"
-                                  id="customRadio2"
-                                  name="customRadio"
-                                  class="form-check-input"
-                                />
-                                <label
-                                  class="form-check-label"
-                                  for="customRadio2"
-                                  >2 star</label
-                                >
-                              </div>
-                              <div class="form-check">
-                                <input
-                                  type="radio"
-                                  id="customRadio3"
-                                  name="customRadio"
-                                  class="form-check-input"
-                                />
-                                <label
-                                  class="form-check-label"
-                                  for="customRadio3"
-                                  >3 star</label
-                                >
-                              </div>
-                              <div class="form-check">
-                                <input
-                                  type="radio"
-                                  id="customRadio4"
-                                  name="customRadio"
-                                  class="form-check-input"
-                                />
-                                <label
-                                  class="form-check-label"
-                                  for="customRadio4"
-                                  >4 star</label
-                                >
-                              </div>
-                              <div class="form-check">
-                                <input
-                                  type="radio"
-                                  id="customRadio5"
-                                  name="customRadio"
-                                  class="form-check-input"
-                                />
-                                <label
-                                  class="form-check-label"
-                                  for="customRadio5"
-                                  >5 star</label
-                                >
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-6">
+                            <div class="card">
+                              <div class="card-body">
+                                <span class="fw-bolder text-success text-uppercase fs-4 d-block mb-7">Atleta+</span>
+                                <div class="d-flex mb-3">
+                                  <h5 class="fw-bolder fs-3 mb-0">$</h5>
+                                  <h2 class="fw-bolder fs-6 ms-2 mb-0">4.99</h2>
+                                  <span class="ms-2 fs-2 d-flex align-items-center">/mês</span>
+                                </div>
+                                <ul class="list-unstyled mb-7">
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-check text-primary fs-2"></i>
+                                    <span class="text-dark">5 Members</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-check text-primary fs-2"></i>
+                                    <span class="text-dark">Single Devise</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-check text-primary fs-2"></i>
+                                    <span class="text-dark">80GB Storage</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-x text-muted fs-2"></i>
+                                    <span class="text-muted">Monthly Backups</span>
+                                  </li>
+                                  <li class="d-flex align-items-center gap-1 py-1">
+                                    <i class="ti ti-x text-muted fs-2"></i>
+                                    <span class="text-muted">Permissions & workflows</span>
+                                  </li>
+                                </ul>
+                                <button class="btn btn-success fw-bolder rounded-2 py-0 w-100 text-capitalize">Escolher</button>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
                     </section>
                   </form>
                 </div>
