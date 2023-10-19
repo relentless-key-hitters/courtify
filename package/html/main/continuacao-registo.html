@@ -61,11 +61,11 @@
                           </div>
                           <div class="col-md-8">
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="genero1" value="1">
+                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="feminino" value="1">
                                     <label class="form-check-label" for="primary-outline-radio">Feminino</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="genero2" value="2">
+                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="masculino" value="2">
                                     <label class="form-check-label" for="primary2-outline-radio">Masculino</label>
                                   </div>
                           </div>
@@ -101,11 +101,11 @@
                           </div>
                           <div class="col-md-8">
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="ms1" value="1">
+                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary2"  id="ms1" value="1">
                                     <label class="form-check-label" for="primary-outline-radio">Direita</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="ms2" value="2">
+                                    <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary2"  id="ms2" value="2">
                                     <label class="form-check-label" for="primary2-outline-radio">Esquerda</label>
                                   </div>
                           </div>
@@ -135,12 +135,12 @@
                     <section>
                       <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="formFile" class="form-label">Fotografia</label>
-                            <input class="form-control" type="file" id="fotoPerfil">
+                            <label for="fotoPerfil" class="form-label">Fotografia</label>
+                            <input class="form-control" type="file" id="fotoPerfil" name="fotoPerfil"> 
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label for="formFile" class="form-label">Fotografia de capa</label>
-                          <input class="form-control" type="file" id="fotoCapa">
+                          <label for="fotoCapa" class="form-label">Fotografia de capa</label>
+                          <input class="form-control" type="file" id="fotoCapa" name="fotoCapa">
                       </div>
                       </div>
                       <div class="row">
@@ -149,7 +149,7 @@
                             <label for="bio" class="fw-semibold">Biografia</label>
                             <textarea
                               name="shortDescription"
-                              id="shortDescription1"
+                              id="bio"
                               rows="3"
                               class="form-control"
                             ></textarea>
@@ -160,7 +160,7 @@
                     <!-- Step 3 -->
                     <h6>Modalidades</h6>
                     <section>
-                      <div class="row">
+                      <div class="row"> 
                         <div class="col-md-12">
                           <!-- ---------------------
                                                               start Nav Pills Tabs - Left Align
@@ -169,23 +169,7 @@
                             <p class="fw-semibold">Selecione as modalidades que prentende praticar:</p>
                             <div class="col-md-12">
                               <div class="row py-2">
-                                <div class="col-md-12 col-xl-10">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input success" type="checkbox" id="success-check" value="option1">
-                                        <label class="form-check-label" for="success-check">Basquetebol</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input success" type="checkbox" id="success2-check" value="option1" onclick="getFormFutsal()">
-                                        <label class="form-check-label" for="success2-check">Futsal</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input success" type="checkbox" id="success3-check" value="option1" onclick="getFormPadel()">
-                                        <label class="form-check-label" for="success3-check">Padel</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                      <input class="form-check-input success" type="checkbox" id="success4-check" value="option1">
-                                      <label class="form-check-label" for="success3-check">Ténis</label>
-                                  </div>
+                                <div class="col-md-12 col-xl-10" id="modalidades">
                                 </div>
                             </div>
                             <div class="row">
@@ -194,13 +178,7 @@
                                   <div class="col-md-12">
                                     <p class="fw-semibold">Selecione a posição na qual tem preferência.</p>
                                     <div class="col-md-6">
-                                    <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="nivelPadel">
-                                      <option selected disabled>Posição</option>
-                                      <option value="1">Ala</option>
-                                      <option value="2">Fixo</option>
-                                      <option value="3">Guarda-Redes</option>
-                                      <option value="4">Pivô</option>
-                                      <option value="5">Indiferente</option>
+                                    <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="posFutsal">
                                     </select>
                                   </div>
                                 </div>
@@ -212,12 +190,6 @@
                                     <p class="fw-semibold">Selecione o seu nível oficial.<small> Caso não tenha, recomendamos que comece pelo nível N5.</small></p>
                                     <div class="col-md-6">
                                     <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="nivelPadel">
-                                      <option selected disabled>Nível</option>
-                                      <option value="1">N5</option>
-                                      <option value="2">N4</option>
-                                      <option value="3">N3</option>
-                                      <option value="4">N2</option>
-                                      <option value="5">N1</option>
                                     </select>
                                   </div>
                                 </div>
@@ -226,7 +198,7 @@
                                   <div class="col-md-12">
                                     <p class="fw-semibold">Selecione o lado do campo no qual tem a preferência em jogar.</p>
                                     <div class="col-md-6">
-                                    <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="nivelPadel">
+                                    <select class="select2 form-control my-3" style="width: 100%; height: 36px" id="ladoPadel">
                                       <option selected disabled>Lado</option>
                                       <option value="1">Direito</option>
                                       <option value="2">Esquerdo</option>
@@ -349,6 +321,7 @@
     <script src="../../dist/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="../../dist/js/forms/form-wizard.js"></script>
     <script src="../../dist/js/js_courtify/getForm.js"></script>
+    <script src="../../dist/js/js_courtify/user.js"></script>
     
     <script>
       $(function () {

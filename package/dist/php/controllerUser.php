@@ -16,6 +16,17 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 4){
     $res = $user -> login($_POST['email'], $_POST['pass']);
     echo($res);
+}else if ($_POST['op'] == 5){
+    $res = $user -> getModalidades();
+    echo($res);
+}else if ($_POST['op'] == 6){
+    $res = $user -> getFutsalInfo();
+    echo($res);
+}else if ($_POST['op'] == 7){
+    $res = $user -> getNivelPadel();
+    echo($res);
+}else if ($_POST['op'] == 8){
+    $res = $user -> contRegisto($_POST['dataNascimento'],$_POST['genero'],$_POST['altura'],$_POST['peso'],$_POST['ms'],$_POST['mi'],$_FILES,$_POST['bio'],$_POST['modalidades'],$_POST['posFutsal'],$_POST['nivelPadel'],$_POST['ladoPadel']);
+    echo($res);
 }
-
 ?>

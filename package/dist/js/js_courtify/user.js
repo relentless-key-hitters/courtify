@@ -155,7 +155,7 @@ function login(){
             alerta(obj.title, obj.msg, obj.icon); 
             if(obj.flag){
                 setTimeout(function(){ 
-                    window.location.href = "../../html/horizontal/index.html";
+                    window.location.href = "../../html/main/continuacao-registo.html";
                 }, 2000);
             }
         })
@@ -165,6 +165,138 @@ function login(){
         });
 
 }
+
+function getModalidades(){
+    let dados = new FormData();
+    dados.append("op", 5);
+    
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            $("#modalidades").html(msg);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
+function getFutsalInfo(){
+    let dados = new FormData();
+    dados.append("op", 6);
+    
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            $("#posFutsal").html(msg);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
+function getNivelPadel(){
+    let dados = new FormData();
+    dados.append("op", 7);
+    
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            $("#nivelPadel").html(msg);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
+function contRegisto(){
+
+    let dados = new FormData();
+    dados.append("op", 8);
+    dados.append("dataNascimento", $("#dataNascimento").val());
+    if($("#feminino").is(":checked")){
+        dados.append("genero", $("#feminino").val());
+    }else{
+        dados.append("genero", $("#masculino").val());
+    } 
+    dados.append("altura", $("#altura").val());
+    dados.append("peso", $("#peso").val());
+    if($("#ms1").is(":checked")){
+        dados.append("ms", $("#ms1").val());
+    }else{
+        dados.append("ms", $("#ms2").val());
+    }
+    if($("#mi1").is(":checked")){
+        dados.append("mi", $("#mi1").val());
+    }else{
+        dados.append("mi", $("#mi2").val());
+    }
+
+    dados.append("fotoPerfil", $('#fotoPerfil').prop('files')[0]);
+    
+    
+    dados.append("bio", $("#bio").val());
+    let arr = [];
+    for (let i = 1; i < 5; i++){
+        if($("#modalidade"+i).is(":checked")){
+            arr.push(
+                $("#modalidade"+i).val());
+        }
+    }
+    let arrMod = JSON.stringify(arr);
+    dados.append("modalidades", arrMod);
+    dados.append("posFutsal", $("#posFutsal").val());
+    dados.append("nivelPadel", $("#nivelPadel").val());
+    dados.append("ladoPadel", $("#ladoPadel").val());
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            alerta("Utilizador",msg, "success");
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+    }
+
 
 function limparCampos(){
 
@@ -255,4 +387,7 @@ $(function() {
     $("#feedbackEmail").hide();
     $("#feedbackPPEmpty").hide();
     $("#feedbackPPDif").hide();
+    getModalidades();
+    getFutsalInfo();
+    getNivelPadel();
 });

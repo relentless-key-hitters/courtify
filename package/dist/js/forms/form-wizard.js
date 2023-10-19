@@ -118,6 +118,7 @@ $(".tab-wizard").steps({
     finish: "Submeter",
   },
   onFinished: function (event, currentIndex) {
+    $('.actions a[href=\\#finish]').attr('onclick', contRegisto());
     swal(
       "Form Submitted!",
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed."
