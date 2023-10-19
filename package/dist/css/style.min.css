@@ -46301,3 +46301,9 @@ ul {
   padding: 15px 30px;
 }
 
+.progress {
+  background-color: #bdbbbb; /* Change this to the desired color for the incomplete portion */
+  width: 50%;
+}
+
+
