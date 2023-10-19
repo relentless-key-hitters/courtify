@@ -46312,3 +46312,8 @@ ul {
   padding: 10px;       /* Add padding for spacing */
 }
 
+.badge-container2 {
+  border-bottom: 2.5px solid #333333; /* Dark border color (#000 is black) */
+  padding: 10px;       /* Add padding for spacing */
+}
+
