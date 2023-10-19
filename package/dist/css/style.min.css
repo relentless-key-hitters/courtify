@@ -46306,4 +46306,9 @@ ul {
   width: 50%;
 }
 
+.badge-container {
+  border: 2.5px solid #333333; /* Dark border color (#000 is black) */
+  border-radius: 8px;
+  padding: 10px;       /* Add padding for spacing */
+}
 
