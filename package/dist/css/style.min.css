@@ -37380,7 +37380,7 @@ html[dir="rtl"] .welcome-bg-img {
   height: 36px;
   width: 100%;
   border-radius: 7px;
-  background: #def3fc;
+  background: #EBF3FE;
   z-index: -1;
 }
 .nav-icon-hover {
@@ -37397,7 +37397,7 @@ html[dir="rtl"] .welcome-bg-img {
   z-index: -1;
   border-radius: 100px;
   transition: all 0.3s ease-in-out;
-  background-color: #def3fc;
+  background-color: #ebf3fe;
 }
 .profile-name {
   color: #fff;
@@ -46315,5 +46315,25 @@ ul {
 .badge-container2 {
   border-bottom: 5px solid #333333; /* Dark border color (#000 is black) */
   padding: 10px;       /* Add padding for spacing */
+}
+
+::-webkit-scrollbar {
+  width: 12px; 
+  
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #043f59; 
+  border-radius: 6px; /
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #032f42; 
 }
 
