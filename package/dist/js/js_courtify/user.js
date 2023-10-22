@@ -35,7 +35,7 @@ function registaUser(){
             
             .done(function(msg) {
                 let resp = JSON.parse(msg);
-                alerta("Utilizador", resp.msg, resp.icon)
+                alerta2("Utilizador", resp.msg, resp.icon)
                 if( resp.icon == "success"){
                     setTimeout(function(){ 
                         window.location.href = "../../html/main/authentication-login2.html";
@@ -152,7 +152,7 @@ function login(){
         
         .done(function(msg) {
             let obj = JSON.parse(msg);
-            alerta(obj.title, obj.msg, obj.icon); 
+            alerta2(obj.title, obj.msg, obj.icon); 
             if(obj.flag){
                 setTimeout(function(){ 
                     window.location.href = "../../html/main/continuacao-registo.html";
@@ -239,63 +239,94 @@ function getNivelPadel(){
 }
 
 function contRegisto(){
-
-    let dados = new FormData();
-    dados.append("op", 8);
-    dados.append("dataNascimento", $("#dataNascimento").val());
-    if($("#feminino").is(":checked")){
-        dados.append("genero", $("#feminino").val());
-    }else{
-        dados.append("genero", $("#masculino").val());
-    } 
-    dados.append("altura", $("#altura").val());
-    dados.append("peso", $("#peso").val());
-    if($("#ms1").is(":checked")){
-        dados.append("ms", $("#ms1").val());
-    }else{
-        dados.append("ms", $("#ms2").val());
-    }
-    if($("#mi1").is(":checked")){
-        dados.append("mi", $("#mi1").val());
-    }else{
-        dados.append("mi", $("#mi2").val());
-    }
-
-    dados.append("fotoPerfil", $('#fotoPerfil').prop('files')[0]);
     
-    
-    dados.append("bio", $("#bio").val());
-    let arr = [];
-    for (let i = 1; i < 5; i++){
-        if($("#modalidade"+i).is(":checked")){
-            arr.push(
-                $("#modalidade"+i).val());
+    feedback2();
+
+    if(verifEmpty($("#dataNascimento")) && verifGenero() && verifMembrosInf() && verifMembrosSup()) {
+        let dados = new FormData();
+        dados.append("op", 8);
+        dados.append("dataNascimento", $("#dataNascimento").val());
+        if($("#feminino").is(":checked")){
+            dados.append("genero", $("#feminino").val());
+        }else{
+            dados.append("genero", $("#masculino").val());
+        } 
+        dados.append("altura", $("#altura").val());
+        dados.append("peso", $("#peso").val());
+        if($("#ms1").is(":checked")){
+            dados.append("ms", $("#ms1").val());
+        }else{
+            dados.append("ms", $("#ms2").val());
         }
-    }
-    let arrMod = JSON.stringify(arr);
-    dados.append("modalidades", arrMod);
-    dados.append("posFutsal", $("#posFutsal").val());
-    dados.append("nivelPadel", $("#nivelPadel").val());
-    dados.append("ladoPadel", $("#ladoPadel").val());
+        if($("#mi1").is(":checked")){
+            dados.append("mi", $("#mi1").val());
+        }else{
+            dados.append("mi", $("#mi2").val());
+        }
+    
+        dados.append("fotoPerfil", $('#fotoPerfil').prop('files')[0]);
+        
+        
+        dados.append("bio", $("#bio").val());
+        let arr = [];
+        for (let i = 1; i < 5; i++){
+            if($("#modalidade"+i).is(":checked")){
+                arr.push(
+                    $("#modalidade"+i).val());
+            }
+        }
+        let arrMod = JSON.stringify(arr);
+        dados.append("modalidades", arrMod);
+        dados.append("posFutsal", $("#posFutsal").val());
+        dados.append("nivelPadel", $("#nivelPadel").val());
+        dados.append("ladoPadel", $("#ladoPadel").val());
+    
+        $.ajax({
+            url: "../../dist/php/controllerUser.php",
+            method: "POST",
+            data: dados,
+            dataType: "html",
+            cache: false,
+            contentType: false,
+            processData: false
+            })
+            
+            .done(function(msg) {
+                alerta2("Utilizador", msg, "success");
+                
+                setTimeout(function(){ 
+                    window.location.href = "../../html/horizontal/index_editavel.html";;
+                }, 2000);
+            })
+            
+            .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+            });
 
-    $.ajax({
-        url: "../../dist/php/controllerUser.php",
-        method: "POST",
-        data: dados,
-        dataType: "html",
-        cache: false,
-        contentType: false,
-        processData: false
-        })
-        
-        .done(function(msg) {
-            alerta("Utilizador",msg, "success");
-        })
-        
-        .fail(function( jqXHR, textStatus ) {
-        alert( "Request failed: " + textStatus );
-        });
+    } else {
+        if(!verifEmpty($("#dataNascimento"))) {
+            $("#feedbackDataNasc").show();
+            
+        }
+        if (!verifGenero()) {
+            $("#feedbackGenero").show();
+            
+        }
+        if (!verifMembrosInf()) {
+            $("#feedbackMI").show();
+            
+        }    
+        if (!verifMembrosSup()) {
+            $("#feedbackMS").show();
+            
+        }
+
+        alerta("Utilizador","Há informação obrigatória não preenchida. Por favor, verifique.","warning");
     }
+}
+
+
+
 
 
 function limparCampos(){
@@ -377,6 +408,56 @@ function alerta(titulo,msg,icon){
       })
 }
 
+function alerta2(titulo,msg,icon){
+    Swal.fire({
+        position: 'center',
+        icon: icon,
+        title: titulo,
+        text: msg,
+        showConfirmButton: false,
+        confirmButtonColor: '#45702d',
+      })
+}
+
+function verifGenero() {
+    let flag = false;
+    if($("#feminino").is(":checked")) {
+        flag = true;
+    } else if ($("#masculino").is(":checked")) {
+        flag =  true;
+    }
+
+    return flag;
+}
+
+function verifMembrosSup() {
+    let flag = false;
+    if($("#ms1").is(":checked")) {
+        flag = true;
+    } else if ($("#ms2").is(":checked")) {
+        flag =  true;
+    }
+
+    return flag;
+}
+
+function verifMembrosInf() {
+    let flag = false;
+    if($("#mi1").is(":checked")) {
+        flag = true;
+    } else if ($("#mi2").is(":checked")) {
+        flag =  true;
+    }
+
+    return flag;
+}
+
+function feedback2() {
+    $("#feedbackDatasNasc").hide();
+    $("#feedbackGenero").hide();
+    $("#feedbackMS").hide();
+    $("#feedbackMI").hide();
+}
 
 $(function() {
     getDistritos()
@@ -390,4 +471,5 @@ $(function() {
     getModalidades();
     getFutsalInfo();
     getNivelPadel();
+    feedback2();
 });
