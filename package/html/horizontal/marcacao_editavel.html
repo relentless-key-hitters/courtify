@@ -212,16 +212,16 @@
                 <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Campos</h4>
               </div>
               <div class="col-md-6 text-end">
-                <img src="../../dist/images/logos/favicon.ico">
+                <img src="../../dist/images/logos/favicon.ico" class="">
               </div>
             </div>
             <div class="">
               <form>
                 <div class="row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-4 mt-3 mt-md-0">
                     <input type="text" class="form-control" placeholder="Nome, localidade, etc...">
                   </div>
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
                     <select class="form-select" id="pesquisaMarcacaoModalidade">
                       <option value="1" selected>Basquetebol</option>
                       <option value="2">Futal</option>
@@ -230,18 +230,54 @@
                       <!-- Add more options as needed -->
                     </select>
                   </div>
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
                     <input type="date" class="form-control" id="currentDateInput">
                   </div>
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-2 mt-3 mt-md-0">
                     <input type="time" class="form-control" id="currentTimeInput">
                   </div>
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-2 mt-3 mt-md-0">
                     <button type="button" class="btn btn-primary" onclick="pesquisar()">Pesquisar</button>
                   </div>
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+
+        <div class="border-top border-2 border-primary card mt-2 mb-3">
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="form-group col-md-2">
+                  <p>Tipo: </p>
+                  <select class="form-select" id="filtroTipo">
+                    <option value="coberto">Coberto</option>
+                    <option value="indoor">Indoor</option>
+                    <option value="exterior">Exterior</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <p>Distância: </p>
+                  <select class="form-select" id="filtroDistancia">
+                    <option value="0-5km">0-5km</option>
+                    <option value="5-15km">5-15km</option>
+                    <option value="+15km">+15km</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2 align-self-end">
+                  <button type="button" class="btn btn-primary w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
+                </div>
+                <div class="form-check form-switch col-md-3 ms-5 d-flex align-items-center mb-0 align-self-end">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
+                </div>
+                <div class="form-check form-switch col-md-2 d-flex align-items-center mb-0 align-self-end">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                  <label class="form-check-label" for="flexSwitchCheckDefault">Mostrar mapa</label>
+              </div>
+              </div>
+            </form>
           </div>
         </div>
         
@@ -253,12 +289,12 @@
               <div class="col-md-4">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
+                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
                     <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>Futebol</span>
                   </div>
                   <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Estrada Nacional 123, 45-46</span>
-                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Clube 7Padel</p>
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Rua das Chuteiras, nº 10,  1234-567</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Futbolândia United</p>
                     <div class="d-flex align-items-center gap-4">
                       <button class="btn btn-small btn-primary">16:30</button>
                       <button class="btn btn-small btn-primary">17:00</button>
@@ -270,15 +306,48 @@
               <div class="col-md-4">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="card-img-top rounded-0 object-fit-cover" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>Futebol</span>
+                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo2.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
+                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
                   </div>
                   <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Estrada Nacional 123, 45-46</span>
-                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Clube 7Padel</p>
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Avenida dos Enterras Altas, nº 25, 9876-543</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">CestaVille Stars</p>
+                    <div class="d-flex align-items-center gap-4">
+                      <button class="btn btn-small btn-primary">17:30</button>
+                      <button class="btn btn-small btn-primary">18:00</button>
+                      <button class="btn btn-small btn-primary">18:30</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card rounded-2 overflow-hidden hover-img">
+                  <div class="position-relative">
+                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo3.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
+                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-tennis me-1"></i>Padel</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Rua das Raquetas, nº 7, 6543-210</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Padel Paradise Club</p>
                     <div class="d-flex align-items-center gap-4">
                       <button class="btn btn-small btn-primary">16:30</button>
                       <button class="btn btn-small btn-primary">17:00</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card rounded-2 overflow-hidden hover-img">
+                  <div class="position-relative">
+                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo4.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
+                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-tennis me-1"></i>Ténis</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda das Cordas, nº 14, 8765-432</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">RaqueteReino Sports Club</p>
+                    <div class="d-flex align-items-center gap-4">
+                      <button class="btn btn-small btn-primary">16:30</button>
+                      <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">17:00</button>
                       <button class="btn btn-small btn-primary">17:30</button>
                     </div>
                   </div>
@@ -288,15 +357,15 @@
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>Futebol</span>
+                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>Futsal</span>
                   </div>
                   <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Estrada Nacional 123, 45-46</span>
-                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Clube 7Padel</p>
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Praça dos Desportos, nº 1, 3456-789</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">EsporteTotal Arena</p>
                     <div class="d-flex align-items-center gap-4">
-                      <button class="btn btn-small btn-primary">16:30</button>
-                      <button class="btn btn-small btn-primary">17:00</button>
-                      <button class="btn btn-small btn-primary">17:30</button>
+                      <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">16:30</button>
+                      <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">17:00</button>
+                      <button class="btn btn-small btn-success">17:30</button>
                     </div>
                   </div>
                 </div>
@@ -304,16 +373,16 @@
               <div class="col-md-4">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>Futebol</span>
+                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
+                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
                   </div>
                   <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Estrada Nacional 123, 45-46</span>
-                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Clube 7Padel</p>
-                    <div class="d-flex align-items-center gap-4">
-                      <button class="btn btn-small btn-primary">16:30</button>
-                      <button class="btn btn-small btn-primary">17:00</button>
-                      <button class="btn btn-small btn-primary">17:30</button>
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda dos Velocistas, nº 25, 6789-012</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Cidade Ballers</p>
+                    <div class="d-flex align-items-center gap-4 justify-content-center">
+                      <div class="d-flex align-items-center" style="background-color: #E6E6E6;">
+                        <p class="px-2"><i class="ti ti-alert-circle me-2"></i>Sem disponibilidade horária </p>
+                      </div>
                     </div>
                   </div>
                 </div>
