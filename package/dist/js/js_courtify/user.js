@@ -154,9 +154,16 @@ function login(){
             let obj = JSON.parse(msg);
             alerta2(obj.title, obj.msg, obj.icon); 
             if(obj.flag){
-                setTimeout(function(){ 
-                    window.location.href = "../../html/main/continuacao-registo.html";
-                }, 2000);
+                if(obj.flagFirstLogin){
+                    setTimeout(function(){ 
+                        window.location.href = "../../html/main/continuacao-registo.html";
+                    }, 2000);
+                }else{
+                    setTimeout(function(){ 
+                        window.location.href = "../../html/horizontal/index_editavel.html";
+                    }, 2000);
+                }
+
             }
         })
         

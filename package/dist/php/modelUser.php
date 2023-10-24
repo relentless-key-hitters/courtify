@@ -99,6 +99,7 @@ class User{
         $icon = "success";
         $flag = true;
         $title = "Sucesso";
+        $flagFirstLogin = false;
         if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()) {
                 $sql2 = "SELECT login.id_user FROM login WHERE id_user = '".$row['id']."' AND password = '".md5($pass)."'";
@@ -108,7 +109,12 @@ class User{
                         $msg = "Login efetuado com sucesso!";
                         $_SESSION['tipo'] = $row['tipo_user'];
                         $_SESSION['id'] = $row['id'];
-                    }  
+                        $sql3 = "SELECT sem_login.id_atleta FROM sem_login WHERE id_atleta = '". $row['id']."'";
+                        $result3 = $conn->query($sql3);
+                        if ($result3->num_rows > 0){
+                            $flagFirstLogin = true;
+                        } 
+                    } 
                 }else{
                     $msg = "A palavra-passe e o email não coincidem!";
                     $icon = "error";
@@ -124,9 +130,11 @@ class User{
 
         $resp = json_encode(array(
             "flag" => $flag,
+            "flagFirstLogin" => $flagFirstLogin, 
             "msg" => $msg,
             "icon" => $icon,
             "title" => $title
+
         ));
         $conn->close();
         return ($resp); 
