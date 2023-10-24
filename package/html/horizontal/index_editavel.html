@@ -133,8 +133,8 @@
                   aria-expanded="false">
                   <div class="d-flex align-items-center">
                     <div class="user-profile-img mb-2">
-                      <img src="../../dist/images/profile/perfil.jpg" class="rounded-circle" width="35" height="35"
-                        alt="" />
+                      <img class="rounded-circle" width="35" height="35"
+                        alt="" id = "perfil1"/>
                     </div>
                   </div>
                 </a>
@@ -144,8 +144,8 @@
                     <div class="py-3 px-7 pb-0">
                     </div>
                     <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                      <img src="../../dist/images/profile/perfil.jpg" class="rounded-circle" width="80" height="80"
-                        alt="" />
+                      <img class="rounded-circle" width="80" height="80"
+                        alt="" id="perfil2"/>
                       <div class="ms-3">
                         <h5 class="mb-1 fs-3">João Silva</h5>
                         <span class="mb-1 d-block text-dark">Padel</span>
@@ -212,15 +212,7 @@
             <div class="row align-items-center">
               <div class="col-lg-4 order-lg-1 order-2 mt-2">
                 <div class="container">
-                  <ul class="d-flex align-items-center m-1 gap-3 justify-content-center">
-                    <li>
-                      <img src="../../dist/images/modalidades/tenis.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                        data-toggle="tooltip" data-placement="top" title="Padel" style="max-width: 40px;">
-                    </li>
-                    <li>
-                      <img src="../../dist/images/modalidades/futsal.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                        data-toggle="tooltip" data-placement="top" title="Futebol" style="max-width: 40px;">
-                    </li>
+                  <ul class="d-flex align-items-center m-1 gap-3 justify-content-center" id="mod">
                   </ul>
                 </div>
               </div>
@@ -232,12 +224,12 @@
                       <div
                         class="border border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden"
                         style="width: 100px; height: 100px;" ;>
-                        <img src="../../dist/images/profile/perfil.jpg" alt="" class="w-100 h-100">
+                        <img alt="" class="w-100 h-100" id="perfil3">
                       </div>
                     </div>
                   </div>
                   <div class="text-center">
-                    <h5 class="fs-5 mb-0 fw-semibold">João Silva</h5>
+                    <h5 class="fs-5 mb-0 fw-semibold" id="nomePerfil"></h5>
                     <p class="mb-0 fs-4">Padel</p>
                   </div>
                 </div>
@@ -323,17 +315,15 @@
                 <div class="card shadow-none border">
                   <div class="card-body">
                     <h4 class="fw-semibold mb-3 text-center">Sobre Mim</h4>
-                    <p>Sou um entusiasta do Desporto e estou sempre envolvido em atividades Desportivas. Adoro jogar
-                      Padel e Ténis mas acredito que tenho capacidades para praticar qualquer tipo de
-                      Desporto. Nunca digo não a um desafio!</p>
+                    <p id="bio"></p>
                     <ul class="list-unstyled mb-0">
                       <li class="d-flex align-items-center gap-3 mb-4">
                         <i class="ti ti-mail text-dark fs-6"></i>
-                        <h6 class="fs-4 fw-semibold mb-0">joao_silva@mail.pt</h6>
+                        <h6 class="fs-4 fw-semibold mb-0" id="email"></h6>
                       </li>
                       <li class="d-flex align-items-center gap-3 mb-2">
                         <i class="ti ti-map-pin text-dark fs-6"></i>
-                        <h6 class="fs-4 fw-semibold mb-0">Évora, Portugal - 7000-000</h6>
+                        <h6 class="fs-4 fw-semibold mb-0" id="local"></h6>
                       </li>
                     </ul>
                   </div>
@@ -433,9 +423,9 @@
                             <small class="fs-3">Participantes</small><br>
                             <div class="col-4">
                               <div class="d-flex align-items-center mt-2">
-                                <img src="../../dist/images/profile/perfil.jpg" alt="Participant 1"
+                                <img alt="Participant 1" id="perfil4"
                                   class="rounded-circle object-fit-cover" width="30" height="30">
-                                <small class="ms-2">João Silva</small>
+                                <small class="ms-2" id="nomeEquipa1"></small>
                               </div>
                               <div class="d-flex align-items-center mt-2">
                                 <img src="../../dist/images/profile/girl2.jpg" alt="Participant 2"
@@ -496,9 +486,9 @@
                             <small class="fs-3">Participantes</small><br>
                             <div class="col-6">
                               <div class="d-flex align-items-center mt-2">
-                                <img src="../../dist/images/profile/perfil.jpg" alt="Participant 1"
+                                <img  alt="Participant 1" id="perfil5"
                                   class="rounded-circle object-fit-cover" width="30" height="30">
-                                <small class="ms-2">João Silva</small>
+                                <small class="ms-2" id="nomeEquipa2"></small>
                               </div>
                               <div class="d-flex align-items-center mt-2">
                                 <img src="../../dist/images/profile/girl3.jpg" alt="Participant 2"
@@ -547,9 +537,9 @@
                             <small class="fs-3">Participantes</small><br>
                             <div class="col-6">
                               <div class="d-flex align-items-center mt-2">
-                                <img src="../../dist/images/profile/perfil.jpg" alt="Participant 1"
+                                <img  alt="Participant 1" id="perfil6"
                                   class="rounded-circle object-fit-cover" width="30" height="30">
-                                <small class="ms-2">João Silva</small>
+                                <small class="ms-2" id="nomeEquipa3"></small>
                               </div>
                             </div>
                             <div class="col-6">
@@ -588,9 +578,9 @@
                             <small class="fs-3">Participantes</small><br>
                             <div class="col-4">
                               <div class="d-flex align-items-center mt-2">
-                                <img src="../../dist/images/profile/perfil.jpg" alt="Participant 1"
+                                <img alt="Participant 1" id="perfil7"
                                   class="rounded-circle object-fit-cover" width="30" height="30">
-                                <small class="ms-2">João Silva</small>
+                                <small class="ms-2" id="nomeEquipa4"></small>
                               </div>
                               <div class="d-flex align-items-center mt-2">
                                 <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
@@ -2353,6 +2343,7 @@
   <script src="../../dist/js/apps/chat.js"></script>
   <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+  <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
 
 

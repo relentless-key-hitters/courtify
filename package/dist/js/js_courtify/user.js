@@ -300,7 +300,6 @@ function contRegisto(){
             
             .done(function(msg) {
                 alerta2("Utilizador", msg, "success");
-                
                 setTimeout(function(){ 
                     window.location.href = "../../html/horizontal/index_editavel.html";;
                 }, 2000);
@@ -331,7 +330,6 @@ function contRegisto(){
         alerta("Utilizador","Há informação obrigatória não preenchida. Por favor, verifique.","warning");
     }
 }
-
 
 
 function limparCampos(){
