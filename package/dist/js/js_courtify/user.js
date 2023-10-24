@@ -255,9 +255,11 @@ function contRegisto(){
         dados.append("dataNascimento", $("#dataNascimento").val());
         if($("#feminino").is(":checked")){
             dados.append("genero", $("#feminino").val());
-        }else{
+        }else if ($("#masculino").is(":checked")){
             dados.append("genero", $("#masculino").val());
-        } 
+        }else{
+            dados.append("genero", $("#outro").val());
+        }  
         dados.append("altura", $("#altura").val());
         dados.append("peso", $("#peso").val());
         if($("#ms1").is(":checked")){
@@ -427,6 +429,8 @@ function verifGenero() {
     if($("#feminino").is(":checked")) {
         flag = true;
     } else if ($("#masculino").is(":checked")) {
+        flag =  true;
+    } else if ($("#outro").is(":checked")) {
         flag =  true;
     }
 
