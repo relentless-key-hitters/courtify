@@ -327,8 +327,6 @@ function contRegisto(){
 
 
 
-
-
 function limparCampos(){
 
     $("#nomeUser").removeClass("is-invalid");
@@ -458,6 +456,34 @@ function feedback2() {
     $("#feedbackMS").hide();
     $("#feedbackMI").hide();
 }
+
+function logout(){
+
+    let dados = new FormData();
+    dados.append("op", 9);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            alerta2("Utilizador", msg, "success");
+            setTimeout(function(){ 
+                window.location.href = "../../../landingpage/index.html";;
+            }, 2000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+}
+
 
 $(function() {
     getDistritos()

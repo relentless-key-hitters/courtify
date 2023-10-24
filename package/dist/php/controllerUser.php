@@ -28,5 +28,8 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 8){
     $res = $user -> contRegisto($_POST['dataNascimento'],$_POST['genero'],$_POST['altura'],$_POST['peso'],$_POST['ms'],$_POST['mi'],$_FILES,$_POST['bio'],$_POST['modalidades'],$_POST['posFutsal'],$_POST['nivelPadel'],$_POST['ladoPadel']);
     echo($res);
+}else if ($_POST['op'] == 9){
+    session_destroy();
+    echo("Sessão terminada com sucesso!");
 }
 ?>
