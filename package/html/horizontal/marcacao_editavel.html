@@ -234,7 +234,7 @@
                     <input type="date" class="form-control" id="currentDateInput">
                   </div>
                   <div class="form-group col-md-2">
-                    <input type="time" class="form-control" id="currentTimeInput" step="1800">
+                    <input type="time" class="form-control" id="currentTimeInput">
                   </div>
                   <div class="form-group col-md-2">
                     <button type="button" class="btn btn-primary" onclick="pesquisar()">Pesquisar</button>
@@ -747,20 +747,6 @@
 
   // Set the value of the date input to the current date
   document.getElementById("currentDateInput").value = getCurrentDate();
-</script>
-<script>
-  // Get the current time and add 1 hour
-  function getCurrentTimePlusOneHour() {
-      const now = new Date();
-      now.setHours(now.getHours() + 1);
-      now.setMinutes(Math.ceil(now.getMinutes() / 30) * 30); // Round up to the nearest 30 minutes
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      return `${hours}:${minutes}`;
-  }
-
-  // Set the value of the time input to the current time plus 1 hour
-  document.getElementById("currentTimeInput").value = getCurrentTimePlusOneHour();
 </script>
 </body>
 
