@@ -235,15 +235,23 @@ class User{
         
         global $conn; 
         $arrMod = json_decode($modalidades);  
-        $sql = "UPDATE atleta SET data_nasc = '".$dn."', altura = '".$altura."', peso = '".$peso."', ms = '".$ms."', mi = '".$mi."', genero = '".$genero."' WHERE id_atleta = '".$_SESSION['id']."'";
+        $sql = "UPDATE atleta SET data_nasc = '".$dn."', altura = '".$altura."', peso = '".$peso."', ms = '".$ms."', mi = '".$mi."', genero = '".$genero."', bio = '".$bio."' WHERE id_atleta = '".$_SESSION['id']."'";
         $msg = "";
         $flag = true;
-        $result = $conn->query($sql);
-        $this -> uploads($fotoPerfil, $_SESSION['id']);
+        $respUpdate = $this -> uploads($fotoPerfil, $_SESSION['id']);
+        $respUpdate = json_decode($respUpdate, TRUE);
         $icon = "success";
         if ($conn->query($sql) === TRUE){
             $sql2 = "";
             $sql3 = "";
+            if($respUpdate['flag']){
+                $sql4 = "UPDATE user SET foto = '".$respUpdate['target']."' WHERE id = '". $_SESSION['id']."'";
+                if($conn->query($sql4) === FALSE){
+                    $flag = false;
+                    $icon = "error";
+                    $msg = "Não foi possível guardar as alterações na foto de perfil.";
+                }
+            }
             for($i = 0; $i < sizeof($arrMod) ; $i++){
                 $sql2 = "INSERT INTO atleta_modalidade (id_atleta, id_modalidade) VALUES ('".$_SESSION['id']."', '".$arrMod[$i]."')";
                 if ($conn->query($sql2) === FALSE){
@@ -284,6 +292,75 @@ class User{
         ));
         $conn -> close();
         return ($msg);
+    }
+    function getInfoPerfil(){
+        global $conn; 
+        $fotoPerfil = "";
+        $nome = "";
+        $email = "";
+        $localizacao = "";
+        $bio = "";
+        $mod = "";
+        $sql = "SELECT user.foto as foto, user.email as email, user.nome as nome, atleta.bio as bio FROM user INNER JOIN atleta ON user.id = atleta.id_atleta WHERE user.id = '".$_SESSION['id']."'";
+        $sql2 = "SELECT concelho.descricao as concelho, distrito.descricao as distrito FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = '".$_SESSION['id']."'";
+        $sql3 = "SELECT atleta_modalidade.id_modalidade as id, modalidade.descricao as descricao FROM atleta_modalidade INNER JOIN modalidade ON atleta_modalidade.id_modalidade = modalidade.id WHERE atleta_modalidade.id_atleta = '".$_SESSION['id']."'";
+        $result = $conn->query($sql);
+        $result2 = $conn->query($sql2);
+        $result3 = $conn->query($sql3);
+        if ($result->num_rows > 0) {
+        // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $fotoPerfil = "../../dist/".$row['foto']."";
+                $nome = $row['nome'];
+                $email = $row['email'];
+                $bio = $row['bio'];
+            }
+        }
+        if ($result2->num_rows > 0) {
+            // output data of each row
+            while($row2 = $result2->fetch_assoc()) {
+                $localizacao = $row2['concelho'].", ".$row2['distrito'];
+            }
+            }
+        if ($result3->num_rows > 0) {
+                // output data of each row
+            while($row3 = $result3->fetch_assoc()) {
+                if($row3['descricao'] == 'Basquetebol'){
+                    $mod .= "<li>
+                    <img src='../../dist/images/modalidades/basquetebol.png' alt='Badge 1' class='img-fluid mb-2 rounded'
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 40px;'>
+                    </li>";
+                }else if($row3['descricao'] == 'Futsal'){
+                    $mod .= "<li>
+                    <img src='../../dist/images/modalidades/futsal.png' alt='Badge 2' class='img-fluid mb-2 rounded'
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 40px;'>
+                    </li>";
+                }else if($row3['descricao'] == 'Padel'){
+                    $mod .= "<li>
+                    <img src='../../dist/images/modalidades/padel.png' alt='Badge 3' class='img-fluid mb-2 rounded'
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 40px;'>
+                    </li>";
+                }else{
+                    $mod .= "<li>
+                    <img src='../../dist/images/modalidades/tenis.png' alt='Badge 4' class='img-fluid mb-2 rounded'
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 40px;'>
+                    </li>";
+                }
+
+            }
+        }    
+
+        $resp = json_encode(array(
+            "fotoPerfil" => $fotoPerfil,
+            "nome" => $nome, 
+            "email" => $email,
+            "localizacao" => $localizacao,
+            "bio" => $bio, 
+            "mod" => $mod
+        ));
+        $conn -> close();
+        return ($resp);
+        
     }
 }
 
