@@ -270,7 +270,7 @@ $(function () {
       },
     },
     xaxis: {
-      categories: [["Apr"], ["May"], ["June"], ["July"], ["Aug"], ["Sept"]],
+      categories: [["Abr"], ["Mai"], ["Jun"], ["Jul"], ["Ago"], ["Set"]],
       axisBorder: {
         show: false,
       },

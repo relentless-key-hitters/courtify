@@ -15,7 +15,7 @@ $(function () {
     },
     colors: ["#615dff"],
     xaxis: {
-      categories: ["January", "February", "March", "April", "May", "June"],
+      categories: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
     },
     tooltip: {
       theme: "dark",

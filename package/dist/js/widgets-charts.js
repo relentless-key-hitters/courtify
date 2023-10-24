@@ -318,7 +318,7 @@ $(function () {
       tickAmount: 4
     },
     xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
       axisTicks: {
         show: false,
       },
@@ -397,7 +397,7 @@ $(function () {
       tickAmount: 4
     },
     xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
       axisTicks: {
         show: false,
       },
@@ -419,8 +419,8 @@ $(function () {
   // =====================================
   var options = {
     color: "#adb5bd",
-    series: [55, 55, 55],
-    labels: ["Income", "Current", "Expance"],
+    series: [120, 88, 40],
+    labels: ["2021", "2022", "2023"],
     chart: {
       type: "donut",
       fontFamily: "Plus Jakarta Sans', sans-serif",
@@ -445,7 +445,7 @@ $(function () {
               color: '#5A6A85',
               fontSize: '20px',
               fontWeight: "600",
-              label: '$98,260',
+              label: '248',
             },
           },
         },
@@ -711,7 +711,7 @@ $(function () {
       },
     },
     xaxis: {
-      categories: [["Apr"], ["May"], ["June"], ["July"], ["Aug"], ["Sept"]],
+      categories: [["Abr"], ["Mai"], ["Jun"], ["Jul"], ["Ago"], ["Set"]],
       axisBorder: {
         show: false,
       },
@@ -942,12 +942,12 @@ $(function () {
   var options = {
     series: [
       {
-        name: "Footware",
-        data: [2.5, 2.7, 3.2, 2.6, 1.9],
+        name: "Subidas",
+        data: [0.5, 0.7, 0.2, 0.6, 0.9],
       },
       {
-        name: "Fashionware",
-        data: [-2.8, -1.1, -3.0, -1.5, -1.9],
+        name: "Descidas",
+        data: [-0.8, -0.1, -0.0, -0.5, -0.9],
       },
     ],
     chart: {
@@ -989,7 +989,7 @@ $(function () {
       tickAmount: 4
     },
     xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
       axisTicks: {
           show: false
       }
@@ -1011,8 +1011,8 @@ $(function () {
   // =====================================
   var options = {
     color: "#adb5bd",
-    series: [38, 40, 25],
-    labels: ["Expance", "Revenue", "Profit"],
+    series: [80, 74, 52],
+    labels: ["Padel", "Ténis", "Basquetebol"],
     chart: {
       type: "donut",
       fontFamily: "Plus Jakarta Sans', sans-serif",
@@ -1037,7 +1037,7 @@ $(function () {
               color: '#5A6A85',
               fontSize: '20px',
               fontWeight: "600",
-              label: '$500,458',
+              label: '62%',
             },
           },
         },

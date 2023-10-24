@@ -33,14 +33,14 @@ $(function () {
     xaxis: {
       categories: [
         "Jan",
-        "Feb",
+        "Fev",
         "Mar",
-        "Apr",
-        "May",
+        "Abr",
+        "Mai",
         "Jun",
         "Jul",
-        "Aug",
-        "Sep",
+        "Ago",
+        "Set",
       ],
       labels: {
         style: {
@@ -128,7 +128,7 @@ $(function () {
       size: 1,
     },
     xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      categories: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"],
       labels: {
         style: {
           colors: [
