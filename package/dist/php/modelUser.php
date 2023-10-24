@@ -63,7 +63,7 @@ class User{
             if ($conn->query($sql) === TRUE) {
                 $id = mysqli_insert_id($conn);
                 $sql2 ="INSERT INTO login(id_user, password) VALUES ('".$id."', '".$pass."')";
-                $sql3 ="INSERT INTO atleta (id_user) VALUES ('".$id."')";
+                $sql3 ="INSERT INTO atleta (id_atleta) VALUES ('".$id."')";
                 if($conn->query($sql2) === TRUE){
                     $msg .= "Registado com sucesso!";
                 }else{
@@ -227,24 +227,56 @@ class User{
         
         global $conn; 
         $arrMod = json_decode($modalidades);  
-        $sql = "UPDATE atleta SET data_nasc = '".$dn."', altura = '".$altura."', peso = '".$peso."', ms = '".$ms."', mi = '".$mi."', genero = '".$genero."' WHERE id_user = '".$_SESSION['id']."'";
+        $sql = "UPDATE atleta SET data_nasc = '".$dn."', altura = '".$altura."', peso = '".$peso."', ms = '".$ms."', mi = '".$mi."', genero = '".$genero."' WHERE id_atleta = '".$_SESSION['id']."'";
         $msg = "";
+        $flag = true;
         $result = $conn->query($sql);
         $this -> uploads($fotoPerfil, $_SESSION['id']);
-        if ($conn->query($sql) === TRUE) {
-            $msg = "Registado com Sucesso";
+        $icon = "success";
+        if ($conn->query($sql) === TRUE){
+            $sql2 = "";
+            $sql3 = "";
+            for($i = 0; $i < sizeof($arrMod) ; $i++){
+                $sql2 = "INSERT INTO atleta_modalidade (id_atleta, id_modalidade) VALUES ('".$_SESSION['id']."', '".$arrMod[$i]."')";
+                if ($conn->query($sql2) === FALSE){
+                    $flag = false;
+                    $icon = "error";
+                }
+                if($arrMod[$i] == '2'){
+                    $sql3 = "INSERT INTO info_futsal (id_atleta, id_posicao) VALUES ('".$_SESSION['id']."', '".$posFutsal."')";
+                    if ($conn->query($sql3) === FALSE){
+                        $flag = false;
+                        $icon = "error";
+                    }
+                }else if($arrMod[$i] =='3'){
+                    if($nivelPadel == '3'){
+                        $sql3 = "INSERT INTO info_padel (id_atleta, nivel) VALUES ('".$_SESSION['id']."', '".$nivelPadel."')";
+                    }else{
+                        $sql3 = "INSERT INTO info_padel (id_atleta, id_lado, nivel) VALUES ('".$_SESSION['id']."', '".$ladoPadel."', '".$nivelPadel."')";
+                    }
+                    if ($conn->query($sql3) === FALSE){
+                        $flag = false;
+                        $icon = "error";
+                    }
+                }
+            }
+            if($flag === TRUE){
+                $msg = "Registado com Sucesso";
+            }
         } else {
             $flag = false;
             $msg = "Error: " . $sql . "<br>" . $conn->error;
+            $icon = "error";
         }
-
+        
+        $resp = json_encode(array(
+            "flag" => $flag,
+            "msg" => $msg,
+            "icon" => $icon
+        ));
         $conn -> close();
         return ($msg);
     }
-
 }
-
-
-
 
 ?>
