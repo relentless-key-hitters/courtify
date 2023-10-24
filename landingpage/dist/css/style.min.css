@@ -31925,13 +31925,13 @@ section {
 
 
 ::-webkit-scrollbar-thumb {
-  background: #043f59; 
+  background: #4a5363; 
   border-radius: 6px; /
 }
 
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #032f42; 
+  background: #202835; 
 }
 
 @keyframes rotatePlus {
@@ -32000,5 +32000,4 @@ section {
     opacity: 1;
   }
 }
-
 
