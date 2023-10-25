@@ -198,11 +198,11 @@
       </nav>
     </header>
     <!-- Header End -->
-    <!-- Sidebar Start -->
+    <!-- Sidebar Start -->4 4 41
     <!-- Main wrapper -->
-    <div class="body-wrapper">
+    <div class="" style="padding-top: 115px;">
       <div class="container-fluid">
-        <div class="card">
+        <div class="card border-top border-2 border-primary">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
@@ -242,39 +242,45 @@
           </div>
         </div>
 
-        <div class="border-top border-2 border-primary card mt-2 mb-3">
-          <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="form-group col-md-2">
-                  <p>Tipo: </p>
-                  <select class="form-select" id="filtroTipo">
-                    <option value="coberto">Coberto</option>
-                    <option value="indoor">Indoor</option>
-                    <option value="exterior">Exterior</option>
-                  </select>
+        <div class="mb-5 px-5">
+          <div class="row">
+            <div class="col-md-1">
+              <div class="form-group">
+                <select class="form-select" id="filtroTipo">
+                  <option value="-1" selected disabled>Tipo</option>
+                  <option value="coberto">Coberto</option>
+                  <option value="indoor">Indoor</option>
+                  <option value="exterior">Exterior</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-1 mt-2 mt-md-0">
+              <div class="form-group">
+                <select class="form-select" id="filtroDistancia">
+                  <option value="-1" selected disabled>Distância</option>
+                  <option value="0-5km">0-5km</option>
+                  <option value="5-15km">5-15km</option>
+                  <option value="+15km">+15km</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-1 mt-2 mt-md-0 d-flex align-items-center">
+              <div class="form-group">
+                <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
+              </div>
+            </div>
+            <div class="col-md-9 text-end mt-2 mt-md-0 col">
+              <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
+                <div>
+                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                  <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
                 </div>
-                <div class="form-group col-md-2">
-                  <p>Distância: </p>
-                  <select class="form-select" id="filtroDistancia">
-                    <option value="0-5km">0-5km</option>
-                    <option value="5-15km">5-15km</option>
-                    <option value="+15km">+15km</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-2 align-self-end">
-                  <button type="button" class="btn btn-primary w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
-                </div>
-                <div class="form-check form-switch col-md-3 ms-5 d-flex align-items-center mb-0 align-self-end">
-                    <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
-                </div>
-                <div class="form-check form-switch col-md-2 d-flex align-items-center mb-0 align-self-end">
+                <div>
                   <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
                   <label class="form-check-label" for="flexSwitchCheckDefault">Mostrar mapa</label>
+                </div>
               </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
         
@@ -283,7 +289,7 @@
             <h4 class="fw-semibold mb-3">Resultados</h4>
         
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
@@ -300,7 +306,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo2.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
@@ -317,7 +323,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo3.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
@@ -333,7 +339,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo4.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
@@ -350,7 +356,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
@@ -362,12 +368,46 @@
                     <div class="d-flex align-items-center gap-4">
                       <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">16:30</button>
                       <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">17:00</button>
-                      <button class="btn btn-small btn-success">17:30</button>
+                      <button class="btn btn-small btn-primary">17:30</button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
+                <div class="card rounded-2 overflow-hidden hover-img">
+                  <div class="position-relative">
+                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
+                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda dos Velocistas, nº 25, 6789-012</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Cidade Ballers</p>
+                    <div class="d-flex align-items-center gap-4 justify-content-center">
+                      <div class="d-flex align-items-center" style="background-color: #E6E6E6;">
+                        <p class="px-2"><i class="ti ti-alert-circle me-2"></i>Sem disponibilidade horária </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card rounded-2 overflow-hidden hover-img">
+                  <div class="position-relative">
+                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
+                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
+                  </div>
+                  <div class="card-body p-4">
+                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda dos Velocistas, nº 25, 6789-012</span>
+                    <p class="d-block my-4 fs-5 text-dark fw-semibold">Cidade Ballers</p>
+                    <div class="d-flex align-items-center gap-4 justify-content-center">
+                      <div class="d-flex align-items-center" style="background-color: #E6E6E6;">
+                        <p class="px-2"><i class="ti ti-alert-circle me-2"></i>Sem disponibilidade horária </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
                 <div class="card rounded-2 overflow-hidden hover-img">
                   <div class="position-relative">
                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
