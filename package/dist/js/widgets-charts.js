@@ -593,11 +593,11 @@ $(function () {
   var options = {
     series: [
       {
-        name: "San Francisco",
+        name: "2022",
         data: [44, 55, 41, 67, 22, 43],
       },
       {
-        name: "Diego",
+        name: "2023",
         data: [13, 23, 20, 8, 13, 27],
       },
     ],
@@ -943,11 +943,11 @@ $(function () {
     series: [
       {
         name: "Subidas",
-        data: [0.5, 0.7, 0.2, 0.6, 0.9],
+        data: [0.5, 1.7, 1.2, 0.6, 1.4],
       },
       {
         name: "Descidas",
-        data: [-0.8, -0.1, -0.0, -0.5, -0.9],
+        data: [-0.8, -0.4, -0.6, -0.9, -0.9],
       },
     ],
     chart: {
