@@ -480,8 +480,8 @@ $(function () {
   // =====================================
   var options = {
     color: "#adb5bd",
-    series: [38, 40, 25],
-    labels: ["2022", "2021", "2020"],
+    series: [257, 386, 322],
+    labels: ["2023", "2022", "2021"],
     chart: {
       width: 180,
       type: "donut",
