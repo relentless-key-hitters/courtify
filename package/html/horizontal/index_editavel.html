@@ -1873,48 +1873,52 @@
 
 
               <div class="row mb-5 mt-5">
-                <div class="owl-carousel">
-                  <div class="item">
-                    <div class="">
-                      <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                        <img src="../../dist/images/badges/30-3.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                          data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
-                        <h1 class="fs-5 fw-semibold">20\20</h1>
-                        <div class="progress" style="height: 15px;">
-                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                            aria-valuemax="20" style="width: 100%;"></div>
+                <div class="carousel-container">
+                  <div class="owl-carousel">
+                    <div class="item">
+                      <div class="mt-1">
+                        <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          <img src="../../dist/images/badges/30-3.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-semibold">20\20</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                              aria-valuemax="20" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          <img src="../../dist/images/badges/32.png" alt="Badge 1" class="img-fluid mb-2 rounded opacity-50"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias"
+                            style="max-width: 200px; filter: grayscale(50%);">
+                          <h1 class="fs-5 fw-semibold">32\50</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="32" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 62%; background-color: #F8CF29;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          <img src="../../dist/images/badges/30-16.png" alt="Badge 1" class="img-fluid mb-2 rounded opacity-25"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias"
+                            style="max-width: 200px; filter: grayscale(80%);">
+                          <h1 class="fs-5 fw-semibold">32\70</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="70"
+                              style="width: 44%; background-color: rgb(197, 67, 67);"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="item">
-                    <div class="">
-                      <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                        <img src="../../dist/images/badges/32.png" alt="Badge 1" class="img-fluid mb-2 rounded opacity-50"
-                          data-toggle="tooltip" data-placement="top" title="% Vitórias"
-                          style="max-width: 200px; filter: grayscale(50%);">
-                        <h1 class="fs-5 fw-semibold">32\50</h1>
-                        <div class="progress" style="height: 15px;">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="32" aria-valuemin="0"
-                            aria-valuemax="50" style="width: 62%; background-color: #F8CF29;"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="">
-                      <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                        <img src="../../dist/images/badges/30-16.png" alt="Badge 1" class="img-fluid mb-2 rounded opacity-25"
-                          data-toggle="tooltip" data-placement="top" title="% Vitórias"
-                          style="max-width: 200px; filter: grayscale(80%);">
-                        <h1 class="fs-5 fw-semibold">32\70</h1>
-                        <div class="progress" style="height: 15px;">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="70"
-                            style="width: 44%; background-color: rgb(197, 67, 67);"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <button class="owl-prev" data-owl="prev"><i class="ti ti-chevron-left fs-10"></i></button>
+                  <button class="owl-next" data-owl="next"><i class="ti ti-chevron-right fs-10"></i></button>
                 </div>
               </div>
           </div>
@@ -2372,27 +2376,39 @@
   </script>
   
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       $(".owl-carousel").owlCarousel({
-        items: 3, // Number of items to display at once
-        margin: 20, // Margin between items
-        loop: true, // Infinite loop
-        nav: true, // Display navigation arrows
+        items: 3,
+        margin: 20,
+        loop: true,
+        nav: false, // Disable Owl Carousel's built-in navigation
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
         responsive: {
           0: {
-            items: 1// Number of items to display on small screens
+            items: 1
           },
           768: {
-            items: 2 // Number of items to display on medium screens
+            items: 2
           },
           992: {
             items: 3
-             // Number of items to display on large screens
           }
         }
       });
+  
+      // Custom navigation button click handlers
+      $(".owl-prev").click(function () {
+        $(".owl-carousel").trigger("prev.owl.carousel");
+      });
+  
+      $(".owl-next").click(function () {
+        $(".owl-carousel").trigger("next.owl.carousel");
+      });
     });
   </script>
+  
 </body>
 
 </html>

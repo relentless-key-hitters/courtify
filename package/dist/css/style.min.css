@@ -46343,3 +46343,56 @@ ul {
   z-index: 1; /* To place the icon above the image */
 }
 
+.carousel-container {
+  position: relative;
+}
+
+.owl-carousel {
+  /* Your carousel styles go here */
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333; /* Customize button background color */
+  color: #fff; /* Customize button text color */
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.owl-prev {
+  left: 10px; /* Adjust the left position as needed */
+}
+
+.owl-next {
+  right: 10px; /* Adjust the right position as needed */
+}
+
+.owl-prev,
+.owl-next {
+  background: none; /* Remove the background */
+  color: #333; /* Set the arrow color to black */
+  font-size: 24px; /* Adjust the arrow size as needed */
+  padding: 0; /* Remove padding to ensure only the icon is visible */
+  border: none; /* Remove borders */
+  cursor: pointer;
+}
+
+.owl-prev {
+  left: -50px; /* Move the "Previous" button a bit to the left */
+  top: 85px;
+}
+
+.owl-next {
+  right: -50px; /* Move the "Next" button a bit to the right */
+  top: 85px;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center the carousel horizontally */
+}
