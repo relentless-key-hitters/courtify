@@ -231,6 +231,40 @@ class User{
     
     }
 
+    function uploads2($img, $id){
+    
+        $dir = "../images/utilizadores/".$id."/";
+        $dir1 = "images/utilizadores/".$id."/";
+        $flag = false;
+        $targetBD = "";
+    
+        if(!is_dir($dir)){
+            if(!mkdir($dir, 0777, TRUE)){
+                die ("Erro não é possivel criar o diretório");
+            }
+        }
+        if(array_key_exists('fotoCapa' , $img)){
+        if(is_array($img)){
+          if(is_uploaded_file($img['fotoCapa']['tmp_name'])){
+            $fonte = $img['fotoCapa']['tmp_name'];
+            $ficheiro = $img['fotoCapa']['name'];
+            $end = explode(".",$ficheiro);
+            $extensao = end($end);
+            $newName = "user".date("YmdHis").".".$extensao;
+            $target = $dir.$newName;
+            $targetBD = $dir1.$newName;
+            $flag = move_uploaded_file($fonte, $target);
+            
+        } 
+        }
+        }
+        return (json_encode(array(
+        "flag" => $flag,
+        "target" => $targetBD
+        )));
+    
+    }
+
     function contRegisto($dn, $genero, $altura, $peso, $ms, $mi, $fotoPerfil, $bio, $modalidades, $posFutsal, $nivelPadel, $ladoPadel){
         
         global $conn; 
@@ -301,7 +335,8 @@ class User{
         $localizacao = "";
         $bio = "";
         $mod = "";
-        $sql = "SELECT user.foto as foto, user.email as email, user.nome as nome, atleta.bio as bio FROM user INNER JOIN atleta ON user.id = atleta.id_atleta WHERE user.id = '".$_SESSION['id']."'";
+        $fotoCapa = "";
+        $sql = "SELECT user.foto as foto, user.email as email, user.nome as nome, atleta.bio as bio, atleta.fotoCapa as fotoCapa FROM user INNER JOIN atleta ON user.id = atleta.id_atleta WHERE user.id = '".$_SESSION['id']."'";
         $sql2 = "SELECT concelho.descricao as concelho, distrito.descricao as distrito FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = '".$_SESSION['id']."'";
         $sql3 = "SELECT atleta_modalidade.id_modalidade as id, modalidade.descricao as descricao FROM atleta_modalidade INNER JOIN modalidade ON atleta_modalidade.id_modalidade = modalidade.id WHERE atleta_modalidade.id_atleta = '".$_SESSION['id']."'";
         $result = $conn->query($sql);
@@ -314,6 +349,11 @@ class User{
                 $nome = $row['nome'];
                 $email = $row['email'];
                 $bio = $row['bio'];
+                if( is_null($row['fotoCapa'])){
+                    $fotoCapa = "../../dist/images/profile/backgroundBasic.png";
+                }else{
+                    $fotoCapa = "../../dist/".$row['fotoCapa'];
+                }
             }
         }
         if ($result2->num_rows > 0) {
@@ -352,6 +392,7 @@ class User{
 
         $resp = json_encode(array(
             "fotoPerfil" => $fotoPerfil,
+            "fotoCapa" => $fotoCapa,
             "nome" => $nome, 
             "email" => $email,
             "localizacao" => $localizacao,
@@ -362,6 +403,42 @@ class User{
         return ($resp);
         
     }
+
+
+    function altFotoCapa($fotoCapa){
+        global $conn; 
+        $respUpdate = $this -> uploads2($fotoCapa, $_SESSION['id']); 
+        $respUpdate = json_decode($respUpdate, TRUE);
+        $msg = "";
+        $elemento = "";
+        $icon = "error";
+        $flag = false;
+        if($respUpdate['flag']){
+            $sql = "UPDATE atleta SET fotoCapa = '".$respUpdate['target']."' WHERE id_atleta = '".$_SESSION['id']."'";
+            $elemento =  "'../../dist/".$respUpdate['target'];
+            if($conn->query($sql) === TRUE){
+                $msg = "Alterada com sucesso!";
+                $icon = "success";
+                $flag = true;
+            }else{
+                $msg = "Não foi possível alterar a fotografia de capa!";
+            }
+        }else{
+            $msg = "Não foi possível alterar a fotografia de capa!";
+        }
+
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "elemento" => $elemento, 
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+
+        $conn -> close();
+        return ($resp);
+
+    }
+
 }
 
 ?>

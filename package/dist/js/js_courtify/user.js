@@ -484,7 +484,7 @@ function logout(){
         .done(function(msg) {
             alerta2("Utilizador", msg, "success");
             setTimeout(function(){ 
-                window.location.href = "../../../landingpage/index.html";;
+                window.location.href = "../../../landingpage/index.html";
             }, 2000);
         })
         

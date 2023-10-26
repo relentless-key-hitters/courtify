@@ -205,9 +205,9 @@
         <div class="card overflow-hidden">
           <div class="card-body p-0">
             <div class="image-container">
-              <img src="https://www.axiswellness.pt/wp-content/uploads/2019/06/banner-padel2_desktop.jpg" alt="" class="img-fluid">
+              <img alt="" id= "fotoCapaView" class="img-fluid">
               <div class="icon-container">
-                <a href="#"><i class="fas fa-pencil-alt text-white fs-6" data-toggle="tooltip" data-placement="top" title="Editar"></i></a>
+                <i class="fas fa-pencil-alt text-white fs-6" data-toggle="tooltip" data-placement="top" title="Editar" data-bs-toggle = "modal" data-bs-target="#vertical-center-modal"></i>
               </div>
             </div>            
             <div class="row align-items-center">
@@ -221,11 +221,11 @@
                 <div class="mt-n5">
                   <div class="d-flex align-items-center justify-content-center mb-2">
                     <div class="d-flex align-items-center justify-content-center rounded-circle "
-                      style="width: 160px; height: 160px;" ;>
+                      style="width: 160px; height: 160px; z-index: 1;" ;>
                       <div
                         class="border border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden"
                         style="width: 150px; height: 150px;" ;>
-                        <img alt="" class="w-100 h-100" id="perfil3">
+                        <img alt="" class="w-100 h-100" id="perfil3" style="z-index: 1;">
                       </div>
                     </div>
                   </div>
@@ -2268,6 +2268,55 @@
       </div>
     </div>
   </div>
+
+
+  <div
+  class="modal fade"
+  id="vertical-center-modal"
+  tabindex="-1"
+  aria-labelledby="vertical-center-modal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header d-flex align-items-center">
+        <h4 class="modal-title">
+          Alterar foto de capa
+        </h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12 mb-3">
+          <label for="fotoCapa" class="form-label">Fotografia de capa</label>
+          <input class="form-control" type="file" id="fotoCapa" name="fotoCapa">
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button
+        type="button"
+        class="btn btn-light-primary text-primary font-medium waves-effect text-start"
+        onclick="altFotoCapa()"
+        data-bs-dismiss="modal"
+
+      >
+        Guardar
+      </button>
+        <button
+          type="button"
+          class="btn btn-primary text-white font-medium waves-effect text-start"
+          data-bs-dismiss="modal"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
