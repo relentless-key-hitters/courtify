@@ -80,7 +80,6 @@ class User{
             }
         }
 
-
         $resp = json_encode(array(
             "flag" => $flag,
             "msg" => $msg,

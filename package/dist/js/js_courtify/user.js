@@ -5,7 +5,7 @@ function registaUser(){
 
     limparCampos();
 
-    if(verifPP($("#passUser").val(),$("#passCUser").val()) && verifNIF($("#nifUser").val()) && verifEmail($("#emailUser").val()) && verifCodPostal($("#codPUser").val()) && verifEmpty($("#nomeUser").val()) && verifEmpty($("#nifUser").val()) && verifEmpty($("#emailUser").val()) && verifEmpty($("#passUser").val())){
+    if(verifTipoUser() && verifPP($("#passUser").val(),$("#passCUser").val()) && verifNIF($("#nifUser").val()) && verifEmail($("#emailUser").val()) && verifCodPostal($("#codPUser").val()) && verifEmpty($("#nomeUser").val()) && verifEmpty($("#nifUser").val()) && verifEmpty($("#emailUser").val()) && verifEmpty($("#passUser").val())){
         
         let dados = new FormData();
         dados.append("op", 1);
@@ -79,6 +79,10 @@ function registaUser(){
         }if(!verifNIF($("#nifUser").val())){
             $("#nifUser").addClass("is-invalid");
             $("#feedbackNif").show();
+        }if(!verifTipoUser()){
+            $("#tipoUser1").addClass("is-invalid");
+            $("#tipoUser2").addClass("is-invalid");
+            $("#feedbackTipoUser").show();
         }
     } 
 
@@ -342,6 +346,8 @@ function limparCampos(){
     $("#passUser").removeClass("is-invalid");
     $("#passCUser").removeClass("is-invalid");
     $("#codPUser").removeClass("is-invalid");
+    $("#tipoUser1").removeClass("is-invalid");
+    $("#tipoUser2").removeClass("is-invalid");
     $("#feedbackNome").hide();
     $("#feedbackTel").hide();
     $("#feedbackNif").hide();
@@ -349,6 +355,7 @@ function limparCampos(){
     $("#feedbackEmail").hide();
     $("#feedbackPPEmpty").hide();
     $("#feedbackPPDif").hide();
+    $("#feedbackTipoUser").hide();
 
 }
 
@@ -400,6 +407,16 @@ function verifNIF(nif){
         flag = false;
     }
     return (flag);
+}
+
+function verifTipoUser(){
+    let flag = false;
+    if($("#tipoUser1").is(":checked")) {
+        flag = true;
+    }else if ($("#tipoUser2").is(":checked")) {
+        flag =  true;
+    }
+    return(flag);
 }
 
 function alerta(titulo,msg,icon){
