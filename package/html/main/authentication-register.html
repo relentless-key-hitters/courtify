@@ -45,10 +45,13 @@
                   <h2 class="fs-7 fw-bolder text-center">Um mundo de emoções aguarda-o<br></h2>
                   <form class="mt-3">
                     <div class="row py-2 mb-3">
-                      <div class="col-md-4">
-                          <label>Tipo de utilizador</label>
+                      <div class="col-md-6">
+                          <label>Tipo de utilizador<span class="text-danger">&nbsp;&nbsp;&nbsp;*</span></label>
+                          <div id="feedbackTipoUser" class="invalid-feedback">
+                            É obrigatório escolher uma opção.
+                          </div>
                       </div>
-                      <div class="col-md-8">
+                      <div class="col-md-6">
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input primary check-outline outline-primary" type="radio" name="radio-primary"  id="tipoUser1" value="1">
                                 <label class="form-check-label" for="primary-outline-radio">Atleta</label>
