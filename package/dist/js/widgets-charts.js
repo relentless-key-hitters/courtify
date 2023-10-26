@@ -17,8 +17,8 @@ $(function () {
     series: [
       {
         name: '',
-        color: "var(--bs-primary)",
-        data: [0, 150, 110, 240, 200, 200, 300, 200],
+        color: "#6AAD45",
+        data: [12, 254, 110, 548, 203, 209, 789, 236],
       },
     ],
     stroke: {
@@ -63,7 +63,7 @@ $(function () {
     series: [
       {
         name: "",
-        data: [20, 15, 30, 25, 10, 18, 20],
+        data: [2095, 1544, 3058, 2584, 1296, 1883, 2009],
       },
     ],
 
@@ -79,7 +79,7 @@ $(function () {
       fontFamily: "Plus Jakarta Sans', sans-serif",
       foreColor: "#adb0bb",
     },
-    colors: ["#ebf8ff", "#ebf8ff", "var(--bs-secondary)", "#ebf8ff", "#ebf8ff", "#ebf8ff", "#ebf8ff"],
+    colors: ["#0779AB", "#0779AB", "#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#0779AB"],
     plotOptions: {
       bar: {
         borderRadius: 3,
@@ -146,8 +146,8 @@ $(function () {
     series: [
       {
         name: '',
-        color: "var(--bs-primary)",
-        data: [0, 3, 1, 2, 8, 1, 5, 1],
+        color: "#F8CF29",
+        data: [847, 739, 578, 689, 1245, 673, 543, 787],
       },
     ],
     stroke: {
@@ -191,7 +191,7 @@ $(function () {
     series: [
       {
         name: "",
-        data: [4, 10, 9, 7, 9, 10, 11, 8, 10],
+        data: [40, 102, 90, 73, 93, 108, 116, 85, 143],
       },
     ],
 
@@ -207,7 +207,7 @@ $(function () {
       fontFamily: "Plus Jakarta Sans', sans-serif",
       foreColor: "#adb0bb",
     },
-    colors: ["var(--bs-secondary)", "var(--bs-secondary)", "var(--bs-secondary)", "var(--bs-secondary)", "var(--bs-secondary)", "var(--bs-secondary)", "var(--bs-secondary)", "var(--bs-secondary)", "var(--bs-secondary)"],
+    colors: ["#6AAD45", "#0779AB", "#0779AB", "#0779AB", "#0779AB", "#0779AB", "#0779AB", "#0779AB", "#F8CF29"],
     plotOptions: {
       bar: {
         borderRadius: 3,
@@ -263,11 +263,11 @@ $(function () {
     series: [
       {
         name: "",
-        data: [2.5, 3.7, 3.2, 2.6, 1.9, 2.5],
+        data: [3, 4, 3, 1, 2, 3],
       },
       {
         name: "",
-        data: [-2.8, -1.1, -3.2, -1.5, -1.9, -2.8],
+        data: [-2, -1, -1, -2, -1, -3],
       },
     ],
     chart: {
@@ -283,7 +283,7 @@ $(function () {
       height: 200,
       stacked: true,
     },
-    colors: ["var(--bs-primary)", "var(--bs-primary)"],
+    colors: ["#0779AB", "#6AAD45"],
     plotOptions: {
       bar: {
         horizontal: false,
@@ -342,11 +342,11 @@ $(function () {
     series: [
       {
         name: "",
-        data: [2.5, 3.7, 3.2, 2.6, 1.9, 2.5],
+        data: [3, 2, 3, 2, 4, 5],
       },
       {
         name: "",
-        data: [-2.8, -1.1, -3.2, -1.5, -1.9, -2.8],
+        data: [-2, -2, -3, -1, -1, -2],
       },
     ],
     chart: {
@@ -362,7 +362,7 @@ $(function () {
       height: 200,
       stacked: true,
     },
-    colors: ["var(--bs-secondary)", "var(--bs-secondary)"],
+    colors: ["#F8CF29", "#0779AB"],
     plotOptions: {
       bar: {
         horizontal: false,
@@ -461,7 +461,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["var(--bs-primary)", "#EAEFF4", "var(--bs-secondary)"],
+    colors: ["#F8CF29", "#0779AB", "#6AAD45"],
 
     tooltip: {
       theme: "dark",
@@ -508,7 +508,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["var(--bs-primary)", "#EAEFF4", "#F9F9FD"],
+    colors: ["#6AAD45", "#F8CF29", "#0779AB"],
 
     responsive: [
       {
@@ -548,8 +548,8 @@ $(function () {
     },
     series: [
       {
-        name: 'monthly earnings',
-        color: "var(--bs-primary)",
+        name: 'Derrotas',
+        color: "#6AAD45",
         data: [25, 66, 20, 40, 12, 58, 20],
       },
     ],
@@ -612,7 +612,7 @@ $(function () {
       stacked: true,
     },
 
-    colors: ["var(--bs-primary)", "var(--bs-secondary)"],
+    colors: ["#6AAD45", "#F8CF29"],
 
     plotOptions: {
       bar: {
@@ -687,7 +687,7 @@ $(function () {
       fontFamily: "Plus Jakarta Sans', sans-serif",
       foreColor: "#adb0bb",
     },
-    colors: ["#F2F3F9", "#F2F3F9", "var(--bs-primary)", "#F2F3F9", "#F2F3F9", "#F2F3F9"],
+    colors: ["#0779AB", "#0779AB", "#F8CF29", "#0779AB", "#6AAD45", "#0779AB"],
     plotOptions: {
       bar: {
         borderRadius: 3,
@@ -741,7 +741,7 @@ $(function () {
     series: [
       {
         name: "",
-        data: [20, 15, 30, 25, 10],
+        data: [10, 4, 12, 8, 2],
       },
     ],
 
@@ -757,7 +757,7 @@ $(function () {
       fontFamily: "Plus Jakarta Sans', sans-serif",
       foreColor: "#adb0bb",
     },
-    colors: ["#ebf8ff", "#ebf8ff", "var(--bs-secondary)", "#ebf8ff", "#ebf8ff"],
+    colors: ["#0779AB", "#0779AB", "#F8CF29", "#0779AB", "#6AAD45"],
     plotOptions: {
       bar: {
         borderRadius: 3,
@@ -825,8 +825,8 @@ $(function () {
     series: [
       {
         name: '',
-        color: "var(--bs-secondary)",
-        data: [30, 25, 35, 20, 30, 40],
+        color: "#6AAD45",
+        data: [110, 207, 126, 188, 122, 148],
       },
     ],
     stroke: {
@@ -886,7 +886,7 @@ $(function () {
       fontFamily: "Plus Jakarta Sans', sans-serif",
       foreColor: "#adb0bb",
     },
-    colors: ["var(--bs-primary)", "var(--bs-primary)", "var(--bs-primary)", "var(--bs-primary)", "var(--bs-primary)", "var(--bs-primary)", "var(--bs-primary)", "var(--bs-primary)", "var(--bs-primary)"],
+    colors: ["#6AAD45", "#0779AB", "#0779AB", "#0779AB", "#0779AB", "#0779AB", "#F8CF29", "#0779AB", "#0779AB"],
     plotOptions: {
       bar: {
         borderRadius: 2,
@@ -960,7 +960,7 @@ $(function () {
       offsetX: -20,
       stacked: true
     },
-    colors: ["var(--bs-primary)", "var(--bs-secondary)"],
+    colors: ["#0779AB", "#6AAD45"],
     plotOptions: {
       bar: {
           horizontal: false,
@@ -1053,7 +1053,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["var(--bs-secondary)", "#EAEFF4", "var(--bs-primary)"],
+    colors: ["#F8CF29", "#0779AB", "#6AAD45"],
 
     tooltip: {
       theme: "dark",
