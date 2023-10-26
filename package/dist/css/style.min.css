@@ -46383,12 +46383,12 @@ ul {
 
 .owl-prev {
   left: -50px; /* Move the "Previous" button a bit to the left */
-  top: 85px;
+
 }
 
 .owl-next {
   right: -50px; /* Move the "Next" button a bit to the right */
-  top: 85px;
+ 
 }
 
 .carousel-container {
