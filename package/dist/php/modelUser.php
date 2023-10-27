@@ -351,7 +351,7 @@ class User{
                 if( is_null($row['fotoCapa'])){
                     $fotoCapa = "../../dist/images/profile/backgroundBasic.png";
                 }else{
-                    $fotoCapa = "../../dist/".$row['fotoCapa'];
+                    $fotoCapa = "../../package/dist/".$row['fotoCapa'];
                 }
             }
         }
@@ -404,40 +404,106 @@ class User{
     }
 
 
-    function altFotoCapa($fotoCapa){
-        global $conn; 
-        $respUpdate = $this -> uploads2($fotoCapa, $_SESSION['id']); 
+    function altFotoCapa($fotoCapa) {
+        global $conn;
+        $respUpdate = $this->uploads2($fotoCapa, $_SESSION['id']);
         $respUpdate = json_decode($respUpdate, TRUE);
         $msg = "";
         $elemento = "";
         $icon = "error";
         $flag = false;
-        if($respUpdate['flag']){
-            $sql = "UPDATE atleta SET fotoCapa = '".$respUpdate['target']."' WHERE id_atleta = '".$_SESSION['id']."'";
-            $elemento =  "'../../dist/".$respUpdate['target'];
-            if($conn->query($sql) === TRUE){
+    
+        if ($respUpdate['flag']) {
+            
+            $targetWidth = 1298;
+            $targetHeight = 504;
+    
+            
+            $path_parts = pathinfo("../../dist/" . $respUpdate['target']);
+            $newFilename = $path_parts['dirname'] . '/' . $path_parts['filename'] . '_resized.' . $path_parts['extension'];
+    
+            
+            $this-> resizeImage("../../dist/" . $respUpdate['target'], $newFilename, $targetWidth, $targetHeight);
+    
+            $sql = "UPDATE atleta SET fotoCapa = '" . $newFilename . "' WHERE id_atleta = '" . $_SESSION['id'] . "'";
+            $elemento = "'../../dist/" . $newFilename;
+    
+            if ($conn->query($sql) === TRUE) {
                 $msg = "Alterada com sucesso!";
                 $icon = "success";
                 $flag = true;
-            }else{
+            } else {
                 $msg = "Não foi possível alterar a fotografia de capa!";
             }
-        }else{
+        } else {
             $msg = "Não foi possível alterar a fotografia de capa!";
         }
-
+    
         $resp = json_encode(array(
             "msg" => $msg,
-            "elemento" => $elemento, 
+            "elemento" => $elemento,
             "icon" => $icon,
             "flag" => $flag
         ));
-
-        $conn -> close();
+    
+        $conn->close();
         return ($resp);
-
     }
 
+
+    function resizeImage($sourceFile, $targetFile, $targetWidth, $targetHeight) {
+        
+        $imageType = pathinfo($sourceFile, PATHINFO_EXTENSION);
+    
+        
+        if ($imageType == 'jpeg' || $imageType == 'jpg') {
+            $sourceImage = imagecreatefromjpeg($sourceFile);
+        } elseif ($imageType == 'png') {
+            $sourceImage = imagecreatefrompng($sourceFile);
+        } else {
+            
+            return false;
+        }
+    
+        list($sourceWidth, $sourceHeight) = getimagesize($sourceFile);
+    
+        
+        $sourceAspectRatio = $sourceWidth / $sourceHeight;
+        $targetAspectRatio = $targetWidth / $targetHeight;
+    
+        
+        $cropWidth = $sourceWidth;
+        $cropHeight = $sourceHeight;
+    
+        
+        if ($sourceAspectRatio > $targetAspectRatio) {
+            
+            $cropWidth = $sourceHeight * $targetAspectRatio;
+        } else {
+            
+            $cropHeight = $sourceWidth / $targetAspectRatio;
+        }
+    
+        
+        $cropX = ($sourceWidth - $cropWidth) / 2;
+        $cropY = ($sourceHeight - $cropHeight) / 2;
+    
+        $resizedImage = imagecreatetruecolor($targetWidth, $targetHeight);
+    
+        
+        imagecopyresampled($resizedImage, $sourceImage, 0, 0, $cropX, $cropY, $targetWidth, $targetHeight, $cropWidth, $cropHeight);
+    
+        
+        if ($imageType == 'jpeg' || $imageType == 'jpg') {
+            imagejpeg($resizedImage, $targetFile);
+        } elseif ($imageType == 'png') {
+            imagepng($resizedImage, $targetFile);
+        }
+    
+        
+        imagedestroy($sourceImage);
+        imagedestroy($resizedImage);
+    }
 }
 
 ?>
