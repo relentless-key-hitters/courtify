@@ -216,7 +216,8 @@ if (isset($_SESSION['id'])) {?>
             <div class="row align-items-center">
               <div class="col-lg-4 order-lg-1 order-2 mt-2">
                 <div class="container">
-                  <ul class="d-flex align-items-center m-1 gap-3 justify-content-center" id="mod">
+                  <h5 class="text-center">Modalidades</h5>
+                  <ul class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id="mod">
                   </ul>
                 </div>
               </div>
@@ -240,7 +241,8 @@ if (isset($_SESSION['id'])) {?>
               </div>
               <div class="col-lg-4 order-last mt-2">
                 <div class="container">
-                  <div class="d-flex align-items-center m-1 gap-3 justify-content-center">
+                <h5 class="text-center">Melhores conquistas</h5>
+                  <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
                     <!-- Badge 1 -->
                     <div class="text-center">
                       <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded hover-img"
