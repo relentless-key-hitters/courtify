@@ -648,9 +648,9 @@ if (isset($_SESSION['id'])) {?>
                               <small class="fs-3">Participantes</small><br>
                               <div class="col-6">
                                 <div class="d-flex align-items-center mt-2">
-                                  <img alt="Participant 1" id="perfil7" class="rounded-circle object-fit-cover"
+                                  <img alt="Participant 1" id="perfil8" class="rounded-circle object-fit-cover"
                                     width="30" height="30">
-                                  <small class="ms-2" id="nomeEquipa4"></small>
+                                  <small class="ms-2" id="nomeEquipa5"></small>
                                 </div>
                               </div>
                               <div class="col-6">

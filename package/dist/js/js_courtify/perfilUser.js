@@ -23,6 +23,7 @@ function getPerfil(){
             $("#perfil5").attr('src', obj.fotoPerfil);
             $("#perfil6").attr('src', obj.fotoPerfil);
             $("#perfil7").attr('src', obj.fotoPerfil);
+            $("#perfil8").attr('src', obj.fotoPerfil);
             $("#nomePerfil").html(obj.nome);
             $("#nome2").html(obj.nome);
             $("#email").html(obj.email);
@@ -33,6 +34,7 @@ function getPerfil(){
             $("#nomeEquipa2").html(obj.nome);
             $("#nomeEquipa3").html(obj.nome);
             $("#nomeEquipa4").html(obj.nome);
+            $("#nomeEquipa5").html(obj.nome);
             $("#mod").html(obj.mod);
 
         })
