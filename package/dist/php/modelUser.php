@@ -367,22 +367,22 @@ class User{
                 if($row3['descricao'] == 'Basquetebol'){
                     $mod .= "<li>
                     <img src='../../dist/images/modalidades/basquetebol.png' alt='Badge 1' class='img-fluid mb-2 rounded'
-                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 50px;'>
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 45px;'>
                     </li>";
                 }else if($row3['descricao'] == 'Futsal'){
                     $mod .= "<li>
                     <img src='../../dist/images/modalidades/futsal.png' alt='Badge 2' class='img-fluid mb-2 rounded'
-                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 50px;'>
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 45px;'>
                     </li>";
                 }else if($row3['descricao'] == 'Padel'){
                     $mod .= "<li>
                     <img src='../../dist/images/modalidades/padel.png' alt='Badge 3' class='img-fluid mb-2 rounded'
-                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 50px;'>
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 45px;'>
                     </li>";
                 }else{
                     $mod .= "<li>
                     <img src='../../dist/images/modalidades/tenis.png' alt='Badge 4' class='img-fluid mb-2 rounded'
-                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 50px;'>
+                      data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 45px;'>
                     </li>";
                 }
 
