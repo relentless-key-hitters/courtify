@@ -216,7 +216,7 @@ if (isset($_SESSION['id'])) {?>
             <div class="row align-items-center">
               <div class="col-lg-4 order-lg-1 order-2 mt-2">
                 <div class="container">
-                  <h5 class="text-center">Modalidades</h5>
+                  <h6 class="text-center">Modalidades</h6>
                   <ul class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id="mod">
                   </ul>
                 </div>
@@ -241,7 +241,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
               <div class="col-lg-4 order-last mt-2">
                 <div class="container">
-                <h5 class="text-center">Melhores conquistas</h5>
+                <h6 class="text-center">Melhores conquistas</h6>
                   <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
                     <!-- Badge 1 -->
                     <div class="text-center">
@@ -2336,6 +2336,35 @@ if (isset($_SESSION['id'])) {?>
       });
     });
   </script>
+
+  <script type="text/javascript">
+    var timeout;
+
+    
+    function resetSessionTimeout() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'logout.php', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    
+                    window.location.href = '../../../landingpage/index.html';
+                }
+            };
+            xhr.send();
+        }, 900000);
+    }
+
+    
+    document.onmousemove = resetSessionTimeout;
+    document.onkeypress = resetSessionTimeout;
+
+    
+    resetSessionTimeout();
+  </script>
+
 
 </body>
 
