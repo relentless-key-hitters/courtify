@@ -532,7 +532,7 @@ if (isset($_SESSION['id'])) {?>
                                 class="ti ti-plus"></i>Info</button>
                           </div>
                           <div class="col-md-4 mt-2 mt-md-0">
-                            <small class="fs-5">João vs Rui</small><br>
+                            <small class="fs-5">António vs Rui</small><br>
                             <small><i class="ti ti-calendar me-1"></i>27 Outubro, 2023</small><br>
                             <small><i class="ti ti-clock me-1"></i>18:00</small><br>
                             <small><i class="ti ti-map-pin me-1"></i>CTI</small><br>
@@ -631,55 +631,33 @@ if (isset($_SESSION['id'])) {?>
                         <div class="row mb-1">
                           <!-- Game 1 -->
                           <div class="col-md-3">
-                            <img src="../../dist/images/backgrounds/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg"
+                            <img src="../../dist/images/backgrounds/pesquisa_campo3.jpg"
                               alt="Game 1" class="object-fit-cover rounded-2 border border-1 border-primary" width="150" height="110">
                             <button class="btn btn-sm btn-primary mt-2 ms-2 ms-md-0"><i
                                 class="ti ti-plus"></i>Info</button>
                           </div>
                           <div class="col-md-4 mt-2 mt-md-0">
-                            <small class="fs-5">SLE vs Juventude</small><br>
-                            <small><i class="ti ti-calendar me-1"></i>30 Outubro, 2023</small><br>
+                            <small class="fs-5">António vs Fábio</small><br>
+                            <small><i class="ti ti-calendar me-1"></i>12 Outubro, 2023</small><br>
                             <small><i class="ti ti-clock me-1"></i>21:00</small><br>
-                            <small><i class="ti ti-map-pin me-1"></i>SLA</small><br>
-                            <span class="badge rounded-pill text-bg-danger mt-2"><i class="ti ti-ball-basketball me-1"></i><small>Futsal</small></span>
+                            <small><i class="ti ti-map-pin me-1"></i>CCP</small><br>
+                            <span class="badge rounded-pill text-bg-primary mt-2"><i class="ti ti-ball-basketball me-1"></i><small>Padel</small></span>
                           </div>
                           <div class="col-md-5 mt-2 mt-md-0">
                             <div class="row">
                               <small class="fs-3">Participantes</small><br>
-                              <div class="col-4">
+                              <div class="col-6">
                                 <div class="d-flex align-items-center mt-2">
                                   <img alt="Participant 1" id="perfil7" class="rounded-circle object-fit-cover"
                                     width="30" height="30">
                                   <small class="ms-2" id="nomeEquipa4"></small>
                                 </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">José Carlos</small>
-                                </div>
                               </div>
-                              <div class="col-4">
+                              <div class="col-6">
                                 <div class="d-flex align-items-center mt-2">
                                   <img src="../../dist/images/profile/boy6.jpg" alt="Participant 1"
                                     class="rounded-circle object-fit-cover" width="30" height="30">
                                   <small class="ms-2">Fábio Santos</small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy9.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Paulo Chaves</small>
-                                </div>
-                              </div>
-                              <div class="col-4">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Filipe Barros</small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Gonçalo Ricardo</small>
                                 </div>
                               </div>
                             </div>
