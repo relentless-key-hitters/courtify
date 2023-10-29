@@ -243,7 +243,7 @@ if (isset($_SESSION['id'])) {?>
                           <p class="card-subtitle mb-4">Altera aqui a tua foto de perfil</p>
                           <div class="text-center">
                             <img id="fotoPerfilEditCurrent" alt="" class="img-fluid rounded-circle" width="120" height="120">
-                            <form action="#" class="dropzone dz-clickable mt-4 mb-4">
+                            <form action="#" class="dropzone dz-clickable mt-4 mb-4" id="fotoPerfilEditNova">
                               <div class="dz-default dz-message">
                                 <button class="dz-button" type="button">Clique ou arraste ficheiro para aqui</button>
                               </div>
@@ -962,11 +962,11 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/dashboard.js"></script>
   <script src="../../dist/js/apps/chat.js"></script>
   <script src="../../dist/js/widgets-charts.js"></script>
+  <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../dist/libs/dropzone/dist/min/dropzone.min.js"></script>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
-  <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/libs/dropzone/dist/min/dropzone.min.js"></script>
 
 
   <script>

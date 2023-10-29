@@ -419,6 +419,16 @@ function verifTipoUser(){
     return(flag);
 }
 
+function guardaAlteracoesPerfil() {
+    
+var myDropzone = Dropzone.forElement("#fotoPerflEditNova");
+
+if (myDropzone.getQueuedFiles().length > 0) {
+  
+  dados.append("fotoPerfilNova", myDropzone.getQueuedFiles()[0]);
+}
+}
+
 function alerta(titulo,msg,icon){
     Swal.fire({
         position: 'center',
