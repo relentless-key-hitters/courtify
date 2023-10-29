@@ -382,7 +382,7 @@ if (isset($_SESSION['id'])) {?>
                             alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
                           <div class="ms-3">
                             <p><span class="fw-bolder fs-5">WorldPadel Club</span></p>
-                            <span class="badge rounded-pill text-bg-primary"><i class="ti ti-ball-basketball me-1"></i><small>Padel</small></span>
+                            <span class="badge rounded-pill text-bg-primary"><i class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
                             <p class="mt-2"><span class="fw-bolder">Posição: </span>Esquerda</p>
                           </div>
                         </div>
@@ -393,7 +393,7 @@ if (isset($_SESSION['id'])) {?>
                             alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
                           <div class="ms-3">
                             <p><span class="fw-bolder fs-5">Quickstrike FC</span></p>
-                            <span class="badge rounded-pill text-bg-danger"><i class="ti ti-ball-basketball me-1"></i><small>Futsal</small></span>
+                            <span class="badge rounded-pill text-bg-danger"><i class="ti ti-ball-football me-1"></i><small>Futsal</small></span>
                             <p class="mt-2"><span class="fw-bolder">Posição: </span>Extremo</p>
                           </div>
                         </div>
@@ -447,7 +447,7 @@ if (isset($_SESSION['id'])) {?>
                                 <div class="d-flex align-items-center mt-2">
                                   <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
                                     class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Filipe Serra</small>
+                                  <small class="ms-2">Rui Paulo</small>
                                 </div>
                               </div>
                               <div class="col-4">
@@ -484,7 +484,7 @@ if (isset($_SESSION['id'])) {?>
                             <small><i class="ti ti-calendar me-1"></i>22 Outubro, 2023</small><br>
                             <small><i class="ti ti-clock me-1"></i>18:30</small><br>
                             <small><i class="ti ti-map-pin me-1"></i>CEZ</small><br>
-                            <span class="badge rounded-pill text-bg-primary mt-2"><i class="ti ti-ball-basketball me-1"></i><small>Padel</small></span>
+                            <span class="badge rounded-pill text-bg-primary mt-2"><i class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
                             <span class="ms-1 badge rounded-pill text-bg-light mt-2"><i class="ti ti-users me-1"></i><small>Duplas</small></span>
                           </div>
                           <div class="col-md-5 mt-2 mt-md-0">
@@ -536,7 +536,7 @@ if (isset($_SESSION['id'])) {?>
                             <small><i class="ti ti-calendar me-1"></i>27 Outubro, 2023</small><br>
                             <small><i class="ti ti-clock me-1"></i>18:00</small><br>
                             <small><i class="ti ti-map-pin me-1"></i>CTI</small><br>
-                            <span class="badge rounded-pill text-bg-success mt-2"><i class="ti ti-ball-basketball me-1"></i><small>Ténis</small></span>
+                            <span class="badge rounded-pill text-bg-success mt-2"><i class="ti ti-ball-tennis me-1"></i><small>Ténis</small></span>
                             <span class="ms-1 badge rounded-pill text-bg-light mt-2"><i class="ti ti-user me-1"></i><small>Individuais</small></span>
                           </div>
                           <div class="col-md-5 mt-2 mt-md-0">
@@ -578,7 +578,7 @@ if (isset($_SESSION['id'])) {?>
                             <small><i class="ti ti-calendar me-1"></i>30 Outubro, 2023</small><br>
                             <small><i class="ti ti-clock me-1"></i>21:00</small><br>
                             <small><i class="ti ti-map-pin me-1"></i>SLA</small><br>
-                            <span class="badge rounded-pill text-bg-danger mt-2"><i class="ti ti-ball-basketball me-1"></i><small>Futsal</small></span>
+                            <span class="badge rounded-pill text-bg-danger mt-2"><i class="ti ti-ball-football me-1"></i><small>Futsal</small></span>
                           </div>
                           <div class="col-md-5 mt-2 mt-md-0">
                             <div class="row">
@@ -592,7 +592,7 @@ if (isset($_SESSION['id'])) {?>
                                 <div class="d-flex align-items-center mt-2">
                                   <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
                                     class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">José Carlos</small>
+                                  <small class="ms-2">Rui Paulo</small>
                                 </div>
                               </div>
                               <div class="col-4">
@@ -641,7 +641,7 @@ if (isset($_SESSION['id'])) {?>
                             <small><i class="ti ti-calendar me-1"></i>12 Outubro, 2023</small><br>
                             <small><i class="ti ti-clock me-1"></i>21:00</small><br>
                             <small><i class="ti ti-map-pin me-1"></i>CCP</small><br>
-                            <span class="badge rounded-pill text-bg-primary mt-2"><i class="ti ti-ball-basketball me-1"></i><small>Padel</small></span>
+                            <span class="badge rounded-pill text-bg-primary mt-2"><i class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
                           </div>
                           <div class="col-md-5 mt-2 mt-md-0">
                             <div class="row">
@@ -1077,7 +1077,7 @@ if (isset($_SESSION['id'])) {?>
                     <img src="../../dist/images/profile/boy2.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
                       height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Rui Pereira</h5>
+                    <h5 class="fw-semibold mb-0">Rui Paulo</h5>
                     <span class="text-dark fs-2">Ténis</span>
                   </div>
                   <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
