@@ -164,7 +164,7 @@ function login(){
                     }, 2000);
                 }else{
                     setTimeout(function(){ 
-                        window.location.href = "../../html/horizontal/index_editavel.html";
+                        window.location.href = "../../html/horizontal/index_editavel.php";
                     }, 2000);
                 }
 
@@ -307,7 +307,7 @@ function contRegisto(){
             .done(function(msg) {
                 alerta2("Utilizador", msg, "success");
                 setTimeout(function(){ 
-                    window.location.href = "../../html/horizontal/index_editavel.html";;
+                    window.location.href = "../../html/horizontal/index_editavel.php";;
                 }, 2000);
             })
             

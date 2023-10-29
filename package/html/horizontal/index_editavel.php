@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -2334,3 +2338,11 @@
 </body>
 
 </html>
+<?php
+} else {
+  header("Location: ../main/authentication-error.html");
+  exit();
+}
+
+
+?>
