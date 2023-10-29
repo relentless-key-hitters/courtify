@@ -58,7 +58,7 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-4" href="#">Home</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./marcacao_editavel.html">Marcação</a>
+            <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
@@ -806,7 +806,7 @@ if (isset($_SESSION['id'])) {?>
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="marcacao_editavel.html" aria-expanded="false">
+            <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
               <span>
                 <i class="ti ti-soccer-field"></i>
               </span>

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -289,150 +293,7 @@
             <h4 class="fw-semibold mb-3">Resultados</h4>
         
             <div class="row" id="rowCampos">
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>Futebol</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span id="morada"><i class="ti ti-map-pin me-1"></i>Rua das Chuteiras, nº 10,  1234-567, </span>
-                    <span id="localidade">Localidade</span>
-                    <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">Futbolândia United</p>
-                    <p id="descricao" class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4">
-                      <button class="btn btn-small btn-primary">16:30</button>
-                      <button class="btn btn-small btn-primary">17:00</button>
-                      <button class="btn btn-small btn-primary">17:30</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo2.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Avenida dos Enterras Altas, nº 25, 9876-543</span>
-                    <p class="d-block my-2 fs-5 text-dark fw-semibold">CestaVille Stars</p>
-                    <p class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4">
-                      <button class="btn btn-small btn-primary">17:30</button>
-                      <button class="btn btn-small btn-primary">18:00</button>
-                      <button class="btn btn-small btn-primary">18:30</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo3.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-tennis me-1"></i>Padel</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Rua das Raquetas, nº 7, 6543-210</span>
-                    <p class="d-block my-2 fs-5 text-dark fw-semibold">Padel Paradise Club</p>
-                    <p class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4">
-                      <button class="btn btn-small btn-primary">16:30</button>
-                      <button class="btn btn-small btn-primary">17:00</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo4.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-tennis me-1"></i>Ténis</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda das Cordas, nº 14, 8765-432</span>
-                    <p class="d-block my-2 fs-5 text-dark fw-semibold">RaqueteReino Sports Club</p>
-                    <p class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4">
-                      <button class="btn btn-small btn-primary">16:30</button>
-                      <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">17:00</button>
-                      <button class="btn btn-small btn-primary">17:30</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>Futsal</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Praça dos Desportos, nº 1, 3456-789</span>
-                    <p class="d-block my-2 fs-5 text-dark fw-semibold">EsporteTotal Arena</p>
-                    <p class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4">
-                      <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">16:30</button>
-                      <button class="btn btn-small btn-dark" disabled style="filter: grayscale(80%)">17:00</button>
-                      <button class="btn btn-small btn-primary">17:30</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda dos Velocistas, nº 25, 6789-012</span>
-                    <p class="d-block my-2 fs-5 text-dark fw-semibold">Cidade Ballers</p>
-                    <p class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4 justify-content-center">
-                      <div class="d-flex align-items-center" style="background-color: #E6E6E6;">
-                        <p class="px-2"><i class="ti ti-alert-circle me-2"></i>Sem disponibilidade horária </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda dos Velocistas, nº 25, 6789-012</span>
-                    <p class="d-block my-2 fs-5 text-dark fw-semibold">Cidade Ballers</p>
-                    <p class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4 justify-content-center">
-                      <div class="d-flex align-items-center" style="background-color: #E6E6E6;">
-                        <p class="px-2"><i class="ti ti-alert-circle me-2"></i>Sem disponibilidade horária </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card rounded-2 overflow-hidden hover-img">
-                  <div class="position-relative">
-                    <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-basketball me-1"></i>Basquetebol</span>
-                  </div>
-                  <div class="card-body p-4">
-                    <span class=""><i class="ti ti-map-pin me-1"></i>Alameda dos Velocistas, nº 25, 6789-012</span>
-                    <p class="d-block my-2 fs-5 text-dark fw-semibold">Cidade Ballers</p>
-                    <p class="my-2">Descrição do Campo</p>
-                    <div class="d-flex align-items-center gap-4 justify-content-center">
-                      <div class="d-flex align-items-center" style="background-color: #E6E6E6;">
-                        <p class="px-2"><i class="ti ti-alert-circle me-2"></i>Sem disponibilidade horária </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
           <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
@@ -741,6 +602,45 @@
 
   document.getElementById("currentDateInput").value = getCurrentDate();
 </script>
+
+<script type="text/javascript">
+  var timeout;
+
+  
+  function resetSessionTimeout() {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+          
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'logout.php', true);
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                  alerta2("Utilizador", "Sessão terminada após 15m de inatividade", "warning");
+                  setTimeout(function () {
+                  window.location.href = '../../../landingpage/index.html';
+                  }, 3000);
+                  
+              }
+          };
+          xhr.send();
+      }, 900000);
+  }
+
+  
+  document.onmousemove = resetSessionTimeout;
+  document.onkeypress = resetSessionTimeout;
+
+  
+  resetSessionTimeout();
+</script>
 </body>
 
 </html>
+<?php
+} else {
+  header("Location: authentication-error.html");
+  exit();
+}
+
+
+?>
