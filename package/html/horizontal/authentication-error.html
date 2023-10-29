@@ -35,7 +35,7 @@
                 <img src="../../dist/images/backgrounds/404-error-idea.gif" alt="" class="img-fluid" width="500">
                 <h1 class="fw-semibold mb-7 fs-9">Opps!!!</h1>
                 <h4 class="fw-semibold mb-7">A página que procuras não existe ou não tens acesso.</h4>
-                <a class="btn btn-primary" href="../../../landingpage/index.html" role="button">Voltar</a>
+                <a class="btn btn-primary" href="javascript:void(0);" onclick="goBack()" role="button">Voltar</a>
               </div>
             </div>
           </div>
@@ -57,4 +57,10 @@
     <!-- current page js files -->
     <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   </body>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>
 </html>
