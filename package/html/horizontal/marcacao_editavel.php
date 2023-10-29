@@ -133,8 +133,8 @@ if (isset($_SESSION['id'])) {?>
                 <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <div class="d-flex align-items-center">
-                    <div class="user-profile-img mb-2">
-                      <img src="../../dist/images/profile/perfil.jpg" class="rounded-circle" width="35" height="35"
+                    <div class="user-profile-img mb-2" >
+                      <img id="perfil1" class="rounded-circle" width="35" height="35"
                         alt="" />
                     </div>
                   </div>
@@ -573,11 +573,6 @@ if (isset($_SESSION['id'])) {?>
 
   <script src="../../dist/js/custom.js"></script>
   <!-- current page js files -->
-  <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="../../dist/js/dashboard.js"></script>
-  <script src="../../dist/js/apps/chat.js"></script>
-  <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
