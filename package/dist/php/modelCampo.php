@@ -18,7 +18,7 @@ class Campo {
                             <div class="card rounded-2 overflow-hidden hover-img">
                                 <div class="position-relative">
                                     <a href="javascript:void(0)"><img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;"></a>
-                                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"><i class="ti ti-ball-football me-1"></i>' . $row['tipoCampoDesc'] . '</span>
+                                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0">' . $row['tipoCampoDesc'] . '</span>
                                 </div>
                                 <div class="card-body p-4">
                                     <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaCampo'] . ', </span>
