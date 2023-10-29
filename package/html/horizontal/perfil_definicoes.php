@@ -1048,11 +1048,11 @@ if (isset($_SESSION['id'])) {?>
       addRemoveLinks: true,
       acceptedFiles: "image/*,application/pdf",
       dictDefaultMessage: "Clique ou arraste ficheiro para aqui",
-      maxFiles: 1, // Set the maximum number of files to 1
+      maxFiles: 1, 
       init: function() {
         this.on("addedfile", function(file) {
           if (this.files.length > 1) {
-            this.removeFile(this.files[0]); // Remove the first file if more than one is added
+            this.removeFile(this.files[0]); 
           }
         });
       }
