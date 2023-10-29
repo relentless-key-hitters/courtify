@@ -245,7 +245,7 @@ if (isset($_SESSION['id'])) {?>
                             <img id="fotoPerfilEditCurrent" alt="" class="img-fluid rounded-circle" width="120" height="120">
                             <form action="#" class="dropzone dz-clickable mt-4 mb-4" id="fotoPerfilEditNova">
                               <div class="dz-default dz-message">
-                                <button class="dz-button" type="button">Clique ou arraste ficheiro para aqui</button>
+                                <button class="dz-button" type="button">Clique ou arraste ficheiros para aqui</button>
                               </div>
                             </form>
                             <p class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</p>
