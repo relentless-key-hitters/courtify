@@ -248,10 +248,6 @@ if (isset($_SESSION['id'])) {?>
                                 <button class="dz-button" type="button">Clique ou arraste ficheiro para aqui</button>
                               </div>
                             </form>
-                            <div class="d-flex align-items-center justify-content-center my-4 gap-3">
-                              <button class="btn btn-primary">Enviar</button>
-                              <button class="btn btn-outline-danger">Limpar</button>
-                            </div>
                             <p class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</p>
                           </div>
                         </div>
@@ -1046,9 +1042,9 @@ if (isset($_SESSION['id'])) {?>
     var myDropzone = new Dropzone("#fotoPerfilEditNova", {
       url: "#",
       addRemoveLinks: true,
-      acceptedFiles: "image/*,application/pdf",
-      dictDefaultMessage: "Clique ou arraste ficheiro para aqui",
-      maxFiles: 1, 
+      acceptedFiles: "image/jpeg,image/png",
+      maxFilesize: 10,
+      dictRemoveFile: "Remover ficheiro", 
       init: function() {
         this.on("addedfile", function(file) {
           if (this.files.length > 1) {
