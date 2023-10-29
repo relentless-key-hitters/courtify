@@ -179,7 +179,7 @@ if (isset($_SESSION['id'])) {?>
                           <h6 class="mb-1 bg-hover-primary fw-semibold">Calendário</h6>
                         </div>
                       </a>
-                      <a href="./app-notes.html" class="py-8 px-7 d-flex align-items-center">
+                      <a href="./perfil_definicoes.php" class="py-8 px-7 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-settings fs-7 text-primary"></i>
                         </span>
@@ -459,7 +459,7 @@ if (isset($_SESSION['id'])) {?>
                                 <div class="d-flex align-items-center mt-2">
                                   <img src="../../dist/images/profile/boy6.jpg" alt="Participant 2"
                                     class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">José Carlos</small>
+                                  <small class="ms-2">Fábio Santos</small>
                                 </div>
                               </div>
                             </div>
@@ -611,7 +611,7 @@ if (isset($_SESSION['id'])) {?>
                                 <div class="d-flex align-items-center mt-2">
                                   <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
                                     class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Filipe Barros</small>
+                                  <small class="ms-2">Gonçalo Nunes</small>
                                 </div>
                                 <div class="d-flex align-items-center mt-2">
                                   <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"

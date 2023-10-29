@@ -24,6 +24,7 @@ function getPerfil(){
             $("#perfil6").attr('src', obj.fotoPerfil);
             $("#perfil7").attr('src', obj.fotoPerfil);
             $("#perfil8").attr('src', obj.fotoPerfil);
+            $("#fotoPerfilEditCurrent").attr('src', obj.fotoPerfil);
             $("#nomePerfil").html(obj.nome);
             $("#nome2").html(obj.nome);
             $("#email").html(obj.email);
