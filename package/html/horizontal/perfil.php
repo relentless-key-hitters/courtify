@@ -2442,7 +2442,7 @@ if (isset($_SESSION['id'])) {?>
 </html>
 <?php
 } else {
-  header("Location: ../main/authentication-error.html");
+  header("Location: authentication-error.html");
   exit();
 }
 
