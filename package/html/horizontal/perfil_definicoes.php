@@ -19,6 +19,7 @@ if (isset($_SESSION['id'])) {?>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/favicon.ico" />
+  <link rel="stylesheet" href="../../dist/libs/dropzone/dist/min/dropzone.min.css">
   <!-- Owl Carousel -->
   <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
   <!-- Core Css -->
@@ -242,8 +243,10 @@ if (isset($_SESSION['id'])) {?>
                           <p class="card-subtitle mb-4">Altera aqui a tua foto de perfil</p>
                           <div class="text-center">
                             <img id="fotoPerfilEditCurrent" alt="" class="img-fluid rounded-circle" width="120" height="120">
-                            <form class="mt-4 mb-4">
-                              <input class="form-control" type="file" id="formFile">
+                            <form action="#" class="dropzone dz-clickable mt-4 mb-4">
+                              <div class="dz-default dz-message">
+                                <button class="dz-button" type="button">Clique ou arraste ficheiro para aqui</button>
+                              </div>
                             </form>
                             <div class="d-flex align-items-center justify-content-center my-4 gap-3">
                               <button class="btn btn-primary">Enviar</button>
@@ -963,6 +966,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../dist/libs/dropzone/dist/min/dropzone.min.js"></script>
 
 
   <script>
