@@ -248,7 +248,7 @@ if (isset($_SESSION['id'])) {?>
                                 <button class="dz-button" type="button">Clique ou arraste ficheiros para aqui</button>
                               </div>
                             </form>
-                            <p class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</p>
+                            <small class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</small>
                           </div>
                         </div>
                       </div>
@@ -259,11 +259,11 @@ if (isset($_SESSION['id'])) {?>
                           <h5 class="card-title fw-semibold">Password</h5>
                           <p class="card-subtitle mb-4">Altera aqui a tua password. Se não quiseres alterar, deixa em branco</p>
                           <form>
-                            <div class="mb-4">
+                            <div class="mb-4 mb-md-5">
                               <label for="exampleInputPassword1" class="form-label fw-semibold">Password Atual</label>
                               <input type="password" class="form-control" id="exampleInputPassword1" value="">
                             </div>
-                            <div class="mb-4">
+                            <div class="mb-4 mb-md-5">
                               <label for="exampleInputPassword1" class="form-label fw-semibold">Nova Password</label>
                               <input type="password" class="form-control" id="exampleInputPassword1" value="">
                             </div>
@@ -1038,22 +1038,26 @@ if (isset($_SESSION['id'])) {?>
     resetSessionTimeout();
   </script>
 
-  <script>
-    var myDropzone = new Dropzone("#fotoPerfilEditNova", {
-      url: "#",
-      addRemoveLinks: true,
-      acceptedFiles: "image/jpeg,image/png",
-      maxFilesize: 10,
-      dictRemoveFile: "Remover ficheiro", 
-      init: function() {
-        this.on("addedfile", function(file) {
-          if (this.files.length > 1) {
-            this.removeFile(this.files[0]); 
-          }
-        });
-      }
-    });
-  </script>
+<script>
+  var myDropzone = new Dropzone("#fotoPerfilEditNova", {
+    url: "#",
+    addRemoveLinks: true,
+    acceptedFiles: "image/jpeg,image/png",
+    maxFilesize: 10,
+    dictRemoveFile: "Remover ficheiro",
+    init: function() {
+      this.on("addedfile", function(file) {
+        if (this.files.length > 1) {
+          this.removeFile(this.files[0]);
+        }
+      });
+    }
+  });
+
+</script>
+
+
+
 
 
 </body>
