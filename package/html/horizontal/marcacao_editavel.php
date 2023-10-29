@@ -145,13 +145,12 @@ if (isset($_SESSION['id'])) {?>
                     <div class="py-3 px-7 pb-0">
                     </div>
                     <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                      <img src="../../dist/images/profile/perfil.jpg" class="rounded-circle" width="80" height="80"
-                        alt="" />
+                    <img class="rounded-circle" width="80" height="80" alt="" id="perfil2" />
                       <div class="ms-3">
-                        <h5 class="mb-1 fs-3">João Silva</h5>
+                        <h5 class="mb-1 fs-3" id="nome2"></h5>
                         <span class="mb-1 d-block text-dark">Padel</span>
-                        <p class="mb-0 d-flex text-dark align-items-center gap-2">
-                          <i class="ti ti-mail fs-4"></i> joao_silva@mail.pt
+                        <p class="mb-0 d-flex text-dark align-items-center gap-2" id="email2">
+                          <i class="ti ti-mail fs-4"></i>
                         </p>
                       </div>
                     </div>
@@ -580,6 +579,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/apps/chat.js"></script>
   <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+  <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../dist/js/js_courtify/campo.js"></script>
 
