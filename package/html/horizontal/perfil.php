@@ -2352,11 +2352,6 @@ if (isset($_SESSION['id'])) {?>
 
   <script src="../../dist/js/custom.js"></script>
   <!-- current page js files -->
-  <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="../../dist/js/dashboard.js"></script>
-  <script src="../../dist/js/apps/chat.js"></script>
-  <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
@@ -2364,8 +2359,9 @@ if (isset($_SESSION['id'])) {?>
 
 
   <script>
-    $(function (
-    ) { $("[data-toggle = 'tooltip']").tooltip() })
+    $(function () {
+      $("[data-toggle = 'tooltip']").tooltip();
+    });
   </script>
 
   <script>
@@ -2435,7 +2431,6 @@ if (isset($_SESSION['id'])) {?>
     
     resetSessionTimeout();
   </script>
-
 
 </body>
 

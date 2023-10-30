@@ -14,6 +14,9 @@ function getPerfil(){
         })
 
         .done(function(msg) {
+
+            
+
             let obj = JSON.parse(msg);
             $("#fotoCapaView").attr('src', obj.fotoCapa);
             $("#perfil1").attr('src', obj.fotoPerfil);
