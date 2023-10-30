@@ -2417,7 +2417,7 @@ if (isset($_SESSION['id'])) {?>
             xhr.open('GET', 'logout.php', true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    alerta2("Utilizador", "Sessão terminada após 15m de inatividade", "warning");
+                    alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
                     setTimeout(function () {
                     window.location.href = '../../../landingpage/index.html';
                     }, 3000);

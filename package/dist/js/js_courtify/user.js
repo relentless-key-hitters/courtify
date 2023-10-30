@@ -305,7 +305,7 @@ function contRegisto(){
             })
             
             .done(function(msg) {
-                alerta2("Utilizador", msg, "success");
+                alerta2("Sucesso", msg, "success");
                 setTimeout(function(){ 
                     window.location.href = "../../html/horizontal/perfil.php";;
                 }, 2000);
@@ -333,7 +333,7 @@ function contRegisto(){
             
         }
 
-        alerta("Utilizador","Há informação obrigatória não preenchida. Por favor, verifique.","warning");
+        alerta("Alerta","Há informação obrigatória não preenchida. Por favor, verifique.","warning");
     }
 }
 
@@ -509,7 +509,7 @@ function logout(){
         })
         
         .done(function(msg) {
-            alerta2("Utilizador", msg, "success");
+            alerta2("Sucesso", msg, "success");
             setTimeout(function(){ 
                 window.location.href = "../../../landingpage/index.html";
             }, 2000);

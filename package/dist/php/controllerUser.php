@@ -30,7 +30,8 @@ if ($_POST['op'] == 1){
     echo($res);
 }else if ($_POST['op'] == 9){
     session_destroy();
-    echo("Sessão terminada com sucesso!");
+    $res = "Sessão terminada com sucesso!";
+    echo($res);
 }else if ($_POST['op'] == 10){
     $res = $user -> getInfoPerfil();
     echo($res);  
