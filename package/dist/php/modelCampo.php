@@ -20,27 +20,36 @@ class Campo {
                                     <a href="javascript:void(0)">
                                         <img src="'.$row['fotoCampo'].'" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
                                     </a>';
-                                    if ($row['campoModalidade'] == "Futsal") {
-                                        $msg .= '<span class="badge bg-danger text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                        $msg .= '<i class="ti ti-ball-football me-1"></i>';
-                                    } else if ($row['campoModalidade'] == "Ténis") {
-                                        $msg .= '<span class="badge bg-success text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                        $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
-                                    } else if ($row['campoModalidade'] == "Padel") {
-                                        $msg .= '<span class="badge bg-primary text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                        $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
-                                    } else if ($row['campoModalidade'] == "Basquetebol") {
-                                        $msg .= '<span class="badge bg-warning text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                        $msg .= '<i class="ti ti-ball-basketball me-1"></i>';
+                                    switch ($row['campoModalidade']) {
+                                        case "Futsal":
+                                            $msg .= '<span class="badge bg-danger text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
+                                            $msg .= '<i class="ti ti-ball-football me-1"></i>';
+                                            break;
+                                        case "Ténis":
+                                            $msg .= '<span class="badge bg-success text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
+                                            $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
+                                            break;
+                                        case "Padel":
+                                            $msg .= '<span class="badge bg-primary text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
+                                            $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
+                                            break;
+                                        case "Basquetebol":
+                                            $msg .= '<span class="badge bg-warning text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
+                                            $msg .= '<i class="ti ti-ball-basketball me-1"></i>';
+                                            break;
                                     }
                                     $msg .= $row['campoModalidade'] . '</span>
                                     <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0">';
-                                    if ($row['tipoCampoDesc'] == "Exterior") {
-                                        $msg .= '<i class="ti ti-sun me-1"></i>';
-                                    } else if ($row['tipoCampoDesc'] == "Cobertura") {
-                                        $msg .= '<i class="ti ti-building-cottage me-1"></i>';
-                                    } else if ($row['tipoCampoDesc'] == "Indoor") {
-                                        $msg .= '<i class="ti ti-home me-1"></i>';
+                                    switch ($row['tipoCampoDesc']) {
+                                        case "Exterior":
+                                            $msg .= '<i class="ti ti-sun me-1"></i>';
+                                            break;
+                                        case "Cobertura":
+                                            $msg .= '<i class="ti ti-building-cottage me-1"></i>';
+                                            break;
+                                        case "Indoor":
+                                            $msg .= '<i class="ti ti-home me-1"></i>';
+                                            break;
                                     }
                                     $msg .= $row['tipoCampoDesc'] . '</span>
                                 </div>
