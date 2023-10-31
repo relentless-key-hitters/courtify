@@ -2356,8 +2356,8 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-      <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="../../dist/js/widgets-charts.js"></script>
+  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../../dist/js/widgets-charts.js"></script>
 
 
   <script>
