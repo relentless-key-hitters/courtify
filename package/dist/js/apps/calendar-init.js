@@ -1,10 +1,39 @@
 /*========Calender Js=========*/
 /*==========================*/
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var ptPT = {
+    code: 'pt-PT',
+    week: {
+      dow: 1, // Monday is the first day of the week
+      doy: 4, // The week that contains Jan 4th is the first week of the year
+    },
+    buttonText: {
+      prev: 'Anterior',
+      next: 'Próximo',
+      today: 'Hoje',
+      month: 'Mês',
+      week: 'Semana',
+      day: 'Dia',
+      list: 'Lista',
+    },
+    allDayText: 'Todo o Dia',
+    moreLinkText: 'mais',
+    noEventsText: 'Não há eventos para mostrar',
+  };
+
+  FullCalendar.registerLocale(ptPT);
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
   /*=================*/
   //  Calender Date variable
   /*=================*/
+
+  
   var newDate = new Date();
   function getDynamicMonth() {
     getMonthValue = newDate.getMonth();
@@ -176,13 +205,14 @@ document.addEventListener("DOMContentLoaded", function () {
     initialDate: `${newDate.getFullYear()}-${getDynamicMonth()}-07`,
     headerToolbar: calendarHeaderToolbar,
     events: calendarEventsList,
+    locale: 'pt-PT',
     select: calendarSelect,
     unselect: function () {
       console.log("unselected");
     },
     customButtons: {
       addEventButton: {
-        text: "Add Event",
+        text: "Adicionar Evento",
         click: calendarAddEvent,
       },
     },
@@ -270,3 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 });
+
+
+
+
