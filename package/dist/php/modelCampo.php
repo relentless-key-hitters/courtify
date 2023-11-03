@@ -14,11 +14,11 @@ class Campo {
         if ($result->num_rows > 0) {
         // output data of each row
             while ($row = $result->fetch_assoc()) {
-                $msg .= '<div class="col-md-3">
+                $msg .= '<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                             <div class="card rounded-2 overflow-hidden hover-img">
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
-                                        <img src="'.$row['fotoCampo'].'" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
+                                        <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
                                     </a>';
                                     switch ($row['campoModalidade']) {
                                         case "Futsal":

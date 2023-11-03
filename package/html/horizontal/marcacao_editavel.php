@@ -275,53 +275,63 @@ if (isset($_SESSION['id'])) {?>
             <div class="col-md-9 text-end mt-2 mt-md-0 col">
               <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
                 <div>
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked="">
                   <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
                 </div>
-                <div>
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
-                  <label class="form-check-label" for="flexSwitchCheckDefault">Mostrar mapa</label>
+                <div class="">
+                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
                 </div>
               </div>
             </div>
           </div>
         </div>
         
-        <div class="card">
-          <div class="card-body bg-light">
-            <h4 class="fw-semibold mb-3">Resultados</h4>
-        
-            <div class="row" id="rowCampos">
-              
+        <div class="page">
+          <div class="left" id="leftContainer">
+            <div class="card">
+              <div class="card-body bg-light">
+                <h4 class="fw-semibold mb-3">Resultados</h4>
+            
+                <div class="row flex-nowrap" id="rowCampos">
+                  
+                </div>
+              </div>
+              <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
+                <ul class="pagination bg-light me-3">
+                  <li class="page-item">
+                    <a class="page-link link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">
+                        <i class="ti ti-chevrons-left fs-4"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link link" href="#" aria-label="Next">
+                      <span aria-hidden="true">
+                        <i class="ti ti-chevrons-right fs-4"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
-          <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
-            <ul class="pagination bg-light me-3">
-              <li class="page-item">
-                <a class="page-link link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">
-                    <i class="ti ti-chevrons-left fs-4"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#" aria-label="Next">
-                  <span aria-hidden="true">
-                    <i class="ti ti-chevrons-right fs-4"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <div class="divider" id="divider">
+
+          </div>
+          <div class="right" id="rightContainer">
+            <p>Mapa Google</p>
+          </div>
         </div>
       </div>
     </div>
@@ -596,6 +606,29 @@ if (isset($_SESSION['id'])) {?>
 
 
   document.getElementById("currentDateInput").value = getCurrentDate();
+</script>
+
+<script>
+const rightContainer = document.getElementById("rightContainer");
+const toggleSwitch = document.getElementById("flexSwitchCheckChecked");
+const divider = document.getElementById("divider");
+
+
+rightContainer.style.display = "none";
+divider.style.display = "none";
+
+toggleSwitch.addEventListener("change", function () {
+    if (toggleSwitch.checked) {
+        
+        rightContainer.style.display = "block";
+        divider.style.display = "block";
+    } else {
+        
+        rightContainer.style.display = "none";
+        divider.style.display = "none";
+    }
+});
+
 </script>
 
 <script type="text/javascript">

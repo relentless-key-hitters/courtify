@@ -46398,3 +46398,20 @@ ul {
   justify-content: center; /* Center the carousel horizontally */
 }
 
+.divider {
+    width: 10px; /* Width of the divider */
+    background-color: #044967; /* Color of the divider */
+}
+
+.page {
+  display: flex;
+}
+
+.left {
+  flex: 1; /* Take up the full width initially */
+}
+
+.right {
+  width: 50%;
+  background-color: #eee;
+}
