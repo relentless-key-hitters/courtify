@@ -72,25 +72,21 @@ async function constroiMapa(campoInfo) {
         }
 
         marker.on('click', function () {
+            // Remove the highlight from the previously highlighted card, if any
+            if (highlightedCard) {
+                highlightedCard.classList.remove('border', 'border-2', 'border-primary', 'shadow');
+                highlightedCard.style.transition = 'none'; // Disable transition during removal
+            }
+
             // Find the card with the matching data-id attribute
             var dataId = info.idCampo; // Replace 'idCampo' with the actual unique identifier
             var cardToHighlight = document.querySelector('[data-id="' + dataId + '"]');
 
-            // If the clicked marker corresponds to the currently highlighted card, un-highlight it
-            if (highlightedCard === cardToHighlight) {
-                cardToHighlight.classList.remove('border', 'border-2', 'border-primary');
-                highlightedCard = null;
-            } else {
-                // Remove the highlight from the previously highlighted card, if any
-                if (highlightedCard) {
-                    highlightedCard.classList.remove('border', 'border-2', 'border-primary');
-                }
-
-                // Add the 'highlighted-card' class to highlight the new card
-                if (cardToHighlight) {
-                    cardToHighlight.classList.add('border', 'border-2', 'border-primary');
-                    highlightedCard = cardToHighlight; // Update the currently highlighted card
-                }
+            // Add the 'highlighted-card' class to highlight the new card
+            if (cardToHighlight) {
+                cardToHighlight.style.transition = ''; // Re-enable transition
+                cardToHighlight.classList.add('border', 'border-2', 'border-primary', 'shadow');
+                highlightedCard = cardToHighlight; // Update the currently highlighted card
             }
         });
     }
