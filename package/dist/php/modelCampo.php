@@ -16,7 +16,7 @@ class Campo {
         // output data of each row
             while ($row = $result->fetch_assoc()) {
 
-                $rowArray = array(
+                $rowArray = array( 
                     'idCampo' => $row['idCampo'],
                     'campoModalidade' => $row['campoModalidade'],
                     'campoId' => $row['campoId'],

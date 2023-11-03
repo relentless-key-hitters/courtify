@@ -45,9 +45,11 @@ async function constroiMapa(campoInfo) {
         var campoNome = info.campoNome;
         var campoDesc = info.campoDesc;
         var moradaCampo = info.moradaCampo;
+        var descConcelho = info.descConcelho;
         var idCampo = info.idCampo;
 
-        var nominatimUrl = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(moradaCampo);
+        var combinedQuery = moradaCampo + ', ' + descConcelho;
+        var nominatimUrl = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(combinedQuery);
 
         try {
             const response = await fetch(nominatimUrl);
@@ -72,31 +74,31 @@ async function constroiMapa(campoInfo) {
         }
 
         marker.on('click', function () {
-            // Remove the highlight from the previously highlighted card, if any
+            
             if (highlightedCard) {
                 highlightedCard.classList.remove('border', 'border-2', 'border-primary', 'shadow');
-                highlightedCard.style.transition = 'none'; // Disable transition during removal
+                highlightedCard.style.transition = 'none'; 
             }
 
-            // Find the card with the matching data-id attribute
-            var dataId = info.idCampo; // Replace 'idCampo' with the actual unique identifier
+            
+            var dataId = info.idCampo; 
             var cardToHighlight = document.querySelector('[data-id="' + dataId + '"]');
 
-            // Add the 'highlighted-card' class to highlight the new card
+            
             if (cardToHighlight) {
-                cardToHighlight.style.transition = ''; // Re-enable transition
+                cardToHighlight.style.transition = '';
                 cardToHighlight.classList.add('border', 'border-2', 'border-primary', 'shadow');
-                highlightedCard = cardToHighlight; // Update the currently highlighted card
+                highlightedCard = cardToHighlight; 
             }
         });
     }
 
-    // Create markers with popups for each campoInfo item
+    
     for (const info of campoInfo) {
         await createMarkerWithPopup(info);
     }
 
-    // Create a layer group from the markers and add it to the map
+    
     var markerLayer = L.layerGroup(markers);
     markerLayer.addTo(map);
 }
