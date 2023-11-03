@@ -75,22 +75,26 @@ async function constroiMapa(campoInfo) {
 
         marker.on('click', function () {
             
-            if (highlightedCard) {
-                highlightedCard.classList.remove('border', 'border-2', 'border-primary', 'shadow');
-                highlightedCard.style.transition = 'none'; 
-            }
-
-            
-            var dataId = info.idCampo; 
-            var cardToHighlight = document.querySelector('[data-id="' + dataId + '"]');
-
+            var cardToHighlight = document.querySelector('[data-id="' + idCampo + '"]');
+        
             
             if (cardToHighlight) {
-                cardToHighlight.style.transition = '';
-                cardToHighlight.classList.add('border', 'border-2', 'border-primary', 'shadow');
-                highlightedCard = cardToHighlight; 
+                if (cardToHighlight === highlightedCard) {
+                    
+                    cardToHighlight.classList.remove('border', 'border-1', 'border-primary', 'shadow');
+                    highlightedCard = null;
+                } else {
+                    
+                    if (highlightedCard) {
+                        highlightedCard.classList.remove('border', 'border-1', 'border-primary', 'shadow');
+                    }
+                    cardToHighlight.classList.add('border', 'border-1', 'border-primary', 'shadow');
+                    highlightedCard = cardToHighlight;
+                }
             }
         });
+
+        
     }
 
     

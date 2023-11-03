@@ -46414,5 +46414,5 @@ ul {
 .right {
   width: 20%;
   background-color: #eee;
-
+  z-index: 0;
 }
