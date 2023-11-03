@@ -7,15 +7,32 @@ class Campo {
     function getCampo() {
         global $conn;
         $msg = "";
+        $dados = array();
         
-        $sql = "SELECT modalidade.descricao as campoModalidade, campo.id AS campoId, campo.foto AS fotoCampo, campo.nome AS campoNome, campo.descricao AS campoDesc, tipo_campo.descricao AS tipoCampoDesc, campo.morada AS moradaCampo, concelho.descricao AS descConcelho FROM campo INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id INNER JOIN concelho on campo.localidade = concelho.id INNER JOIN modalidade ON campo.modalidade = modalidade.id LIMIT 12";
+        $sql = "SELECT campo.id AS idCampo, modalidade.descricao as campoModalidade, campo.id AS campoId, campo.foto AS fotoCampo, campo.nome AS campoNome, campo.descricao AS campoDesc, tipo_campo.descricao AS tipoCampoDesc, campo.morada AS moradaCampo, concelho.descricao AS descConcelho FROM campo INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id INNER JOIN concelho on campo.localidade = concelho.id INNER JOIN modalidade ON campo.modalidade = modalidade.id LIMIT 12";
         $result = $conn->query($sql);
     
         if ($result->num_rows > 0) {
         // output data of each row
             while ($row = $result->fetch_assoc()) {
+
+                $rowArray = array(
+                    'idCampo' => $row['idCampo'],
+                    'campoModalidade' => $row['campoModalidade'],
+                    'campoId' => $row['campoId'],
+                    'fotoCampo' => $row['fotoCampo'],
+                    'campoNome' => $row['campoNome'],
+                    'campoDesc' => $row['campoDesc'],
+                    'tipoCampoDesc' => $row['tipoCampoDesc'],
+                    'moradaCampo' => $row['moradaCampo'],
+                    'descConcelho' => $row['descConcelho']
+                    
+                );
+
+                $dados[] = $rowArray;
+
                 $msg .= '<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div class="card rounded-2 overflow-hidden hover-img">
+                            <div class="card rounded-2 overflow-hidden hover-img" data-id="' . $row['idCampo'] . '">
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
                                         <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
@@ -70,6 +87,8 @@ class Campo {
         }
 
         $conn->close();
-        return ($msg);
+
+        $data = array('html' => $msg, 'dados' => $dados);
+        return json_encode($data);
     }
 }
