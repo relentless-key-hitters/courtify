@@ -38,5 +38,12 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 11){
     $res = $user -> altFotoCapa($_FILES);
     echo($res);  
+}else if ($_POST['op'] == 12){
+    $res = $user -> getEditInfo();
+    echo($res);  
+}else if ($_POST['op'] == 13){
+    $res = $user -> guardaEditInfo($_POST['nome'], $_POST['email'], $_POST['nif'], $_POST['cp'], $_POST['tel'], $_POST['morada'], $_POST['local']);
+    echo($res);  
 }
+
 ?>

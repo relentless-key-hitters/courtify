@@ -265,11 +265,11 @@ if (isset($_SESSION['id'])) {?>
                             </div>
                             <div class="mb-4 mb-md-5">
                               <label for="exampleInputPassword1" class="form-label fw-semibold">Nova Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1" value="">
+                              <input type="password" class="form-control" id="exampleInputPassword2" value="">
                             </div>
                             <div class="">
                               <label for="exampleInputPassword1" class="form-label fw-semibold">Confirmar Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1" value="">
+                              <input type="password" class="form-control" id="exampleInputPassword3" value="">
                             </div>
                           </form>
                         </div>
@@ -284,61 +284,51 @@ if (isset($_SESSION['id'])) {?>
                             <div class="row">
                               <div class="col-lg-6">
                                 <div class="mb-4">
-                                  <label for="exampleInputPassword1" class="form-label fw-semibold">Nome Completo</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="">
+                                  <label for="nomeEdit" class="form-label fw-semibold">Nome Completo</label>
+                                  <input type="text" class="form-control" id="nomeEdit" placeholder="">
                                 </div>
                                 <div class="mb-4">
-                                  <label for="exampleInputPassword1" class="form-label fw-semibold">Distrito</label>
-                                  <select class="form-select" aria-label="Default select example">
-                                    <option selected>United Kingdom</option>
-                                    <option value="1">United States</option>
-                                    <option value="2">United Kingdom</option>
-                                    <option value="3">India</option>
-                                    <option value="3">Russia</option>
+                                  <label for="distritoEdit" class="form-label fw-semibold">Distrito</label>
+                                  <select class="form-select" aria-label="Default select example" id="distritoEdit" onchange="getConcelhos(this.value)">
                                   </select>
                                 </div>
                                 <div class="mb-4">
-                                  <label for="exampleInputPassword1" class="form-label fw-semibold">Email</label>
-                                  <input type="email" class="form-control" id="exampleInputtext" placeholder="info@courtify.com">
+                                  <label for="emailEdit" class="form-label fw-semibold">Email</label>
+                                  <input type="email" class="form-control" id="emailEdit" placeholder="info@courtify.com">
                                 </div>
                               </div>
                               <div class="col-lg-6">
                                 <div class="mb-4">
                                   <div class="row">
                                     <div class="col-6">
-                                      <label for="exampleInputPassword1" class="form-label fw-semibold">NIF</label>
-                                      <input type="number" class="form-control" id="exampleInputtext" placeholder="123456789">
+                                      <label for="nifEdit" class="form-label fw-semibold">NIF</label>
+                                      <input type="number" class="form-control" id="nifEdit" placeholder="123456789">
                                     </div>
                                     <div class="col-6">
-                                      <label for="exampleInputPassword1" class="form-label fw-semibold">Código-Postal</label>
-                                      <input type="number" class="form-control" id="exampleInputtext" placeholder="1234-567">
+                                      <label for="cpEdit" class="form-label fw-semibold">Código-Postal</label>
+                                      <input type="text" class="form-control" id="cpEdit" placeholder="1234-567">
                                     </div>
                                   </div>
                                 </div>
                                 <div class="mb-4">
-                                  <label for="exampleInputPassword1" class="form-label fw-semibold">Concelho</label>
-                                  <select class="form-select" aria-label="Default select example">
-                                    <option selected>India (INR)</option>
-                                    <option value="1">US Dollar ($)</option>
-                                    <option value="2">United Kingdom (Pound)</option>
-                                    <option value="3">India (INR)</option>
-                                    <option value="3">Russia (Ruble)</option>
+                                  <label for="concelhoEdit" class="form-label fw-semibold">Concelho</label>
+                                  <select class="form-select" aria-label="Default select example" id="concelhoEdit">
                                   </select>
                                 </div>
                                 <div class="mb-4">
-                                  <label for="exampleInputPassword1" class="form-label fw-semibold">Telemóvel</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="123456789">
+                                  <label for="telEdit" class="form-label fw-semibold">Telemóvel</label>
+                                  <input type="text" class="form-control" id="telEdit" placeholder="123456789">
                                 </div>
                               </div>
                               <div class="col-12">
                                 <div class="">
-                                  <label for="exampleInputPassword1" class="form-label fw-semibold">Morada</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="Rua de Cima, nº 1">
+                                  <label for="moradaEdit" class="form-label fw-semibold">Morada</label>
+                                  <input type="text" class="form-control" id="moradaEdit" placeholder="Rua de Cima, nº 1">
                                 </div>
                               </div>
                               <div class="col-12">
                                 <div class="d-flex align-items-center justify-content-end mt-4 gap-3">
-                                  <button class="btn btn-primary">Guardar</button>
+                                  <button type="button" class="btn btn-primary" onclick="guardaEditInfo()">Guardar</button>
                                   <button class="btn btn-light-danger text-danger">Limpar</button>
                                 </div>
                               </div>
@@ -361,7 +351,7 @@ if (isset($_SESSION['id'])) {?>
                           </p>
                           <form class="mb-7">                            
                             <label for="exampleInputPassword1" class="form-label fw-semibold">Email Address*</label>
-                            <input type="text" class="form-control" id="exampleInputtext" placeholder="" required>
+                            <input type="text" class="form-control" id="exampleInputtext1" placeholder="" required>
                             <p class="mb-0">Required for notificaitons.</p>
                           </form>
                           <div class="">
@@ -501,29 +491,29 @@ if (isset($_SESSION['id'])) {?>
                               <div class="col-lg-6">
                                 <div class="mb-4">
                                   <label for="exampleInputPassword1" class="form-label fw-semibold">Business Name*</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="Visitor Analytics">
+                                  <input type="text" class="form-control" id="exampleInputtext2" placeholder="Visitor Analytics">
                                 </div>
                                 <div class="mb-4">
                                   <label for="exampleInputPassword1" class="form-label fw-semibold">Business Address*</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="">
+                                  <input type="text" class="form-control" id="exampleInputtext3" placeholder="">
                                 </div>
                                 <div class="">
                                   <label for="exampleInputPassword1" class="form-label fw-semibold">First Name*</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="">
+                                  <input type="text" class="form-control" id="exampleInputtext4" placeholder="">
                                 </div>
                               </div>
                               <div class="col-lg-6">
                                 <div class="mb-4">
                                   <label for="exampleInputPassword1" class="form-label fw-semibold">Business Sector*</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="Arts, Media & Entertainment">
+                                  <input type="text" class="form-control" id="exampleInputtext5" placeholder="Arts, Media & Entertainment">
                                 </div>
                                 <div class="mb-4">
                                   <label for="exampleInputPassword1" class="form-label fw-semibold">Country*</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="Romania">
+                                  <input type="text" class="form-control" id="exampleInputtext6" placeholder="Romania">
                                 </div>
                                 <div class="">
                                   <label for="exampleInputPassword1" class="form-label fw-semibold">Last Name*</label>
-                                  <input type="text" class="form-control" id="exampleInputtext" placeholder="">
+                                  <input type="text" class="form-control" id="exampleInputtext7" placeholder="">
                                 </div>
                               </div>
                             </div>
