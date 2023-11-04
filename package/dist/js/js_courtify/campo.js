@@ -1,7 +1,34 @@
-function getCampos(){
+function getUserLocation() {
+    let dados = new FormData();
+    dados.append("op", 2);
+
+    $.ajax({
+        url: "../../dist/php/controllerCampo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            getCampos(msg);
+            
+
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+}
+
+
+function getCampos(localidade){
 
     let dados = new FormData();
     dados.append("op", 1);
+    dados.append("localidade", localidade);
 
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
@@ -16,8 +43,8 @@ function getCampos(){
         .done(function(msg) {
             let obj = JSON.parse(msg);
             $("#rowCampos").html(obj.html);
-
-            constroiMapa(obj.dados);
+            
+            constroiMapa(obj.dados, obj.localidadeUser);
             
 
         })
@@ -29,8 +56,24 @@ function getCampos(){
 }
 
 
-async function constroiMapa(campoInfo) {
-    var map = L.map('mapa').setView([38.5659, -7.9071], 13);
+async function constroiMapa(campoInfo, localidadeUser) {
+
+    var nominatimUrlUser = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(localidadeUser);
+
+    try {
+        const response = await fetch(nominatimUrlUser);
+        const data = await response.json();
+
+        if (data.length > 0) {
+            var lat = parseFloat(data[0].lat);
+            var lon = parseFloat(data[0].lon);
+            var coordinates = [lat, lon];
+            
+            var map = L.map('mapa').setView([coordinates[0], coordinates[1]], 13);
+        }
+    } catch (error) {
+        console.error('Error geocoding:', error);
+    }
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -111,8 +154,6 @@ async function constroiMapa(campoInfo) {
 
 
 $(document).ready(function () {
-    getCampos();
-
-    
+    getUserLocation();
 
 });

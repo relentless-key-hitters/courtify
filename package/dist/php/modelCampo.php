@@ -4,7 +4,25 @@ require_once 'connection.php';
 
 class Campo {
 
-    function getCampo() {
+    function getUserLocation() {
+        global $conn;
+
+        $sql = "SELECT distrito.descricao as localidade FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = ".$_SESSION['id'];
+        $result = $conn->query($sql);
+        $result1 = "";
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $result1 = $row['localidade'];
+            }
+        }
+
+        $conn -> close();
+        return ($result1);
+
+    }
+
+    function getCampo($localidadeUser) {
         global $conn;
         $msg = "";
         $dados = array();
@@ -16,7 +34,7 @@ class Campo {
         // output data of each row
             while ($row = $result->fetch_assoc()) {
 
-                $rowArray = array( 
+                $rowArray = array(  
                     'idCampo' => $row['idCampo'],
                     'campoModalidade' => $row['campoModalidade'],
                     'campoId' => $row['campoId'],
@@ -28,7 +46,6 @@ class Campo {
                     'descConcelho' => $row['descConcelho']
                     
                 );
-
                 $dados[] = $rowArray;
 
                 $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
@@ -96,7 +113,7 @@ class Campo {
 
         $conn->close();
 
-        $data = array('html' => $msg, 'dados' => $dados);
+        $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser);
         return json_encode($data);
     }
 }
