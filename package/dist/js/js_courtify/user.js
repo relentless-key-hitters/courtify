@@ -593,7 +593,7 @@ function guardaEditInfo(){
 }
 
 $(function() {
-    if (link == "/mariana/courtify/package/html/horizontal/perfil_definicoes.php"|| link == "/mariana/courtify/package/html/main/authentication-register.html"){
+    if (link == "/courtify/package/html/horizontal/perfil_definicoes.php"|| link == "/courtify/package/html/main/authentication-register.html"){
         getDistritos();
     }
     $("#feedbackNome").hide();
@@ -607,7 +607,7 @@ $(function() {
     getFutsalInfo();
     getNivelPadel();
     feedback2();
-    if (link == "/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
+    if (link == "/courtify/package/html/horizontal/perfil_definicoes.php"){
         getEditInfo();
     }
 });
