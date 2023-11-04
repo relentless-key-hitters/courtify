@@ -504,6 +504,71 @@ class User{
         imagedestroy($sourceImage);
         imagedestroy($resizedImage);
     }
+
+    function getEditInfo(){
+        global $conn; 
+        $sql = "SELECT * FROM user WHERE user.id = '".$_SESSION['id']."'"; 
+        $result = $conn->query($sql);
+        $nome = "";
+        $nif = "";
+        $cp = "";
+        $email = "";
+        $tel = "";
+        $morada = "";
+        if ($result->num_rows > 0) {
+            // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $nome = $row['nome'];
+                    $nif = $row['nif'];
+                    $cp = $row['codigo_postal'];
+                    $email = $row['email'];
+                    $tel = $row['telemovel'];
+                    $morada = $row['morada'];
+                }
+            }
+        $resp = json_encode(array(
+            "nome" => $nome,
+            "nif" => $nif,
+            "cp" => $cp,
+            "email" => $email,
+            "tel" => $tel,
+            "morada" => $morada
+        ));
+        $conn ->close();
+        return ($resp);
+    }
+
+    function guardaEditInfo($nome, $email, $nif, $cp, $tel, $morada, $local){
+
+        global $conn;
+        $flag = true;
+        $msg = "";
+        $icon ="success";
+        $sql = "";
+        if($local == 'null'){
+            $sql = "UPDATE user SET nome = '".$nome."', email = '".$email."', nif = '".$nif."', morada = '".$morada."', telemovel = '".$tel."', codigo_postal = '".$cp."' WHERE id = '".$_SESSION['id']."'";
+        }else{
+            $sql = "UPDATE user SET nome = '".$nome."', email = '".$email."', nif = '".$nif."', morada = '".$morada."', telemovel = '".$tel."', codigo_postal = '".$cp."', localidade = '".$local."' WHERE id = '".$_SESSION['id']."'";
+        }
+        if($conn->query($sql) === TRUE){
+            $msg = "Informação alterada com sucesso!";
+        }else{
+            $msg = "Não foi possível alterar a sua informação.";
+            $flag = false;
+            $icon = "error";
+        }
+
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+
+        $conn ->close();
+        return ($resp);
+
+    }
 }
+
 
 ?>

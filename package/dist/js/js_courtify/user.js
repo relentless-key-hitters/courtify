@@ -105,6 +105,13 @@ function getDistritos(){
         
         .done(function(msg) {
             $("#distritoUser").html(msg)
+            if(window.location.href == "http://localhost/mariana/courtify/package/html/main/authentication-register.html"){
+                $("#distritoUser").html(msg)
+            }
+            if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
+                $("#distritoEdit").html(msg)
+            } 
+            
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -130,6 +137,12 @@ function getConcelhos(dis){
         
         .done(function(msg) {
             $("#concelhoUser").html(msg)
+            if(window.location.href == "http://localhost/mariana/courtify/package/html/main/authentication-register.html"){
+                $("#concelhoUser").html(msg)
+            }
+            if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
+                $("#concelhoEdit").html(msg)
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -520,9 +533,68 @@ function logout(){
         });
 }
 
+function getEditInfo(){
+    let dados = new FormData();
+    dados.append("op", 12);
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            $("#nomeEdit").val(obj.nome);
+            $("#emailEdit").val(obj.email);
+            $("#nifEdit").val(obj.nif);
+            $("#cpEdit").val(obj.cp);
+            $("#telEdit").val(obj.tel);
+            $("#moradaEdit").val(obj.morada);
+        })
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+}
+
+function guardaEditInfo(){
+    let dados = new FormData();
+    dados.append("op", 13);
+    dados.append("nome", $("#nomeEdit").val());
+    dados.append("email", $("#emailEdit").val());
+    dados.append("nif", $("#nifEdit").val());
+    dados.append("cp", $("#cpEdit").val());
+    dados.append("tel", $("#telEdit").val());
+    dados.append("morada", $("#moradaEdit").val());
+    dados.append("local", $("#concelhoEdit").val());
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2("Utilizador", obj.msg, obj.icon);
+        })
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
 
 $(function() {
-    getDistritos()
+    if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php" || window.location.href == "http://localhost/mariana/courtify/package/html/main/authentication-register.html"){
+        getDistritos();
+    }
     $("#feedbackNome").hide();
     $("#feedbackTel").hide();
     $("#feedbackNif").hide();
@@ -534,4 +606,7 @@ $(function() {
     getFutsalInfo();
     getNivelPadel();
     feedback2();
+    if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
+        getEditInfo();
+    }
 });
