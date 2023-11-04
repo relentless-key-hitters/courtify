@@ -37803,7 +37803,6 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .body-wrapper {
   position: relative;
-  margin-top: 80px;
 }
 .body-wrapper > .container-fluid,
 .body-wrapper > .container-lg,
@@ -46412,26 +46411,8 @@ ul {
 }
 
 .right {
-  width: 30%;
+  width: 20%;
   background-color: #eee;
   z-index: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .right {
-    width: 60%;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .right {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .right {
-    width: 40%;
-  }
 }
 

@@ -287,7 +287,7 @@ if (isset($_SESSION['id'])) {?>
                   <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
                   <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
                 </div>
-                <div class="d-none d-lg-flex">
+                <div class="d-none d-xxl-flex">
                   <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                   <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
                 </div>
@@ -335,7 +335,7 @@ if (isset($_SESSION['id'])) {?>
               </nav>
             </div>
           </div>
-          <div class="divider d-none d-lg-flex" id="divider">
+          <div class="divider d-none d-xxl-flex" id="divider">
 
           </div>
           <div class="right rounded" id="rightContainer" >
@@ -528,7 +528,7 @@ if (isset($_SESSION['id'])) {?>
   const divider = document.getElementById("divider");
 
   function isScreenBelowMd() {
-    return window.matchMedia("(max-width: 992px)").matches; 
+    return window.matchMedia("(max-width: 1700px)").matches; 
   }
 
   function updateVisibility() {

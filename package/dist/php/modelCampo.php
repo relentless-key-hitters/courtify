@@ -75,8 +75,8 @@ class Campo {
                                     <span id="localidade">' . $row['descConcelho'] . '</span>
                                     <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['campoNome'] . '</p>
                                     <p id="descricao" class="my-2">' . $row['campoDesc'] . '</p>
-                                    <div class="container">
-                                        <div class="row">
+                                    <div class="">
+                                        <div class="row mt-2">
                                             <div class="col-12 col-sm-12 col-md-4 col-lg-6 mb-2">
                                             <button class="btn btn-small btn-primary w-100">16:30</button>
                                             </div>
