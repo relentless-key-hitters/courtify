@@ -106,10 +106,10 @@ function getDistritos(){
         
         .done(function(msg) {
             $("#distritoUser").html(msg)
-            if(window.location.href == "http://localhost/mariana/courtify/package/html/main/authentication-register.html"){
+            if(window.location.href == "http://localhost/courtify/package/html/main/authentication-register.html"){
                 $("#distritoUser").html(msg)
             }
-            if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
+            if (window.location.href == "http://localhost/courtify/package/html/horizontal/perfil_definicoes.php"){
                 $("#distritoEdit").html(msg)
             } 
             
@@ -138,10 +138,10 @@ function getConcelhos(dis){
         
         .done(function(msg) {
             $("#concelhoUser").html(msg)
-            if(window.location.href == "http://localhost/mariana/courtify/package/html/main/authentication-register.html"){
+            if(window.location.href == "http://localhost/courtify/package/html/main/authentication-register.html"){
                 $("#concelhoUser").html(msg)
             }
-            if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
+            if (window.location.href == "http://localhost/courtify/package/html/horizontal/perfil_definicoes.php"){
                 $("#concelhoEdit").html(msg)
             }
         })
@@ -593,7 +593,7 @@ function guardaEditInfo(){
 }
 
 $(function() {
-    if (link == "/courtify/package/html/horizontal/perfil_definicoes.php"|| link == "/courtify/package/html/main/authentication-register.html"){
+    if (link == "/courtify/package/html/horizontal/perfil_definicoes.php" || link == "/courtify/package/html/main/authentication-register.html"){
         getDistritos();
     }
     $("#feedbackNome").hide();
