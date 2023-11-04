@@ -31,8 +31,8 @@ class Campo {
 
                 $dados[] = $rowArray;
 
-                $msg .= '<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div class="card rounded-2 overflow-hidden hover-img" data-id="' . $row['idCampo'] . '">
+                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem);" data-id="' . $row['idCampo'] . '">
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
                                         <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
@@ -75,10 +75,18 @@ class Campo {
                                     <span id="localidade">' . $row['descConcelho'] . '</span>
                                     <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['campoNome'] . '</p>
                                     <p id="descricao" class="my-2">' . $row['campoDesc'] . '</p>
-                                    <div class="d-flex align-items-center gap-4">
-                                        <button class="btn btn-small btn-primary">16:30</button>
-                                        <button class="btn btn-small btn-primary">17:00</button>
-                                        <button class="btn btn-small btn-primary">17:30</button>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 col-md-4 col-lg-6 mb-2">
+                                            <button class="btn btn-small btn-primary w-100">16:30</button>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-4 col-lg-6 mb-2">
+                                            <button class="btn btn-small btn-primary w-100">17:00</button>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-4 col-lg-6">
+                                            <button class="btn btn-small btn-primary w-100">17:30</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

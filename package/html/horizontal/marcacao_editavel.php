@@ -284,11 +284,11 @@ if (isset($_SESSION['id'])) {?>
             <div class="col-md-9 text-end mt-2 mt-md-0 col">
               <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
                 <div>
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked="">
+                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
                   <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
                 </div>
-                <div class="">
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <div class="d-none d-lg-flex">
+                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                   <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
                 </div>
               </div>
@@ -335,11 +335,14 @@ if (isset($_SESSION['id'])) {?>
               </nav>
             </div>
           </div>
-          <div class="divider" id="divider">
+          <div class="divider d-none d-lg-flex" id="divider">
 
           </div>
-          <div class="right" id="rightContainer">
-            <!--<p>Mapa Google</p>-->
+          <div class="right rounded" id="rightContainer" >
+            <div id="mapa" style="height: 100%">
+
+            </div>
+            
           </div>
         </div>
       </div>
@@ -519,28 +522,41 @@ if (isset($_SESSION['id'])) {?>
   document.getElementById("currentDateInput").value = getCurrentDate();
 </script>
 
-<script> // mapa
-  const rightContainer = document.getElementById("rightContainer");
+<script>
   const toggleSwitch = document.getElementById("flexSwitchCheckChecked");
+  const rightContainer = document.getElementById("rightContainer");
   const divider = document.getElementById("divider");
 
+  function isScreenBelowMd() {
+    return window.matchMedia("(max-width: 992px)").matches; 
+  }
 
-  rightContainer.style.display = "none";
-  divider.style.display = "none";
+  function updateVisibility() {
+    if (isScreenBelowMd() || !toggleSwitch.checked) {
+      rightContainer.style.display = "none";
+      divider.style.display = "none";
+      toggleSwitch.checked = false;
+    } else {
+      rightContainer.style.display = "block";
+      divider.style.display = "block";
+    }
+  }
+
+  updateVisibility();
 
   toggleSwitch.addEventListener("change", function () {
-      if (toggleSwitch.checked) {
-          
-          rightContainer.style.display = "block";
-          divider.style.display = "block";
-      } else {
-          
-          rightContainer.style.display = "none";
-          divider.style.display = "none";
-      }
+    if (toggleSwitch.checked) {
+      rightContainer.style.display = "block";
+      divider.style.display = "block";
+    } else {
+      rightContainer.style.display = "none";
+      divider.style.display = "none";
+    }
   });
 
+  window.addEventListener("resize", updateVisibility);
 </script>
+
 
 <script type="text/javascript">
   var timeout;

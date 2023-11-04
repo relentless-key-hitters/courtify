@@ -46412,7 +46412,26 @@ ul {
 }
 
 .right {
-  width: 20%;
+  width: 30%;
   background-color: #eee;
   z-index: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .right {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .right {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .right {
+    width: 40%;
+  }
+}
+

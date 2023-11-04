@@ -30,7 +30,7 @@ function getCampos(){
 
 
 async function constroiMapa(campoInfo) {
-    var map = L.map('rightContainer').setView([38.5663, -7.8942], 13);
+    var map = L.map('mapa').setView([38.5663, -7.8942], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -105,9 +105,14 @@ async function constroiMapa(campoInfo) {
     
     var markerLayer = L.layerGroup(markers);
     markerLayer.addTo(map);
+
+
 }
 
 
 $(document).ready(function () {
     getCampos();
+
+    
+
 });
