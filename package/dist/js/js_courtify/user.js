@@ -1,3 +1,4 @@
+let link = window.location.pathname;
 function registaUser(){
 
     var password = $("#passUser").val();
@@ -592,7 +593,7 @@ function guardaEditInfo(){
 }
 
 $(function() {
-    if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php" || window.location.href == "http://localhost/mariana/courtify/package/html/main/authentication-register.html"){
+    if (link == "/mariana/courtify/package/html/horizontal/perfil_definicoes.php"|| link == "/mariana/courtify/package/html/main/authentication-register.html"){
         getDistritos();
     }
     $("#feedbackNome").hide();
@@ -606,7 +607,8 @@ $(function() {
     getFutsalInfo();
     getNivelPadel();
     feedback2();
-    if (window.location.href == "http://localhost/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
+    if (link == "/mariana/courtify/package/html/horizontal/perfil_definicoes.php"){
         getEditInfo();
     }
 });
+
