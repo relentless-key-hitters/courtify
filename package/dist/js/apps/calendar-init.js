@@ -2,32 +2,6 @@
 /*==========================*/
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
-  var ptPT = {
-    code: 'pt-PT',
-    week: {
-      dow: 1, // Monday is the first day of the week
-      doy: 4, // The week that contains Jan 4th is the first week of the year
-    },
-    buttonText: {
-      prev: 'Anterior',
-      next: 'Próximo',
-      today: 'Hoje',
-      month: 'Mês',
-      week: 'Semana',
-      day: 'Dia',
-      list: 'Lista',
-    },
-    allDayText: 'Todo o Dia',
-    moreLinkText: 'mais',
-    noEventsText: 'Não há eventos para mostrar',
-  };
-
-  FullCalendar.registerLocale(ptPT);
-});
-
-
 document.addEventListener("DOMContentLoaded", function () {
   /*=================*/
   //  Calender Date variable
@@ -68,6 +42,17 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       return false;
     }
+  };
+  var calendarViews = {
+    dayGridMonth: {
+      buttonText: 'Mês',
+    },
+    timeGridWeek: {
+      buttonText: 'Semana',
+    },
+    timeGridDay: {
+      buttonText: 'Dia',
+    },
   };
   var calendarHeaderToolbar = {
     left: "prev next addEventButton",
@@ -141,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       extendedProps: { calendar: "Primary" },
     },
   ];
+  
   /*=====================*/
   // Calendar Select fn.
   /*=====================*/
@@ -204,8 +190,9 @@ document.addEventListener("DOMContentLoaded", function () {
     initialView: checkWidowWidth() ? "listWeek" : "dayGridMonth",
     initialDate: `${newDate.getFullYear()}-${getDynamicMonth()}-07`,
     headerToolbar: calendarHeaderToolbar,
+    views: calendarViews,
     events: calendarEventsList,
-    locale: 'pt-PT',
+    locale: 'pt-br',
     select: calendarSelect,
     unselect: function () {
       console.log("unselected");
@@ -283,7 +270,8 @@ document.addEventListener("DOMContentLoaded", function () {
   /*=====================*/
   // Calendar Init
   /*=====================*/
-  calendar.render();
+  calendar.render(); 
+
   var myModal = new bootstrap.Modal(document.getElementById("eventModal"));
   var modalToggle = document.querySelector(".fc-addEventButton-button ");
   document
@@ -300,7 +288,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 });
-
 
 
 

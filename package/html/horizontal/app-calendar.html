@@ -212,7 +212,7 @@
       
       <!-- Main wrapper -->
       
-      <div class="body-wrapper">
+      <div class="body-wrapper" style="margin-top: 80px;">
         <div class="container-fluid">
           <div class="card overflow-hidden">
               <div>
@@ -231,7 +231,7 @@
                   <div class="modal-content">
                       <div class="modal-header">
                           <h5 class="modal-title" id="eventModalLabel">
-                              Add / Edit Event
+                              Adicionar / Editar Evento
                           </h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
@@ -239,35 +239,35 @@
                           <div class="row">
                               <div class="col-md-12">
                                   <div class="">
-                                      <label class="form-label">Event Title</label>
+                                      <label class="form-label">Título do Evento</label>
                                       <input id="event-title" type="text" class="form-control" />
                                   </div>
                               </div>
                               <div class="col-md-12 mt-4">
-                                  <div><label class="form-label">Event Color</label></div>
+                                  <div><label class="form-label">Importância do Evento (cor)</label></div>
                                   <div class="d-flex">
                                       <div class="n-chk">
                                           <div class="form-check form-check-primary form-check-inline">
                                               <input class="form-check-input" type="radio" name="event-level" value="Danger" id="modalDanger" />
-                                              <label class="form-check-label" for="modalDanger">Danger</label>
+                                              <label class="form-check-label" for="modalDanger">Vermelho</label>
                                           </div>
                                       </div>
                                       <div class="n-chk">
+                                        <div class="form-check form-check-danger form-check-inline">
+                                            <input class="form-check-input" type="radio" name="event-level" value="Warning" id="modalWarning" />
+                                            <label class="form-check-label" for="modalWarning">Laranja</label>
+                                        </div>
+                                    </div>
+                                      <div class="n-chk">
                                           <div class="form-check form-check-warning form-check-inline">
                                               <input class="form-check-input" type="radio" name="event-level" value="Success" id="modalSuccess" />
-                                              <label class="form-check-label" for="modalSuccess">Success</label>
+                                              <label class="form-check-label" for="modalSuccess">Verde</label>
                                           </div>
                                       </div>
                                       <div class="n-chk">
                                           <div class="form-check form-check-success form-check-inline">
                                               <input class="form-check-input" type="radio" name="event-level" value="Primary" id="modalPrimary" />
-                                              <label class="form-check-label" for="modalPrimary">Primary</label>
-                                          </div>
-                                      </div>
-                                      <div class="n-chk">
-                                          <div class="form-check form-check-danger form-check-inline">
-                                              <input class="form-check-input" type="radio" name="event-level" value="Warning" id="modalWarning" />
-                                              <label class="form-check-label" for="modalWarning">Warning</label>
+                                              <label class="form-check-label" for="modalPrimary">Azul</label>
                                           </div>
                                       </div>
                                   </div>
@@ -275,14 +275,14 @@
 
                               <div class="col-md-12 d-none">
                                   <div class="">
-                                      <label class="form-label">Enter Start Date</label>
+                                      <label class="form-label">Data de Início</label>
                                       <input id="event-start-date" type="text" class="form-control" />
                                   </div>
                               </div>
 
                               <div class="col-md-12 d-none">
                                   <div class="">
-                                      <label class="form-label">Enter End Date</label>
+                                      <label class="form-label">Data de Término</label>
                                       <input id="event-end-date" type="text" class="form-control" />
                                   </div>
                               </div>
@@ -290,13 +290,13 @@
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn" data-bs-dismiss="modal">
-                              Close
+                              Fechar
                           </button>
                           <button type="button" class="btn btn-success btn-update-event" data-fc-event-public-id="">
-                              Update changes
+                              Atualizar
                           </button>
                           <button type="button" class="btn btn-primary btn-add-event">
-                              Add Event
+                              Adicionar
                           </button>
                       </div>
                   </div>
@@ -305,84 +305,20 @@
           <!-- END MODAL -->
       </div>
       </div>
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
-    <!--  Shopping Cart -->
-   <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header py-4">
-        <h5 class="offcanvas-title fs-5 fw-semibold" id="offcanvasRightLabel">Shopping Cart</h5>
-        <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">5 new</span>
-      </div>
-      <div class="offcanvas-body h-100 px-4 pt-0" data-simplebar>
-        <ul class="mb-0">
-          <li class="pb-7">
-            <div class="d-flex align-items-center">
-              <img src="../../dist/images/products/product-1.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
-              <div>
-                <h6 class="mb-1">Supreme toys cooker</h6>
-                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                <div class="d-flex align-items-center justify-content-between mt-2">
-                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                  <div class="input-group input-group-sm w-50">
-                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add1"> - </button>
-                    <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add1" value="1" />
-                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addo2"> + </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="pb-7">
-            <div class="d-flex align-items-center">
-              <img src="../../dist/images/products/product-2.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
-              <div>
-                <h6 class="mb-1">Supreme toys cooker</h6>
-                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                <div class="d-flex align-items-center justify-content-between mt-2">
-                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                  <div class="input-group input-group-sm w-50">
-                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add2"> - </button>
-                    <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add2" value="1" />
-                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addon34"> + </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="pb-7">
-            <div class="d-flex align-items-center">
-              <img src="../../dist/images/products/product-3.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
-              <div>
-                <h6 class="mb-1">Supreme toys cooker</h6>
-                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                <div class="d-flex align-items-center justify-content-between mt-2">
-                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                  <div class="input-group input-group-sm w-50">
-                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add3"> - </button>
-                    <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add3" value="1" />
-                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addon3"> + </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="align-bottom">
-          <div class="d-flex align-items-center pb-7">
-            <span class="text-dark fs-3">Sub Total</span>
-            <div class="ms-auto">
-              <span class="text-dark fw-semibold fs-3">$2530</span>
-            </div>
+          <a href="#"
+            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+          </a>
+          <div>
+            <p class="mb-0 text-muted">Todos os direitos reservados.</p>
           </div>
-          <div class="d-flex align-items-center pb-7">
-            <span class="text-dark fs-3">Total</span>
-            <div class="ms-auto">
-              <span class="text-dark fw-semibold fs-3">$6830</span>
-            </div>
-          </div>
-          <a href="./eco-checkout.html" class="btn btn-outline-primary w-100">Go to shopping cart</a>
-        </div>
+
+        </footer>
       </div>
-    </div>
 
     <!--  Mobilenavbar -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -670,9 +606,6 @@
     
     <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
     <script src="../../dist/js/apps/calendar-init.js"></script>
-
-
-    <script src="../../dist/js/apps/pt-PT.js"></script>
 
 
   </body>
