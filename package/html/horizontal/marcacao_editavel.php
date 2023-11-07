@@ -181,12 +181,12 @@ if (isset($_SESSION['id'])) {?>
                           <h6 class="mb-1 bg-hover-primary fw-semibold">Mensagens</h6>
                         </div>
                       </a>
-                      <a href="./app-notes.html" class="py-8 px-7 d-flex align-items-center">
+                      <a href="./app-calendar.html" class="py-8 px-7 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-chart-histogram fs-7 text-primary"></i>
                         </span>
                         <div class="w-75 d-inline-block v-middle ps-3">
-                          <h6 class="mb-1 bg-hover-primary fw-semibold">Estatísticas</h6>
+                          <h6 class="mb-1 bg-hover-primary fw-semibold">Calendário</h6>
                         </div>
                       </a>
                       <a href="./perfil_definicoes.php" class="py-8 px-7 d-flex align-items-center">
