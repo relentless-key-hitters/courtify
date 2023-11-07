@@ -23,6 +23,32 @@ function getUserLocation() {
         });
 }
 
+function getModalidadesUtilizadorSelect() {
+    let dados = new FormData();
+    dados.append("op", 3);
+
+    $.ajax({
+        url: "../../dist/php/controllerCampo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            $("#pesquisaMarcacaoModalidade").html(msg);
+            
+
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+
+}
 
 function getCampos(localidade){
 
@@ -58,6 +84,10 @@ function getCampos(localidade){
 
 async function constroiMapa(campoInfo, localidadeUser) {
 
+    if (typeof map !== 'undefined') {
+        map.remove();
+    }
+
     var nominatimUrlUser = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(localidadeUser);
 
     try {
@@ -68,8 +98,8 @@ async function constroiMapa(campoInfo, localidadeUser) {
             var lat = parseFloat(data[0].lat);
             var lon = parseFloat(data[0].lon);
             var coordinates = [lat, lon];
-            
-            var map = L.map('mapa').setView([coordinates[0], coordinates[1]], 13);
+
+            map = L.map('mapa').setView([coordinates[0], coordinates[1]], 13);
         }
     } catch (error) {
         console.error('Error geocoding:', error);
@@ -152,9 +182,14 @@ async function constroiMapa(campoInfo, localidadeUser) {
 
 }
 
-function getModalidadesUtilizadorSelect() {
+function pesquisarCampos() {
+
     let dados = new FormData();
-    dados.append("op", 3);
+    dados.append("op", 4);
+    dados.append("stringPesquisa", $("#stringPesquisa").val());
+    dados.append("modalidadePesquisa", $("#pesquisaMarcacaoModalidade").val());
+    dados.append("dataPesquisa", $("#currentDateInput").val());
+    dados.append("horaPesquisa", $("#currentTimeInput").val());
 
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
@@ -167,7 +202,13 @@ function getModalidadesUtilizadorSelect() {
         })
 
         .done(function(msg) {
-            $("#pesquisaMarcacaoModalidade").html(msg);
+            let obj = JSON.parse(msg);
+            $("#rowCampos").html("");
+            $("#stringPesquisa").val("");
+            $("#pesquisaMarcacaoModalidade").val("-1");
+            $("#rowCampos").html(obj.html);
+            
+            constroiMapa(obj.dados, obj.localidadeUser);
             
 
         })
@@ -175,9 +216,10 @@ function getModalidadesUtilizadorSelect() {
         .fail(function( jqXHR, textStatus ) {
         alert( "Request failed: " + textStatus );
         });
-
-
 }
+
+
+ 
 
 
 $(document).ready(function () {

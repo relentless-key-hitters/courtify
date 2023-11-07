@@ -228,7 +228,7 @@ if (isset($_SESSION['id'])) {?>
               <form>
                 <div class="row">
                   <div class="form-group col-md-4 mt-3 mt-md-0">
-                    <input type="text" class="form-control" placeholder="Nome, localidade, etc...">
+                    <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
                     <select class="form-select" id="pesquisaMarcacaoModalidade">
@@ -277,7 +277,7 @@ if (isset($_SESSION['id'])) {?>
                     </select>
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0">
-                    <button type="button" class="btn btn-primary" onclick="pesquisar()">Pesquisar</button>
+                    <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisar</button>
                   </div>
                 </div>
               </form>
@@ -542,13 +542,16 @@ if (isset($_SESSION['id'])) {?>
 <script>
   function getCurrentDate() {
     const now = new Date();
+    if (now.getHours() >= 23 && now.getMinutes() >= 30) {
+      // If it's 23:30 or later, get the date for the next day
+      now.setDate(now.getDate() + 1);
+    }
     const year = now.getFullYear();
     const month = (now.getMonth() + 1).toString().padStart(2, '0');
     const day = now.getDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
   }
 
-  
   function resetOptions() {
     const options = document.querySelectorAll("#currentTimeInput option");
     options.forEach(option => {
@@ -556,10 +559,8 @@ if (isset($_SESSION['id'])) {?>
     });
   }
 
-  
   document.getElementById("currentDateInput").addEventListener("change", resetOptions);
 
-  
   document.getElementById("currentDateInput").value = getCurrentDate();
 </script>
 
