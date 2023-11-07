@@ -68,6 +68,7 @@ function getCampos(localidade){
 
         .done(function(msg) {
             let obj = JSON.parse(msg);
+            
             $("#rowCampos").html(obj.html);
             
             constroiMapa(obj.dados, obj.localidadeUser);
@@ -203,10 +204,19 @@ function pesquisarCampos() {
 
         .done(function(msg) {
             let obj = JSON.parse(msg);
-            $("#rowCampos").html("");
             $("#stringPesquisa").val("");
             $("#pesquisaMarcacaoModalidade").val("-1");
-            $("#rowCampos").html(obj.html);
+            
+            $("#rowCampos").fadeOut("fast", function() {
+                
+                $(this).html("");
+                
+                
+                $(this).html(obj.html);
+            
+                
+                $(this).fadeIn("fast");
+            });
             
             constroiMapa(obj.dados, obj.localidadeUser);
             

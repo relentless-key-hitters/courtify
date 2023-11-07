@@ -235,7 +235,8 @@ class Campo {
 
             }
         } else {
-            $msg .= "<h3 class='text-center'>Sem resultados encontrados</h3>";
+            $msg .= "<h4 class='text-center'>Não foram encontrados resultados</h4>
+                    <p class='text-center'>Altere os termos da sua pesquisa e tente de novo</p>";
         }
 
         $conn -> close();

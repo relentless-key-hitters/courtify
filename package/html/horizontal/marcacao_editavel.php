@@ -331,7 +331,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="left" id="leftContainer">
             <div class="card">
               <div class="card-body bg-light">
-                <h4 class="fw-semibold mb-3">Resultados</h4>
+                <h3 class="fw-semibold mb-3">Resultados</h3>
             
                 <div class="row" id="rowCampos">
                   
