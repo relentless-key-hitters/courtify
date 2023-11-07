@@ -326,6 +326,7 @@ class User{
         $conn -> close();
         return ($msg);
     }
+
     function getInfoPerfil(){
         global $conn; 
         $fotoPerfil = "";
@@ -402,7 +403,6 @@ class User{
         return ($resp);
         
     }
-
 
     function altFotoCapa($fotoCapa) {
         global $conn;

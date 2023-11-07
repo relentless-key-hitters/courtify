@@ -539,7 +539,7 @@ if (isset($_SESSION['id'])) {?>
 
 
 
-  <script>
+<script>
   function getCurrentDate() {
     const now = new Date();
     const year = now.getFullYear();
@@ -631,41 +631,41 @@ if (isset($_SESSION['id'])) {?>
 </script>
 
 <script>
+  const currentDateInput = document.getElementById("currentDateInput");
+  const currentTimeInput = document.getElementById("currentTimeInput");
 
   function updateOptions() {
-    const currentTimeInput = document.getElementById("currentTimeInput");
+    const selectedDate = new Date(currentDateInput.value);
     const currentTime = new Date();
     currentTime.setMinutes(currentTime.getMinutes() + 30);
 
-    const currentTimeValue = `${currentTime.getHours().toString().padStart(2, "0")}${currentTime.getMinutes().toString().padStart(2, "0")}`;
+    
+    if (selectedDate.toDateString() === currentTime.toDateString()) {
+      const currentTimeValue = `${currentTime.getHours().toString().padStart(2, "0")}${currentTime.getMinutes().toString().padStart(2, "0")}`;
+      const options = currentTimeInput.querySelectorAll("option");
 
-    const options = currentTimeInput.querySelectorAll("option");
-
-    let firstValidOption = null;
-
-    options.forEach(option => {
-      const optionValue = option.value;
-      if (optionValue > currentTimeValue) {
-        option.style.display = "block";
-        if (!firstValidOption) {
-          firstValidOption = option;
+      options.forEach(option => {
+        const optionValue = option.value;
+        if (optionValue <= currentTimeValue) {
+          option.disabled = true;
+          option.style.display = "none";
+        } else {
+          option.disabled = false;
+          option.style.display = "block";
         }
-      } else {
-        option.style.display = "none";
-      }
-    });
-
-    // Set the selected option to the first valid one
-    if (firstValidOption) {
-      firstValidOption.selected = true;
+      });
+    } else {
+      
+      currentTimeInput.querySelectorAll("option").forEach(option => {
+        option.disabled = false;
+        option.style.display = "block";
+      });
     }
   }
 
   
-  document.getElementById("currentTimeInput").addEventListener("change", updateOptions);
-
-  
   updateOptions();
+  currentDateInput.addEventListener("change", updateOptions);
 </script>
 
 

@@ -443,27 +443,7 @@ if (myDropzone.getQueuedFiles().length > 0) {
 }
 }
 
-function alerta(titulo,msg,icon){
-    Swal.fire({
-        position: 'center',
-        icon: icon,
-        title: titulo,
-        text: msg,
-        showConfirmButton: true,
-        confirmButtonColor: '#45702d',
-      })
-}
 
-function alerta2(titulo,msg,icon){
-    Swal.fire({
-        position: 'center',
-        icon: icon,
-        title: titulo,
-        text: msg,
-        showConfirmButton: false,
-        confirmButtonColor: '#45702d',
-      })
-}
 
 function verifGenero() {
     let flag = false;
@@ -590,6 +570,30 @@ function guardaEditInfo(){
         alert( "Request failed: " + textStatus );
         });
 
+}
+
+function alerta(titulo,msg,icon){
+    Swal.fire({
+        position: 'center',
+        icon: icon,
+        title: titulo,
+        text: msg,
+        showConfirmButton: true,
+        confirmButtonColor: '#45702d',
+        timer: 3000
+      })
+}
+
+function alerta2(titulo,msg,icon){
+    Swal.fire({
+        position: 'center',
+        icon: icon,
+        title: titulo,
+        text: msg,
+        showConfirmButton: false,
+        confirmButtonColor: '#45702d',
+        timer: 3000
+      })
 }
 
 $(function() {
