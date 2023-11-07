@@ -292,17 +292,29 @@ class User{
                     $icon = "error";
                 }
                 if($arrMod[$i] == '2'){
-                    $sql3 = "INSERT INTO info_futsal (id_atleta, id_posicao) VALUES ('".$_SESSION['id']."', '".$posFutsal."')";
+                    $sql3 = "INSERT INTO info_futsal (id_atleta, id_posicao, n_jogos, n_vitorias, n_golos, n_mvp) VALUES ('".$_SESSION['id']."', '".$posFutsal."', '0', '0', '0', '0')";
                     if ($conn->query($sql3) === FALSE){
                         $flag = false;
                         $icon = "error";
                     }
                 }else if($arrMod[$i] =='3'){
                     if($nivelPadel == '3'){
-                        $sql3 = "INSERT INTO info_padel (id_atleta, nivel) VALUES ('".$_SESSION['id']."', '".$nivelPadel."')";
+                        $sql3 = "INSERT INTO info_padel (id_atleta, nivel, n_jogos, n_vitorias, n_pontos_set, n_set_ganhos, n_mvp) VALUES ('".$_SESSION['id']."', '".$nivelPadel."', '0', '0' , '0' , '0' , '0')";
                     }else{
-                        $sql3 = "INSERT INTO info_padel (id_atleta, id_lado, nivel) VALUES ('".$_SESSION['id']."', '".$ladoPadel."', '".$nivelPadel."')";
+                        $sql3 = "INSERT INTO info_padel (id_atleta, id_lado, nivel, n_jogos, n_vitorias, n_pontos_set, n_set_ganhos, n_mvp) VALUES ('".$_SESSION['id']."', '".$ladoPadel."', '".$nivelPadel."', '0', '0', '0', '0' , '0')";
                     }
+                    if ($conn->query($sql3) === FALSE){
+                        $flag = false;
+                        $icon = "error";
+                    }
+                }else if($arrMod[$i] == '1'){
+                    $sql3 = "INSERT INTO info_basquetebol (id_atleta, n_jogos, n_vitorias, n_mvp, n_pontos) VALUES ('".$_SESSION['id']."', '0', '0', '0', '0')";
+                    if ($conn->query($sql3) === FALSE){
+                        $flag = false;
+                        $icon = "error";
+                    }
+                }else{
+                    $sql3 = "INSERT INTO info_tenis (id_atleta, n_jogos, n_vitorias, n_pontos_set, n_set_ganhos, n_mvp) VALUES ('".$_SESSION['id']."', '0', '0', '0', '0', '0')";
                     if ($conn->query($sql3) === FALSE){
                         $flag = false;
                         $icon = "error";
