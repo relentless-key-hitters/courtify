@@ -57,9 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var calendarHeaderToolbar = {
     left: "prev next addEventButton",
     center: "title",
-    right: "dayGridMonth,timeGridWeek,timeGridDay",
+    right: false,
   };
   var calendarEventsList = [
+
+   /*
     {
       id: 1,
       title: "Event Conf.",
@@ -94,13 +96,22 @@ document.addEventListener("DOMContentLoaded", function () {
       end: `${newDate.getFullYear()}-${getDynamicMonth()}-13`,
       extendedProps: { calendar: "Danger" },
     },
+    */
     {
       id: 6,
-      title: "Meeting 3",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-12T10:30:00`,
-      end: `${newDate.getFullYear()}-${getDynamicMonth()}-12T12:30:00`,
+      title: "Padel",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-10T18:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-10T12:30:00`,
       extendedProps: { calendar: "Success" },
     },
+    {
+      id: 6,
+      title: "Ténis",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-14T19:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-14T12:30:00`,
+      extendedProps: { calendar: "Warning" },
+    },
+    /*
     {
       id: 7,
       title: "Meetup #",
@@ -125,6 +136,9 @@ document.addEventListener("DOMContentLoaded", function () {
       start: `${newDate.getFullYear()}-${getDynamicMonth()}-28`,
       extendedProps: { calendar: "Primary" },
     },
+
+    */
+    
   ];
   
   /*=====================*/
@@ -192,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
     headerToolbar: calendarHeaderToolbar,
     views: calendarViews,
     events: calendarEventsList,
-    locale: 'pt-br',
+    locale: 'pt',
     select: calendarSelect,
     unselect: function () {
       console.log("unselected");
