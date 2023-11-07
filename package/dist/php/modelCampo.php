@@ -9,16 +9,18 @@ class Campo {
 
         $sql = "SELECT distrito.descricao as localidade FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = ".$_SESSION['id'];
         $result = $conn->query($sql);
-        $result1 = "";
+        $localidade = "";
+
+        
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $result1 = $row['localidade'];
+                $localidade = $row['localidade'];
             }
         }
 
         $conn -> close();
-        return ($result1);
+        return ($localidade);
 
     }
 
@@ -27,8 +29,9 @@ class Campo {
         $msg = "";
         $dados = array();
         
-        $sql = "SELECT campo.id AS idCampo, modalidade.descricao as campoModalidade, campo.id AS campoId, campo.foto AS fotoCampo, campo.nome AS campoNome, campo.descricao AS campoDesc, tipo_campo.descricao AS tipoCampoDesc, campo.morada AS moradaCampo, concelho.descricao AS descConcelho FROM campo INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id INNER JOIN concelho on campo.localidade = concelho.id INNER JOIN modalidade ON campo.modalidade = modalidade.id LIMIT 12";
+        $sql = "SELECT campo.id AS idCampo, modalidade.descricao as campoModalidade, campo.id AS campoId, campo.foto AS fotoCampo, campo.nome AS campoNome, campo.descricao AS campoDesc, tipo_campo.descricao AS tipoCampoDesc, campo.morada AS moradaCampo, concelho.descricao AS descConcelho FROM campo INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id INNER JOIN concelho on campo.localidade = concelho.id INNER JOIN modalidade ON campo.modalidade = modalidade.id INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta WHERE atleta.id_atleta = ".$_SESSION['id']."  LIMIT 12";
         $result = $conn->query($sql);
+
     
         if ($result->num_rows > 0) {
         // output data of each row

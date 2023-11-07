@@ -548,7 +548,7 @@ if (isset($_SESSION['id'])) {?>
     return `${year}-${month}-${day}`;
   }
 
-  // Function to reset options to their default state
+  
   function resetOptions() {
     const options = document.querySelectorAll("#currentTimeInput option");
     options.forEach(option => {
@@ -556,10 +556,10 @@ if (isset($_SESSION['id'])) {?>
     });
   }
 
-  // Add an event listener to the date input field
+  
   document.getElementById("currentDateInput").addEventListener("change", resetOptions);
 
-  // Initialize the date input with the current date
+  
   document.getElementById("currentDateInput").value = getCurrentDate();
 </script>
 
@@ -631,7 +631,7 @@ if (isset($_SESSION['id'])) {?>
 </script>
 
 <script>
-  // Function to filter and hide options based on the current time + 30 minutes
+
   function updateOptions() {
     const currentTimeInput = document.getElementById("currentTimeInput");
     const currentTime = new Date();
@@ -661,10 +661,10 @@ if (isset($_SESSION['id'])) {?>
     }
   }
 
-  // Add an event listener to update options when the select element changes
+  
   document.getElementById("currentTimeInput").addEventListener("change", updateOptions);
 
-  // Initial update of options
+  
   updateOptions();
 </script>
 
