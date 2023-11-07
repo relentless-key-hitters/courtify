@@ -232,18 +232,49 @@ if (isset($_SESSION['id'])) {?>
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
                     <select class="form-select" id="pesquisaMarcacaoModalidade">
-                      <option value="1" selected>Basquetebol</option>
-                      <option value="2">Futsal</option>
-                      <option value="3">Padel</option>
-                      <option value="4">Ténis</option>
-                      <!-- Add more options as needed -->
+                      
                     </select>
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
                     <input type="date" class="form-control" id="currentDateInput">
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0">
-                    <input type="time" class="form-control" id="currentTimeInput">
+                    <select id="currentTimeInput" class="form-select">
+                      <option value="0700">07:00</option>
+                      <option value="0730">07:30</option>
+                      <option value="0800">08:00</option>
+                      <option value="0830">08:30</option>
+                      <option value="0900">09:00</option>
+                      <option value="0930">09:30</option>
+                      <option value="1000">10:00</option>
+                      <option value="1030">10:30</option>
+                      <option value="1100">11:00</option>
+                      <option value="1130">11:30</option>
+                      <option value="1200">12:00</option>
+                      <option value="1230">12:30</option>
+                      <option value="1300">13:00</option>
+                      <option value="1330">13:30</option>
+                      <option value="1400">14:00</option>
+                      <option value="1430">14:30</option>
+                      <option value="1500">15:00</option>
+                      <option value="1530">15:30</option>
+                      <option value="1600">16:00</option>
+                      <option value="1630">16:30</option>
+                      <option value="1700">17:00</option>
+                      <option value="1730">17:30</option>
+                      <option value="1800">18:00</option>
+                      <option value="1830">18:30</option>
+                      <option value="1900">19:00</option>
+                      <option value="1930">19:30</option>
+                      <option value="2000">20:00</option>
+                      <option value="2030">20:30</option>
+                      <option value="2100">21:00</option>
+                      <option value="2130">21:30</option>
+                      <option value="2200">22:00</option>
+                      <option value="2230">22:30</option>
+                      <option value="2300">23:00</option>
+                      <option value="2330">23:30</option>
+                    </select>
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0">
                     <button type="button" class="btn btn-primary" onclick="pesquisar()">Pesquisar</button>
@@ -256,7 +287,7 @@ if (isset($_SESSION['id'])) {?>
 
         <div class="mb-5 px-5">
           <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-2">
               <div class="form-group">
                 <select class="form-select" id="filtroTipo">
                   <option value="-1" selected disabled>Tipo</option>
@@ -266,7 +297,7 @@ if (isset($_SESSION['id'])) {?>
                 </select>
               </div>
             </div>
-            <div class="col-md-1 mt-2 mt-md-0">
+            <div class="col-md-2 mt-2 mt-md-0">
               <div class="form-group">
                 <select class="form-select" id="filtroDistancia">
                   <option value="-1" selected disabled>Distância</option>
@@ -281,7 +312,7 @@ if (isset($_SESSION['id'])) {?>
                 <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
               </div>
             </div>
-            <div class="col-md-9 text-end mt-2 mt-md-0 col">
+            <div class="col-md-7 text-end mt-2 mt-md-0 col">
               <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
                 <div>
                   <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
@@ -508,17 +539,27 @@ if (isset($_SESSION['id'])) {?>
 
 
 
-<script>  // data atual nos selects
-
+  <script>
   function getCurrentDate() {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = (now.getMonth() + 1).toString().padStart(2, '0');
-      const day = now.getDate().toString().padStart(2, '0');
-      return `${year}-${month}-${day}`;
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
+  // Function to reset options to their default state
+  function resetOptions() {
+    const options = document.querySelectorAll("#currentTimeInput option");
+    options.forEach(option => {
+      option.style.display = "block";
+    });
+  }
 
+  // Add an event listener to the date input field
+  document.getElementById("currentDateInput").addEventListener("change", resetOptions);
+
+  // Initialize the date input with the current date
   document.getElementById("currentDateInput").value = getCurrentDate();
 </script>
 
@@ -588,6 +629,46 @@ if (isset($_SESSION['id'])) {?>
   
   resetSessionTimeout();
 </script>
+
+<script>
+  // Function to filter and hide options based on the current time + 30 minutes
+  function updateOptions() {
+    const currentTimeInput = document.getElementById("currentTimeInput");
+    const currentTime = new Date();
+    currentTime.setMinutes(currentTime.getMinutes() + 30);
+
+    const currentTimeValue = `${currentTime.getHours().toString().padStart(2, "0")}${currentTime.getMinutes().toString().padStart(2, "0")}`;
+
+    const options = currentTimeInput.querySelectorAll("option");
+
+    let firstValidOption = null;
+
+    options.forEach(option => {
+      const optionValue = option.value;
+      if (optionValue > currentTimeValue) {
+        option.style.display = "block";
+        if (!firstValidOption) {
+          firstValidOption = option;
+        }
+      } else {
+        option.style.display = "none";
+      }
+    });
+
+    // Set the selected option to the first valid one
+    if (firstValidOption) {
+      firstValidOption.selected = true;
+    }
+  }
+
+  // Add an event listener to update options when the select element changes
+  document.getElementById("currentTimeInput").addEventListener("change", updateOptions);
+
+  // Initial update of options
+  updateOptions();
+</script>
+
+
 </body>
 
 </html>

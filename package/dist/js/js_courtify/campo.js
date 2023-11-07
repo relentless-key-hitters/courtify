@@ -152,8 +152,36 @@ async function constroiMapa(campoInfo, localidadeUser) {
 
 }
 
+function getModalidadesUtilizadorSelect() {
+    let dados = new FormData();
+    dados.append("op", 3);
+
+    $.ajax({
+        url: "../../dist/php/controllerCampo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            $("#pesquisaMarcacaoModalidade").html(msg);
+            
+
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+
+}
+
 
 $(document).ready(function () {
     getUserLocation();
+    getModalidadesUtilizadorSelect();
 
 });

@@ -116,4 +116,20 @@ class Campo {
         $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser);
         return json_encode($data);
     }
+
+    function getModalidadesUtilizadorSelect() {
+        global $conn;
+        $msg = "";
+        $sql = "SELECT modalidade.id AS idModalidade, modalidade.descricao AS descModalidade FROM modalidade INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta WHERE atleta.id_atleta = " . $_SESSION['id'];
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<option value = '".$row['idModalidade']."'>".$row['descModalidade']."</option>";
+            }
+        }
+
+        $conn -> close();
+        return ($msg);
+    }
 }
