@@ -83,7 +83,8 @@ function getCampos(localidade){
 
 }
 
-
+let coords = [];
+let dist = [];
 async function constroiMapa(campoInfo, localidadeUser) {
 
     if (typeof map !== 'undefined') {
@@ -100,7 +101,7 @@ async function constroiMapa(campoInfo, localidadeUser) {
             var lat = parseFloat(data[0].lat);
             var lon = parseFloat(data[0].lon);
             var coordinates = [lat, lon];
-
+            coords.push([lat, lon,0]);
             map = L.map('mapa').setView([coordinates[0], coordinates[1]], 13);
         }
     } catch (error) {
@@ -133,7 +134,7 @@ async function constroiMapa(campoInfo, localidadeUser) {
                 var lat = parseFloat(data[0].lat);
                 var lon = parseFloat(data[0].lon);
                 var coordinates = [lat, lon];
-
+                coords.push([lat, lon, idCampo]);
                 var marker = L.marker(coordinates)
                     .bindPopup(
                         '<p><strong>' + campoNome + '</strong></p>' +
@@ -179,9 +180,9 @@ async function constroiMapa(campoInfo, localidadeUser) {
     
     var markerLayer = L.layerGroup(markers);
     markerLayer.addTo(map);
-
-
+    getDistancias();
 }
+
 
 function pesquisarCampos() {
 
@@ -228,11 +229,33 @@ function pesquisarCampos() {
         });
 }
 
+function getDistancias(){
 
- 
+    let r = 6371e3;
+    let a1= coords[0][0] * Math.PI / 180 ;
+    for(let i = 1; i < coords.length; i++){
+        let a2= coords[i][0] * Math.PI / 180 ;
+        let b1 = (coords[i][0] - coords[0][0]) * Math.PI / 180;
+        let b2 = (coords[i][1] - coords[0][1]) * Math.PI / 180;
+
+        let c = Math.sin(b1/2) * Math.sin(b1/2) + Math.cos(a1) * Math.cos(a2) * Math.sin(b2/2) * Math.sin(b2/2);
+        let d = 2 * Math.atan2(Math.sqrt(c), Math.sqrt(1-c));
+        dist.push([d * r, coords[i][2]]);
+    }
+    console.log(dist)
+}
+
+function aplicarFiltros(){
+    for(let j = 0; j < dist.length; j++){
+        if(dist[j][0] > 1000){
+            
+        }
+    }
+}
 
 
 $(document).ready(function () {
     getUserLocation();
 
 });
+
