@@ -240,6 +240,7 @@ if (isset($_SESSION['id'])) {?>
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0">
                     <select id="currentTimeInput" class="form-select">
+                      <option value="-1" style="color: #c9c9c9;">Hora</option>
                       <option value="0700">07:00</option>
                       <option value="0730">07:30</option>
                       <option value="0800">08:00</option>

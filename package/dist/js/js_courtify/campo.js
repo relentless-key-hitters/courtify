@@ -13,6 +13,7 @@ function getUserLocation() {
         })
 
         .done(function(msg) {
+            getModalidadesUtilizadorSelect();
             getCampos(msg);
             
 
@@ -234,6 +235,5 @@ function pesquisarCampos() {
 
 $(document).ready(function () {
     getUserLocation();
-    getModalidadesUtilizadorSelect();
 
 });
