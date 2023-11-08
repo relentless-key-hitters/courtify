@@ -526,6 +526,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
   <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../dist/js/math/math.js"></script>
   <!-- core files -->
   <script src="../../dist/js/app.min.js"></script>
   <script src="../../dist/js/app.horizontal.init.js"></script>
