@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -669,3 +673,12 @@
 </body>
 
 </html>
+
+<?php
+} else {
+  header("Location: authentication-error.html");
+  exit();
+}
+
+
+?>
