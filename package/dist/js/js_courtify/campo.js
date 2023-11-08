@@ -85,6 +85,7 @@ function getCampos(localidade){
 
 let coords = [];
 let dist = [];
+
 async function constroiMapa(campoInfo, localidadeUser) {
 
     if (typeof map !== 'undefined') {
@@ -183,7 +184,6 @@ async function constroiMapa(campoInfo, localidadeUser) {
     getDistancias();
 }
 
-
 function pesquisarCampos() {
 
     let dados = new FormData();
@@ -244,6 +244,7 @@ function getDistancias(){
     }
     console.log(dist)
 }
+
 
 function aplicarFiltros(){
     for(let j = 0; j < dist.length; j++){

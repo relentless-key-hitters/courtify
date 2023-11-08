@@ -186,7 +186,7 @@ class Campo {
                 $dados[] = $rowArray;
 
                 $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem);" data-id="' .$row['idCampo']. '">
+                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem);" data-id="' .$row['idCampo']. '" id="campo-'.$row['idCampo'].'">
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
                                         <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
