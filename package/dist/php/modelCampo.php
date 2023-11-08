@@ -237,14 +237,18 @@ class Campo {
         } else {
             $msg .= "<h4 class='text-center'>Não foram encontrados resultados</h4>
                     <p class='text-center'>Altere os termos da sua pesquisa e tente de novo</p>";
+            $sql3 = "SELECT distrito.descricao AS local FROM distrito INNER JOIN distrito_concelho ON distrito_concelho.id_distrito = distrito.id  INNER JOIN  concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN user ON concelho.id  = user.localidade WHERE user.id = '".$_SESSION['id']."'";
+            $result = $conn->query($sql3);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $localidadeUser = $row['local'];     
+                }
+            }
         }
-
         $conn -> close();
 
         $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser);
         return json_encode($data);
         
     }
-
-    
 }

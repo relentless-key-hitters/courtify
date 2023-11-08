@@ -115,7 +115,6 @@ async function constroiMapa(campoInfo, localidadeUser) {
     var markers = [];
 
     var highlightedCard = null;
-
     async function createMarkerWithPopup(info) {
         var campoNome = info.campoNome;
         var campoDesc = info.campoDesc;
