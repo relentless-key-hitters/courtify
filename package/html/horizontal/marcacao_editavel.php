@@ -303,9 +303,9 @@ if (isset($_SESSION['id'])) {?>
               <div class="form-group">
                 <select class="form-select" id="filtroDistancia">
                   <option value="-1" selected disabled>Distância</option>
-                  <option value="0-5km">0-5km</option>
-                  <option value="5-15km">5-15km</option>
-                  <option value="+15km">+15km</option>
+                  <option value="0-1km">0-1km</option>
+                  <option value="1-5km">1-5km</option>
+                  <option value="5-10km">5-10km</option>
                 </select>
               </div>
             </div>

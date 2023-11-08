@@ -1,3 +1,4 @@
+
 function getUserLocation() {
     let dados = new FormData();
     dados.append("op", 2);
@@ -247,11 +248,32 @@ function getDistancias(){
 
 
 function aplicarFiltros(){
-    for(let j = 0; j < dist.length; j++){
-        if(dist[j][0] > 1000){
-            
+
+    let distancia = $("#filtroDistancia").val();
+
+    if (distancia == "0-1km") {
+        for (let j = 0; j < dist.length; j++) {
+            if (Array.isArray(dist[j]) && dist[j][0] > 1000) {
+                
+                $("#campo" + dist[j][1]).hide();
+            }
+        }
+    } else if(distancia == "1-5km") {
+        for (let j = 0; j < dist.length; j++) {
+            if (Array.isArray(dist[j]) && dist[j][0] > 5000) {
+                
+                $("#campo" + dist[j][1]).hide();
+            }
+        }
+    }else if(distancia == "5-10km") {
+        for (let j = 0; j < dist.length; j++) {
+            if (Array.isArray(dist[j]) && dist[j][0] > 10000) {
+                
+                $("#campo" + dist[j][1]).hide();
+            }
         }
     }
+    
 }
 
 
