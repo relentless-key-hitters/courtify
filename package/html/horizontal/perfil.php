@@ -405,7 +405,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-lg-8">
                 <div class="card shadow-none border">
                   <div class="card-body bg-light">
-                    <h4 class="fw-semibold mb-4 text-center fs-7">Jogos Recentes</h4>
+                    <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Jogos Recentes</h4>
                     <div class="card shadow-none border hover-img">
                       <div class="card-body">
                         <div class="row mt-2">
