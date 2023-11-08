@@ -221,7 +221,7 @@ if (isset($_SESSION['id'])) {?>
                 <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Campos</h4>
               </div>
               <div class="col-md-6 text-end">
-                <img src="../../../landingpage/dist/images/logos/logo_icone.png" class="">
+                <img src="../../../landingpage/dist/images/logos/logo_icone.png" style="max-width: 50px;">
               </div>
             </div>
             <div class="">
