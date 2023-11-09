@@ -88,7 +88,8 @@ let coords = [];
 let dist = [];
 
 async function constroiMapa(campoInfo, localidadeUser) {
-
+    coords = [];
+    dist = [];
     if (typeof map !== 'undefined') {
         map.remove();
     }
@@ -183,6 +184,7 @@ async function constroiMapa(campoInfo, localidadeUser) {
     var markerLayer = L.layerGroup(markers);
     markerLayer.addTo(map);
     getDistancias();
+    console.log(coords);
 }
 
 function pesquisarCampos() {
