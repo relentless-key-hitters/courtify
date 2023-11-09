@@ -125,19 +125,12 @@ async function constroiMapa(campoInfo, localidadeUser) {
         var moradaCampo = info.moradaCampo;
         var descConcelho = info.descConcelho;
         var idCampo = info.idCampo;
+        var latCampo = info.latCampo;
+        var lonCampo = info.lonCampo;
 
-        var combinedQuery = moradaCampo + ', ' + descConcelho;
-        var nominatimUrl = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(combinedQuery);
-
-        try {
-            const response = await fetch(nominatimUrl);
-            const data = await response.json();
-
-            if (data.length > 0) {
-                var lat = parseFloat(data[0].lat);
-                var lon = parseFloat(data[0].lon);
-                var coordinates = [lat, lon];
-                coords.push([lat, lon, idCampo]);
+        
+                var coordinates = [latCampo, lonCampo];
+                coords.push([latCampo, lonCampo, idCampo]);
                 var marker = L.marker(coordinates)
                     .bindPopup(
                         '<p><strong>' + campoNome + '</strong></p>' +
@@ -146,10 +139,8 @@ async function constroiMapa(campoInfo, localidadeUser) {
                     );
 
                 markers.push(marker);
-            }
-        } catch (error) {
-            console.error('Error geocoding:', error);
-        }
+            
+        
 
         marker.on('click', function () {
             
