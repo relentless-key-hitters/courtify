@@ -539,6 +539,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../dist/js/js_courtify/campo.js"></script>
+  <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
 
 
 

@@ -208,7 +208,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-lg-12">
             <div class="card border mb-3">
               <div class="card-body text-center">
-                <div id="imagemClube" class="mt-1">
+                <div id="imagemCampo" class="mt-1">
                   <img class="img-fluid" src="https://placehold.co/1000x200">
                 </div>
               </div>
@@ -224,8 +224,8 @@ if (isset($_SESSION['id'])) {?>
                 <!-- Place your calendar content here -->
                 <div class="card border mb-3">
                   <div class="card-body text-center">
-                    <div id="mapaClube" class="mt-1">
-                      <p>SISTEMA DE MARCAÇÕES</p>
+                    <div id="marcacoesCampo" class="mt-1">
+                      
                     </div>
                   </div>
                 </div>
@@ -236,31 +236,14 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-12">
                 <!-- Content for "About Us" -->
                 <div class="card border mb-3">
-                  <div class="card-body text-center">
-                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Sobre</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu fermentum nunc. Vestibulum ut
-                      nunc arcu. Curabitur id nisl lacinia, lacinia urna quis, elementum arcu. Curabitur porta, tellus
-                      elementum convallis fermentum, nisl augue porttitor felis, ac pellentesque libero tellus quis
-                      nisi. Integer porta ante et varius congue. Vivamus posuere ligula ac dolor consectetur, at
-                      vestibulum eros scelerisque. Orci varius natoque penatibus et magnis dis parturient montes,
-                      nascetur ridiculus mus. Nunc dui tortor, rutrum in volutpat in, tristique vel orci.
-
-                      Phasellus in metus felis. Pellentesque pellentesque accumsan libero eget maximus. Praesent blandit
-                      cursus ante, in bibendum enim. Vivamus lacinia diam et mi sagittis sollicitudin. Nunc magna lorem,
-                      fringilla at nisl eu, vehicula elementum lorem. Donec porta turpis sed metus malesuada, ac
-                      sollicitudin mi fringilla. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus
-                      et netus et malesuada fames ac turpis egestas.
-
-                      Vestibulum velit nibh, varius ut ornare ut, varius ac nisi. Praesent tortor mauris, sollicitudin
-                      sed condimentum a, faucibus id risus. Fusce pulvinar feugiat aliquam. Etiam sodales faucibus
-                      laoreet. Pellentesque urna nisi, interdum a suscipit a, fermentum vitae mi. Aenean tincidunt orci
-                      metus. Quisque in auctor nisl. Curabitur faucibus ligula in tellus pulvinar, ut egestas turpis
-                      mollis. Maecenas vel consectetur sem. Sed est felis, cursus quis vestibulum ut, molestie ut leo.
-                      Mauris lacinia tristique velit, nec fringilla nisi aliquam et. Donec cursus diam tortor, sit amet
-                      congue libero vestibulum eget. Morbi ut ornare diam. Vestibulum hendrerit ut nisl non varius.
+                  <div class="card-body">
+                    <div class="text-center">
+                      <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Sobre</h4>
+                    </div>
+                    <p id="descricaoCampo">
+                      
                     </p>
-                    <div id="mapaClube" class="mt-1"><img class="" src="https://placehold.co/400x200"></div>
+                    <div id="imagemCampo1" class="mt-1"><img class="" src="https://placehold.co/400x200"></div>
                   </div>
                 </div>
               </div>
@@ -271,19 +254,21 @@ if (isset($_SESSION['id'])) {?>
             <div class="card border mb-3">
               <div class="card-body text-center">
 
-                <div id="mapaClube" class="mt-1"><p>MAPA</p><img class="" src="https://placehold.co/200"></div>
+                <div id="mapaCampo" class="mt-1"><p>MAPA</p><img class="" src="https://placehold.co/200"></div>
               </div>
             </div>
 
             <div class="card border">
               <div class="card-body">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Serviços</h4>
+                <div id="servicosCampo"></div>
               </div>
             </div>
 
             <div class="card border">
               <div class="card-body">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Horários</h4>
+                <div id="horariosCampo"></div>
               </div>
             </div>
 
@@ -291,6 +276,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="card-body">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Modalidades
                 </h4>
+                <div id="modalidadesCampo"></div>
               </div>
             </div>
           </div>
@@ -579,6 +565,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
+  <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
 
 
 

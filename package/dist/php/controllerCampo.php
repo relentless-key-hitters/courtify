@@ -16,5 +16,8 @@ if ($_POST['op'] == 1){
 } else if ($_POST['op'] == 4){
     $res = $campo ->  pesquisarCampos($_POST['stringPesquisa'], $_POST['modalidadePesquisa'], $_POST['dataPesquisa'], $_POST['horaPesquisa']);
     echo($res);
+}else if ($_POST['op'] == 5){
+    $res = $campo -> getInfoPagCampo($_POST['id']);
+    echo($res);
 }
 ?>

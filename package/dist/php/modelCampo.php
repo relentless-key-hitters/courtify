@@ -69,7 +69,7 @@ class Campo {
                 $dados[] = $rowArray;
 
                 $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="campo'.$row['idCampo'].'">
-                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem);" data-id="' . $row['idCampo'] . '">
+                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idCampo'] . '" onclick=redirectToCampo(' .$row['idCampo']. ')>
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
                                         <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
@@ -194,7 +194,7 @@ class Campo {
                 $dados[] = $rowArray;
 
                 $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="campo'.$row['idCampo'].'">
-                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem);" data-id="' .$row['idCampo']. '">
+                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); curso: pointer;" data-id="' .$row['idCampo']. '" onclick=redirectToCampo("' .$row['idCampo']. '")>
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
                                         <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
@@ -258,5 +258,56 @@ class Campo {
         $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser);
         return json_encode($data);
         
+    }
+
+    function getInfoPagCampo($campoId) {
+        global $conn;
+
+        $campoInfo = array();
+
+        $sql = "SELECT
+            campo.id AS idCampo,
+            campo.foto AS fotoCampo,
+            campo.nome AS nomeCampo,
+            campo.descricao AS descCampo,
+            tipo_campo.descricao AS tipoCampo,
+            campo.morada AS moradaCampo,
+            concelho.descricao AS concelhoCampo,
+            distrito.descricao AS distritoCampo,
+            modalidade.descricao AS modalidadeCampo,
+            campo.lat AS latCampo,
+            campo.lon AS lonCampo
+            FROM
+            campo
+            INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
+            INNER JOIN modalidade ON campo.modalidade = modalidade.id
+            INNER JOIN concelho ON campo.localidade = concelho.id
+            INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
+            INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
+            WHERE campo.id = ".$campoId;
+
+        $result = $conn->query($sql);
+
+        if ($result) {
+            if ($row = $result->fetch_assoc()) {
+                $campoInfo = array(
+                    'idCampo' => $row['idCampo'],
+                    'fotoCampo' => $row['fotoCampo'],
+                    'nomeCampo' => $row['nomeCampo'],
+                    'descCampo' => $row['descCampo'],
+                    'tipoCampo' => $row['tipoCampo'],
+                    'moradaCampo' => $row['moradaCampo'],
+                    'concelhoCampo' => $row['concelhoCampo'],
+                    'distritoCampo' => $row['distritoCampo'],
+                    'modalidadeCampo' => $row['modalidadeCampo'],
+                    'latCampo' => $row['latCampo'],
+                    'lonCampo' => $row['lonCampo'],
+                );
+            }
+        }
+
+        $conn->close();
+
+        return json_encode($campoInfo);
     }
 }

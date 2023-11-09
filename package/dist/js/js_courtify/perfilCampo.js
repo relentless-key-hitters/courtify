@@ -1,0 +1,40 @@
+function redirectToCampo(campoId) {
+    window.location.href = 'campo.php?id=' + campoId;
+}
+
+function getInfoPagCampo() {
+
+    
+    let urlParams = new URLSearchParams(window.location.search);
+    let campoId = urlParams.get('id');
+
+    let dados = new FormData();
+    dados.append("op", 5);
+    dados.append("id", campoId);
+
+    $.ajax({
+        url: "../../dist/php/controllerCampo.php",
+        method: "POST",
+        data: dados,
+        dataType: "json", 
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+    .done(function(msg) {
+        $("#modalidadesCampo").html(msg.modalidadeCampo);
+        $("#descricaoCampo").html(msg.descCampo);
+
+    })
+    .fail(function(jqXHR, textStatus) {
+        console.error("Request failed:", textStatus);
+        console.log(jqXHR.responseText);
+        alert("Request failed: " + textStatus);
+    });
+}
+
+
+
+$(function () {
+    getInfoPagCampo()
+});
