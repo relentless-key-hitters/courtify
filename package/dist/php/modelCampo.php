@@ -45,7 +45,7 @@ class Campo {
         $msg = "";
         $dados = array();
         
-        $sql = "SELECT campo.id AS idCampo, modalidade.descricao as campoModalidade, campo.id AS campoId, campo.foto AS fotoCampo, campo.nome AS campoNome, campo.descricao AS campoDesc, tipo_campo.descricao AS tipoCampoDesc, campo.morada AS moradaCampo, concelho.descricao AS descConcelho FROM campo INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id INNER JOIN concelho on campo.localidade = concelho.id INNER JOIN modalidade ON campo.modalidade = modalidade.id INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta WHERE atleta.id_atleta = ".$_SESSION['id']."  LIMIT 12";
+        $sql = "SELECT campo.id AS idCampo, modalidade.descricao as campoModalidade, campo.id AS campoId, campo.foto AS fotoCampo, campo.nome AS campoNome, campo.descricao AS campoDesc, tipo_campo.descricao AS tipoCampoDesc, campo.morada AS moradaCampo, concelho.descricao AS descConcelho, campo.lat as lat, campo.lon and lon FROM campo INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id INNER JOIN concelho on campo.localidade = concelho.id INNER JOIN modalidade ON campo.modalidade = modalidade.id INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta WHERE atleta.id_atleta = ".$_SESSION['id']."  LIMIT 12";
         $result = $conn->query($sql);
 
     
@@ -62,8 +62,9 @@ class Campo {
                     'campoDesc' => $row['campoDesc'],
                     'tipoCampoDesc' => $row['tipoCampoDesc'],
                     'moradaCampo' => $row['moradaCampo'],
-                    'descConcelho' => $row['descConcelho']
-                    
+                    'descConcelho' => $row['descConcelho'], 
+                    'latCampo' => $row['lat'],
+                    'lonCampo' => $row['lon']
                 );
                 $dados[] = $rowArray;
 
