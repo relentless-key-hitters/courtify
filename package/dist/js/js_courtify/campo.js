@@ -1,4 +1,4 @@
-
+let arrHiden =[];
 function getUserLocation() {
     let dados = new FormData();
     dados.append("op", 2);
@@ -72,10 +72,7 @@ function getCampos(localidade){
             let obj = JSON.parse(msg);
             
             $("#rowCampos").html(obj.html);
-            
             constroiMapa(obj.dados, obj.localidadeUser);
-            
-
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -129,19 +126,29 @@ async function constroiMapa(campoInfo, localidadeUser) {
         var lonCampo = info.lonCampo;
 
         
-                var coordinates = [latCampo, lonCampo];
-                coords.push([latCampo, lonCampo, idCampo]);
-                var marker = L.marker(coordinates)
-                    .bindPopup(
-                        '<p><strong>' + campoNome + '</strong></p>' +
-                        '<p>' + campoDesc + '</p>' +
-                        '<p><i class="ti ti-map-pin me-1"></i>' + moradaCampo + '</p>'
-                    );
-
+        var coordinates = [latCampo, lonCampo];
+        coords.push([latCampo, lonCampo, idCampo]);
+        var marker = L.marker(coordinates)
+            .bindPopup(
+            '<p><strong>' + campoNome + '</strong></p>' +
+            '<p>' + campoDesc + '</p>' +
+            '<p><i class="ti ti-map-pin me-1"></i>' + moradaCampo + '</p>'
+            );
+            if(arrHiden.length == 0){
                 markers.push(marker);
-            
-        
+            }else{
+                for(let i = 0; i < arrHiden.length; i++){
+                    if(arrHiden[i] != idCampo){
+                        markers.push(marker);
+                    }else{
+                        $("#campo" + idCampo).hide();
+                        
+                    }
+                }
+            }
 
+      
+            
         marker.on('click', function () {
             
             var cardToHighlight = document.querySelector('[data-id="' + idCampo + '"]');
@@ -162,8 +169,6 @@ async function constroiMapa(campoInfo, localidadeUser) {
                 }
             }
         });
-
-        
     }
 
     
@@ -241,32 +246,32 @@ function getDistancias(){
 
 
 function aplicarFiltros(){
-
+    arrHiden = [];
     let distancia = $("#filtroDistancia").val();
 
     if (distancia == "0-1km") {
         for (let j = 0; j < dist.length; j++) {
             if (Array.isArray(dist[j]) && dist[j][0] > 1000) {
-                
-                $("#campo" + dist[j][1]).hide();
+                arrHiden.push(dist[j][1])
+
             }
         }
     } else if(distancia == "1-5km") {
         for (let j = 0; j < dist.length; j++) {
             if (Array.isArray(dist[j]) && dist[j][0] > 5000) {
-                
-                $("#campo" + dist[j][1]).hide();
+                arrHiden.push(dist[j][1])
+
             }
         }
     }else if(distancia == "5-10km") {
         for (let j = 0; j < dist.length; j++) {
             if (Array.isArray(dist[j]) && dist[j][0] > 10000) {
-                
-                $("#campo" + dist[j][1]).hide();
+                arrHiden.push(dist[j][1])
+
             }
         }
     }
-    
+    getUserLocation()
 }
 
 
