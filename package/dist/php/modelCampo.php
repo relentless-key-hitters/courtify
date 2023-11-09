@@ -139,7 +139,8 @@ class Campo {
                 tipo_campo.descricao AS tipoCampoDesc, 
                 campo.morada AS moradaCampo, 
                 campo_concelho.descricao AS descConcelhoCampo,
-                user_concelho.descricao AS descConcelhoUser
+                user_concelho.descricao AS descConcelhoUser,
+                distrito.descricao AS descDistritoUser
             FROM 
                 campo 
             INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id 
@@ -148,7 +149,9 @@ class Campo {
             INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade 
             INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta
             INNER JOIN user ON atleta.id_atleta = user.id
-            INNER JOIN concelho AS user_concelho ON user.localidade = user_concelho.id";
+            INNER JOIN concelho AS user_concelho ON user.localidade = user_concelho.id
+            INNER JOIN distrito_concelho ON user_concelho.id = distrito_concelho.id_concelho
+            INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id";
 
         
         if ($modalidadePesquisa !== -1) {
@@ -169,7 +172,7 @@ class Campo {
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
-                $localidadeUser = $row['descConcelhoUser'];
+                $localidadeUser = $row['descDistritoUser'];
 
                 $rowArray = array(
                     'idCampo' => $row['idCampo'],
