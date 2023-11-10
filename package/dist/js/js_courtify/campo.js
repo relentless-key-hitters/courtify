@@ -1,4 +1,6 @@
 let arrHiden =[];
+let obsCampos = [];
+let obsUser = [];
 function getUserLocation() {
     let dados = new FormData();
     dados.append("op", 2);
@@ -70,9 +72,12 @@ function getCampos(localidade){
 
         .done(function(msg) {
             let obj = JSON.parse(msg);
-            
+            obsCampos = obj.dados;
+            obsUser = obj.localidadeUser;
             $("#rowCampos").html(obj.html);
             constroiMapa(obj.dados, obj.localidadeUser);
+            console.log(obsCampos)
+            console.log(obsUser)
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -137,13 +142,17 @@ async function constroiMapa(campoInfo, localidadeUser) {
             if(arrHiden.length == 0){
                 markers.push(marker);
             }else{
+                let flag1 = true;
                 for(let i = 0; i < arrHiden.length; i++){
-                    if(arrHiden[i] != idCampo){
-                        markers.push(marker);
-                    }else{
-                        $("#campo" + idCampo).hide();
-                        
+                    if(arrHiden[i] == idCampo){
+                        flag1 = false;
                     }
+                }
+                if(flag1){
+                    markers.push(marker);
+
+                }else{
+                    $("#campo" + idCampo).hide();
                 }
             }
 
@@ -248,30 +257,80 @@ function getDistancias(){
 function aplicarFiltros(){
     arrHiden = [];
     let distancia = $("#filtroDistancia").val();
+    let tipo = $("#filtroTipo").val();
+    if( distancia == null && tipo == null){
 
-    if (distancia == "0-1km") {
-        for (let j = 0; j < dist.length; j++) {
-            if (Array.isArray(dist[j]) && dist[j][0] > 1000) {
-                arrHiden.push(dist[j][1])
-
+    }else if(distancia != null && tipo == null){
+        if (distancia == "0-1km") {
+            for (let j = 0; j < dist.length; j++) {
+                if (Array.isArray(dist[j]) && dist[j][0] > 1000) {
+                    arrHiden.push(dist[j][1])
+    
+                }
+            }
+        } else if(distancia == "1-5km") {
+            for (let j = 0; j < dist.length; j++) {
+                if (Array.isArray(dist[j]) && dist[j][0] > 5000) {
+                    arrHiden.push(dist[j][1])
+    
+                }
+            }
+        }else if(distancia == "5-10km") {
+            for (let j = 0; j < dist.length; j++) {
+                if (Array.isArray(dist[j]) && dist[j][0] > 10000) {
+                    arrHiden.push(dist[j][1])
+    
+                }
             }
         }
-    } else if(distancia == "1-5km") {
-        for (let j = 0; j < dist.length; j++) {
-            if (Array.isArray(dist[j]) && dist[j][0] > 5000) {
-                arrHiden.push(dist[j][1])
-
+        constroiMapa(obsCampos, obsUser)
+    }else if(distancia == null && tipo != null){
+        for(let i = 0; i < dist.length; i++){
+            if(obsCampos[i].tipoCampoDesc != tipo){
+                arrHiden.push(dist[i][1]);
             }
         }
-    }else if(distancia == "5-10km") {
-        for (let j = 0; j < dist.length; j++) {
-            if (Array.isArray(dist[j]) && dist[j][0] > 10000) {
-                arrHiden.push(dist[j][1])
+        constroiMapa(obsCampos, obsUser)
+    }else if(distancia != null && tipo != null){
+            if (distancia == "0-1km") {
+                for (let j = 0; j < dist.length; j++) {
+                    if ((Array.isArray(dist[j]) && dist[j][0] > 1000 && tipo == obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] < 1000 && tipo != obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] > 1000 && tipo != obsCampos[j].tipoCampoDesc)) {
+                        arrHiden.push(dist[j][1])
+                    }
+                }
+            }else if(distancia == "1-5km") {
+                for (let j = 0; j < dist.length; j++) {
+                    if ((Array.isArray(dist[j]) && dist[j][0] > 5000 && tipo == obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] < 5000 && tipo != obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] > 5000 && tipo != obsCampos[j].tipoCampoDesc)) {
+                        arrHiden.push(dist[j][1])
+                    }
+                }
+            }else if(distancia == "5-10km") {
+                for (let j = 0; j < dist.length; j++) {
+                    if ((Array.isArray(dist[j]) && dist[j][0] > 10000 && tipo == obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] < 10000 && tipo != obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] > 10000 && tipo != obsCampos[j].tipoCampoDesc)) {
+                        arrHiden.push(dist[j][1])
+                    } 
+                }
+            }
 
+        constroiMapa(obsCampos, obsUser)
+    }
+    
+    for(let i = 0 ; i < obsCampos.length; i++){
+        let flag = true;
+        for(let j = 0; j < arrHiden.length; j++){
+            if(obsCampos[i].idCampo == arrHiden[j]){
+                flag = false;
+            }
+        }
+        if (!flag){
+            $("#campo" + obsCampos[i].idCampo).hide();
+        }else{
+            if($("#campo" + obsCampos[i].idCampo).is(':hidden')){
+                $("#campo" + obsCampos[i].idCampo).show();
             }
         }
     }
-    getUserLocation()
+console.log(arrHiden)
 }
 
 

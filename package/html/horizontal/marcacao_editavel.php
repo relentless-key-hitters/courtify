@@ -293,9 +293,9 @@ if (isset($_SESSION['id'])) {?>
               <div class="form-group">
                 <select class="form-select" id="filtroTipo">
                   <option value="-1" selected disabled>Tipo</option>
-                  <option value="coberto">Coberto</option>
-                  <option value="indoor">Indoor</option>
-                  <option value="exterior">Exterior</option>
+                  <option value="Cobertura">Coberto</option>
+                  <option value="Indoor">Indoor</option>
+                  <option value="Exterior">Exterior</option>
                 </select>
               </div>
             </div>
