@@ -24,7 +24,9 @@ function getInfoPagCampo() {
     .done(function(msg) {
         $("#modalidadesCampo").html(msg.modalidadeCampo);
         $("#descricaoCampo").html(msg.descCampo);
-
+        $("#nomeCampo").html(msg.nomeCampo);
+        $("#moradaCampo").html(msg.moradaCampo + ", " + msg.concelhoCampo + ", " + msg.distritoCampo);
+        $("#fotoCampo").attr("src", msg.fotoCampo);
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
