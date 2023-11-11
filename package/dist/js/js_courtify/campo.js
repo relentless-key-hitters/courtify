@@ -333,6 +333,10 @@ function aplicarFiltros(){
 console.log(arrHiden)
 }
 
+function redirectToCampo(campoId) {
+    window.location.href = 'campo.php?id=' + campoId;
+}
+
 
 $(document).ready(function () {
     getUserLocation();

@@ -298,8 +298,8 @@ class Campo {
                 if ($row['modalidadeCampo'] == 'Futsal') {
                     $conteudoModalidade = '
                                             <div class="text-center">
-                                                <span class="badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
-                                                    <i class="ti ti-ball-soccer me-1"></i>' . $row['modalidadeCampo'] . '
+                                                <span class="badge bg-danger text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                    <i class="ti ti-ball-football me-1"></i>' . $row['modalidadeCampo'] . '
                                                 </span>
                                             </div>    
                                         ';
