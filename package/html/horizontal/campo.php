@@ -215,7 +215,7 @@ if (isset($_SESSION['id'])) {?>
       <div class="">
         <div class="row">
         <div class="col-lg-12" style="position: relative; margin-top: 80px;" >
-          <img class="img-fluid rounded border border-2 border-primary" id="fotoCampo" style="width: 100%; max-width: 100%; height: 250px; object-fit: cover;">
+          <img class="img-fluid rounded border border-2 border-primary" id="fotoCampo" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
           <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 10%; text-align: left; color: white;">
             <h1 id="nomeCampo" class="text-white" style="letter-spacing: 2px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 48px;">NOME CAMPO</h1>
             <p id="moradaCampo" class="text-white" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">MORADA CAMPO</p>
@@ -264,8 +264,8 @@ if (isset($_SESSION['id'])) {?>
           </div>
           <div class="col-lg-3">
             <!-- Content for col-lg-3 -->
-            <div class="card border mb-3 mt-3">
-              <div class="card-body" id="mapa" style="height: 200px; z-index: 1;">
+            <div class="card border mb-4 mt-3">
+              <div class="" id="mapa" style="height: 200px; z-index: 1;">
 
               </div>
             </div>
