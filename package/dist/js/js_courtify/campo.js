@@ -136,7 +136,6 @@ async function constroiMapa(campoInfo, localidadeUser) {
         var marker = L.marker(coordinates)
             .bindPopup(
             '<p><strong>' + campoNome + '</strong></p>' +
-            '<p>' + campoDesc + '</p>' +
             '<p><i class="ti ti-map-pin me-1"></i>' + moradaCampo + '</p>'
             );
             if(arrHiden.length == 0){

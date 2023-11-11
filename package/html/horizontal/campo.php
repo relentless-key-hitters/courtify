@@ -230,7 +230,7 @@ if (isset($_SESSION['id'])) {?>
                 <!-- Content for the calendar -->
                 <!-- Place your calendar content here -->
                 <div class="card border mb-3">
-                  <div class="card-body text-center">
+                  <div class="card-body text-center bg-light">
                     <div id="marcacoesCampo" class="mt-1">
                       
                     </div>
@@ -243,7 +243,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-12">
                 <!-- Content for "About Us" -->
                 <div class="card border mb-3">
-                  <div class="card-body">
+                  <div class="p-3">
                     <div class="text-center">
                       <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Sobre</h4>
                     </div>
@@ -269,21 +269,21 @@ if (isset($_SESSION['id'])) {?>
             </div>
 
             <div class="card border">
-              <div class="card-body">
+              <div class="p-3">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Serviços</h4>
                 <div id="servicosCampo"></div>
               </div>
             </div>
 
             <div class="card border">
-              <div class="card-body">
+              <div class="p-3">
                 <h4 class="fw-semibold mb-4 pb-2 text-center fs-7 border-2 border-bottom border-primary">Horários</h4>
                 <div id="horariosCampo"></div>
               </div>
             </div>
 
             <div class="card border">
-              <div class="card-body">
+              <div class="p-3">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Modalidades
                 </h4>
                 <div id="modalidadesCampo"></div>
