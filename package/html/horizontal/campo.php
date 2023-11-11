@@ -215,9 +215,9 @@ if (isset($_SESSION['id'])) {?>
       <div class="">
         <div class="row">
         <div class="col-lg-12" style="position: relative; margin-top: 80px;" >
-          <img class="img-fluid rounded border border-2 border-primary" id="fotoCampo" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-          <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 10%; text-align: left; color: white;">
-            <h1 id="nomeCampo" class="text-white" style="letter-spacing: 2px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 48px;">NOME CAMPO</h1>
+          <img class="img-fluid border border-2 border-primary" id="fotoCampo" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+          <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
+            <h1 id="nomeCampo" class="text-white" style="letter-spacing: 2px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 52px;">NOME CAMPO</h1>
             <p id="moradaCampo" class="text-white" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">MORADA CAMPO</p>
           </div>
         </div>
