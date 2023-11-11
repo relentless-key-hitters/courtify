@@ -111,7 +111,7 @@ class Campo {
                                     <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaCampo'] . ', </span>
                                     <span id="localidade">' . $row['descConcelho'] . '</span>
                                     <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['campoNome'] . '</p>
-                                    <p id="descricao" class="my-2">' . $row['campoDesc'] . '</p>
+                                    <p id="descricao" class="my-2">' . substr($row['campoDesc'], 0, 100) .'(..)</p>
                                 </div>
                             </div>
                         </div>';
@@ -236,7 +236,7 @@ class Campo {
                                     <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaCampo'] . ', </span>
                                     <span id="localidade">' . $row['descConcelhoCampo'] . '</span>
                                     <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['campoNome'] . '</p>
-                                    <p id="descricao" class="my-2">' . $row['campoDesc'] . '</p>
+                                    <p id="descricao" class="my-2">' . substr($row['campoDesc'], 0, 100) .'</p>
                                 </div>
                             </div>
                         </div>';

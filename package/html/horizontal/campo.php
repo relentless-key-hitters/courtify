@@ -211,18 +211,20 @@ if (isset($_SESSION['id'])) {?>
     <!-- Header End -->
     <!-- Sidebar Start -->
     <!-- Main wrapper -->
-    <div class="body-wrapper">
-      <div class="container-fluid">
+    <div class="">
+      <div class="">
         <div class="row">
-        <div class="col-lg-12" style="position: relative;">
-          <img class="img-fluid rounded border border-2 border-primary" id="fotoCampo" style="width: 100%; max-width: 1200px; height: 250px; object-fit: cover;">
+        <div class="col-lg-12" style="position: relative; margin-top: 80px;" >
+          <img class="img-fluid rounded border border-2 border-primary" id="fotoCampo" style="width: 100%; max-width: 100%; height: 250px; object-fit: cover;">
           <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 10%; text-align: left; color: white;">
             <h1 id="nomeCampo" class="text-white" style="letter-spacing: 2px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 48px;">NOME CAMPO</h1>
             <p id="moradaCampo" class="text-white" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">MORADA CAMPO</p>
           </div>
         </div>
         </div>
-        <div class="row">
+        <div class="body-wrapper">
+          <div class="container">
+          <div class="row">
           <div class="col-lg-9">
             <!-- First Row inside col-lg-9 -->
             <div class="row mt-3 mb-3">
@@ -291,6 +293,9 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
         </div>
+          </div>
+        </div>
+        
       </div>
     </div>
     <div class="container">
