@@ -263,7 +263,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-lg-3">
             <!-- Content for col-lg-3 -->
             <div class="card border mb-3 mt-3">
-              <div class="card-body" id="mapa" style="height: 200px">
+              <div class="card-body" id="mapa" style="height: 200px; z-index: 1;">
 
               </div>
             </div>
