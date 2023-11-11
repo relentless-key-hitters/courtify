@@ -265,6 +265,9 @@ class Campo {
 
         $campoInfo = array();
 
+        $conteudoModalidade;
+
+
         $sql = "SELECT
             campo.id AS idCampo,
             campo.foto AS fotoCampo,
@@ -290,6 +293,125 @@ class Campo {
 
         if ($result) {
             if ($row = $result->fetch_assoc()) {
+                
+
+                if ($row['modalidadeCampo'] == 'Futsal') {
+                    $conteudoModalidade = '
+                                            <div class="text-center">
+                                                <span class="badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                    <i class="ti ti-ball-soccer me-1"></i>' . $row['modalidadeCampo'] . '
+                                                </span>
+                                            </div>    
+                                        ';
+                } elseif ($row['modalidadeCampo'] == 'Basquetebol') {
+                    $conteudoModalidade = '
+                                            <div class="text-center">
+                                                <span class="badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                    <i class="ti ti-ball-basketball me-1"></i>' . $row['modalidadeCampo'] . '
+                                                </span>
+                                            </div>    
+                                        ';
+                } elseif ($row['modalidadeCampo'] == 'Padel') {
+                    $conteudoModalidade = '
+                                            <div class="text-center">
+                                                <span class="badge bg-primary text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                    <i class="ti ti-ball-tennis me-1"></i>' . $row['modalidadeCampo'] . '
+                                                </span>
+                                            </div>    
+                                        ';
+                } elseif ($row['modalidadeCampo'] == 'Ténis') {
+                    $conteudoModalidade = '
+                                            <div class="text-center">
+                                                <span class="badge bg-success text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                    <i class="ti ti-ball-tennis me-1"></i>' . $row['modalidadeCampo'] . '
+                                                </span>
+                                            </div>    
+                                        ';
+                }
+
+                $servicos = '
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class=" badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0">
+                                    <i class="ti ti-parking me-1 fs-3"></i>Estacionamento
+                                </span>
+                                <span class=" badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0">
+                                    <i class="ti ti-wifi me-1 fs-3"></i>Wi-Fi
+                                </span>
+                                <span class=" badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0">
+                                    <i class="ti ti-bottle me-1 fs-3"></i>Vending Machine
+                                </span>
+                                <span class=" badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0">
+                                    <i class="ti ti-hanger me-1 fs-3"></i>Balneários
+                                </span>
+                                <span class=" badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0">
+                                    <i class="ti ti-key me-1 fs-3"></i>Cacifos
+                                </span>
+                                <span class=" badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0">
+                                    <i class="ti ti-coffee me-1 fs-3"></i>Cafetaria
+                                </span>
+                                <span class=" badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0">
+                                    <i class="ti ti-disabled me-1 fs-3"></i>Acessibilidade
+                                </span>
+                            </div>   
+                
+                
+                
+                
+                
+                
+                            ';
+
+                $horario = '
+                                <ul class="">
+                                <li class="">
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
+                                        <span class="fs-3 fw-bold">Segunda-feira</span>
+                                        <span class="fs-3">09:30 - 21:30</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
+                                        <span class="fs-3 fw-bold">Terça-feira</span>
+                                        <span class="fs-3">09:30 - 21:30</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
+                                        <span class="fs-3 fw-bold">Quarta-feira</span>
+                                        <span class="fs-3">09:30 - 21:30</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
+                                        <span class="fs-3 fw-bold">Quinta-feira</span>
+                                        <span class="fs-3">09:30 - 21:30</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
+                                        <span class="fs-3 fw-bold">Sexta-feira</span>
+                                        <span class="fs-3">09:30 - 21:30</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
+                                        <span class="fs-3 fw-bold">Sábado</span>
+                                        <span class="fs-3">09:30 - 21:30</span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fs-3 fw-bold">Domingo</span>
+                                        <span class="fs-3">09:30 - 21:30</span>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                            ';
+
+                
+                
+                
                 $campoInfo = array(
                     'idCampo' => $row['idCampo'],
                     'fotoCampo' => $row['fotoCampo'],
@@ -299,9 +421,11 @@ class Campo {
                     'moradaCampo' => $row['moradaCampo'],
                     'concelhoCampo' => $row['concelhoCampo'],
                     'distritoCampo' => $row['distritoCampo'],
-                    'modalidadeCampo' => $row['modalidadeCampo'],
+                    'modalidadeCampo' => $conteudoModalidade,
+                    'horarioCampo' => $horario,
                     'latCampo' => $row['latCampo'],
                     'lonCampo' => $row['lonCampo'],
+                    'servicos' => $servicos
                 );
             }
         }
