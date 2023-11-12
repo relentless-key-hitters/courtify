@@ -1,5 +1,5 @@
 $(function () {
-    
+    $('.animated-text').addClass('show');
 
     $(".owl-carousel").each(function () {
         var carouselId = $(this).closest(".carousel-container").attr("id");

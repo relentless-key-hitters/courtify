@@ -38005,6 +38005,16 @@ html[dir="rtl"] .welcome-bg-img {
 .hover-img:hover {
   transform: scale(1.05);
 }
+
+.hover-img2 {
+  transition: all 0.2s ease-in 0s;
+}
+.hover-img2:hover {
+  transform: scale(1.05);
+  border: 1px solid #044967;
+}
+
+
 .z-1 {
   position: relative;
   z-index: 1;
@@ -46416,3 +46426,13 @@ ul {
   z-index: 0;
 }
 
+.animated-text {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+.animated-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}

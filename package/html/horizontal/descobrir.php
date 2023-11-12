@@ -33,18 +33,7 @@ if (isset($_SESSION['id'])) {?>
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
 
-      <style>
-    .animated-text {
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: opacity 3s ease-out, transform 3s ease-out;
-    }
 
-    .animated-text.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </head>
 
 <body>
@@ -657,12 +646,7 @@ if (isset($_SESSION['id'])) {?>
 
 
 
-  <script>
-    // Add a class to trigger the animation on page load
-    $(document).ready(function() {
-      $('.animated-text').addClass('show');
-    });
-  </script>
+
 
 
   <script type="text/javascript">
