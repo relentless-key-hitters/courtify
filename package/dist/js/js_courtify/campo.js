@@ -76,8 +76,6 @@ function getCampos(localidade){
             obsUser = obj.localidadeUser;
             $("#rowCampos").html(obj.html);
             constroiMapa(obj.dados, obj.localidadeUser);
-            console.log(obsCampos)
-            console.log(obsUser)
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -89,7 +87,7 @@ function getCampos(localidade){
 let coords = [];
 let dist = [];
 
-async function constroiMapa(campoInfo, localidadeUser) {
+async function constroiMapa(clubeInfo, localidadeUser) {
     coords = [];
     dist = [];
     if (typeof map !== 'undefined') {
@@ -122,31 +120,31 @@ async function constroiMapa(campoInfo, localidadeUser) {
 
     var highlightedCard = null;
     async function createMarkerWithPopup(info) {
-        var campoNome = info.campoNome;
-        var campoDesc = info.campoDesc;
-        var moradaCampo = info.moradaCampo;
+        var clubeNome = info.nomeClube;
+        var clubeDesc = info.clubeDesc;
+        var moradaClube = info.moradaClube;
         var descConcelho = info.descConcelho;
-        var idCampo = info.idCampo;
-        var latCampo = info.latCampo;
-        var lonCampo = info.lonCampo;
+        var idClube = info.idClube;
+        var latClube = info.latClube;
+        var lonClube = info.lonClube;
 
         
-        var coordinates = [latCampo, lonCampo];
-        coords.push([latCampo, lonCampo, idCampo]);
+        var coordinates = [latClube, lonClube];
+        coords.push([latClube, lonClube, idClube]);
         var marker = L.marker(coordinates)
             .bindPopup(
-            '<p><strong>' + campoNome + '</strong></p>' +
-            '<p><i class="ti ti-map-pin me-1"></i>' + moradaCampo + '</p>'
+            '<p><strong>' + clubeNome + '</strong></p>' +
+            '<p><i class="ti ti-map-pin me-1"></i>' + moradaClube + '</p>'
             );
             if(arrHiden.length == 0){
                 markers.push(marker);
-                if($("#campo" + idCampo).is(':hidden')){
-                    $("#campo" + idCampo).show();
+                if($("#clube" + idClube).is(':hidden')){
+                    $("#clube" + idClube).show();
                 }
             }else{
                 let flag1 = true;
                 for(let i = 0; i < arrHiden.length; i++){
-                    if(arrHiden[i] == idCampo){
+                    if(arrHiden[i] == idClube){
                         flag1 = false;
                     }
                 }
@@ -154,7 +152,7 @@ async function constroiMapa(campoInfo, localidadeUser) {
                     markers.push(marker);
 
                 }else{
-                    $("#campo" + idCampo).hide();
+                    $("#clube" + idClube).hide();
                 }
             }
 
@@ -162,7 +160,7 @@ async function constroiMapa(campoInfo, localidadeUser) {
             
         marker.on('click', function () {
             
-            var cardToHighlight = document.querySelector('[data-id="' + idCampo + '"]');
+            var cardToHighlight = document.querySelector('[data-id="' + idClube + '"]');
         
             
             if (cardToHighlight) {
@@ -183,7 +181,7 @@ async function constroiMapa(campoInfo, localidadeUser) {
     }
 
     
-    for (const info of campoInfo) {
+    for (const info of clubeInfo) {
         await createMarkerWithPopup(info);
     }
 
@@ -217,6 +215,7 @@ function pesquisarCampos() {
             let obj = JSON.parse(msg);
             $("#stringPesquisa").val("");
             $("#pesquisaMarcacaoModalidade").val("-1");
+            console.log(obj.dados)
             
             $("#rowCampos").fadeOut("fast", function() {
                 obsCampos = obj.dados
@@ -229,9 +228,7 @@ function pesquisarCampos() {
                 $(this).fadeIn("fast");
             });
             
-            constroiMapa(obj.dados, obj.localidadeUser);
-            
-
+            constroiMapa(obj.dados, obsUser);
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -252,7 +249,6 @@ function getDistancias(){
         let d = 2 * Math.atan2(Math.sqrt(c), Math.sqrt(1-c));
         dist.push([d * r, coords[i][2]]);
     }
-    console.log(dist)
 }
 
 
@@ -288,7 +284,13 @@ function aplicarFiltros(){
         constroiMapa(obsCampos, obsUser)
     }else if(distancia == null && tipo != null){
         for(let i = 0; i < dist.length; i++){
-            if(obsCampos[i].tipoCampoDesc != tipo){
+            let flag = false;
+            for(let j = 0 ; j < obsCampos[i].tiposCamposClube.length; j++){
+                if(obsCampos[i].tiposCamposClube[j] == tipo){
+                    flag = true;
+                }
+            }
+            if(!flag){
                 arrHiden.push(dist[i][1]);
             }
         }
@@ -341,8 +343,8 @@ function removerFiltros(){
     $("#filtroTipo").val(-1);
 }
 
-function redirectToCampo(campoId) {
-    window.location.href = 'campo.php?id=' + campoId;
+function redirectToCampo(idClube) {
+    window.location.href = 'campo.php?id=' + idClube;
 }
 
 
