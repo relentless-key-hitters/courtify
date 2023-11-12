@@ -231,7 +231,7 @@ if (isset($_SESSION['id'])) {?>
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Campos</h4>
+            <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Clubes</h4>
           </div>
         </div>
         <div class="">
