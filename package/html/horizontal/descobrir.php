@@ -222,17 +222,17 @@ if (isset($_SESSION['id'])) {?>
                   <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
               </div>
               <img class="img-fluid border border-2 border-primary" src="../../dist/images/backgrounds/descobrir_banner.jpg" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-              <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
+              <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;">
                   <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">DESCOBRIR</h1>
-                  <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
+                  <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px">Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
               </div>
           </div>
         </div>
         <div class="body-wrapper">
           <div class="container">
-            <div class="row mt-5">
+            <div class=" mt-5">
               <h2 class="mb-4">Marcações abertas dos teus amigos</h2>
-              <div class="card bg-light">
+              <div class="card bg-light px-3">
                 <div class="carousel-container mt-5" id="carousel1">
                   <div class="owl-carousel">
                     <div class="item">
@@ -278,10 +278,10 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-            <div class="row mt-5">
-              <h2 class="mb-4">Marcações abertas de *MODALIDADE/S USER*</h2>
-              <div class="card bg-light">
-                <div class="carousel-container mt-5" id="carousel1">
+            <div class=" mt-5">
+              <h2 class="mb-4">Marcações abertas de *MODALIDADE*</h2>
+              <div class="card bg-light px-3">
+                <div class="carousel-container mt-5" id="carousel2">
                   <div class="owl-carousel">
                     <div class="item">
                         <div class="mt-1">
@@ -326,10 +326,10 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-            <div class="row mt-5">
+            <div class=" mt-5">
               <h2 class="mb-4">Marcações abertas em *LOCALIDADE USER*</h2>
-              <div class="card bg-light">
-                <div class="carousel-container mt-5" id="carousel1">
+              <div class="card bg-light px-3">
+                <div class="carousel-container mt-5" id="carousel3">
                   <div class="owl-carousel">
                     <div class="item">
                         <div class="mt-1">
