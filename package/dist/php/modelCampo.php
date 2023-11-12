@@ -45,7 +45,27 @@ class Campo {
         $msg = "";
         $dados = array();
         
-        $sql = "SELECT campo.id AS idCampo, modalidade.descricao as campoModalidade, campo.id AS campoId, campo.foto AS fotoCampo, campo.nome AS campoNome, campo.descricao AS campoDesc, tipo_campo.descricao AS tipoCampoDesc, campo.morada AS moradaCampo, concelho.descricao AS descConcelho, campo.lat as lat, campo.lon as lon FROM campo INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id INNER JOIN concelho on campo.localidade = concelho.id INNER JOIN modalidade ON campo.modalidade = modalidade.id INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta WHERE atleta.id_atleta = ".$_SESSION['id']."  LIMIT 12";
+        $sql = "SELECT UNIQUE clube.id_clube AS idClube, 
+        modalidade.descricao as campoModalidade, 
+        user.foto AS fotoClube, 
+        user.nome AS nomeClube, 
+        clube.descricao AS clubeDesc, 
+        tipo_campo.descricao AS tipoCampoDesc, 
+        user.morada AS moradaClube, 
+        concelho.descricao AS descConcelho,
+        distrito.descricao AS descDistrito, 
+        user.lat as lat, 
+        user.lon as lon 
+        FROM user 
+        INNER JOIN clube ON user.id = clube.id_clube 
+        INNER JOIN campo_clube on clube.id_clube = campo_clube.id_clube
+        INNER JOIN campo ON campo_clube.id_campo = campo.id 
+        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
+        INNER JOIN concelho ON user.localidade = concelho.id
+        INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
+        INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
+        WHERE distrito.descricao LIKE '" . $localidadeUser . "' LIMIT 12";
         $result = $conn->query($sql);
 
     
@@ -54,25 +74,24 @@ class Campo {
             while ($row = $result->fetch_assoc()) {
 
                 $rowArray = array(  
-                    'idCampo' => $row['idCampo'],
+                    'idClube' => $row['idClube'],
                     'campoModalidade' => $row['campoModalidade'],
-                    'campoId' => $row['campoId'],
-                    'fotoCampo' => $row['fotoCampo'],
-                    'campoNome' => $row['campoNome'],
-                    'campoDesc' => $row['campoDesc'],
+                    'fotoClube' => $row['fotoClube'],
+                    'nomeClube' => $row['nomeClube'],
+                    'clubeDesc' => $row['clubeDesc'],
                     'tipoCampoDesc' => $row['tipoCampoDesc'],
-                    'moradaCampo' => $row['moradaCampo'],
+                    'moradaClube' => $row['moradaClube'],
                     'descConcelho' => $row['descConcelho'], 
-                    'latCampo' => $row['lat'],
-                    'lonCampo' => $row['lon']
+                    'latClube' => $row['lat'],
+                    'lonClube' => $row['lon']
                 );
                 $dados[] = $rowArray;
 
-                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="campo'.$row['idCampo'].'">
-                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idCampo'] . '" onclick=redirectToCampo(' .$row['idCampo']. ')>
+                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="campo'.$row['idClube'].'">
+                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idClube'] . '" onclick=redirectToCampo(' .$row['idClube']. ')>
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
-                                        <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
+                                        <img src="' . $row['fotoClube'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
                                     </a>';
                                     switch ($row['campoModalidade']) {
                                         case "Futsal":
