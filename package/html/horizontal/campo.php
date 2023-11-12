@@ -68,6 +68,9 @@ if (isset($_SESSION['id'])) {?>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
           </li>
+          <li class="nav-item dropdown-hover d-none d-xl-block">
+            <a class="nav-link fs-4" href="./descobrir.php">Descobrir</a>
+          </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
           <a href="index.html" class="text-nowrap nav-link">
@@ -435,6 +438,14 @@ if (isset($_SESSION['id'])) {?>
                 <i class="ti ti-soccer-field"></i>
               </span>
               <span class="hide-menu">Marcação</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="descobrir.php" aria-expanded="false">
+              <span>
+                <i class="ti ti-radar"></i>
+              </span>
+              <span class="hide-menu">Descobrir</span>
             </a>
           </li>
         </ul>

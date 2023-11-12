@@ -29,9 +29,9 @@ if (isset($_SESSION['id'])) {?>
      crossorigin=""/>
 
       <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
 </head>
 
 <body>
@@ -66,10 +66,10 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-4" href="#">Home</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="#">Marcação</a>
+            <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./descobrir.php">Descobrir</a>
+            <a class="nav-link fs-4" href="#">Descobrir</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
@@ -145,9 +145,8 @@ if (isset($_SESSION['id'])) {?>
                 <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <div class="d-flex align-items-center">
-                    <div class="user-profile-img mb-2" >
-                      <img id="perfil1" class="rounded-circle" width="35" height="35"
-                        alt="" />
+                    <div class="user-profile-img mb-2">
+                      <img class="rounded-circle" width="35" height="35" alt="" id="perfil1" />
                     </div>
                   </div>
                 </a>
@@ -157,7 +156,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="py-3 px-7 pb-0">
                     </div>
                     <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                    <img class="rounded-circle" width="80" height="80" alt="" id="perfil2" />
+                      <img class="rounded-circle" width="80" height="80" alt="" id="perfil2" />
                       <div class="ms-3">
                         <h5 class="mb-1 fs-3" id="nome2"></h5>
                         <span class="mb-1 d-block text-dark">Padel</span>
@@ -184,9 +183,9 @@ if (isset($_SESSION['id'])) {?>
                           <h6 class="mb-1 bg-hover-primary fw-semibold">Mensagens</h6>
                         </div>
                       </a>
-                      <a href="./app-calendar.html" class="py-8 px-7 d-flex align-items-center">
+                      <a href="./app-calendar.php" class="py-8 px-7 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                          <i class="ti ti-chart-histogram fs-7 text-primary"></i>
+                          <i class="ti ti-calendar fs-7 text-primary"></i>
                         </span>
                         <div class="w-75 d-inline-block v-middle ps-3">
                           <h6 class="mb-1 bg-hover-primary fw-semibold">Calendário</h6>
@@ -213,194 +212,279 @@ if (isset($_SESSION['id'])) {?>
       </nav>
     </header>
     <!-- Header End -->
-    <!-- Sidebar Start -->4 4 41
+    <!-- Sidebar Start -->
     <!-- Main wrapper -->
-    <div class="" style="padding-top: 115px;">
-      <div class="container-fluid">
-        <div class="card border-top border-2 border-primary">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Campos</h4>
-              </div>
-              <div class="col-md-6 text-end">
-                <img src="../../../landingpage/dist/images/logos/logo_icone.png" style="max-width: 50px;">
-              </div>
-            </div>
-            <div class="">
-              <form>
-                <div class="row">
-                  <div class="form-group col-md-4 mt-3 mt-md-0">
-                    <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
-                    <select class="form-select" id="pesquisaMarcacaoModalidade">
-                      
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
-                    <input type="date" class="form-control" id="currentDateInput">
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0">
-                    <select id="currentTimeInput" class="form-select">
-                      <option value="-1" style="color: #c9c9c9;">Hora</option>
-                      <option value="0700">07:00</option>
-                      <option value="0730">07:30</option>
-                      <option value="0800">08:00</option>
-                      <option value="0830">08:30</option>
-                      <option value="0900">09:00</option>
-                      <option value="0930">09:30</option>
-                      <option value="1000">10:00</option>
-                      <option value="1030">10:30</option>
-                      <option value="1100">11:00</option>
-                      <option value="1130">11:30</option>
-                      <option value="1200">12:00</option>
-                      <option value="1230">12:30</option>
-                      <option value="1300">13:00</option>
-                      <option value="1330">13:30</option>
-                      <option value="1400">14:00</option>
-                      <option value="1430">14:30</option>
-                      <option value="1500">15:00</option>
-                      <option value="1530">15:30</option>
-                      <option value="1600">16:00</option>
-                      <option value="1630">16:30</option>
-                      <option value="1700">17:00</option>
-                      <option value="1730">17:30</option>
-                      <option value="1800">18:00</option>
-                      <option value="1830">18:30</option>
-                      <option value="1900">19:00</option>
-                      <option value="1930">19:30</option>
-                      <option value="2000">20:00</option>
-                      <option value="2030">20:30</option>
-                      <option value="2100">21:00</option>
-                      <option value="2130">21:30</option>
-                      <option value="2200">22:00</option>
-                      <option value="2230">22:30</option>
-                      <option value="2300">23:00</option>
-                      <option value="2330">23:30</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0">
-                    <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
-                    <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary" onclick="getUserLocation()">Redefinir</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+    <div class="">
+      <div class="">
+        <div class="row">
+        <div class="col-lg-12" style="position: relative; margin-top: 80px;" >
+          
         </div>
-
-        <div class="mb-5 px-5">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="form-group">
-                <select class="form-select" id="filtroTipo">
-                  <option value="-1" selected disabled>Tipo</option>
-                  <option value="Cobertura">Coberto</option>
-                  <option value="Indoor">Indoor</option>
-                  <option value="Exterior">Exterior</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-2 mt-2 mt-md-0">
-              <div class="form-group">
-                <select class="form-select" id="filtroDistancia">
-                  <option value="-1" selected disabled>Distância</option>
-                  <option value="0-1km">0-1km</option>
-                  <option value="1-5km">1-5km</option>
-                  <option value="5-10km">5-10km</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
-                <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
-                <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
-            </div>
-            <div class="col-md-6 text-end mt-2 mt-md-0 col">
-              <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
-                <div>
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
-                  <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
+        </div>
+        <div class="body-wrapper">
+          <div class="container">
+            <div class="row mt-2">
+              <h2 class="mb-4">Marcações abertas dos teus amigos</h2>
+              <div class="card bg-light">
+                <div class="carousel-container mt-5" id="carousel1">
+                  <div class="owl-carousel">
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="d-none d-xxl-flex">
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                  <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <h2 class="mb-4">Marcações abertas de *MODALIDADE/S USER*</h2>
+              <div class="card bg-light">
+                <div class="carousel-container mt-5" id="carousel1">
+                  <div class="owl-carousel">
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <h2 class="mb-4">Marcações abertas em *LOCALIDADE USER*</h2>
+              <div class="card bg-light">
+                <div class="carousel-container mt-5" id="carousel1">
+                  <div class="owl-carousel">
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mt-1">
+                          <div
+                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                            
+                          </div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         
-        <div class="page">
-          <div class="left" id="leftContainer">
-            <div class="card">
-              <div class="card-body bg-light">
-                <h3 class="fw-semibold mb-3">Resultados</h3>
-            
-                <div class="row" id="rowCampos">
-                  
-                </div>
-              </div>
-              <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
-                <ul class="pagination bg-light me-3">
-                  <li class="page-item">
-                    <a class="page-link link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">
-                        <i class="ti ti-chevrons-left fs-4"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#">3</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#" aria-label="Next">
-                      <span aria-hidden="true">
-                        <i class="ti ti-chevrons-right fs-4"></i>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-          <div class="divider d-none d-xxl-flex" id="divider">
-
-          </div>
-          <div class="right rounded" id="rightContainer" >
-            <div id="mapa" style="height: 100%">
-
-            </div>
-            
-          </div>
-        </div>
       </div>
+    </div>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+
+        <a href="#"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+        </a>
+        <div>
+          <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+        </div>
+
+      </footer>
     </div>
   </div>
   </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
-  <div class="container-fluid">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted ms-3">Copyright © 2023 Courtify</p>
-  
-      <a href="#"
-        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-      </a>
-      <div>
-        <p class="mb-0 text-muted me-3">Todos os direitos reservados.</p>
+  </div>
+  <!--  Shopping Cart -->
+  <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header py-4">
+      <h5 class="offcanvas-title fs-5 fw-semibold" id="offcanvasRightLabel">Shopping Cart</h5>
+      <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">5 new</span>
+    </div>
+    <div class="offcanvas-body h-100 px-4 pt-0" data-simplebar>
+      <ul class="mb-0">
+        <li class="pb-7">
+          <div class="d-flex align-items-center">
+            <img src="../../dist/images/products/product-1.jpg" width="95" height="75"
+              class="rounded-1 me-9 flex-shrink-0" alt="" />
+            <div>
+              <h6 class="mb-1">Supreme toys cooker</h6>
+              <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+              <div class="d-flex align-items-center justify-content-between mt-2">
+                <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                <div class="input-group input-group-sm w-50">
+                  <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
+                    id="add1"> - </button>
+                  <input type="text"
+                    class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
+                    placeholder="" aria-label="Example text with button addon" aria-describedby="add1" value="1" />
+                  <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addo2">
+                    + </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="pb-7">
+          <div class="d-flex align-items-center">
+            <img src="../../dist/images/products/product-2.jpg" width="95" height="75"
+              class="rounded-1 me-9 flex-shrink-0" alt="" />
+            <div>
+              <h6 class="mb-1">Supreme toys cooker</h6>
+              <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+              <div class="d-flex align-items-center justify-content-between mt-2">
+                <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                <div class="input-group input-group-sm w-50">
+                  <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
+                    id="add2"> - </button>
+                  <input type="text"
+                    class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
+                    placeholder="" aria-label="Example text with button addon" aria-describedby="add2" value="1" />
+                  <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
+                    id="addon34"> + </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="pb-7">
+          <div class="d-flex align-items-center">
+            <img src="../../dist/images/products/product-3.jpg" width="95" height="75"
+              class="rounded-1 me-9 flex-shrink-0" alt="" />
+            <div>
+              <h6 class="mb-1">Supreme toys cooker</h6>
+              <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+              <div class="d-flex align-items-center justify-content-between mt-2">
+                <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                <div class="input-group input-group-sm w-50">
+                  <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
+                    id="add3"> - </button>
+                  <input type="text"
+                    class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
+                    placeholder="" aria-label="Example text with button addon" aria-describedby="add3" value="1" />
+                  <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
+                    id="addon3"> + </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="align-bottom">
+        <div class="d-flex align-items-center pb-7">
+          <span class="text-dark fs-3">Sub Total</span>
+          <div class="ms-auto">
+            <span class="text-dark fw-semibold fs-3">$2530</span>
+          </div>
+        </div>
+        <div class="d-flex align-items-center pb-7">
+          <span class="text-dark fs-3">Total</span>
+          <div class="ms-auto">
+            <span class="text-dark fw-semibold fs-3">$6830</span>
+          </div>
+        </div>
+        <a href="./eco-checkout.html" class="btn btn-outline-primary w-100">Go to shopping cart</a>
       </div>
-  
-    </footer>
+    </div>
   </div>
-  </div>
+
   <!--  Mobilenavbar -->
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar"
     aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -420,7 +504,7 @@ if (isset($_SESSION['id'])) {?>
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
               <span>
                 <i class="ti ti-soccer-field"></i>
               </span>
@@ -428,7 +512,7 @@ if (isset($_SESSION['id'])) {?>
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="descobrir.php" aria-expanded="false">
+            <a class="sidebar-link" href="#" aria-expanded="false">
               <span>
                 <i class="ti ti-radar"></i>
               </span>
@@ -532,11 +616,41 @@ if (isset($_SESSION['id'])) {?>
     </div>
   </div>
 
+
+  <div class="modal fade" id="vertical-center-modal" tabindex="-1" aria-labelledby="vertical-center-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <h4 class="modal-title">
+            Alterar foto de capa
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12 mb-3">
+            <label for="fotoCapa" class="form-label">Fotografia de capa</label>
+            <input class="form-control" type="file" id="fotoCapa" name="fotoCapa">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light-primary text-primary font-medium waves-effect text-start"
+            onclick="altFotoCapa()" data-bs-dismiss="modal">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
+            data-bs-dismiss="modal">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
   <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../dist/js/math/math.js"></script>
   <!-- core files -->
   <script src="../../dist/js/app.min.js"></script>
   <script src="../../dist/js/app.horizontal.init.js"></script>
@@ -547,142 +661,44 @@ if (isset($_SESSION['id'])) {?>
   <!-- current page js files -->
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-  <script src="../../dist/js/js_courtify/user.js"></script>
-  <script src="../../dist/js/js_courtify/campo.js"></script>
+  <script src="../../dist/js/js_courtify/descobrir.js"></script>
+  <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
 
 
 
 
-<script>
-  function getCurrentDate() {
-    const now = new Date();
-    if (now.getHours() >= 23 && now.getMinutes() >= 30) {
-      // If it's 23:30 or later, get the date for the next day
-      now.setDate(now.getDate() + 1);
-    }
-    const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const day = now.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
-
-  function resetOptions() {
-    const options = document.querySelectorAll("#currentTimeInput option");
-    options.forEach(option => {
-      option.style.display = "block";
-    });
-  }
-
-  document.getElementById("currentDateInput").addEventListener("change", resetOptions);
-
-  document.getElementById("currentDateInput").value = getCurrentDate();
-</script>
-
-<script>
-  const toggleSwitch = document.getElementById("flexSwitchCheckChecked");
-  const rightContainer = document.getElementById("rightContainer");
-  const divider = document.getElementById("divider");
-
-  function isScreenBelowMd() {
-    return window.matchMedia("(max-width: 1700px)").matches; 
-  }
-
-  function updateVisibility() {
-    if (isScreenBelowMd() || !toggleSwitch.checked) {
-      rightContainer.style.display = "none";
-      divider.style.display = "none";
-      toggleSwitch.checked = false;
-    } else {
-      rightContainer.style.display = "block";
-      divider.style.display = "block";
-    }
-  }
-
-  updateVisibility();
-
-  toggleSwitch.addEventListener("change", function () {
-    if (toggleSwitch.checked) {
-      rightContainer.style.display = "block";
-      divider.style.display = "block";
-    } else {
-      rightContainer.style.display = "none";
-      divider.style.display = "none";
-    }
-  });
-
-  window.addEventListener("resize", updateVisibility);
-</script>
 
 
-<script type="text/javascript">
-  var timeout;
+  <script type="text/javascript">
+    var timeout;
 
-  
-  function resetSessionTimeout() {
+
+    function resetSessionTimeout() {
       clearTimeout(timeout);
       timeout = setTimeout(function () {
-          
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', 'logout.php', true);
-          xhr.onreadystatechange = function () {
-              if (xhr.readyState == 4 && xhr.status == 200) {
-                  alerta2("Utilizador", "Sessão terminada após 15m de inatividade", "warning");
-                  setTimeout(function () {
-                  window.location.href = '../../../landingpage/index.html';
-                  }, 3000);
-                  
-              }
-          };
-          xhr.send();
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'logout.php', true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
+            setTimeout(function () {
+              window.location.href = '../../../landingpage/index.html';
+            }, 3000);
+
+          }
+        };
+        xhr.send();
       }, 900000);
-  }
-
-  
-  document.onmousemove = resetSessionTimeout;
-  document.onkeypress = resetSessionTimeout;
-
-  
-  resetSessionTimeout();
-</script>
-
-<script>
-  const currentDateInput = document.getElementById("currentDateInput");
-  const currentTimeInput = document.getElementById("currentTimeInput");
-
-  function updateOptions() {
-    const selectedDate = new Date(currentDateInput.value);
-    const currentTime = new Date();
-    currentTime.setMinutes(currentTime.getMinutes() + 30);
-
-    
-    if (selectedDate.toDateString() === currentTime.toDateString()) {
-      const currentTimeValue = `${currentTime.getHours().toString().padStart(2, "0")}${currentTime.getMinutes().toString().padStart(2, "0")}`;
-      const options = currentTimeInput.querySelectorAll("option");
-
-      options.forEach(option => {
-        const optionValue = option.value;
-        if (optionValue <= currentTimeValue) {
-          option.disabled = true;
-          option.style.display = "none";
-        } else {
-          option.disabled = false;
-          option.style.display = "block";
-        }
-      });
-    } else {
-      
-      currentTimeInput.querySelectorAll("option").forEach(option => {
-        option.disabled = false;
-        option.style.display = "block";
-      });
     }
-  }
 
-  
-  updateOptions();
-  currentDateInput.addEventListener("change", updateOptions);
-</script>
 
+    document.onmousemove = resetSessionTimeout;
+    document.onkeypress = resetSessionTimeout;
+
+
+    resetSessionTimeout();
+  </script>
 
 </body>
 
