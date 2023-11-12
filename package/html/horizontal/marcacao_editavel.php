@@ -314,7 +314,12 @@ if (isset($_SESSION['id'])) {?>
                 <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
               </div>
             </div>
-            <div class="col-md-7 text-end mt-2 mt-md-0 col">
+            <div class="col-md-1 mt-2 mt-md-0 d-flex align-items-center">
+              <div class="form-group">
+                <button type="button" class="btn btn-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
+              </div>
+            </div>
+            <div class="col-md-6 text-end mt-2 mt-md-0 col">
               <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
                 <div>
                   <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>

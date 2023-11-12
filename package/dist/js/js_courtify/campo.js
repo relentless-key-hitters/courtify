@@ -140,6 +140,9 @@ async function constroiMapa(campoInfo, localidadeUser) {
             );
             if(arrHiden.length == 0){
                 markers.push(marker);
+                if($("#campo" + idCampo).is(':hidden')){
+                    $("#campo" + idCampo).show();
+                }
             }else{
                 let flag1 = true;
                 for(let i = 0; i < arrHiden.length; i++){
@@ -199,7 +202,7 @@ function pesquisarCampos() {
     dados.append("modalidadePesquisa", $("#pesquisaMarcacaoModalidade").val());
     dados.append("dataPesquisa", $("#currentDateInput").val());
     dados.append("horaPesquisa", $("#currentTimeInput").val());
-
+    obsCampos = [];
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
         method: "POST",
@@ -216,7 +219,7 @@ function pesquisarCampos() {
             $("#pesquisaMarcacaoModalidade").val("-1");
             
             $("#rowCampos").fadeOut("fast", function() {
-                
+                obsCampos = obj.dados
                 $(this).html("");
                 
                 
@@ -329,7 +332,13 @@ function aplicarFiltros(){
             }
         }
     }
-console.log(arrHiden)
+}
+
+function removerFiltros(){
+    arrHiden = []
+    constroiMapa(obsCampos, obsUser)
+    console.log(obsCampos)
+    arrHiden = []
 }
 
 function redirectToCampo(campoId) {
