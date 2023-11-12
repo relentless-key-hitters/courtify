@@ -216,7 +216,7 @@ if (isset($_SESSION['id'])) {?>
     <!-- Sidebar Start -->4 4 41
     <!-- Main wrapper -->
     <div class="">
-    <div class="col-lg-12 mb-3" style="position: relative; margin-top: 60px;">
+    <div class="col-lg-12 mb-3" style="position: relative; margin-top: 59px;">
               <div style="position: absolute; top: 0; right: 1px; z-index: 1;">
                   <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
               </div>
