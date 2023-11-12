@@ -217,178 +217,176 @@ if (isset($_SESSION['id'])) {?>
     <!-- Main wrapper -->
     <div class="">
     <div class="col-lg-12 mb-3" style="position: relative; margin-top: 59px;">
-              <div style="position: absolute; top: 0; right: 1px; z-index: 1;">
-                  <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
-              </div>
-              <img class="img-fluid border border-2 border-primary" src="../../dist/images/backgrounds/marcacao_banner.jpg" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-              <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
-                  <h1 class="text-white display-3 display-md-2 display-lg-1" style="letter-spacing: 2px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Marcação</h1>
-                  <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Encontra o campo perfeito para aquele jogo de sábado</p>
-              </div>
+      <div style="position: absolute; top: 0; right: 1px; z-index: 1;">
+          <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
+      </div>
+      <img class="img-fluid border border-2 border-primary" src="../../dist/images/backgrounds/marcacao_banner.jpg" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+      <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
+          <h1 class="text-white display-3 display-md-2 display-lg-1" style="letter-spacing: 2px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Marcação</h1>
+          <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Encontra o campo perfeito para aquele jogo de sábado</p>
+      </div>
+    </div>
+
+    <div class=" mx-3 card border-top border-2 border-primary">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Campos</h4>
           </div>
-        <div class="card border-top border-2 border-primary">
-          <div class="card-body">
+        </div>
+        <div class="">
+          <form>
             <div class="row">
-              <div class="col-md-6">
-                <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Campos</h4>
+              <div class="form-group col-md-4 mt-3 mt-md-0">
+                <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
               </div>
-              <div class="col-md-6 text-end">
-                <img src="../../../landingpage/dist/images/logos/logo_icone.png" style="max-width: 50px;">
+              <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
+                <select class="form-select" id="pesquisaMarcacaoModalidade">
+                  
+                </select>
+              </div>
+              <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
+                <input type="date" class="form-control" id="currentDateInput">
+              </div>
+              <div class="form-group col-md-2 mt-3 mt-md-0">
+                <select id="currentTimeInput" class="form-select">
+                  <option value="-1" style="color: #c9c9c9;">Hora</option>
+                  <option value="0700">07:00</option>
+                  <option value="0730">07:30</option>
+                  <option value="0800">08:00</option>
+                  <option value="0830">08:30</option>
+                  <option value="0900">09:00</option>
+                  <option value="0930">09:30</option>
+                  <option value="1000">10:00</option>
+                  <option value="1030">10:30</option>
+                  <option value="1100">11:00</option>
+                  <option value="1130">11:30</option>
+                  <option value="1200">12:00</option>
+                  <option value="1230">12:30</option>
+                  <option value="1300">13:00</option>
+                  <option value="1330">13:30</option>
+                  <option value="1400">14:00</option>
+                  <option value="1430">14:30</option>
+                  <option value="1500">15:00</option>
+                  <option value="1530">15:30</option>
+                  <option value="1600">16:00</option>
+                  <option value="1630">16:30</option>
+                  <option value="1700">17:00</option>
+                  <option value="1730">17:30</option>
+                  <option value="1800">18:00</option>
+                  <option value="1830">18:30</option>
+                  <option value="1900">19:00</option>
+                  <option value="1930">19:30</option>
+                  <option value="2000">20:00</option>
+                  <option value="2030">20:30</option>
+                  <option value="2100">21:00</option>
+                  <option value="2130">21:30</option>
+                  <option value="2200">22:00</option>
+                  <option value="2230">22:30</option>
+                  <option value="2300">23:00</option>
+                  <option value="2330">23:30</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2 mt-3 mt-md-0">
+                <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
+                <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary" onclick="getUserLocation()">Redefinir</button>
               </div>
             </div>
-            <div class="">
-              <form>
-                <div class="row">
-                  <div class="form-group col-md-4 mt-3 mt-md-0">
-                    <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
-                    <select class="form-select" id="pesquisaMarcacaoModalidade">
-                      
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
-                    <input type="date" class="form-control" id="currentDateInput">
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0">
-                    <select id="currentTimeInput" class="form-select">
-                      <option value="-1" style="color: #c9c9c9;">Hora</option>
-                      <option value="0700">07:00</option>
-                      <option value="0730">07:30</option>
-                      <option value="0800">08:00</option>
-                      <option value="0830">08:30</option>
-                      <option value="0900">09:00</option>
-                      <option value="0930">09:30</option>
-                      <option value="1000">10:00</option>
-                      <option value="1030">10:30</option>
-                      <option value="1100">11:00</option>
-                      <option value="1130">11:30</option>
-                      <option value="1200">12:00</option>
-                      <option value="1230">12:30</option>
-                      <option value="1300">13:00</option>
-                      <option value="1330">13:30</option>
-                      <option value="1400">14:00</option>
-                      <option value="1430">14:30</option>
-                      <option value="1500">15:00</option>
-                      <option value="1530">15:30</option>
-                      <option value="1600">16:00</option>
-                      <option value="1630">16:30</option>
-                      <option value="1700">17:00</option>
-                      <option value="1730">17:30</option>
-                      <option value="1800">18:00</option>
-                      <option value="1830">18:30</option>
-                      <option value="1900">19:00</option>
-                      <option value="1930">19:30</option>
-                      <option value="2000">20:00</option>
-                      <option value="2030">20:30</option>
-                      <option value="2100">21:00</option>
-                      <option value="2130">21:30</option>
-                      <option value="2200">22:00</option>
-                      <option value="2230">22:30</option>
-                      <option value="2300">23:00</option>
-                      <option value="2330">23:30</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2 mt-3 mt-md-0">
-                    <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
-                    <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary" onclick="getUserLocation()">Redefinir</button>
-                  </div>
-                </div>
-              </form>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-5 px-5">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <select class="form-select" id="filtroTipo">
+              <option value="-1" selected disabled>Tipo</option>
+              <option value="Cobertura">Coberto</option>
+              <option value="Indoor">Indoor</option>
+              <option value="Exterior">Exterior</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2 mt-2 mt-md-0">
+          <div class="form-group">
+            <select class="form-select" id="filtroDistancia">
+              <option value="-1" selected disabled>Distância</option>
+              <option value="0-1km">0-1km</option>
+              <option value="1-5km">1-5km</option>
+              <option value="5-10km">5-10km</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
+            <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
+        </div>
+        <div class="col-md-6 text-end mt-2 mt-md-0 col">
+          <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
+            <div>
+              <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
+              <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
+            </div>
+            <div class="d-none d-xxl-flex">
+              <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+              <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
             </div>
           </div>
         </div>
-
-        <div class="mb-5 px-5">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="form-group">
-                <select class="form-select" id="filtroTipo">
-                  <option value="-1" selected disabled>Tipo</option>
-                  <option value="Cobertura">Coberto</option>
-                  <option value="Indoor">Indoor</option>
-                  <option value="Exterior">Exterior</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-2 mt-2 mt-md-0">
-              <div class="form-group">
-                <select class="form-select" id="filtroDistancia">
-                  <option value="-1" selected disabled>Distância</option>
-                  <option value="0-1km">0-1km</option>
-                  <option value="1-5km">1-5km</option>
-                  <option value="5-10km">5-10km</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
-                <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
-                <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
-            </div>
-            <div class="col-md-6 text-end mt-2 mt-md-0 col">
-              <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
-                <div>
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
-                  <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
-                </div>
-                <div class="d-none d-xxl-flex">
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                  <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
-                </div>
-              </div>
+      </div>
+    </div>
+        
+    <div class="px-3 page">
+      <div class="left" id="leftContainer">
+        <div class="card">
+          <div class="card-body bg-light">
+            <h3 class="fw-semibold mb-3">Resultados</h3>
+        
+            <div class="row" id="rowCampos">
+              
             </div>
           </div>
+          <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
+            <ul class="pagination bg-light me-3">
+              <li class="page-item">
+                <a class="page-link link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">
+                    <i class="ti ti-chevrons-left fs-4"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link link" href="#" aria-label="Next">
+                  <span aria-hidden="true">
+                    <i class="ti ti-chevrons-right fs-4"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="divider d-none d-xxl-flex" id="divider">
+
+      </div>
+      <div class="right rounded" id="rightContainer" >
+        <div id="mapa" style="height: 100%">
+
         </div>
         
-        <div class="page">
-          <div class="left" id="leftContainer">
-            <div class="card">
-              <div class="card-body bg-light">
-                <h3 class="fw-semibold mb-3">Resultados</h3>
-            
-                <div class="row" id="rowCampos">
-                  
-                </div>
-              </div>
-              <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
-                <ul class="pagination bg-light me-3">
-                  <li class="page-item">
-                    <a class="page-link link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">
-                        <i class="ti ti-chevrons-left fs-4"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#">3</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link link" href="#" aria-label="Next">
-                      <span aria-hidden="true">
-                        <i class="ti ti-chevrons-right fs-4"></i>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-          <div class="divider d-none d-xxl-flex" id="divider">
-
-          </div>
-          <div class="right rounded" id="rightContainer" >
-            <div id="mapa" style="height: 100%">
-
-            </div>
-            
-          </div>
-        </div>
+      </div>
+    </div>
       </div>
     </div>
   </div>
