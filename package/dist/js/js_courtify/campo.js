@@ -344,7 +344,7 @@ function removerFiltros(){
 }
 
 function redirectToCampo(idClube) {
-    window.location.href = 'clube.php?id=' + idClube;
+    window.location.href = 'campo.php?id=' + idClube;
 }
 
 
