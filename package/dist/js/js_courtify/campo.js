@@ -337,6 +337,8 @@ function aplicarFiltros(){
 function removerFiltros(){
     arrHiden = []
     constroiMapa(obsCampos, obsUser)
+    $("#filtroDistancia").val(-1);
+    $("#filtroTipo").val(-1);
 }
 
 function redirectToCampo(campoId) {

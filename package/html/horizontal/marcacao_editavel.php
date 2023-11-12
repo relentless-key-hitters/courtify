@@ -279,7 +279,7 @@ if (isset($_SESSION['id'])) {?>
                   </div>
                   <div class="form-group col-md-2 mt-3 mt-md-0">
                     <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
-                    <button type="button" class="mt-2 mt-xl-0 btn btn-light-primary" onclick="getUserLocation()">Redefinir</button>
+                    <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary" onclick="getUserLocation()">Redefinir</button>
                   </div>
                 </div>
               </form>
@@ -309,15 +309,9 @@ if (isset($_SESSION['id'])) {?>
                 </select>
               </div>
             </div>
-            <div class="col-md-1 mt-2 mt-md-0 d-flex align-items-center">
-              <div class="form-group">
+            <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
                 <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
-              </div>
-            </div>
-            <div class="col-md-1 mt-2 mt-md-0 d-flex align-items-center">
-              <div class="form-group">
                 <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
-              </div>
             </div>
             <div class="col-md-6 text-end mt-2 mt-md-0 col">
               <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
