@@ -32,6 +32,19 @@ if (isset($_SESSION['id'])) {?>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
+
+      <style>
+    .animated-text {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 3s ease-out, transform 3s ease-out;
+    }
+
+    .animated-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body>
@@ -222,9 +235,9 @@ if (isset($_SESSION['id'])) {?>
                   <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
               </div>
               <img class="img-fluid border border-3 rounded border-primary" src="../../dist/images/backgrounds/descobrir_banner.jpg" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-              <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;">
-                  <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">DESCOBRIR</h1>
-                  <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px">Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
+              <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;" class="animated-text">
+                <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Descobrir</h1>
+                <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px">Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
               </div>
           </div>
         </div>
@@ -644,7 +657,12 @@ if (isset($_SESSION['id'])) {?>
 
 
 
-
+  <script>
+    // Add a class to trigger the animation on page load
+    $(document).ready(function() {
+      $('.animated-text').addClass('show');
+    });
+  </script>
 
 
   <script type="text/javascript">

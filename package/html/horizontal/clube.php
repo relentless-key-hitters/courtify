@@ -222,6 +222,7 @@ if (isset($_SESSION['id'])) {?>
           <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
             <h1 id="nomeCampo" class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">NOME CAMPO</h1>
             <p id="moradaCampo" class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">MORADA CAMPO</p>
+            <p id="moradaClube2" class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 20px;"></span>
           </div>
         </div>
         </div>
@@ -291,8 +292,35 @@ if (isset($_SESSION['id'])) {?>
               <div class="p-3">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Modalidades
                 </h4>
-                <div id="modalidadesCampo" class="f-flex justify-content-center align-items-center text-center">
+                <div id="modalidadesCampo" class="d-flex flex-wrap gap-2 justify-content-center">
 
+                </div>
+              </div>
+            </div>
+
+            <div class="card border">
+              <div class="p-3">
+                <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Contatos
+                </h4>
+                <div class="d-flex justify-content-center px-3">
+                  <ul class="list-group w-100">
+                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                      <i class="ti ti-phone fs-7 me-2"></i>
+                      <span id="telefoneClube" class="fs-3"></span>
+                    </li>
+                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                      <i class="ti ti-device-mobile fs-7 me-2"></i>
+                      <span id="telemovelClube" class="fs-3"></span>
+                    </li>
+                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                      <i class="ti ti-mail fs-7 me-2"></i>
+                      <span id="emailClube" class="fs-3"></span>
+                    </li>
+                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                      <i class="ti ti-home fs-7 me-2"></i>
+                      <span id="moradaClube1" class="fs-3"></span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>

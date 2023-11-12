@@ -229,7 +229,11 @@ class Campo {
             concelho.descricao AS concelhoClube,
             distrito.descricao AS distritoClube,
             user.lat AS latClube,
-            user.lon AS lonClube
+            user.lon AS lonClube,
+            clube.telefone AS numTelefoneClube,
+            user.email AS emailClube,
+            user.telemovel AS telemovelClube,
+            user.codigo_postal as codigoPostalClube
             FROM
             clube INNER JOIN user ON clube.id_clube = user.id 
             INNER JOIN concelho ON user.localidade = concelho.id
@@ -257,10 +261,11 @@ class Campo {
                                                 ';
                         } elseif ($row2['modalidade'] == 'Basquetebol') {
                             $conteudoModalidade .= '
-
+                                                    
                                                         <span class="me-2 badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
                                                             <i class="ti ti-ball-basketball me-1"></i>' . $row2['modalidade'] . '
                                                         </span>
+  
  
                                                 ';
                         } elseif ($row2['modalidade'] == 'Padel') {
@@ -372,6 +377,10 @@ class Campo {
                     'lat' => $row['latClube'],
                     'lon' => $row['lonClube'],
                     'servicos' => $servicos,
+                    'telefoneClube' => $row['numTelefoneClube'],
+                    'emailClube' => $row['emailClube'],
+                    'telemovelClube' =>  $row['telemovelClube'],
+                    'codigoPostalClube' => $row['codigoPostalClube'],
                     'modalidadesClube' => $conteudoModalidade
                 );
             }

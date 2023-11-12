@@ -28,6 +28,11 @@ function getInfoPagCampo() {
         $("#imagemCampo1").attr("src", msg.fotoClube);
         $("#servicosCampo").html(msg.servicos);
         $("#horariosCampo").html(msg.horarioClube);
+        $("#telefoneClube").html(msg.telefoneClube);
+        $("#emailClube").html(msg.emailClube);
+        $("#telemovelClube").html(msg.telemovelClube);
+        $("#moradaClube1").html(msg.moradaClube + ", " + msg.codigoPostalClube);
+        $("#moradaClube2").html(msg.codigoPostalClube);
 
         constroiMapaCampo(msg);
     })
