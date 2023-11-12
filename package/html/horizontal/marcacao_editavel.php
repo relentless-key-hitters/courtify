@@ -215,8 +215,17 @@ if (isset($_SESSION['id'])) {?>
     <!-- Header End -->
     <!-- Sidebar Start -->4 4 41
     <!-- Main wrapper -->
-    <div class="" style="padding-top: 115px;">
-      <div class="container-fluid">
+    <div class="">
+    <div class="col-lg-12 mb-3" style="position: relative; margin-top: 60px;">
+              <div style="position: absolute; top: 0; right: 1px; z-index: 1;">
+                  <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
+              </div>
+              <img class="img-fluid border border-2 border-primary" src="../../dist/images/backgrounds/marcacao_banner.jpg" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+              <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
+                  <h1 class="text-white display-3 display-md-2 display-lg-1" style="letter-spacing: 2px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Marcação</h1>
+                  <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Encontra o campo perfeito para aquele jogo de sábado</p>
+              </div>
+          </div>
         <div class="card border-top border-2 border-primary">
           <div class="card-body">
             <div class="row">
