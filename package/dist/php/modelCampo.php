@@ -45,12 +45,10 @@ class Campo {
         $msg = "";
         $dados = array();
         
-        $sql = "SELECT UNIQUE clube.id_clube AS idClube, 
-        modalidade.descricao as campoModalidade, 
+        $sql = "SELECT clube.id_clube AS idClube,  
         user.foto AS fotoClube, 
         user.nome AS nomeClube, 
-        clube.descricao AS clubeDesc, 
-        tipo_campo.descricao AS tipoCampoDesc, 
+        clube.descricao AS clubeDesc,  
         user.morada AS moradaClube, 
         concelho.descricao AS descConcelho,
         distrito.descricao AS descDistrito, 
@@ -58,10 +56,6 @@ class Campo {
         user.lon as lon 
         FROM user 
         INNER JOIN clube ON user.id = clube.id_clube 
-        INNER JOIN campo_clube on clube.id_clube = campo_clube.id_clube
-        INNER JOIN campo ON campo_clube.id_campo = campo.id 
-        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
-        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
         INNER JOIN concelho ON user.localidade = concelho.id
         INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
         INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
@@ -73,69 +67,53 @@ class Campo {
         // output data of each row
             while ($row = $result->fetch_assoc()) {
 
+                $sql2 = " SELECT tipo_campo.descricao AS tipoCampo, modalidade.descricao AS modalidade FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
+                INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo WHERE clube.id_clube = '".$row['idClube']."'";
+                $arrMods = [];
+                $arrTipoC = [];
+                $result2 = $conn->query($sql2);
+                if ($result2->num_rows > 0) {
+                    // output data of each row
+                        while ($row2 = $result2->fetch_assoc()) {
+                            array_push($arrMods, $row2['modalidade']);
+                            array_push($arrTipoC, $row2['tipoCampo']);
+                }} 
+
                 $rowArray = array(  
                     'idClube' => $row['idClube'],
-                    'campoModalidade' => $row['campoModalidade'],
                     'fotoClube' => $row['fotoClube'],
                     'nomeClube' => $row['nomeClube'],
                     'clubeDesc' => $row['clubeDesc'],
-                    'tipoCampoDesc' => $row['tipoCampoDesc'],
                     'moradaClube' => $row['moradaClube'],
                     'descConcelho' => $row['descConcelho'], 
                     'latClube' => $row['lat'],
-                    'lonClube' => $row['lon']
+                    'lonClube' => $row['lon'],
+                    'modalCamposClube' => $arrMods,
+                    'tiposCamposClube' => $arrTipoC
                 );
+
                 $dados[] = $rowArray;
 
-                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="campo'.$row['idClube'].'">
+                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="clube'.$row['idClube'].'">
                             <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idClube'] . '" onclick=redirectToCampo(' .$row['idClube']. ')>
                                 <div class="position-relative">
                                     <a href="javascript:void(0)">
                                         <img src="' . $row['fotoClube'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
-                                    </a>';
-                                    switch ($row['campoModalidade']) {
-                                        case "Futsal":
-                                            $msg .= '<span class="badge bg-danger text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-football me-1"></i>';
-                                            break;
-                                        case "Ténis":
-                                            $msg .= '<span class="badge bg-success text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
-                                            break;
-                                        case "Padel":
-                                            $msg .= '<span class="badge bg-primary text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
-                                            break;
-                                        case "Basquetebol":
-                                            $msg .= '<span class="badge bg-warning text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-basketball me-1"></i>';
-                                            break;
-                                    }
-                                    $msg .= $row['campoModalidade'] . '</span>
-                                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0">';
-                                    switch ($row['tipoCampoDesc']) {
-                                        case "Exterior":
-                                            $msg .= '<i class="ti ti-sun me-1"></i>';
-                                            break;
-                                        case "Cobertura":
-                                            $msg .= '<i class="ti ti-building-cottage me-1"></i>';
-                                            break;
-                                        case "Indoor":
-                                            $msg .= '<i class="ti ti-home me-1"></i>';
-                                            break;
-                                    }
-                                    $msg .= $row['tipoCampoDesc'] . '</span>
+                                    </a>
                                 </div>
                                 <div class="card-body p-4">
-                                    <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaCampo'] . ', </span>
+                                    <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaClube'] . ', </span>
                                     <span id="localidade">' . $row['descConcelho'] . '</span>
-                                    <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['campoNome'] . '</p>
-                                    <p id="descricao" class="my-2">' . substr($row['campoDesc'], 0, 100) .'&nbsp;(...)</p>
+                                    <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['nomeClube'] . '</p>
+                                    <p id="descricao" class="my-2">' . substr($row['clubeDesc'], 0, 100) .'&nbsp;(...)</p>
                                 </div>
                             </div>
                         </div>';
+
+                   
             }        
         }
+
 
         $conn->close();
 
@@ -147,33 +125,26 @@ class Campo {
         
         global $conn;
         $msg = "";
-        $localidadeUser = "";
         $dados = array();
 
-        $sql = "SELECT campo.id AS idCampo,
-                modalidade.descricao AS campoModalidade, 
-                campo.id AS campoId, 
-                campo.foto AS fotoCampo, 
-                campo.nome AS campoNome, 
-                campo.descricao AS campoDesc, 
-                tipo_campo.descricao AS tipoCampoDesc, 
-                campo.morada AS moradaCampo, 
-                campo_concelho.descricao AS descConcelhoCampo,
-                user_concelho.descricao AS descConcelhoUser,
-                distrito.descricao AS descDistritoUser,
-                campo.lon as lon,
-                campo.lat as lat
-            FROM 
-                campo 
-            INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id 
-            INNER JOIN concelho AS campo_concelho ON campo.localidade = campo_concelho.id
-            INNER JOIN modalidade ON campo.modalidade = modalidade.id 
-            INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade 
-            INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta
-            INNER JOIN user ON atleta.id_atleta = user.id
-            INNER JOIN concelho AS user_concelho ON user.localidade = user_concelho.id
-            INNER JOIN distrito_concelho ON user_concelho.id = distrito_concelho.id_concelho
-            INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id";
+        $sql = "SELECT DISTINCT clube.id_clube AS idClube,  
+        user.foto AS fotoClube, 
+        user.nome AS nomeClube, 
+        clube.descricao AS clubeDesc,  
+        user.morada AS moradaClube, 
+        concelho.descricao AS descConcelho,
+        distrito.descricao AS descDistrito, 
+        user.lat as lat, 
+        user.lon as lon 
+        FROM user 
+        INNER JOIN clube ON user.id = clube.id_clube 
+        INNER JOIN concelho ON user.localidade = concelho.id
+        INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
+        INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
+        INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
+        INNER JOIN campo ON campo_clube.id_campo = campo.id 
+        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+        INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo";
 
         
         if ($modalidadePesquisa !== -1) {
@@ -184,7 +155,7 @@ class Campo {
         
         if ($stringPesquisa != "") {
             $stringPesquisa = $conn->real_escape_string($stringPesquisa); 
-            $sql .= " OR (campo.nome LIKE '%$stringPesquisa%' OR campo.descricao LIKE '%$stringPesquisa%' OR campo_concelho.descricao LIKE '%$stringPesquisa%' OR campo.morada LIKE '%$stringPesquisa%')";
+            $sql .= " OR (user.nome LIKE '%$stringPesquisa%' OR clube.descricao LIKE '%$stringPesquisa%' OR  concelho.descricao LIKE '%$stringPesquisa%' OR user.morada LIKE '%$stringPesquisa%')";
         }
 
         $sql .= " LIMIT 12";
@@ -194,87 +165,49 @@ class Campo {
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
-                $localidadeUser = $row['descDistritoUser'];
-
+                $sql2 = " SELECT tipo_campo.descricao AS tipoCampo FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
+                INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo WHERE clube.id_clube = '".$row['idClube']."'";
+                $arrTipoC = [];
+                $result2 = $conn->query($sql2);
+                if ($result2->num_rows > 0) {
+                    // output data of each row
+                        while ($row2 = $result2->fetch_assoc()) {
+                            array_push($arrTipoC, $row2['tipoCampo']);
+                }} 
                 $rowArray = array(
-                    'idCampo' => $row['idCampo'],
-                    'campoModalidade' => $row['campoModalidade'],
-                    'campoId' => $row['campoId'],
-                    'fotoCampo' => $row['fotoCampo'],
-                    'campoNome' => $row['campoNome'],
-                    'campoDesc' => $row['campoDesc'],
-                    'tipoCampoDesc' => $row['tipoCampoDesc'],
-                    'moradaCampo' => $row['moradaCampo'],
-                    'descConcelho' => $row['descConcelhoCampo'],
-                    'latCampo' => $row['lat'],
-                    'lonCampo' => $row['lon']
-                    
+                    'idClube' => $row['idClube'],
+                    'fotoClube' => $row['fotoClube'],
+                    'nomeClube' => $row['nomeClube'],
+                    'clubeDesc' => $row['clubeDesc'],
+                    'moradaClube' => $row['moradaClube'],
+                    'descConcelho' => $row['descConcelho'], 
+                    'latClube' => $row['lat'],
+                    'lonClube' => $row['lon'],
+                    'tiposCamposClube' => $arrTipoC
                 );
                 $dados[] = $rowArray;
 
-                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="campo'.$row['idCampo'].'">
-                            <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' .$row['idCampo']. '" onclick=redirectToCampo("' .$row['idCampo']. '")>
-                                <div class="position-relative">
-                                    <a href="javascript:void(0)">
-                                        <img src="' . $row['fotoCampo'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
-                                    </a>';
-                                    switch ($row['campoModalidade']) {
-                                        case "Futsal":
-                                            $msg .= '<span class="badge bg-danger text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-football me-1"></i>';
-                                            break;
-                                        case "Ténis":
-                                            $msg .= '<span class="badge bg-success text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
-                                            break;
-                                        case "Padel":
-                                            $msg .= '<span class="badge bg-primary text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-tennis me-1"></i>';
-                                            break;
-                                        case "Basquetebol":
-                                            $msg .= '<span class="badge bg-warning text-white text-dark fs-2 rounded-4 lh-sm mb-9 ms-9 py-1 px-2 fw-semibold position-absolute bottom-0 start-0">';
-                                            $msg .= '<i class="ti ti-ball-basketball me-1"></i>';
-                                            break;
-                                    }
-                                    $msg .= $row['campoModalidade'] . '</span>
-                                    <span class="badge bg-white text-dark fs-2 rounded-4 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0">';
-                                    switch ($row['tipoCampoDesc']) {
-                                        case "Exterior":
-                                            $msg .= '<i class="ti ti-sun me-1"></i>';
-                                            break;
-                                        case "Cobertura":
-                                            $msg .= '<i class="ti ti-building-cottage me-1"></i>';
-                                            break;
-                                        case "Indoor":
-                                            $msg .= '<i class="ti ti-home me-1"></i>';
-                                            break;
-                                    }
-                                    $msg .= $row['tipoCampoDesc'] . '</span>
-                                </div>
-                                <div class="card-body p-4">
-                                    <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaCampo'] . ', </span>
-                                    <span id="localidade">' . $row['descConcelhoCampo'] . '</span>
-                                    <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['campoNome'] . '</p>
-                                    <p id="descricao" class="my-2">' . substr($row['campoDesc'], 0, 100) .'&nbsp;(...)</p>
-                                </div>
-                            </div>
-                        </div>';
+                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="clube'.$row['idClube'].'">
+                <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idClube'] . '" onclick=redirectToCampo(' .$row['idClube']. ')>
+                    <div class="position-relative">
+                        <a href="javascript:void(0)">
+                            <img src="' . $row['fotoClube'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
+                        </a>
+                    </div>
+                    <div class="card-body p-4">
+                        <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaClube'] . ', </span>
+                        <span id="localidade">' . $row['descConcelho'] . '</span>
+                        <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['nomeClube'] . '</p>
+                        <p id="descricao" class="my-2">' . substr($row['clubeDesc'], 0, 100) .'&nbsp;(...)</p>
+                    </div>
+                </div>
+            </div>';
 
-            }
-        } else {
-            $msg .= "<h4 class='text-center'>Não foram encontrados resultados</h4>
-                    <p class='text-center'>Altere os termos da sua pesquisa e tente de novo</p>";
-            $sql3 = "SELECT distrito.descricao AS local FROM distrito INNER JOIN distrito_concelho ON distrito_concelho.id_distrito = distrito.id  INNER JOIN  concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN user ON concelho.id  = user.localidade WHERE user.id = '".$_SESSION['id']."'";
-            $result = $conn->query($sql3);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $localidadeUser = $row['local'];     
-                }
             }
         }
         $conn -> close();
 
-        $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser);
+        $data = array('html' => $msg, 'dados' => $dados);
         return json_encode($data);
         
     }
@@ -428,8 +361,6 @@ class Campo {
                             </ul>
                             ';
 
-                
-                
                 
                 $campoInfo = array(
                     'idCampo' => $row['idCampo'],

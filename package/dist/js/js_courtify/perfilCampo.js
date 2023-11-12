@@ -4,11 +4,11 @@ function getInfoPagCampo() {
 
     
     let urlParams = new URLSearchParams(window.location.search);
-    let campoId = urlParams.get('id');
+    let clubeId = urlParams.get('id');
 
     let dados = new FormData();
     dados.append("op", 5);
-    dados.append("id", campoId);
+    dados.append("id", clubeId);
 
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
