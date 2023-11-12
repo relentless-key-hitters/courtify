@@ -223,7 +223,7 @@ if (isset($_SESSION['id'])) {?>
         </div>
         <div class="body-wrapper">
           <div class="container">
-            <div class="row mt-2">
+            <div class="row mt-5">
               <h2 class="mb-4">Marcações abertas dos teus amigos</h2>
               <div class="card bg-light">
                 <div class="carousel-container mt-5" id="carousel1">
