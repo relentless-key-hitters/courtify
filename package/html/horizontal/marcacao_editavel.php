@@ -316,7 +316,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="col-md-1 mt-2 mt-md-0 d-flex align-items-center">
               <div class="form-group">
-                <button type="button" class="btn btn-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
+                <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
               </div>
             </div>
             <div class="col-md-6 text-end mt-2 mt-md-0 col">
