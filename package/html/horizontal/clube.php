@@ -222,7 +222,6 @@ if (isset($_SESSION['id'])) {?>
           <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
             <h1 id="nomeCampo" class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">NOME CAMPO</h1>
             <p id="moradaCampo" class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">MORADA CAMPO</p>
-            <p id="moradaClube2" class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 20px;"></span>
           </div>
         </div>
         </div>

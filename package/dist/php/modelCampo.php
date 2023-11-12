@@ -245,7 +245,7 @@ class Campo {
 
         if ($result) {
             if ($row = $result->fetch_assoc()) {
-                $sql2 = " SELECT modalidade.descricao AS modalidade FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
+                $sql2 = " SELECT DISTINCT modalidade.descricao AS modalidade FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
                 INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
                 WHERE clube.id_clube = '".$row['idClube']."'";
                 $result2 = $conn->query($sql2);
