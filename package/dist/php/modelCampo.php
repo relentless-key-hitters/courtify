@@ -249,35 +249,35 @@ class Campo {
                     while ($row2 = $result2->fetch_assoc()){
                         if ($row2['modalidade'] == 'Futsal') {
                             $conteudoModalidade .= '
-                                                    <div class="text-center">
-                                                        <span class="badge bg-danger text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+
+                                                        <span class="me-2 badge bg-danger text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
                                                             <i class="ti ti-ball-football me-1"></i>' . $row2['modalidade'] . '
                                                         </span>
-                                                    </div>    
+  
                                                 ';
                         } elseif ($row2['modalidade'] == 'Basquetebol') {
                             $conteudoModalidade .= '
-                                                    <div class="text-center">
-                                                        <span class="badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+
+                                                        <span class="me-2 badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
                                                             <i class="ti ti-ball-basketball me-1"></i>' . $row2['modalidade'] . '
                                                         </span>
-                                                    </div>    
+ 
                                                 ';
                         } elseif ($row2['modalidade'] == 'Padel') {
                             $conteudoModalidade .= '
-                                                    <div class="text-center">
-                                                        <span class="badge bg-primary text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+
+                                                        <span class="me-2 badge bg-primary text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
                                                             <i class="ti ti-ball-tennis me-1"></i>' .$row2['modalidade']. '
                                                         </span>
-                                                    </div>    
+
                                                 ';
                         } elseif ($row2['modalidade'] == 'Ténis') {
                             $conteudoModalidade .= '
-                                                    <div class="text-center">
-                                                        <span class="badge bg-success text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+
+                                                        <span class="me-2 badge bg-success text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
                                                             <i class="ti ti-ball-tennis me-1"></i>' .$row2['modalidade']. '
                                                         </span>
-                                                    </div>    
+
                                                 ';
                         }
                     }

@@ -291,7 +291,9 @@ if (isset($_SESSION['id'])) {?>
               <div class="p-3">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Modalidades
                 </h4>
-                <div id="modalidadesCampo"></div>
+                <div id="modalidadesCampo" class="f-flex justify-content-center align-items-center text-center">
+
+                </div>
               </div>
             </div>
           </div>
