@@ -248,6 +248,7 @@ function getDistancias(){
         let c = Math.sin(b1/2) * Math.sin(b1/2) + Math.cos(a1) * Math.cos(a2) * Math.sin(b2/2) * Math.sin(b2/2);
         let d = 2 * Math.atan2(Math.sqrt(c), Math.sqrt(1-c));
         dist.push([d * r, coords[i][2]]);
+        console.log(dist)
     }
 }
 
@@ -298,21 +299,45 @@ function aplicarFiltros(){
     }else if(distancia != null && tipo != null){
             if (distancia == "0-1km") {
                 for (let j = 0; j < dist.length; j++) {
-                    if ((Array.isArray(dist[j]) && dist[j][0] > 1000 && tipo == obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] < 1000 && tipo != obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] > 1000 && tipo != obsCampos[j].tipoCampoDesc)) {
-                        arrHiden.push(dist[j][1])
+                    let flag = false;
+                    for(let k = 0 ; k < obsCampos[j].tiposCamposClube.length; k++){
+                        if ((Array.isArray(dist[j]) && dist[j][0] > 1000 && tipo == obsCampos[j].tiposCamposClube[k]) || (Array.isArray(dist[j]) && dist[j][0] < 1000 && tipo != obsCampos[j].tiposCamposClube[k]) || (Array.isArray(dist[j]) && dist[j][0] > 1000 && tipo != obsCampos[j].tiposCamposClube[k])) {
+                        }else{
+                            flag = true;
+                        }
                     }
+                    if(!flag){
+                        arrHiden.push(dist[j][1]);
+                    }
+
                 }
             }else if(distancia == "1-5km") {
                 for (let j = 0; j < dist.length; j++) {
-                    if ((Array.isArray(dist[j]) && dist[j][0] > 5000 && tipo == obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] < 5000 && tipo != obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] > 5000 && tipo != obsCampos[j].tipoCampoDesc)) {
-                        arrHiden.push(dist[j][1])
+                    let flag = false;
+                    for(let k = 0 ; k < obsCampos[j].tiposCamposClube.length; k++){
+                        if ((Array.isArray(dist[j]) && dist[j][0] > 5000 && tipo == obsCampos[j].tiposCamposClube[k]) || (Array.isArray(dist[j]) && dist[j][0] < 5000 && tipo != obsCampos[j].tiposCamposClube[k]) || (Array.isArray(dist[j]) && dist[j][0] > 5000 && tipo != obsCampos[j].tiposCamposClube[k])) {
+                        }else{
+                            flag = true;
+                        }
                     }
+                    if(!flag){
+                        arrHiden.push(dist[j][1]);
+                    }
+
                 }
             }else if(distancia == "5-10km") {
                 for (let j = 0; j < dist.length; j++) {
-                    if ((Array.isArray(dist[j]) && dist[j][0] > 10000 && tipo == obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] < 10000 && tipo != obsCampos[j].tipoCampoDesc) || (Array.isArray(dist[j]) && dist[j][0] > 10000 && tipo != obsCampos[j].tipoCampoDesc)) {
-                        arrHiden.push(dist[j][1])
-                    } 
+                    let flag = false;
+                    for(let k = 0 ; k < obsCampos[j].tiposCamposClube.length; k++){
+                        if ((Array.isArray(dist[j]) && dist[j][0] > 10000 && tipo == obsCampos[j].tiposCamposClube[k]) || (Array.isArray(dist[j]) && dist[j][0] < 10000 && tipo != obsCampos[j].tiposCamposClube[k]) || (Array.isArray(dist[j]) && dist[j][0] > 10000 && tipo != obsCampos[j].tiposCamposClube[k])) {
+                        }else {
+                            flag = true;
+                        }
+                    }
+                    if(!flag){
+                        arrHiden.push(dist[j][1]);
+                    }
+
                 }
             }
 
@@ -322,15 +347,15 @@ function aplicarFiltros(){
     for(let i = 0 ; i < obsCampos.length; i++){
         let flag = true;
         for(let j = 0; j < arrHiden.length; j++){
-            if(obsCampos[i].idCampo == arrHiden[j]){
+            if(obsCampos[i].idClube == arrHiden[j]){
                 flag = false;
             }
         }
         if (!flag){
-            $("#campo" + obsCampos[i].idCampo).hide();
+            $("#clube" + obsCampos[i].idClube).hide();
         }else{
-            if($("#campo" + obsCampos[i].idCampo).is(':hidden')){
-                $("#campo" + obsCampos[i].idCampo).show();
+            if($("#clube" + obsCampos[i].idClube).is(':hidden')){
+                $("#clube" + obsCampos[i].idClube).show();
             }
         }
     }
@@ -344,7 +369,7 @@ function removerFiltros(){
 }
 
 function redirectToCampo(idClube) {
-    window.location.href = 'campo.php?id=' + idClube;
+    window.location.href = 'clube.php?id=' + idClube;
 }
 
 

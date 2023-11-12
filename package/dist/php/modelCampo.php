@@ -212,74 +212,78 @@ class Campo {
         
     }
 
-    function getInfoPagCampo($campoId) {
+    function getInfoPagCampo($clubeId) {
         global $conn;
 
-        $campoInfo = array();
+        $clubeInfo = array();
 
-        $conteudoModalidade;
+        $conteudoModalidade = "";
 
 
         $sql = "SELECT
-            campo.id AS idCampo,
-            campo.foto AS fotoCampo,
-            campo.nome AS nomeCampo,
-            campo.descricao AS descCampo,
-            tipo_campo.descricao AS tipoCampo,
-            campo.morada AS moradaCampo,
-            concelho.descricao AS concelhoCampo,
-            distrito.descricao AS distritoCampo,
-            modalidade.descricao AS modalidadeCampo,
-            campo.lat AS latCampo,
-            campo.lon AS lonCampo
+            clube.id_clube AS idClube,
+            user.foto AS fotoClube,
+            user.nome AS nomeClube,
+            clube.descricao AS descClube,
+            user.morada AS moradaClube,
+            concelho.descricao AS concelhoClube,
+            distrito.descricao AS distritoClube,
+            user.lat AS latClube,
+            user.lon AS lonClube
             FROM
-            campo
-            INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
-            INNER JOIN modalidade ON campo.modalidade = modalidade.id
-            INNER JOIN concelho ON campo.localidade = concelho.id
+            clube INNER JOIN user ON clube.id_clube = user.id 
+            INNER JOIN concelho ON user.localidade = concelho.id
             INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
             INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
-            WHERE campo.id = ".$campoId;
+            WHERE user.id = ".$clubeId;
 
         $result = $conn->query($sql);
 
         if ($result) {
             if ($row = $result->fetch_assoc()) {
-                
-
-                if ($row['modalidadeCampo'] == 'Futsal') {
-                    $conteudoModalidade = '
-                                            <div class="text-center">
-                                                <span class="badge bg-danger text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
-                                                    <i class="ti ti-ball-football me-1"></i>' . $row['modalidadeCampo'] . '
-                                                </span>
-                                            </div>    
-                                        ';
-                } elseif ($row['modalidadeCampo'] == 'Basquetebol') {
-                    $conteudoModalidade = '
-                                            <div class="text-center">
-                                                <span class="badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
-                                                    <i class="ti ti-ball-basketball me-1"></i>' . $row['modalidadeCampo'] . '
-                                                </span>
-                                            </div>    
-                                        ';
-                } elseif ($row['modalidadeCampo'] == 'Padel') {
-                    $conteudoModalidade = '
-                                            <div class="text-center">
-                                                <span class="badge bg-primary text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
-                                                    <i class="ti ti-ball-tennis me-1"></i>' . $row['modalidadeCampo'] . '
-                                                </span>
-                                            </div>    
-                                        ';
-                } elseif ($row['modalidadeCampo'] == 'Ténis') {
-                    $conteudoModalidade = '
-                                            <div class="text-center">
-                                                <span class="badge bg-success text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
-                                                    <i class="ti ti-ball-tennis me-1"></i>' . $row['modalidadeCampo'] . '
-                                                </span>
-                                            </div>    
-                                        ';
+                $sql2 = " SELECT modalidade.descricao AS modalidade FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
+                INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+                WHERE clube.id_clube = '".$row['idClube']."'";
+                $result2 = $conn->query($sql2);
+                if ($result2->num_rows > 0){
+                    while ($row2 = $result2->fetch_assoc()){
+                        if ($row2['modalidade'] == 'Futsal') {
+                            $conteudoModalidade .= '
+                                                    <div class="text-center">
+                                                        <span class="badge bg-danger text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                            <i class="ti ti-ball-football me-1"></i>' . $row2['modalidade'] . '
+                                                        </span>
+                                                    </div>    
+                                                ';
+                        } elseif ($row2['modalidade'] == 'Basquetebol') {
+                            $conteudoModalidade .= '
+                                                    <div class="text-center">
+                                                        <span class="badge bg-warning text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                            <i class="ti ti-ball-basketball me-1"></i>' . $row2['modalidade'] . '
+                                                        </span>
+                                                    </div>    
+                                                ';
+                        } elseif ($row2['modalidade'] == 'Padel') {
+                            $conteudoModalidade .= '
+                                                    <div class="text-center">
+                                                        <span class="badge bg-primary text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                            <i class="ti ti-ball-tennis me-1"></i>' .$row2['modalidade']. '
+                                                        </span>
+                                                    </div>    
+                                                ';
+                        } elseif ($row2['modalidade'] == 'Ténis') {
+                            $conteudoModalidade .= '
+                                                    <div class="text-center">
+                                                        <span class="badge bg-success text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
+                                                            <i class="ti ti-ball-tennis me-1"></i>' .$row2['modalidade']. '
+                                                        </span>
+                                                    </div>    
+                                                ';
+                        }
+                    }
                 }
+
+                
 
                 $servicos = '
                             <div class="d-flex flex-wrap gap-2">
@@ -305,12 +309,6 @@ class Campo {
                                     <i class="ti ti-disabled me-1 fs-3"></i>Acessibilidade
                                 </span>
                             </div>   
-                
-                
-                
-                
-                
-                
                             ';
 
                 $horario = '
@@ -362,26 +360,24 @@ class Campo {
                             ';
 
                 
-                $campoInfo = array(
-                    'idCampo' => $row['idCampo'],
-                    'fotoCampo' => $row['fotoCampo'],
-                    'nomeCampo' => $row['nomeCampo'],
-                    'descCampo' => $row['descCampo'],
-                    'tipoCampo' => $row['tipoCampo'],
-                    'moradaCampo' => $row['moradaCampo'],
-                    'concelhoCampo' => $row['concelhoCampo'],
-                    'distritoCampo' => $row['distritoCampo'],
-                    'modalidadeCampo' => $conteudoModalidade,
-                    'horarioCampo' => $horario,
-                    'latCampo' => $row['latCampo'],
-                    'lonCampo' => $row['lonCampo'],
-                    'servicos' => $servicos
+                $clubeInfo = array(
+                    'idClube' => $row['idClube'],
+                    'fotoClube' => $row['fotoClube'],
+                    'nomeClube' => $row['nomeClube'],
+                    'descClube' => $row['descClube'],
+                    'moradaClube' => $row['moradaClube'],
+                    'concelhoClube' => $row['concelhoClube'],
+                    'distritoClube' => $row['distritoClube'],
+                    'horarioClube' => $horario,
+                    'lat' => $row['latClube'],
+                    'lon' => $row['lonClube'],
+                    'servicos' => $servicos,
+                    'modalidadesClube' => $conteudoModalidade
                 );
             }
         }
-
         $conn->close();
 
-        return json_encode($campoInfo);
+        return json_encode($clubeInfo);
     }
 }
