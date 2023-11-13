@@ -197,7 +197,7 @@ if (isset($_SESSION['id'])) {?>
                           <h6 class="mb-1 bg-hover-primary fw-semibold">Mensagens</h6>
                         </div>
                       </a>
-                      <a href="./app-calendar.html" class="py-8 px-7 d-flex align-items-center">
+                      <a href="./app-calendar.php" class="py-8 px-7 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-chart-histogram fs-7 text-primary"></i>
                         </span>
