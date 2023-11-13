@@ -235,7 +235,10 @@ if (isset($_SESSION['id'])) {?>
                 <!-- Content for the calendar -->
                 <!-- Place your calendar content here -->
                 <div class="card border mb-3">
-                  <div class="card-body text-center bg-light">
+                  <div class="p-3 text-center bg-light">
+                    <div class="text-center">
+                      <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Marcação</h4>
+                    </div>
                     <div id="marcacoesCampo" class="mt-1">
                       
                     </div>
