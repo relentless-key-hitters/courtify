@@ -191,9 +191,9 @@ class Campo {
                 $dados[] = $rowArray;
 
                 $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="clube'.$row['idClube'].'">
-                <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idClube'] . '" onclick=redirectToCampo(' .$row['idClube']. ')>
+                <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idClube'] . '">
                     <div class="position-relative">
-                        <a href="javascript:void(0)">
+                        <a href="clube.php?id=' . $row['idClube'] . '">
                             <img src="' . $row['fotoClube'] . '" class="card-img-top rounded-0" alt="..." style="min-height: 230px; max-height: 230px;">
                         </a>
                     </div>
@@ -202,6 +202,9 @@ class Campo {
                         <span id="localidade">' . $row['descConcelho'] . '</span>
                         <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['nomeClube'] . '</p>
                         <p id="descricao" class="my-2">' . substr($row['clubeDesc'], 0, 100) .'&nbsp;(...)</p>
+                        <div class="col-lg-12">
+                                        <button type="button" class="btn btn-primary w-100" onclick="redirectToCampo(' .$row['idClube']. ')">Marcar</button>
+                        </div>
                     </div>
                 </div>
             </div>';
