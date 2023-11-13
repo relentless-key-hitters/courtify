@@ -46429,7 +46429,7 @@ ul {
 .animated-text {
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 3s ease-out, transform 3s ease-out;
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .animated-text.show {
