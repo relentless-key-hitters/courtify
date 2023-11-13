@@ -31,7 +31,7 @@ function getInfoPagCampo() {
         $("#telefoneClube").html(msg.telefoneClube);
         $("#emailClube").html(msg.emailClube);
         $("#telemovelClube").html(msg.telemovelClube);
-        $("#moradaClube1").html(msg.moradaClube + ", " + msg.codigoPostalClube);
+        $("#moradaClube1").html(msg.codigoPostalClube);
 
         constroiMapaCampo(msg);
     })

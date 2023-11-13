@@ -301,7 +301,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="p-3">
                 <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Contatos
                 </h4>
-                <div class="d-flex justify-content-center px-3">
+                <div class="d-flex justify-content-center px-1">
                   <ul class="list-group w-100">
                     <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
                       <i class="ti ti-phone fs-7 me-2"></i>
