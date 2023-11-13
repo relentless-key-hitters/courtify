@@ -377,10 +377,10 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="card shadow-none border">
                   <div class="card-body">
-                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Comunidades</h4>
+                    <h4 class="fw-semibold mb-2 pb-2 text-center fs-7 border-2 border-bottom border-primary">Comunidades</h4>
                     <div class="row">
                       <div class="col-lg-12 col-md-6">
-                        <div class="d-flex align-items-center mt-3">
+                        <div class="d-flex align-items-center mt-4">
                           <img src="../../dist/images/backgrounds/comunidade1.png"
                             alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
                           <div class="ms-3">
@@ -391,7 +391,27 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                       </div>
                       <div class="col-lg-12 col-md-6">
-                        <div class="d-flex align-items-center mt-3">
+                        <div class="d-flex align-items-center mt-2">
+                          <img src="../../dist/images/backgrounds/comunidade4.png"
+                            alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
+                          <div class="ms-3">
+                            <p><span class="fw-bolder fs-5">Padel Ball 3</span></p>
+                            <span class="badge rounded-pill text-bg-primary"><i class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-6">
+                        <div class="d-flex align-items-center mt-2">
+                          <img src="../../dist/images/backgrounds/comunidade3.png"
+                            alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
+                          <div class="ms-3">
+                            <p><span class="fw-bolder fs-5">ETC</span></p>
+                            <span class="badge rounded-pill text-bg-success"><i class="ti ti-ball-tennis me-1"></i><small>Ténis</small></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-6">
+                        <div class="d-flex align-items-center mt-2">
                           <img src="../../dist/images/backgrounds/comunidade2.png"
                             alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
                           <div class="ms-3">
