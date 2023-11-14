@@ -648,20 +648,20 @@ if (isset($_SESSION['id'])) {?>
 
 
   <style>
-  #visualization {
+  /*#visualization {
     border: 1px solid #044967;
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative; /* Add this for relative positioning */
+    position: relative; /* Add this for relative positioning 
   }
-
-  
 
 
   .vis-text.vis-major {
     font-size: 1.5em;
     padding: 5px 5px;
-  }
+  }*/
+
+
 </style>
 
 
