@@ -227,7 +227,7 @@ if (isset($_SESSION['id'])) {?>
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card border-top border-2 border-gray shadow" style="margin: 20px;">
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
@@ -250,7 +250,8 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="col-md-4 pb-5">
                   <!-- Button trigger modal -->
-                  <button style="font-size: 35px;" type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Cria a Tua
+                  <button style="font-size: 35px;" type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-lg btn-success"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">Cria a Tua
                     Comunidade</button>
 
                   <!-- Modal -->
@@ -264,20 +265,20 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                         <div class="modal-body">
                           <div class="form-group col-md-8 mt-3 mt-md-0">
-                          <input type="text" class="form-control" placeholder="Nome">
-                        </div>
-                        <div class="form-group col-md-8 mt-3 pt-4 mt-md-0">
-                          <select class="form-select"  id="pesquisaMarcacaoModalidade">
-                            <option value="" selected disabled>Modalidade</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-8 mt-3 pt-4 mt-md-0">
-                          <select class="form-select">
-                            <option value="-1" disabled selected>Privacidade</option>
-                            <option value="privado">Privado</option>
-                            <option value="publico">Público</option>
-                          </select>
-                        </div>
+                            <input type="text" class="form-control" placeholder="Nome">
+                          </div>
+                          <div class="form-group col-md-8 mt-3 pt-4 mt-md-0">
+                            <select class="form-select" id="pesquisaMarcacaoModalidade">
+                              <option value="" selected disabled>Modalidade</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-8 mt-3 pt-4 mt-md-0">
+                            <select class="form-select">
+                              <option value="-1" disabled selected>Privacidade</option>
+                              <option value="privado">Privado</option>
+                              <option value="publico">Público</option>
+                            </select>
+                          </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-success">Criar</button>
@@ -291,244 +292,246 @@ if (isset($_SESSION['id'])) {?>
           </div>
         </div>
       </div>
-      <div style="margin: 120px;">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card text-center bg-light" style="margin-top: 15px;">
-              <div class="container-fluid">
-                <h1 class="fw-semibold fs-9 mt-4" style="letter-spacing: 1px;">Onde Pertenço</h1>
-              </div>
-              <div class="col-md-12">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
-                  <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
-                    alt="Placeholder Image 1" style="max-width: 190px;">
-                  <div class="card-body text-center">
-                    <h5 class="card-title fs-8">World Padel Club</h5>
-                    <p class="card-text fs-7">Desde 2022</p>
-                    <a href="#" class="btn btn-primary">Mais Info</a>
-                  </div>
+    </div>
+    
+    <div style="margin: 120px;">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card text-center bg-light" style="margin-top: 15px;">
+            <div class="container-fluid">
+              <h1 class="fw-semibold fs-9 mt-4" style="letter-spacing: 1px;">Onde Pertenço</h1>
+            </div>
+            <div class="col-md-12">
+              <div class="card card-hover align-items-center" style="margin: 30px;">
+                <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
+                  alt="Placeholder Image 1" style="max-width: 190px;">
+                <div class="card-body text-center">
+                  <h5 class="card-title fs-8">World Padel Club</h5>
+                  <p class="card-text fs-7">Desde 2022</p>
+                  <a href="#" class="btn btn-primary">Mais Info</a>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
-                  <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
-                    alt="Placeholder Image 1" style="max-width: 190px;">
-                  <div class="card-body text-center">
-                    <h5 class="card-title fs-8">Padel Ball 3</h5>
-                    <p class="card-text fs-7">Desde 2022</p>
-                    <a href="#" class="btn btn-primary">Mais Info</a>
-                  </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card card-hover align-items-center" style="margin: 30px;">
+                <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
+                  alt="Placeholder Image 1" style="max-width: 190px;">
+                <div class="card-body text-center">
+                  <h5 class="card-title fs-8">Padel Ball 3</h5>
+                  <p class="card-text fs-7">Desde 2022</p>
+                  <a href="#" class="btn btn-primary">Mais Info</a>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
-                  <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
-                    alt="Placeholder Image 1" style="max-width: 190px;">
-                  <div class="card-body text-center">
-                    <h5 class="card-title fs-8">Évora Tennis Club</h5>
-                    <p class="card-text fs-7">Desde 2019</p>
-                    <a href="#" class="btn btn-primary">Mais Info</a>
-                  </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card card-hover align-items-center" style="margin: 30px;">
+                <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
+                  alt="Placeholder Image 1" style="max-width: 190px;">
+                <div class="card-body text-center">
+                  <h5 class="card-title fs-8">Évora Tennis Club</h5>
+                  <p class="card-text fs-7">Desde 2019</p>
+                  <a href="#" class="btn btn-primary">Mais Info</a>
                 </div>
               </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card card-hover align-items-center" style="margin: 30px;">
+                <img src="../../dist/images/backgrounds/g.png" class="card-img-top object-fit-cover"
+                  alt="Placeholder Image 1" style="max-width: 190px;">
+                <div class="card-body text-center">
+                  <h5 class="card-title fs-8">Futsal Geckos</h5>
+                  <p class="card-text fs-7">Desde 2023</p>
+                  <a href="#" class="btn btn-primary">Mais Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="card text-center bg-light" style="margin-top: 15px;">
+            <div class="row text-center pt-3">
               <div class="col-md-12">
+                <h1 class="display-6 display-md-2 display-lg-1 fw-semibold" style="letter-spacing: 1px;">Comunidades
+                </h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
                 <div class="card card-hover align-items-center" style="margin: 30px;">
-                  <img src="../../dist/images/backgrounds/g.png" class="card-img-top object-fit-cover"
-                    alt="Placeholder Image 1" style="max-width: 190px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
-                    <h5 class="card-title fs-8">Futsal Geckos</h5>
+                    <h5 class="card-title fs-8">Comunidade</h5>
                     <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
+                    <a href="#" class="btn btn-primary">Mais Info</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hover align-items-center" style="margin: 30px;">
+                  <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                    class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title fs-8">Comunidade</h5>
+                    <p class="card-text fs-7">Desde 2023</p>
+                    <p class="card-text fs-5">18922 Inscritos</p>
                     <a href="#" class="btn btn-primary">Mais Info</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-9">
-            <div class="card text-center bg-light" style="margin-top: 15px;">
-              <div class="row text-center pt-3">
-                <div class="col-md-12">
-                  <h1 class="display-6 display-md-2 display-lg-1 fw-semibold" style="letter-spacing: 1px;">Comunidades
-                  </h1>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-hover align-items-center" style="margin: 30px;">
-                    <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                      class="card-img-top object-fit-cover" alt="Placeholder Image 1">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fs-8">Comunidade</h5>
-                      <p class="card-text fs-7">Desde 2023</p>
-                      <p class="card-text fs-5">18922 Inscritos</p>
-                      <a href="#" class="btn btn-primary">Mais Info</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-9 text-center">
-              <button type="button" class="btn btn-light">Ver Mais</button>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-9 text-center">
+            <button type="button" class="btn btn-light">Ver Mais</button>
           </div>
         </div>
       </div>
     </div>
-    <div style="margin-left: 60px; margin-right: 60px;">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+  </div>
+  <div style="margin-left: 60px; margin-right: 60px;">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
-        <a href="#"
-          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-        </a>
-        <div>
-          <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-        </div>
+      <a href="#"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+      </a>
+      <div>
+        <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+      </div>
 
-      </footer>
-    </div>
+    </footer>
+  </div>
   </div>
   </div>
   </div>
