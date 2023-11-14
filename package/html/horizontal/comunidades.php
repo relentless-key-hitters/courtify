@@ -221,7 +221,7 @@ if (isset($_SESSION['id'])) {?>
             style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: center; color: white;">
             <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px;">Comunidade
             </h1>
-            <p class="text-white lead lead-md-2 lead-lg-1 fs-7" style="letter-spacing: 1px;">Junta-te a Atletas que
+            <p class="text-white lead lead-md-2 lead-lg-1 fs-8" style="letter-spacing: 1px;">Junta-te a Atletas que
               partilhem
               Desporto</p>
           </div>
