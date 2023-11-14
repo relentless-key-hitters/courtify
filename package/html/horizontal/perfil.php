@@ -211,7 +211,7 @@ if (isset($_SESSION['id'])) {?>
     <!-- Main wrapper -->
     <div class="body-wrapper">
       <div class="container-fluid">
-        <div class="card overflow-hidden">
+        <div class="card overflow-hidden shadow">
           <div class="card-body p-0">
             <div class="image-container">
               <img alt="" id="fotoCapaView" class="img-fluid">
@@ -327,9 +327,9 @@ if (isset($_SESSION['id'])) {?>
             tabindex="0">
             <div class="row">
               <div class="col-lg-4">
-                <div class="card shadow-none border">
+                <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Sobre Mim
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Sobre Mim
                     </h4>
                     <p id="bio" class="mt-1"></p>
                     <ul class="list-unstyled mb-0">
@@ -344,9 +344,9 @@ if (isset($_SESSION['id'])) {?>
                     </ul>
                   </div>
                 </div>
-                <div class="card shadow-none border">
+                <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Conquistas
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Conquistas
                     </h4>
                     <div class="row">
                       <div class="col-4">
@@ -388,9 +388,9 @@ if (isset($_SESSION['id'])) {?>
                   </div>
 
                 </div>
-                <div class="card shadow-none border">
+                <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-semibold mb-2 pb-2 text-center fs-7 border-2 border-bottom border-primary">Comunidades
+                    <h4 class="fw-semibold mb-2 pb-2 text-center fs-7 border-2 border-bottom border-light">Comunidades
                     </h4>
                     <div class="row">
                       <div class="col-lg-12 col-md-6">
@@ -444,11 +444,11 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-8">
-                <div class="card shadow-none border">
-                  <div class="card-body bg-light">
-                    <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Jogos
+                <div class="card shadow border">
+                  <div class="card-body">
+                    <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos
                       Recentes</h4>
-                    <div class="card shadow-none border hover-img">
+                    <div class="card shadow border hover-img">
                       <div class="card-body">
                         <div class="row mt-2">
                           <!-- Game 1 -->
@@ -513,7 +513,7 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                       </div>
                     </div>
-                    <div class="card shadow-none border hover-img">
+                    <div class="card shadow border hover-img">
                       <div class="card-body">
                         <div class="row mt-2">
                           <!-- Game 1 -->
@@ -568,7 +568,7 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                       </div>
                     </div>
-                    <div class="card shadow-none border hover-img">
+                    <div class="card shadow border hover-img">
                       <div class="card-body">
                         <div class="row mt-2">
                           <!-- Game 1 -->
@@ -613,7 +613,7 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                       </div>
                     </div>
-                    <div class="card shadow-none border hover-img">
+                    <div class="card shadow border hover-img">
                       <div class="card-body">
                         <div class="row mb-1">
                           <!-- Game 1 -->
@@ -678,7 +678,7 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                       </div>
                     </div>
-                    <div class="card shadow-none border hover-img">
+                    <div class="card shadow border hover-img">
                       <div class="card-body">
                         <div class="row mb-1">
                           <!-- Game 1 -->
@@ -721,8 +721,8 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                       </div>
                     </div>
-                    <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
-                      <ul class="pagination bg-light me-3">
+                    <nav aria-label="Page navigation example" class="d-flex justify-content-end">
+                      <ul class="pagination me-3">
                         <li class="page-item">
                           <a class="page-link link" href="#" aria-label="Previous">
                             <span aria-hidden="true">
@@ -1647,7 +1647,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/p50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="50 Vitórias no Padel"
                             style="max-width: 200px;">
@@ -1662,7 +1662,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/p10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="10 Pontos no Padel"
                             style="max-width: 200px;">
@@ -1677,7 +1677,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/p30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="30 Pontos no Padel"
                             style="max-width: 200px;">
@@ -1692,7 +1692,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/p70pnt.png" alt="Badge 1" class="img-fluid rounded mt-1"
                             data-toggle="tooltip" data-placement="top" title="70 Pontos no Padel"
                             style="max-width: 200px;">
@@ -1707,7 +1707,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/p-250.png" alt="Badge 1" class="img-fluid rounded mt-1"
                             data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel"
                             style="max-width: 200px;">
@@ -1722,7 +1722,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded"
                             data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel"
                             style="max-width: 200px;">
@@ -1737,7 +1737,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                           <h1 class="fs-5 fw-semibold">70\70</h1>
@@ -1773,7 +1773,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/19.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="10 Vitórias no Ténis"
                             style="max-width: 200px;">
@@ -1788,7 +1788,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/t10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="10 Pontos no Ténis"
                             style="max-width: 200px;">
@@ -1803,7 +1803,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/t30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="30 Pontos no Ténis"
                             style="max-width: 200px;">
@@ -1818,7 +1818,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/t70pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded"
                             data-toggle="tooltip" data-placement="top" title="70 Pontos no Ténis"
                             style="max-width: 200px;">
@@ -1833,7 +1833,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/t-250.png" alt="Badge 1" class="img-fluid rounded mt-1"
                             data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis"
                             style="max-width: 200px;">
@@ -1848,7 +1848,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/t1000pnt.png" alt="Badge 1"
                             class="img-fluid mt-1 rounded opacity-50" data-toggle="tooltip" data-placement="top"
                             title="1000 Pontos no Ténis" style="max-width: 200px; filter: grayscale(36%);">
@@ -1863,7 +1863,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                           <h1 class="fs-5 fw-semibold">70\70</h1>
@@ -1898,7 +1898,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/20.png" alt="Badge 1"
                             class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
                             title="30 Vitórias no Futsal" style="max-width: 200px; filter: grayscale(75%);">
@@ -1913,7 +1913,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/f10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="10 Golos" style="max-width: 200px;">
                           <h1 class="fs-5 fw-semibold">10\10</h1>
@@ -1927,7 +1927,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/f30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="30 Golos" style="max-width: 200px;">
                           <h1 class="fs-5 fw-semibold">30\30</h1>
@@ -1941,7 +1941,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/f70pnt.png" alt="Badge 1"
                             class="img-fluid pt-2 rounded opacity-50" data-toggle="tooltip" data-placement="top"
                             title="70 Golos" style="max-width: 200px; filter: grayscale(50%);">
@@ -1956,7 +1956,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/f-100.png" alt="Badge 1"
                             class="img-fluid pt-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
                             title="100 Golos" style="max-width: 200px; filter: grayscale(50%);">
@@ -1971,7 +1971,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/f-250.png" alt="Badge 1"
                             class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
                             title="200 Golos no Futsal" style="max-width: 200px; filter: grayscale(75%);">
@@ -1986,7 +1986,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                           <h1 class="fs-5 fw-semibold">20\20</h1>
@@ -2022,7 +2022,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/30.png" alt="Badge 1"
                             class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
                             title="50 Vitórias no Basquetebol" style="max-width: 200px; filter: grayscale(100%);">
@@ -2037,7 +2037,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol"
                             style="max-width: 200px;">
@@ -2052,7 +2052,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/b30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="30 Pontos no Basquetebol"
                             style="max-width: 200px;">
@@ -2067,7 +2067,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/b70pnt.png" alt="Badge 1"
                             class="img-fluid mb-2 rounded opacity-50" data-toggle="tooltip" data-placement="top"
                             title="70 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(75%);">
@@ -2082,7 +2082,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/b-250.png" alt="Badge 1"
                             class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
                             title="250 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(90%);">
@@ -2097,7 +2097,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow ">
                           <img src="../../dist/images/badges/b1000pnt.png" alt="Badge 1"
                             class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
                             title="1000 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(97%);">
@@ -2112,7 +2112,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img text-center">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img text-center shadow">
                           <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                           <h1 class="fs-5 fw-semibold">20\20</h1>
