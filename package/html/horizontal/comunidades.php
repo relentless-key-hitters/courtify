@@ -244,7 +244,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
               <div class="col-md-12">
                 <div class="card card-hover align-items-center" style="margin: 30px;">
-                  <img src="../../dist/images/backgrounds/comunidade1.png" class="card-img-top object-fit-cover"
+                  <img src="../../dist/images/backgrounds/com1.png" class="card-img-top object-fit-cover"
                     alt="Placeholder Image 1" style="max-width: 190px;">
                   <div class="card-body text-center">
                     <h5 class="card-title fs-8">World Padel Club</h5>
@@ -277,10 +277,10 @@ if (isset($_SESSION['id'])) {?>
               </div>
               <div class="col-md-12">
                 <div class="card card-hover align-items-center" style="margin: 30px;">
-                  <img src="../../dist/images/backgrounds/comunidade2.png" class="card-img-top object-fit-cover"
+                  <img src="../../dist/images/backgrounds/com2.png" class="card-img-top object-fit-cover"
                     alt="Placeholder Image 1" style="max-width: 190px;">
                   <div class="card-body text-center">
-                    <h5 class="card-title fs-8">Quicstrike FC</h5>
+                    <h5 class="card-title fs-8">Football Geckos</h5>
                     <p class="card-text fs-7">Desde 2023</p>
                     <a href="#" class="btn btn-primary">Mais Info</a>
                   </div>

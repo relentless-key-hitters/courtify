@@ -394,10 +394,10 @@ if (isset($_SESSION['id'])) {?>
                     <div class="row">
                       <div class="col-lg-12 col-md-6">
                         <div class="d-flex align-items-center mt-4">
-                          <img src="../../dist/images/backgrounds/comunidade1.png" alt="Equipa 1" class="rounded-2 mb-3"
+                          <img src="../../dist/images/backgrounds/com1.png" alt="Equipa 1" class="rounded-2 mb-3"
                             width="100" height="100">
                           <div class="ms-3">
-                            <p><span class="fw-bolder fs-5">WorldPadel Club</span></p>
+                            <p><span class="fw-bolder fs-5">World Padel Club</span></p>
                             <span class="badge rounded-pill text-bg-primary"><i
                                 class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
                             <p class="mt-2"><span class="fw-bolder">Posição: </span>Esquerda</p>
@@ -428,10 +428,10 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                       <div class="col-lg-12 col-md-6">
                         <div class="d-flex align-items-center mt-2">
-                          <img src="../../dist/images/backgrounds/comunidade2.png" alt="Equipa 1" class="rounded-2 mb-3"
+                          <img src="../../dist/images/backgrounds/com2.png" alt="Equipa 1" class="rounded-2 mb-3"
                             width="100" height="100">
                           <div class="ms-3">
-                            <p><span class="fw-bolder fs-5">Quickstrike FC</span></p>
+                            <p><span class="fw-bolder fs-5">Football Geckos FC</span></p>
                             <span class="badge rounded-pill text-bg-danger"><i
                                 class="ti ti-ball-football me-1"></i><small>Futsal</small></span>
                             <p class="mt-2"><span class="fw-bolder">Posição: </span>Extremo</p>
