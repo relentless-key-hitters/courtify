@@ -30,6 +30,9 @@ if (isset($_SESSION['id'])) {?>
   <!-- Make sure you put this AFTER Leaflet's CSS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+  <link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -247,8 +250,12 @@ if (isset($_SESSION['id'])) {?>
                           <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">
                             Marcação</h4>
                         </div>
-                        <div id="marcacoesCampo" class="mt-1">
-
+                        <div id="marcacaoCampo" class="mt-1">
+                          <div class="card">
+                            <div class="card-body">
+                             <div id="visualization"></div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -623,6 +630,8 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
   <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
   <!-- core files -->
   <script src="../../dist/js/app.min.js"></script>
   <script src="../../dist/js/app.horizontal.init.js"></script>
@@ -636,6 +645,23 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
 
+
+  <style>
+  #visualization {
+    border: 1px solid #044967;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Add this for relative positioning */
+  }
+
+  
+
+
+  .vis-text.vis-major {
+    font-size: 1.5em;
+    padding: 5px 5px;
+  }
+</style>
 
 
 

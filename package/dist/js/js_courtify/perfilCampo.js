@@ -1,3 +1,53 @@
+var container = document.getElementById('visualization');
+
+// Create a DataSet (allows two-way data-binding)
+var items = new vis.DataSet([
+  { id: 1, content: 'item 1', start: '2014-04-14T10:00:00', end: '2014-04-14T11:00:00', group: 1 },
+  { id: 2, content: 'item 1', start: '2014-04-14T10:00:00', end: '2014-04-14T11:00:00', group: 2 },
+  { id: 3, content: 'item 1', start: '2014-04-14T10:00:00', end: '2014-04-14T11:00:00', group: 3 },
+  { id: 4, content: 'item 1', start: '2014-04-14T10:00:00', end: '2014-04-14T11:00:00', group: 4 },
+]);
+
+// Create a DataSet for groups
+var groups = new vis.DataSet([
+  { id: 1, content: 'Padel 1' },
+  { id: 2, content: 'Padel 2' },
+  { id: 3, content: 'Padel 3' },
+  { id: 4, content: 'Ténis 1' },
+  { id: 5, content: 'Ténis 2' },
+  { id: 6, content: 'Ténis 3' },
+  { id: 7, content: 'Ténis 4' },
+
+]);
+
+// Configuration for the Timeline
+var options = {
+    start: '2014-04-14T00:00:00',
+    end: '2014-04-14T23:59:59',
+    min: '2014-04-14T00:00:00',
+    max: '2014-04-14T23:59:59',
+    zoomMin: 1000 * 60 * 30,       // Set the minimum zoom level to 30 minutes
+    zoomMax: 1000 * 60 * 30,       // Set the maximum zoom level to 30 minutes (same as zoomMin)
+    orientation: 'top',
+    zoomable: false,
+    margin: {
+        item: 10, // minimal margin between items
+        axis: 5   // minimal margin between items and the axis
+      },
+    stack: false,  // Ensure that items don't stack on top of each other
+    showMajorLabels: true,
+    showMinorLabels: true,  // Set this to true to show minor labels
+    snap: function (date, scale, step) {
+      // Snap to half-hour intervals
+      var base = new Date(date).setMinutes(0, 0, 0);
+      var interval = 30 * 60 * 1000;  // 30 minutes
+      var rounded = Math.round(base / interval) * interval;
+      return rounded + (rounded === base ? 0 : interval);
+    },
+  };
+
+// Create a Timeline
+var timeline = new vis.Timeline(container, items, groups, options);
 
 
 function getInfoPagCampo() {
@@ -94,5 +144,8 @@ async function constroiMapaCampo(clubeInfo) {
 
 
 $(function () {
-    getInfoPagCampo()
+    getInfoPagCampo();
+
+
+
 });
