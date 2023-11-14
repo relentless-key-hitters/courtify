@@ -215,7 +215,7 @@ function pesquisarCampos() {
             let obj = JSON.parse(msg);
             $("#stringPesquisa").val("");
             $("#pesquisaMarcacaoModalidade").val("-1");
-            console.log(obj.dados)
+            console.log("'"+obj.query+"'")
             
             $("#rowCampos").fadeOut("fast", function() {
                 obsCampos = obj.dados

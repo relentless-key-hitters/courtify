@@ -147,18 +147,20 @@ class Campo {
         INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
         INNER JOIN campo ON campo_clube.id_campo = campo.id 
         INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
-        INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo";
-
-        
-        if ($modalidadePesquisa !== -1) {
-            $modalidadePesquisa = intval($modalidadePesquisa); 
-            $sql .= " WHERE modalidade.id = $modalidadePesquisa";
-        }
-
-        
-        if ($stringPesquisa != "") {
+        INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo 
+        WHERE clube.id_clube NOT IN (
+                SELECT clube.id_clube
+                FROM marcacao INNER JOIN campo ON marcacao.id_campo =  campo.id
+                INNER JOIN campo_clube ON campo.id = campo_clube.id_campo 
+                INNER JOIN clube ON clube.id_clube = campo_clube.id_clube
+                WHERE marcacao.data_inicio LIKE '".$dataPesquisa."')";
+       
+        if(!empty($stringPesquisa)){
             $stringPesquisa = $conn->real_escape_string($stringPesquisa); 
-            $sql .= " OR (user.nome LIKE '%$stringPesquisa%' OR clube.descricao LIKE '%$stringPesquisa%' OR  concelho.descricao LIKE '%$stringPesquisa%' OR user.morada LIKE '%$stringPesquisa%')";
+            $sql .= " AND (user.nome LIKE '%$stringPesquisa%' OR clube.descricao LIKE '%$stringPesquisa%' OR  concelho.descricao LIKE '%$stringPesquisa%' OR user.morada LIKE '%$stringPesquisa%')";
+        }
+        if($modalidadePesquisa != 'null'){ 
+            $sql .= " AND modalidade.id = ".$modalidadePesquisa;
         }
 
         $sql .= " LIMIT 12";
