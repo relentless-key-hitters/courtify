@@ -58,7 +58,10 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-4" href="#">Home</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="#">Marcação</a>
+            <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
+          </li>
+          <li class="nav-item dropdown-hover d-none d-xl-block">
+            <a class="nav-link fs-4" href="#">Descobrir</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
@@ -661,6 +664,7 @@ if (isset($_SESSION['id'])) {?>
 
   <script src="../../dist/js/custom.js"></script>
   <script src="../../dist/libs/prismjs/prism.js"></script>
+  <script src="../../dist/js/js_courtify/perfilUser.js"></script>
 
   <!-- ---------------------------------------------- -->
   <!-- current page js files -->
