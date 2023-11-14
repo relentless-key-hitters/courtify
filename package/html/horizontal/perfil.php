@@ -395,7 +395,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="row">
                       <div class="col-lg-12 col-md-6">
                         <div class="d-flex align-items-center mt-4">
-                          <img src="../../dist/images/backgrounds/98.png" alt="Equipa 1" class="rounded-2 mb-3"
+                          <img src="../../dist/images/backgrounds/w.png" alt="Equipa 1" class="rounded-2 mb-3"
                             width="100" height="100">
                           <div class="ms-3">
                             <p><span class="fw-bolder fs-5">World Padel Club</span></p>
@@ -418,7 +418,7 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                       <div class="col-lg-12 col-md-6">
                         <div class="d-flex align-items-center mt-2">
-                          <img src="../../dist/images/backgrounds/comunidade3.png" alt="Equipa 1" class="rounded-2 mb-3"
+                          <img src="../../dist/images/backgrounds/98.png" alt="Equipa 1" class="rounded-2 mb-3"
                             width="100" height="100">
                           <div class="ms-3">
                             <p><span class="fw-bolder fs-5">ETC</span></p>
@@ -429,7 +429,7 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                       <div class="col-lg-12 col-md-6">
                         <div class="d-flex align-items-center mt-2">
-                          <img src="../../dist/images/backgrounds/com2.png" alt="Equipa 1" class="rounded-2 mb-3"
+                          <img src="../../dist/images/backgrounds/g.png" alt="Equipa 1" class="rounded-2 mb-3"
                             width="100" height="100">
                           <div class="ms-3">
                             <p><span class="fw-bolder fs-5">Futsal Geckos</span></p>

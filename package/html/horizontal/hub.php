@@ -240,7 +240,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="card card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/com1.png" class="card-img-top object-fit-cover"
+                        <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body text-center">
                           <h5 class="card-title fs-8">World Padel Club</h5>
