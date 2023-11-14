@@ -25,13 +25,11 @@ if (isset($_SESSION['id'])) {?>
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-      <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""></script>
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 
 </head>
@@ -220,14 +218,22 @@ if (isset($_SESSION['id'])) {?>
       <div class="">
         <div class="row">
           <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-              <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
-                  <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
-              </div>
-              <img class="img-fluid border border-3 rounded border-primary" src="../../dist/images/backgrounds/descobrir_banner.jpg" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-              <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;" class="animated-text">
-                <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Descobrir</h1>
-                <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px">Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
-              </div>
+            <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
+              <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
+            </div>
+            <img class="img-fluid border border-3 rounded border-primary"
+              src="../../dist/images/backgrounds/descobrir_banner.jpg"
+              style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+            <div
+              style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;"
+              class="animated-text">
+              <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder"
+                style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
+                Descobrir</h1>
+              <p class="text-white lead lead-md-2 lead-lg-1"
+                style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px">
+                Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
+            </div>
           </div>
         </div>
         <div class="body-wrapper">
@@ -238,167 +244,167 @@ if (isset($_SESSION['id'])) {?>
                 <div class="carousel-container mt-5" id="carousel1">
                   <div class="owl-carousel">
                     <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
                         </div>
+                      </div>
                     </div>
                     <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
                         </div>
+                      </div>
                     </div>
                     <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
                         </div>
+                      </div>
                     </div>
                     <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
                         </div>
+                      </div>
                     </div>
                     <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class=" mt-5">
-              <h2 class="mb-4">Marcações abertas de *MODALIDADE*</h2>
-              <div class="card bg-light px-3">
-                <div class="carousel-container mt-5" id="carousel2">
-                  <div class="owl-carousel">
-                    <div class="item">
+              <div class=" mt-5">
+                <h2 class="mb-4">Marcações abertas de *MODALIDADE*</h2>
+                <div class="card bg-light px-3">
+                  <div class="carousel-container mt-5" id="carousel2">
+                    <div class="owl-carousel">
+                      <div class="item">
                         <div class="mt-1">
                           <div
                             class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
+
                           </div>
                         </div>
-                    </div>
-                    <div class="item">
+                      </div>
+                      <div class="item">
                         <div class="mt-1">
                           <div
                             class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
+
                           </div>
                         </div>
-                    </div>
-                    <div class="item">
+                      </div>
+                      <div class="item">
                         <div class="mt-1">
                           <div
                             class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
+
                           </div>
                         </div>
-                    </div>
-                    <div class="item">
+                      </div>
+                      <div class="item">
                         <div class="mt-1">
                           <div
                             class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
+
                           </div>
                         </div>
-                    </div>
-                    <div class="item">
+                      </div>
+                      <div class="item">
                         <div class="mt-1">
                           <div
                             class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
+
                           </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
+                </div>
+                <div class=" mt-5">
+                  <h2 class="mb-4">Marcações abertas em *LOCALIDADE USER*</h2>
+                  <div class="card bg-light px-3">
+                    <div class="carousel-container mt-5" id="carousel3">
+                      <div class="owl-carousel">
+                        <div class="item">
+                          <div class="mt-1">
+                            <div
+                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="mt-1">
+                            <div
+                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="mt-1">
+                            <div
+                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="mt-1">
+                            <div
+                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="mt-1">
+                            <div
+                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class=" mt-5">
-              <h2 class="mb-4">Marcações abertas em *LOCALIDADE USER*</h2>
-              <div class="card bg-light px-3">
-                <div class="carousel-container mt-5" id="carousel3">
-                  <div class="owl-carousel">
-                    <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-                            
-                          </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
+
             </div>
           </div>
+          <div style="margin-left: 60px; margin-right: 60px;">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+
+              <a href="#"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+              </a>
+              <div>
+                <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+              </div>
+
+            </footer>
+          </div>
         </div>
-        
       </div>
     </div>
-    <div class="container">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
-
-        <a href="#"
-          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-        </a>
-        <div>
-          <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-        </div>
-
-      </footer>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="dark-transparent sidebartoggler"></div>
+    <div class="dark-transparent sidebartoggler"></div>
   </div>
   <!--  Shopping Cart -->
   <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight"

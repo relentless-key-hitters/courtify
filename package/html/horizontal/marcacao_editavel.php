@@ -25,15 +25,13 @@ if (isset($_SESSION['id'])) {?>
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-      <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-     <style>
+  <style>
     .animated-text {
       opacity: 0;
       transform: translateY(-20px);
@@ -158,9 +156,8 @@ if (isset($_SESSION['id'])) {?>
                 <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <div class="d-flex align-items-center">
-                    <div class="user-profile-img mb-2" >
-                      <img id="perfil1" class="rounded-circle" width="35" height="35"
-                        alt="" />
+                    <div class="user-profile-img mb-2">
+                      <img id="perfil1" class="rounded-circle" width="35" height="35" alt="" />
                     </div>
                   </div>
                 </a>
@@ -170,7 +167,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="py-3 px-7 pb-0">
                     </div>
                     <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                    <img class="rounded-circle" width="80" height="80" alt="" id="perfil2" />
+                      <img class="rounded-circle" width="80" height="80" alt="" id="perfil2" />
                       <div class="ms-3">
                         <h5 class="mb-1 fs-3" id="nome2"></h5>
                         <span class="mb-1 d-block text-dark">Padel</span>
@@ -229,195 +226,206 @@ if (isset($_SESSION['id'])) {?>
     <!-- Sidebar Start -->4 4 41
     <!-- Main wrapper -->
     <div class="">
-    <div class="col-lg-12 mb-3" style="position: relative; margin-top: 59px;">
-      <div style="position: absolute; top: 5px; right: 5px; z-index: 1;">
+      <div class="col-lg-12 mb-3" style="position: relative; margin-top: 59px;">
+        <div style="position: absolute; top: 5px; right: 5px; z-index: 1;">
           <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
+        </div>
+        <img class="img-fluid border border-3 rounded border-primary"
+          src="../../dist/images/backgrounds/marcacao_banner.jpg"
+          style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+        <div
+          style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;"
+          class="animated-text">
+          <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder"
+            style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
+            Marcação</h1>
+          <p class="text-white lead lead-md-2 lead-lg-1"
+            style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">
+            Encontra o campo perfeito para aquele jogo de sábado</p>
+        </div>
       </div>
-      <img class="img-fluid border border-3 rounded border-primary" src="../../dist/images/backgrounds/marcacao_banner.jpg" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-      <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;" class="animated-text">
-          <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">Marcação</h1>
-          <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">Encontra o campo perfeito para aquele jogo de sábado</p>
-      </div>
-    </div>
 
-    <div class=" mx-3 card border-top border-2 border-gray shadow">
-      <div class="card-body">
+      <div class=" mx-3 card border-top border-2 border-gray shadow">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Clubes</h4>
+            </div>
+          </div>
+          <div class="">
+            <form>
+              <div class="row">
+                <div class="form-group col-md-4 mt-3 mt-md-0">
+                  <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
+                </div>
+                <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
+                  <select class="form-select" id="pesquisaMarcacaoModalidade">
+
+                  </select>
+                </div>
+                <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
+                  <input type="date" class="form-control" id="currentDateInput">
+                </div>
+                <div class="form-group col-md-2 mt-3 mt-md-0">
+                  <select id="currentTimeInput" class="form-select">
+                    <option value="-1" style="color: #c9c9c9;">Hora</option>
+                    <option value="0700">07:00</option>
+                    <option value="0730">07:30</option>
+                    <option value="0800">08:00</option>
+                    <option value="0830">08:30</option>
+                    <option value="0900">09:00</option>
+                    <option value="0930">09:30</option>
+                    <option value="1000">10:00</option>
+                    <option value="1030">10:30</option>
+                    <option value="1100">11:00</option>
+                    <option value="1130">11:30</option>
+                    <option value="1200">12:00</option>
+                    <option value="1230">12:30</option>
+                    <option value="1300">13:00</option>
+                    <option value="1330">13:30</option>
+                    <option value="1400">14:00</option>
+                    <option value="1430">14:30</option>
+                    <option value="1500">15:00</option>
+                    <option value="1530">15:30</option>
+                    <option value="1600">16:00</option>
+                    <option value="1630">16:30</option>
+                    <option value="1700">17:00</option>
+                    <option value="1730">17:30</option>
+                    <option value="1800">18:00</option>
+                    <option value="1830">18:30</option>
+                    <option value="1900">19:00</option>
+                    <option value="1930">19:30</option>
+                    <option value="2000">20:00</option>
+                    <option value="2030">20:30</option>
+                    <option value="2100">21:00</option>
+                    <option value="2130">21:30</option>
+                    <option value="2200">22:00</option>
+                    <option value="2230">22:30</option>
+                    <option value="2300">23:00</option>
+                    <option value="2330">23:30</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2 mt-3 mt-md-0">
+                  <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
+                  <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary"
+                    onclick="getUserLocation()">Redefinir</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-5 px-5">
         <div class="row">
-          <div class="col-md-6">
-            <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Clubes</h4>
+          <div class="col-md-2">
+            <div class="form-group">
+              <select class="form-select" id="filtroTipo">
+                <option value="-1" selected disabled>Tipo</option>
+                <option value="Cobertura">Coberto</option>
+                <option value="Indoor">Indoor</option>
+                <option value="Exterior">Exterior</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="">
-          <form>
-            <div class="row">
-              <div class="form-group col-md-4 mt-3 mt-md-0">
-                <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
+          <div class="col-md-2 mt-2 mt-md-0">
+            <div class="form-group">
+              <select class="form-select" id="filtroDistancia">
+                <option value="-1" selected disabled>Distância</option>
+                <option value="0-1km">Até 1km</option>
+                <option value="1-5km">Até 5km</option>
+                <option value="5-10km">Até 10km</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar
+              Filtros</button>
+            <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover
+              Filtros</button>
+          </div>
+          <div class="col-md-6 text-end mt-2 mt-md-0 col">
+            <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
+              <div>
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
+                <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
               </div>
-              <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
-                <select class="form-select" id="pesquisaMarcacaoModalidade">
-                  
-                </select>
-              </div>
-              <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
-                <input type="date" class="form-control" id="currentDateInput">
-              </div>
-              <div class="form-group col-md-2 mt-3 mt-md-0">
-                <select id="currentTimeInput" class="form-select">
-                  <option value="-1" style="color: #c9c9c9;">Hora</option>
-                  <option value="0700">07:00</option>
-                  <option value="0730">07:30</option>
-                  <option value="0800">08:00</option>
-                  <option value="0830">08:30</option>
-                  <option value="0900">09:00</option>
-                  <option value="0930">09:30</option>
-                  <option value="1000">10:00</option>
-                  <option value="1030">10:30</option>
-                  <option value="1100">11:00</option>
-                  <option value="1130">11:30</option>
-                  <option value="1200">12:00</option>
-                  <option value="1230">12:30</option>
-                  <option value="1300">13:00</option>
-                  <option value="1330">13:30</option>
-                  <option value="1400">14:00</option>
-                  <option value="1430">14:30</option>
-                  <option value="1500">15:00</option>
-                  <option value="1530">15:30</option>
-                  <option value="1600">16:00</option>
-                  <option value="1630">16:30</option>
-                  <option value="1700">17:00</option>
-                  <option value="1730">17:30</option>
-                  <option value="1800">18:00</option>
-                  <option value="1830">18:30</option>
-                  <option value="1900">19:00</option>
-                  <option value="1930">19:30</option>
-                  <option value="2000">20:00</option>
-                  <option value="2030">20:30</option>
-                  <option value="2100">21:00</option>
-                  <option value="2130">21:30</option>
-                  <option value="2200">22:00</option>
-                  <option value="2230">22:30</option>
-                  <option value="2300">23:00</option>
-                  <option value="2330">23:30</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2 mt-3 mt-md-0">
-                <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
-                <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary" onclick="getUserLocation()">Redefinir</button>
+              <div class="d-none d-xxl-flex">
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="mb-5 px-5">
-      <div class="row">
-        <div class="col-md-2">
-          <div class="form-group">
-            <select class="form-select" id="filtroTipo">
-              <option value="-1" selected disabled>Tipo</option>
-              <option value="Cobertura">Coberto</option>
-              <option value="Indoor">Indoor</option>
-              <option value="Exterior">Exterior</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-2 mt-2 mt-md-0">
-          <div class="form-group">
-            <select class="form-select" id="filtroDistancia">
-              <option value="-1" selected disabled>Distância</option>
-              <option value="0-1km">Até 1km</option>
-              <option value="1-5km">Até 5km</option>
-              <option value="5-10km">Até 10km</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
-            <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
-            <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover Filtros</button>
-        </div>
-        <div class="col-md-6 text-end mt-2 mt-md-0 col">
-          <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
-            <div>
-              <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
-              <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
-            </div>
-            <div class="d-none d-xxl-flex">
-              <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-              <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-        
-    <div class="px-3 page">
-      <div class="left" id="leftContainer">
-        <div class="card">
-          <div class="card-body bg-light">
-            <h3 class="fw-semibold mb-3">Resultados</h3>
-        
-            <div class="row" id="rowCampos">
-              
-            </div>
-          </div>
-          <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
-            <ul class="pagination bg-light me-3">
-              <li class="page-item">
-                <a class="page-link link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">
-                    <i class="ti ti-chevrons-left fs-4"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link link" href="#" aria-label="Next">
-                  <span aria-hidden="true">
-                    <i class="ti ti-chevrons-right fs-4"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div class="divider d-none d-xxl-flex" id="divider">
+      <div class="px-3 page">
+        <div class="left" id="leftContainer">
+          <div class="card">
+            <div class="card-body bg-light">
+              <h3 class="fw-semibold mb-3">Resultados</h3>
 
-      </div>
-      <div class="right rounded" id="rightContainer" >
-        <div id="mapa" style="height: 100%">
+              <div class="row" id="rowCampos">
+
+              </div>
+            </div>
+            <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
+              <ul class="pagination bg-light me-3">
+                <li class="page-item">
+                  <a class="page-link link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">
+                      <i class="ti ti-chevrons-left fs-4"></i>
+                    </span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link link" href="#" aria-label="Next">
+                    <span aria-hidden="true">
+                      <i class="ti ti-chevrons-right fs-4"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="divider d-none d-xxl-flex" id="divider">
 
         </div>
-        
+        <div class="right rounded" id="rightContainer">
+          <div id="mapa" style="height: 100%">
+
+          </div>
+
+        </div>
       </div>
     </div>
-      </div>
-    </div>
+  </div>
   </div>
   </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
-  <div class="container-fluid">
+  <div style="margin-left: 60px; margin-right: 60px;">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted ms-3">Copyright © 2023 Courtify</p>
-  
+      <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+
       <a href="#"
         class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
       </a>
       <div>
-        <p class="mb-0 text-muted me-3">Todos os direitos reservados.</p>
+        <p class="mb-0 text-muted">Todos os direitos reservados.</p>
       </div>
-  
+
     </footer>
   </div>
   </div>
@@ -573,141 +581,141 @@ if (isset($_SESSION['id'])) {?>
 
   <script>
     // Add a class to trigger the animation on page load
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('.animated-text').addClass('show');
     });
   </script>
 
 
-<script>
-  function getCurrentDate() {
-    const now = new Date();
-    if (now.getHours() >= 23 && now.getMinutes() >= 30) {
-      // If it's 23:30 or later, get the date for the next day
-      now.setDate(now.getDate() + 1);
+  <script>
+    function getCurrentDate() {
+      const now = new Date();
+      if (now.getHours() >= 23 && now.getMinutes() >= 30) {
+        // If it's 23:30 or later, get the date for the next day
+        now.setDate(now.getDate() + 1);
+      }
+      const year = now.getFullYear();
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
     }
-    const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const day = now.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
 
-  function resetOptions() {
-    const options = document.querySelectorAll("#currentTimeInput option");
-    options.forEach(option => {
-      option.style.display = "block";
-    });
-  }
-
-  document.getElementById("currentDateInput").addEventListener("change", resetOptions);
-
-  document.getElementById("currentDateInput").value = getCurrentDate();
-</script>
-
-<script>
-  const toggleSwitch = document.getElementById("flexSwitchCheckChecked");
-  const rightContainer = document.getElementById("rightContainer");
-  const divider = document.getElementById("divider");
-
-  function isScreenBelowMd() {
-    return window.matchMedia("(max-width: 1700px)").matches; 
-  }
-
-  function updateVisibility() {
-    if (isScreenBelowMd() || !toggleSwitch.checked) {
-      rightContainer.style.display = "none";
-      divider.style.display = "none";
-      toggleSwitch.checked = false;
-    } else {
-      rightContainer.style.display = "block";
-      divider.style.display = "block";
-    }
-  }
-
-  updateVisibility();
-
-  toggleSwitch.addEventListener("change", function () {
-    if (toggleSwitch.checked) {
-      rightContainer.style.display = "block";
-      divider.style.display = "block";
-    } else {
-      rightContainer.style.display = "none";
-      divider.style.display = "none";
-    }
-  });
-
-  window.addEventListener("resize", updateVisibility);
-</script>
-
-
-<script type="text/javascript">
-  var timeout;
-
-  
-  function resetSessionTimeout() {
-      clearTimeout(timeout);
-      timeout = setTimeout(function () {
-          
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', 'logout.php', true);
-          xhr.onreadystatechange = function () {
-              if (xhr.readyState == 4 && xhr.status == 200) {
-                  alerta2("Utilizador", "Sessão terminada após 15m de inatividade", "warning");
-                  setTimeout(function () {
-                  window.location.href = '../../../landingpage/index.html';
-                  }, 3000);
-                  
-              }
-          };
-          xhr.send();
-      }, 900000);
-  }
-
-  
-  document.onmousemove = resetSessionTimeout;
-  document.onkeypress = resetSessionTimeout;
-
-  
-  resetSessionTimeout();
-</script>
-
-<script>
-  const currentDateInput = document.getElementById("currentDateInput");
-  const currentTimeInput = document.getElementById("currentTimeInput");
-
-  function updateOptions() {
-    const selectedDate = new Date(currentDateInput.value);
-    const currentTime = new Date();
-    currentTime.setMinutes(currentTime.getMinutes() + 30);
-
-    
-    if (selectedDate.toDateString() === currentTime.toDateString()) {
-      const currentTimeValue = `${currentTime.getHours().toString().padStart(2, "0")}${currentTime.getMinutes().toString().padStart(2, "0")}`;
-      const options = currentTimeInput.querySelectorAll("option");
-
+    function resetOptions() {
+      const options = document.querySelectorAll("#currentTimeInput option");
       options.forEach(option => {
-        const optionValue = option.value;
-        if (optionValue <= currentTimeValue) {
-          option.disabled = true;
-          option.style.display = "none";
-        } else {
-          option.disabled = false;
-          option.style.display = "block";
-        }
-      });
-    } else {
-      
-      currentTimeInput.querySelectorAll("option").forEach(option => {
-        option.disabled = false;
         option.style.display = "block";
       });
     }
-  }
 
-  
-  updateOptions();
-  currentDateInput.addEventListener("change", updateOptions);
-</script>
+    document.getElementById("currentDateInput").addEventListener("change", resetOptions);
+
+    document.getElementById("currentDateInput").value = getCurrentDate();
+  </script>
+
+  <script>
+    const toggleSwitch = document.getElementById("flexSwitchCheckChecked");
+    const rightContainer = document.getElementById("rightContainer");
+    const divider = document.getElementById("divider");
+
+    function isScreenBelowMd() {
+      return window.matchMedia("(max-width: 1700px)").matches;
+    }
+
+    function updateVisibility() {
+      if (isScreenBelowMd() || !toggleSwitch.checked) {
+        rightContainer.style.display = "none";
+        divider.style.display = "none";
+        toggleSwitch.checked = false;
+      } else {
+        rightContainer.style.display = "block";
+        divider.style.display = "block";
+      }
+    }
+
+    updateVisibility();
+
+    toggleSwitch.addEventListener("change", function () {
+      if (toggleSwitch.checked) {
+        rightContainer.style.display = "block";
+        divider.style.display = "block";
+      } else {
+        rightContainer.style.display = "none";
+        divider.style.display = "none";
+      }
+    });
+
+    window.addEventListener("resize", updateVisibility);
+  </script>
+
+
+  <script type="text/javascript">
+    var timeout;
+
+
+    function resetSessionTimeout() {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'logout.php', true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            alerta2("Utilizador", "Sessão terminada após 15m de inatividade", "warning");
+            setTimeout(function () {
+              window.location.href = '../../../landingpage/index.html';
+            }, 3000);
+
+          }
+        };
+        xhr.send();
+      }, 900000);
+    }
+
+
+    document.onmousemove = resetSessionTimeout;
+    document.onkeypress = resetSessionTimeout;
+
+
+    resetSessionTimeout();
+  </script>
+
+  <script>
+    const currentDateInput = document.getElementById("currentDateInput");
+    const currentTimeInput = document.getElementById("currentTimeInput");
+
+    function updateOptions() {
+      const selectedDate = new Date(currentDateInput.value);
+      const currentTime = new Date();
+      currentTime.setMinutes(currentTime.getMinutes() + 30);
+
+
+      if (selectedDate.toDateString() === currentTime.toDateString()) {
+        const currentTimeValue = `${currentTime.getHours().toString().padStart(2, "0")}${currentTime.getMinutes().toString().padStart(2, "0")}`;
+        const options = currentTimeInput.querySelectorAll("option");
+
+        options.forEach(option => {
+          const optionValue = option.value;
+          if (optionValue <= currentTimeValue) {
+            option.disabled = true;
+            option.style.display = "none";
+          } else {
+            option.disabled = false;
+            option.style.display = "block";
+          }
+        });
+      } else {
+
+        currentTimeInput.querySelectorAll("option").forEach(option => {
+          option.disabled = false;
+          option.style.display = "block";
+        });
+      }
+    }
+
+
+    updateOptions();
+    currentDateInput.addEventListener("change", updateOptions);
+  </script>
 
 
 </body>

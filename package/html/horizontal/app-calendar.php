@@ -237,8 +237,8 @@ if (isset($_SESSION['id'])) {?>
           <div class="row">
             <div class="col-lg-12">
               <div class="card card-hover align-items-center" style="margin: 30px;">
-                <img src="../../dist/images/backgrounds/comunidade4.png"
-                  class="card-img-top object-fit-cover" alt="Placeholder Image 1" style="max-width: 190px;">
+                <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
+                  alt="Placeholder Image 1" style="max-width: 190px;">
                 <div class="card-body">
                   <h5 class="card-title fs-8">Padel</h5>
                   <p class="card-text fs-7">Sexta-Feira (10/11) 18:30</p>
@@ -362,7 +362,7 @@ if (isset($_SESSION['id'])) {?>
   <!-- END MODAL -->
   </div>
   </div>
-  <div class="container">
+  <div style="margin-left: 60px; margin-right: 60px;">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 

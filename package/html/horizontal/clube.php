@@ -25,13 +25,11 @@ if (isset($_SESSION['id'])) {?>
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-      <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""></script>
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
@@ -217,123 +215,133 @@ if (isset($_SESSION['id'])) {?>
     <div class="">
       <div class="">
         <div class="row">
-        <div class="col-lg-12" style="position: relative; margin-top: 80px;" >
-          <img class="img-fluid border border-3 rounded border-primary" id="fotoCampo" style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-          <div style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
-            <h1 id="nomeCampo" class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">NOME CAMPO</h1>
-            <p id="moradaCampo" class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">MORADA CAMPO</p>
+          <div class="col-lg-12" style="position: relative; margin-top: 80px;">
+            <img class="img-fluid border border-3 rounded border-primary" id="fotoCampo"
+              style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+            <div
+              style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
+              <h1 id="nomeCampo" class="text-white display-3 display-md-2 display-lg-1 fw-bolder"
+                style="letter-spacing: 1px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
+                NOME CAMPO</h1>
+              <p id="moradaCampo" class="text-white lead lead-md-2 lead-lg-1"
+                style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">
+                MORADA CAMPO</p>
+            </div>
           </div>
-        </div>
         </div>
         <div class="body-wrapper">
           <div class="container">
-          <div class="row">
-          <div class="col-lg-9">
-            <!-- First Row inside col-lg-9 -->
-            <div class="row mt-3 mb-3">
-              <div class="col-12">
-                <!-- Content for the calendar -->
-                <!-- Place your calendar content here -->
-                <div class="card border mb-3">
-                  <div class="p-3 text-center bg-light">
-                    <div class="text-center">
-                      <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Marcação</h4>
-                    </div>
-                    <div id="marcacoesCampo" class="mt-1">
-                      
+            <div class="row">
+              <div class="col-lg-9">
+                <!-- First Row inside col-lg-9 -->
+                <div class="row mt-3 mb-3">
+                  <div class="col-12">
+                    <!-- Content for the calendar -->
+                    <!-- Place your calendar content here -->
+                    <div class="card border mb-3">
+                      <div class="p-3 text-center bg-light">
+                        <div class="text-center">
+                          <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">
+                            Marcação</h4>
+                        </div>
+                        <div id="marcacoesCampo" class="mt-1">
+
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <!-- Second Row inside col-lg-9 -->
-            <div class="row">
-              <div class="col-12">
-                <!-- Content for "About Us" -->
-                <div class="card border mb-3">
-                  <div class="p-3">
-                    <div class="text-center">
-                      <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Sobre</h4>
-                    </div>
-                    <p id="descricaoCampo">
-                      
-                    </p>
-                    <div class="text-center">
-                      <div class="mt-1">
-                          <img id="imagemCampo1" class="rounded img-fluid" style="object-fit: cover; width: 100%;">
+                <!-- Second Row inside col-lg-9 -->
+                <div class="row">
+                  <div class="col-12">
+                    <!-- Content for "About Us" -->
+                    <div class="card border mb-3">
+                      <div class="p-3">
+                        <div class="text-center">
+                          <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Sobre
+                          </h4>
+                        </div>
+                        <p id="descricaoCampo">
+
+                        </p>
+                        <div class="text-center">
+                          <div class="mt-1">
+                            <img id="imagemCampo1" class="rounded img-fluid" style="object-fit: cover; width: 100%;">
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <!-- Content for col-lg-3 -->
-            <div class="card border mb-4 mt-3">
-              <div class="" id="mapa" style="height: 200px; z-index: 1;">
+              <div class="col-lg-3">
+                <!-- Content for col-lg-3 -->
+                <div class="card border mb-4 mt-3">
+                  <div class="" id="mapa" style="height: 200px; z-index: 1;">
 
-              </div>
-            </div>
-
-            <div class="card border">
-              <div class="p-3">
-                <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Serviços</h4>
-                <div id="servicosCampo"></div>
-              </div>
-            </div>
-
-            <div class="card border">
-              <div class="p-3">
-                <h4 class="fw-semibold mb-4 pb-2 text-center fs-7 border-2 border-bottom border-primary">Horários</h4>
-                <div id="horariosCampo"></div>
-              </div>
-            </div>
-
-            <div class="card border">
-              <div class="p-3">
-                <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Modalidades
-                </h4>
-                <div id="modalidadesCampo" class="d-flex flex-wrap gap-2 justify-content-center">
-
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div class="card border">
-              <div class="p-3">
-                <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Contatos
-                </h4>
-                <div class="d-flex justify-content-center px-1">
-                  <ul class="list-group w-100">
-                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
-                      <i class="ti ti-phone fs-7 me-2"></i>
-                      <span id="telefoneClube" class="fs-3"></span>
-                    </li>
-                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
-                      <i class="ti ti-device-mobile fs-7 me-2"></i>
-                      <span id="telemovelClube" class="fs-3"></span>
-                    </li>
-                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
-                      <i class="ti ti-mail fs-7 me-2"></i>
-                      <span id="emailClube" class="fs-3"></span>
-                    </li>
-                    <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
-                      <i class="ti ti-home fs-7 me-2"></i>
-                      <span id="moradaClube1" class="fs-3"></span>
-                    </li>
-                  </ul>
+                <div class="card border">
+                  <div class="p-3">
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Serviços
+                    </h4>
+                    <div id="servicosCampo"></div>
+                  </div>
+                </div>
+
+                <div class="card border">
+                  <div class="p-3">
+                    <h4 class="fw-semibold mb-4 pb-2 text-center fs-7 border-2 border-bottom border-primary">Horários
+                    </h4>
+                    <div id="horariosCampo"></div>
+                  </div>
+                </div>
+
+                <div class="card border">
+                  <div class="p-3">
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Modalidades
+                    </h4>
+                    <div id="modalidadesCampo" class="d-flex flex-wrap gap-2 justify-content-center">
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card border">
+                  <div class="p-3">
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">Contatos
+                    </h4>
+                    <div class="d-flex justify-content-center px-1">
+                      <ul class="list-group w-100">
+                        <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                          <i class="ti ti-phone fs-7 me-2"></i>
+                          <span id="telefoneClube" class="fs-3"></span>
+                        </li>
+                        <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                          <i class="ti ti-device-mobile fs-7 me-2"></i>
+                          <span id="telemovelClube" class="fs-3"></span>
+                        </li>
+                        <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                          <i class="ti ti-mail fs-7 me-2"></i>
+                          <span id="emailClube" class="fs-3"></span>
+                        </li>
+                        <li class=" d-flex align-items-center justify-content-between border-bottom pb-1 mb-1">
+                          <i class="ti ti-home fs-7 me-2"></i>
+                          <span id="moradaClube1" class="fs-3"></span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-          </div>
-        </div>
-        
+
       </div>
     </div>
-    <div class="container">
+    <div style="margin-left: 60px; margin-right: 60px;">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
