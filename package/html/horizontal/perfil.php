@@ -63,7 +63,7 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-4" href="./descobrir.php">Descobrir</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./comunidade.html">Comunidade</a>
+            <a class="nav-link fs-4" href="./comunidade.php">Comunidade</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
@@ -431,7 +431,7 @@ if (isset($_SESSION['id'])) {?>
                           <img src="../../dist/images/backgrounds/com2.png" alt="Equipa 1" class="rounded-2 mb-3"
                             width="100" height="100">
                           <div class="ms-3">
-                            <p><span class="fw-bolder fs-5">Football Geckos FC</span></p>
+                            <p><span class="fw-bolder fs-5">Futsal Geckos</span></p>
                             <span class="badge rounded-pill text-bg-danger"><i
                                 class="ti ti-ball-football me-1"></i><small>Futsal</small></span>
                             <p class="mt-2"><span class="fw-bolder">Posição: </span>Extremo</p>

@@ -280,7 +280,7 @@ if (isset($_SESSION['id'])) {?>
                   <img src="../../dist/images/backgrounds/com2.png" class="card-img-top object-fit-cover"
                     alt="Placeholder Image 1" style="max-width: 190px;">
                   <div class="card-body text-center">
-                    <h5 class="card-title fs-8">Football Geckos</h5>
+                    <h5 class="card-title fs-8">Futsal Geckos</h5>
                     <p class="card-text fs-7">Desde 2023</p>
                     <a href="#" class="btn btn-primary">Mais Info</a>
                   </div>
