@@ -250,7 +250,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="col-md-4 pb-5">
                   <!-- Button trigger modal -->
-                  <button style="font-size: 35px;" type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-lg btn-success"
+                  <button style="font-size: 35px;" type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn btn-success"
                     data-bs-toggle="modal" data-bs-target="#exampleModal">Cria a Tua
                     Comunidade</button>
 
