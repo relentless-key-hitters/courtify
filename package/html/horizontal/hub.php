@@ -23,15 +23,6 @@ if (isset($_SESSION['id'])) {?>
   <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-
 </head>
 
 <body>
@@ -43,7 +34,7 @@ if (isset($_SESSION['id'])) {?>
   <div class="page-wrapper" id="main-wrapper" data-layout="horizontal" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
     <!-- Header Start -->
-    <header class="app-header">
+    <header class="app-header" style="position: fixed; top: 0; left: 0; width: 100%;">
       <nav class="navbar navbar-expand-xl navbar-light container-fluid px-0">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-xl-block">
@@ -64,7 +55,6 @@ if (isset($_SESSION['id'])) {?>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block ms">
             <a class="nav-link fs-4" href="./hub.php">Hub Central</a>
-          </li>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
@@ -218,197 +208,217 @@ if (isset($_SESSION['id'])) {?>
     <!-- Header End -->
     <!-- Sidebar Start -->
     <!-- Main wrapper -->
-    <div class="">
-      <div class="">
-        <div class="row">
-          <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-            <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
-              <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
-            </div>
-            <img class="img-fluid border border-3 rounded border-primary"
-              src="../../dist/images/backgrounds/descobrir_banner.jpg"
-              style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
-            <div
-              style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;"
-              class="animated-text">
-              <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder"
-                style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
-                Descobrir</h1>
-              <p class="text-white lead lead-md-2 lead-lg-1"
-                style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px">
-                Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
-            </div>
+    <div class="body-wrapper">
+      <div class="row">
+        <div class="col-lg-12" style="position: relative; margin-top: 80px;">
+          <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
+            <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
           </div>
-        </div>
-        <div class="body-wrapper">
-          <div class="container">
-            <div class=" mt-5">
-              <h2 class="mb-4">Marcações abertas dos teus amigos</h2>
-              <div class="card bg-light px-3">
-                <div class="carousel-container mt-5" id="carousel1">
-                  <div class="owl-carousel">
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class=" mt-5">
-                <h2 class="mb-4">Marcações abertas de *MODALIDADE*</h2>
-                <div class="card bg-light px-3">
-                  <div class="carousel-container mt-5" id="carousel2">
-                    <div class="owl-carousel">
-                      <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="mt-1">
-                          <div
-                            class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class=" mt-5">
-                  <h2 class="mb-4">Marcações abertas em *LOCALIDADE USER*</h2>
-                  <div class="card bg-light px-3">
-                    <div class="carousel-container mt-5" id="carousel3">
-                      <div class="owl-carousel">
-                        <div class="item">
-                          <div class="mt-1">
-                            <div
-                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div
-                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div
-                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div
-                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div
-                              class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div style="margin-left: 60px; margin-right: 60px;">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-              <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
-
-              <a href="#"
-                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-              </a>
-              <div>
-                <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-              </div>
-
-            </footer>
+          <img class="img-fluid" src="../../dist/images/backgrounds/sandro-giacon-WLIQEo16gSo-unsplash-2.jpg"
+            style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+          <div
+            style="position: absolute; top: 37%; transform: translateY(-50%); left: 10.5%; text-align: center; color: white;">
+            <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px;">Hub
+              Central
+            </h1>
+            <p class="text-white lead lead-md-2 lead-lg-1 fs-8" style="letter-spacing: 1px;">Cria, Partilha, Joga!</p>
           </div>
         </div>
       </div>
+      <div style="margin: 120px;">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-lg-4 text-center">
+                <div class="card bg-light" style="margin-top: 15px;">
+                  <div class="row pt-4">
+                    <div class="col-md-12">
+                      <h1 class="display-6 display-md-2 display-lg-1 fw-semibold pb-3" style="letter-spacing: 1px;">Comunidades
+                      </h1>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 1" style="max-width: 220px;">
+                        <div class="card-body text-center">
+                          <h5 class="card-title fs-8">World Padel Club</h5>
+                          <p class="card-text fs-7">Desde 2022</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 1" style="max-width: 220px;">
+                        <div class="card-body text-center">
+                          <h5 class="card-title fs-8">Évora Tennis Club</h5>
+                          <p class="card-text fs-7">Desde 2022</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 1" style="max-width: 220px;">
+                        <div class="card-body text-center">
+                          <h5 class="card-title fs-8">Padel Ball 3</h5>
+                          <p class="card-text fs-7">Desde 2022</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <a class="btn btn-success"href="./comunidades.php" style="font-size: 20px;">
+                          Mais Comunidades
+                        </a>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <div class="card-body text-center form-group">
+                          <h5 class="card-title fs-8 pb-4">Criar Comunidade</h5>
+                          <input type="text" placeholder="Nome" class="form-control mb-4">
+                          <select class="form-select mb-4"  id="pesquisaMarcacaoModalidade">
+                            <option value="" selected disabled>Modalidade</option>
+                          </select>
+                          <select class="form-select mb-4">
+                            <option value="" selected disabled>Privacidade</option>
+                            <option value="publico">Público</option>
+                            <option value="privado">Privado</option>
+                          </select>
+                          <a class="btn btn-primary">Criar</a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 text-center">
+                <div class="card bg-light" style="margin-top: 15px;">
+                  <div class="row pt-4">
+                    <div class="col-md-12">
+                      <h1 class="display-6 display-md-2 display-lg-1 fw-semibold pb-3" style="letter-spacing: 1px;">Equipas
+                      </h1>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 1" style="max-width: 220px;">
+                        <div class="card-body">
+                          <h5 class="card-title fs-8">Padel</h5>
+                          <p class="card-text fs-7">Sexta-Feira (10/11) 18:30</p>
+                          <p class="card-text fs-5">ESC Padel Indoor</p>
+                          <a href="#" class="btn btn-primary">Mais Info</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 2" style="max-width: 220px;">
+                        <div class="card-body">
+                          <h5 class="card-title fs-8">Ténis</h5>
+                          <p class="card-text fs-7">Terça-Feira (14/11) 19:30</p>
+                          <p class="card-text fs-5">ETC Outdoor</p>
+                          <a href="#" class="btn btn-primary">Mais Info</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 2" style="max-width: 220px;">
+                        <div class="card-body">
+                          <h5 class="card-title fs-8">Ténis</h5>
+                          <p class="card-text fs-7">Terça-Feira (14/11) 19:30</p>
+                          <p class="card-text fs-5">ETC Outdoor</p>
+                          <a href="#" class="btn btn-primary">Mais Info</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 text-center">
+                <div class="card bg-light" style="margin-top: 15px;">
+                  <div class="row pt-4">
+                    <div class="col-md-12">
+                      <h1 class="display-6 display-md-2 display-lg-1 fw-semibold pb-3" style="letter-spacing: 1px;">Torneios
+                      </h1>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/descobrir_banner.jpg" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 1">
+                        <div class="card-body">
+                          <h5 class="card-title fs-8">Torneio Novembro</h5>
+                          <p class="card-text fs-7">Sexta-Feira (24/11) 18:30</p>
+                          <p class="card-text fs-5">CTE</p>
+                          <a href="#" class="btn btn-primary">Inscrever</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 1">
+                        <div class="card-body">
+                          <h5 class="card-title fs-8">Torneio ESC Padel</h5>
+                          <p class="card-text fs-7">Sexta-Feira (24/11) 18:30</p>
+                          <p class="card-text fs-5">ESC Padel Indoor</p>
+                          <a href="#" class="btn btn-primary">Inscrever</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
+                          alt="Placeholder Image 1" style="max-width: 220px;">
+                        <div class="card-body">
+                          <h5 class="card-title fs-8">Torneio PB3</h5>
+                          <p class="card-text fs-7">Sexta-Feira (12/12) 19:30</p>
+                          <p class="card-text fs-5">ESC Padel Indoor</p>
+                          <a href="#" class="btn btn-primary">Inscrever</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-left: 60px; margin-right: 60px;">
+          <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+
+            <a href="#"
+              class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+              <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+            </a>
+            <div>
+              <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+            </div>
+
+          </footer>
+        </div>
+      </div>
     </div>
-    <div class="dark-transparent sidebartoggler"></div>
+  </div>
+  <div class="dark-transparent sidebartoggler"></div>
   </div>
   <!--  Shopping Cart -->
   <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight"
@@ -531,7 +541,7 @@ if (isset($_SESSION['id'])) {?>
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="descobrir.php" aria-expanded="false">
               <span>
                 <i class="ti ti-radar"></i>
               </span>
@@ -636,6 +646,35 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
 
+  <div class="modal fade" id="vertical-center-modal" tabindex="-1" aria-labelledby="vertical-center-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <h4 class="modal-title">
+            Alterar foto de capa
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12 mb-3">
+            <label for="fotoCapa" class="form-label">Fotografia de capa</label>
+            <input class="form-control" type="file" id="fotoCapa" name="fotoCapa">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light-primary text-primary font-medium waves-effect text-start"
+            onclick="altFotoCapa()" data-bs-dismiss="modal">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
+            data-bs-dismiss="modal">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
@@ -651,13 +690,55 @@ if (isset($_SESSION['id'])) {?>
   <!-- current page js files -->
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-  <script src="../../dist/js/js_courtify/descobrir.js"></script>
+  <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../../dist/js/widgets-charts.js"></script>
+  <script src="../../dist/js/js_courtify/campo.js"></script>
 
 
+  <script>
+    $(function () {
+      $("[data-toggle = 'tooltip']").tooltip();
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+
+      $(".owl-carousel").each(function () {
+        var carouselId = $(this).closest(".carousel-container").attr("id");
+        $(this).owlCarousel({
+          items: 3,
+          margin: 20,
+          loop: true,
+          nav: false,
+          autoplay: true,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1
+            },
+            768: {
+              items: 2
+            },
+            992: {
+              items: 3
+            }
+          }
+        });
 
 
+        $("#" + carouselId + " .owl-prev").click(function () {
+          $("#" + carouselId + " .owl-carousel").trigger("prev.owl.carousel");
+        });
 
+        $("#" + carouselId + " .owl-next").click(function () {
+          $("#" + carouselId + " .owl-carousel").trigger("next.owl.carousel");
+        });
+      });
+    });
+  </script>
 
   <script type="text/javascript">
     var timeout;
