@@ -61,7 +61,10 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="#">Descobrir</a>
+            <a class="nav-link fs-4" href="./descobrir.php">Descobrir</a>
+          </li>
+          <li class="nav-item dropdown-hover d-none d-xl-block">
+            <a class="nav-link fs-4" href="./comunidade.html">Comunidade</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
