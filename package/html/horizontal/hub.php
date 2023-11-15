@@ -230,16 +230,16 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-md-12">
             <div class="row">
               <div class="col-lg-4 text-center">
-                <div class="card bg-light" style="margin-top: 15px;">
+                <div class="card shadow" style="margin-top: 15px;">
                   <div class="row pt-4">
                     <div class="col-md-12">
-                      <h1 class="display-6 display-md-2 display-lg-1 fw-semibold pb-3" style="letter-spacing: 1px;">Comunidades
+                      <h1 class="fs-13 fw-bolder pb-3" style="letter-spacing: 1px;">Comunidades
                       </h1>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body text-center">
@@ -250,7 +250,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
 
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body text-center">
@@ -261,7 +261,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
 
                     <div class="col-md-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body text-center">
@@ -278,7 +278,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
 
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <div class="card-body text-center form-group">
                           <h5 class="card-title fs-8 pb-4">Criar Comunidade</h5>
                           <input type="text" placeholder="Nome" class="form-control mb-4">
@@ -299,16 +299,16 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-4 text-center">
-                <div class="card bg-light" style="margin-top: 15px;">
+                <div class="card shadow" style="margin-top: 15px;">
                   <div class="row pt-4">
                     <div class="col-md-12">
-                      <h1 class="display-6 display-md-2 display-lg-1 fw-semibold pb-3" style="letter-spacing: 1px;">Equipas
+                      <h1 class="fs-13 fw-bolder pb-3" style="letter-spacing: 1px;">Equipas
                       </h1>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body">
@@ -321,7 +321,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
 
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 2" style="max-width: 220px;">
                         <div class="card-body">
@@ -334,7 +334,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
 
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 2" style="max-width: 220px;">
                         <div class="card-body">
@@ -349,16 +349,16 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-4 text-center">
-                <div class="card bg-light" style="margin-top: 15px;">
+                <div class="card shadow" style="margin-top: 15px;">
                   <div class="row pt-4">
                     <div class="col-md-12">
-                      <h1 class="display-6 display-md-2 display-lg-1 fw-semibold pb-3" style="letter-spacing: 1px;">Torneios
+                      <h1 class="fs-13 fw-bolder pb-3" style="letter-spacing: 1px;">Torneios
                       </h1>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/descobrir_banner.jpg" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1">
                         <div class="card-body">
@@ -371,7 +371,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
 
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1">
                         <div class="card-body">
@@ -384,7 +384,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
 
                     <div class="col-lg-12">
-                      <div class="card card-hover align-items-center" style="margin: 30px;">
+                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body">

@@ -227,7 +227,7 @@ if (isset($_SESSION['id'])) {?>
           </div>
         </div>
       </div>
-      <div class="card border-top border-2 border-gray shadow" style="margin: 20px;">
+      <div class="card border-top border-2 border-gray shadow">
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
@@ -250,7 +250,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="col-md-4 pb-5">
                   <!-- Button trigger modal -->
-                  <button style="font-size: 35px;" type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn btn-success"
+                  <button style="font-size: 30px;" type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-success"
                     data-bs-toggle="modal" data-bs-target="#exampleModal">Cria a Tua
                     Comunidade</button>
 
@@ -297,12 +297,12 @@ if (isset($_SESSION['id'])) {?>
     <div style="margin: 120px;">
       <div class="row">
         <div class="col-md-3">
-          <div class="card text-center bg-light" style="margin-top: 15px;">
+          <div class="card shadow text-center" style="margin-top: 15px;">
             <div class="container-fluid">
-              <h1 class="fw-semibold fs-9 mt-4" style="letter-spacing: 1px;">Onde Pertenço</h1>
+              <h1 class="fw-semibold fs-9 mt-4" style="letter-spacing: 1px;">Minhas Comunidades</h1>
             </div>
             <div class="col-md-12">
-              <div class="card card-hover align-items-center" style="margin: 30px;">
+              <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                 <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
                   alt="Placeholder Image 1" style="max-width: 190px;">
                 <div class="card-body text-center">
@@ -313,7 +313,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
             <div class="col-md-12">
-              <div class="card card-hover align-items-center" style="margin: 30px;">
+              <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                 <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
                   alt="Placeholder Image 1" style="max-width: 190px;">
                 <div class="card-body text-center">
@@ -324,7 +324,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
             <div class="col-md-12">
-              <div class="card card-hover align-items-center" style="margin: 30px;">
+              <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                 <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
                   alt="Placeholder Image 1" style="max-width: 190px;">
                 <div class="card-body text-center">
@@ -335,7 +335,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
             <div class="col-md-12">
-              <div class="card card-hover align-items-center" style="margin: 30px;">
+              <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                 <img src="../../dist/images/backgrounds/g.png" class="card-img-top object-fit-cover"
                   alt="Placeholder Image 1" style="max-width: 190px;">
                 <div class="card-body text-center">
@@ -348,8 +348,8 @@ if (isset($_SESSION['id'])) {?>
           </div>
         </div>
         <div class="col-md-9">
-          <div class="card text-center bg-light" style="margin-top: 15px;">
-            <div class="row text-center pt-3">
+          <div class="card shadow text-center" style="margin-top: 15px;">
+            <div class="row text-center pt-4">
               <div class="col-md-12">
                 <h1 class="display-6 display-md-2 display-lg-1 fw-semibold" style="letter-spacing: 1px;">Comunidades
                 </h1>
@@ -357,7 +357,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -369,7 +369,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -381,7 +381,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -395,7 +395,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -407,7 +407,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -419,7 +419,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -433,7 +433,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -445,7 +445,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -457,7 +457,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -471,7 +471,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -483,7 +483,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/peter-berko-4ie4fXv7cX4-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
@@ -495,7 +495,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-hover align-items-center" style="margin: 30px;">
+                <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                   <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                     class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                   <div class="card-body text-center">
