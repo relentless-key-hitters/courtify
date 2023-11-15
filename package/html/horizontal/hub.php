@@ -245,7 +245,7 @@ if (isset($_SESSION['id'])) {?>
                         <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body text-center">
-                          <h5 class="card-title fs-8">World Padel Club</h5>
+                          <h5 class="card-title fw-bolder fs-8">World Padel Club</h5>
                           <p class="card-text fs-7">Desde 2022</p>
                         </div>
                       </div>
@@ -256,7 +256,7 @@ if (isset($_SESSION['id'])) {?>
                         <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body text-center">
-                          <h5 class="card-title fs-8">Évora Tennis Club</h5>
+                          <h5 class="card-title fw-bolder fs-8">Évora Tennis Club</h5>
                           <p class="card-text fs-7">Desde 2022</p>
                         </div>
                       </div>
@@ -267,7 +267,7 @@ if (isset($_SESSION['id'])) {?>
                         <img src="../../dist/images/backgrounds/padelball3.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body text-center">
-                          <h5 class="card-title fs-8">Padel Ball 3</h5>
+                          <h5 class="card-title fw-bolder fs-8">Padel Ball 3</h5>
                           <p class="card-text fs-7">Desde 2022</p>
                         </div>
                       </div>
@@ -282,7 +282,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="col-lg-12">
                       <div class="card shadow card-hover align-items-center" style="margin: 30px;">
                         <div class="card-body text-center form-group">
-                          <h5 class="card-title fs-8 pb-4">Criar Comunidade</h5>
+                          <h5 class="card-title fw-bolder fs-8 pb-4">Criar Comunidade</h5>
                           <input type="text" placeholder="Nome" class="form-control mb-4">
                           <select class="form-select mb-4"  id="pesquisaMarcacaoModalidade">
                             <option value="" selected disabled>Modalidade</option>
@@ -313,12 +313,12 @@ if (isset($_SESSION['id'])) {?>
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/padelball3.png" class="card-img-top object-fit-cover"
+                        <img src="../../dist/images/backgrounds/racketman.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body">
-                          <h5 class="card-title fs-8">Padel</h5>
-                          <p class="card-text fs-7">Sexta-Feira (10/11) 18:30</p>
-                          <p class="card-text fs-5">ESC Padel Indoor</p>
+                          <h5 class="card-title fw-bolder fs-8">Racket Man</h5>
+                          <p class="card-text fs-7">Padel</p>
+                          <p class="card-text fs-5">745 vitórias</p>
                           <a href="#" class="btn btn-primary">Mais Info</a>
                         </div>
                       </div>
@@ -326,12 +326,12 @@ if (isset($_SESSION['id'])) {?>
 
                     <div class="col-lg-12">
                       <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
+                        <img src="../../dist/images/backgrounds/demonclass.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 2" style="max-width: 220px;">
                         <div class="card-body">
-                          <h5 class="card-title fs-8">Ténis</h5>
-                          <p class="card-text fs-7">Terça-Feira (14/11) 19:30</p>
-                          <p class="card-text fs-5">ETC Outdoor</p>
+                          <h5 class="card-title fw-bolder fs-8">Demon Class</h5>
+                          <p class="card-text fs-7">Futsal</p>
+                          <p class="card-text fs-5">289 vitórias</p>
                           <a href="#" class="btn btn-primary">Mais Info</a>
                         </div>
                       </div>
@@ -339,12 +339,12 @@ if (isset($_SESSION['id'])) {?>
 
                     <div class="col-lg-12">
                       <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
+                        <img src="../../dist/images/backgrounds/smoothsailors.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 2" style="max-width: 220px;">
                         <div class="card-body">
-                          <h5 class="card-title fs-8">Ténis</h5>
-                          <p class="card-text fs-7">Terça-Feira (14/11) 19:30</p>
-                          <p class="card-text fs-5">ETC Outdoor</p>
+                          <h5 class="card-title fw-bolder fs-8">Smooth Sailors</h5>
+                          <p class="card-text fs-7">Basquetebol</p>
+                          <p class="card-text fs-5">232 vitórias</p>
                           <a href="#" class="btn btn-primary">Mais Info</a>
                         </div>
                       </div>
@@ -368,7 +368,7 @@ if (isset($_SESSION['id'])) {?>
                         <img src="../../dist/images/backgrounds/descobrir_banner.jpg" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1">
                         <div class="card-body">
-                          <h5 class="card-title fs-8">Torneio Novembro</h5>
+                          <h5 class="card-title fw-bolder fs-8">Torneio Novembro</h5>
                           <p class="card-text fs-7">Sexta-Feira (24/11) 18:30</p>
                           <p class="card-text fs-5">CTE</p>
                           <a href="#" class="btn btn-primary">Inscrever</a>
@@ -381,7 +381,7 @@ if (isset($_SESSION['id'])) {?>
                         <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1">
                         <div class="card-body">
-                          <h5 class="card-title fs-8">Torneio ESC Padel</h5>
+                          <h5 class="card-title fw-bolder fs-8">Torneio ESC Padel</h5>
                           <p class="card-text fs-7">Sexta-Feira (24/11) 18:30</p>
                           <p class="card-text fs-5">ESC Padel Indoor</p>
                           <a href="#" class="btn btn-primary">Inscrever</a>
@@ -394,7 +394,7 @@ if (isset($_SESSION['id'])) {?>
                         <img src="../../dist/images/backgrounds/padelball3.png" class="card-img-top object-fit-cover"
                           alt="Placeholder Image 1" style="max-width: 220px;">
                         <div class="card-body">
-                          <h5 class="card-title fs-8">Torneio PB3</h5>
+                          <h5 class="card-title fw-bolder fs-8">Torneio PB3</h5>
                           <p class="card-text fs-7">Sexta-Feira (12/12) 19:30</p>
                           <p class="card-text fs-5">ESC Padel Indoor</p>
                           <a href="#" class="btn btn-primary">Inscrever</a>
