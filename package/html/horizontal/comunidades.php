@@ -314,7 +314,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="col-md-12">
               <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
+                <img src="../../dist/images/backgrounds/padelball3.png" class="card-img-top object-fit-cover"
                   alt="Placeholder Image 1" style="max-width: 190px;">
                 <div class="card-body text-center">
                   <h5 class="card-title fs-8">Padel Ball 3</h5>

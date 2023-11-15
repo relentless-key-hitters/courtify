@@ -407,7 +407,7 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                       <div class="col-lg-12 col-md-6">
                         <div class="d-flex align-items-center mt-2">
-                          <img src="../../dist/images/backgrounds/comunidade4.png" alt="Equipa 1" class="rounded-2 mb-3"
+                          <img src="../../dist/images/backgrounds/padelball3.png" alt="Equipa 1" class="rounded-2 mb-3"
                             width="100" height="100">
                           <div class="ms-3">
                             <p><span class="fw-bolder fs-5">Padel Ball 3</span></p>
