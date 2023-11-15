@@ -233,8 +233,10 @@ if (isset($_SESSION['id'])) {?>
                 <div class="card shadow" style="margin-top: 15px;">
                   <div class="row pt-4">
                     <div class="col-md-12">
-                      <h1 class="fs-13 fw-bolder pb-3" style="letter-spacing: 1px;">Comunidades
+                      <div class="container">
+                      <h1 class="fs-13 fw-bolder pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Comunidades
                       </h1>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -302,8 +304,10 @@ if (isset($_SESSION['id'])) {?>
                 <div class="card shadow" style="margin-top: 15px;">
                   <div class="row pt-4">
                     <div class="col-md-12">
-                      <h1 class="fs-13 fw-bolder pb-3" style="letter-spacing: 1px;">Equipas
+                      <div class="container">
+                      <h1 class="fs-13 fw-bolder pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas
                       </h1>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -352,8 +356,10 @@ if (isset($_SESSION['id'])) {?>
                 <div class="card shadow" style="margin-top: 15px;">
                   <div class="row pt-4">
                     <div class="col-md-12">
-                      <h1 class="fs-13 fw-bolder pb-3" style="letter-spacing: 1px;">Torneios
+                      <div class="container">
+                      <h1 class="fs-13 fw-bolder pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios
                       </h1>
+                      </div>
                     </div>
                   </div>
                   <div class="row">

@@ -299,7 +299,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="col-md-3">
           <div class="card shadow text-center" style="margin-top: 15px;">
             <div class="container-fluid">
-              <h1 class="fw-bolder fs-11 mt-4" style="letter-spacing: 1px;">Minhas Comunidades</h1>
+              <h1 class="fw-bolder fs-11 py-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Minhas Comunidades</h1>
             </div>
             <div class="col-md-12">
               <div class="card shadow card-hover align-items-center" style="margin: 30px;">
@@ -351,8 +351,10 @@ if (isset($_SESSION['id'])) {?>
           <div class="card shadow text-center" style="margin-top: 15px;">
             <div class="row text-center pt-4">
               <div class="col-md-12">
-                <h1 class="fw-bolder fs-13" style="letter-spacing: 1px;">Comunidades
+                <div class="container">
+                <h1 class="fw-bolder fs-13 border-2 border-bottom border-light pb-3" style="letter-spacing: 1px;">Comunidades
                 </h1>
+                </div>
               </div>
             </div>
             <div class="row">
