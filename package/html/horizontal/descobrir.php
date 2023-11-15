@@ -225,18 +225,17 @@ if (isset($_SESSION['id'])) {?>
             <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
               <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
             </div>
-            <img class="img-fluid border border-3 rounded border-primary"
+            <img class="img-fluid"
               src="../../dist/images/backgrounds/descobrir_banner.jpg"
-              style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
             <div
-              style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;"
-              class="animated-text">
-              <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder"
-                style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
+              style="position: absolute; top: 65%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
+              <h1 class="text-white fw-bolder"
+                style="letter-spacing: 1px; font-size: 90px">
                 Descobrir</h1>
               <p class="text-white lead lead-md-2 lead-lg-1"
-                style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px">
-                Junta-te a marcações abertas disponíveis neste momento na Courtify</p>
+                style="letter-spacing: 1px; font-size: 40px">
+                Jogos disponíveis <br> a qualquer momento</p>
             </div>
           </div>
         </div>

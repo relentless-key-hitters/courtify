@@ -240,7 +240,7 @@ if (isset($_SESSION['id'])) {?>
         <div
           style="position: absolute; top: 30%; transform: translateY(-50%); left: 10%; text-align: left; color: white;">
           <h1 class="text-white fw-bolder"
-            style="letter-spacing: 1px; font-size: 100px;">
+            style="letter-spacing: 1px; font-size: 90px;">
             Marcação de Campos</h1>
           <p class="text-white lead lead-md-2 lead-lg-1"
             style="letter-spacing: 1px; font-size: 40px;">
@@ -252,7 +252,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
-              <h4 class="fw-bolder mb-3 fs-11">Pesquisa de Clubes</h4>
+              <h4 class="fw-bolder mb-3 fs-9">Pesquisa</h4>
             </div>
           </div>
           <div class="">
@@ -310,7 +310,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0">
                   <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
-                  <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary"
+                  <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light"
                     onclick="getUserLocation()">Redefinir</button>
                 </div>
               </div>
@@ -364,7 +364,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="left" id="leftContainer">
           <div class="card">
             <div class="card-body bg-light">
-              <h3 class="fw-bolder mb-3 fs-8">Resultados</h3>
+              <h3 class="fw-semibold mb-3 fs-8">Resultados</h3>
 
               <div class="row" id="rowCampos">
 

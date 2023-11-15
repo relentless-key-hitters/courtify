@@ -225,7 +225,7 @@ if (isset($_SESSION['id'])) {?>
             <div class="row align-items-center">
               <div class="col-lg-4 order-lg-1 order-2 mt-2">
                 <div class="container">
-                  <h6 class="text-center fw-bolder">Modalidades</h6>
+                  <h6 class="text-center fw-semibold">Modalidades</h6>
                   <ul class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id="mod">
                   </ul>
                 </div>
@@ -250,7 +250,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
               <div class="col-lg-4 order-last mt-2">
                 <div class="container">
-                  <h6 class="text-center fw-bolder">Melhores conquistas</h6>
+                  <h6 class="text-center fw-semibold">Melhores conquistas</h6>
                   <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
                     <!-- Badge 1 -->
                     <div class="text-center">
@@ -291,7 +291,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab"
                   aria-controls="pills-profile" aria-selected="true">
                   <i class="ti ti-home me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-bolder">Geral</span>
+                  <span class="d-none d-md-block fw-semibold">Geral</span>
                 </button>
               </li>
               <li class="nav-item" role="presentation">
@@ -300,7 +300,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-followers-tab" data-bs-toggle="pill" data-bs-target="#pills-followers" type="button"
                   role="tab" aria-controls="pills-followers" aria-selected="false">
                   <i class="ti ti-chart-histogram me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-bolder">Estatísticas</span>
+                  <span class="d-none d-md-block fw-semibold">Estatísticas</span>
                 </button>
               </li>
               <li class="nav-item" role="presentation">
@@ -309,7 +309,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends" type="button" role="tab"
                   aria-controls="pills-friends" aria-selected="false">
                   <i class="ti ti-user-circle me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-bolder">Amigos</span>
+                  <span class="d-none d-md-block fw-semibold">Amigos</span>
                 </button>
               </li>
               <li class="nav-item" role="presentation">
@@ -318,7 +318,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery" type="button" role="tab"
                   aria-controls="pills-gallery" aria-selected="false">
                   <i class="ti ti-award me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-bolder">Conquistas</span>
+                  <span class="d-none d-md-block fw-semibold">Conquistas</span>
                 </button>
               </li>
             </ul>
@@ -331,7 +331,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-lg-4">
                 <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-bolder mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Sobre Mim
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Sobre Mim
                     </h4>
                     <p id="bio" class="mt-1"></p>
                     <ul class="list-unstyled mb-0">
@@ -348,7 +348,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-bolder mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Conquistas
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Conquistas
                     </h4>
                     <div class="row">
                       <div class="col-4">
@@ -392,7 +392,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-bolder mb-2 pb-2 text-center fs-7 border-2 border-bottom border-light">Comunidades
+                    <h4 class="fw-semibold mb-2 pb-2 text-center fs-7 border-2 border-bottom border-light">Comunidades
                     </h4>
                     <div class="row">
                       <div class="col-lg-12 col-md-6">
@@ -448,7 +448,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-lg-8">
                 <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-bolder  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos
+                    <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos
                       Recentes</h4>
                     <div class="card shadow border hover-img">
                       <div class="card-body">
@@ -758,7 +758,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="tab-pane fade" id="pills-followers" role="tabpanel" aria-labelledby="pills-followers-tab"
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
-              <h3 class="mb-3 mb-sm-0 fw-bolder d-flex align-items-center">Estatísticas</h3>
+              <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Estatísticas</h3>
               <form class="position-relative">
                 <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
                   placeholder="Procurar Estatísticas">
@@ -1044,7 +1044,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab"
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
-              <h3 class="mb-3 mb-sm-0 fw-bolder d-flex align-items-center">Amigos <span
+              <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Amigos <span
                   class="badge text-bg-primary fs-2 rounded-4 py-1 px-2 ms-2 mt-1 badge-container">2545</span></h3>
               <form class="position-relative">
                 <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
@@ -1625,8 +1625,8 @@ if (isset($_SESSION['id'])) {?>
           <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab"
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-5">
-              <h3 class="mb-3 mb-sm-0 fw-bolder d-flex align-items-center fs-5">Conquistas <span
-                  class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-5 badge-container fw-bolder" style="background-color: #63a340;">11
+              <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center fs-5">Conquistas <span
+                  class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-5 badge-container fw-bosemiboldlder" style="background-color: #63a340;">11
                   de 16</span></h3>
               <form class="position-relative">
                 <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
@@ -1637,8 +1637,8 @@ if (isset($_SESSION['id'])) {?>
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-bolder align-items-center fs-7">Padel <span
-                      class="badge fs-2 fw-bolder rounded-4 py-1 px-2 ms-2 fs-7 badge-container"
+                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Padel <span
+                      class="badge fs-2 fw-semibold rounded-4 py-1 px-2 ms-2 fs-7 badge-container"
                       style="background-color: #63a340;">6 de 6</span></h1>
                 </div>
               </div>
@@ -1763,8 +1763,8 @@ if (isset($_SESSION['id'])) {?>
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-bolder align-items-center fs-7">Ténis <span
-                      class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-7 badge-container fw-bolder"
+                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Ténis <span
+                      class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-7 badge-container fw-semibold"
                       style="background-color: #6AAD45;">5 de 6</span>
                   </h1>
                 </div>
@@ -1888,8 +1888,8 @@ if (isset($_SESSION['id'])) {?>
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-bolder align-items-center fs-7">Futsal <span
-                      class="badge fs-2 rounded-4 fw-bolder py-1 px-2 ms-2 fs-7 badge-container"
+                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Futsal <span
+                      class="badge fs-2 rounded-4 fw-semibold py-1 px-2 ms-2 fs-7 badge-container"
                       style="background-color: #f84b29;">2 de 6</span></h1>
                 </div>
               </div>
@@ -2011,8 +2011,8 @@ if (isset($_SESSION['id'])) {?>
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-bolder align-items-center fs-7">Basquetebol <span
-                      class="badge fs-2 rounded-4 py-1 fw-bolder px-2 ms-2 fs-7 badge-container"
+                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Basquetebol <span
+                      class="badge fs-2 rounded-4 py-1 fw-semibold px-2 ms-2 fs-7 badge-container"
                       style="background-color: firebrick;">1 de 6</span></h1>
                 </div>
               </div>

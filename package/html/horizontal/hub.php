@@ -217,10 +217,10 @@ if (isset($_SESSION['id'])) {?>
           <img class="img-fluid" src="../../dist/images/backgrounds/sandro-giacon-WLIQEo16gSo-unsplash-2.jpg"
             style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
           <div
-            style="position: absolute; top: 15%; transform: translateY(-50%); left: 40%; text-align: center; color: white;">
+            style="position: absolute; top: 15%; transform: translateY(-50%); left: 37%; text-align: center; color: white;">
             <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; font-size: 100px;">Hub
             </h1>
-            <p class="text-white lead lead-md-2 lead-lg-1 fs-8" style="letter-spacing: 1px;">Cria, Partilha, Joga!</p>
+            <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Cria, Partilha, Joga!</p>
           </div>
         </div>
       </div>
@@ -233,7 +233,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="row pt-4">
                     <div class="col-md-12">
                       <div class="container">
-                      <h1 class="fs-13 fw-bolder pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Comunidades
+                      <h1 class="fs-11 fw-semibold pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Comunidades
                       </h1>
                       </div>
                     </div>
@@ -304,7 +304,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="row pt-4">
                     <div class="col-md-12">
                       <div class="container">
-                      <h1 class="fs-13 fw-bolder pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas
+                      <h1 class="fs-11 fw-semibold pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas
                       </h1>
                       </div>
                     </div>
@@ -356,7 +356,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="row pt-4">
                     <div class="col-md-12">
                       <div class="container">
-                      <h1 class="fs-13 fw-bolder pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios
+                      <h1 class="fs-11 fw-semibold pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios
                       </h1>
                       </div>
                     </div>
