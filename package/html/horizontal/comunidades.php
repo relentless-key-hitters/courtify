@@ -231,22 +231,22 @@ if (isset($_SESSION['id'])) {?>
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
-              <h4 class="fw-semibold mb-3 fs-9" style="letter-spacing: 1px;">Encontra Aqui</h4>
+              <h4 class="fw-bolder mb-3 fs-13" style="letter-spacing: 1px;">Encontra Aqui</h4>
             </div>
           </div>
           <div class="">
             <form>
               <div class="row">
-                <div class="form-group col-md-4 mt-3 pt-4 mt-md-0">
-                  <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
+                <div class="form-group input-group-lg col-md-4 mt-3 pt-4 mt-md-0">
+                  <input type="text" class="form-control" id="input-group-lg" placeholder="Nome, localidade, etc..." id="stringPesquisa">
                 </div>
-                <div class="form-group col-md-2 mt-3 pt-4 mt-md-0 col-6">
+                <div class="form-group input-group-lg col-md-2 mt-3 pt-4 mt-md-0 col-6">
                   <select class="form-select" id="pesquisaMarcacaoModalidade">
 
                   </select>
                 </div>
                 <div class="form-group col-md-2 mt-3 pt-4 mt-md-0">
-                  <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisar</button>
+                  <button type="button" class="btn btn-primary btn-lg" onclick="pesquisarCampos()">Pesquisar</button>
                 </div>
                 <div class="col-md-4 pb-5">
                   <!-- Button trigger modal -->
@@ -299,7 +299,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="col-md-3">
           <div class="card shadow text-center" style="margin-top: 15px;">
             <div class="container-fluid">
-              <h1 class="fw-semibold fs-9 mt-4" style="letter-spacing: 1px;">Minhas Comunidades</h1>
+              <h1 class="fw-bolder fs-11 mt-4" style="letter-spacing: 1px;">Minhas Comunidades</h1>
             </div>
             <div class="col-md-12">
               <div class="card shadow card-hover align-items-center" style="margin: 30px;">
@@ -351,7 +351,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="card shadow text-center" style="margin-top: 15px;">
             <div class="row text-center pt-4">
               <div class="col-md-12">
-                <h1 class="display-6 display-md-2 display-lg-1 fw-semibold" style="letter-spacing: 1px;">Comunidades
+                <h1 class="fw-bolder fs-13" style="letter-spacing: 1px;">Comunidades
                 </h1>
               </div>
             </div>
