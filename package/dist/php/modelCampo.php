@@ -149,11 +149,11 @@ class Campo {
         INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
         INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo 
         WHERE clube.id_clube NOT IN (
-                SELECT clube.id_clube
-                FROM marcacao INNER JOIN campo ON marcacao.id_campo =  campo.id
-                INNER JOIN campo_clube ON campo.id = campo_clube.id_campo 
-                INNER JOIN clube ON clube.id_clube = campo_clube.id_clube
-                WHERE marcacao.data_inicio LIKE '".$dataPesquisa."')";
+            SELECT clube.id_clube
+            FROM marcacao INNER JOIN campo ON marcacao.id_campo =  campo.id
+            INNER JOIN campo_clube ON campo.id = campo_clube.id_campo 
+            INNER JOIN clube ON clube.id_clube = campo_clube.id_clube
+            WHERE marcacao.data_inicio LIKE '".$dataPesquisa."' AND campo_clube.id_modalidade = '".$modalidadePesquisa."'  AND  marcacao.hora_inicio BETWEEN '".$horaPesquisa."' AND ADDTIME('".$horaPesquisa."', '01:00:00') OR marcacao.hora_fim BETWEEN '".$horaPesquisa."' AND ADDTIME('".$horaPesquisa."', '01:00:00')) ";
        
         if(!empty($stringPesquisa)){
             $stringPesquisa = $conn->real_escape_string($stringPesquisa); 

@@ -130,6 +130,8 @@ if (isset($_SESSION['id'])) {?>
                         <span class="d-block">Nova Mensagem</span>
                       </div>
                     </a>
+                    <div id = "notifVotacao">
+                    </div>
                   </div>
                   <div class="py-6 px-7 mb-1">
                     <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
@@ -2379,6 +2381,45 @@ if (isset($_SESSION['id'])) {?>
     </div>
   </div>
 
+  <div class="modal fade"
+  id="scroll-long-inner-modal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="scroll-long-inner-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div id="textoModalVot"></div> 
+                              
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-light-danger text-danger font-medium waves-effect text-start"
+            data-bs-dismiss="modal">
+            Fechar
+          </button>
+          <button
+            type="button"
+            class="btn btn-light-danger text-danger font-medium waves-effect text-start">
+            Votar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
   <div class="modal fade" id="vertical-center-modal" tabindex="-1" aria-labelledby="vertical-center-modal"
     aria-hidden="true">
@@ -2409,6 +2450,7 @@ if (isset($_SESSION['id'])) {?>
       </div>
     </div>
   </div>
+
 
   <!-- Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>

@@ -580,6 +580,88 @@ class User{
         return ($resp);
 
     }
+
+    function getNotificacoes(){
+        global $conn;
+        $sql = " SELECT listagem_atletas_marcacao.id_marcacao as idMarcacao FROM listagem_atletas_marcacao INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."' AND listagem_atletas_marcacao.votacao = 0";
+        $result = $conn->query($sql);
+        $msg = "";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' onclick = 'getModalVot(".$row['idMarcacao'].")'>
+                <span class='me-3'>
+                  <img src='../../dist/images/rating/vote.jpg' alt='user' class='rounded-circle object-fit-cover'
+                    width='48' height='48' />
+                </span>
+                <div class='w-75 d-inline-block v-middle'>
+                  <h6 class='mb-1 fw-semibold'>Votação Jogo</h6>
+                  <span class='d-block'>Tem uma votação pendente.</span>
+                </div>
+              </a>";
+            }
+        }
+        $conn ->close();
+        return ($msg);
+
+    }
+
+    function getModalVot($id){
+
+        global $conn;
+        $sql = " SELECT marcacao.data_inicio AS dataMarc, marcacao.hora_inicio AS horaMarc, modalidade.descricao AS modalidade, user.nome AS nomeClube, user.foto as fotoClube FROM listagem_atletas_marcacao INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id INNER JOIN clube ON campo_clube.id_clube = clube.id_clube INNER JOIN user ON clube.id_clube = user.id WHERE listagem_atletas_marcacao.id_marcacao = '".$id."'";
+        $result = $conn->query($sql);
+        $msg = "";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $msg .= "
+                <div class='d-flex justify-content-center mb-3'>
+                <h4>
+                Votação
+                </h4>
+                </div>
+                <div class='d-flex justify-content-start align-items-center'>
+                <div class=''>
+                <img src='".$row['fotoClube']."' alt='Clube 1'
+                  class='object-fit-cover rounded-2 border border-1 border-primary' width='160'
+                  height='120'>
+                </div>
+                <div class='ms-3'>
+                    <small><i class='ti ti-calendar me-1'></i>".$row['dataMarc']."</small><br>
+                    <small><i class='ti ti-clock me-1'></i>".$row['horaMarc']."</small><br>
+                    <small><i class='ti ti-map-pin me-1'></i>".$row['nomeClube']."</small><br>";
+                 if($row['modalidade'] == 'Basquetebol'){
+
+                    $msg .= "<span class='badge rounded-pill text-bg-warning mt-2'><i
+                        class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>
+                        </div>
+                        </div>";
+                 }else if($row['modalidade'] == 'Futsal'){
+                    $msg .= "<span class='badge rounded-pill text-bg-danger mt-2'><i
+                    class='ti ti-ball-football me-1'></i><small>Basquetebol</small></span>
+                    </div>
+                    </div>";
+                 }else if($row['modalidade'] == 'Padel'){
+                    $msg .= "<span class='badge rounded-pill text-bg-primary mt-2'><i
+                    class='ti ti-ball-tennis me-1'></i><small>Basquetebol</small></span>
+                    </div>
+                    </div>";
+                    
+                 }else{
+                    $msg .= "<span class='badge rounded-pill text-bg-success mt-2'><i
+                    class='ti ti-ball-tennis me-1'></i><small>Basquetebol</small></span>
+                    </div>
+                    </div>"; 
+                 }   
+            
+            }
+        }
+        $conn ->close();
+        return ($msg);
+
+
+    }
 }
 
 
