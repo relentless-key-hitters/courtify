@@ -189,7 +189,6 @@ async function constroiMapa(clubeInfo, localidadeUser) {
     var markerLayer = L.layerGroup(markers);
     markerLayer.addTo(map);
     getDistancias();
-    console.log(coords);
 }
 
 function pesquisarCampos() {
@@ -201,6 +200,7 @@ function pesquisarCampos() {
     dados.append("dataPesquisa", $("#currentDateInput").val());
     dados.append("horaPesquisa", $("#currentTimeInput").val());
     obsCampos = [];
+    console.log($("#currentTimeInput").val())
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
         method: "POST",
@@ -215,7 +215,6 @@ function pesquisarCampos() {
             let obj = JSON.parse(msg);
             $("#stringPesquisa").val("");
             $("#pesquisaMarcacaoModalidade").val("-1");
-            console.log("'"+obj.query+"'")
             
             $("#rowCampos").fadeOut("fast", function() {
                 obsCampos = obj.dados
@@ -248,7 +247,6 @@ function getDistancias(){
         let c = Math.sin(b1/2) * Math.sin(b1/2) + Math.cos(a1) * Math.cos(a2) * Math.sin(b2/2) * Math.sin(b2/2);
         let d = 2 * Math.atan2(Math.sqrt(c), Math.sqrt(1-c));
         dist.push([d * r, coords[i][2]]);
-        console.log(dist)
     }
 }
 

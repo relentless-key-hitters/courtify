@@ -44,6 +44,12 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 13){
     $res = $user -> guardaEditInfo($_POST['nome'], $_POST['email'], $_POST['nif'], $_POST['cp'], $_POST['tel'], $_POST['morada'], $_POST['local']);
     echo($res);  
+}else if($_POST['op'] == 14){
+    $res = $user -> getNotificacoes();
+    echo($res);
+}else if($_POST['op'] == 15){
+    $res = $user -> getModalVot($_POST['id']);
+    echo($res);
 }
 
 ?>
