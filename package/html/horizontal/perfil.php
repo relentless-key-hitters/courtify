@@ -54,17 +54,17 @@ if (isset($_SESSION['id'])) {?>
           <li class="nav-item dropdown hover-dd d-none d-xl-block">
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block ms">
-            <a class="nav-link fs-4" href="./hub.php">Hub Central</a>
+            <a class="nav-link fs-6" href="./hub.php">Hub</a>
           </li>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
+            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./descobrir.php">Descobrir</a>
+            <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./comunidades.php">Comunidade</a>
+            <a class="nav-link fs-6" href="./comunidades.php">Comunidade</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">

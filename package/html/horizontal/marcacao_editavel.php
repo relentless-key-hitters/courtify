@@ -74,17 +74,17 @@ if (isset($_SESSION['id'])) {?>
           <li class="nav-item dropdown hover-dd d-none d-xl-block">
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block ms">
-            <a class="nav-link fs-4" href="./hub.php">Hub Central</a>
+            <a class="nav-link fs-6" href="./hub.php">Hub</a>
           </li>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
+            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./descobrir.php">Descobrir</a>
+            <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./comunidades.php">Comunidade</a>
+            <a class="nav-link fs-6" href="./comunidades.php">Comunidade</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
@@ -230,47 +230,46 @@ if (isset($_SESSION['id'])) {?>
     <!-- Sidebar Start -->4 4 41
     <!-- Main wrapper -->
     <div class="">
-      <div class="col-lg-12 mb-3" style="position: relative; margin-top: 59px;">
+    <div class="col-lg-12" style="position: relative; margin-top: 59px;">
         <div style="position: absolute; top: 5px; right: 5px; z-index: 1;">
           <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
         </div>
-        <img class="img-fluid border border-3 rounded border-primary"
+        <img class="img-fluid"
           src="../../dist/images/backgrounds/marcacao_banner.jpg"
-          style="width: 100%; max-width: 100%; height: 300px; object-fit: cover;">
+          style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
         <div
-          style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: left; color: white;"
-          class="animated-text">
-          <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder"
-            style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
-            Marcação</h1>
+          style="position: absolute; top: 30%; transform: translateY(-50%); left: 10%; text-align: left; color: white;">
+          <h1 class="text-white fw-bolder"
+            style="letter-spacing: 1px; font-size: 100px;">
+            Marcação de Campos</h1>
           <p class="text-white lead lead-md-2 lead-lg-1"
-            style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">
-            Encontra o campo perfeito para aquele jogo de sábado</p>
+            style="letter-spacing: 1px; font-size: 40px;">
+            Encontra o campo ideal para <br> a próxima partida</p>
         </div>
       </div>
 
-      <div class=" mx-3 card border-top border-2 border-gray shadow">
+      <div class="card shadow pb-4">
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
-              <h4 class="fw-semibold mb-3 text-primary">Pesquisa de Clubes</h4>
+              <h4 class="fw-bolder mb-3 fs-11">Pesquisa de Clubes</h4>
             </div>
           </div>
           <div class="">
             <form>
               <div class="row">
-                <div class="form-group col-md-4 mt-3 mt-md-0">
+                <div class="form-group input-group-lg col-md-4 mt-3 mt-md-0">
                   <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
                 </div>
-                <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
+                <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0 col-6">
                   <select class="form-select" id="pesquisaMarcacaoModalidade">
 
                   </select>
                 </div>
-                <div class="form-group col-md-2 mt-3 mt-md-0 col-6">
+                <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0 col-6">
                   <input type="date" class="form-control" id="currentDateInput">
                 </div>
-                <div class="form-group col-md-2 mt-3 mt-md-0">
+                <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0">
                   <select id="currentTimeInput" class="form-select">
                     <option value="-1" style="color: #c9c9c9;">Hora</option>
                     <option value="0700">07:00</option>
@@ -309,7 +308,7 @@ if (isset($_SESSION['id'])) {?>
                     <option value="2330">23:30</option>
                   </select>
                 </div>
-                <div class="form-group col-md-2 mt-3 mt-md-0">
+                <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0">
                   <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
                   <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light-primary"
                     onclick="getUserLocation()">Redefinir</button>
@@ -323,7 +322,7 @@ if (isset($_SESSION['id'])) {?>
       <div class="mb-5 px-5">
         <div class="row">
           <div class="col-md-2">
-            <div class="form-group">
+            <div class="form-group input-group-lg">
               <select class="form-select" id="filtroTipo">
                 <option value="-1" selected disabled>Tipo</option>
                 <option value="Cobertura">Coberto</option>
@@ -333,7 +332,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
           <div class="col-md-2 mt-2 mt-md-0">
-            <div class="form-group">
+            <div class="form-group input-group-lg">
               <select class="form-select" id="filtroDistancia">
                 <option value="-1" selected disabled>Distância</option>
                 <option value="0-1km">Até 1km</option>
@@ -342,21 +341,19 @@ if (isset($_SESSION['id'])) {?>
               </select>
             </div>
           </div>
-          <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
-            <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Aplicar
-              Filtros</button>
-            <button type="button" class="btn btn-light-primary btn-sm w-100" onclick="removerFiltros()">Remover
-              Filtros</button>
+          <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Filtrar</button>
+            <button type="button" class="btn btn-light btn-sm w-100" onclick="removerFiltros()">Remover</button>
           </div>
           <div class="col-md-6 text-end mt-2 mt-md-0 col">
-            <div class="form-check form-switch d-flex align-items-center justify-content-end mb-0">
+            <div class="form-check input-group-lg form-switch d-flex align-items-center justify-content-end mb-0">
               <div>
-                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked>
-                <label class="form-check-label me-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked style="width:50px; height: 30px;">
+                <label class="form-check-label me-5 fs-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
               </div>
-              <div class="d-none d-xxl-flex">
-                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                <label class="form-check-label" for="flexSwitchCheckChecked">Mostrar mapa</label>
+              <div class="d-none d-xxl-flex input-group-lg">
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked style="width:50px; height: 30px;">
+                <label class="form-check-label fs-5" for="flexSwitchCheckChecked">Mostrar mapa</label>
               </div>
             </div>
           </div>
@@ -367,7 +364,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="left" id="leftContainer">
           <div class="card">
             <div class="card-body bg-light">
-              <h3 class="fw-semibold mb-3">Resultados</h3>
+              <h3 class="fw-bolder mb-3 fs-8">Resultados</h3>
 
               <div class="row" id="rowCampos">
 
