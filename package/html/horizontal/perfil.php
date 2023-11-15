@@ -765,7 +765,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="row">
               <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
@@ -778,7 +778,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body p-4">
                     <div class="d-flex align-items-end justify-content-between mb-3">
                       <div>
@@ -791,7 +791,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
@@ -804,7 +804,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body p-4">
                     <div class="mb-7 pb-8">
                       <h4 class="mb-0 fw-semibold">1439</h4>
@@ -815,14 +815,14 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card shadow">
               <div class="card-body p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
                   <h5 class="card-title fw-semibold mb-0">Ranking</h5>
                 </div>
                 <div class="row">
                   <div class="col-md-4 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                    <div class="card shadow w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
                         <div id="widgest-chart-5"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
@@ -838,7 +838,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                   </div>
                   <div class="col-md-4 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                    <div class="card shadow w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
                         <div id="widgest-chart-6"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
@@ -854,7 +854,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                   </div>
                   <div class="col-md-4 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                    <div class="card shadow w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
                         <div id="current-year"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
@@ -871,7 +871,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="row">
               <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body">
                     <div class="row align-items-center">
                       <div class="col-8">
@@ -888,7 +888,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                   </div>
                 </div>
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body pb-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                       <h5 class="card-title mb-0 fw-semibold"> Derrotas </h5>
@@ -901,7 +901,7 @@ if (isset($_SESSION['id'])) {?>
                     <div id="monthly-earning"></div>
                   </div>
                 </div>
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                       <h5 class="card-title mb-0 fw-semibold"> Empates </h5>
@@ -930,7 +930,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body">
                     <div>
                       <h5 class="card-title fw-semibold">Pontos</h5>
@@ -952,7 +952,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                   </div>
                 </div>
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body">
                     <h5 class="card-title fw-semibold mb-0">Golos</h5>
                     <div class="row align-items-center">
@@ -970,7 +970,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
                 <div class="row">
                   <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden">
+                    <div class="card shadow w-100 position-relative overflow-hidden">
                       <div class="card-body">
                         <p class="mb-1 fs-5">Padel</p>
                         <h4 class="fw-semibold">1854</h4>
@@ -982,7 +982,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                   </div>
                   <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden">
+                    <div class="card shadow w-100 position-relative overflow-hidden">
                       <div class="card-body">
                         <p class="mb-1 fs-5">Ténis</p>
                         <h4 class="fw-semibold">348</h4>
@@ -996,7 +996,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
+                <div class="card shadow w-100 position-relative overflow-hidden">
                   <div class="card-body pb-4">
                     <h5 class="card-title fw-semibold">Média de Votação</h5>
                     <p class="card-subtitle mb-4">Mensal</p>
@@ -1015,7 +1015,7 @@ if (isset($_SESSION['id'])) {?>
                     <div id="revenue-updates"></div>
                   </div>
                 </div>
-                <div class="card w-100">
+                <div class="card shadow w-100">
                   <div class="card-body">
                     <h5 class="card-title fw-semibold">% Vitórias</h5>
                     <p class="card-subtitle mb-4">3 Principais Modalidades</p>
@@ -1052,7 +1052,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <div class="row">
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
                     <img src="../../dist/images/profile/boy.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
                       height="100" width="100">
@@ -1089,7 +1089,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
                     <img src="../../dist/images/profile/girl.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
                       height="100" width="100">
@@ -1126,7 +1126,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
                     <img src="../../dist/images/profile/boy2.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
                       height="100" width="100">
@@ -1163,7 +1163,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy3.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1201,7 +1201,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/girl2.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1239,7 +1239,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/girl3.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1277,7 +1277,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy4.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1315,7 +1315,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy5.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1353,7 +1353,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy6.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1391,7 +1391,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/girl4.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1429,7 +1429,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy7.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1467,7 +1467,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy6.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1505,7 +1505,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy8.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1543,7 +1543,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/girl5.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
@@ -1581,7 +1581,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
+                <div class="card shadow hover-img">
                   <div class="card-body p-4 text-center border-bottom">
 
                     <img src="../../dist/images/profile/boy9.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
