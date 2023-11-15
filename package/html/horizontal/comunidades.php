@@ -54,17 +54,17 @@ if (isset($_SESSION['id'])) {?>
           <li class="nav-item dropdown hover-dd d-none d-xl-block">
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block ms">
-            <a class="nav-link fs-4" href="./hub.php">Hub Central</a>
+            <a class="nav-link fs-6" href="./hub.php">Hub</a>
           </li>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./marcacao_editavel.php">Marcação</a>
+            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./descobrir.php">Descobrir</a>
+            <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-4" href="./comunidades.php">Comunidade</a>
+            <a class="nav-link fs-6" href="./comunidades.php">Comunidade</a>
           </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
@@ -210,7 +210,7 @@ if (isset($_SESSION['id'])) {?>
     <!-- Sidebar Start -->
     <!-- Main wrapper -->
     <div class="body-wrapper">
-      <div class="row">
+    <div class="row">
         <div class="col-lg-12" style="position: relative; margin-top: 80px;">
           <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
             <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
@@ -218,10 +218,10 @@ if (isset($_SESSION['id'])) {?>
           <img class="img-fluid" src="../../dist/images/backgrounds/padel-comunidades.jpg"
             style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
           <div
-            style="position: absolute; top: 50%; transform: translateY(-50%); left: 15%; text-align: center; color: white;">
-            <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px;">Comunidade
+            style="position: absolute; top: 30%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
+            <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; font-size:100px;">Comunidade
             </h1>
-            <p class="text-white lead lead-md-2 lead-lg-1 fs-8" style="letter-spacing: 1px;">Junta-te a Atletas que
+            <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Junta-te a Atletas que
               partilhem
               Desporto</p>
           </div>
