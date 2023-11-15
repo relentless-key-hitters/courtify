@@ -31,8 +31,6 @@ if (isset($_SESSION['id'])) {?>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
-  <link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -229,10 +227,10 @@ if (isset($_SESSION['id'])) {?>
               style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
               <h1 id="nomeCampo" class="text-white display-3 display-md-2 display-lg-1 fw-bolder"
                 style="letter-spacing: 1px;  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
-                NOME CAMPO</h1>
+                </h1>
               <p id="moradaCampo" class="text-white lead lead-md-2 lead-lg-1"
                 style="letter-spacing: 1px; text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; font-size: 22px;">
-                MORADA CAMPO</p>
+                </p>
             </div>
           </div>
         </div>
@@ -246,15 +244,79 @@ if (isset($_SESSION['id'])) {?>
                     <!-- Content for the calendar -->
                     <!-- Place your calendar content here -->
                     <div class="card border mb-3">
-                      <div class="p-3 text-center bg-light">
+                      <div class="p-3 bg-light">
                         <div class="text-center">
                           <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-primary">
                             Marcação</h4>
                         </div>
                         <div id="marcacaoCampo" class="mt-1">
-                          <div class="card">
-                            <div class="card-body">
-                             <div id="visualization"></div>
+                          <div class="card" id="campo1" style="width: 100%; overflow-x: auto;">
+                            <div class="p-3">
+                              <div class="d-flex justify-content-end align-items-center">
+                                <p class="m-0 p-0 me-2"><span class="fw-semibold">Tipo:</span> <span class="badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0"><i class="ti ti-sun me-1"></i>Exterior</span></p>
+                              </div>
+                              <div class="d-flex justify-content-start align-items-center mt-2">
+                                <div class="d-flex flex-column">
+                                  <img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="img-fluid rounded border border-1 border-primary" style="width: 150px">
+                                  <h6 class="mt-2 mb-0 text-center fw-bolder">Padel 1</h6>
+                                </div>
+                                <div class="ms-4">
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">12:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">13:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">14:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">15:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">16:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">17:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">18:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">19:00</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card" id="campo1" style="width: 100%; overflow-x: auto;">
+                            <div class="p-3">
+                              <div class="d-flex justify-content-end align-items-center">
+                                <p class="m-0 p-0 me-2"><span class="fw-semibold">Tipo:</span> <span class="badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0"><i class="ti ti-sun me-1"></i>Exterior</span></p>
+                              </div>
+                              <div class="d-flex justify-content-start align-items-center mt-2">
+                                <div class="d-flex flex-column">
+                                  <img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="img-fluid rounded border border-1 border-primary" style="width: 150px">
+                                  <h6 class="mt-2 mb-0 text-center fw-bolder">Padel 2</h6>
+                                </div>
+                                <div class="ms-4">
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">12:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">13:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">14:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">15:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">16:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">17:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">18:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">19:00</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card" id="campo1" style="width: 100%; overflow-x: auto;">
+                            <div class="p-3">
+                              <div class="d-flex justify-content-end align-items-center">
+                                <p class="m-0 p-0 me-2"><span class="fw-semibold">Tipo:</span> <span class="badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold" style="background-color: #f0f0f0"><i class="ti ti-sun me-1"></i>Exterior</span></p>
+                              </div>
+                              <div class="d-flex justify-content-start align-items-center mt-2">
+                                <div class="d-flex flex-column">
+                                  <img src="../../dist/images/backgrounds/pesquisa_campo1.jpg" class="img-fluid rounded border border-1 border-primary" style="width: 150px">
+                                  <h6 class="mt-2 mb-0 text-center fw-bolder">Padel 3</h6>
+                                </div>
+                                <div class="ms-4">
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">12:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">13:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">14:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">15:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">16:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">17:00</button>
+                                  <button class="btn btn-primary btn-small me-2 disabled mb-sm-2">18:00</button>
+                                  <button class="btn btn-primary btn-small me-2 mb-sm-2">19:00</button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -647,22 +709,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
 
 
-  <style>
-  /*#visualization {
-    border: 1px solid #044967;
-    background-color: #f8f8f8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative; /* Add this for relative positioning 
-  }
 
-
-  .vis-text.vis-major {
-    font-size: 1.5em;
-    padding: 5px 5px;
-  }*/
-
-
-</style>
 
 
 
