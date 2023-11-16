@@ -2399,8 +2399,90 @@ if (isset($_SESSION['id'])) {?>
           ></button>
         </div>
         <div class="modal-body">
-          <div id="textoModalVot"></div> 
-                              
+          <div class='d-flex justify-content-center mb-3'>
+              <h4>Votação</h4>
+          </div>
+          <div class='d-flex justify-content-start align-items-center'>
+            <div class=''>
+              <img src='' alt='Clube 1' class='object-fit-cover rounded-2 border border-1 border-primary' width='160' height='120'>
+            </div>
+            <div class='ms-3'>
+              <small><i class='ti ti-calendar me-1'></i>Dia</small><br>
+              <small><i class='ti ti-clock me-1'></i>gfsehbg</small><br>
+              <small><i class='ti ti-map-pin me-1'></i>hjdk</small><br> 
+              <span class='badge rounded-pill text-bg-warning mt-2'><i class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>
+            </div>
+          </div>
+          <h5 class='mt-4 text-center border-top border-1 border-primary pt-2'>Resultado</h5>
+          <div class = 'd-flex justify-content-between align-items-center'>
+            <div class="d-flex flex-column">
+              <h6>A tua equipa</h6>
+              <input type="number" class="form-control-sm " ></input>
+            </div>
+            <div class="d-flex flex-column">
+              <h6>A equipa adversária</h6>
+              <input type="number" class="form-control-sm" ></input>
+            </div>
+          </div>
+          <h5 class='mt-4 text-center'>MVP</h5>
+          <div class = 'd-flex justify-content-center align-items-center'>
+            <div class="row grid gap-2">
+                <div class="col-2">
+                  <div class="d-flex align-items-center mt-2">
+                    <img alt="Participant 1" id="perfil7" class="rounded-circle object-fit-cover"
+                      width="30" height="30">
+                    <small class="ms-2" id="nomeEquipa4"></small>
+                  </div>
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Rui Paulo">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy6.jpg" alt="Participant 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Fábio Santos">
+                  </div>
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy9.jpg" alt="Participant 2"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Paulo Chaves">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Gonçalo Nunes">
+                    
+                  </div>
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Gonçalo Ricardo">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Gonçalo Nunes">
+                  </div>
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Gonçalo Ricardo">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Gonçalo Nunes">
+                    
+                  </div>
+                  <div class="d-flex align-items-center mt-2">
+                    <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
+                      class="rounded-circle object-fit-cover" width="30" height="30" data-toggle="tooltip" data-placement="top" title="Gonçalo Ricardo">
+                    
+                  </div>
+                </div>
+              </div>
+          </div>               
         </div>
         <div class="modal-footer">
           <button
