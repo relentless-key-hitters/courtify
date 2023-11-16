@@ -617,26 +617,29 @@ class User{
             while($row = $result->fetch_assoc()) {
                 $msg .= "
                 <div class='d-flex justify-content-center mb-3'>
-                <h4>
-                Votação
-                </h4>
+                    <h4>Votação</h4>
                 </div>
                 <div class='d-flex justify-content-start align-items-center'>
-                <div class=''>
-                <img src='".$row['fotoClube']."' alt='Clube 1'
-                  class='object-fit-cover rounded-2 border border-1 border-primary' width='160'
-                  height='120'>
-                </div>
-                <div class='ms-3'>
-                    <small><i class='ti ti-calendar me-1'></i>".$row['dataMarc']."</small><br>
-                    <small><i class='ti ti-clock me-1'></i>".$row['horaMarc']."</small><br>
-                    <small><i class='ti ti-map-pin me-1'></i>".$row['nomeClube']."</small><br>";
+                    <div class=''>
+                        <img src='".$row['fotoClube']."' alt='Clube 1' class='object-fit-cover rounded-2 border border-1 border-primary' width='160' height='120'>
+                    </div>
+                    <div class='ms-3'>
+                        <small><i class='ti ti-calendar me-1'></i>".$row['dataMarc']."</small><br>
+                        <small><i class='ti ti-clock me-1'></i>".$row['horaMarc']."</small><br>
+                        <small><i class='ti ti-map-pin me-1'></i>".$row['nomeClube']."</small><br>";
                  if($row['modalidade'] == 'Basquetebol'){
-
                     $msg .= "<span class='badge rounded-pill text-bg-warning mt-2'><i
                         class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>
+                    </div>
+                    <div class='row'>";
+                $msg .="<div class = 'col-6'>
+                        <h6>A tua equipa</h6>
                         </div>
-                        </div>";
+                        <div class = 'col-6'>
+                        <h6>Equipa adversária</h6>
+                        </div>
+                    </div>
+                </div> ";
                  }else if($row['modalidade'] == 'Futsal'){
                     $msg .= "<span class='badge rounded-pill text-bg-danger mt-2'><i
                     class='ti ti-ball-football me-1'></i><small>Basquetebol</small></span>
