@@ -231,40 +231,131 @@ if (isset($_SESSION['id'])) { ?>
                       <div class="card-text">
                         <div class="row">
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <h5 class="card-title mt-sm-2 mb-3">Maior Pontuação</h5>
+                            <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center">Maior Pontuação</h5>
                             <ol class="list-group list-group-numbered">
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+
+                                  <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Padel</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/smoothsailors.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">SmoothSailors</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        <i class="ti ti-chevron-up text-success fs-7"></i> 225
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-success position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Ténis</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/racketman.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">RacketMan</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        <i class="ti ti-equal text-warning fs-7"></i> 201
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Futsal</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/g.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">FútG</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        <i class="ti ti-equal text-warning fs-7"></i> 195
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Padel</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/smoothsailors.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">SmoothSailors</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        <i class="ti ti-chevron-up text-success fs-7"></i> 185
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-success position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Ténis</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/racketman.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">RacketMan</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        <i class="ti ti-chevron-down text-danger fs-7"></i> 160
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
@@ -272,80 +363,262 @@ if (isset($_SESSION['id'])) { ?>
 
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <h5 class="card-title mt-sm-2 mb-3">Taxa de Vitórias</h5>
+                            <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center">Taxa de Vitórias</h5>
                             <ol class="list-group list-group-numbered">
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+
+                                  <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Padel</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/smoothsailors.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">SmoothSailors</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        61 <i class="ti ti-percentage text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-success position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Ténis</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/racketman.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">RacketMan</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        58 <i class="ti ti-percentage text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Futsal</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/g.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">FútG</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        56 <i class="ti ti-percentage text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Padel</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/smoothsailors.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">SmoothSailors</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        55 <i class="ti ti-percentage text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-success position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Ténis</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/racketman.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">RacketMan</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        53 <i class="ti ti-percentage text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                             </ol>
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <h5 class="card-title mt-sm-2 mb-3">Crescimento %</h5>
+                            <h5 class="card-title mt-sm-4 mt-md-0 text-center mb-3">Quantidade de Jogos</h5>
                             <ol class="list-group list-group-numbered">
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+
+                                  <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Padel</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/smoothsailors.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">SmoothSailors</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        25 <i class="ti ti-plus text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-success position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Ténis</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/racketman.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">RacketMan</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        22 <i class="ti ti-plus text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Futsal</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/g.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">FútG</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        20 <i class="ti ti-plus text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Padel</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/smoothsailors.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">SmoothSailors</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        18 <i class="ti ti-plus text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
                               <li class="list-group-item">
-                                <div class="card hover-img">
-                                  <div class="card-body">
-                                    sdfsd
+                                <div class="card hover-img shadow position-relative">
+                                  <span class="badge rounded-pill text-bg-success position-absolute top-0 end-0 mt-2 me-2">
+                                    <i class="ti ti-ball-tennis me-1"></i>
+                                    <small>Ténis</small>
+                                  </span>
+
+                                  <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
+                                    <img src="../../dist/images/backgrounds/racketman.png" width="100px">
+                                    <span class="fs-6 ms-2 ms-md-0">RacketMan</span>
+
+                                    <div class="d-flex align-items-center mt-2">
+                                      <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2" style="background-color: #f0f0f0">
+                                        <i class="ti ti-home me-1 fs-3"></i>Évora
+                                      </span>
+                                    </div>
+
+                                    <span class="mt-3 fs-7">
+                                      <td class="bg-transparent">
+                                        16 <i class="ti ti-plus text-primary fs-7"></i>
+                                      </td>
+                                    </span>
                                   </div>
                                 </div>
                               </li>
@@ -361,63 +634,63 @@ if (isset($_SESSION['id'])) { ?>
                   <div class="card bg-light px-3 py-3">
                     <div class="row">
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
                         </div>
                       </div>
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img">
+                        <div class="card hover-img shadow">
                           <div class="card-body">
                             sdfsd
                           </div>
