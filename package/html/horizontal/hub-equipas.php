@@ -232,7 +232,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="row">
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center">Maior Pontuação</h5>
-                            <ol class="list-group list-group-numbered">
+                            <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;">
                               <li class="list-group-item">
                                 <div class="card hover-img shadow position-relative">
 
@@ -364,7 +364,7 @@ if (isset($_SESSION['id'])) { ?>
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center">Taxa de Vitórias</h5>
-                            <ol class="list-group list-group-numbered">
+                            <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;">
                               <li class="list-group-item">
                                 <div class="card hover-img shadow position-relative">
 
@@ -495,7 +495,7 @@ if (isset($_SESSION['id'])) { ?>
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <h5 class="card-title mt-sm-4 mt-md-0 text-center mb-3">Quantidade de Jogos</h5>
-                            <ol class="list-group list-group-numbered">
+                            <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;">
                               <li class="list-group-item">
                                 <div class="card hover-img shadow position-relative">
 
