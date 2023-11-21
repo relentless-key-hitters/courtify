@@ -231,13 +231,13 @@ if (isset($_SESSION['id'])) { ?>
             <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
               <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
             </div>
-            <img class="img-fluid" src="../../dist/images/backgrounds/peppe-occhipinti-hE86gM_Yfjg-unsplash.jpg"
+            <img class="img-fluid" src="../../dist/images/backgrounds/parsoa-khorsand-9kKzk8fU6Vw-unsplash.jpg"
               style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
             <div
-              style="position: absolute; top: 65%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
-              <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
+              style="position: absolute; top: 67%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
+              <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 120px">
                 Torneios</h1>
-              <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px">
+              <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 60px">
                 Encontra um adversário <br> à altura
             </div>
           </div>
@@ -311,7 +311,7 @@ if (isset($_SESSION['id'])) { ?>
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
                                         src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel Indoor</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -340,13 +340,13 @@ if (isset($_SESSION['id'])) { ?>
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
                                         src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel Outdoor</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
                                           class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4"
                                           style="background-color: #f0f0f0">
-                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (18:30h)
+                                          <i class="ti ti-clock-hour-3 me-1"></i>26/11 (18:30h)
                                         </span>
                                       </div>
 
@@ -376,14 +376,14 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">IP 7 Indoor</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
                                           class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4"
                                           style="background-color: #f0f0f0">
-                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (18:30h)
+                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (19:30h)
                                         </span>
                                       </div>
 
@@ -406,14 +406,14 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">IP 7 Outdoor</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
                                           class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4"
                                           style="background-color: #f0f0f0">
-                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (18:30h)
+                                          <i class="ti ti-clock-hour-3 me-1"></i>29/11 (14:30h)
                                         </span>
                                       </div>
 
@@ -443,14 +443,14 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/padelball3.png" style="max-width: 214px;">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Padel Álamos</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
                                           class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4"
                                           style="background-color: #f0f0f0">
-                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (18:30h)
+                                          <i class="ti ti-clock-hour-3 me-1"></i>22/11 (18:30h)
                                         </span>
                                       </div>
 
@@ -473,14 +473,14 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/padelball3.png" style="max-width: 214px;">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Padel Álamos</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
                                           class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4"
                                           style="background-color: #f0f0f0">
-                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (18:30h)
+                                          <i class="ti ti-clock-hour-3 me-1"></i>28/11 (17:30h)
                                         </span>
                                       </div>
 
@@ -505,7 +505,7 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                       </div>
 
-                      <div class="tab-pane fade show active" id="pills-tenis" role="tabpanel"
+                      <div class="tab-pane fade show" id="pills-tenis" role="tabpanel"
                         aria-labelledby="pills-tenis-tab" tabindex="0">
                         <div class="card-text pt-5">
                           <div class="row">
@@ -517,8 +517,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/descobrir_banner.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">CT Évora</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -529,9 +529,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-tennis me-1"></i>
+                                        <small>Ténis</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -546,8 +546,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/descobrir_banner.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">CT Évora</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -558,9 +558,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-tennis me-1"></i>
+                                        <small>Ténis</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -583,21 +583,21 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/parsoa-khorsand-AHw2qiaO_k4-unsplash.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Évora Hotel</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
                                           class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4"
                                           style="background-color: #f0f0f0">
-                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (18:30h)
+                                          <i class="ti ti-clock-hour-3 me-1"></i>27/11 (19:30h)
                                         </span>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-tennis me-1"></i>
+                                        <small>Ténis</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -613,21 +613,21 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/parsoa-khorsand-AHw2qiaO_k4-unsplash.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Évora Hotel</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
                                           class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4"
                                           style="background-color: #f0f0f0">
-                                          <i class="ti ti-clock-hour-3 me-1"></i>24/11 (18:30h)
+                                          <i class="ti ti-clock-hour-3 me-1"></i>30/11 (19:30h)
                                         </span>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-tennis me-1"></i>
+                                        <small>Ténis</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -662,9 +662,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-tennis me-1"></i>
+                                        <small>Ténis</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -692,9 +692,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-tennis me-1"></i>
+                                        <small>Ténis</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -712,7 +712,7 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                       </div>
 
-                      <div class="tab-pane fade show active" id="pills-basket" role="tabpanel"
+                      <div class="tab-pane fade show" id="pills-basket" role="tabpanel"
                         aria-labelledby="pills-basket-tab" tabindex="0">
                         <div class="card-text pt-5">
                           <div class="row">
@@ -724,8 +724,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/smoothsailors.png" style="max-width: 240px;">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Bacelo Court</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -736,9 +736,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-basketball me-1"></i>
+                                        <small>Basquetebol</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -753,8 +753,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/smoothsailors.png" style="max-width: 240px;">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Bacelo Court</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -765,9 +765,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-basketball me-1"></i>
+                                        <small>Basquetebol</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -790,8 +790,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/basketball.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Salesianos</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -802,9 +802,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-basketball me-1"></i>
+                                        <small>Basquetebol</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -820,8 +820,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/basketball.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Salesianos</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -832,9 +832,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-basketball me-1"></i>
+                                        <small>Basquetebol</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -857,8 +857,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/basketcourt.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Jardim Público</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -869,9 +869,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-basketball me-1"></i>
+                                        <small>Basquetebol</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -887,8 +887,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/basketcourt.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Jardim Público</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -899,9 +899,9 @@ if (isset($_SESSION['id'])) { ?>
                                       </div>
 
                                       <span
-                                        class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
-                                        <i class="ti ti-ball-football me-1"></i>
-                                        <small>Futsal</small>
+                                        class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 mt-2 me-2">
+                                        <i class="ti ti-ball-basketball me-1"></i>
+                                        <small>Basquetebol</small>
                                       </span>
 
                                       <span class="mt-3 fs-3">
@@ -919,7 +919,7 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                       </div>
 
-                      <div class="tab-pane fade show active" id="pills-futsal" role="tabpanel"
+                      <div class="tab-pane fade show" id="pills-futsal" role="tabpanel"
                         aria-labelledby="pills-futsal-tab" tabindex="0">
                         <div class="card-text pt-5">
                           <div class="row">
@@ -931,8 +931,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/netfut.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESGP</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -960,8 +960,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/netfut.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESGP</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -997,8 +997,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/peppe-occhipinti-hE86gM_Yfjg-unsplash.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Lusitano Ginásio</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -1027,8 +1027,8 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                        src="../../dist/images/backgrounds/peppe-occhipinti-hE86gM_Yfjg-unsplash.jpg">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Lusitano Ginásio</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -1128,6 +1128,8 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
+
+
                   <div class=" mt-5">
                     <h2 class="mb-4">Torneios existentes em #LOCALIDADE USER#</h2>
                     <div class="card shadow px-3 py-3">
