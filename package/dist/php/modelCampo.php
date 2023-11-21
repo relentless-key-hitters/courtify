@@ -1,17 +1,20 @@
 <?php
 session_start();
 require_once 'connection.php';
+$dataPesquisaGlobal = "";
 
-class Campo {
 
-    function getUserLocation() {
+class Campo
+{
+    function getUserLocation()
+    {
         global $conn;
 
-        $sql = "SELECT distrito.descricao as localidade FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = ".$_SESSION['id'];
+        $sql = "SELECT distrito.descricao as localidade FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = " . $_SESSION['id'];
         $result = $conn->query($sql);
         $localidade = "";
 
-        
+
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -19,32 +22,33 @@ class Campo {
             }
         }
 
-        $conn -> close();
+        $conn->close();
         return ($localidade);
-
     }
 
-    function getModalidadesUtilizadorSelect() {
+    function getModalidadesUtilizadorSelect()
+    {
         global $conn;
         $msg = "<option value='-1' disabled selected style='color: #c9c9c9;'>Modalidade</option>";
         $sql = "SELECT modalidade.id AS idModalidade, modalidade.descricao AS descModalidade FROM modalidade INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade INNER JOIN atleta ON atleta_modalidade.id_atleta = atleta.id_atleta WHERE atleta.id_atleta = " . $_SESSION['id'];
         $result = $conn->query($sql);
-        
+
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $msg .= "<option value = '".$row['idModalidade']."'>".$row['descModalidade']."</option>";
+                $msg .= "<option value = '" . $row['idModalidade'] . "'>" . $row['descModalidade'] . "</option>";
             }
         }
 
-        $conn -> close();
+        $conn->close();
         return ($msg);
     }
 
-    function getCampo($localidadeUser) {
+    function getCampo($localidadeUser)
+    {
         global $conn;
         $msg = "";
         $dados = array();
-        
+
         $sql = "SELECT clube.id_clube AS idClube,  
         user.foto AS fotoClube, 
         user.nome AS nomeClube, 
@@ -62,30 +66,31 @@ class Campo {
         WHERE distrito.descricao LIKE '" . $localidadeUser . "' LIMIT 12";
         $result = $conn->query($sql);
 
-    
+
         if ($result->num_rows > 0) {
-        // output data of each row
+            // output data of each row
             while ($row = $result->fetch_assoc()) {
 
                 $sql2 = " SELECT tipo_campo.descricao AS tipoCampo, modalidade.descricao AS modalidade FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
-                INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo WHERE clube.id_clube = '".$row['idClube']."'";
+                INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo WHERE clube.id_clube = '" . $row['idClube'] . "'";
                 $arrMods = [];
                 $arrTipoC = [];
                 $result2 = $conn->query($sql2);
                 if ($result2->num_rows > 0) {
                     // output data of each row
-                        while ($row2 = $result2->fetch_assoc()) {
-                            array_push($arrMods, $row2['modalidade']);
-                            array_push($arrTipoC, $row2['tipoCampo']);
-                }} 
+                    while ($row2 = $result2->fetch_assoc()) {
+                        array_push($arrMods, $row2['modalidade']);
+                        array_push($arrTipoC, $row2['tipoCampo']);
+                    }
+                }
 
-                $rowArray = array(  
+                $rowArray = array(
                     'idClube' => $row['idClube'],
                     'fotoClube' => $row['fotoClube'],
                     'nomeClube' => $row['nomeClube'],
                     'clubeDesc' => $row['clubeDesc'],
                     'moradaClube' => $row['moradaClube'],
-                    'descConcelho' => $row['descConcelho'], 
+                    'descConcelho' => $row['descConcelho'],
                     'latClube' => $row['lat'],
                     'lonClube' => $row['lon'],
                     'modalCamposClube' => $arrMods,
@@ -94,7 +99,7 @@ class Campo {
 
                 $dados[] = $rowArray;
 
-                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="clube'.$row['idClube'].'">
+                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="clube' . $row['idClube'] . '">
                             <div class="card rounded-2 overflow-hidden hover-img2 " style="height: calc(100% - 2rem);" data-id="' . $row['idClube'] . '">
                                 <div class="position-relative">
                                     <a href="clube.php?id=' . $row['idClube'] . '">
@@ -105,16 +110,14 @@ class Campo {
                                     <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaClube'] . ', </span>
                                     <span id="localidade">' . $row['descConcelho'] . '</span>
                                     <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['nomeClube'] . '</p>
-                                    <p id="descricao" class="my-2">' . substr($row['clubeDesc'], 0, 100) .'&nbsp;(...)</p>
+                                    <p id="descricao" class="my-2">' . substr($row['clubeDesc'], 0, 100) . '&nbsp;(...)</p>
                                     <div class="col-lg-12">
-                                        <button type="button" class="btn btn-primary w-100" onclick="redirectToCampo(' .$row['idClube']. ')">Marcar</button>
+                                        <button type="button" class="btn btn-primary w-100" onclick="redirectToCampo(' . $row['idClube'] . ')">Marcar</button>
                                     </div>    
                                 </div>
                             </div>
                         </div>';
-
-                   
-            }        
+            }
         }
 
 
@@ -124,11 +127,14 @@ class Campo {
         return json_encode($data);
     }
 
-    function pesquisarCampos($stringPesquisa, $modalidadePesquisa, $dataPesquisa, $horaPesquisa) {
-        
+    function pesquisarCampos($stringPesquisa, $modalidadePesquisa, $dataPesquisa, $horaPesquisa)
+    {
+
         global $conn;
+        global $dataPesquisaGlobal;
         $msg = "";
         $dados = array();
+        $dataPesquisaGlobal = $dataPesquisa;
 
         $sql = "SELECT DISTINCT clube.id_clube AS idClube,  
         user.foto AS fotoClube, 
@@ -153,46 +159,47 @@ class Campo {
             FROM marcacao INNER JOIN campo ON marcacao.id_campo =  campo.id
             INNER JOIN campo_clube ON campo.id = campo_clube.id_campo 
             INNER JOIN clube ON clube.id_clube = campo_clube.id_clube
-            WHERE marcacao.data_inicio LIKE '".$dataPesquisa."' AND campo_clube.id_modalidade = '".$modalidadePesquisa."'  AND  marcacao.hora_inicio BETWEEN '".$horaPesquisa."' AND ADDTIME('".$horaPesquisa."', '01:00:00') OR marcacao.hora_fim BETWEEN '".$horaPesquisa."' AND ADDTIME('".$horaPesquisa."', '01:00:00')) ";
-       
-        if(!empty($stringPesquisa)){
-            $stringPesquisa = $conn->real_escape_string($stringPesquisa); 
+            WHERE marcacao.data_inicio LIKE '" . $dataPesquisa . "' AND campo_clube.id_modalidade = '" . $modalidadePesquisa . "'  AND  marcacao.hora_inicio BETWEEN '" . $horaPesquisa . "' AND ADDTIME('" . $horaPesquisa . "', '01:00:00') OR marcacao.hora_fim BETWEEN '" . $horaPesquisa . "' AND ADDTIME('" . $horaPesquisa . "', '01:00:00')) ";
+
+        if (!empty($stringPesquisa)) {
+            $stringPesquisa = $conn->real_escape_string($stringPesquisa);
             $sql .= " AND (user.nome LIKE '%$stringPesquisa%' OR clube.descricao LIKE '%$stringPesquisa%' OR  concelho.descricao LIKE '%$stringPesquisa%' OR user.morada LIKE '%$stringPesquisa%')";
         }
-        if($modalidadePesquisa != 'null'){ 
-            $sql .= " AND modalidade.id = ".$modalidadePesquisa;
+        if ($modalidadePesquisa != 'null') {
+            $sql .= " AND modalidade.id = " . $modalidadePesquisa;
         }
 
         $sql .= " LIMIT 12";
-        
+
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
                 $sql2 = " SELECT tipo_campo.descricao AS tipoCampo FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
-                INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo WHERE clube.id_clube = '".$row['idClube']."'";
+                INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN tipo_campo ON tipo_campo.id = campo.tipo_campo WHERE clube.id_clube = '" . $row['idClube'] . "'";
                 $arrTipoC = [];
                 $result2 = $conn->query($sql2);
                 if ($result2->num_rows > 0) {
                     // output data of each row
-                        while ($row2 = $result2->fetch_assoc()) {
-                            array_push($arrTipoC, $row2['tipoCampo']);
-                }} 
+                    while ($row2 = $result2->fetch_assoc()) {
+                        array_push($arrTipoC, $row2['tipoCampo']);
+                    }
+                }
                 $rowArray = array(
                     'idClube' => $row['idClube'],
                     'fotoClube' => $row['fotoClube'],
                     'nomeClube' => $row['nomeClube'],
                     'clubeDesc' => $row['clubeDesc'],
                     'moradaClube' => $row['moradaClube'],
-                    'descConcelho' => $row['descConcelho'], 
+                    'descConcelho' => $row['descConcelho'],
                     'latClube' => $row['lat'],
                     'lonClube' => $row['lon'],
                     'tiposCamposClube' => $arrTipoC
                 );
                 $dados[] = $rowArray;
 
-                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="clube'.$row['idClube'].'">
+                $msg .= '<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6" id="clube' . $row['idClube'] . '">
                 <div class="card rounded-2 overflow-hidden hover-img" style="height: calc(100% - 2rem); cursor: pointer;" data-id="' . $row['idClube'] . '">
                     <div class="position-relative">
                         <a href="clube.php?id=' . $row['idClube'] . '">
@@ -203,26 +210,25 @@ class Campo {
                         <span id="morada"><i class="ti ti-map-pin me-1"></i>' . $row['moradaClube'] . ', </span>
                         <span id="localidade">' . $row['descConcelho'] . '</span>
                         <p id="nome" class="d-block my-2 fs-5 text-dark fw-semibold">' . $row['nomeClube'] . '</p>
-                        <p id="descricao" class="my-2">' . substr($row['clubeDesc'], 0, 100) .'&nbsp;(...)</p>
+                        <p id="descricao" class="my-2">' . substr($row['clubeDesc'], 0, 100) . '&nbsp;(...)</p>
                         <div class="col-lg-12">
-                                        <button type="button" class="btn btn-primary w-100" onclick="redirectToCampo(' .$row['idClube']. ')">Marcar</button>
+                                        <button type="button" class="btn btn-primary w-100" onclick="redirectToCampo(' . $row['idClube'] . ')">Marcar</button>
                         </div>
                     </div>
                 </div>
             </div>';
-
             }
         }
-        $conn -> close();
+        $conn->close();
 
         $data = array('html' => $msg, 'dados' => $dados);
         return json_encode($data);
-        
     }
 
-    function getInfoPagCampo($clubeId) {
+    function getInfoPagCampo($clubeId)
+    {
         global $conn;
-
+        global $dataPesquisaGlobal;
         $clubeInfo = array();
 
         $conteudoModalidade = "";
@@ -247,7 +253,7 @@ class Campo {
             INNER JOIN concelho ON user.localidade = concelho.id
             INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
             INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
-            WHERE user.id = ".$clubeId;
+            WHERE user.id = " . $clubeId;
 
         $result = $conn->query($sql);
 
@@ -255,10 +261,10 @@ class Campo {
             if ($row = $result->fetch_assoc()) {
                 $sql2 = " SELECT DISTINCT modalidade.descricao AS modalidade FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
                 INNER JOIN campo ON campo_clube.id_campo = campo.id INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
-                WHERE clube.id_clube = '".$row['idClube']."'";
+                WHERE clube.id_clube = '" . $row['idClube'] . "'";
                 $result2 = $conn->query($sql2);
-                if ($result2->num_rows > 0){
-                    while ($row2 = $result2->fetch_assoc()){
+                if ($result2->num_rows > 0) {
+                    while ($row2 = $result2->fetch_assoc()) {
                         if ($row2['modalidade'] == 'Futsal') {
                             $conteudoModalidade .= '
 
@@ -280,7 +286,7 @@ class Campo {
                             $conteudoModalidade .= '
 
                                                         <span class="me-2 badge bg-primary text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
-                                                            <i class="ti ti-ball-tennis me-1"></i>' .$row2['modalidade']. '
+                                                            <i class="ti ti-ball-tennis me-1"></i>' . $row2['modalidade'] . '
                                                         </span>
 
                                                 ';
@@ -288,7 +294,7 @@ class Campo {
                             $conteudoModalidade .= '
 
                                                         <span class="me-2 badge bg-success text-white text-dark fs-3 rounded-4 lh-sm py-1 px-2 fw-semibold">
-                                                            <i class="ti ti-ball-tennis me-1"></i>' .$row2['modalidade']. '
+                                                            <i class="ti ti-ball-tennis me-1"></i>' . $row2['modalidade'] . '
                                                         </span>
 
                                                 ';
@@ -296,7 +302,7 @@ class Campo {
                     }
                 }
 
-                
+
 
                 $servicos = '
                             <div class="d-flex flex-wrap gap-2">
@@ -372,7 +378,7 @@ class Campo {
                             </ul>
                             ';
 
-                
+
                 $clubeInfo = array(
                     'idClube' => $row['idClube'],
                     'fotoClube' => $row['fotoClube'],
@@ -393,8 +399,97 @@ class Campo {
                 );
             }
         }
-        $conn->close();
 
-        return json_encode($clubeInfo);
+        $marcacao =  $this->getHorariosCampos($clubeId, $dataPesquisaGlobal);
+        $conn->close();
+        $resp = json_encode(array(
+            "info_clube" => $clubeInfo,
+            "marcacaoClube" => $marcacao
+        ));
+        return($resp);
+    }
+
+    function getHorariosCampos($clube, $data)
+    {
+        global $conn;
+        $sql = "SELECT campo.id as id_campo, campo.nome as nome_campo
+        FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
+        clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "'";
+        $marcacao = "";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $marcacao .= "<div class='card' id='campo" . $row['id_campo'] . "' style='width: 100%; overflow-x: auto;'>
+                    <div class='p-3'>
+                    <div class='d-flex justify-content-end align-items-center'>
+                    <p class='m-0 p-0 me-2'><span class='fw-semibold'>Tipo:</span> <span class='badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold' style='background-color: #f0f0f0'><i class='ti ti-sun me-1'></i>Exterior</span></p>
+                    </div>
+                    <div class='d-flex justify-content-start align-items-center mt-2'>
+                     <div class='d-flex flex-column'>
+                    <img src='../../dist/images/backgrounds/pesquisa_campo1.jpg' class='img-fluid rounded border border-1 border-primary' style='width: 150px'>
+                    <h6 class='mt-2 mb-0 text-center fw-bolder'>" . $row['nome_campo'] . "</h6>
+                    </div>
+                    <div class='ms-4'>";
+                $horas = array();
+                $sql2 = "SELECT temp.hora_inicio,
+                    CEIL(TIME_TO_SEC(temp.dif_horas)/1800) AS n_blocos        
+                    FROM (
+                    SELECT marcacao.hora_inicio AS hora_inicio, TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio) AS dif_horas
+                    FROM marcacao INNER JOIN campo ON marcacao.id_campo = campo.id INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
+                    clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "' AND marcacao.data_inicio = '" . $data . "'  AND campo.id = '" . $row['id_campo'] . "'      
+                    ) AS temp";
+                $result2 = $conn->query($sql2);
+                if ($result2->num_rows > 0) {
+                    while ($row2 = $result2->fetch_assoc()) {
+                        array_push($horas, array($row2['hora_inicio'], $row2['dif_horas']));
+                    }
+                }
+                $horainicio = 8;
+                $minuto = 0;
+                $texto = "08:00";
+                $texto2 = "08:00:00";
+                for ($i = 0; $i < 28; $i++) {
+                    $flag = true;
+                    for ($j = 0; $j < count($horas); $j++) {
+                        if ($horas[$j][0] == $texto2) {
+                            $flag = false;
+                        }
+                    }
+                    if ($flag) {
+                        $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2'>" . $texto . "</button>";
+                    } else {
+                        $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
+                    }
+
+                    if ($minuto == 30) {
+                        $horainicio += 1;
+                        $minuto = 0;
+                        if ($horainicio < 10) {
+                            $texto = "0" . $horainicio . ":0" . $minuto;
+                            $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
+                        } else {
+                            $texto = $horainicio . ":0" . $minuto;
+                            $texto2 = $horainicio . ":0" .$minuto.":00";
+                        }
+                    } else {
+                        $minuto = 30;
+                        if ($horainicio < 10) {
+                            $texto = "0" . $horainicio . ":" . $minuto;
+                            $texto2 = "0" . $horainicio . ":" . $minuto.":00";
+                        } else {
+                            $texto = $horainicio . ":" . $minuto;
+                            $texto2 = $horainicio . ":" . $minuto.":00";
+                        }
+                    }
+                }
+                $marcacao .= "</div>
+                    </div>
+                  </div>
+                </div>
+                </div>";
+            }
+        }
+        return($marcacao);
     }
 }

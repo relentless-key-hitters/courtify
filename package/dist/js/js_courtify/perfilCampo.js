@@ -19,20 +19,22 @@ function getInfoPagCampo() {
         processData: false
     })
     .done(function(msg) {
-        $("#modalidadesCampo").html(msg.modalidadesClube);
-        $("#descricaoCampo").html(msg.descClube);
-        $("#nomeCampo").html(msg.nomeClube);
-        $("#moradaCampo").html(msg.moradaClube + ", " + msg.concelhoClube + ", " + msg.distritoClube);
-        $("#fotoCampo").attr("src", msg.fotoClube);
-        $("#imagemCampo1").attr("src", msg.fotoClube);
-        $("#servicosCampo").html(msg.servicos);
-        $("#horariosCampo").html(msg.horarioClube);
-        $("#telefoneClube").html(msg.telefoneClube);
-        $("#emailClube").html(msg.emailClube);
-        $("#telemovelClube").html(msg.telemovelClube);
-        $("#moradaClube1").html(msg.codigoPostalClube);
-
-        constroiMapaCampo(msg);
+        let obj1 = msg.info_clube;
+        let obj2 = msg.marcacaoClube;
+        $("#modalidadesCampo").html(obj1.modalidadesClube);
+        $("#descricaoCampo").html(obj1.descClube);
+        $("#nomeCampo").html(obj1.nomeClube);
+        $("#moradaCampo").html(obj1.moradaClube + ", " + obj1.concelhoClube + ", " + obj1.distritoClube);
+        $("#fotoCampo").attr("src", obj1.fotoClube);
+        $("#imagemCampo1").attr("src", obj1.fotoClube);
+        $("#servicosCampo").html(obj1.servicos);
+        $("#horariosCampo").html(obj1.horarioClube);
+        $("#telefoneClube").html(obj1.telefoneClube);
+        $("#emailClube").html(obj1.emailClube);
+        $("#telemovelClube").html(obj1.telemovelClube);
+        $("#moradaClube1").html(obj1.codigoPostalClube);
+        $("#marcacaoCampo").html(obj2);
+        constroiMapaCampo(obj1);
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
