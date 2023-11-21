@@ -222,15 +222,16 @@ if (isset($_SESSION['id'])) { ?>
           <div class="body-wrapper">
             <div class="container">
               <div class=" mt-5">
-                <h2 class="mb-4">Painel Informativo Semanal</h2>
                 <div class="card bg-light px-3 py-3">
-                  <div class="card">
+                  <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
+                    <h3 class="">Confere aqui os melhores <span class="text-success fw-bold">Grupos</span> desta semana</h3>
+                    <h3 class="text-primary text-end">21/11 a 28/11</h3>
+                  </div>
+                  <div class="card shadow">
                     <div class="card-body">
-                      <h4 class=" mb-4">Top 5 Grupos #DATA INICIO# - #DATA FIM# (SEMANA ATUAL)
-                      </h4>
                       <div class="card-text">
                         <div class="row">
-                          <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                          <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 overflow-y-auto">
                             <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center">Maior Pontuação</h5>
                             <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;">
                               <li class="list-group-item">
@@ -630,13 +631,21 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
                 </div>
                 <div class=" mt-5">
-                  <h2 class="mb-4">Grupos existentes em #LOCALIDADE USER#</h2>
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="">Grupo existentes em #LOCALIDADE USER#</h3>
+                    <div class="d-flex justify-content-center align-items-center">
+                      <p class="fs-5 me-3 mt-3">Não tens grupo?</p>
+                      <button type="button" class="btn btn-primary btn-small">Novo Grupo</button>
+                    </div>
+                  </div>
                   <div class="card bg-light px-3 py-3">
                     <div class="row">
                       <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
                         <div class="card hover-img shadow">
                           <div class="card-body">
-                            sdfsd
+                            <div class="d-flex justify-content-center align-items-center">
+                              <img src
+                            </div>
                           </div>
                         </div>
                       </div>

@@ -222,16 +222,17 @@ if (isset($_SESSION['id'])) { ?>
           <div class="body-wrapper">
             <div class="container">
               <div class=" mt-5">
-                <h2 class="mb-4">Painel Informativo Semanal</h2>
                 <div class="card bg-light px-3 py-3">
+                  <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
+                    <h3 class="">Confere aqui as melhores <span class="text-success fw-bold">Equipas</span> desta semana</h3>
+                    <h3 class="text-primary text-end">21/11 a 28/11</h3>
+                  </div>
                   <div class="card shadow">
                     <div class="card-body">
-                      <h4 class=" mb-4">Top 5 Equipas de #DATA INICIO# - #DATA FIM# (SEMANA ATUAL)
-                      </h4>
                       <div class="card-text">
                         <div class="row">
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center">Maior Pontuação</h5>
+                            <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center border-bottom border-1 border-light pb-2">Maior Pontuação</h5>
                             <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;">
                               <li class="list-group-item">
                                 <div class="card hover-img shadow position-relative">
@@ -363,7 +364,7 @@ if (isset($_SESSION['id'])) { ?>
 
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center">Taxa de Vitórias</h5>
+                            <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center border-bottom border-1 border-light pb-2">Taxa de Vitórias</h5>
                             <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;">
                               <li class="list-group-item">
                                 <div class="card hover-img shadow position-relative">
@@ -494,7 +495,7 @@ if (isset($_SESSION['id'])) { ?>
                             </ol>
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <h5 class="card-title mt-sm-4 mt-md-0 text-center mb-3">Quantidade de Jogos</h5>
+                            <h5 class="card-title mt-sm-4 mt-md-0 text-center mb-3 border-bottom border-1 border-light pb-2">Quantidade de Jogos</h5>
                             <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;">
                               <li class="list-group-item">
                                 <div class="card hover-img shadow position-relative">
@@ -566,7 +567,7 @@ if (isset($_SESSION['id'])) { ?>
 
                                     <span class="mt-3 fs-7">
                                       <td class="bg-transparent">
-                                       20 <i class="ti ti-plus text-primary fs-7"></i>
+                                        20 <i class="ti ti-plus text-primary fs-7"></i>
                                       </td>
                                     </span>
                                   </div>
@@ -630,7 +631,13 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
                 </div>
                 <div class=" mt-5">
-                  <h2 class="mb-4">Equipas existentes em #LOCALIDADE USER#</h2>
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="">Equipas existentes em #LOCALIDADE USER#</h3>
+                    <div class="d-flex justify-content-center align-items-center">
+                      <p class="fs-5 me-3 mt-3">É um clube?</p>
+                      <button type="button" class="btn btn-success btn-small">Nova Equipa</button>
+                    </div>
+                  </div>
                   <div class="card bg-light px-3 py-3">
                     <div class="row">
                       <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
