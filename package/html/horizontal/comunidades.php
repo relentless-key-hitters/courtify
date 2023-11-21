@@ -215,14 +215,14 @@ if (isset($_SESSION['id'])) {?>
           <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
             <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
           </div>
-          <img class="img-fluid" src="../../dist/images/backgrounds/padel-comunidades.jpg"
+          <img class="img-fluid" src="../../dist/images/backgrounds/pesquisa_campo4.jpg"
             style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
           <div
-            style="position: absolute; top: 40%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
+            style="position: absolute; top: 60%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
             <h1 class="text-white display-3 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; font-size:90px;">Comunidade
             </h1>
             <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Junta-te a Atletas que
-              partilhem
+              partilhem <br>
               Desporto</p>
           </div>
         </div>

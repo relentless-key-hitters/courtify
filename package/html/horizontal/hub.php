@@ -23,6 +23,12 @@ if (isset($_SESSION['id'])) {?>
   <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
 </head>
 
 <body>
@@ -209,219 +215,115 @@ if (isset($_SESSION['id'])) {?>
     <!-- Sidebar Start -->
     <!-- Main wrapper -->
     <div class="body-wrapper">
-    <div class="row">
+      <div class="row">
         <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-          <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
+          <div style="position: absolute; bottom: 5px; right: 16px; z-index: 1;">
             <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
           </div>
           <img class="img-fluid" src="../../dist/images/backgrounds/sandro-giacon-WLIQEo16gSo-unsplash-2.jpg"
-            style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+            style="width: 100%; max-width: 100%; height: 680px; object-fit: cover;">
           <div
-            style="position: absolute; top: 15%; transform: translateY(-50%); left: 37%; text-align: center; color: white;">
-            <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder" style="letter-spacing: 1px; font-size: 100px;">Hub
+            style="position: absolute; top: 16%; transform: translateY(-50%); left: 37%; text-align: center; color: white;">
+            <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder"
+              style="letter-spacing: 1px; font-size: 100px;">Hub
             </h1>
-            <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Cria, Partilha, Joga!</p>
+            <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Cria, Partilha,
+              Joga!</p>
           </div>
         </div>
       </div>
-      <div style="margin: 120px;">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-lg-4 text-center">
-                <div class="card shadow" style="margin-top: 15px;">
-                  <div class="row pt-4">
-                    <div class="col-md-12">
-                      <div class="container">
-                      <h1 class="fs-11 fw-semibold pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Comunidades
-                      </h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/w.png" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 1" style="max-width: 220px;">
-                        <div class="card-body text-center">
-                          <h5 class="card-title fw-bolder fs-8">World Padel Club</h5>
-                          <p class="card-text fs-7">Desde 2022</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 1" style="max-width: 220px;">
-                        <div class="card-body text-center">
-                          <h5 class="card-title fw-bolder fs-8">Évora Tennis Club</h5>
-                          <p class="card-text fs-7">Desde 2022</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/padelball3.png" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 1" style="max-width: 220px;">
-                        <div class="card-body text-center">
-                          <h5 class="card-title fw-bolder fs-8">Padel Ball 3</h5>
-                          <p class="card-text fs-7">Desde 2022</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <a class="btn btn-success"href="./comunidades.php" style="font-size: 20px;">
-                          Mais Comunidades
-                        </a>
-                    </div>
-
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <div class="card-body text-center form-group">
-                          <h5 class="card-title fw-bolder fs-8 pb-4">Criar Comunidade</h5>
-                          <input type="text" placeholder="Nome" class="form-control mb-4">
-                          <select class="form-select mb-4"  id="pesquisaMarcacaoModalidade">
-                            <option value="" selected disabled>Modalidade</option>
-                          </select>
-                          <select class="form-select mb-4">
-                            <option value="" selected disabled>Privacidade</option>
-                            <option value="publico">Público</option>
-                            <option value="privado">Privado</option>
-                          </select>
-                          <a class="btn btn-primary">Criar</a>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
+      <div class="row" style="margin: 60px;">
+        <div class="col-md-4 text-center">
+            <div class="card shadow">
+                <div class="container text-center pt-2">
+                    <h1 class="fs-11 fw-semibold pb-1" style="letter-spacing: 1px;">Grupos</h1>
                 </div>
-              </div>
-              <div class="col-lg-4 text-center">
-                <div class="card shadow" style="margin-top: 15px;">
-                  <div class="row pt-4">
-                    <div class="col-md-12">
-                      <div class="container">
-                      <h1 class="fs-11 fw-semibold pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas
-                      </h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/racketman.png" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 1" style="max-width: 220px;">
+                <div class="col-lg-12">
+                    <div class="card shadow card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/padel-comunidades.jpg" class="card-img-top object-fit-cover"
+                            alt="Placeholder Image 1">
                         <div class="card-body">
-                          <h5 class="card-title fw-bolder fs-8">Racket Man</h5>
-                          <p class="card-text fs-7">Padel</p>
-                          <p class="card-text fs-5">745 vitórias</p>
-                          <a href="#" class="btn btn-primary">Mais Info</a>
+                            <div class="col-lg-12">
+                                <h1 class="fw-semibold fs-8">
+                                    Cria o teu grupo e convida os teus amigos!
+                                </h1>
+                            </div>
                         </div>
-                      </div>
                     </div>
-
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/demonclass.png" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 2" style="max-width: 220px;">
-                        <div class="card-body">
-                          <h5 class="card-title fw-bolder fs-8">Demon Class</h5>
-                          <p class="card-text fs-7">Futsal</p>
-                          <p class="card-text fs-5">289 vitórias</p>
-                          <a href="#" class="btn btn-primary">Mais Info</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/smoothsailors.png" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 2" style="max-width: 220px;">
-                        <div class="card-body">
-                          <h5 class="card-title fw-bolder fs-8">Smooth Sailors</h5>
-                          <p class="card-text fs-7">Basquetebol</p>
-                          <p class="card-text fs-5">232 vitórias</p>
-                          <a href="#" class="btn btn-primary">Mais Info</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-              <div class="col-lg-4 text-center">
-                <div class="card shadow" style="margin-top: 15px;">
-                  <div class="row pt-4">
-                    <div class="col-md-12">
-                      <div class="container">
-                      <h1 class="fs-11 fw-semibold pb-3 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios
-                      </h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/descobrir_banner.jpg" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 1">
-                        <div class="card-body">
-                          <h5 class="card-title fw-bolder fs-8">Torneio Novembro</h5>
-                          <p class="card-text fs-7">Sexta-Feira (24/11) 18:30</p>
-                          <p class="card-text fs-5">CTE</p>
-                          <a href="#" class="btn btn-primary">Inscrever</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 1">
-                        <div class="card-body">
-                          <h5 class="card-title fw-bolder fs-8">Torneio ESC Padel</h5>
-                          <p class="card-text fs-7">Sexta-Feira (24/11) 18:30</p>
-                          <p class="card-text fs-5">ESC Padel Indoor</p>
-                          <a href="#" class="btn btn-primary">Inscrever</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                      <div class="card shadow card-hover align-items-center" style="margin: 30px;">
-                        <img src="../../dist/images/backgrounds/padelball3.png" class="card-img-top object-fit-cover"
-                          alt="Placeholder Image 1" style="max-width: 220px;">
-                        <div class="card-body">
-                          <h5 class="card-title fw-bolder fs-8">Torneio PB3</h5>
-                          <p class="card-text fs-7">Sexta-Feira (12/12) 19:30</p>
-                          <p class="card-text fs-5">ESC Padel Indoor</p>
-                          <a href="#" class="btn btn-primary">Inscrever</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-lg-12 pb-4 pt-2">
+                    <a href="comunidades.php" class="btn btn-success btn-lg">Leva-me para lá</a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-        <div style="margin-left: 60px; margin-right: 60px;">
-          <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
-
-            <a href="#"
-              class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-              <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-            </a>
-            <div>
-              <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+    
+        <div class="col-md-4 text-center">
+            <div class="card shadow">
+                <div class="container text-center pt-2">
+                    <h1 class="fs-11 fw-semibold pb-1" style="letter-spacing: 1px;">Equipas</h1>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card shadow card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/leah-hetteberg-Q-Qd44h6DZU-unsplash-3.jpg"
+                            class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                        <div class="card-body">
+                            <div class="col-lg-12">
+                                <h1 class="fw-semibold fs-8">
+                                    Constrói a tua equipa e enfrenta outros atletas!
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 pb-4 pt-2">
+                    <a href="hub-equipas.php" class="btn btn-success btn-lg">Leva-me para lá</a>
+                </div>
             </div>
-
-          </footer>
         </div>
+    
+        <div class="col-md-4 text-center">
+            <div class="card shadow">
+                <div class="container text-center pt-2">
+                    <h1 class="fs-11 fw-semibold pb-1" style="letter-spacing: 1px;">Torneios</h1>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card shadow card-hover align-items-center" style="margin: 30px;">
+                        <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                            class="card-img-top object-fit-cover" alt="Placeholder Image 1">
+                        <div class="card-body">
+                            <div class="col-lg-12">
+                                <h1 class="fw-semibold fs-8">
+                                    Compete contra atletas do teu nível!
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 pb-4 pt-2">
+                    <a href="hub-equipas.php" class="btn btn-success btn-lg">Leva-me para lá</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
       </div>
     </div>
+  <div style="margin-left: 60px; margin-right: 60px;">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+
+      <a href="#"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+      </a>
+      <div>
+        <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+      </div>
+
+    </footer>
+  </div>
+  </div>
+  </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
   </div>
