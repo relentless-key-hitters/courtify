@@ -350,10 +350,6 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Conquistas
                     </h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#scroll-long-inner-modal">
-                      Open Modal
-                    </button>
                     <div class="row">
                       <div class="col-4">
                         <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1"
