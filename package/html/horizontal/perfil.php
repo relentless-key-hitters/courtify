@@ -291,7 +291,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab"
                   aria-controls="pills-profile" aria-selected="true">
                   <i class="ti ti-home me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-semibold">Geral</span>
+                  <span class="d-none d-md-block">Geral</span>
                 </button>
               </li>
               <li class="nav-item" role="presentation">
@@ -300,7 +300,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-followers-tab" data-bs-toggle="pill" data-bs-target="#pills-followers" type="button"
                   role="tab" aria-controls="pills-followers" aria-selected="false">
                   <i class="ti ti-chart-histogram me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-semibold">Estatísticas</span>
+                  <span class="d-none d-md-block">Estatísticas</span>
                 </button>
               </li>
               <li class="nav-item" role="presentation">
@@ -309,7 +309,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends" type="button" role="tab"
                   aria-controls="pills-friends" aria-selected="false">
                   <i class="ti ti-user-circle me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-semibold">Amigos</span>
+                  <span class="d-none d-md-block">Amigos</span>
                 </button>
               </li>
               <li class="nav-item" role="presentation">
@@ -318,7 +318,7 @@ if (isset($_SESSION['id'])) {?>
                   id="pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery" type="button" role="tab"
                   aria-controls="pills-gallery" aria-selected="false">
                   <i class="ti ti-award me-2 fs-6"></i>
-                  <span class="d-none d-md-block fw-semibold">Conquistas</span>
+                  <span class="d-none d-md-block">Conquistas</span>
                 </button>
               </li>
             </ul>
