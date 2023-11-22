@@ -23,6 +23,12 @@ if (isset($_SESSION['id'])) {?>
   <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
+  <style>
+    body {
+        overflow-x: hidden;
+    }
+  </style>
 </head>
 
 <body>

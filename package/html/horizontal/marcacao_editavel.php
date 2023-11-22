@@ -43,6 +43,12 @@ if (isset($_SESSION['id'])) {?>
       transform: translateY(0);
     }
   </style>
+
+  <style>
+    body {
+        overflow-x: hidden;
+    }
+  </style>
 </head>
 
 <body>
