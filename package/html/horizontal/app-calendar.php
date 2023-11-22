@@ -242,14 +242,6 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
   <div class="body-wrapper mb-5" style="margin: 120px;">
-    <div class="row text-center">
-      <div class="col-lg-3">
-
-      </div>
-      <div class="col-lg-9">
-        <h1 class="fw-semibold fs-11">Calendário</h1>
-      </div>
-    </div>
     <div class="row">
       <!-- Left Side: Cards -->
       <div class="col-lg-3 text-center">
@@ -291,6 +283,9 @@ if (isset($_SESSION['id'])) {?>
       <!-- Right Side: Calendar -->
       <div class="col-lg-9 text-center">
         <div class="card mt-3 shadow">
+          <div class="container pt-2">
+          <h1 class="fw-semibold fs-11">Calendário</h1>
+          </div>
           <div class="p-4 calender-sidebar app-calendar">
             <div id="calendar"></div>
           </div>
