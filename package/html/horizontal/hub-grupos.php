@@ -207,15 +207,15 @@ if (isset($_SESSION['id'])) { ?>
         <div class="">
           <div class="row">
             <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-              <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
+              <div style="position: absolute; bottom: 5px; right: 16px; z-index: 1;">
                 <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
               </div>
-              <img class="img-fluid" src="../../dist/images/backgrounds/peppe-occhipinti-hE86gM_Yfjg-unsplash.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
-              <div style="position: absolute; top: 65%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
+              <img class="img-fluid" src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+              <div style="position: absolute; top: 25%; transform: translateY(-50%); left: 60%; text-align: center; color: white;">
                 <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
                   Grupos</h1>
-                <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px">
-                  O ponto de encontro <br> de todos os grupos
+                <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 50px">
+                  Junta-te a atletas que partilhem Desporto
               </div>
             </div>
           </div>
@@ -635,7 +635,7 @@ if (isset($_SESSION['id'])) { ?>
                     <h3 class="">Grupo existentes em #LOCALIDADE USER#</h3>
                     <div class="d-flex justify-content-center align-items-center">
                       <p class="fs-5 me-3 mt-3">Não tens grupo?</p>
-                      <button type="button" class="btn btn-primary btn-small">Novo Grupo</button>
+                      <button type="button" class="btn btn-primary btn-small">Criar Grupo</button>
                     </div>
                   </div>
                   <div class="card bg-light px-3 py-3">
@@ -644,7 +644,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="card hover-img shadow">
                           <div class="card-body">
                             <div class="d-flex justify-content-center align-items-center">
-                              <img src
+                              <img>
                             </div>
                           </div>
                         </div>
