@@ -236,7 +236,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="col-md-4 text-center">
             <div class="card shadow">
                 <div class="container text-center pt-2">
-                    <h1 class="fs-11 fw-semibold pb-1" style="letter-spacing: 1px;">Grupos</h1>
+                    <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Grupos</h1>
                 </div>
                 <div class="col-lg-12">
                     <div class="card shadow card-hover align-items-center" style="margin: 30px;">
@@ -260,7 +260,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="col-md-4 text-center">
             <div class="card shadow">
                 <div class="container text-center pt-2">
-                    <h1 class="fs-11 fw-semibold pb-1" style="letter-spacing: 1px;">Equipas</h1>
+                    <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas</h1>
                 </div>
                 <div class="col-lg-12">
                     <div class="card shadow card-hover align-items-center" style="margin: 30px;">
@@ -284,7 +284,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="col-md-4 text-center">
             <div class="card shadow">
                 <div class="container text-center pt-2">
-                    <h1 class="fs-11 fw-semibold pb-1" style="letter-spacing: 1px;">Torneios</h1>
+                    <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios</h1>
                 </div>
                 <div class="col-lg-12">
                     <div class="card shadow card-hover align-items-center" style="margin: 30px;">
