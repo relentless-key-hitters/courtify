@@ -224,7 +224,7 @@ if (isset($_SESSION['id'])) {?>
             <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
           </div>
           <img class="img-fluid" src="../../dist/images/backgrounds/sandro-giacon-WLIQEo16gSo-unsplash-2.jpg"
-            style="width: 100%; max-width: 100%; height: 680px; object-fit: cover;">
+            style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
           <div
             style="position: absolute; top: 16%; transform: translateY(-50%); left: 37%; text-align: center; color: white;">
             <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder"
