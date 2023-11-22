@@ -219,7 +219,7 @@ if (isset($_SESSION['id'])) { ?>
               <div style="position: absolute; bottom: 5px; right: 16px; z-index: 1;">
                 <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
               </div>
-              <img class="img-fluid" src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+              <img class="img-fluid" src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(70%);">
               <div style="position: absolute; top: 25%; transform: translateY(-50%); left: 60%; text-align: center; color: white;">
                 <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
                   Grupos</h1>
