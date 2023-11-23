@@ -31,6 +31,12 @@ if (isset($_SESSION['id'])) {?>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+  <style>
+    body {
+        overflow-x: hidden;
+    }
+  </style>
+
 
 </head>
 
@@ -73,8 +79,11 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./comunidades.php">Comunidade</a>
-          </li>
+              <a class="nav-link fs-6" href="./hub-grupos.php">Grupos</a>
+            </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./hub-equipas.php">Equipas</a>
+            </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
           <a href="index.html" class="text-nowrap nav-link">
@@ -227,7 +236,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
             <img class="img-fluid"
               src="../../dist/images/backgrounds/descobrir_banner.jpg"
-              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(70%);">
             <div
               style="position: absolute; top: 65%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
               <h1 class="text-white fw-bolder"

@@ -23,6 +23,12 @@ if (isset($_SESSION['id'])) {?>
   <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
+  <style>
+    body {
+        overflow-x: hidden;
+    }
+  </style>
 </head>
 
 
@@ -64,8 +70,11 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./comunidades.php">Comunidade</a>
-          </li>
+              <a class="nav-link fs-6" href="./hub-grupos.php">Grupos</a>
+            </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./hub-equipas.php">Equipas</a>
+            </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
           <a href="index.html" class="text-nowrap nav-link">
@@ -221,25 +230,37 @@ if (isset($_SESSION['id'])) {?>
 
   <!-- Main wrapper -->
 
-  <div class="body-wrapper mb-5" style="margin: 120px;">
-    <div class="row text-center">
-      <div class="col-lg-3">
-
+  <div class="row">
+    <div class="col-lg-12" style="position: relative; margin-top: 80px;">
+      <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
+        <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
       </div>
-      <div class="col-lg-9">
-        <h1 class="fw-semibold fs-11">Calendário</h1>
+      <img class="img-fluid"
+        src="../../dist/images/backgrounds/max-bohme-DRwfzyyKw1s-unsplash.jpg"
+        style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(70%);">
+      <div
+        style="position: absolute; top: 17%; transform: translateY(-50%); left: 10%; text-align: center; color: white;">
+        <h1 class="text-white fw-bolder"
+          style="letter-spacing: 1px; font-size: 90px">
+          Calendário</h1>
+        <p class="text-white lead lead-md-2 lead-lg-1"
+          style="letter-spacing: 1px; font-size: 40px">
+          Nunca te esqueças do próximo jogo </p>
       </div>
     </div>
+  </div>
+
+  <div class="body-wrapper mb-5" style="margin: 120px;">
     <div class="row">
       <!-- Left Side: Cards -->
       <div class="col-lg-3 text-center">
-        <div class="card" style="margin-top: 15px;">
+        <div class="card shadow" style="margin-top: 15px;">
           <div class="container-fluid">
             <h1 class="fw-semibold fs-7 mt-4">Próximos Jogos</h1>
           </div>
           <div class="row">
             <div class="col-lg-12">
-              <div class="card card-hover align-items-center" style="margin: 30px;">
+              <div class="card card-hover align-items-center shadow" style="margin: 30px;">
                 <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
                   alt="Placeholder Image 1" style="max-width: 190px;">
                 <div class="card-body">
@@ -252,8 +273,8 @@ if (isset($_SESSION['id'])) {?>
             </div>
 
             <div class="col-lg-12">
-              <div class="card card-hover align-items-center" style="margin: 30px;">
-                <img src="../../dist/images/backgrounds/comunidade3.png" class="card-img-top object-fit-cover"
+              <div class="card card-hover align-items-center shadow" style="margin: 30px;">
+                <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
                   alt="Placeholder Image 2" style="max-width: 190px;">
                 <div class="card-body">
                   <h5 class="card-title fs-8">Ténis</h5>
@@ -270,7 +291,10 @@ if (isset($_SESSION['id'])) {?>
 
       <!-- Right Side: Calendar -->
       <div class="col-lg-9 text-center">
-        <div class="card mt-3">
+        <div class="card mt-3 shadow">
+          <div class="container pt-2">
+          <h1 class="fw-semibold fs-11">Calendário</h1>
+          </div>
           <div class="p-4 calender-sidebar app-calendar">
             <div id="calendar"></div>
           </div>

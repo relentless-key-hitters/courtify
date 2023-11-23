@@ -31,6 +31,12 @@ if (isset($_SESSION['id'])) {?>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+  <style>
+    body {
+        overflow-x: hidden;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -72,8 +78,11 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./comunidades.php">Comunidade</a>
-          </li>
+              <a class="nav-link fs-6" href="./hub-grupos.php">Grupos</a>
+            </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./hub-equipas.php">Equipas</a>
+            </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
           <a href="index.html" class="text-nowrap nav-link">

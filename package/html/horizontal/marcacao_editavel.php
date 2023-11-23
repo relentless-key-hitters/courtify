@@ -43,6 +43,12 @@ if (isset($_SESSION['id'])) {?>
       transform: translateY(0);
     }
   </style>
+
+  <style>
+    body {
+        overflow-x: hidden;
+    }
+  </style>
 </head>
 
 <body>
@@ -83,9 +89,12 @@ if (isset($_SESSION['id'])) {?>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
-          <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./comunidades.php">Comunidade</a>
-          </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./hub-grupos.php">Grupos</a>
+            </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./hub-equipas.php">Equipas</a>
+            </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
           <a href="index.html" class="text-nowrap nav-link">
@@ -236,7 +245,7 @@ if (isset($_SESSION['id'])) {?>
         </div>
         <img class="img-fluid"
           src="../../dist/images/backgrounds/marcacao_banner.jpg"
-          style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+          style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(70%);">
         <div
           style="position: absolute; top: 30%; transform: translateY(-50%); left: 10%; text-align: left; color: white;">
           <h1 class="text-white fw-bolder"

@@ -29,6 +29,12 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+    <style>
+    body {
+        overflow-x: hidden;
+    }
+    </style>
+
 
   </head>
 
@@ -210,12 +216,12 @@ if (isset($_SESSION['id'])) { ?>
               <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
                 <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
               </div>
-              <img class="img-fluid" src="../../dist/images/backgrounds/diogo-monteiro-KDZrm2_HUc4-unsplash.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
-              <div style="position: absolute; top: 65%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
+              <img class="img-fluid" src="../../dist/images/backgrounds/girlteam.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(70%);">
+              <div style="position: absolute; top: 22%; transform: translateY(-50%); left: 4%; text-align: center; color: white;">
                 <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
                   Equipas</h1>
                 <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px">
-                  O ponto de encontro <br> de todas as equipas
+                  Vê quem está em alta <br> esta semana
               </div>
             </div>
           </div>
