@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'connection.php';
-$dataPesquisaGlobal = "";
+
 
 
 class Campo
@@ -131,10 +131,9 @@ class Campo
     {
 
         global $conn;
-        global $dataPesquisaGlobal;
         $msg = "";
         $dados = array();
-        $dataPesquisaGlobal = $dataPesquisa;
+        $_SESSION['data'] = $dataPesquisa;
 
         $sql = "SELECT DISTINCT clube.id_clube AS idClube,  
         user.foto AS fotoClube, 
@@ -228,7 +227,6 @@ class Campo
     function getInfoPagCampo($clubeId)
     {
         global $conn;
-        global $dataPesquisaGlobal;
         $clubeInfo = array();
 
         $conteudoModalidade = "";
@@ -400,7 +398,7 @@ class Campo
             }
         }
 
-        $marcacao =  $this->getHorariosCampos($clubeId, $dataPesquisaGlobal);
+        $marcacao =  $this->getHorariosCampos($clubeId,  $_SESSION['data']);
         $conn->close();
         $resp = json_encode(array(
             "info_clube" => $clubeInfo,
@@ -437,12 +435,12 @@ class Campo
                     FROM (
                     SELECT marcacao.hora_inicio AS hora_inicio, TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio) AS dif_horas
                     FROM marcacao INNER JOIN campo ON marcacao.id_campo = campo.id INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
-                    clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "' AND marcacao.data_inicio = '" . $data . "'  AND campo.id = '" . $row['id_campo'] . "'      
+                    clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "' AND marcacao.data_inicio = '" . $_SESSION['data']. "'  AND campo.id = '" . $row['id_campo'] . "'      
                     ) AS temp";
                 $result2 = $conn->query($sql2);
                 if ($result2->num_rows > 0) {
                     while ($row2 = $result2->fetch_assoc()) {
-                        array_push($horas, array($row2['hora_inicio'], $row2['dif_horas']));
+                        array_push($horas, array($row2['hora_inicio'], $row2['n_blocos']));
                     }
                 }
                 $horainicio = 8;
@@ -452,16 +450,36 @@ class Campo
                 for ($i = 0; $i < 28; $i++) {
                     $flag = true;
                     for ($j = 0; $j < count($horas); $j++) {
-                        if ($horas[$j][0] == $texto2) {
+                        if ($horas[$j][0] == $texto2){ 
                             $flag = false;
+                            for($k = 0; $k < $horas[$j][1]; $k++){
+                                $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
+                                if ($minuto == 30) {
+                                    $horainicio += 1;
+                                    $minuto = 0;
+                                    if ($horainicio < 10) {
+                                        $texto = "0" . $horainicio . ":0" . $minuto;
+                                        $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
+                                    } else {
+                                        $texto = $horainicio . ":0" . $minuto;
+                                        $texto2 = $horainicio . ":0" .$minuto.":00";
+                                    }
+                                } else {
+                                    $minuto = 30;
+                                    if ($horainicio < 10) {
+                                        $texto = "0" . $horainicio . ":" . $minuto;
+                                        $texto2 = "0" . $horainicio . ":" . $minuto.":00";
+                                    } else {
+                                        $texto = $horainicio . ":" . $minuto;
+                                        $texto2 = $horainicio . ":" . $minuto.":00";
+                                    }
+                                }
+                            }
                         }
                     }
                     if ($flag) {
                         $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2'>" . $texto . "</button>";
-                    } else {
-                        $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
                     }
-
                     if ($minuto == 30) {
                         $horainicio += 1;
                         $minuto = 0;
