@@ -4,6 +4,8 @@ require_once 'connection.php';
 
 
 
+
+
 class Campo
 {
     function getUserLocation()
@@ -410,25 +412,31 @@ class Campo
     function getHorariosCampos($clube, $data)
     {
         global $conn;
-        $sql = "SELECT campo.id as id_campo, campo.nome as nome_campo, campo.foto as foto
+        $sql = "SELECT campo.id as id_campo, campo.nome as nome_campo, campo.foto as foto, tipo_campo.descricao as tipoCampo
         FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
-        clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "'";
+        clube ON campo_clube.id_clube = clube.id_clube INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id WHERE clube.id_clube = '" . $clube . "'";
         $marcacao = "";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
             while ($row = $result->fetch_assoc()) {
-                $marcacao .= "<div class='card' id='campo" . $row['id_campo'] . "' style='width: 100%; overflow-x: auto;'>
+                $marcacao .= "<div class='card' id='campo" . $row['id_campo'] . "' style='width: 100%;'>
                     <div class='p-3'>
-                    <div class='d-flex justify-content-end align-items-center'>
-                    <p class='m-0 p-0 me-2'><span class='fw-semibold'>Tipo:</span> <span class='badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold' style='background-color: #f0f0f0'><i class='ti ti-sun me-1'></i>Exterior</span></p>
-                    </div>
-                    <div class='d-flex justify-content-start align-items-center mt-2'>
-                     <div class='d-flex flex-column'>
-                    <img src='".$row['foto']."' class='img-fluid rounded border border-1 border-primary' style='width: 150px'>
-                    <h6 class='mt-2 mb-0 text-center fw-bolder'>" . $row['nome_campo'] . "</h6>
-                    </div>
-                    <div class='ms-4'>";
+                        <div class='d-flex justify-content-end align-items-center'>";
+                        if($row['tipoCampo'] == "Exterior") {
+                            $marcacao .= " <p class='m-0 p-0 me-2'><span class='fw-semibold'>Tipo:</span> <span class='badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold' style='background-color: #f0f0f0'><i class='ti ti-sun me-1'></i>" . $row['tipoCampo'] . "</span></p>";
+                        }else if($row['tipoCampo'] == "Cobertura") {
+                            $marcacao .= " <p class='m-0 p-0 me-2'><span class='fw-semibold'>Tipo:</span> <span class='badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold' style='background-color: #f0f0f0'><i class='ti ti-cloud-rain me-1'></i>" . $row['tipoCampo'] . "</span></p>";
+                        }else if($row['tipoCampo'] == "Indoor") {
+                            $marcacao .= " <p class='m-0 p-0 me-2'><span class='fw-semibold'>Tipo:</span> <span class='badge text-dark text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold' style='background-color: #f0f0f0'><i class='ti ti-home me-1'></i>" . $row['tipoCampo'] . "</span></p>";
+                        }
+                $marcacao .= "</div>
+                        <div class='d-flex justify-content-start align-items-center mt-2'>
+                            <div class='d-flex flex-column'>
+                                <img src='".$row['foto']."' class='img-fluid rounded border border-1 border-primary' style='width: 350px'>
+                                <h6 class='mt-2 mb-0 text-center fw-bolder'>" . $row['nome_campo'] . "</h6>
+                            </div>
+                        <div class='ms-4 d-flex overflow-y-auto scrollbar'>";
                 $horas = array();
                 $sql2 = "SELECT temp.hora_inicio,
                     CEIL(TIME_TO_SEC(temp.dif_horas)/1800) AS n_blocos        
@@ -521,8 +529,8 @@ class Campo
         $id = $split[0];
         $hora = $split[1];
         
-        $sql = "SELECT campo.nome as nome_campo, campo.foto as foto
-        FROM campo WHERE campo.id = '" . $id."'";
+        $sql = "SELECT campo.nome as nome_campo, campo.foto as foto, modalidade.n_participantes_max as numParticipantesMax
+        FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id WHERE campo.id = '" . $id."'";
         $hora2 = $hora . ":00";
 
         $result = $conn->query($sql);
@@ -532,22 +540,23 @@ class Campo
             while ($row = $result->fetch_assoc()) {
                 $textoModal .= "<div class='container-fluid text-center'>
                     <div class='row'>
-                    <div class='col-md-4 text-center'>
-                        <img src='".$row['foto']."' alt='Clube 1' class='object-fit-cover'
-                        style='max-width: 120px;'>
-                    </div>
-                    <div class='col-md-4' style='align-items: start;'>
-                        <div class='ms-3'>
-                        <small class='fs-5'><i class='ti ti-calendar me-1'></i>". $_SESSION['data']."</small><br>
-                        <small class='fs-5'><i class='ti ti-clock me-1'></i>".$hora."</small><br>
-                        <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nome_campo']."</small><br>
+                        <div class='col-md-6 text-center'>
+                            <img src='".$row['foto']."' alt='Clube 1' class=' rounded border border-1 border-primary'
+                            style='max-width: 250px;'>
                         </div>
-                    </div>
+                        <div class='col-md-6'>
+                            <div class='mt-sm-2'>
+                                <small class='fs-5'><i class='ti ti-calendar me-1'></i>". $_SESSION['data']."</small><br>
+                                <small class='fs-5'><i class='ti ti-clock me-1'></i>".$hora."</small><br>
+                                <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nome_campo']."</small><br>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class ='row'>
-                <h1 class='fw-semibold fs-7'>Duração</h1>
-                    <select id ='selecthora'>
+                    <div class='col-md-7'>
+                    <h5 class='fw-semibold mt-1'>Duração</h5>
+                        <select id ='selecthora' class='form-select'>
                 "
                 ;
             $sql2 = "SELECT if(marcacao.hora_inicio = ADDTIME('".$hora2."', '00:30:00'), TRUE, FALSE) AS resposta1, 
@@ -566,19 +575,23 @@ class Campo
                     }
                 }
             }
-            $textoModal .= "</select></div>
-            <div class='form-check'>
-            <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='aberta'>
-            <label class='form-check-label' for='exampleRadios1'>
-              Marcação Aberta
-            </label>
-          </div>
-          <div class='form-check'>
-          <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='fechada'>
-          <label class='form-check-label' for='exampleRadios1'>
-            Marcação Fechada
-          </label>
-        </div>
+            $textoModal .= "</select>
+                        </div>
+                        <div class='col-md-5 mt-4 d-sm-flex d-md-block justify-content-center gap-2'>
+                            <div class='form-check' data-toggle='tooltip' data-placement='top' title='Convida amigos e permite que outros utilizadores se juntem á tua marcação'>
+                                <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='aberta' onclick='mostrarAmigos(".$row['numParticipantesMax'].")'>
+                                <label class='form-check-label' for='exampleRadios1'>
+                                    Marcação Aberta
+                                </label>
+                            </div>
+                            <div class='form-check' data-toggle='tooltip' data-placement='top' title='Mantém a marcação fechada'>
+                                <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='fechada'>
+                                <label class='form-check-label' for='exampleRadios2'>
+                                    Marcação Fechada
+                                </label>
+                            </div>
+                        </div>
+                    </div>
             ";
             }
         }

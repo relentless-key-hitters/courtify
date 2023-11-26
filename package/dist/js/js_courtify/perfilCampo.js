@@ -1,4 +1,8 @@
 let idCampo;
+
+let nParticipantesMax;
+var amigosEscolhidos = [];
+
 function getInfoPagCampo() {
 
     
@@ -151,6 +155,45 @@ function guardarMarcacao(id){
     });  
 
 
+}
+
+function mostrarAmigos(nParticipantes) {
+    $("#divAmigosMarcacao").removeClass("d-none");
+    amigosEscolhidos.maxLength = nParticipantes; 
+
+}
+
+function esconderAmigos() {
+    if ($("#divAmigosMarcacao").find('.selected-img').length > 0) {
+        $("#divAmigosMarcacao").find('.selected-img').removeClass('selected-img');
+    }
+
+    $("#divAmigosMarcacao").addClass("d-none");
+
+}
+
+function podeSelecionarAmigo() {
+
+    return amigosEscolhidos.length < amigosEscolhidos.maxLength - 1;
+}
+
+
+function toggleImageSelection(imgElement) {
+    if (imgElement.classList.contains('selected-img')) {
+      imgElement.classList.remove('selected-img');
+  
+      var index = amigosEscolhidos.indexOf(imgElement.value);
+      if (index !== -1) {
+        amigosEscolhidos.splice(index, 1);
+      }
+    } else {
+      if (podeSelecionarAmigo()) {
+        $(imgElement).addClass('selected-img');
+        amigosEscolhidos.push(imgElement);
+      } else {
+        alert("Limite máximo de jogadores atingido!")
+      }
+    }
 }
 
 $(function () {

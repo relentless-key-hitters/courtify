@@ -57,10 +57,16 @@ if (isset($_SESSION['id'])) {?>
           </li>
         </ul>
         <ul class="navbar-nav quick-links d-none d-xl-flex">
-          <li class="nav-item dropdown hover-dd d-none d-xl-block">
-          </li>
-          <li class="nav-item dropdown-hover d-none d-xl-block ms">
-            <a class="nav-link fs-6" href="./hub.php">Hub</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link fs-6 dropdown-toggle" href="#" id="hubDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Comunidade
+            </a>
+            <div class="dropdown-menu border border-1 border-primary" aria-labelledby="hubDropdown">
+
+              <a class="dropdown-item fs-4" href="#">Hub</a>
+              <a class="dropdown-item fs-4" href="#">Item 2</a>
+
+            </div>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
@@ -68,12 +74,6 @@ if (isset($_SESSION['id'])) {?>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
-            <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./hub-grupos.php">Grupos</a>
-            </li>
-            <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./hub-equipas.php">Equipas</a>
-            </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
           <a href="index.html" class="text-nowrap nav-link">
@@ -219,21 +219,20 @@ if (isset($_SESSION['id'])) {?>
     <!-- Main wrapper -->
     <div class="body-wrapper">
       <div class="row">
-        <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-          <div style="position: absolute; bottom: 5px; right: 16px; z-index: 1;">
-            <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
-          </div>
-          <img class="img-fluid" src="../../dist/images/backgrounds/sandro-giacon-WLIQEo16gSo-unsplash-2.jpg"
-            style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
-          <div
-            style="position: absolute; top: 16%; transform: translateY(-50%); left: 37%; text-align: center; color: white;">
-            <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder"
-              style="letter-spacing: 1px; font-size: 100px;">Hub
-            </h1>
-            <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Cria, Partilha,
-              Joga!</p>
-          </div>
+      <div class="col-lg-12" style="position: relative; margin-top: 80px;">
+        <div style="position: absolute; bottom: 5px; right: 16px; z-index: 1;">
+          <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
         </div>
+        <img class="img-fluid" src="../../dist/images/backgrounds/sandro-giacon-WLIQEo16gSo-unsplash-2.jpg"
+          style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+        <div style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+          <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder d-flex flex-column align-items-center"
+            style="letter-spacing: 1px; font-size: 100px;">Comunidade
+          </h1>
+          <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Cria, Partilha,
+            Joga!</p>
+        </div>
+      </div>
       </div>
       <div class="row" style="margin: 60px;">
         <div class="col-md-4 text-center">
@@ -255,7 +254,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                 </div>
                 <div class="col-lg-12 pb-4 pt-2">
-                    <a href="comunidades.php" class="btn btn-success btn-lg">Leva-me para lá</a>
+                    <a href="hub-grupos.php" class="btn btn-success btn-lg">Leva-me para lá</a>
                 </div>
             </div>
         </div>
@@ -303,7 +302,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                 </div>
                 <div class="col-lg-12 pb-4 pt-2">
-                    <a href="hub-equipas.php" class="btn btn-success btn-lg">Leva-me para lá</a>
+                    <a href="hub-torneios.php" class="btn btn-success btn-lg">Leva-me para lá</a>
                 </div>
             </div>
         </div>

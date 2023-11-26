@@ -612,13 +612,80 @@ if (isset($_SESSION['id'])) {?>
         <div class="modal-body" id="bodyMarcacao">
           
         </div>
+        <div class='d-flex justify-content-center align-items-center text-center p-5 d-none' id="divAmigosMarcacao">
+            <div class="row grid gap-3">
+              <div class="col-2">
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Rui Paulo">
+                </div>
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy3.jpg" alt="Participant 2"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Rui Paulo">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy6.jpg" alt="Participant 1"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Fábio Santos">
+                </div>
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy9.jpg" alt="Participant 2"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Paulo Chaves">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Gonçalo Nunes">
+
+                </div>
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Gonçalo Ricardo">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy11.jpg" alt="Participant 1"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Gonçalo Nunes">
+                </div>
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy8.jpg" alt="Participant 2"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Gonçalo Ricardo">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy7.jpg" alt="Participant 1"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Gonçalo Nunes">
+
+                </div>
+                <div class="d-flex align-items-center mt-2">
+                  <img src="../../dist/images/profile/boy5.jpg" alt="Participant 2"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    data-placement="top" title="Gonçalo Ricardo">
+
+                </div>
+              </div>
+            </div>
+          </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-light-primary text-primary font-medium waves-effect text-start"
            data-bs-dismiss="modal" id="botaoGuardarMarcacao">
             Guardar
           </button>
           <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
-            data-bs-dismiss="modal">
+            data-bs-dismiss="modal" onclick="esconderAmigos()">
             Fechar
           </button>
         </div>
@@ -646,9 +713,12 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
 
 
-
-
-
+  
+  <style>
+    .selected-img {
+      border: 3px solid #63a340;
+    }
+  </style>
 
 
   <script type="text/javascript">
@@ -681,6 +751,14 @@ if (isset($_SESSION['id'])) {?>
 
     resetSessionTimeout();
   </script>
+
+  <script>
+    $(function () {
+      $("[data-toggle = 'tooltip']").tooltip();
+    });
+  </script>
+
+
 
 </body>
 

@@ -58,10 +58,16 @@ if (isset($_SESSION['id'])) {?>
           </li>
         </ul>
         <ul class="navbar-nav quick-links d-none d-xl-flex">
-          <li class="nav-item dropdown hover-dd d-none d-xl-block">
-          </li>
-          <li class="nav-item dropdown-hover d-none d-xl-block ms">
-            <a class="nav-link fs-6" href="./hub.php">Hub</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link fs-6 dropdown-toggle" href="#" id="hubDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Comunidade
+            </a>
+            <div class="dropdown-menu border border-1 border-primary" aria-labelledby="hubDropdown">
+
+              <a class="dropdown-item fs-4" href="./hub.php">Hub</a>
+              <a class="dropdown-item fs-4" href="#">Item 2</a>
+
+            </div>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
@@ -69,12 +75,6 @@ if (isset($_SESSION['id'])) {?>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
           </li>
-          <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./hub-grupos.php">Grupos</a>
-            </li>
-            <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./hub-equipas.php">Equipas</a>
-            </li>
         </ul>
         <div class="d-block d-xl-none mb-2 ms-5">
           <a href="index.html" class="text-nowrap nav-link">
