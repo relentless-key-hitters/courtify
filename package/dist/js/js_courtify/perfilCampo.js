@@ -169,6 +169,7 @@ function esconderAmigos() {
     }
 
     $("#divAmigosMarcacao").addClass("d-none");
+    amigosEscolhidos.length = 0;
 
 }
 
