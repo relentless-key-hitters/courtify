@@ -183,8 +183,12 @@ function toggleImageSelection(imgElement) {
     if (imgElement.classList.contains('selected-img')) {
       imgElement.classList.remove('selected-img');
   
-      var index = amigosEscolhidos.indexOf(imgElement.value);
+
+      var index = amigosEscolhidos.indexOf(imgElement);
+  
+
       if (index !== -1) {
+
         amigosEscolhidos.splice(index, 1);
       }
     } else {
@@ -192,11 +196,10 @@ function toggleImageSelection(imgElement) {
         $(imgElement).addClass('selected-img');
         amigosEscolhidos.push(imgElement);
       } else {
-        alert("Limite máximo de jogadores atingido!")
+        alert("Limite máximo de jogadores atingido!");
       }
     }
-}
-
+  }
 $(function () {
     getInfoPagCampo();
 

@@ -606,7 +606,7 @@ if (isset($_SESSION['id'])) {?>
           <h4 class="modal-title">
             Marcar Campo
           </h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="esconderAmigos()"></button>
         </div>
         <div class="modal-body" id="bodyMarcacao">
           
@@ -617,62 +617,62 @@ if (isset($_SESSION['id'])) {?>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Rui Paulo">
+                    data-placement="top" title="Rui Paulo" style="cursor: pointer">
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy3.jpg" alt="Participant 2"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Rui Paulo">
+                    data-placement="top" title="Rui Paulo" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy6.jpg" alt="Participant 1"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Fábio Santos">
+                    data-placement="top" title="Fábio Santos" style="cursor: pointer">
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy9.jpg" alt="Participant 2"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Paulo Chaves">
+                    data-placement="top" title="Paulo Chaves" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Gonçalo Nunes">
+                    data-placement="top" title="Gonçalo Nunes" style="cursor: pointer">
 
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Gonçalo Ricardo">
+                    data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy11.jpg" alt="Participant 1"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Gonçalo Nunes">
+                    data-placement="top" title="Gonçalo Nunes" style="cursor: pointer">
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy8.jpg" alt="Participant 2"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Gonçalo Ricardo">
+                    data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy7.jpg" alt="Participant 1"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Gonçalo Nunes">
+                    data-placement="top" title="Gonçalo Nunes" style="cursor: pointer">
 
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy5.jpg" alt="Participant 2"
                     class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
-                    data-placement="top" title="Gonçalo Ricardo">
+                    data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
 
                 </div>
               </div>
