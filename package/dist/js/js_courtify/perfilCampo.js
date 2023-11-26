@@ -111,7 +111,6 @@ function marcarCampo(id){
     .done(function(msg) {
             $("#bodyMarcacao").html(msg);
             $("#vertical-center-modal").modal('show');
-
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
@@ -126,7 +125,7 @@ function guardarMarcacao(){
 
     let dados = new FormData();
     dados.append("op", 7);
-    dados.append("id", $("#").val());
+    dados.append("id", id);
 
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
@@ -138,10 +137,8 @@ function guardarMarcacao(){
         processData: false
     })
     .done(function(msg) {
-        
-        $("#bodyMarcacao").html(msg);
-        $("#vertical-center-modal").modal('show');
-
+            $("#bodyMarcacao").html(msg);
+            $("#vertical-center-modal").modal('show');
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
