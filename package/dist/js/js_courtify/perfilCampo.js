@@ -94,9 +94,65 @@ async function constroiMapaCampo(clubeInfo) {
 }
 
 
+function marcarCampo(id){
+    let dados = new FormData();
+    dados.append("op", 6);
+    dados.append("id", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerCampo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html", 
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+    .done(function(msg) {
+            $("#bodyMarcacao").html(msg);
+            $("#vertical-center-modal").modal('show');
+
+    })
+    .fail(function(jqXHR, textStatus) {
+        console.error("Request failed:", textStatus);
+        console.log(jqXHR.responseText);
+        alert("Request failed: " + textStatus);
+    });  
+
+
+}
+
+function guardarMarcacao(){
+
+    let dados = new FormData();
+    dados.append("op", 7);
+    dados.append("id", $("#").val());
+
+    $.ajax({
+        url: "../../dist/php/controllerCampo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html", 
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+    .done(function(msg) {
+        
+        $("#bodyMarcacao").html(msg);
+        $("#vertical-center-modal").modal('show');
+
+    })
+    .fail(function(jqXHR, textStatus) {
+        console.error("Request failed:", textStatus);
+        console.log(jqXHR.responseText);
+        alert("Request failed: " + textStatus);
+    });  
+
+
+}
+
 $(function () {
     getInfoPagCampo();
-
-
 
 });

@@ -19,5 +19,8 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 5){
     $res = $campo -> getInfoPagCampo($_POST['id']);
     echo($res);
+}else if ($_POST['op'] == 6){
+    $res = $campo -> openModalMarcacao($_POST['id']);
+    echo($res);
 }
 ?>

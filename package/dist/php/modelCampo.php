@@ -410,7 +410,7 @@ class Campo
     function getHorariosCampos($clube, $data)
     {
         global $conn;
-        $sql = "SELECT campo.id as id_campo, campo.nome as nome_campo
+        $sql = "SELECT campo.id as id_campo, campo.nome as nome_campo, campo.foto as foto
         FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
         clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "'";
         $marcacao = "";
@@ -425,7 +425,7 @@ class Campo
                     </div>
                     <div class='d-flex justify-content-start align-items-center mt-2'>
                      <div class='d-flex flex-column'>
-                    <img src='../../dist/images/backgrounds/pesquisa_campo1.jpg' class='img-fluid rounded border border-1 border-primary' style='width: 150px'>
+                    <img src='".$row['foto']."' class='img-fluid rounded border border-1 border-primary' style='width: 150px'>
                     <h6 class='mt-2 mb-0 text-center fw-bolder'>" . $row['nome_campo'] . "</h6>
                     </div>
                     <div class='ms-4'>";
@@ -478,11 +478,13 @@ class Campo
                         }
                     }
                     if ($flag) {
-                        $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2'>" . $texto . "</button>";
+                        $txtId = "";
+                        $txtId .= $row['id_campo'].".".$texto;
+                        $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2' value = '".$txtId."' onclick = 'marcarCampo(this.value)'>" . $texto . "</button>";
                     }
-                    if ($minuto == 30) {
+                    if ($minuto == 30) {                      
                         $horainicio += 1;
-                        $minuto = 0;
+                        $minuto = 0;    
                         if ($horainicio < 10) {
                             $texto = "0" . $horainicio . ":0" . $minuto;
                             $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
@@ -509,5 +511,79 @@ class Campo
             }
         }
         return($marcacao);
+    }
+
+    function openModalMarcacao($id){
+
+        global $conn;
+        $split = array();
+        $split = explode(".", $id, 2);
+        $id = $split[0];
+        $hora = $split[1];
+        
+        $sql = "SELECT campo.nome as nome_campo, campo.foto as foto
+        FROM campo WHERE campo.id = '" . $id."'";
+        $hora2 = $hora . ":00";
+
+        $result = $conn->query($sql);
+        $textoModal = "";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $textoModal .= "<div class='container-fluid text-center'>
+                    <div class='row'>
+                    <div class='col-md-4 text-center'>
+                        <img src='".$row['foto']."' alt='Clube 1' class='object-fit-cover'
+                        style='max-width: 120px;'>
+                    </div>
+                    <div class='col-md-4' style='align-items: start;'>
+                        <div class='ms-3'>
+                        <small class='fs-5'><i class='ti ti-calendar me-1'></i>". $_SESSION['data']."</small><br>
+                        <small class='fs-5'><i class='ti ti-clock me-1'></i>".$hora."</small><br>
+                        <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nome_campo']."</small><br>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class ='row'>
+                <h1 class='fw-semibold fs-7'>Duração</h1>
+                    <select id ='selecthora'>
+                "
+                ;
+            $sql2 = "SELECT if(marcacao.hora_inicio = ADDTIME('".$hora2."', '00:30:00'), TRUE, FALSE) AS resposta1, 
+            if(marcacao.hora_inicio = ADDTIME('".$hora2."', '01:00:00'), TRUE, FALSE) AS resposta2
+            FROM campo INNER JOIN marcacao ON marcacao.id_campo = campo.id WHERE campo.id = '".$id."' AND marcacao.data_inicio = '".$_SESSION['data']."'";    
+            $result2 = $conn->query($sql2);
+            $textoModal .= "<option value = 30>30 minutos</option>";
+            if ($result2->num_rows > 0) {
+                // output data of each row
+                while ($row2 = $result2->fetch_assoc()) {
+                    if($row2['resposta1'] == 0){
+                        $textoModal .= "<option value = 60>60 minutos</option>";
+                        if($row2['resposta2'] == 0){
+                            $textoModal .= "<option value = 90>90 minutos</option>";
+                        }
+                    }
+                }
+            }
+            $textoModal .= "</select></div>
+            <div class='form-check'>
+            <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='aberta'>
+            <label class='form-check-label' for='exampleRadios1'>
+              Marcação Aberta
+            </label>
+          </div>
+          <div class='form-check'>
+          <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='fechada'>
+          <label class='form-check-label' for='exampleRadios1'>
+            Marcação Fechada
+          </label>
+        </div>
+            ";
+            }
+        }
+        
+        $conn->close();
+        return($textoModal);
     }
 }

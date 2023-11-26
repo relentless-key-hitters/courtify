@@ -605,19 +605,16 @@ if (isset($_SESSION['id'])) {?>
       <div class="modal-content">
         <div class="modal-header d-flex align-items-center">
           <h4 class="modal-title">
-            Alterar foto de capa
+            Marcar Campo
           </h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <div class="col-md-12 mb-3">
-            <label for="fotoCapa" class="form-label">Fotografia de capa</label>
-            <input class="form-control" type="file" id="fotoCapa" name="fotoCapa">
-          </div>
+        <div class="modal-body" id="bodyMarcacao">
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-light-primary text-primary font-medium waves-effect text-start"
-            onclick="altFotoCapa()" data-bs-dismiss="modal">
+           data-bs-dismiss="modal" id="botaoGuardarMarcacao">
             Guardar
           </button>
           <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
