@@ -123,11 +123,13 @@ function marcarCampo(id){
 }
 
 
-function guardarMarcacao(){
+function guardarMarcacao(id){
 
     let dados = new FormData();
     dados.append("op", 7);
     dados.append("id", id);
+    dados.append("duracao", $("#selecthora").val());
+
 
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
