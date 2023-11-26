@@ -554,14 +554,14 @@ class Campo
             if(marcacao.hora_inicio = ADDTIME('".$hora2."', '01:00:00'), TRUE, FALSE) AS resposta2
             FROM campo INNER JOIN marcacao ON marcacao.id_campo = campo.id WHERE campo.id = '".$id."' AND marcacao.data_inicio = '".$_SESSION['data']."'";    
             $result2 = $conn->query($sql2);
-            $textoModal .= "<option value = 30>30 minutos</option>";
+            $textoModal .= "<option value='30'>30 minutos</option>";
             if ($result2->num_rows > 0) {
                 // output data of each row
                 while ($row2 = $result2->fetch_assoc()) {
                     if($row2['resposta1'] == 0){
-                        $textoModal .= "<option value = 60>60 minutos</option>";
+                        $textoModal .= "<option value ='60'>60 minutos</option>";
                         if($row2['resposta2'] == 0){
-                            $textoModal .= "<option value = 90>90 minutos</option>";
+                            $textoModal .= "<option value ='90'>90 minutos</option>";
                         }
                     }
                 }
