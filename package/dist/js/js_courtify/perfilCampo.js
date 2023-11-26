@@ -1,4 +1,4 @@
-
+let idCampo;
 function getInfoPagCampo() {
 
     
@@ -8,7 +8,7 @@ function getInfoPagCampo() {
     let dados = new FormData();
     dados.append("op", 5);
     dados.append("id", campoId);
-
+    idCampo = campoId;
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
         method: "POST",
@@ -111,6 +111,7 @@ function marcarCampo(id){
     .done(function(msg) {
             $("#bodyMarcacao").html(msg);
             $("#vertical-center-modal").modal('show');
+            $("#botaoGuardarMarcacao").attr('onclick',  'guardarMarcacao('+idCampo+')');
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
@@ -120,6 +121,7 @@ function marcarCampo(id){
 
 
 }
+
 
 function guardarMarcacao(){
 
