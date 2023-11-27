@@ -158,7 +158,7 @@ function guardarMarcacao(id){
     })
     .done(function(msg) {
         let obj = JSON.parse(msg);
-        alerta2("Perfil", obj.msg, obj.icon);
+        alerta2("Sucesso", obj.msg, obj.icon);
         setTimeout(function(){ 
             location.reload();
         }, 2000);

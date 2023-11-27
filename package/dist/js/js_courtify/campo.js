@@ -18,6 +18,7 @@ function getUserLocation() {
         .done(function(msg) {
             getModalidadesUtilizadorSelect();
             getCampos(msg);
+            $("#currentTimeInput").val(-1);
             
 
         })
