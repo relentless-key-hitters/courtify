@@ -61,7 +61,7 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
+            <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
@@ -2452,6 +2452,7 @@ if (isset($_SESSION['id'])) {?>
   <!-- current page js files -->
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+  <script src="../../dist/js/js_courtify/notificacao.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>

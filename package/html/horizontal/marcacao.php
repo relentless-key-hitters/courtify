@@ -151,6 +151,8 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                     </a>
                   </div>
+                  <div id="notifVotacao">
+                    </div>
                   <div class="py-6 px-7 mb-1">
                     <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
                   </div>
@@ -561,6 +563,24 @@ if (isset($_SESSION['id'])) {?>
     </div>
   </div>
 
+  <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id = "corpoModal">
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success font-medium waves-effect text-start">
+            Votar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
@@ -578,6 +598,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../dist/js/js_courtify/campo.js"></script>
+  <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
   <script>

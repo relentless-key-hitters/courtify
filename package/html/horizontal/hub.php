@@ -61,7 +61,7 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
+            <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
@@ -131,6 +131,8 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                     </a>
                   </div>
+                  <div id="notifVotacao">
+                    </div>
                   <div class="py-6 px-7 mb-1">
                     <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
                   </div>
@@ -547,30 +549,19 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
 
-  <div class="modal fade" id="vertical-center-modal" tabindex="-1" aria-labelledby="vertical-center-modal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+
+  <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header d-flex align-items-center">
-          <h4 class="modal-title">
-            Alterar foto de capa
-          </h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <div class="col-md-12 mb-3">
-            <label for="fotoCapa" class="form-label">Fotografia de capa</label>
-            <input class="form-control" type="file" id="fotoCapa" name="fotoCapa">
-          </div>
-        </div>
+        <div class="modal-body" id = "corpoModal">
+          
         <div class="modal-footer">
-          <button type="button" class="btn btn-light-primary text-primary font-medium waves-effect text-start"
-            onclick="altFotoCapa()" data-bs-dismiss="modal">
-            Guardar
-          </button>
-          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
-            data-bs-dismiss="modal">
-            Fechar
+          <button type="button" class="btn btn-success font-medium waves-effect text-start">
+            Votar
           </button>
         </div>
       </div>
@@ -596,6 +587,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../dist/js/js_courtify/campo.js"></script>
+  <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
   <script>
