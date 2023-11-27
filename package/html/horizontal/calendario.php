@@ -271,84 +271,7 @@ if (isset($_SESSION['id'])) {?>
 
 
 
-  <!-- BEGIN MODAL -->
-  <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="eventModalLabel">
-            Adicionar / Editar Evento
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="">
-                <label class="form-label">Título do Evento</label>
-                <input id="event-title" type="text" class="form-control" />
-              </div>
-            </div>
-            <div class="col-md-12 mt-4">
-              <div><label class="form-label">Importância do Evento (cor)</label></div>
-              <div class="d-flex">
-                <div class="n-chk">
-                  <div class="form-check form-check-warning form-check-inline">
-                    <input class="form-check-input" type="radio" name="event-level" value="Success" id="modalSuccess" />
-                    <label class="form-check-label" for="modalSuccess">Verde</label>
-                  </div>
-                </div>
-                <div class="n-chk">
-                  <div class="form-check form-check-danger form-check-inline">
-                    <input class="form-check-input" type="radio" name="event-level" value="Warning" id="modalWarning" />
-                    <label class="form-check-label" for="modalWarning">Laranja</label>
-                  </div>
-                </div>
-                <div class="n-chk">
-                  <div class="form-check form-check-primary form-check-inline">
-                    <input class="form-check-input" type="radio" name="event-level" value="Danger" id="modalDanger" />
-                    <label class="form-check-label" for="modalDanger">Vermelho</label>
-                  </div>
-                </div>
-                <div class="n-chk">
-                  <div class="form-check form-check-success form-check-inline">
-                    <input class="form-check-input" type="radio" name="event-level" value="Primary" id="modalPrimary" />
-                    <label class="form-check-label" for="modalPrimary">Azul</label>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-12 d-none">
-              <div class="">
-                <label class="form-label">Data de Início</label>
-                <input id="event-start-date" type="text" class="form-control" />
-              </div>
-            </div>
-
-            <div class="col-md-12 d-none">
-              <div class="">
-                <label class="form-label">Data de Término</label>
-                <input id="event-end-date" type="text" class="form-control" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn" data-bs-dismiss="modal">
-            Fechar
-          </button>
-          <button type="button" class="btn btn-success btn-update-event" data-fc-event-public-id="">
-            Atualizar
-          </button>
-          <button type="button" class="btn btn-primary btn-add-event">
-            Adicionar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END MODAL -->
   </div>
   </div>
   <div style="margin-left: 60px; margin-right: 60px;">
@@ -682,7 +605,6 @@ if (isset($_SESSION['id'])) {?>
   <!-- ---------------------------------------------- -->
 
   <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
-  <script src="../../dist/js/apps/calendar-init.js"></script>
   <script src="../../dist/js/js_courtify/calendario.js"></script>
 
 

@@ -755,10 +755,14 @@ class User{
     function getMarcacoesNaoConcluidas() {
         
         global $conn;
+        $contador = 0;
         $msg = "";
+        $arrayHorasMarcacoesCalendario = array();
 
-        $sql = "SELECT marcacao.data_inicio AS dataMarc, 
-        marcacao.hora_inicio AS horaMarc, 
+        $sql = "SELECT
+        marcacao.data_inicio AS dataMarc, 
+        marcacao.hora_inicio AS horaMarcInicio,
+        marcacao.hora_fim AS horaMarcFim,  
         modalidade.descricao AS modalidade, 
         user.nome AS nomeClube, 
         user.foto as fotoClube, 
@@ -774,24 +778,28 @@ class User{
         INNER JOIN user ON clube.id_clube = user.id
         INNER JOIN campo ON campo_clube.id_campo = campo.id
 		WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."'
-        AND listagem_atletas_marcacao.votacao = 2 ORDER BY marcacao.data_inicio ASC LIMIT 2";
+        AND listagem_atletas_marcacao.votacao = 2 ORDER BY marcacao.data_inicio ASC";
 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
 
             while($row = $result->fetch_assoc()) {
-                $msg .= "<div class='col-lg-12'>
-                            <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
-                                <img src='".$row['fotoCampo']."' class='rounded mt-4 object-fit-cover' alt='".$row['nomeCampo']."' style='max-width: 190px;'>
-                                <div class='p-3'>
-                                    <h5 class='card-title fs-7'>".$row['nomeCampo']."</h5>
-                                    <p class='card-text fs-6'>".$row['dataMarc']." / ".$row['horaMarc']."</p>
-                                    <p class='card-text fs-4'>".$row['nomeClube']."</p>
-                                    <a href='#' class='btn btn-primary'>Mais Info</a>
-                                </div>
+                if($contador < 2) {
+                        $msg .= "<div class='col-lg-12'>
+                        <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
+                            <img src='".$row['fotoCampo']."' class='rounded mt-4 object-fit-cover' alt='".$row['nomeCampo']."' style='max-width: 190px;'>
+                            <div class='p-3'>
+                                <h5 class='card-title fs-7'>".$row['nomeCampo']."</h5>
+                                <p class='card-text fs-6'>".$row['dataMarc']." / ".$row['horaMarcInicio']."</p>
+                                <p class='card-text fs-4'>".$row['nomeClube']."</p>
+                                <a href='#' class='btn btn-primary'>Mais Info</a>
                             </div>
-                        </div>";
+                        </div>
+                    </div>";
+                    $contador++; 
+                } 
+                array_push($arrayHorasMarcacoesCalendario, array($row['horaMarcInicio'], $row['horaMarcFim'], $row['dataMarc'], $row['nomeClube']));       
             }
         } else {
             $msg .= "<div class='col-lg-12'>
@@ -799,8 +807,13 @@ class User{
                             <p class='p-3'>Quando procederes á marcação de jogos em campos, os mesmo irão aparecer aqui. De momento, não existe nenhuma marcação registada no teu nome ou em que sejas participante.</p>
                         </div>";
         }
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "arrayCalendario" => $arrayHorasMarcacoesCalendario
+        ));
+
         $conn ->close();
-        return ($msg);
+        return ($resp);
         
     }
 }
