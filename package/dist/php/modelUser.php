@@ -608,6 +608,7 @@ class User{
 
     function getModalVot($id){
 
+
         global $conn;
         $sql = " SELECT marcacao.data_inicio AS dataMarc, marcacao.hora_inicio AS horaMarc, modalidade.descricao AS modalidade, user.nome AS nomeClube, user.foto as fotoClube FROM listagem_atletas_marcacao INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id INNER JOIN clube ON campo_clube.id_clube = clube.id_clube INNER JOIN user ON clube.id_clube = user.id WHERE listagem_atletas_marcacao.id_marcacao = '".$id."'";
         $result = $conn->query($sql);
@@ -752,9 +753,55 @@ class User{
     }
 
     function getMarcacoesNaoConcluidas() {
+        
         global $conn;
+        $msg = "";
 
-        $sql = "";
+        $sql = "SELECT marcacao.data_inicio AS dataMarc, 
+        marcacao.hora_inicio AS horaMarc, 
+        modalidade.descricao AS modalidade, 
+        user.nome AS nomeClube, 
+        user.foto as fotoClube, 
+        user.nome AS nomeClube, 
+		campo.foto AS fotoCampo,
+		campo.nome AS nomeCampo,
+        listagem_atletas_marcacao.votacao as estadoVotacao 
+        FROM listagem_atletas_marcacao 
+        INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+        INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
+        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube 
+        INNER JOIN user ON clube.id_clube = user.id
+        INNER JOIN campo ON campo_clube.id_campo = campo.id
+		WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."'
+        AND listagem_atletas_marcacao.votacao = 2 ORDER BY marcacao.data_inicio ASC LIMIT 2";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            while($row = $result->fetch_assoc()) {
+                $msg .= "<div class='col-lg-12'>
+                            <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
+                                <img src='".$row['fotoCampo']."' class='rounded mt-4 object-fit-cover' alt='".$row['nomeCampo']."' style='max-width: 190px;'>
+                                <div class='p-3'>
+                                    <h5 class='card-title fs-7'>".$row['nomeCampo']."</h5>
+                                    <p class='card-text fs-6'>".$row['dataMarc']." / ".$row['horaMarc']."</p>
+                                    <p class='card-text fs-4'>".$row['nomeClube']."</p>
+                                    <a href='#' class='btn btn-primary'>Mais Info</a>
+                                </div>
+                            </div>
+                        </div>";
+            }
+        } else {
+            $msg .= "<div class='col-lg-12'>
+                            <h4 class='mt-5'>Sem jogos próximos!</h4>
+                            <p class='p-3'>Quando procederes á marcação de jogos em campos, os mesmo irão aparecer aqui. De momento, não existe nenhuma marcação registada no teu nome ou em que sejas participante.</p>
+                        </div>";
+        }
+        $conn ->close();
+        return ($msg);
+        
     }
 }
 

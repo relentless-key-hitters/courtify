@@ -14,7 +14,7 @@ function getMarcacoesNaoConcluidas() {
         })
 
         .done(function(msg) {
-            
+            $("#proximosJogosCalendario").html(msg);
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -22,6 +22,10 @@ function getMarcacoesNaoConcluidas() {
         });
 }
   
+
+$(function () {
+    getMarcacoesNaoConcluidas();
+});
   
   
   

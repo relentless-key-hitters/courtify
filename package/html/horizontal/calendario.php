@@ -244,32 +244,8 @@ if (isset($_SESSION['id'])) {?>
           <div class="container-fluid">
             <h1 class="fw-semibold fs-7 mt-4">Próximos Jogos</h1>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card card-hover align-items-center shadow" style="margin: 30px;">
-                <img src="../../dist/images/backgrounds/comunidade4.png" class="card-img-top object-fit-cover"
-                  alt="Placeholder Image 1" style="max-width: 190px;">
-                <div class="card-body">
-                  <h5 class="card-title fs-8">Padel</h5>
-                  <p class="card-text fs-7">Sexta-Feira (10/11) 18:30</p>
-                  <p class="card-text fs-5">ESC Padel Indoor</p>
-                  <a href="#" class="btn btn-primary">Mais Info</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="card card-hover align-items-center shadow" style="margin: 30px;">
-                <img src="../../dist/images/backgrounds/98.png" class="card-img-top object-fit-cover"
-                  alt="Placeholder Image 2" style="max-width: 190px;">
-                <div class="card-body">
-                  <h5 class="card-title fs-8">Ténis</h5>
-                  <p class="card-text fs-7">Terça-Feira (14/11) 19:30</p>
-                  <p class="card-text fs-5">ETC Outdoor</p>
-                  <a href="#" class="btn btn-primary">Mais Info</a>
-                </div>
-              </div>
-            </div>
+          <div class="row" id="proximosJogosCalendario">
+            
 
           </div>
         </div>
@@ -707,6 +683,7 @@ if (isset($_SESSION['id'])) {?>
 
   <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
   <script src="../../dist/js/apps/calendar-init.js"></script>
+  <script src="../../dist/js/js_courtify/calendario.js"></script>
 
 
 
