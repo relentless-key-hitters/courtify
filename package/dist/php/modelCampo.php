@@ -636,7 +636,13 @@ class Campo
         }
         
         if($conn->query($sql) === TRUE){
-            $msg = "Marcação feita com sucesso!";
+
+            $ultimoId = mysqli_insert_id($conn);
+            $sql1 = "INSERT INTO listagem_atletas_marcacao (id_marcacao, id_atleta) VALUES (".$ultimoId.", ".$_SESSION['id'].")";
+
+            if($conn->query($sql1) === TRUE){
+                $msg = "Marcação feita com sucesso!";
+            }
         }else{
             $msg = "Não foi possível realizar a sua marcação.";
             $flag = false;

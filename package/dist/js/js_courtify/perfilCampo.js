@@ -146,6 +146,7 @@ function guardarMarcacao(id){
         dados.append("tipoMarcacao", 'fechada');
     }
 
+
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
         method: "POST",
