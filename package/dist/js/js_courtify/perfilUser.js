@@ -140,7 +140,7 @@ function getModalVot(id){
         })
 
         .done(function(msg) {
-            $("#textoModalVot").html(msg);
+            $("#corpoModal").html(msg);
             $('#scroll-long-inner-modal').modal('show')
         })
         
