@@ -783,7 +783,7 @@ class User{
         $result = $conn->query($sql);
         $horaA = "";
         $msgA = "";
-
+        $diaA = "";
     
         if ($result->num_rows > 0) {
 
@@ -802,8 +802,9 @@ class User{
                         </div>
                     </div>";
                     $horaA = $row['horaMarcInicio'];
+                    $diaA = $row['dataMarc'];
                     } else {
-                        if($horaA < $row['horaMarcInicio']) {
+                        if(($horaA < $row['horaMarcInicio'] && $diaA == $row['dataMarc']) ||  $diaA != $row['dataMarc']) {
                             $msg .= $msgA;
                             $msg .= "<div class='col-lg-12'>
                             <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
