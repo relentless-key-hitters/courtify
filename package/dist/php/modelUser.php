@@ -589,7 +589,7 @@ class User{
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' onclick = 'getModalVot(".$row['idMarcacao'].")'>
+                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;' onclick = 'getModalVot(".$row['idMarcacao'].")'>
                 <span class='me-3'>
                   <img src='../../dist/images/rating/vote.jpg' alt='user' class='rounded-circle object-fit-cover'
                     width='48' height='48' />
