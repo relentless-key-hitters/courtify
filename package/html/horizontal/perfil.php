@@ -2387,26 +2387,6 @@ if (isset($_SESSION['id'])) {?>
 
 
 
-  <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id = "corpoModal">
-          
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success font-medium waves-effect text-start">
-            Votar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
   <div class="modal fade" id="vertical-center-modal" tabindex="-1" aria-labelledby="vertical-center-modal"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -2431,6 +2411,25 @@ if (isset($_SESSION['id'])) {?>
           <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
             data-bs-dismiss="modal">
             Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id = "corpoModal">
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success font-medium waves-effect text-start">
+            Votar
           </button>
         </div>
       </div>
