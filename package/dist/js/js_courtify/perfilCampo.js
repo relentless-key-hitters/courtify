@@ -117,9 +117,10 @@ function marcarCampo(id){
         let obj = JSON.parse(msg);
             $("#bodyMarcacao").html(obj.modal);
             $("#vertical-center-modal").modal('show');
+            idCampoMarc = obj.idCampo;
             $("#botaoGuardarMarcacao").attr('onclick',  'guardarMarcacao('+idCampoMarc+')');
             hora = obj.hora;
-            idCampoMarc = obj.idCampo;
+            
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
