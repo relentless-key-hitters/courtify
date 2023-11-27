@@ -572,10 +572,11 @@ class Campo
                         if($row2['resposta2'] == 0){
                             $textoModal .= "<option value ='90'>90 minutos</option>";
                         }
+                        break;
                     }
                 }
             }
-            if ($result2->num_rows == 0) {
+            else if ($result2->num_rows == 0) {
                 $textoModal .= "<option value ='60'>60 minutos</option>";     
                 $textoModal .= "<option value ='90'>90 minutos</option>"; 
             }
