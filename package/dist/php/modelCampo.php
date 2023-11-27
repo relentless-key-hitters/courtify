@@ -451,30 +451,19 @@ class Campo
                         array_push($horas, array($row2['hora_inicio'], $row2['n_blocos']));
                     }
                 }
-                $dataAtual = date("Y-m-d");
-                if($dataAtual == $data) {
-                    $hora3 = "08:00:00";
-                    for($i = 0; $i < 28; $i++) {
-                        if($hora3 > date("h:i:s")) {
-                            
-                        }
+                $horainicio = 8;
+                $minuto = 0;
+                $texto = "08:00";
+                $texto2 = "08:00:00";
+                for ($i = 0; $i < 32; $i++) {
+                    if ($texto2 == '24:00:00'){
+                        break;
                     }
-                    $horainicio = 8;
-                    $minuto = 0;
-                    $texto = "08:00";
-                    $texto2 = "08:00:00";
-                } else {
-                    $horainicio = 8;
-                    $minuto = 0;
-                    $texto = "08:00";
-                    $texto2 = "08:00:00";
-                }
-                for ($i = 0; $i < 28; $i++) {
                     $flag = true;
                     for ($j = 0; $j < count($horas); $j++) {
                         if ($horas[$j][0] == $texto2){ 
                             $flag = false;
-                            for($k = 0; $k < $horas[$j][1]; $k++){
+                            for($k = 0; $k < $horas[$j][1] - 1; $k++){
                                 $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
                                 if ($minuto == 30) {
                                     $horainicio += 1;
@@ -497,33 +486,35 @@ class Campo
                                     }
                                 }
                             }
+                            $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
                         }
                     }
                     if ($flag) {
                         $txtId = "";
                         $txtId .= $row['id_campo'].".".$texto;
                         $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2' value = '".$txtId."' onclick = 'marcarCampo(this.value)'>" . $texto . "</button>";
-                    }
-                    if ($minuto == 30) {                      
-                        $horainicio += 1;
-                        $minuto = 0;    
-                        if ($horainicio < 10) {
-                            $texto = "0" . $horainicio . ":0" . $minuto;
-                            $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
+                        if ($minuto == 30) {                      
+                            $horainicio += 1;
+                            $minuto = 0;    
+                            if ($horainicio < 10) {
+                                $texto = "0" . $horainicio . ":0" . $minuto;
+                                $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
+                            } else {
+                                $texto = $horainicio . ":0" . $minuto;
+                                $texto2 = $horainicio . ":0" .$minuto.":00";
+                            }
                         } else {
-                            $texto = $horainicio . ":0" . $minuto;
-                            $texto2 = $horainicio . ":0" .$minuto.":00";
-                        }
-                    } else {
-                        $minuto = 30;
-                        if ($horainicio < 10) {
-                            $texto = "0" . $horainicio . ":" . $minuto;
-                            $texto2 = "0" . $horainicio . ":" . $minuto.":00";
-                        } else {
-                            $texto = $horainicio . ":" . $minuto;
-                            $texto2 = $horainicio . ":" . $minuto.":00";
+                            $minuto = 30;
+                            if ($horainicio < 10) {
+                                $texto = "0" . $horainicio . ":" . $minuto;
+                                $texto2 = "0" . $horainicio . ":" . $minuto.":00";
+                            } else {
+                                $texto = $horainicio . ":" . $minuto;
+                                $texto2 = $horainicio . ":" . $minuto.":00";
+                            }
                         }
                     }
+                    
                 }
                 $marcacao .= "</div>
                     </div>
@@ -533,6 +524,7 @@ class Campo
             }
         }
         return($marcacao);
+
     }
 
     function openModalMarcacao($id){
