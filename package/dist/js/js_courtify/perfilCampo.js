@@ -217,6 +217,7 @@ function toggleImageSelection(imgElement) {
     }
   }
 
+
   function alerta2(titulo,msg,icon){
     Swal.fire({
         position: 'center',

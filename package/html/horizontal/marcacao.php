@@ -350,7 +350,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-md-6 text-end mt-2 mt-md-0 col">
             <div class="form-check input-group-lg form-switch d-flex align-items-center justify-content-end mb-0">
               <div>
-                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" checked style="width:50px; height: 30px;">
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" style="width:50px; height: 30px;">
                 <label class="form-check-label me-5 fs-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
               </div>
               <div class="d-none d-xxl-flex input-group-lg">

@@ -335,43 +335,43 @@ class Campo
                                 <li class="">
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
                                         <span class="fs-3 fw-bold">Segunda-feira</span>
-                                        <span class="fs-3">09:30 - 21:30</span>
+                                        <span class="fs-3">08:00 - 23:30</span>
                                     </div>
                                 </li>
                                 <li class="">
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
                                         <span class="fs-3 fw-bold">Terça-feira</span>
-                                        <span class="fs-3">09:30 - 21:30</span>
+                                        <span class="fs-3">08:00 - 23:30</span>
                                     </div>
                                 </li>
                                 <li class="">
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
                                         <span class="fs-3 fw-bold">Quarta-feira</span>
-                                        <span class="fs-3">09:30 - 21:30</span>
+                                        <span class="fs-3">08:00 - 23:30</span>
                                     </div>
                                 </li>
                                 <li class="">
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
                                         <span class="fs-3 fw-bold">Quinta-feira</span>
-                                        <span class="fs-3">09:30 - 21:30</span>
+                                        <span class="fs-3">08:00 - 23:30</span>
                                     </div>
                                 </li>
                                 <li class="">
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
                                         <span class="fs-3 fw-bold">Sexta-feira</span>
-                                        <span class="fs-3">09:30 - 21:30</span>
+                                        <span class="fs-3">08:00 - 23:30</span>
                                     </div>
                                 </li>
                                 <li class="">
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
                                         <span class="fs-3 fw-bold">Sábado</span>
-                                        <span class="fs-3">09:30 - 21:30</span>
+                                        <span class="fs-3">08:00 - 23:30</span>
                                     </div>
                                 </li>
                                 <li class="">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="fs-3 fw-bold">Domingo</span>
-                                        <span class="fs-3">09:30 - 21:30</span>
+                                        <span class="fs-3">08:00 - 23:30</span>
                                     </div>
                                 </li>
                                 
