@@ -463,7 +463,7 @@ class Campo
                     for ($j = 0; $j < count($horas); $j++) {
                         if ($horas[$j][0] == $texto2){ 
                             $flag = false;
-                            for($k = 0; $k < $horas[$j][1] - 1; $k++){
+                            for($k = 0; $k < $horas[$j][1]; $k++){
                                 $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
                                 if ($minuto == 30) {
                                     $horainicio += 1;
@@ -486,7 +486,7 @@ class Campo
                                     }
                                 }
                             }
-                            $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
+                            
                         }
                     }
                     if ($flag) {
