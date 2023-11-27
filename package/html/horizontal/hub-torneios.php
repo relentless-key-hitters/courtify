@@ -70,7 +70,7 @@ if (isset($_SESSION['id'])) { ?>
             <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
@@ -140,8 +140,6 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                     </a>
                   </div>
-                  <div id="notifVotacao">
-                    </div>
                   <div class="py-6 px-7 mb-1">
                     <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
                   </div>
@@ -227,16 +225,13 @@ if (isset($_SESSION['id'])) { ?>
             <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
               <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
             </div>
-            <img class="img-fluid" src="../../dist/images/backgrounds/torneiosbackground.jpg"
-              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(60%);">
+            <img class="img-fluid" src="../../dist/images/backgrounds/torneiosback2.jpg"
+              style="width: 100%; max-width: 100%; height: 600px; object-position: bottom; object-fit: cover; filter: brightness(60%);">
             <div
-              style="position: absolute; top: 20%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
-              <h1 class="text-white fw-semibold" style="letter-spacing: 1px; font-size: 120px">
+              style="position: absolute; top: 50%; transform: translateY(-50%); left: 10%; text-align: center; color: white;">
+              <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
                 Torneios</h1>
-            </div>
-            <div
-              style="position: absolute; top: 80%; transform: translateY(-50%); left: 10%; text-align: center; color: white;">
-              <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 60px">
+              <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px">
                 Encontra um adversário <br> à altura
               </p>
             </div>
@@ -1449,24 +1444,6 @@ if (isset($_SESSION['id'])) { ?>
       </div>
     </div>
 
-        <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id = "corpoModal">
-          
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success font-medium waves-effect text-start">
-            Votar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
 
     <!-- Import Js Files -->
@@ -1479,18 +1456,10 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/app-style-switcher.js"></script>
     <script src="../../dist/js/sidebarmenu.js"></script>
 
-<<<<<<< Updated upstream
-        <script src="../../dist/js/custom.js"></script>
-        <!-- current page js files -->
-        <script src="../../dist/js/js_courtify/sweatalert.js"></script>
-        <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-        <script src="../../dist/js/js_courtify/notificacao.js"></script>
-=======
     <script src="../../dist/js/custom.js"></script>
     <!-- current page js files -->
     <script src="../../dist/js/js_courtify/sweatalert.js"></script>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
->>>>>>> Stashed changes
 
 
 
