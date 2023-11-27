@@ -788,7 +788,10 @@ class User{
         if ($result->num_rows > 0) {
 
             while($row = $result->fetch_assoc()) {
-                if($contador < 2) {
+                $currentDate = "";
+                $currentDate .= date("Y-m-d");
+                $rowDate = $row['dataMarc'];
+                if($contador < 2 && $currentDate < $rowDate) {
                     if($contador == 0) {
                         $msgA = "<div class='col-lg-12'>
                         <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
