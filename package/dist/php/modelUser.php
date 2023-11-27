@@ -816,7 +816,21 @@ class User{
                                 </div>
                             </div>
                         </div>";
+                        }else{
+                            $msg .= "<div class='col-lg-12'>
+                            <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
+                                <img src='".$row['fotoCampo']."' class='rounded mt-4 object-fit-cover' alt='".$row['nomeCampo']."' style='max-width: 190px;'>
+                                <div class='p-3'>
+                                    <h5 class='card-title fs-7'>".$row['nomeCampo']."</h5>
+                                    <p class='card-text fs-6'>".$row['dataMarc']." / ".$row['horaMarcInicio']."</p>
+                                    <p class='card-text fs-4'>".$row['nomeClube']."</p>
+                                    <a href='#' class='btn btn-primary'>Mais Info</a>
+                                </div>
+                            </div>
+                        </div>"; 
+                            $msg .= $msgA;
                         }
+                        
                     }
                     $contador++; 
                 } 
