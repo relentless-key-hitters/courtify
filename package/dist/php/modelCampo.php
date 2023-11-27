@@ -575,18 +575,22 @@ class Campo
                     }
                 }
             }
+            if ($result2->num_rows == 0) {
+                $textoModal .= "<option value ='60'>60 minutos</option>";     
+                $textoModal .= "<option value ='90'>90 minutos</option>"; 
+            }
             $textoModal .= "</select>
                         </div>
                         <div class='col-md-5 mt-4 d-sm-flex d-md-block justify-content-center gap-2'>
                             <div class='form-check' data-toggle='tooltip' data-placement='top' title='Convida amigos e permite que outros utilizadores se juntem á tua marcação'>
-                                <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='aberta' onclick='mostrarAmigos(".$row['numParticipantesMax'].")'>
-                                <label class='form-check-label' for='exampleRadios1'>
+                                <input class='form-check-input' type='radio' name='exampleRadios' id='aberta' value='aberta' onclick='mostrarAmigos(".$row['numParticipantesMax'].")'>
+                                <label class='form-check-label' for='aberta'>
                                     Marcação Aberta
                                 </label>
                             </div>
                             <div class='form-check' data-toggle='tooltip' data-placement='top' title='Mantém a marcação fechada'>
-                                <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='fechada'>
-                                <label class='form-check-label' for='exampleRadios2'>
+                                <input class='form-check-input' type='radio' name='exampleRadios' id='fechada' value='fechada'>
+                                <label class='form-check-label' for='fechada'>
                                     Marcação Fechada
                                 </label>
                             </div>
@@ -597,6 +601,40 @@ class Campo
         }
         
         $conn->close();
-        return($textoModal);
+        $data = array('modal' => $textoModal, 'hora' => $hora, 'idCampo' => $id);
+        return json_encode($data);
+    }
+
+    function guardarMarcacao($id, $duracao, $horas, $tipoMarcacao){
+
+        global $conn;
+        $flag = true;
+        $msg = "";
+        $icon ="success";
+        $sql = "";
+        if($duracao == 30){
+            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '00:30:00'))";
+        }else if($duracao == 60){
+            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '01:00:00'))";
+        }else{
+            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '01:30:00'))";
+        }
+        
+        if($conn->query($sql) === TRUE){
+            $msg = "Marcação feita com sucesso!";
+        }else{
+            $msg = "Não foi possível realizar a sua marcação.";
+            $flag = false;
+            $icon = "error";
+        }
+
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+
+        $conn ->close();
+        return ($resp);
     }
 }
