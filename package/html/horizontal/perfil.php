@@ -57,16 +57,8 @@ if (isset($_SESSION['id'])) {?>
           </li>
         </ul>
         <ul class="navbar-nav quick-links d-none d-xl-flex">
-          <li class="nav-item dropdown">
-            <a class="nav-link fs-6 dropdown-toggle" href="#" id="hubDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Comunidade
-            </a>
-            <div class="dropdown-menu border border-1 border-primary" aria-labelledby="hubDropdown">
-
-              <a class="dropdown-item fs-4" href="./hub.php">Hub</a>
-              <a class="dropdown-item fs-4" href="#">Item 2</a>
-
-            </div>
+          <li class="nav-item dropdown-hover d-none d-xl-block">
+            <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
@@ -188,7 +180,7 @@ if (isset($_SESSION['id'])) {?>
                           <h6 class="mb-1 bg-hover-primary fw-semibold">Mensagens</h6>
                         </div>
                       </a>
-                      <a href="./app-calendar.php" class="py-8 px-7 d-flex align-items-center">
+                      <a href="./calendario.php" class="py-8 px-7 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-calendar fs-7 text-primary"></i>
                         </span>

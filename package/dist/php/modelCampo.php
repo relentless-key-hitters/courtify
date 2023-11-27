@@ -451,10 +451,24 @@ class Campo
                         array_push($horas, array($row2['hora_inicio'], $row2['n_blocos']));
                     }
                 }
-                $horainicio = 8;
-                $minuto = 0;
-                $texto = "08:00";
-                $texto2 = "08:00:00";
+                $dataAtual = date("Y-m-d");
+                if($dataAtual == $data) {
+                    $hora3 = "08:00:00";
+                    for($i = 0; $i < 28; $i++) {
+                        if($hora3 > date("h:i:s")) {
+                            $hora3 = ;
+                        }
+                    }
+                    $horainicio = 8;
+                    $minuto = 0;
+                    $texto = "08:00";
+                    $texto2 = "08:00:00";
+                } else {
+                    $horainicio = 8;
+                    $minuto = 0;
+                    $texto = "08:00";
+                    $texto2 = "08:00:00";
+                }
                 for ($i = 0; $i < 28; $i++) {
                     $flag = true;
                     for ($j = 0; $j < count($horas); $j++) {
