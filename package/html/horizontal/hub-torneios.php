@@ -227,24 +227,30 @@ if (isset($_SESSION['id'])) { ?>
             <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
               <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
             </div>
-            <img class="img-fluid" src="../../dist/images/backgrounds/parsoa-khorsand-9kKzk8fU6Vw-unsplash.jpg"
-              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(70%);">
+            <img class="img-fluid" src="../../dist/images/backgrounds/torneiosbackground.jpg"
+              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(60%);">
             <div
-              style="position: absolute; top: 67%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
-              <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 120px">
+              style="position: absolute; top: 20%; transform: translateY(-50%); left: 5%; text-align: center; color: white;">
+              <h1 class="text-white fw-semibold" style="letter-spacing: 1px; font-size: 120px">
                 Torneios</h1>
+            </div>
+            <div
+              style="position: absolute; top: 80%; transform: translateY(-50%); left: 10%; text-align: center; color: white;">
               <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 60px">
                 Encontra um adversário <br> à altura
+              </p>
             </div>
           </div>
         </div>
         <div class="body-wrapper">
           <div class="container">
             <div class=" mt-5">
-              <h2 class="mb-4">Painel Informativo Semanal</h2>
-              <h4 class=" mb-4">Top 5 Torneios #DATA INICIO# - #DATA FIM# (SEMANA ATUAL)
-              </h4>
-              <div class="card shadow px-3 py-3">
+              <div class="card shadow bg-light px-3 py-3">
+                <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
+                  <h3 class="">Confere aqui os próximos <span class="text-success fw-bold">Torneios</span> deste mês
+                  </h3>
+                  <h3 class="text-primary text-end">01/11 a 30/11</h3>
+                </div>
                 <div class="card shadow">
                   <div class="card-body">
 
@@ -501,8 +507,8 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                       </div>
 
-                      <div class="tab-pane fade show" id="pills-tenis" role="tabpanel"
-                        aria-labelledby="pills-tenis-tab" tabindex="0">
+                      <div class="tab-pane fade show" id="pills-tenis" role="tabpanel" aria-labelledby="pills-tenis-tab"
+                        tabindex="0">
                         <div class="card-text pt-5">
                           <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -720,7 +726,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/smoothsailors.png" style="max-width: 240px;">
+                                        src="../../dist/images/backgrounds/baskethooptorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">Bacelo Court</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -749,7 +755,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/smoothsailors.png" style="max-width: 240px;">
+                                        src="../../dist/images/backgrounds/baskethooptorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">Bacelo Court</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -786,7 +792,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/basketball.jpg">
+                                        src="../../dist/images/backgrounds/basketgame.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">Salesianos</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -816,7 +822,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/basketball.jpg">
+                                        src="../../dist/images/backgrounds/basketgame.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">Salesianos</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -853,7 +859,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/basketcourt.jpg">
+                                        src="../../dist/images/backgrounds/baskettorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">Jardim Público</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -883,7 +889,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/basketcourt.jpg">
+                                        src="../../dist/images/backgrounds/baskettorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">Jardim Público</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -927,7 +933,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/netfut.jpg">
+                                        src="../../dist/images/backgrounds/futsaltorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">ESGP</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -956,7 +962,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/netfut.jpg">
+                                        src="../../dist/images/backgrounds/futsaltorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">ESGP</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -1059,9 +1065,9 @@ if (isset($_SESSION['id'])) { ?>
                                 <li class="list-group-item">
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
-                                      <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                      <img class="card-img-top object-fit-cover" style="max-width: 215px;"
+                                        src="../../dist/images/backgrounds/g.png">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Geckos Pavilhão</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -1089,9 +1095,9 @@ if (isset($_SESSION['id'])) { ?>
                                 <li class="list-group-item">
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
-                                      <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/padel-comunidades.jpg">
-                                      <span class="fs-8 ms-2 ms-md-0 pt-1">ESC Padel</span>
+                                      <img class="card-img-top object-fit-cover" style="max-width: 215px;"
+                                        src="../../dist/images/backgrounds/g.png">
+                                      <span class="fs-8 ms-2 ms-md-0 pt-1">Geckos Pavilhão</span>
 
                                       <div class="d-flex align-items-center mt-2">
                                         <span
@@ -1124,327 +1130,324 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
+              </div>
 
-
-                  <div class=" mt-5">
-                    <h2 class="mb-4">Torneios existentes em #LOCALIDADE USER#</h2>
-                    <div class="card shadow px-3 py-3">
-                      <div class="row">
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+              <div class=" mt-5">
+                <h2 class="mb-4">Torneios existentes em #LOCALIDADE USER#</h2>
+                <div class="card shadow px-3 py-3">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
-                        <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                          <div class="card hover-img shadow">
-                            <div class="card-body">
-                              sdfsd
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
+                      <div class="card hover-img shadow">
+                        <div class="card-body">
+                          sdfsd
                         </div>
                       </div>
                     </div>
                   </div>
-
                 </div>
-                <div style="margin-left: 60px; margin-right: 60px;">
-                  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                    <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+              </div>
 
-                    <a href="#"
-                      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                      <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-                    </a>
-                    <div>
-                      <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-                    </div>
+            </div>
+            <div style="margin-left: 60px; margin-right: 60px;">
+              <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
-                  </footer>
+                <a href="#"
+                  class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                  <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+                </a>
+                <div>
+                  <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+                </div>
+
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dark-transparent sidebartoggler"></div>
+    </div>
+    <!--  Shopping Cart -->
+    <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header py-4">
+        <h5 class="offcanvas-title fs-5 fw-semibold" id="offcanvasRightLabel">Shopping Cart</h5>
+        <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">5 new</span>
+      </div>
+      <div class="offcanvas-body h-100 px-4 pt-0" data-simplebar>
+        <ul class="mb-0">
+          <li class="pb-7">
+            <div class="d-flex align-items-center">
+              <img src="../../dist/images/products/product-1.jpg" width="95" height="75"
+                class="rounded-1 me-9 flex-shrink-0" alt="" />
+              <div>
+                <h6 class="mb-1">Supreme toys cooker</h6>
+                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                  <div class="input-group input-group-sm w-50">
+                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
+                      id="add1"> - </button>
+                    <input type="text"
+                      class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
+                      placeholder="" aria-label="Example text with button addon" aria-describedby="add1" value="1" />
+                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
+                      id="addo2">
+                      + </button>
+                  </div>
                 </div>
               </div>
             </div>
+          </li>
+          <li class="pb-7">
+            <div class="d-flex align-items-center">
+              <img src="../../dist/images/products/product-2.jpg" width="95" height="75"
+                class="rounded-1 me-9 flex-shrink-0" alt="" />
+              <div>
+                <h6 class="mb-1">Supreme toys cooker</h6>
+                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                  <div class="input-group input-group-sm w-50">
+                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
+                      id="add2"> - </button>
+                    <input type="text"
+                      class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
+                      placeholder="" aria-label="Example text with button addon" aria-describedby="add2" value="1" />
+                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
+                      id="addon34"> + </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="pb-7">
+            <div class="d-flex align-items-center">
+              <img src="../../dist/images/products/product-3.jpg" width="95" height="75"
+                class="rounded-1 me-9 flex-shrink-0" alt="" />
+              <div>
+                <h6 class="mb-1">Supreme toys cooker</h6>
+                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                  <div class="input-group input-group-sm w-50">
+                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
+                      id="add3"> - </button>
+                    <input type="text"
+                      class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
+                      placeholder="" aria-label="Example text with button addon" aria-describedby="add3" value="1" />
+                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
+                      id="addon3"> + </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="align-bottom">
+          <div class="d-flex align-items-center pb-7">
+            <span class="text-dark fs-3">Sub Total</span>
+            <div class="ms-auto">
+              <span class="text-dark fw-semibold fs-3">$2530</span>
+            </div>
           </div>
-          <div class="dark-transparent sidebartoggler"></div>
+          <div class="d-flex align-items-center pb-7">
+            <span class="text-dark fs-3">Total</span>
+            <div class="ms-auto">
+              <span class="text-dark fw-semibold fs-3">$6830</span>
+            </div>
+          </div>
+          <a href="./eco-checkout.html" class="btn btn-outline-primary w-100">Go to shopping cart</a>
         </div>
-        <!--  Shopping Cart -->
-        <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight"
-          aria-labelledby="offcanvasRightLabel">
-          <div class="offcanvas-header py-4">
-            <h5 class="offcanvas-title fs-5 fw-semibold" id="offcanvasRightLabel">Shopping Cart</h5>
-            <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">5 new</span>
+      </div>
+    </div>
+
+    <!--  Mobilenavbar -->
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar"
+      aria-labelledby="offcanvasWithBothOptionsLabel">
+      <nav class="sidebar-nav scroll-sidebar">
+        <div class="offcanvas-header justify-content-between">
+          <img src="../../dist/images/logos/favicon.ico" alt="" class="img-fluid">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body profile-dropdown mobile-navbar" data-simplebar="" data-simplebar>
+          <ul id="sidebarnav">
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="#" aria-expanded="false">
+                <span>
+                  <i class="ti ti-home"></i>
+                </span>
+                <span class="hide-menu">Home</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-soccer-field"></i>
+                </span>
+                <span class="hide-menu">Marcação</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="#" aria-expanded="false">
+                <span>
+                  <i class="ti ti-radar"></i>
+                </span>
+                <span class="hide-menu">Descobrir</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!--  Search Bar -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content rounded-1">
+          <div class="modal-header border-bottom">
+            <input type="search" class="form-control fs-3" placeholder="Search here" id="search" />
+            <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
+              <i class="ti ti-x fs-5 ms-3"></i>
+            </span>
           </div>
-          <div class="offcanvas-body h-100 px-4 pt-0" data-simplebar>
-            <ul class="mb-0">
-              <li class="pb-7">
-                <div class="d-flex align-items-center">
-                  <img src="../../dist/images/products/product-1.jpg" width="95" height="75"
-                    class="rounded-1 me-9 flex-shrink-0" alt="" />
-                  <div>
-                    <h6 class="mb-1">Supreme toys cooker</h6>
-                    <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                    <div class="d-flex align-items-center justify-content-between mt-2">
-                      <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                      <div class="input-group input-group-sm w-50">
-                        <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
-                          id="add1"> - </button>
-                        <input type="text"
-                          class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
-                          placeholder="" aria-label="Example text with button addon" aria-describedby="add1"
-                          value="1" />
-                        <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
-                          id="addo2">
-                          + </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div class="modal-body message-body" data-simplebar="">
+            <h5 class="mb-0 fs-5 p-1">Quick Page Links</h5>
+            <ul class="list mb-0 py-2">
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Modern</span>
+                  <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                </a>
               </li>
-              <li class="pb-7">
-                <div class="d-flex align-items-center">
-                  <img src="../../dist/images/products/product-2.jpg" width="95" height="75"
-                    class="rounded-1 me-9 flex-shrink-0" alt="" />
-                  <div>
-                    <h6 class="mb-1">Supreme toys cooker</h6>
-                    <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                    <div class="d-flex align-items-center justify-content-between mt-2">
-                      <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                      <div class="input-group input-group-sm w-50">
-                        <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
-                          id="add2"> - </button>
-                        <input type="text"
-                          class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
-                          placeholder="" aria-label="Example text with button addon" aria-describedby="add2"
-                          value="1" />
-                        <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
-                          id="addon34"> + </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
+                  <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
+                </a>
               </li>
-              <li class="pb-7">
-                <div class="d-flex align-items-center">
-                  <img src="../../dist/images/products/product-3.jpg" width="95" height="75"
-                    class="rounded-1 me-9 flex-shrink-0" alt="" />
-                  <div>
-                    <h6 class="mb-1">Supreme toys cooker</h6>
-                    <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                    <div class="d-flex align-items-center justify-content-between mt-2">
-                      <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                      <div class="input-group input-group-sm w-50">
-                        <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button"
-                          id="add3"> - </button>
-                        <input type="text"
-                          class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty"
-                          placeholder="" aria-label="Example text with button addon" aria-describedby="add3"
-                          value="1" />
-                        <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button"
-                          id="addon3"> + </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Contacts</span>
+                  <span class="fs-3 text-muted d-block">/apps/contacts</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Posts</span>
+                  <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Detail</span>
+                  <span
+                    class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Shop</span>
+                  <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Modern</span>
+                  <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
+                  <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Contacts</span>
+                  <span class="fs-3 text-muted d-block">/apps/contacts</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Posts</span>
+                  <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Detail</span>
+                  <span
+                    class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
+                </a>
+              </li>
+              <li class="p-1 mb-1 bg-hover-light-black">
+                <a href="#">
+                  <span class="fs-3 text-black fw-normal d-block">Shop</span>
+                  <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
+                </a>
               </li>
             </ul>
-            <div class="align-bottom">
-              <div class="d-flex align-items-center pb-7">
-                <span class="text-dark fs-3">Sub Total</span>
-                <div class="ms-auto">
-                  <span class="text-dark fw-semibold fs-3">$2530</span>
-                </div>
-              </div>
-              <div class="d-flex align-items-center pb-7">
-                <span class="text-dark fs-3">Total</span>
-                <div class="ms-auto">
-                  <span class="text-dark fw-semibold fs-3">$6830</span>
-                </div>
-              </div>
-              <a href="./eco-checkout.html" class="btn btn-outline-primary w-100">Go to shopping cart</a>
-            </div>
           </div>
         </div>
-
-        <!--  Mobilenavbar -->
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar"
-          aria-labelledby="offcanvasWithBothOptionsLabel">
-          <nav class="sidebar-nav scroll-sidebar">
-            <div class="offcanvas-header justify-content-between">
-              <img src="../../dist/images/logos/favicon.ico" alt="" class="img-fluid">
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body profile-dropdown mobile-navbar" data-simplebar="" data-simplebar>
-              <ul id="sidebarnav">
-                <li class="sidebar-item">
-                  <a class="sidebar-link" href="#" aria-expanded="false">
-                    <span>
-                      <i class="ti ti-home"></i>
-                    </span>
-                    <span class="hide-menu">Home</span>
-                  </a>
-                </li>
-                <li class="sidebar-item">
-                  <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
-                    <span>
-                      <i class="ti ti-soccer-field"></i>
-                    </span>
-                    <span class="hide-menu">Marcação</span>
-                  </a>
-                </li>
-                <li class="sidebar-item">
-                  <a class="sidebar-link" href="#" aria-expanded="false">
-                    <span>
-                      <i class="ti ti-radar"></i>
-                    </span>
-                    <span class="hide-menu">Descobrir</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-        <!--  Search Bar -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content rounded-1">
-              <div class="modal-header border-bottom">
-                <input type="search" class="form-control fs-3" placeholder="Search here" id="search" />
-                <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
-                  <i class="ti ti-x fs-5 ms-3"></i>
-                </span>
-              </div>
-              <div class="modal-body message-body" data-simplebar="">
-                <h5 class="mb-0 fs-5 p-1">Quick Page Links</h5>
-                <ul class="list mb-0 py-2">
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Modern</span>
-                      <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
-                      <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Contacts</span>
-                      <span class="fs-3 text-muted d-block">/apps/contacts</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Posts</span>
-                      <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Detail</span>
-                      <span
-                        class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Shop</span>
-                      <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Modern</span>
-                      <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
-                      <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Contacts</span>
-                      <span class="fs-3 text-muted d-block">/apps/contacts</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Posts</span>
-                      <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Detail</span>
-                      <span
-                        class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
-                    </a>
-                  </li>
-                  <li class="p-1 mb-1 bg-hover-light-black">
-                    <a href="#">
-                      <span class="fs-3 text-black fw-normal d-block">Shop</span>
-                      <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
 
         <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
@@ -1466,54 +1469,61 @@ if (isset($_SESSION['id'])) { ?>
 
 
 
-        <!-- Import Js Files -->
-        <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
-        <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
-        <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- core files -->
-        <script src="../../dist/js/app.min.js"></script>
-        <script src="../../dist/js/app.horizontal.init.js"></script>
-        <script src="../../dist/js/app-style-switcher.js"></script>
-        <script src="../../dist/js/sidebarmenu.js"></script>
+    <!-- Import Js Files -->
+    <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- core files -->
+    <script src="../../dist/js/app.min.js"></script>
+    <script src="../../dist/js/app.horizontal.init.js"></script>
+    <script src="../../dist/js/app-style-switcher.js"></script>
+    <script src="../../dist/js/sidebarmenu.js"></script>
 
+<<<<<<< Updated upstream
         <script src="../../dist/js/custom.js"></script>
         <!-- current page js files -->
         <script src="../../dist/js/js_courtify/sweatalert.js"></script>
         <script src="../../dist/js/js_courtify/perfilUser.js"></script>
         <script src="../../dist/js/js_courtify/notificacao.js"></script>
+=======
+    <script src="../../dist/js/custom.js"></script>
+    <!-- current page js files -->
+    <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+    <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+>>>>>>> Stashed changes
 
 
 
-        <script type="text/javascript">
-          var timeout;
+    <script type="text/javascript">
+      var timeout;
 
 
-          function resetSessionTimeout() {
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
+      function resetSessionTimeout() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
 
-              var xhr = new XMLHttpRequest();
-              xhr.open('GET', 'logout.php', true);
-              xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                  alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
-                  setTimeout(function () {
-                    window.location.href = '../../../landingpage/index.html';
-                  }, 3000);
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'logout.php', true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
+              setTimeout(function () {
+                window.location.href = '../../../landingpage/index.html';
+              }, 3000);
 
-                }
-              };
-              xhr.send();
-            }, 900000);
-          }
-
-
-          document.onmousemove = resetSessionTimeout;
-          document.onkeypress = resetSessionTimeout;
+            }
+          };
+          xhr.send();
+        }, 900000);
+      }
 
 
-          resetSessionTimeout();
-        </script>
+      document.onmousemove = resetSessionTimeout;
+      document.onkeypress = resetSessionTimeout;
+
+
+      resetSessionTimeout();
+    </script>
 
 </body>
 
