@@ -66,7 +66,7 @@ if (isset($_SESSION['id'])) { ?>
             <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
@@ -126,8 +126,6 @@ if (isset($_SESSION['id'])) { ?>
                           <span class="d-block">Nova Mensagem</span>
                         </div>
                       </a>
-                    </div>
-                    <div id="notifVotacao">
                     </div>
                     <div class="py-6 px-7 mb-1">
                       <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
@@ -191,7 +189,6 @@ if (isset($_SESSION['id'])) { ?>
                           </div>
                         </a>
                       </div>
-                      
                       <div class="d-grid py-4 px-7 pt-8">
                         <a class="btn btn-outline-primary" onclick="logout()">Terminar Sessão</a>
                       </div>
@@ -213,8 +210,8 @@ if (isset($_SESSION['id'])) { ?>
               <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
                 <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
               </div>
-              <img class="img-fluid" src="../../dist/images/backgrounds/girlteam.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(70%);">
-              <div style="position: absolute; top: 22%; transform: translateY(-50%); left: 4%; text-align: center; color: white;">
+              <img class="img-fluid" src="../../dist/images/backgrounds/girlteam.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(50%);">
+              <div style="position: absolute; top: 24%; transform: translateY(-50%); left: 4%; text-align: center; color: white;">
                 <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
                   Equipas</h1>
                 <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px">
@@ -225,7 +222,7 @@ if (isset($_SESSION['id'])) { ?>
           <div class="body-wrapper">
             <div class="container">
               <div class=" mt-5">
-                <div class="card bg-light px-3 py-3">
+                <div class="card bg-light shadow px-3 py-3">
                   <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
                     <h3 class="">Confere aqui as melhores <span class="text-success fw-bold">Equipas</span> desta semana</h3>
                     <h3 class="text-primary text-end">21/11 a 28/11</h3>
@@ -936,24 +933,6 @@ if (isset($_SESSION['id'])) { ?>
         </div>
       </div>
 
-      <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id = "corpoModal">
-          
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success font-medium waves-effect text-start">
-            Votar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
 
       <!-- Import Js Files -->
@@ -970,7 +949,6 @@ if (isset($_SESSION['id'])) { ?>
       <!-- current page js files -->
       <script src="../../dist/js/js_courtify/sweatalert.js"></script>
       <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-      <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
 

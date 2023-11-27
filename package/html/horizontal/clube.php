@@ -224,7 +224,7 @@ if (isset($_SESSION['id'])) {?>
         <div class="row">
           <div class="col-lg-12" style="position: relative; margin-top: 80px;">
             <img class="img-fluid" id="fotoCampo"
-              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
+              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(50%);">
             <div
               style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
               <h1 id="nomeCampo" class="text-white fw-bolder"

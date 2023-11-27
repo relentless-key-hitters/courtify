@@ -61,7 +61,7 @@ if (isset($_SESSION['id'])) {?>
             <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
@@ -131,8 +131,6 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                     </a>
                   </div>
-                  <div id="notifVotacao">
-                    </div>
                   <div class="py-6 px-7 mb-1">
                     <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
                   </div>
@@ -214,12 +212,12 @@ if (isset($_SESSION['id'])) {?>
     <div class="body-wrapper">
       <div class="row">
       <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-        <div style="position: absolute; bottom: 5px; right: 16px; z-index: 1;">
+        <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
           <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
         </div>
-        <img class="img-fluid" src="../../dist/images/backgrounds/sandro-giacon-WLIQEo16gSo-unsplash-2.jpg"
-          style="width: 100%; max-width: 100%; height: 600px; object-fit: cover;">
-        <div style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+        <img class="img-fluid" src="../../dist/images/backgrounds/david-vives-14PwdtTss5c-unsplash.jpg"
+          style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(40%);">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
           <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder d-flex flex-column align-items-center"
             style="letter-spacing: 1px; font-size: 100px;">Comunidade
           </h1>
@@ -549,19 +547,30 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
 
-
-  <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal fade" id="vertical-center-modal" tabindex="-1" aria-labelledby="vertical-center-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex align-items-center">
+          <h4 class="modal-title">
+            Alterar foto de capa
+          </h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" id = "corpoModal">
-          
+        <div class="modal-body">
+          <div class="col-md-12 mb-3">
+            <label for="fotoCapa" class="form-label">Fotografia de capa</label>
+            <input class="form-control" type="file" id="fotoCapa" name="fotoCapa">
+          </div>
+        </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success font-medium waves-effect text-start">
-            Votar
+          <button type="button" class="btn btn-light-primary text-primary font-medium waves-effect text-start"
+            onclick="altFotoCapa()" data-bs-dismiss="modal">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
+            data-bs-dismiss="modal">
+            Fechar
           </button>
         </div>
       </div>
@@ -587,7 +596,6 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../dist/js/js_courtify/campo.js"></script>
-  <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
   <script>
