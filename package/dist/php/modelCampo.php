@@ -456,7 +456,7 @@ class Campo
                     $hora3 = "08:00:00";
                     for($i = 0; $i < 28; $i++) {
                         if($hora3 > date("h:i:s")) {
-                            $hora3 = ;
+                            
                         }
                     }
                     $horainicio = 8;
