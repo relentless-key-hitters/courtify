@@ -226,7 +226,7 @@ if (isset($_SESSION['id'])) { ?>
               <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
             </div>
             <img class="img-fluid" src="../../dist/images/backgrounds/torneiosback2.jpg"
-              style="width: 100%; max-width: 100%; height: 600px; object-position: bottom; object-fit: cover; filter: brightness(60%);">
+              style="width: 100%; max-width: 100%; height: 600px; object-position: bottom; object-fit: cover; filter: brightness(50%);">
             <div
               style="position: absolute; top: 50%; transform: translateY(-50%); left: 10%; text-align: center; color: white;">
               <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
