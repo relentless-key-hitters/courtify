@@ -70,7 +70,7 @@ if (isset($_SESSION['id'])) { ?>
             <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./marcacao_editavel.php">Marcação de Campos</a>
+            <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
           </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
@@ -928,7 +928,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/futsaltorneios.jpg">
+                                        src="../../dist/images/backgrounds/fustaltorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">ESGP</span>
 
                                       <div class="d-flex align-items-center mt-2">
@@ -957,7 +957,7 @@ if (isset($_SESSION['id'])) { ?>
                                   <div class="card hover-img shadow position-relative">
                                     <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
                                       <img class="card-img-top object-fit-cover"
-                                        src="../../dist/images/backgrounds/futsaltorneios.jpg">
+                                        src="../../dist/images/backgrounds/fustaltorneios.jpg">
                                       <span class="fs-8 ms-2 ms-md-0 pt-1">ESGP</span>
 
                                       <div class="d-flex align-items-center mt-2">
