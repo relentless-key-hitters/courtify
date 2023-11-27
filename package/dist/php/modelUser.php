@@ -615,48 +615,133 @@ class User{
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
+                $mod = "";
+                if($row['modalidade'] == "Basquetebol"){
+                    $mod = "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>";
+                }else if($row['modalidade'] == "Futsal"){
+                    $mod = "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    class='ti ti-ball-football me-1'></i><small>Futsal</small></span>";
+                }else if($row['modalidade'] == "Padel"){
+                    $mod = "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    class='ti ti-ball-tennis me-1'></i><small>Padel</small></span>";
+                }else{
+                    $mod = "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    class='ti ti-ball-tennis me-1'></i><small>Ténis</small></span>";
+                }
                 $msg .= "
-                <div class='d-flex justify-content-center mb-3'>
-                    <h4>Votação</h4>
-                </div>
-                <div class='d-flex justify-content-start align-items-center'>
-                    <div class=''>
-                        <img src='".$row['fotoClube']."' alt='Clube 1' class='object-fit-cover rounded-2 border border-1 border-primary' width='160' height='120'>
-                    </div>
+                <div class='d-flex justify-content-center pb-5'>
+                <h4 class='fw-semibold fs-9'>Votação</h4>
+              </div>
+              <div class='container-fluid text-center'>
+                <div class='row'>
+                  <div class='col-md-4 text-center'>
+                    <img src='../../dist/images/backgrounds/racketman.png' alt='Clube 1' class='object-fit-cover'
+                      style='max-width: 120px;'>
+                      <h1 class='fw-semibold fs-7'>Racket Man</h1>
+                  </div>
+                  <div class='col-md-4' style='align-items: start;'>
                     <div class='ms-3'>
-                        <small><i class='ti ti-calendar me-1'></i>".$row['dataMarc']."</small><br>
-                        <small><i class='ti ti-clock me-1'></i>".$row['horaMarc']."</small><br>
-                        <small><i class='ti ti-map-pin me-1'></i>".$row['nomeClube']."</small><br>";
-                 if($row['modalidade'] == 'Basquetebol'){
-                    $msg .= "<span class='badge rounded-pill text-bg-warning mt-2'><i
-                        class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>
+                      <small class='fs-5'><i class='ti ti-calendar me-1'></i>".$row['dataMarc']."</small><br>
+                      <small class='fs-5'><i class='ti ti-clock me-1'></i>".$row['horaMarc']."</small><br>
+                      <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nomeClube']."</small><br>
+                      ".$mod."
                     </div>
-                    <div class='row'>";
-                $msg .="<div class = 'col-6'>
-                        <h6>A tua equipa</h6>
-                        </div>
-                        <div class = 'col-6'>
-                        <h6>Equipa adversária</h6>
-                        </div>
+                  </div>
+                  <div class='col-md-4 text-center'>
+                    <img src='../../dist/images/backgrounds/demonclass.png' alt='Clube 1' class='object-fit-cover'
+                      style='max-width: 120px;'>
+                      <h1 class='fw-semibold fs-7'>Demon Class</h1>
+                  </div>
+                </div>
+              </div>
+              <h5 class='mt-4 text-center fw-semibold border-top border-2 border-light pt-3 fs-9'>Resultado</h5>
+              <div class='d-flex justify-content-between align-items-center' style='margin: 50px;'>
+                <div class='d-flex flex-column input-group-lg text-center'>
+                    <h6 class='fs-5'>A tua equipa</h6>
+                    <input type='number' class='form-control rounded'></input>
+                </div>
+                <div class='d-flex flex-column input-group-lg text-center'>
+                    <h6 class='fs-5'>A equipa adversária</h6>
+                    <input type='number' class='form-control rounded'></input>
+                </div>
+            </div>        
+              <h5 class='mt-4 text-center pb-3 fs-11'>MVP</h5>
+              <div class='d-flex justify-content-center align-items-center text-center'>
+                <div class='row grid gap-2'>
+                  <div class='col-2'>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Rui Paulo'>
                     </div>
-                </div> ";
-                 }else if($row['modalidade'] == 'Futsal'){
-                    $msg .= "<span class='badge rounded-pill text-bg-danger mt-2'><i
-                    class='ti ti-ball-football me-1'></i><small>Basquetebol</small></span>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Rui Paulo'>
                     </div>
-                    </div>";
-                 }else if($row['modalidade'] == 'Padel'){
-                    $msg .= "<span class='badge rounded-pill text-bg-primary mt-2'><i
-                    class='ti ti-ball-tennis me-1'></i><small>Basquetebol</small></span>
+                  </div>
+                  <div class='col-2'>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy6.jpg' alt='Participant 1'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Fábio Santos'>
                     </div>
-                    </div>";
-                    
-                 }else{
-                    $msg .= "<span class='badge rounded-pill text-bg-success mt-2'><i
-                    class='ti ti-ball-tennis me-1'></i><small>Basquetebol</small></span>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy9.jpg' alt='Participant 2'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Paulo Chaves'>
                     </div>
-                    </div>"; 
-                 }   
+                  </div>
+                  <div class='col-2'>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy12.jpg' alt='Participant 1'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Gonçalo Nunes'>
+    
+                    </div>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy10.jpg' alt='Participant 1'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Gonçalo Ricardo'>
+                    </div>
+                  </div>
+                  <div class='col-2'>
+                  <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy11.jpg' alt='Participant 1'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Gonçalo Nunes'>
+                    </div>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy8.jpg' alt='Participant 1'
+                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Gonçalo Ricardo'>
+                    </div>
+                  </div>
+                  <div class='col-2'>
+                  <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy7.jpg' alt='Participant 1'
+                      class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Gonçalo Nunes'>
+    
+                    </div>
+                    <div class='d-flex align-items-center mt-2'>
+                      <img src='../../dist/images/profile/boy5.jpg' alt='Participant 1'
+                      class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                        data-placement='top' title='Gonçalo Ricardo'>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h5 class='mt-4 text-center fw-semibold border-top border-2 border-light pt-3 fs-9'>Nº de Pontos</h5>
+              <div class='d-flex justify-content-center align-items-center' style='margin: 50px;'>
+                <div class='d-flex flex-column input-group-lg text-center'>
+                    <h6 class='fs-5'>Pontos que marcaste durante o jogo</h6>
+                    <input type='number' class='form-control rounded'></input>
+                </div>
+            </div>"; 
             
             }
         }
