@@ -1,5 +1,6 @@
 let idCampo;
-
+let hora;
+let idCampoMarc;
 let nParticipantesMax;
 var amigosEscolhidos = [];
 
@@ -113,16 +114,18 @@ function marcarCampo(id){
         processData: false
     })
     .done(function(msg) {
-            $("#bodyMarcacao").html(msg);
+        let obj = JSON.parse(msg);
+            $("#bodyMarcacao").html(obj.modal);
             $("#vertical-center-modal").modal('show');
-            $("#botaoGuardarMarcacao").attr('onclick',  'guardarMarcacao('+idCampo+')');
+            $("#botaoGuardarMarcacao").attr('onclick',  'guardarMarcacao('+idCampoMarc+')');
+            hora = obj.hora;
+            idCampoMarc = obj.idCampo;
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
         console.log(jqXHR.responseText);
         alert("Request failed: " + textStatus);
     });  
-
 
 }
 
@@ -133,7 +136,14 @@ function guardarMarcacao(id){
     dados.append("op", 7);
     dados.append("id", id);
     dados.append("duracao", $("#selecthora").val());
-
+    console.log( $("#selecthora").val())
+    dados.append("horas", hora);
+    if($("#aberta").is(":checked")){
+        dados.append("tipoMarcacao", 'aberta');
+    }
+    if($("#fechada").is(":checked")){
+        dados.append("tipoMarcacao", 'fechada');
+    }
 
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
@@ -145,8 +155,12 @@ function guardarMarcacao(id){
         processData: false
     })
     .done(function(msg) {
-            $("#bodyMarcacao").html(msg);
-            $("#vertical-center-modal").modal('show');
+        let obj = JSON.parse(msg);
+        alerta2("Perfil", obj.msg, obj.icon);
+        setTimeout(function(){ 
+            location.reload();
+        }, 2000);
+        getInfoPagCampo();
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
@@ -200,6 +214,18 @@ function toggleImageSelection(imgElement) {
       }
     }
   }
+
+  function alerta2(titulo,msg,icon){
+    Swal.fire({
+        position: 'center',
+        icon: icon,
+        title: titulo,
+        text: msg,
+        showConfirmButton: false,
+        confirmButtonColor: '#45702d',
+      })
+}
+
 $(function () {
     getInfoPagCampo();
 

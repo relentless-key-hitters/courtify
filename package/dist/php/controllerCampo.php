@@ -22,5 +22,8 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 6){
     $res = $campo -> openModalMarcacao($_POST['id']);
     echo($res);
+}else if ($_POST['op'] == 7){
+    $res = $campo -> guardarMarcacao($_POST['id'], $_POST['duracao'], $_POST['horas'], $_POST['tipoMarcacao']);
+    echo($res);
 }
 ?>
