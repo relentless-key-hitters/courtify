@@ -750,6 +750,12 @@ class User{
 
 
     }
+
+    function getMarcacoesNaoConcluidas() {
+        global $conn;
+
+        $sql = "";
+    }
 }
 
 
