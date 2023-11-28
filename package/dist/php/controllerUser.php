@@ -42,7 +42,7 @@ if ($_POST['op'] == 1){
     $res = $user -> getEditInfo();
     echo($res);  
 }else if ($_POST['op'] == 13){
-    $res = $user -> guardaEditInfo($_POST['nome'], $_POST['email'], $_POST['nif'], $_POST['cp'], $_POST['tel'], $_POST['morada'], $_POST['local']);
+    $res = $user -> guardaEditInfo($_POST['nome'], $_POST['email'], $_POST['nif'], $_POST['cp'], $_POST['tel'], $_POST['morada'], $_POST['local'], $_POST['bio']);
     echo($res);  
 }else if($_POST['op'] == 14){
     $res = $user -> getNotificacoes();

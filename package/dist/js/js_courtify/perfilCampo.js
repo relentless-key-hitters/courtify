@@ -3,7 +3,7 @@ let hora;
 let idCampoMarc;
 let nParticipantesMax;
 var amigosEscolhidos = [];
-
+let preco ;
 function getInfoPagCampo() {
 
     
@@ -120,7 +120,8 @@ function marcarCampo(id){
             idCampoMarc = obj.idCampo;
             $("#botaoGuardarMarcacao").attr('onclick',  'guardarMarcacao('+idCampoMarc+')');
             hora = obj.hora;
-            
+            preco = obj.preco;
+            console.log(preco);
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
@@ -228,6 +229,14 @@ function toggleImageSelection(imgElement) {
         confirmButtonColor: '#45702d',
       })
 }
+
+function getPreco(dur){
+
+    let pFinal = (dur * preco)/60;
+    $("#precomarcacao").html(pFinal  + " €");
+    $("#espacopreco").removeClass("d-none");
+}
+
 
 $(function () {
     getInfoPagCampo();

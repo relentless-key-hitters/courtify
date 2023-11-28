@@ -2,14 +2,12 @@
 session_start();
 require_once 'connection.php';
 
-
-
-
-
 class Campo
 {
+    
     function getUserLocation()
     {
+        $_SESSION['data'] = date('Y-m-d');
         global $conn;
 
         $sql = "SELECT distrito.descricao as localidade FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = " . $_SESSION['id'];
@@ -412,6 +410,7 @@ class Campo
     function getHorariosCampos($clube, $data)
     {
         global $conn;
+        date_default_timezone_set('UTC');
         $sql = "SELECT campo.id as id_campo, campo.nome as nome_campo, campo.foto as foto, tipo_campo.descricao as tipoCampo
         FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
         clube ON campo_clube.id_clube = clube.id_clube INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id WHERE clube.id_clube = '" . $clube . "'";
@@ -433,7 +432,7 @@ class Campo
                 $marcacao .= "</div>
                         <div class='d-flex justify-content-start align-items-center mt-2'>
                             <div class='d-flex flex-column'>
-                                <img src='".$row['foto']."' class='img-fluid rounded border border-1 border-primary' style='width: 350px'>
+                                <img src='".$row['foto']."' class='img-fluid rounded border border-1 border-primary' style='width: 200px'>
                                 <h6 class='mt-2 mb-0 text-center fw-bolder'>" . $row['nome_campo'] . "</h6>
                             </div>
                         <div class='ms-4 d-flex overflow-y-auto scrollbar'>";
@@ -455,6 +454,38 @@ class Campo
                 $minuto = 0;
                 $texto = "08:00";
                 $texto2 = "08:00:00";
+                $horaActual = "";
+                $horaActual .= date('H:i:s');
+                $dataActual = "";
+                $dataActual .= date('Y-m-d');
+                if( $_SESSION['data'] == $dataActual){
+                    for($k = 0; $k < 32; $k++){
+                        if($texto2 >  $horaActual){
+                            break;
+                        }else{
+                            if ($minuto == 30) {
+                                $horainicio += 1;
+                                $minuto = 0;
+                                if ($horainicio < 10) {
+                                    $texto = "0" . $horainicio . ":0" . $minuto;
+                                    $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
+                                } else {
+                                    $texto = $horainicio . ":0" . $minuto;
+                                    $texto2 = $horainicio . ":0" .$minuto.":00";
+                                }
+                            } else {
+                                $minuto = 30;
+                                if ($horainicio < 10) {
+                                    $texto = "0" . $horainicio . ":" . $minuto;
+                                    $texto2 = "0" . $horainicio . ":" . $minuto.":00";
+                                } else {
+                                    $texto = $horainicio . ":" . $minuto;
+                                    $texto2 = $horainicio . ":" . $minuto.":00";
+                                }
+                            }
+                        }         
+                    }    
+                }
                 for ($i = 0; $i < 32; $i++) {
                     if ($texto2 == '24:00:00'){
                         break;
@@ -534,11 +565,11 @@ class Campo
         $split = explode(".", $id, 2);
         $id = $split[0];
         $hora = $split[1];
-        
-        $sql = "SELECT campo.nome as nome_campo, campo.foto as foto, modalidade.n_participantes_max as numParticipantesMax
-        FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id WHERE campo.id = '" . $id."'";
-        $hora2 = $hora . ":00";
-
+        $sql = "SELECT campo.nome as nome_campo, campo.foto as foto, modalidade.n_participantes_max as numParticipantesMax, campo.preco_hora as preco
+        FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id WHERE campo.id = '" .$id."'";
+        $hora2 = "";
+        $hora2 .= $hora . ":00";
+        $preco = 0;
         $result = $conn->query($sql);
         $textoModal = "";
         if ($result->num_rows > 0) {
@@ -548,23 +579,30 @@ class Campo
                     <div class='row'>
                         <div class='col-md-6 text-center'>
                             <img src='".$row['foto']."' alt='Clube 1' class=' rounded border border-1 border-primary'
-                            style='max-width: 250px;'>
+                            style='max-width: 220px;'>
                         </div>
                         <div class='col-md-6'>
                             <div class='mt-sm-2'>
                                 <small class='fs-5'><i class='ti ti-calendar me-1'></i>". $_SESSION['data']."</small><br>
                                 <small class='fs-5'><i class='ti ti-clock me-1'></i>".$hora."</small><br>
                                 <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nome_campo']."</small><br>
+                                <div class='d-flex align-items-center justify-content-center mt-2 d-none' id='espacopreco'>
+                                    <div class='bg-light mt-2 rounded p-2 w-50'>
+                                        <h5 class='m-0 p-0' id = 'precomarcacao'></h5>
+                                    </div>
+                                </div>    
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class ='row'>
                     <div class='col-md-7'>
-                    <h5 class='fw-semibold mt-1'>Duração</h5>
-                        <select id ='selecthora' class='form-select'>
+                    <h5 class='fw-semibold mt-3'>Duração</h5>
+                    <select id ='selecthora' class='form-select w-75' onchange = 'getPreco(this.value)' >
+                    <option value= '-1'>Selecione a duração</option>
                 "
                 ;
+            $preco =  $row['preco'];
             $sql2 = "SELECT if(marcacao.hora_inicio = ADDTIME('".$hora2."', '00:30:00'), TRUE, FALSE) AS resposta1, 
             if(marcacao.hora_inicio = ADDTIME('".$hora2."', '01:00:00'), TRUE, FALSE) AS resposta2
             FROM campo INNER JOIN marcacao ON marcacao.id_campo = campo.id WHERE campo.id = '".$id."' AND marcacao.data_inicio = '".$_SESSION['data']."'";    
@@ -573,9 +611,9 @@ class Campo
             if ($result2->num_rows > 0) {
                 // output data of each row
                 while ($row2 = $result2->fetch_assoc()) {
-                    if($row2['resposta1'] == 0){
+                    if($row2['resposta1'] == 0 && $hora2 < "23:30:00"){
                         $textoModal .= "<option value ='60'>60 minutos</option>";
-                        if($row2['resposta2'] == 0){
+                        if($row2['resposta2'] == 0 && $hora2 < "23:00:00"){
                             $textoModal .= "<option value ='90'>90 minutos</option>";
                         }
                         break;
@@ -588,17 +626,19 @@ class Campo
             }
             $textoModal .= "</select>
                         </div>
-                        <div class='col-md-5 mt-4 d-sm-flex d-md-block justify-content-center gap-2'>
+                        <div class='col-md-5 mt-3 d-sm-flex d-md-block justify-content-center gap-2'>
+                            <h5 class='fw-semibold m-0 p-0 mb-1'>Tipo</h5>
+                            
                             <div class='form-check' data-toggle='tooltip' data-placement='top' title='Convida amigos e permite que outros utilizadores se juntem á tua marcação'>
                                 <input class='form-check-input' type='radio' name='exampleRadios' id='aberta' value='aberta' onclick='mostrarAmigos(".$row['numParticipantesMax'].")'>
                                 <label class='form-check-label' for='aberta'>
-                                    Marcação Aberta
+                                    Aberta
                                 </label>
                             </div>
                             <div class='form-check' data-toggle='tooltip' data-placement='top' title='Mantém a marcação fechada'>
                                 <input class='form-check-input' type='radio' name='exampleRadios' id='fechada' value='fechada'>
                                 <label class='form-check-label' for='fechada'>
-                                    Marcação Fechada
+                                    Fechada
                                 </label>
                             </div>
                         </div>
@@ -608,7 +648,7 @@ class Campo
         }
         
         $conn->close();
-        $data = array('modal' => $textoModal, 'hora' => $hora, 'idCampo' => $id);
+        $data = array('modal' => $textoModal, 'hora' => $hora, 'idCampo' => $id, 'preco' => $preco);
         return json_encode($data);
     }
 

@@ -673,11 +673,11 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-light-primary text-primary font-medium waves-effect text-start"
+          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
            data-bs-dismiss="modal" id="botaoGuardarMarcacao">
             Guardar
           </button>
-          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
+          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
             data-bs-dismiss="modal" onclick="esconderAmigos()">
             Fechar
           </button>
