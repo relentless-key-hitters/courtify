@@ -44,8 +44,6 @@ function getModalidadesUtilizadorSelect() {
 
         .done(function(msg) {
             $("#pesquisaMarcacaoModalidade").html(msg);
-            
-
         })
         
         .fail(function( jqXHR, textStatus ) {
