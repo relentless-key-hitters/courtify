@@ -822,7 +822,7 @@ class User{
         $diaA = "";
     
         if ($result->num_rows > 0) {
-
+            $flag = false;
             while($row = $result->fetch_assoc()) {
                 $currentDate = "";
                 $currentDate .= date("Y-m-d");
@@ -843,6 +843,7 @@ class User{
                     $horaA = $row['horaMarcInicio'];
                     $diaA = $row['dataMarc'];
                     } else {
+                        $flag = true;
                         if(($horaA < $row['horaMarcInicio'] && $diaA == $row['dataMarc']) ||  $diaA != $row['dataMarc']) {
                             $msg .= $msgA;
                             $msg .= "<div class='col-lg-12'>
@@ -876,6 +877,10 @@ class User{
                 } 
                 array_push($arrayHorasMarcacoesCalendario, array($row['horaMarcInicio'], $row['horaMarcFim'], $row['dataMarc'], $row['nomeClube']));       
             }
+            if(!$flag){
+                $msg.= $msgA;;
+            }
+
         } else {
             $msg .= "<div class='col-lg-12'>
                             <h4 class='mt-5'>Sem jogos próximos!</h4>
