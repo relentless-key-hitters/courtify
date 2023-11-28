@@ -215,7 +215,7 @@ if (isset($_SESSION['id'])) { ?>
                 <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
                   Grupos</h1>
                 <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 50px">
-                  Junta-te a atletas que partilhem Desporto
+                  Junta-te a atletas que <br> partilhem Desporto
               </div>
             </div>
           </div>
