@@ -309,17 +309,17 @@ if (isset($_SESSION['id'])) {?>
                             <div class="col-lg-6">
                               <div class="mb-4">
                                 <label for="nomeEdit" class="form-label fw-semibold">Nome Completo</label>
-                                <input type="text" class="form-control" id="nomeEdit" placeholder="">
+                                <input type="text" class="form-control" id="nomeEdit" >
                               </div>
                               <div class="mb-4">
                                 <label for="distritoEdit" class="form-label fw-semibold">Distrito</label>
-                                <select class="form-select" aria-label="Default select example" id="distritoEdit"
-                                  onchange="getConcelhos(this.value)">
+                                <select class="form-select" aria-label="Default select example"
+                                  onchange="getConcelhos(this.value)" id="distritoEdit">
                                 </select>
                               </div>
                               <div class="mb-4">
                                 <label for="emailEdit" class="form-label fw-semibold">Email</label>
-                                <input type="email" class="form-control" id="emailEdit" placeholder="info@courtify.com">
+                                <input type="email" class="form-control" id="emailEdit">
                               </div>
                             </div>
                             <div class="col-lg-6">
@@ -327,11 +327,11 @@ if (isset($_SESSION['id'])) {?>
                                 <div class="row">
                                   <div class="col-6">
                                     <label for="nifEdit" class="form-label fw-semibold">NIF</label>
-                                    <input type="number" class="form-control" id="nifEdit" placeholder="123456789">
+                                    <input type="number" class="form-control" id="nifEdit">
                                   </div>
                                   <div class="col-6">
                                     <label for="cpEdit" class="form-label fw-semibold">Código-Postal</label>
-                                    <input type="text" class="form-control" id="cpEdit" placeholder="1234-567">
+                                    <input type="text" class="form-control" id="cpEdit">
                                   </div>
                                 </div>
                               </div>
@@ -342,20 +342,25 @@ if (isset($_SESSION['id'])) {?>
                               </div>
                               <div class="mb-4">
                                 <label for="telEdit" class="form-label fw-semibold">Telemóvel</label>
-                                <input type="text" class="form-control" id="telEdit" placeholder="123456789">
+                                <input type="text" class="form-control" id="telEdit">
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="mb-4">
+                                <label for="moradaEdit" class="form-label fw-semibold">Morada</label>
+                                <input type="text" class="form-control" id="moradaEdit">
                               </div>
                             </div>
                             <div class="col-12">
                               <div class="">
-                                <label for="moradaEdit" class="form-label fw-semibold">Morada</label>
-                                <input type="text" class="form-control" id="moradaEdit" placeholder="Rua de Cima, nº 1">
+                                <label for="bioEdit" class="form-label fw-semibold">Biografia</label>
+                                <textarea class="form-control" id="bioEdit" rows ='3'></textarea>
                               </div>
                             </div>
                             <div class="col-12">
                               <div class="d-flex align-items-center justify-content-end mt-4 gap-3">
                                 <button type="button" class="btn btn-primary"
                                   onclick="guardaEditInfo()">Guardar</button>
-                                <button class="btn btn-light-danger text-danger">Limpar</button>
                               </div>
                             </div>
                           </div>

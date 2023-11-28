@@ -1,4 +1,5 @@
 let link = window.location.pathname;
+console.log(link)
 function registaUser(){
 
     var password = $("#passUser").val();
@@ -535,6 +536,7 @@ function getEditInfo(){
             $("#cpEdit").val(obj.cp);
             $("#telEdit").val(obj.tel);
             $("#moradaEdit").val(obj.morada);
+            $("#bioEdit").val(obj.bio);
         })
         .fail(function( jqXHR, textStatus ) {
         alert( "Request failed: " + textStatus );
@@ -551,6 +553,7 @@ function guardaEditInfo(){
     dados.append("tel", $("#telEdit").val());
     dados.append("morada", $("#moradaEdit").val());
     dados.append("local", $("#concelhoEdit").val());
+    dados.append("bio", $("#bioEdit").val());
 
     $.ajax({
         url: "../../dist/php/controllerUser.php",

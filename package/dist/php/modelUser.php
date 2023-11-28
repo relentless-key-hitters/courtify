@@ -519,7 +519,7 @@ class User{
 
     function getEditInfo(){
         global $conn; 
-        $sql = "SELECT * FROM user WHERE user.id = '".$_SESSION['id']."'"; 
+        $sql = "SELECT user.*, atleta.bio  FROM user INNER JOIN atleta on user.id = atleta.id_atleta WHERE user.id = '".$_SESSION['id']."'"; 
         $result = $conn->query($sql);
         $nome = "";
         $nif = "";
@@ -536,6 +536,7 @@ class User{
                     $email = $row['email'];
                     $tel = $row['telemovel'];
                     $morada = $row['morada'];
+                    $bio = $row['bio'];
                 }
             }
         $resp = json_encode(array(
@@ -544,13 +545,14 @@ class User{
             "cp" => $cp,
             "email" => $email,
             "tel" => $tel,
-            "morada" => $morada
+            "morada" => $morada,
+            "bio" => $bio
         ));
         $conn ->close();
         return ($resp);
     }
 
-    function guardaEditInfo($nome, $email, $nif, $cp, $tel, $morada, $local){
+    function guardaEditInfo($nome, $email, $nif, $cp, $tel, $morada, $local, $bio){
 
         global $conn;
         $flag = true;
@@ -562,7 +564,8 @@ class User{
         }else{
             $sql = "UPDATE user SET nome = '".$nome."', email = '".$email."', nif = '".$nif."', morada = '".$morada."', telemovel = '".$tel."', codigo_postal = '".$cp."', localidade = '".$local."' WHERE id = '".$_SESSION['id']."'";
         }
-        if($conn->query($sql) === TRUE){
+        $sql2 = "UPDATE atleta SET bio = '".$bio."' WHERE id_atleta = '".$_SESSION['id']."'";
+        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE){
             $msg = "Informação alterada com sucesso!";
         }else{
             $msg = "Não foi possível alterar a sua informação.";
