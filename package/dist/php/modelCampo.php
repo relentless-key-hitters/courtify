@@ -63,7 +63,7 @@ class Campo
         INNER JOIN concelho ON user.localidade = concelho.id
         INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
         INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
-        WHERE distrito.descricao LIKE '" . $localidadeUser . "' LIMIT 12";
+        LIMIT 12";
         $result = $conn->query($sql);
 
 
