@@ -46312,12 +46312,12 @@ ul {
 }
 
 .progress {
-  background-color: #bdbbbb; /* Change this to the desired color for the incomplete portion */
+  background-color: #bdbbbb; 
   width: 50%;
 }
 
 .badge-container {
-  padding: 10px;       /* Add padding for spacing */
+  padding: 10px;    
 }
 
 
@@ -46348,68 +46348,65 @@ ul {
 
 .icon-container {
   position: absolute;
-  top: 10px;  /* Adjust the top position to your preference */
-  right: 10px; /* Adjust the right position to your preference */
-  z-index: 1; /* To place the icon above the image */
+  top: 10px;  
+  right: 10px; 
+  z-index: 1; 
 }
 
 .carousel-container {
   position: relative;
 }
 
-.owl-carousel {
-  /* Your carousel styles go here */
-}
 
 .owl-prev,
 .owl-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #333; /* Customize button background color */
-  color: #fff; /* Customize button text color */
+  background-color: #333; 
+  color: #fff; 
   padding: 10px;
   cursor: pointer;
   z-index: 1;
 }
 
 .owl-prev {
-  left: 10px; /* Adjust the left position as needed */
+  left: 10px; 
 }
 
 .owl-next {
-  right: 10px; /* Adjust the right position as needed */
+  right: 10px; 
 }
 
 .owl-prev,
 .owl-next {
-  background: none; /* Remove the background */
-  color: #333; /* Set the arrow color to black */
-  font-size: 24px; /* Adjust the arrow size as needed */
-  padding: 0; /* Remove padding to ensure only the icon is visible */
-  border: none; /* Remove borders */
+  background: none;
+  color: #333;
+  font-size: 24px;
+  padding: 0; 
+  border: none; 
   cursor: pointer;
 }
 
 .owl-prev {
-  left: -50px; /* Move the "Previous" button a bit to the left */
+  left: -50px; 
 
 }
 
 .owl-next {
-  right: -50px; /* Move the "Next" button a bit to the right */
+  right: -50px; 
  
 }
 
 .carousel-container {
   position: relative;
   display: flex;
-  justify-content: center; /* Center the carousel horizontally */
+  justify-content: center; 
 }
 
 .divider {
-    width: 10px; /* Width of the divider */
-    background-color: #044967; /* Color of the divider */
+    width: 10px; 
+    background-color: #044967; 
 }
 
 .page {
@@ -46417,7 +46414,7 @@ ul {
 }
 
 .left {
-  flex: 1; /* Take up the full width initially */
+  flex: 1; 
 }
 
 .right {

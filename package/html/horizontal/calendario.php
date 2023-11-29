@@ -607,7 +607,36 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
   <script src="../../dist/js/js_courtify/calendario.js"></script>
 
+  <script type="text/javascript">
+      var timeout;
 
+
+      function resetSessionTimeout() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'logout.php', true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
+              setTimeout(function () {
+                window.location.href = '../../../landingpage/index.html';
+              }, 3000);
+
+            }
+          };
+          xhr.send();
+        }, 900000);
+      }
+
+
+      document.onmousemove = resetSessionTimeout;
+      document.onkeypress = resetSessionTimeout;
+
+
+      resetSessionTimeout();
+    </script>
 
 </body>
 

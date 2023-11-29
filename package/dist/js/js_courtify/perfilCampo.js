@@ -93,7 +93,7 @@ async function constroiMapaCampo(clubeInfo) {
     '<p><i class="ti ti-map-pin me-1"></i>' + moradaClube + '</p>'
     );
 
-    var markerLayer = L.layerGroup([marker]); // Pass an array of markers
+    var markerLayer = L.layerGroup([marker]); 
     markerLayer.addTo(map);
     map.setView(coordinates, 13);
 }

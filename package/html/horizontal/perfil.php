@@ -2542,20 +2542,19 @@ if (isset($_SESSION['id'])) {?>
     var selectedImage = null;
 
     function toggleImageSelection(imgElement) {
-      // If clicking on the already selected image, deselect it
+
       if (imgElement.classList.contains('selected-img')) {
         imgElement.classList.remove('selected-img');
         selectedImage = null;
       } else {
-        // If an image is already selected, deselect it
+
         if (selectedImage) {
           selectedImage.classList.remove('selected-img');
         }
-
-        // Select the new image
+        
         imgElement.classList.add('selected-img');
 
-        // Update the selectedImage variable
+
         selectedImage = imgElement;
       }
     }

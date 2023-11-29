@@ -11,7 +11,7 @@ class User{
         $result = $conn->query($sql);
     
         if ($result->num_rows > 0) {
-        // output data of each row
+
             while($row = $result->fetch_assoc()) {
                $msg .= "<option value = '".$row['id']."'>".$row['descricao']."</option>";
             }
@@ -28,7 +28,7 @@ class User{
         $result = $conn->query($sql);
     
         if ($result->num_rows > 0) {
-        // output data of each row
+
             while($row = $result->fetch_assoc()) {
                $msg .= "<option value = '".$row['id']."'>".$row['descricao']."</option>";
             }
@@ -146,7 +146,7 @@ class User{
         $sql = "SELECT id, descricao FROM modalidade";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-        // output data of each row
+
             while($row = $result->fetch_assoc()) {
                $msg .= "<div class='form-check form-check-inline'>
                <input class='form-check-input success' type='checkbox' id='modalidade".$row['id']."' value='".$row['id']."' onclick='getForm(".$row['id'].")'>
@@ -167,7 +167,7 @@ class User{
         $sql = "SELECT * FROM posicao_futsal";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-        // output data of each row
+
             while($row = $result->fetch_assoc()) {
                $msg .= "<option value='".$row['id']."'>".$row['descricao']."</option>";
             }
@@ -184,7 +184,7 @@ class User{
         $sql = "SELECT * FROM nivel_padel";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-        // output data of each row
+
             while($row = $result->fetch_assoc()) {
                $msg .= "<option value='".$row['id']."'>".$row['descricao']."</option>";
             }
@@ -355,7 +355,7 @@ class User{
         $result2 = $conn->query($sql2);
         $result3 = $conn->query($sql3);
         if ($result->num_rows > 0) {
-        // output data of each row
+
             while($row = $result->fetch_assoc()) {
                 $fotoPerfil = "../../dist/".$row['foto']."";
                 $nome = $row['nome'];
@@ -369,13 +369,13 @@ class User{
             }
         }
         if ($result2->num_rows > 0) {
-            // output data of each row
+
             while($row2 = $result2->fetch_assoc()) {
                 $localizacao = $row2['concelho'].", ".$row2['distrito'];
             }
             }
         if ($result3->num_rows > 0) {
-                // output data of each row
+
             while($row3 = $result3->fetch_assoc()) {
                 if($row3['descricao'] == 'Basquetebol'){
                     $mod .= "<li>
@@ -528,7 +528,7 @@ class User{
         $tel = "";
         $morada = "";
         if ($result->num_rows > 0) {
-            // output data of each row
+
                 while($row = $result->fetch_assoc()) {
                     $nome = $row['nome'];
                     $nif = $row['nif'];
@@ -590,7 +590,7 @@ class User{
         $result = $conn->query($sql);
         $msg = "";
         if ($result->num_rows > 0) {
-            // output data of each row
+
             while($row = $result->fetch_assoc()) {
                 $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;' onclick = 'getModalVot(".$row['idMarcacao'].")'>
                 <span class='me-3'>
@@ -617,7 +617,7 @@ class User{
         $result = $conn->query($sql);
         $msg = "";
         if ($result->num_rows > 0) {
-            // output data of each row
+
             while($row = $result->fetch_assoc()) {
                 $mod = "";
                 $mvp = "";

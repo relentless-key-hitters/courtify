@@ -240,11 +240,8 @@ if (isset($_SESSION['id'])) {?>
           <div class="container">
             <div class="row">
               <div class="col-lg-9">
-                <!-- First Row inside col-lg-9 -->
                 <div class="row mt-3 mb-3">
                   <div class="col-12">
-                    <!-- Content for the calendar -->
-                    <!-- Place your calendar content here -->
                     <div class="card border mb-3 shadow">
                       <div class="p-3">
                         <div class="text-center">
@@ -257,10 +254,8 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                   </div>
                 </div>
-                <!-- Second Row inside col-lg-9 -->
                 <div class="row">
                   <div class="col-12">
-                    <!-- Content for "About Us" -->
                     <div class="card border mb-3 shadow">
                       <div class="p-3">
                         <div class="text-center">
@@ -281,7 +276,6 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-3">
-                <!-- Content for col-lg-3 -->
                 <div class="card border mb-4 mt-3 shadow">
                   <div class="" id="mapa" style="height: 200px; z-index: 1;">
 

@@ -602,7 +602,7 @@ if (isset($_SESSION['id'])) {?>
 
 
   <script>
-    // Add a class to trigger the animation on page load
+
     $(document).ready(function () {
       $('.animated-text').addClass('show');
     });
@@ -613,7 +613,7 @@ if (isset($_SESSION['id'])) {?>
     function getCurrentDate() {
       const now = new Date();
       if (now.getHours() >= 23 && now.getMinutes() >= 30) {
-        // If it's 23:30 or later, get the date for the next day
+
         now.setDate(now.getDate() + 1);
       }
       const year = now.getFullYear();

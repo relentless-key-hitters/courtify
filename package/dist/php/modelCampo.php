@@ -68,7 +68,7 @@ class Campo
 
 
         if ($result->num_rows > 0) {
-            // output data of each row
+
             while ($row = $result->fetch_assoc()) {
 
                 $sql2 = " SELECT tipo_campo.descricao AS tipoCampo, modalidade.descricao AS modalidade FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
@@ -77,7 +77,7 @@ class Campo
                 $arrTipoC = [];
                 $result2 = $conn->query($sql2);
                 if ($result2->num_rows > 0) {
-                    // output data of each row
+
                     while ($row2 = $result2->fetch_assoc()) {
                         array_push($arrMods, $row2['modalidade']);
                         array_push($arrTipoC, $row2['tipoCampo']);
@@ -180,7 +180,7 @@ class Campo
                 $arrTipoC = [];
                 $result2 = $conn->query($sql2);
                 if ($result2->num_rows > 0) {
-                    // output data of each row
+
                     while ($row2 = $result2->fetch_assoc()) {
                         array_push($arrTipoC, $row2['tipoCampo']);
                     }
@@ -417,7 +417,7 @@ class Campo
         $marcacao = "";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-            // output data of each row
+
             while ($row = $result->fetch_assoc()) {
                 $marcacao .= "<div class='card' id='campo" . $row['id_campo'] . "' style='width: 100%;'>
                     <div class='p-3'>
@@ -609,7 +609,7 @@ class Campo
             $result2 = $conn->query($sql2);
             $textoModal .= "<option value='30'>30 minutos</option>";
             if ($result2->num_rows > 0) {
-                // output data of each row
+
                 while ($row2 = $result2->fetch_assoc()) {
                     if($row2['resposta1'] == 0 && $hora2 < "23:30:00"){
                         $textoModal .= "<option value ='60'>60 minutos</option>";
