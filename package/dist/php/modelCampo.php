@@ -660,11 +660,11 @@ class Campo
         $icon ="success";
         $sql = "";
         if($duracao == 30){
-            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '00:30:00'))";
+            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim, tipo) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '00:30:00'), '".$tipoMarcacao."')";
         }else if($duracao == 60){
-            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '01:00:00'))";
+            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim, tipo) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '01:00:00'), '".$tipoMarcacao."')";
         }else{
-            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '01:30:00'))";
+            $sql = "INSERT INTO marcacao (id_atleta, id_campo , data_inicio, data_fim, hora_inicio, hora_fim, tipo) VALUES (".$_SESSION['id'].", ".$id.", '".$_SESSION['data']."', '".$_SESSION['data']."', '".$horas.":00', ADDTIME('".$horas.":00', '01:30:00'), '".$tipoMarcacao."')";
         }
         
         if($conn->query($sql) === TRUE){
