@@ -2426,10 +2426,15 @@ if (isset($_SESSION['id'])) {?>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id = "corpoModal">
-          
+        </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success font-medium waves-effect text-start">
-            Votar
+          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
+           data-bs-dismiss="modal">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
+            data-bs-dismiss="modal">
+            Fechar
           </button>
         </div>
       </div>
