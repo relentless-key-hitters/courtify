@@ -46441,4 +46441,15 @@ ul {
 }
 
 
+.lugar-livre {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%; 
+  border: 3px dotted #044967;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 
