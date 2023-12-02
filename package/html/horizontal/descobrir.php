@@ -268,7 +268,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
                 </div>
                 <div class="mt-5">
-                  <h2 class="mb-4">Marcações abertas das tuas Modalidades <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesModalidades"></h2>
+                  <h2 class="mb-4">Marcações abertas das tuas Modalidades <span class="ms-2 badge bg-success rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesModalidades"></h2>
                   <div class="card bg-light px-3">
                     <div class="carousel-container mt-5" id="carousel2">
                       <div class="owl-carousel" id="marcacaoModalidades">
@@ -277,7 +277,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                   <div class=" mt-5">
-                    <h2 class="mb-4">Marcações abertas em <span id="localidadeUser"></span> <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesLocalidade"></span></h2>
+                    <h2 class="mb-4">Marcações abertas em <span id="localidadeUser"></span> <span class="ms-2 badge bg-success rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesLocalidade"></span></h2>
                     <div class="card bg-light px-3">
                       <div class="carousel-container mt-5" id="carousel3">
                         <div class="owl-carousel" id="marcacaoLocalidade">
@@ -610,8 +610,8 @@ if (isset($_SESSION['id'])) { ?>
         $(".owl-carousel").each(function() {
           var carouselId = $(this).closest(".carousel-container").attr("id");
           $(this).owlCarousel({
-            loop: true,
-            margin: 20,
+            loop: false,
+            margin: 40,
             dots: true,
             autoplay: true,
             autoplayTimeout: 5000,

@@ -41,7 +41,7 @@ class Descobrir {
                     INNER JOIN concelho ON user_clube.localidade = concelho.id
                     WHERE marcacao.tipo = 'aberta'
                     AND listagem_atletas_marcacao.votacao = '2'
-                    AND listagem_atletas_marcacao.id_atleta != 15
+                    AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
                     AND concelho.descricao = '".$localidadeUserLogin."'
                     ) AS num_rows,
                     marcacao.id AS idMarcacao,
@@ -210,7 +210,7 @@ class Descobrir {
                     INNER JOIN concelho ON user_clube.localidade = concelho.id
                     WHERE marcacao.tipo = 'aberta'
                     AND listagem_atletas_marcacao.votacao = '2'
-                    AND listagem_atletas_marcacao.id_atleta != 15
+                    AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
                     ) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
