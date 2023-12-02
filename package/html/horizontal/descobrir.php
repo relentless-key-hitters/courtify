@@ -281,41 +281,7 @@ if (isset($_SESSION['id'])) { ?>
                     <div class="card bg-light px-3">
                       <div class="carousel-container mt-5" id="carousel3">
                         <div class="owl-carousel" id="marcacaoLocalidade">
-                          <div class="item">
-                            <div class="mt-1">
-                              <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
 
-                              </div>
-                            </div>
-                          </div>
-                          <div class="item">
-                            <div class="mt-1">
-                              <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                              </div>
-                            </div>
-                          </div>
-                          <div class="item">
-                            <div class="mt-1">
-                              <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                              </div>
-                            </div>
-                          </div>
-                          <div class="item">
-                            <div class="mt-1">
-                              <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                              </div>
-                            </div>
-                          </div>
-                          <div class="item">
-                            <div class="mt-1">
-                              <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -587,7 +553,11 @@ if (isset($_SESSION['id'])) { ?>
       <script src="../../dist/js/js_courtify/perfilUser.js"></script>
       <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
-
+      <script>
+        $(function () {
+          $("[data-toggle = 'tooltip']").tooltip();
+        });
+      </script>
 
 
 

@@ -133,7 +133,7 @@ class Descobrir {
                                 </div>
                                 <div class='row mt-1'>
                                     <div class='col-md-2'>
-                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']."' style='cursor: pointer;'>
+                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;'>
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
@@ -292,7 +292,7 @@ class Descobrir {
                                 </div>
                                 <div class='row mt-1'>
                                     <div class='col-md-2'>
-                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']."' style='cursor: pointer;' onclick='funcao()'>
+                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;' onclick='funcao()'>
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
