@@ -322,12 +322,12 @@ function contRegisto(){
             .done(function(msg) {
                 alerta2("Sucesso", msg, "success");
                 setTimeout(function(){ 
-                    window.location.href = "../../html/horizontal/perfil.php";;
+                    window.location.href = "../../html/horizontal/perfil.php";
                 }, 2000);
             })
             
             .fail(function( jqXHR, textStatus ) {
-            alert( "Request failed: " + textStatus );
+                alert( "Request failed: " + textStatus );
             });
 
     } else {

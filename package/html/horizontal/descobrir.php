@@ -268,7 +268,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
                 </div>
                 <div class="mt-5">
-                  <h2 class="mb-4">Marcações abertas de *MODALIDADE*</h2>
+                  <h2 class="mb-4">Marcações abertas das tuas Modalidades</h2>
                   <div class="card bg-light px-3">
                     <div class="carousel-container mt-5" id="carousel2">
                       <div class="owl-carousel" id="marcacaoModalidades">
@@ -625,12 +625,17 @@ if (isset($_SESSION['id'])) { ?>
       </script>
 
       <script>
+
+      </script>
+
+      <script>
         $(".animated-text").addClass("show");
 
         $(".owl-carousel").each(function() {
           var carouselId = $(this).closest(".carousel-container").attr("id");
           $(this).owlCarousel({
-            loop: true,
+            loop: false,
+            rewind: true,
             margin: 20,
             dots: true,
             autoplay: true,
@@ -650,7 +655,6 @@ if (isset($_SESSION['id'])) { ?>
           });
         });
 
-        $("[data-toggle = 'tooltip']").tooltip();
       </script>
 
   </body>
