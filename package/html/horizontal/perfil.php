@@ -2429,7 +2429,7 @@ if (isset($_SESSION['id'])) {?>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
-           data-bs-dismiss="modal">
+           data-bs-dismiss="modal" id= "guardarVotacao">
             Guardar
           </button>
           <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
