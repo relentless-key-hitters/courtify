@@ -228,93 +228,13 @@ if (isset($_SESSION['id'])) { ?>
                 <div class="card bg-light px-3">
                   <div class="carousel-container mt-5" id="carousel1">
                     <div class="owl-carousel" id="marcacaoAmigos">
-                    <div class="item">
-                            <div class="mt-1">
-                              <div class="card pt-5 pb-2 px-3 hover-img">
-                                <span class="badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark" style="background-color: #f0f0f0">
-                                  <i class="ti ti-map-pin me-1"></i>
-                                  localização
-                                </span>
-                                <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
-                                  <i class="ti ti-ball-tennis me-1"></i>
-                                  <small>Padel</small>
-                                </span>
-                                <div class='row'>
-                                  <div class='col-md-6'>
-                                    <img src='../../dist/images/backgrounds/pesquisa_campo1.jpg' alt='Clube 1' class=' rounded border border-1 border-primary'>
-                                  </div>
-                                  <div class='col-md-6'>
-                                    <div class='text-center mt-sm-2'>
-                                      <small class='fs-5'><i class='ti ti-calendar me-1'></i>2023-12-01</small><br>
-                                      <small class='fs-5'><i class='ti ti-clock me-1'></i>19:30</small><br>
-                                      <small class='fs-5'><i class='ti ti-map-pin me-1'></i>Futsal 1</small><br>
-                                      <div class='d-flex align-items-center justify-content-center mt-2 d-none' id='espacopreco'>
-                                        <div class='bg-light mt-2 rounded p-2 w-50'>
-                                          <h5 class='m-0 p-0' id='precomarcacao'></h5>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-8">
-                                    <div class=" mt-2">
-                                      <i class="ti ti-building me-1 fs-5 mt-1"></i>
-                                      <span class="fs-4">Nome Clube</span>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-2 d-flex align-items-center justify-content-end">
-                                    <span class="mt-2 fs-3">Host:</span>
-                                  </div>
-                                  <div class="col-md-2">
-                                  <img src="../../dist/images/profile/boy5.jpg" alt="Participant 2"
-                                      class="rounded-circle img-fluid " style="height: 40px; width: 45px;" data-toggle="tooltip"
-                                      data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
-                                  </div>
-                                </div>
-                                <div class="border-bottom mt-1" style="color: #81A4B3">
-                                  
-                                </div>
-                                <div class="mt-2 mb-2">
-                                  <span class="fs-3">Participantes</span>
-                                </div>
-                                <div class="row mt-1">
-                                  <div class="col-md-2">
-                                    <img src="../../dist/images/profile/boy4.jpg" alt="Participant 2"
-                                      class="rounded-circle img-fluid" style="height: 40px; width: 45px;" data-toggle="tooltip"
-                                      data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
-                                  </div>
-                                  <div class="col-md-2">
-                                    <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
-                                      class="rounded-circle img-fluid" style="height: 40px; width: 45px;" data-toggle="tooltip"
-                                      data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
-                                  </div>
-                                  <div class="col-md-2">
-                                    <img src="../../dist/images/profile/boy3.jpg" alt="Participant 2"
-                                      class="rounded-circle img-fluid" style="height: 40px; width: 45px;" data-toggle="tooltip"
-                                      data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
-                                  </div>
-                                  <div class="col-md-2">
-                                    <div class="lugar-livre" data-toggle="tooltip"
-                                      data-placement="top" title="Junta-te!" style="cursor: pointer">
+                      <div class="item">
+                        <div class="mt-1">
+                          <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
 
-                                    </div>
-                                  </div>
-                                  <div class="col-md-2">
-                                    <div class="lugar-livre" data-toggle="tooltip"
-                                      data-placement="top" title="Junta-te!" style="cursor: pointer">
-
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-12 mt-4">
-                                    <button type="button" class="btn btn-primary w-100">Mais Informação</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
                           </div>
+                        </div>
+                      </div>
                       <div class="item">
                         <div class="mt-1">
                           <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
@@ -346,46 +266,12 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class=" mt-5">
+                <div class="mt-5">
                   <h2 class="mb-4">Marcações abertas de *MODALIDADE*</h2>
                   <div class="card bg-light px-3">
                     <div class="carousel-container mt-5" id="carousel2">
                       <div class="owl-carousel" id="marcacaoModalidades">
-                        <div class="item">
-                          <div class="mt-1">
-                            <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
 
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="mt-1">
-                            <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
-
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -694,10 +580,11 @@ if (isset($_SESSION['id'])) { ?>
       <script src="../../dist/js/custom.js"></script>
       <!-- current page js files -->
       <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+      <script src="../../dist/js/js_courtify/user.js"></script>
       <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-      <script src="../../dist/js/js_courtify/descobrir.js"></script>
       <script src="../../dist/js/js_courtify/notificacao.js"></script>
       <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+      <script src="../../dist/js/js_courtify/descobrir.js"></script>
 
 
 
@@ -734,15 +621,6 @@ if (isset($_SESSION['id'])) { ?>
 
         resetSessionTimeout();
       </script>
-
-        <script>
-            $(function () {
-              $("[data-toggle = 'tooltip']").tooltip();
-            });
-          </script>
-
-
-
 
   </body>
 

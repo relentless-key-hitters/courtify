@@ -3,50 +3,51 @@ function getMarcacoesAbertas() {
   dados.append("op", 1);
 
   $.ajax({
-      url: "../../dist/php/controllerDescobrir.php",
-      method: "POST",
-      data: dados,
-      dataType: "html",
-      cache: false,
-      contentType: false,
-      processData: false
-      })
+    url: "../../dist/php/controllerDescobrir.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
 
-      .done(function(msg) {
-        $("#marcacaoLocalidade").html(msg);
-      })
-      
-      .fail(function( jqXHR, textStatus ) {
-        alert( "Request failed: " + textStatus );
-      });
+    .done(function (msg) {
+      console.log(msg);
+      $("#marcacaoModalidades").html(msg.trim());
+    })
+
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
 }
 
-
-
-
 $(function () {
+  getMarcacoesAbertas();
+  $(".animated-text").addClass("show");
 
-    $('.animated-text').addClass('show');
+  setTimeout($(".owl-carousel").each(function () {
+    var carouselId = $(this).closest(".carousel-container").attr("id");
+    $(this).owlCarousel({
+      loop: true,
+      margin: 20,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 2,
+        },
+        1200: {
+          items: 3,
+        },
+      },
+    });
+  }), 5000);
 
-    $(".owl-carousel").each(function () {
-        var carouselId = $(this).closest(".carousel-container").attr("id");
-        $(this).owlCarousel({
-          margin: 20,
-          loop: true,
-          nav: false,
-          autoplay: true,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 1
-            },
-            992: {
-              items: 3
-            }
-          }
-        });
-      });
+  $("[data-toggle = 'tooltip']").tooltip();
 });
