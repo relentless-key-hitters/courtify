@@ -16,7 +16,7 @@ function getMarcacoesAbertasModalidades() {
   })
 
     .done(function (msg) {
-      setTimeout($("#marcacaoModalidades").html(msg.trim()), 6000);
+      $("#marcacaoModalidades").html(msg)
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -44,7 +44,7 @@ function getMarcacoesAbertasLocalidade() {
     .done(function (msg) {
       let obj = JSON.parse(msg);
       $("#localidadeUser").text(obj.localidadeUser);
-      setTimeout($("#marcacaoLocalidade").html(obj.msg.trim()), 6000);
+      $("#marcacaoLocalidade").html(obj.msg)
       
     })
 

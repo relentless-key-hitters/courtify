@@ -28,6 +28,8 @@ class Descobrir {
 
 
         $sql = "SELECT marcacao.id AS idMarcacao,
+                user_atleta.foto AS fotoAtletaHost,
+                user_atleta.nome AS nomeAtletaHost,
                 marcacao.id_atleta AS idAtletaHost,
                 marcacao.data_inicio AS dataInicioMarcacao,
                 marcacao.data_fim AS dataFimMarcacao,
@@ -43,7 +45,7 @@ class Descobrir {
                 tipo_campo.descricao AS tipoCampoMarcacao,
                 concelho.descricao AS localidadeClubeMarcacao,
                 modalidade.descricao AS modalidadeMarcacao,
-                user.nome as nomeClubeMarcacao
+                user_clube.nome AS nomeClubeMarcacao
                 FROM marcacao
                 INNER JOIN 
                 listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
@@ -56,11 +58,13 @@ class Descobrir {
                 INNER JOIN
                 clube ON campo_clube.id_clube = clube.id_clube
                 INNER JOIN
-                user ON clube.id_clube = user.id
+                user AS user_clube ON clube.id_clube = user_clube.id
+                INNER JOIN
+    			user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
                 INNER JOIN 
                 tipo_campo ON campo.tipo_campo = tipo_campo.id
                 INNER JOIN
-                concelho ON user.localidade = concelho.id
+                concelho ON user_clube.localidade = concelho.id
                 WHERE marcacao.tipo = 'aberta'
                 AND listagem_atletas_marcacao.votacao = '2'
                 AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
@@ -71,7 +75,7 @@ class Descobrir {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              $msg .=  "<div class='item'>
+              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
@@ -129,7 +133,7 @@ class Descobrir {
                                 </div>
                                 <div class='row mt-1'>
                                     <div class='col-md-2'>
-                                        <img src='../../dist/images/profile/boy4.jpg' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
+                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']."' style='cursor: pointer;'>
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
@@ -174,6 +178,8 @@ class Descobrir {
         $msg = "";
 
         $sql = "SELECT marcacao.id AS idMarcacao,
+                user_atleta.foto AS fotoAtletaHost,
+                user_atleta.nome AS nomeAtletaHost,
                 marcacao.id_atleta AS idAtletaHost,
                 marcacao.data_inicio AS dataInicioMarcacao,
                 marcacao.data_fim AS dataFimMarcacao,
@@ -189,7 +195,7 @@ class Descobrir {
                 tipo_campo.descricao AS tipoCampoMarcacao,
                 concelho.descricao AS localidadeClubeMarcacao,
                 modalidade.descricao AS modalidadeMarcacao,
-                user.nome as nomeClubeMarcacao
+                user_clube.nome as nomeClubeMarcacao
                 FROM marcacao
                 INNER JOIN 
                 listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
@@ -202,11 +208,13 @@ class Descobrir {
                 INNER JOIN
                 clube ON campo_clube.id_clube = clube.id_clube
                 INNER JOIN
-                user ON clube.id_clube = user.id
+                user AS user_clube ON clube.id_clube = user_clube.id
+                INNER JOIN
+    			user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
                 INNER JOIN 
                 tipo_campo ON campo.tipo_campo = tipo_campo.id
                 INNER JOIN
-                concelho ON user.localidade = concelho.id
+                concelho ON user_clube.localidade = concelho.id
                 WHERE marcacao.tipo = 'aberta'
                 AND listagem_atletas_marcacao.votacao = '2'
                 AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
@@ -226,7 +234,7 @@ class Descobrir {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              $msg .=  "<div class='item'>
+              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
@@ -284,7 +292,7 @@ class Descobrir {
                                 </div>
                                 <div class='row mt-1'>
                                     <div class='col-md-2'>
-                                        <img src='../../dist/images/profile/boy4.jpg' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
+                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']."' style='cursor: pointer;' onclick='funcao()'>
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
