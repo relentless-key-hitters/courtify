@@ -1,7 +1,10 @@
-getMarcacoesAbertas();
-function getMarcacoesAbertas() {
+
+getMarcacoesAbertasLocalidade();
+function getMarcacoesAbertasLocalidade() {
+
   let dados = new FormData();
   dados.append("op", 1);
+
 
   $.ajax({
     url: "../../dist/php/controllerDescobrir.php",
@@ -14,8 +17,9 @@ function getMarcacoesAbertas() {
   })
 
     .done(function (msg) {
-      console.log(msg);
-      $("#marcacaoModalidades").html(msg.trim());
+      let obj = JSON.parse(msg);
+      $("#localidadeUser").text(obj.localidadeUser);
+      setTimeout($("#marcacaoLocalidade").html(obj.msg.trim()), 5000);
       
     })
 
@@ -25,5 +29,5 @@ function getMarcacoesAbertas() {
 }
 
 $(function () {
-
+  
 });

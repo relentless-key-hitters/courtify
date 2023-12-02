@@ -36,6 +36,7 @@ if (isset($_SESSION['id'])) { ?>
     </style>
 
 
+
   </head>
 
   <body>
@@ -276,7 +277,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                   <div class=" mt-5">
-                    <h2 class="mb-4">Marcações abertas em *LOCALIDADE USER*</h2>
+                    <h2 class="mb-4">Marcações abertas em <span id="localidadeUser"></span></h2>
                     <div class="card bg-light px-3">
                       <div class="carousel-container mt-5" id="carousel3">
                         <div class="owl-carousel" id="marcacaoLocalidade">

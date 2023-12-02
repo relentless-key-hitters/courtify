@@ -6,9 +6,25 @@ require_once 'connection.php';
 
 class Descobrir {
 
-    function getMarcacoesAbertas() {
+    function getMarcacoesAbertasLocalidade() {
         global $conn;
         $msg = "";
+        $localidadeUserLogin = "";
+
+        $sql1 = "SELECT concelho.descricao as localidadeUser from concelho
+        INNER JOIN user ON concelho.id = user.localidade WHERE user.id = " . $_SESSION['id'];
+
+        $result1 = $conn->query($sql1);
+
+        if ($result1->num_rows > 0) {
+            while ($row1 = $result1->fetch_assoc()) {
+                $localidadeUserLogin = $row1['localidadeUser'];
+
+                $_SESSION['localidadeUser'] = $localidadeUserLogin;
+        
+                
+            }
+        }
 
 
         $sql = "SELECT marcacao.id AS idMarcacao,
@@ -44,7 +60,8 @@ class Descobrir {
                 INNER JOIN 
                 tipo_campo ON campo.tipo_campo = tipo_campo.id
                 INNER JOIN
-                concelho ON user.localidade = concelho.id;";
+                concelho ON user.localidade = concelho.id
+                WHERE concelho.descricao = '".$localidadeUserLogin."';";
 
         
         $result = $conn->query($sql);
@@ -123,7 +140,8 @@ class Descobrir {
         }
 
         $conn->close();
-        return ($msg);
+        $resp = json_encode(array("msg" => $msg, "localidadeUser" => $localidadeUserLogin));
+        return ($resp);
     }
 
 }
