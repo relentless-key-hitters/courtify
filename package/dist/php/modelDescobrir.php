@@ -61,7 +61,8 @@ class Descobrir {
                 tipo_campo ON campo.tipo_campo = tipo_campo.id
                 INNER JOIN
                 concelho ON user.localidade = concelho.id
-                WHERE concelho.descricao = '".$localidadeUserLogin."';";
+                WHERE listagem_atletas_marcacao.votacao = '2'
+                AND concelho.descricao = '".$localidadeUserLogin."';";
 
         
         $result = $conn->query($sql);
