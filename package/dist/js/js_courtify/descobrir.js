@@ -26,7 +26,7 @@ $(function () {
   getMarcacoesAbertas();
   $(".animated-text").addClass("show");
 
-  setTimeout($(".owl-carousel").each(function () {
+  $(".owl-carousel").each(function () {
     var carouselId = $(this).closest(".carousel-container").attr("id");
     $(this).owlCarousel({
       loop: true,
@@ -47,7 +47,7 @@ $(function () {
         },
       },
     });
-  }), 5000);
+  });
 
   $("[data-toggle = 'tooltip']").tooltip();
 });
