@@ -53,6 +53,12 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 16){
     $res = $user -> getMarcacoesNaoConcluidas();
     echo($res);
+}else if($_POST['op'] == 17){
+    $res = $user -> votacaoBasqFuts($_POST['id'], $_POST['modalidade'], $_POST['resEquipa'], $_POST['resAdver'], $_POST['numPontos']);
+    echo($res);
+}else if($_POST['op'] == 18){
+    $res = $user -> votacaoPadelTenis($_POST['id'], $_POST['modalidade'],  $_POST['resultados']);
+    echo($res);
 }
 
 ?>
