@@ -59,6 +59,10 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 18){
     $res = $user -> votacaoPadelTenis($_POST['id'], $_POST['modalidade'],  $_POST['resultados']);
     echo($res);
+}else if($_POST['op'] == 19){
+    $res = $user ->  getPerfilNavbar();
+    echo($res);
 }
+
 
 ?>

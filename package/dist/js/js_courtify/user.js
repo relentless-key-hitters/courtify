@@ -179,7 +179,7 @@ function login(){
                     }, 2000);
                 }else{
                     setTimeout(function(){ 
-                        window.location.href = "../../html/horizontal/perfil.php";
+                        window.location.href = "../horizontal/perfil.php?id=" + obj.id;
                     }, 2000);
                 }
 
@@ -573,6 +573,10 @@ function guardaEditInfo(){
         alert( "Request failed: " + textStatus );
         });
 
+}
+
+function redirectToPerfil(idAtleta) {
+    window.location.href = 'perfil.php?id=' + idAtleta;
 }
 
 function alerta(titulo,msg,icon){

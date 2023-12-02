@@ -170,7 +170,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                     </div>
                     <div class="message-body">
-                      <a href="./perfil.php" class="py-8 px-7 mt-8 d-flex align-items-center">
+                      <a class="py-8 px-7 mt-8 d-flex align-items-center" id="linkPerfil" style="cursor: pointer;">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-user-circle fs-7 text-primary"></i>
                         </span>
@@ -1003,6 +1003,29 @@ if (isset($_SESSION['id'])) { ?>
         </div>
       </div>
     </div>
+  
+    <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id = "corpoModal">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
+           data-bs-dismiss="modal" id= "guardarVotacao">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
+            data-bs-dismiss="modal">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -1020,6 +1043,7 @@ if (isset($_SESSION['id'])) { ?>
     <!-- current page js files -->
     <script src="../../dist/js/js_courtify/sweatalert.js"></script>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+    <script src="../../dist/js/js_courtify/user.js"></script>
 
 
 

@@ -21,19 +21,14 @@ function getPerfil(){
 
             let obj = JSON.parse(msg);
             $("#fotoCapaView").attr('src', obj.fotoCapa);
-            $("#perfil1").attr('src', obj.fotoPerfil);
-            $("#perfil2").attr('src', obj.fotoPerfil);
             $("#perfil3").attr('src', obj.fotoPerfil);
             $("#perfil4").attr('src', obj.fotoPerfil);
             $("#perfil5").attr('src', obj.fotoPerfil);
             $("#perfil6").attr('src', obj.fotoPerfil);
             $("#perfil7").attr('src', obj.fotoPerfil);
             $("#perfil8").attr('src', obj.fotoPerfil);
-            $("#fotoPerfilEditCurrent").attr('src', obj.fotoPerfil);
             $("#nomePerfil").html(obj.nome);
-            $("#nome2").html(obj.nome);
             $("#email").html(obj.email);
-            $("#email2").html(obj.email);
             $("#local").html(obj.localizacao);
             $("#bio").html(obj.bio);
             $("#nomeEquipa1").html(obj.nome);
@@ -82,6 +77,35 @@ function altFotoCapa(){
 
 }
 
+function getPerfilNavbar() {
+    let dados = new FormData();
+    dados.append("op", 19);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            $("#perfil1").attr('src', obj.fotoPerfil);
+            $("#perfil2").attr('src', obj.fotoPerfil);
+            $("#nome2").html(obj.nome);
+            $("#email2").html(obj.email);
+            $("#linkPerfil").attr("onclick", "redirectToPerfil("+obj.id+")");
+            $("#fotoPerfilEditCurrent").attr('src', obj.fotoPerfil);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+}
+
 function alerta(titulo,msg,icon){
     Swal.fire({
         position: 'center',
@@ -106,7 +130,8 @@ function alerta2(titulo,msg,icon){
 
 
 $(function() {
-    getPerfil()
+    getPerfilNavbar();
+    getPerfil();
 
 });
 
