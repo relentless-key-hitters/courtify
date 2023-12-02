@@ -33,7 +33,7 @@ if ($_POST['op'] == 1){
     $res = "Sessão terminada com sucesso!";
     echo($res);
 }else if ($_POST['op'] == 10){
-    $res = $user -> getInfoPerfil();
+    $res = $user -> getInfoPerfil($_POST['idUser']);
     echo($res);  
 }else if ($_POST['op'] == 11){
     $res = $user -> altFotoCapa($_FILES);

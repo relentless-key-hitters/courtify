@@ -16,7 +16,9 @@ function getMarcacoesAbertasModalidades() {
   })
 
     .done(function (msg) {
-      $("#marcacaoModalidades").html(msg)
+      let obj = JSON.parse(msg);
+      $("#quantidadeMarcacoesModalidades").text(obj.contagem);
+      $("#marcacaoModalidades").html(obj.msg)
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -43,6 +45,7 @@ function getMarcacoesAbertasLocalidade() {
 
     .done(function (msg) {
       let obj = JSON.parse(msg);
+      $("#quantidadeMarcacoesLocalidade").text(obj.contagem);
       $("#localidadeUser").text(obj.localidadeUser);
       $("#marcacaoLocalidade").html(obj.msg)
       

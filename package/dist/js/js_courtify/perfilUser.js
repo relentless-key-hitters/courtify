@@ -1,7 +1,11 @@
 function getPerfil(){
 
+    let urlParams = new URLSearchParams(window.location.search);
+    let perfilId = urlParams.get('id');
+
     let dados = new FormData();
     dados.append("op", 10);
+    dados.append("idUser", perfilId);
 
     $.ajax({
         url: "../../dist/php/controllerUser.php",

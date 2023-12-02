@@ -27,26 +27,44 @@ class Descobrir {
         }
 
 
-        $sql = "SELECT marcacao.id AS idMarcacao,
-                user_atleta.foto AS fotoAtletaHost,
-                user_atleta.nome AS nomeAtletaHost,
-                marcacao.id_atleta AS idAtletaHost,
-                marcacao.data_inicio AS dataInicioMarcacao,
-                marcacao.data_fim AS dataFimMarcacao,
-                marcacao.hora_inicio AS horaInicioMarcacao,
-                marcacao.hora_fim AS horaFimMarcacao,
-                marcacao.tipo AS tipoMarcacao,
-                clube.id_clube AS idClubeMarcacao,
-                marcacao.id_campo AS idCampoMarcacao,
-                campo.foto AS fotoCampoMarcacao,
-                campo.nome AS nomeCampoMarcacao,
-                campo.morada AS moradaCampoMarcacao,
-                campo.preco_hora AS precoHoraCampoMarcacao,
-                tipo_campo.descricao AS tipoCampoMarcacao,
-                concelho.descricao AS localidadeClubeMarcacao,
-                modalidade.descricao AS modalidadeMarcacao,
-                user_clube.nome AS nomeClubeMarcacao
-                FROM marcacao
+        $sql = "SELECT
+                    (SELECT COUNT(*) as contagemMarcacoes
+                    FROM marcacao
+                    INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
+                    INNER JOIN campo ON marcacao.id_campo = campo.id
+                    INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
+                    INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+                    INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
+                    INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
+                    INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
+                    INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
+                    INNER JOIN concelho ON user_clube.localidade = concelho.id
+                    WHERE marcacao.tipo = 'aberta'
+                    AND listagem_atletas_marcacao.votacao = '2'
+                    AND listagem_atletas_marcacao.id_atleta != 15
+                    AND concelho.descricao = '".$localidadeUserLogin."'
+                    ) AS num_rows,
+                    marcacao.id AS idMarcacao,
+                    user_atleta.foto AS fotoAtletaHost,
+                    user_atleta.nome AS nomeAtletaHost,
+                    marcacao.id_atleta AS idAtletaHost,
+                    marcacao.data_inicio AS dataInicioMarcacao,
+                    marcacao.data_fim AS dataFimMarcacao,
+                    marcacao.hora_inicio AS horaInicioMarcacao,
+                    marcacao.hora_fim AS horaFimMarcacao,
+                    marcacao.tipo AS tipoMarcacao,
+                    clube.id_clube AS idClubeMarcacao,
+                    marcacao.id_campo AS idCampoMarcacao,
+                    campo.foto AS fotoCampoMarcacao,
+                    campo.nome AS nomeCampoMarcacao,
+                    campo.morada AS moradaCampoMarcacao,
+                    campo.preco_hora AS precoHoraCampoMarcacao,
+                    tipo_campo.descricao AS tipoCampoMarcacao,
+                    concelho.descricao AS localidadeClubeMarcacao,
+                    modalidade.descricao AS modalidadeMarcacao,
+                    user_clube.nome AS nomeClubeMarcacao
+                FROM
+                marcacao
                 INNER JOIN 
                 listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
                 INNER JOIN
@@ -75,6 +93,7 @@ class Descobrir {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+              $contagem = $row['num_rows'];
               $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
@@ -169,7 +188,7 @@ class Descobrir {
         }
 
         $conn->close();
-        $resp = json_encode(array("msg" => $msg, "localidadeUser" => $localidadeUserLogin));
+        $resp = json_encode(array("msg" => $msg, "localidadeUser" => $localidadeUserLogin, "contagem" => $contagem));
         return ($resp);
     }
 
@@ -177,26 +196,43 @@ class Descobrir {
         global $conn;
         $msg = "";
 
-        $sql = "SELECT marcacao.id AS idMarcacao,
-                user_atleta.foto AS fotoAtletaHost,
-                user_atleta.nome AS nomeAtletaHost,
-                marcacao.id_atleta AS idAtletaHost,
-                marcacao.data_inicio AS dataInicioMarcacao,
-                marcacao.data_fim AS dataFimMarcacao,
-                marcacao.hora_inicio AS horaInicioMarcacao,
-                marcacao.hora_fim AS horaFimMarcacao,
-                marcacao.tipo AS tipoMarcacao,
-                clube.id_clube AS idClubeMarcacao,
-                marcacao.id_campo AS idCampoMarcacao,
-                campo.foto AS fotoCampoMarcacao,
-                campo.nome AS nomeCampoMarcacao,
-                campo.morada AS moradaCampoMarcacao,
-                campo.preco_hora AS precoHoraCampoMarcacao,
-                tipo_campo.descricao AS tipoCampoMarcacao,
-                concelho.descricao AS localidadeClubeMarcacao,
-                modalidade.descricao AS modalidadeMarcacao,
-                user_clube.nome as nomeClubeMarcacao
-                FROM marcacao
+        $sql = "SELECT
+                    (SELECT COUNT(*) as contagemMarcacoes
+                    FROM marcacao
+                    INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
+                    INNER JOIN campo ON marcacao.id_campo = campo.id
+                    INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
+                    INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+                    INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
+                    INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
+                    INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
+                    INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
+                    INNER JOIN concelho ON user_clube.localidade = concelho.id
+                    WHERE marcacao.tipo = 'aberta'
+                    AND listagem_atletas_marcacao.votacao = '2'
+                    AND listagem_atletas_marcacao.id_atleta != 15
+                    ) AS num_rows,
+                    marcacao.id AS idMarcacao,
+                    user_atleta.foto AS fotoAtletaHost,
+                    user_atleta.nome AS nomeAtletaHost,
+                    marcacao.id_atleta AS idAtletaHost,
+                    marcacao.data_inicio AS dataInicioMarcacao,
+                    marcacao.data_fim AS dataFimMarcacao,
+                    marcacao.hora_inicio AS horaInicioMarcacao,
+                    marcacao.hora_fim AS horaFimMarcacao,
+                    marcacao.tipo AS tipoMarcacao,
+                    clube.id_clube AS idClubeMarcacao,
+                    marcacao.id_campo AS idCampoMarcacao,
+                    campo.foto AS fotoCampoMarcacao,
+                    campo.nome AS nomeCampoMarcacao,
+                    campo.morada AS moradaCampoMarcacao,
+                    campo.preco_hora AS precoHoraCampoMarcacao,
+                    tipo_campo.descricao AS tipoCampoMarcacao,
+                    concelho.descricao AS localidadeClubeMarcacao,
+                    modalidade.descricao AS modalidadeMarcacao,
+                    user_clube.nome AS nomeClubeMarcacao
+                FROM
+                marcacao
                 INNER JOIN 
                 listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
                 INNER JOIN
@@ -234,6 +270,7 @@ class Descobrir {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+              $contagem = $row['num_rows'];
               $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
@@ -328,7 +365,8 @@ class Descobrir {
         }
 
         $conn->close();
-        return ($msg);
+        $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
+        return ($resp);
     }
 
 }
