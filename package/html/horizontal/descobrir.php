@@ -576,6 +576,7 @@ if (isset($_SESSION['id'])) { ?>
       <script src="../../dist/js/app.horizontal.init.js"></script>
       <script src="../../dist/js/app-style-switcher.js"></script>
       <script src="../../dist/js/sidebarmenu.js"></script>
+      <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
 
       <script src="../../dist/js/custom.js"></script>
       <!-- current page js files -->
@@ -583,7 +584,6 @@ if (isset($_SESSION['id'])) { ?>
       <script src="../../dist/js/js_courtify/user.js"></script>
       <script src="../../dist/js/js_courtify/perfilUser.js"></script>
       <script src="../../dist/js/js_courtify/notificacao.js"></script>
-      <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
       <script src="../../dist/js/js_courtify/descobrir.js"></script>
 
 

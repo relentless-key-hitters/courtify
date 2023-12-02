@@ -1,3 +1,4 @@
+getMarcacoesAbertas();
 function getMarcacoesAbertas() {
   let dados = new FormData();
   dados.append("op", 1);
@@ -15,6 +16,7 @@ function getMarcacoesAbertas() {
     .done(function (msg) {
       console.log(msg);
       $("#marcacaoModalidades").html(msg.trim());
+      
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -23,7 +25,6 @@ function getMarcacoesAbertas() {
 }
 
 $(function () {
-  getMarcacoesAbertas();
   $(".animated-text").addClass("show");
 
   $(".owl-carousel").each(function () {

@@ -10,6 +10,7 @@ class Descobrir {
         global $conn;
         $msg = "";
 
+
         $sql = "SELECT marcacao.id AS idMarcacao,
                 marcacao.id_atleta AS idAtletaHost,
                 marcacao.data_inicio AS dataInicioMarcacao,
@@ -43,14 +44,14 @@ class Descobrir {
                 INNER JOIN 
                 tipo_campo ON campo.tipo_campo = tipo_campo.id
                 INNER JOIN
-                concelho ON user.localidade = concelho.id LIMIT 5;";
+                concelho ON user.localidade = concelho.id;";
 
         
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              $msg .=  "<div class='item' style='max-width: 400px;'>
+              $msg .=  "<div class='item'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
@@ -118,7 +119,6 @@ class Descobrir {
                                 </div>
                             </div>
                         </div>";
-
             }
         }
 
