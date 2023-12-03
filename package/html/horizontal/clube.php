@@ -250,7 +250,7 @@ if (isset($_SESSION['id'])) {?>
                           </h4>
                           <p class="fs-5"><?php
                               setlocale(LC_TIME, 'pt_PT.utf8', 'portuguese');
-                              $dataFormatada = new DateTime($_SESSION['data']);
+                              $dataFormatada = new DateTime($_SESSION['data'] ?? date('Y-m-d'));
                               echo strftime('%d de %B de %Y', $dataFormatada->getTimestamp());
                               ?></p>
                         </div>

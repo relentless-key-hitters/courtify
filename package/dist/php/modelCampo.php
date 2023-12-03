@@ -229,6 +229,9 @@ class Campo
         global $conn;
         $clubeInfo = array();
 
+        $_SESSION['data'] = $_SESSION['data'] ?? date('Y-m-d');
+        
+
         $conteudoModalidade = "";
 
 
