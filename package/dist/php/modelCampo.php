@@ -575,6 +575,10 @@ class Campo
         if ($result->num_rows > 0) {
             // output data of each row
             while ($row = $result->fetch_assoc()) {
+
+                $data = new DateTime($_SESSION['data']);
+                $stringData = $data -> format('d/m/Y');
+
                 $textoModal .= "<div class='container-fluid text-center'>
                     <div class='row'>
                         <div class='col-md-6 text-center'>
@@ -583,7 +587,7 @@ class Campo
                         </div>
                         <div class='col-md-6'>
                             <div class='mt-sm-2'>
-                                <small class='fs-5'><i class='ti ti-calendar me-1'></i>". $_SESSION['data']."</small><br>
+                                <small class='fs-5'><i class='ti ti-calendar me-1'></i>". $stringData."</small><br>
                                 <small class='fs-5'><i class='ti ti-clock me-1'></i>".$hora."</small><br>
                                 <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nome_campo']."</small><br>
                                 <div class='d-flex align-items-center justify-content-center mt-2 d-none' id='espacopreco'>
