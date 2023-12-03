@@ -87,7 +87,8 @@ class Descobrir {
                 WHERE marcacao.tipo = 'aberta'
                 AND listagem_atletas_marcacao.votacao = '2'
                 AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
-                AND concelho.descricao = '".$localidadeUserLogin."';";
+                AND concelho.descricao = '".$localidadeUserLogin."'
+                ORDER BY marcacao.data_inicio ASC;";
 
         
         $result = $conn->query($sql);
@@ -272,7 +273,7 @@ class Descobrir {
                                         atleta
                                         ON
                                         atleta_modalidade.id_atleta = atleta.id_atleta
-                                        WHERE atleta.id_atleta = " . $_SESSION['id'].")";
+                                        WHERE atleta.id_atleta = " . $_SESSION['id'].") ORDER BY marcacao.data_inicio ASC;";
 
         
         $result = $conn->query($sql);
