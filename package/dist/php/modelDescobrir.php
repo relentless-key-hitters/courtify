@@ -93,6 +93,13 @@ class Descobrir {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+
+              $data = new DateTime($row['dataInicioMarcacao']);
+              $stringData = $data -> format('d/m/Y');
+
+              $hora = new DateTime($row['horaInicioMarcacao']);
+              $stringHora = $hora->format('H:i');
+
               $contagem = $row['num_rows'];
               $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
@@ -128,8 +135,8 @@ class Descobrir {
                                     </div>
                                     <div class='col-md-6'>
                                     <div class='text-center mt-sm-2'>
-                                        <small class='fs-5'><i class='ti ti-calendar me-1'></i>".$row['dataInicioMarcacao']."</small><br>
-                                        <small class='fs-5'><i class='ti ti-clock me-1'></i>".$row['horaInicioMarcacao']."</small><br>
+                                        <small class='fs-5'><i class='ti ti-calendar me-1'></i>".$stringData."</small><br>
+                                        <small class='fs-5'><i class='ti ti-clock me-1'></i>".$stringHora."</small><br>
                                         <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampoMarcacao']."</small><br>
                                         <div class='d-flex align-items-center justify-content-center mt-2 d-none' id='espacopreco'>
                                         <div class='bg-light mt-2 rounded p-2 w-50'>
@@ -270,6 +277,13 @@ class Descobrir {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+
+              $data = new DateTime($row['dataInicioMarcacao']);
+              $stringData = $data -> format('d/m/Y'); 
+
+              $hora = new DateTime($row['horaInicioMarcacao']);
+              $stringHora = $hora->format('H:i');
+
               $contagem = $row['num_rows'];
               $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
@@ -305,8 +319,8 @@ class Descobrir {
                                     </div>
                                     <div class='col-md-6'>
                                     <div class='text-center mt-sm-2'>
-                                        <small class='fs-5'><i class='ti ti-calendar me-1'></i>".$row['dataInicioMarcacao']."</small><br>
-                                        <small class='fs-5'><i class='ti ti-clock me-1'></i>".$row['horaInicioMarcacao']."</small><br>
+                                        <small class='fs-5'><i class='ti ti-calendar me-1'></i>".$stringData."</small><br>
+                                        <small class='fs-5'><i class='ti ti-clock me-1'></i>".$stringHora."</small><br>
                                         <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampoMarcacao']."</small><br>
                                         <div class='d-flex align-items-center justify-content-center mt-2 d-none' id='espacopreco'>
                                         <div class='bg-light mt-2 rounded p-2 w-50'>

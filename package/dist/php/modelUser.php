@@ -905,13 +905,23 @@ class User{
                 $rowDate = $row['dataMarc'];
                 if($contador < 2 && $currentDate < $rowDate) {
                     if($contador == 0) {
+
+                        $data = new DateTime($row['dataMarc']);
+                        $stringData = $data -> format('d/m/Y');
+
+                        $hora = new DateTime($row['horaMarcInicio']);
+                        $stringHora = $hora->format('H:i');
+
                         $msgA = "<div class='col-lg-12'>
-                        <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
-                            <img src='".$row['fotoCampo']."' class='rounded mt-4 object-fit-cover' alt='".$row['nomeCampo']."' style='max-width: 190px;'>
+                        <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
+                            <img src='".$row['fotoCampo']."' class='card-img-top' alt='".$row['nomeCampo']."'>
                             <div class='p-3'>
-                                <h5 class='card-title fs-7'>".$row['nomeCampo']."</h5>
-                                <p class='card-text fs-6'>".$row['dataMarc']." / ".$row['horaMarcInicio']."</p>
-                                <p class='card-text fs-4'>".$row['nomeClube']."</p>
+                                <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampo']."</h5>
+                                <div class='d-flex justify-content-between'>
+                                    <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p> 
+                                    <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</p>
+                                </div>
+                                <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
                                 <a href='#' class='btn btn-primary'>Mais Info</a>
                             </div>
                         </div>
@@ -921,26 +931,46 @@ class User{
                     } else {
                         $flag = true;
                         if(($horaA < $row['horaMarcInicio'] && $diaA == $row['dataMarc']) ||  $diaA != $row['dataMarc']) {
+                            
+                            $data = new DateTime($row['dataMarc']);
+                            $stringData = $data -> format('d/m/Y');
+
+                            $hora = new DateTime($row['horaMarcInicio']);
+                            $stringHora = $hora->format('H:i');
+                            
                             $msg .= $msgA;
                             $msg .= "<div class='col-lg-12'>
-                            <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
-                                <img src='".$row['fotoCampo']."' class='rounded mt-4 object-fit-cover' alt='".$row['nomeCampo']."' style='max-width: 190px;'>
+                            <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
+                                <img src='".$row['fotoCampo']."' class='card-img-top' alt='".$row['nomeCampo']."'>
                                 <div class='p-3'>
-                                    <h5 class='card-title fs-7'>".$row['nomeCampo']."</h5>
-                                    <p class='card-text fs-6'>".$row['dataMarc']." / ".$row['horaMarcInicio']."</p>
-                                    <p class='card-text fs-4'>".$row['nomeClube']."</p>
+                                    <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampo']."</h5>
+                                    <div class='d-flex justify-content-between'>
+                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p> 
+                                        <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</p>
+                                    </div>
+                                    <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
                                     <a href='#' class='btn btn-primary'>Mais Info</a>
                                 </div>
                             </div>
                         </div>";
                         }else{
+
+                            $data = new DateTime($row['dataMarc']);
+                            $stringData = $data -> format('d/m/Y');
+
+                            $hora = new DateTime($row['horaMarcInicio']);
+                            $stringHora = $hora->format('H:i');
+
                             $msg .= "<div class='col-lg-12'>
-                            <div class='card card-hover align-items-center shadow' style='margin: 30px;'>
-                                <img src='".$row['fotoCampo']."' class='rounded mt-4 object-fit-cover' alt='".$row['nomeCampo']."' style='max-width: 190px;'>
+                            <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
+                                <img src='".$row['fotoCampo']."' class='card-img-top' alt='".$row['nomeCampo']."'>
                                 <div class='p-3'>
-                                    <h5 class='card-title fs-7'>".$row['nomeCampo']."</h5>
-                                    <p class='card-text fs-6'>".$row['dataMarc']." / ".$row['horaMarcInicio']."</p>
-                                    <p class='card-text fs-4'>".$row['nomeClube']."</p>
+                                    <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampo']."</h5>
+                                    <div class='d-flex justify-content-between'>
+                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p> 
+                                        <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</p>
+                                    </div>
+                                    <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
                                     <a href='#' class='btn btn-primary'>Mais Info</a>
                                 </div>
                             </div>
