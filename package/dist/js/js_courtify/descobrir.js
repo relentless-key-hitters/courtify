@@ -12,7 +12,7 @@ function getMarcacoesAbertasModalidades() {
     dataType: "html",
     cache: false,
     contentType: false,
-    processData: false,
+    processData: false
   })
 
     .done(function (msg) {
@@ -40,7 +40,7 @@ function getMarcacoesAbertasLocalidade() {
     dataType: "html",
     cache: false,
     contentType: false,
-    processData: false,
+    processData: false
   })
 
     .done(function (msg) {
