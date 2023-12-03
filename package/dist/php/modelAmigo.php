@@ -56,9 +56,9 @@ class Amigo
                         
 
                                     <a href='./perfil.php?id=".$row['idAmigo']."' style='text-decoration: none;'>
-                                        <h5 class='fw-semibold mb-0' style='color: #000; transition: color 0.3s;' onmouseover='this.style.color=\"#044967\";' onmouseout='this.style.color=\"#000\";'>
+                                        <h6 class='fw-semibold mb-0' style='color: #000; transition: color 0.3s;' onmouseover='this.style.color=\"#044967\";' onmouseout='this.style.color=\"#000\";'>
                                             ".$row['nomeAmigo']."
-                                        </h5>
+                                        </h6>
                                     </a>
                                 <span class='text-dark fs-2'>Futebol</span>
                             </div>
