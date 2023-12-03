@@ -831,6 +831,12 @@ class User{
                   </div>";
                 }
 
+                $data = new DateTime($row['dataMarc']);
+                $stringData = $data -> format('d/m/Y');
+
+                $hora = new DateTime($row['horaMarc']);
+                $stringHora = $hora->format('H:i');
+
                 $msg .= "
                 <div class='d-flex justify-content-center pb-5'>
                 <h4 class='fw-semibold fs-9'>Votação</h4>
@@ -843,8 +849,8 @@ class User{
                   </div>
                   <div class='col-md-6' style='align-items: start;'>
                     <div class='mb-3'>
-                      <small class='fs-5'><i class='ti ti-calendar me-1'></i>".$row['dataMarc']."</small><br>
-                      <small class='fs-5'><i class='ti ti-clock me-1'></i>".$row['horaMarc']."</small><br>
+                      <small class='fs-5'><i class='ti ti-calendar me-1'></i>".$stringData."</small><br>
+                      <small class='fs-5'><i class='ti ti-clock me-1'></i>".$stringHora."</small><br>
                       <small class='fs-5'><i class='ti ti-map-pin me-1'></i>".$row['nomeClube']."</small><br>
                       ".$mod."
                     </div>
@@ -1100,7 +1106,6 @@ class User{
 
     function getPerfilNavbar() {
         global $conn;
-        $msg = "";
         $fotoPerfil = "";
         $email = "";
         $nome = "";
