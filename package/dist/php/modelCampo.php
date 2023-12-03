@@ -397,9 +397,8 @@ class Campo
                 );
             }
         }
-        $dataIfNull = new DateTime();
-        $dataIfNullFormatada = $dataIfNull -> format('Y-m-d');
-        $marcacao =  $this->getHorariosCampos($clubeId,  $_SESSION['data'] ?? $dataIfNullFormatada);
+
+        $marcacao =  $this->getHorariosCampos($clubeId,  $_SESSION['data']);
         $conn->close();
         $resp = json_encode(array(
             "info_clube" => $clubeInfo,
@@ -417,10 +416,6 @@ class Campo
         clube ON campo_clube.id_clube = clube.id_clube INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id WHERE clube.id_clube = '" . $clube . "'";
         $marcacao = "";
         $result = $conn->query($sql);
-
-        $dataIfNull = new DateTime();
-        $dataIfNullFormatada = $dataIfNull -> format('Y-m-d');
-
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
@@ -447,7 +442,7 @@ class Campo
                     FROM (
                     SELECT marcacao.hora_inicio AS hora_inicio, TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio) AS dif_horas
                     FROM marcacao INNER JOIN campo ON marcacao.id_campo = campo.id INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
-                    clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "' AND marcacao.data_inicio = '" . ($_SESSION['data'] ?? $dataIfNullFormatada) . "'  AND campo.id = '" . $row['id_campo'] . "'      
+                    clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "' AND marcacao.data_inicio = '" . $_SESSION['data']. "'  AND campo.id = '" . $row['id_campo'] . "'      
                     ) AS temp";
                 $result2 = $conn->query($sql2);
                 if ($result2->num_rows > 0) {
@@ -463,7 +458,7 @@ class Campo
                 $horaActual .= date('H:i:s');
                 $dataActual = "";
                 $dataActual .= date('Y-m-d');
-                if( $_SESSION['data'] ?? $dataIfNullFormatada == $dataActual){
+                if( $_SESSION['data'] == $dataActual){
                     for($k = 0; $k < 32; $k++){
                         if($texto2 >  $horaActual){
                             break;
@@ -577,13 +572,11 @@ class Campo
         $preco = 0;
         $result = $conn->query($sql);
         $textoModal = "";
-        $dataIfNull = new DateTime();
-        $dataIfNullFormatada = $dataIfNull -> format('Y-m-d');
         if ($result->num_rows > 0) {
             // output data of each row
             while ($row = $result->fetch_assoc()) {
 
-                $data = new DateTime($_SESSION['data'] ?? $dataIfNullFormatada);
+                $data = new DateTime($_SESSION['data']);
                 $stringData = $data -> format('d/m/Y');
 
                 $textoModal .= "<div class='container-fluid text-center'>
@@ -616,7 +609,7 @@ class Campo
             $preco =  $row['preco'];
             $sql2 = "SELECT if(marcacao.hora_inicio = ADDTIME('".$hora2."', '00:30:00'), TRUE, FALSE) AS resposta1, 
             if(marcacao.hora_inicio = ADDTIME('".$hora2."', '01:00:00'), TRUE, FALSE) AS resposta2
-            FROM campo INNER JOIN marcacao ON marcacao.id_campo = campo.id WHERE campo.id = '".$id."' AND marcacao.data_inicio = '".($_SESSION['data'] ?? $dataIfNullFormatada) ."'";    
+            FROM campo INNER JOIN marcacao ON marcacao.id_campo = campo.id WHERE campo.id = '".$id."' AND marcacao.data_inicio = '".$_SESSION['data']."'";    
             $result2 = $conn->query($sql2);
             $textoModal .= "<option value='30'>30 minutos</option>";
             if ($result2->num_rows > 0) {
