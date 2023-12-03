@@ -244,11 +244,11 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-12">
                     <div class="card border mb-3 shadow">
                       <div class="p-3">
-                        <div class="text-center">
-                        <h4 class="fw-semibold mb-1 pb-0 text-center fs-7">
+                        <div class="text-center bg-light rounded">
+                        <h4 class="fw-semibold mb-1 pt-2 pb-0 text-center fs-7">
                               Marcação
                           </h4>
-                          <p class="fs-5"><?php
+                          <p class="fs-5 pb-2"><?php
                               setlocale(LC_TIME, 'pt_PT.utf8', 'portuguese');
                               $dataFormatada = new DateTime($_SESSION['data'] ?? date('Y-m-d'));
                               echo strftime('%d de %B de %Y', $dataFormatada->getTimestamp());
