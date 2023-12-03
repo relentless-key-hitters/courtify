@@ -245,14 +245,8 @@ if (isset($_SESSION['id'])) {?>
                     <div class="card border mb-3 shadow">
                       <div class="p-3">
                         <div class="text-center">
-                          <h4 class="fw-semibold mb-1 pb-0 text-center fs-7">
-                              Marcação
-                          </h4>
-                          <p class="fs-5"><?php
-                              setlocale(LC_TIME, 'pt_PT.utf8', 'portuguese');
-                              $dataFormatada = new DateTime($_SESSION['data']);
-                              echo strftime('%d de %B de %Y', $dataFormatada->getTimestamp());
-                              ?></p>
+                          <h4 class="fw-semibold mb-3 pb-2 text-center fs-7">
+                            Marcação</h4>
                         </div>
                         <div id="marcacaoCampo" class="mt-1">
                         </div>
