@@ -575,9 +575,6 @@ function guardaEditInfo(){
 
 }
 
-function redirectToPerfil(idAtleta) {
-    window.location.href = 'perfil.php?id=' + idAtleta;
-}
 
 function alerta(titulo,msg,icon){
     Swal.fire({

@@ -97,7 +97,6 @@ function getPerfilNavbar() {
             $("#perfil2").attr('src', obj.fotoPerfil);
             $("#nome2").html(obj.nome);
             $("#email2").html(obj.email);
-            $("#linkPerfil").attr("onclick", "redirectToPerfil("+obj.id+")");
             $("#fotoPerfilEditCurrent").attr('src', obj.fotoPerfil);
         })
         

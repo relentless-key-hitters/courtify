@@ -183,7 +183,7 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                     </div>
                     <div class="message-body">
-                      <a class="py-8 px-7 mt-8 d-flex align-items-center" id="linkPerfil" style="cursor: pointer;">
+                      <a href="./perfil.php?id=<?php echo $_SESSION['id']?>" class="py-8 px-7 mt-8 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-user-circle fs-7 text-primary"></i>
                         </span>
