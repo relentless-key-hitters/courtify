@@ -45,6 +45,7 @@ class Descobrir {
                     AND concelho.descricao = '".$localidadeUserLogin."'
                     ) AS num_rows,
                     marcacao.id AS idMarcacao,
+                    user_atleta.id AS idAtletaHost,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
                     marcacao.id_atleta AS idAtletaHost,
@@ -159,7 +160,7 @@ class Descobrir {
                                 </div>
                                 <div class='row mt-1'>
                                     <div class='col-md-2'>
-                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;'>
+                                        <a href='./perfil.php?id=".$row['idAtletaHost']."'><img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;'></a>
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
@@ -220,6 +221,7 @@ class Descobrir {
                     AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
                     ) AS num_rows,
                     marcacao.id AS idMarcacao,
+                    user_atleta.id AS idAtletaHost,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
                     marcacao.id_atleta AS idAtletaHost,
@@ -343,7 +345,7 @@ class Descobrir {
                                 </div>
                                 <div class='row mt-1'>
                                     <div class='col-md-2'>
-                                        <img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;' onclick='funcao()'>
+                                        <a href='./perfil.php?id=".$row['idAtletaHost']."'><img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;'></a>
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
