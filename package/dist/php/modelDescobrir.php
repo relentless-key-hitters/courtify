@@ -152,7 +152,7 @@ class Descobrir {
                                     <div class='col-md-12'>
                                     <div class='mt-2'>
                                         <i class='ti ti-building me-1 fs-5 mt-1'></i>
-                                        <span class='fs-4'>".$row['nomeClubeMarcacao']."</span>
+                                        <a href='./clube.php?id=".$row['idClubeMarcacao']."'><span class='fs-4'>".$row['nomeClubeMarcacao']."</span></a>
                                     </div>
                                     </div>
                                 </div>
@@ -337,7 +337,7 @@ class Descobrir {
                                     <div class='col-md-12'>
                                     <div class='mt-2'>
                                         <i class='ti ti-building me-1 fs-5 mt-1'></i>
-                                        <span class='fs-4'>".$row['nomeClubeMarcacao']."</span>
+                                        <a href='./clube.php?id=".$row['idClubeMarcacao']."'><span class='fs-4'>".$row['nomeClubeMarcacao']."</span></a>
                                     </div>
                                     </div>
                                 </div>

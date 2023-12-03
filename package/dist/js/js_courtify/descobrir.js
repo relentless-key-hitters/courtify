@@ -47,7 +47,7 @@ function getMarcacoesAbertasLocalidade() {
       let obj = JSON.parse(msg);
       $("#quantidadeMarcacoesLocalidade").text(obj.contagem);
       $("#localidadeUser").text(obj.localidadeUser);
-      $("#marcacaoLocalidade").html(obj.msg)
+      setTimeout($("#marcacaoLocalidade").html(obj.msg), 6000);
       
     })
 
@@ -58,5 +58,5 @@ function getMarcacoesAbertasLocalidade() {
 getMarcacoesAbertasLocalidade();
 
 $(function () {
-  
+
 });
