@@ -350,6 +350,11 @@ class User{
         $bio = "";
         $mod = "";
         $fotoCapa = "";
+        $altFotoCapaIcon = "";
+        if($id == $_SESSION['id']){
+            $altFotoCapaIcon .="<i class='fas fa-pencil-alt text-white fs-6' data-toggle='tooltip' data-placement='top' title='Editar'
+            data-bs-toggle='modal' data-bs-target='#vertical-center-modal'></i>";
+        }
         $sql = "SELECT user.foto as foto, user.email as email, user.nome as nome, atleta.bio as bio, atleta.fotoCapa as fotoCapa FROM user INNER JOIN atleta ON user.id = atleta.id_atleta WHERE user.id = ".$id;
         $sql2 = "SELECT concelho.descricao as concelho, distrito.descricao as distrito FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = ".$id;
         $sql3 = "SELECT atleta_modalidade.id_modalidade as id, modalidade.descricao as descricao FROM atleta_modalidade INNER JOIN modalidade ON atleta_modalidade.id_modalidade = modalidade.id WHERE atleta_modalidade.id_atleta = ".$id;
@@ -400,7 +405,6 @@ class User{
                       data-toggle='tooltip' data-placement='top' title='".$row3['descricao']."' style='max-width: 45px;'>
                     </li>";
                 }
-
             }
         }
         
@@ -412,7 +416,8 @@ class User{
             "email" => $email,
             "localizacao" => $localizacao,
             "bio" => $bio, 
-            "mod" => $mod
+            "mod" => $mod,
+            "altFotoCapa" => $altFotoCapaIcon
         ));
         $conn -> close();
         return ($resp);

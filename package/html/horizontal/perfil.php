@@ -217,9 +217,8 @@ if (isset($_SESSION['id'])) {?>
           <div class="card-body p-0">
             <div class="image-container">
               <img alt="" id="fotoCapaView" class="img-fluid">
-              <div class="icon-container">
-                <i class="fas fa-pencil-alt text-white fs-6" data-toggle="tooltip" data-placement="top" title="Editar"
-                  data-bs-toggle="modal" data-bs-target="#vertical-center-modal"></i>
+              <div class="icon-container" id = "iconAlterarFoto">
+
               </div>
             </div>
             <div class="row align-items-center">
