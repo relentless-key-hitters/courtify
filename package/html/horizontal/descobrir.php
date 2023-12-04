@@ -600,37 +600,89 @@ if (isset($_SESSION['id'])) { ?>
         resetSessionTimeout();
       </script>
 
-      <script>
+  <script>
+    $(".animated-text").addClass("show");
 
-      </script>
+    $(".owl-carousel").each(function() {
+      var carouselId = $(this).closest(".carousel-container").attr("id");
+      $(this).owlCarousel({
+        loop: false,
+        margin: 40,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          768: {
+            items: 2,
+          },
+          1200: {
+            items: 3,
+          },
+        },
+      });
+    });
 
-      <script>
-        $(".animated-text").addClass("show");
+  </script>
 
-        $(".owl-carousel").each(function() {
-          var carouselId = $(this).closest(".carousel-container").attr("id");
-          $(this).owlCarousel({
-            loop: false,
-            margin: 40,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            responsive: {
-              0: {
-                items: 1,
-              },
-              768: {
-                items: 2,
-              },
-              1200: {
-                items: 3,
-              },
-            },
-          });
-        });
+  <style>
+    .selected-img {
+      border: 6px solid #63a340;
+    }
+  </style>
 
-      </script>
+  <script>
+    var selectedImage = null;
+
+    function toggleImageSelection(imgElement) {
+
+      if (imgElement.classList.contains('selected-img')) {
+        imgElement.classList.remove('selected-img');
+        selectedImage = null;
+      } else {
+
+        if (selectedImage) {
+          selectedImage.classList.remove('selected-img');
+        }
+        
+        imgElement.classList.add('selected-img');
+
+
+        selectedImage = imgElement;
+      }
+    }
+  </script>
+
+<script>
+    $(".animated-text").addClass("show");
+
+    $(".owl-carousel").each(function() {
+      var carouselId = $(this).closest(".carousel-container").attr("id");
+      $(this).owlCarousel({
+        loop: false,
+        margin: 40,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          768: {
+            items: 2,
+          },
+          1200: {
+            items: 3,
+          },
+        },
+      });
+    });
+
+  </script>
 
   </body>
 

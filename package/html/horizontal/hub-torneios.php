@@ -1518,6 +1518,34 @@ if (isset($_SESSION['id'])) { ?>
       resetSessionTimeout();
     </script>
 
+<style>
+    .selected-img {
+      border: 6px solid #63a340;
+    }
+  </style>
+
+<script>
+    var selectedImage = null;
+
+    function toggleImageSelection(imgElement) {
+
+      if (imgElement.classList.contains('selected-img')) {
+        imgElement.classList.remove('selected-img');
+        selectedImage = null;
+      } else {
+
+        if (selectedImage) {
+          selectedImage.classList.remove('selected-img');
+        }
+        
+        imgElement.classList.add('selected-img');
+
+
+        selectedImage = imgElement;
+      }
+    }
+  </script>
+
 </body>
 
 </html>
