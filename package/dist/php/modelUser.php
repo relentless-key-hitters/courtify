@@ -697,34 +697,30 @@ class User{
                     </div>
                   </div>";
                 }else{
-                    $mvp = "<div class='col-3'>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Rui Paulo'>
-                    </div>
-                    </div>
-                    <div class='col-3'>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Rui Paulo'>
-                    </div>
-                  </div>
-                  <div class='col-3'>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy6.jpg' alt='Participant 1'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Fábio Santos'>
-                    </div>
+                    $mvp = "
+                    <div class='d-flex justify-content-center gap-4'>
+                        <div class='col-3'>
+                        <div class='d-flex align-items-center mt-2'>
+                        <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2'
+                            class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                            data-placement='top' title='Rui Paulo'>
+                        </div>
+                        </div>
+                        <div class='col-3'>
+                        <div class='d-flex align-items-center mt-2'>
+                        <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2'
+                            class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                            data-placement='top' title='Rui Paulo'>
+                        </div>
                     </div>
                     <div class='col-3'>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy9.jpg' alt='Participant 2'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Paulo Chaves'>
-                    </div>
-                  </div>";
+                        <div class='d-flex align-items-center mt-2'>
+                        <img src='../../dist/images/profile/boy6.jpg' alt='Participant 1'
+                            class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                            data-placement='top' title='Fábio Santos'>
+                        </div>
+                        </div>
+                    </div>";
                 }
                 if($row['modalidade'] == "Basquetebol"){
                     $mod .= "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
