@@ -1011,60 +1011,815 @@ $(function () {
   // =====================================
   var options = {
     color: "#adb5bd",
-    series: [80, 74, 52],
-    labels: ["Padel", "Ténis", "Basquetebol"],
+    series: [{
+      name: "radarPadel",
+      data: [80, 74, 52, 74, 52],
+      markers: {
+        size: 6,
+      },
+    }],
+    labels: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
     chart: {
-      type: "donut",
+      height: 300, 
+      width: '100%',
+      type: "radar",
       fontFamily: "Plus Jakarta Sans', sans-serif",
       foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
     },
-    plotOptions: {
-      pie: {
-        donut: {
-          size: '89%',
-          background: 'transparent',
-          labels: {
-            show: true,
-            name: {
-              show: true,
-              offsetY: 7,
-            },
-            value: {
-              show: false,
-            },
-            total: {
-              show: true,
-              color: '#5A6A85',
-              fontSize: '20px',
-              fontWeight: "600",
-              label: '62%',
-            },
-          },
-        },
+    dataLabels: {
+      enabled: true,
+      formatter: function(val, opts) {
+        return val;
       },
     },
-
-    dataLabels: {
-      enabled: false,
-    },
     stroke: {
-      show: false,
+      show: true,
+      width: 2,
     },
     legend: {
       show: false,
     },
-    colors: ["#F8CF29", "#0779AB", "#6AAD45"],
-
+    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
     tooltip: {
       theme: "dark",
       fillSeriesColor: false,
     },
-  };
+   };
 
-  var chart = new ApexCharts(document.querySelector("#sales-overview"), options);
+   var chart = new ApexCharts(document.querySelector("#radarPadel"), options);
   chart.render();
 
 
+  var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "radarTenis",
+      data: [80, 74, 52, 74, 52],
+      markers: {
+        size: 6,
+      },
+    }],
+    labels: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+    chart: {
+      height: 300, 
+      width: '100%',
+      type: "radar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function(val, opts) {
+        return val;
+      },
+    },
+    stroke: {
+      show: true,
+      width: 2,
+    },
+    legend: {
+      show: false,
+    },
+    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+   };
 
+   var chart = new ApexCharts(document.querySelector("#radarTenis"), options);
+  chart.render();
+
+  var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "radarBasket",
+      data: [80, 74, 52, 74, 52],
+      markers: {
+        size: 6,
+      },
+    }],
+    labels: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+    chart: {
+      height: 300, 
+      width: '100%',
+      type: "radar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function(val, opts) {
+        return val;
+      },
+    },
+    stroke: {
+      show: true,
+      width: 2,
+    },
+    legend: {
+      show: false,
+    },
+    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+   };
+
+   var chart = new ApexCharts(document.querySelector("#radarBasket"), options);
+  chart.render();
+
+  var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "radarFutsal",
+      data: [80, 74, 52, 74, 52],
+      markers: {
+        size: 6,
+      },
+    }],
+    labels: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+    chart: {
+      height: 300, 
+      width: '100%',
+      type: "radar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function(val, opts) {
+        return val;
+      },
+    },
+    stroke: {
+      show: true,
+      width: 2,
+    },
+    legend: {
+      show: false,
+    },
+    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+   };
+
+   var chart = new ApexCharts(document.querySelector("#radarFutsal"), options);
+  chart.render();
+
+  var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barPadel"), options);
+   chart.render();
+
+   var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barPadel2"), options);
+   chart.render();
+
+   var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barTenis"), options);
+   chart.render();
+
+   var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barTenis2"), options);
+   chart.render();
+
+   var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barBasket"), options);
+   chart.render();
+
+   var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barBasket2"), options);
+   chart.render();
+
+   var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barFutsal"), options);
+   chart.render();
+
+   var options = {
+    color: "#adb5bd",
+    series: [{
+      name: "histogram",
+      data: [
+        { x: "Padel", y: 80 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+        { x: "Ténis", y: 74 },
+        { x: "Basquetebol", y: 52 },
+      ],
+    }],
+    chart: {
+      height: 300,
+      width: '100%',
+      type: "bar",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+      toolbar: {
+        tools: {
+          download: false
+        }
+      }
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "95%",
+        borderRadius: 5,
+        borderRadiusApplication: "end",
+      }
+    },
+    fill: {
+      colors: '#ff4040',
+      opacity: 0.3,
+    },
+    stroke: {
+      width: 2,
+      colors: ['#ee8080']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    xaxis: {
+      type: "category",
+      categories: ["Padel", "Ténis", "Basquetebol", "Ténis", "Basquetebol"],
+      title: {text: "Sports", offsetY: 70},
+      axisBorder: {
+        color: "#000000"
+      }
+    },
+    yaxis: {
+      title: {text: "Sales"},
+      axisBorder: {
+        show: true,
+        color: "#000000"
+      }
+    },
+    tooltip:{
+      onDatasetHover: {
+        highlightDataSeries: true,
+      },
+    }
+   };
+   
+   var chart = new ApexCharts(document.querySelector("#barFutsal2"), options);
+   chart.render();
 
 });
