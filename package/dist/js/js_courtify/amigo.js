@@ -49,8 +49,7 @@ function procurarAmigos() {
   })
 
   .done(function (msg) {
-    console.log(msg);
-
+    $("#pesquisaAmigos").val("");
     $("#amigosUtilizador").fadeOut("fast", function() {
       $(this).html("");
       
