@@ -836,7 +836,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
-                        <p class="pt-2 fs-9">47%</p>
+                        <p class="pt-2 fs-9">239</p>
                       </div>
                     </div>
                   </div>
@@ -977,7 +977,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
-                        <p class="pt-2 fs-9">47%</p>
+                        <p class="pt-2 fs-9">47</p>
                       </div>
                     </div>
                   </div>
