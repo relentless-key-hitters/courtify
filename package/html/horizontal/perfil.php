@@ -1045,11 +1045,11 @@ if (isset($_SESSION['id'])) {?>
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
               <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Amigos <span
                   class="badge text-bg-primary fs-2 rounded-4 py-1 px-2 ms-2 mt-1 badge-container" id="contagemAmigos"></span></h3>
-              <form class="position-relative">
+              <div class="position-relative">
                 <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
-                  placeholder="Pesquisar Amigos">
+                  id="pesquisaAmigos" placeholder="Pesquisar Amigos">
                 <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
-              </form>
+              </div>
             </div>
             <div class="row" id="amigosUtilizador">
               <div class="col-sm-6 col-lg-4">

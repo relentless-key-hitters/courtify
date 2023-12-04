@@ -610,62 +610,62 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Rui Paulo" style="cursor: pointer">
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy3.jpg" alt="Participant 2"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Rui Paulo" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy6.jpg" alt="Participant 1"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Fábio Santos" style="cursor: pointer">
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy9.jpg" alt="Participant 2"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Paulo Chaves" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Gonçalo Nunes" style="cursor: pointer">
 
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy11.jpg" alt="Participant 1"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Gonçalo Nunes" style="cursor: pointer">
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy8.jpg" alt="Participant 2"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
                 </div>
               </div>
               <div class="col-2">
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy7.jpg" alt="Participant 1"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Gonçalo Nunes" style="cursor: pointer">
 
                 </div>
                 <div class="d-flex align-items-center mt-2">
                   <img src="../../dist/images/profile/boy5.jpg" alt="Participant 2"
-                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection(this)" data-toggle="tooltip"
+                    class="rounded-circle object-fit-cover" width="60" height="60" onclick="toggleImageSelection1(this)" data-toggle="tooltip"
                     data-placement="top" title="Gonçalo Ricardo" style="cursor: pointer">
 
                 </div>
@@ -727,8 +727,8 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
-  <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
   <script src="../../dist/js/js_courtify/notificacao.js"></script>
+  <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
 
 
   

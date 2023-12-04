@@ -196,7 +196,7 @@ function podeSelecionarAmigo() {
 }
 
 
-function toggleImageSelection(imgElement) {
+function toggleImageSelection1(imgElement) {
     if (imgElement.classList.contains('selected-img')) {
       imgElement.classList.remove('selected-img');
   
