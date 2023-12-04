@@ -37,6 +37,7 @@ function getPerfil(){
             $("#nomeEquipa4").html(obj.nome);
             $("#nomeEquipa5").html(obj.nome);
             $("#mod").html(obj.mod);
+            $("#iconAlterarFoto").html(obj.altFotoCapa);
 
         })
         
