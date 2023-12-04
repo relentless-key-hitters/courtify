@@ -754,6 +754,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
           </div>
+
           <div class="tab-pane fade" id="pills-followers" role="tabpanel" aria-labelledby="pills-followers-tab"
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
@@ -764,75 +765,111 @@ if (isset($_SESSION['id'])) {?>
                 <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
               </form>
             </div>
+
             <div class="row">
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-success fw-semibold fs-7">
+                  <i class="ti ti-ball-tennis me-1"></i>
+                  <small class="me-1">Padel</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold">2545</h4>
-                        <p class="mb-0">Amigos</p>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
                   </div>
-                  <div id="widgest-chart-1"></div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body p-4">
-                    <div class="d-flex align-items-end justify-content-between mb-3">
-                      <div>
-                        <h4 class="mb-0 fw-semibold">15480</h4>
-                        <p class="mb-0">Visualizações de Perfil</p>
-                      </div>
-                    </div>
-                    <div id="widgest-chart-2"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold">4493</h4>
-                        <p class="mb-0">Atletas Encontrados</p>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº de Jogos:</h4>
+                        <p class="pt-2 fs-9">109</p>
                       </div>
                     </div>
                   </div>
-                  <div id="widgest-chart-3"></div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body p-4">
-                    <div class="mb-7 pb-8">
-                      <h4 class="mb-0 fw-semibold">1439</h4>
-                      <p class="mb-0">Jogos Realizados</p>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
                     </div>
-                    <div id="widgest-chart-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
+                        <p class="pt-2 fs-9">239</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="card">
               <div class="card-body p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
-                  <h5 class="card-title fw-semibold mb-0">Ranking</h5>
+                  <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
                 </div>
                 <div class="row">
                   <div class="col-md-4 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <div id="widgest-chart-5"></div>
+                        <div id="radarPadel"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
                           <div>
-                            <p class="mb-1">Padel</p>
-                            <h4 class="mb-0 fw-semibold">3657º</h4>
-                            <div class="d-flex align-items-center pt-3">
-                              <p class="fs-3 mb-0">2021</p>
-                            </div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
                           </div>
                         </div>
                       </div>
@@ -841,14 +878,11 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-md-4 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <div id="widgest-chart-6"></div>
+                        <div id="barPadel"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
                           <div>
-                            <p class="mb-1">Ténis</p>
-                            <h4 class="mb-0 fw-semibold">8764º</h4>
-                            <div class="d-flex align-items-center pt-3">
-                              <p class="fs-3 mb-0">2022</p>
-                            </div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
                           </div>
                         </div>
                       </div>
@@ -857,11 +891,11 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-md-4 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <div id="current-year"></div>
+                        <div id="barPadel2"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
                           <div>
-                            <p class="mb-1">Subidas</p>
-                            <h4 class="mb-0 fw-semibold">248</h4>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
                           </div>
                         </div>
                       </div>
@@ -870,168 +904,390 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
+
+
             <div class="row">
-              <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-primary fw-semibold fs-7">
+                  <i class="ti ti-ball-tennis me-1"></i>
+                  <small class="me-1">Ténis</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <h5 class="card-title mb-9 fw-semibold">Vitórias</h5>
-                        <h4 class="fw-semibold mb-2">895</h4>
-                        <div class="d-flex align-items-center mb-7 pb-8">
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <div class="d-flex justify-content-center">
-                          <div id="breakup"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body pb-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                      <h5 class="card-title mb-0 fw-semibold"> Derrotas </h5>
-                    </div>
-                    <div class="d-flex align-items-center mb-7 pb-8">
-                      <h4 class="fw-semibold mb-0 fs-7">394</h4>
-                      <div class="d-flex align-items-center">
-                      </div>
-                    </div>
-                    <div id="monthly-earning"></div>
-                  </div>
-                </div>
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                      <h5 class="card-title mb-0 fw-semibold"> Empates </h5>
+                    <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <select class="form-select text-dark">
-                          <option value="1">Março</option>
-                          <option value="2">Abril</option>
-                          <option value="3">Maio</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div id="most-visited"></div>
-                    <div class="d-flex align-items-center justify-content-center">
-                      <div class="me-4">
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #6AAD45;"></span>
-                        <span>2022</span>
-                      </div>
-                      <div>
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #F8CF29;"></span>
-                        <span>2023</span>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
+
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <div>
-                      <h5 class="card-title fw-semibold">Pontos</h5>
-                      <div id="yearly-salary"></div>
-                      <div class="d-flex align-items-center justify-content-between mt-3">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <p class="fs-3 mb-0 fw-normal">Marcados</p>
-                            <h6 class="fw-semibold text-dark fs-4 mb-0">2348</h6>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <p class="fs-3 mb-0 fw-normal">Sofridos</p>
-                            <h6 class="fw-semibold text-dark fs-4 mb-0">580</h6>
-                          </div>
-                        </div>
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº de Jogos:</h4>
+                        <p class="pt-2 fs-9">109</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="card w-100 position-relative overflow-hidden">
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <h5 class="card-title fw-semibold mb-0">Golos</h5>
-                    <div class="row align-items-center">
-                      <div class="col-md-6">
-                        <h4 class="fw-semibold mb-0 mt-4">36</h4>
-                        <p class="mb-1 fs-2 mb-2">(Futebol / Futsal)</p>
-                        <div class="d-flex align-items-center">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div id="impressions"></div>
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
+                        <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
+                        <p class="pt-2 fs-9">47</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
+                  <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden">
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <p class="mb-1 fs-5">Padel</p>
-                        <h4 class="fw-semibold">1854</h4>
-                        <div class="d-flex align-items-center">
-                          <p class="text-muted fs-3 mb-0">Pontos Ganhos </p>
+                        <div id="radarTenis"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
                         </div>
                       </div>
-                      <div id="customers"></div>
                     </div>
                   </div>
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden">
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <p class="mb-1 fs-5">Ténis</p>
-                        <h4 class="fw-semibold">348</h4>
-                        <div class="d-flex align-items-center mb-2">
-                          <p class="text-muted fs-3 mb-0">Jogos Realizados</p>
+                        <div id="barTenis"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
                         </div>
-                        <div id="projects"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barTenis2"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body pb-4">
-                    <h5 class="card-title fw-semibold">Média de Votação</h5>
-                    <p class="card-subtitle mb-4">Mensal</p>
-                    <div class="d-flex align-items-center">
-                      <div class="me-4">
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #0779AB;"></span>
-                        <span class="fs-2">Subidas</span>
-                      </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-warning fw-semibold fs-7">
+                  <i class="ti ti-ball-basketball me-1"></i>
+                  <small class="me-1">Basquetebol</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="d-flex justify-content-between gap-4">
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #6AAD45;"></span>
-                        <span class="fs-2">Descidas</span>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
-                    <div id="revenue-updates"></div>
                   </div>
                 </div>
-                <div class="card w-100">
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <h5 class="card-title fw-semibold">% Vitórias</h5>
-                    <p class="card-subtitle mb-4">3 Principais Modalidades</p>
-                    <div id="sales-overview"></div>
-                    <div class="d-flex align-items-center justify-content-between mt-5 pb-2">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <h6 class="fw-semibold text-dark fs-4 mb-0">683</h6>
-                          <p class="fs-3 mb-0 fw-normal">Vitórias</p>
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Jogos:</h4>
+                        <p class="pt-2 fs-9">109</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
+                  <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="radarBasket"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
                         </div>
                       </div>
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <h6 class="fw-semibold text-dark fs-4 mb-0">239</h6>
-                          <p class="fs-3 mb-0 fw-normal">Derrotas</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barBasket"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barBasket2"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-danger fw-semibold fs-7">
+                  <i class="ti ti-ball-football me-1"></i>
+                  <small class="me-1">Futsal</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="d-flex justify-content-between gap-4">
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias</h4>
+                        <p class="pt-2 fs-9">109</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Jogos</h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Golos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
+                  <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="radarFutsal"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barFutsal"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barFutsal2"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1040,6 +1296,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
           </div>
+
           <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab"
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
