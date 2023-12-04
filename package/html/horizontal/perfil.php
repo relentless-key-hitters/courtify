@@ -26,7 +26,7 @@ if (isset($_SESSION['id'])) {?>
 
   <style>
     body {
-        overflow-x: hidden;
+      overflow-x: hidden;
     }
   </style>
 </head>
@@ -163,7 +163,8 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                     </div>
                     <div class="message-body">
-                      <a href="./perfil.php?id=<?php echo $_SESSION['id']?>" class="py-8 px-7 mt-8 d-flex align-items-center">
+                      <a href="./perfil.php?id=<?php echo $_SESSION['id']?>"
+                        class="py-8 px-7 mt-8 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-user-circle fs-7 text-primary"></i>
                         </span>
@@ -172,7 +173,7 @@ if (isset($_SESSION['id'])) {?>
                           <span class="d-block text-dark"></span>
                         </div>
                       </a>
-                      <a href="#" class="py-8 px-7 d-flex align-items-center">
+                      <a href="./app-email.html" class="py-8 px-7 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-message fs-7 text-primary"></i>
                         </span>
@@ -217,8 +218,9 @@ if (isset($_SESSION['id'])) {?>
           <div class="card-body p-0">
             <div class="image-container">
               <img alt="" id="fotoCapaView" class="img-fluid">
-              <div class="icon-container" id = "iconAlterarFoto">
-
+              <div class="icon-container">
+                <i class="fas fa-pencil-alt text-white fs-6" data-toggle="tooltip" data-placement="top" title="Editar"
+                  data-bs-toggle="modal" data-bs-target="#vertical-center-modal"></i>
               </div>
             </div>
             <div class="row align-items-center">
@@ -764,75 +766,111 @@ if (isset($_SESSION['id'])) {?>
                 <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
               </form>
             </div>
+
             <div class="row">
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-success fw-semibold fs-7">
+                  <i class="ti ti-ball-tennis me-1"></i>
+                  <small class="me-1">Padel</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold">2545</h4>
-                        <p class="mb-0">Amigos</p>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
                   </div>
-                  <div id="widgest-chart-1"></div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body p-4">
-                    <div class="d-flex align-items-end justify-content-between mb-3">
-                      <div>
-                        <h4 class="mb-0 fw-semibold">15480</h4>
-                        <p class="mb-0">Visualizações de Perfil</p>
-                      </div>
-                    </div>
-                    <div id="widgest-chart-2"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold">4493</h4>
-                        <p class="mb-0">Atletas Encontrados</p>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº de Jogos:</h4>
+                        <p class="pt-2 fs-9">109</p>
                       </div>
                     </div>
                   </div>
-                  <div id="widgest-chart-3"></div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body p-4">
-                    <div class="mb-7 pb-8">
-                      <h4 class="mb-0 fw-semibold">1439</h4>
-                      <p class="mb-0">Jogos Realizados</p>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
                     </div>
-                    <div id="widgest-chart-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
+                        <p class="pt-2 fs-9">47%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="card">
               <div class="card-body p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
-                  <h5 class="card-title fw-semibold mb-0">Ranking</h5>
+                  <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
                 </div>
                 <div class="row">
                   <div class="col-md-4 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <div id="widgest-chart-5"></div>
+                        <div id="radarPadel"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
                           <div>
-                            <p class="mb-1">Padel</p>
-                            <h4 class="mb-0 fw-semibold">3657º</h4>
-                            <div class="d-flex align-items-center pt-3">
-                              <p class="fs-3 mb-0">2021</p>
-                            </div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
                           </div>
                         </div>
                       </div>
@@ -841,14 +879,11 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-md-4 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <div id="widgest-chart-6"></div>
+                        <div id="barPadel"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
                           <div>
-                            <p class="mb-1">Ténis</p>
-                            <h4 class="mb-0 fw-semibold">8764º</h4>
-                            <div class="d-flex align-items-center pt-3">
-                              <p class="fs-3 mb-0">2022</p>
-                            </div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
                           </div>
                         </div>
                       </div>
@@ -857,11 +892,11 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-md-4 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <div id="current-year"></div>
+                        <div id="barPadel2"></div>
                         <div class="d-flex align-items-end justify-content-between mt-7">
                           <div>
-                            <p class="mb-1">Subidas</p>
-                            <h4 class="mb-0 fw-semibold">248</h4>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
                           </div>
                         </div>
                       </div>
@@ -870,168 +905,389 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
+
+
             <div class="row">
-              <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-primary fw-semibold fs-7">
+                  <i class="ti ti-ball-tennis me-1"></i>
+                  <small class="me-1">Ténis</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <h5 class="card-title mb-9 fw-semibold">Vitórias</h5>
-                        <h4 class="fw-semibold mb-2">895</h4>
-                        <div class="d-flex align-items-center mb-7 pb-8">
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <div class="d-flex justify-content-center">
-                          <div id="breakup"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body pb-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                      <h5 class="card-title mb-0 fw-semibold"> Derrotas </h5>
-                    </div>
-                    <div class="d-flex align-items-center mb-7 pb-8">
-                      <h4 class="fw-semibold mb-0 fs-7">394</h4>
-                      <div class="d-flex align-items-center">
-                      </div>
-                    </div>
-                    <div id="monthly-earning"></div>
-                  </div>
-                </div>
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                      <h5 class="card-title mb-0 fw-semibold"> Empates </h5>
+                    <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <select class="form-select text-dark">
-                          <option value="1">Março</option>
-                          <option value="2">Abril</option>
-                          <option value="3">Maio</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div id="most-visited"></div>
-                    <div class="d-flex align-items-center justify-content-center">
-                      <div class="me-4">
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #6AAD45;"></span>
-                        <span>2022</span>
-                      </div>
-                      <div>
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #F8CF29;"></span>
-                        <span>2023</span>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
+
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <div>
-                      <h5 class="card-title fw-semibold">Pontos</h5>
-                      <div id="yearly-salary"></div>
-                      <div class="d-flex align-items-center justify-content-between mt-3">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <p class="fs-3 mb-0 fw-normal">Marcados</p>
-                            <h6 class="fw-semibold text-dark fs-4 mb-0">2348</h6>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <p class="fs-3 mb-0 fw-normal">Sofridos</p>
-                            <h6 class="fw-semibold text-dark fs-4 mb-0">580</h6>
-                          </div>
-                        </div>
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº de Jogos:</h4>
+                        <p class="pt-2 fs-9">109</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="card w-100 position-relative overflow-hidden">
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <h5 class="card-title fw-semibold mb-0">Golos</h5>
-                    <div class="row align-items-center">
-                      <div class="col-md-6">
-                        <h4 class="fw-semibold mb-0 mt-4">36</h4>
-                        <p class="mb-1 fs-2 mb-2">(Futebol / Futsal)</p>
-                        <div class="d-flex align-items-center">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div id="impressions"></div>
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
+                        <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
+                        <p class="pt-2 fs-9">47%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
+                  <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden">
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <p class="mb-1 fs-5">Padel</p>
-                        <h4 class="fw-semibold">1854</h4>
-                        <div class="d-flex align-items-center">
-                          <p class="text-muted fs-3 mb-0">Pontos Ganhos </p>
+                        <div id="radarTenis"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
                         </div>
                       </div>
-                      <div id="customers"></div>
                     </div>
                   </div>
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card w-100 position-relative overflow-hidden">
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                       <div class="card-body">
-                        <p class="mb-1 fs-5">Ténis</p>
-                        <h4 class="fw-semibold">348</h4>
-                        <div class="d-flex align-items-center mb-2">
-                          <p class="text-muted fs-3 mb-0">Jogos Realizados</p>
+                        <div id="barTenis"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
                         </div>
-                        <div id="projects"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barTenis2"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="card w-100 position-relative overflow-hidden">
-                  <div class="card-body pb-4">
-                    <h5 class="card-title fw-semibold">Média de Votação</h5>
-                    <p class="card-subtitle mb-4">Mensal</p>
-                    <div class="d-flex align-items-center">
-                      <div class="me-4">
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #0779AB;"></span>
-                        <span class="fs-2">Subidas</span>
-                      </div>
-                      <div>
-                        <span class="round-8 rounded-circle me-2 d-inline-block"
-                          style="background-color: #6AAD45;"></span>
-                        <span class="fs-2">Descidas</span>
-                      </div>
-                    </div>
-                    <div id="revenue-updates"></div>
-                  </div>
-                </div>
-                <div class="card w-100">
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-warning fw-semibold fs-7">
+                  <i class="ti ti-ball-basketball me-1"></i>
+                  <small class="me-1">Basquetebol</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="d-flex justify-content-between gap-4">
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
-                    <h5 class="card-title fw-semibold">% Vitórias</h5>
-                    <p class="card-subtitle mb-4">3 Principais Modalidades</p>
-                    <div id="sales-overview"></div>
-                    <div class="d-flex align-items-center justify-content-between mt-5 pb-2">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <h6 class="fw-semibold text-dark fs-4 mb-0">683</h6>
-                          <p class="fs-3 mb-0 fw-normal">Vitórias</p>
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Jogos:</h4>
+                        <p class="pt-2 fs-9">109</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
+                  <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="radarBasket"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
                         </div>
                       </div>
-                      <div class="d-flex align-items-center">
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barBasket"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                      <div class="card-body">
+                        <div id="barBasket2"></div>
+                        <div class="d-flex align-items-end justify-content-between mt-7">
+                          <div>
+                            <p class="mb-1">Descrição</p>
+                            <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12 text-center pb-5">
+                <span class="badge rounded-pill text-bg-danger fw-semibold fs-7">
+                  <i class="ti ti-ball-football me-1"></i>
+                  <small class="me-1">Futsal</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="d-flex justify-content-between gap-4">
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <p class="pt-2 fs-9"> 36827º</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias</h4>
+                        <p class="pt-2 fs-9">109</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Jogos</h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº Golos:</h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Nº MVP's:</h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
+                <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
+              </div>
+              <div class="row">
+                <div class="col-md-4 d-flex align-items-stretch">
+                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                    <div class="card-body">
+                      <div id="radarFutsal"></div>
+                      <div class="d-flex align-items-end justify-content-between mt-7">
                         <div>
-                          <h6 class="fw-semibold text-dark fs-4 mb-0">239</h6>
-                          <p class="fs-3 mb-0 fw-normal">Derrotas</p>
+                          <p class="mb-1">Descrição</p>
+                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                    <div class="card-body">
+                      <div id="barFutsal"></div>
+                      <div class="d-flex align-items-end justify-content-between mt-7">
+                        <div>
+                          <p class="mb-1">Descrição</p>
+                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
+                    <div class="card-body">
+                      <div id="barFutsal2"></div>
+                      <div class="d-flex align-items-end justify-content-between mt-7">
+                        <div>
+                          <p class="mb-1">Descrição</p>
+                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
                         </div>
                       </div>
                     </div>
@@ -1040,1120 +1296,1123 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab"
-            tabindex="0">
-            <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
-              <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Amigos <span
-                  class="badge text-bg-primary fs-2 rounded-4 py-1 px-2 ms-2 mt-1 badge-container" id="contagemAmigos"></span></h3>
-              <div class="position-relative">
-                <input type="text" class="form-control search-chat py-2 ps-5"
-                  id="pesquisaAmigos" placeholder="Pesquisar Amigos">
-                <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
+
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab" tabindex="0">
+          <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
+            <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Amigos <span
+                class="badge text-bg-primary fs-2 rounded-4 py-1 px-2 ms-2 mt-1 badge-container"
+                id="contagemAmigos"></span></h3>
+            <form class="position-relative">
+              <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
+                placeholder="Pesquisar Amigos">
+              <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
+            </form>
+          </div>
+          <div class="row" id="amigosUtilizador">
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
+                  <img src="../../dist/images/profile/boy.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
+
+                  <h5 class="fw-semibold mb-0">André Silva</h5>
+                  <span class="text-dark fs-2">Futebol</span>
+                </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div class="row" id="amigosUtilizador">
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
-                    <img src="../../dist/images/profile/boy.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
+                  <img src="../../dist/images/profile/girl.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">André Silva</h5>
-                    <span class="text-dark fs-2">Futebol</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Joana Cruz</h5>
+                  <span class="text-dark fs-2">Ténis</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
-                    <img src="../../dist/images/profile/girl.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
+                  <img src="../../dist/images/profile/boy2.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Joana Cruz</h5>
-                    <span class="text-dark fs-2">Ténis</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Rui Paulo</h5>
+                  <span class="text-dark fs-2">Ténis</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
-                    <img src="../../dist/images/profile/boy2.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <h5 class="fw-semibold mb-0">Rui Paulo</h5>
-                    <span class="text-dark fs-2">Ténis</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <img src="../../dist/images/profile/boy3.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
+
+                  <h5 class="fw-semibold mb-0">Pedro Moura</h5>
+                  <span class="text-dark fs-2">Padel</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/boy3.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/girl2.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Pedro Moura</h5>
-                    <span class="text-dark fs-2">Padel</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Irene Santos</h5>
+                  <span class="text-dark fs-2">Futsal</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/girl2.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/girl3.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Irene Santos</h5>
-                    <span class="text-dark fs-2">Futsal</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Andreia Ramos</h5>
+                  <span class="text-dark fs-2">Futsal</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/girl3.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/boy4.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Andreia Ramos</h5>
-                    <span class="text-dark fs-2">Futsal</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Afonso Lima</h5>
+                  <span class="text-dark fs-2">Futebol</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/boy4.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/boy5.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Afonso Lima</h5>
-                    <span class="text-dark fs-2">Futebol</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Vitor Andrade</h5>
+                  <span class="text-dark fs-2">Padel</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/boy5.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/boy6.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Vitor Andrade</h5>
-                    <span class="text-dark fs-2">Padel</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Roberto João</h5>
+                  <span class="text-dark fs-2">Padel</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/boy6.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/girl4.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Roberto João</h5>
-                    <span class="text-dark fs-2">Padel</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Lúcia Faria</h5>
+                  <span class="text-dark fs-2">Padel</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/girl4.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/boy7.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Lúcia Faria</h5>
-                    <span class="text-dark fs-2">Padel</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">António Borges</h5>
+                  <span class="text-dark fs-2">Ténis</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/boy7.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/boy6.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">António Borges</h5>
-                    <span class="text-dark fs-2">Ténis</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Pedro Torres</h5>
+                  <span class="text-dark fs-2">Futebol</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/boy6.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/boy8.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">Pedro Torres</h5>
-                    <span class="text-dark fs-2">Futebol</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">João Chaves</h5>
+                  <span class="text-dark fs-2">Padel</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/boy8.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/girl5.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
 
-                    <h5 class="fw-semibold mb-0">João Chaves</h5>
-                    <span class="text-dark fs-2">Padel</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 class="fw-semibold mb-0">Sara Luís</h5>
+                  <span class="text-dark fs-2">Padel</span>
                 </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card hover-img">
+                <div class="card-body p-4 text-center border-bottom">
 
-                    <img src="../../dist/images/profile/girl5.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
+                  <img src="../../dist/images/profile/boy9.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
+                    height="100" width="100">
+                  <h5 class="fw-semibold mb-0">Francisco Correia</h5>
 
-                    <h5 class="fw-semibold mb-0">Sara Luís</h5>
-                    <span class="text-dark fs-2">Padel</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
+                  <span class="text-dark fs-2">Padel</span>
                 </div>
-              </div>
-              <div class="col-sm-6 col-lg-4">
-                <div class="card hover-img">
-                  <div class="card-body p-4 text-center border-bottom">
-
-                    <img src="../../dist/images/profile/boy9.jpg" alt="" class="rounded-circle mb-3 object-fit-cover"
-                      height="100" width="100">
-                    <h5 class="fw-semibold mb-0">Francisco Correia</h5>
-
-                    <span class="text-dark fs-2">Padel</span>
-                  </div>
-                  <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
-                    <li class="position-relative">
-                      <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
-                        href="javascript:void(0)">
-                        <i class="ti ti-plus"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-message"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-star"></i>
-                      </a>
-                    </li>
-                    <li class="position-relative">
-                      <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
-                        href="javascript:void(0)">
-                        <i class="ti ti-square-x"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                <ul class="px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0">
+                  <li class="position-relative">
+                    <a class="text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold"
+                      href="javascript:void(0)">
+                      <i class="ti ti-plus"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-message"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-star"></i>
+                    </a>
+                  </li>
+                  <li class="position-relative">
+                    <a class="text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold "
+                      href="javascript:void(0)">
+                      <i class="ti ti-square-x"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab"
-            tabindex="0">
-            <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-5">
-              <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center fs-5">Conquistas <span
-                  class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-5 badge-container fw-bosemiboldlder"
-                  style="background-color: #63a340;">11
-                  de 16</span></h3>
-              <form class="position-relative">
-                <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
-                  placeholder="Pesquisar Conquistas">
-                <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
-              </form>
-            </div>
-            <div class="badge-container2">
-              <div class="row mb-0 pb-0 mt-5">
-                <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Padel <span
-                      class="badge fs-2 fw-semibold rounded-4 py-1 px-2 ms-2 fs-7 badge-container"
-                      style="background-color: #63a340;">6 de 6</span></h1>
-                </div>
+        </div>
+        <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab" tabindex="0">
+          <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-5">
+            <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center fs-5">Conquistas <span
+                class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-5 badge-container fw-bosemiboldlder"
+                style="background-color: #63a340;">11
+                de 16</span></h3>
+            <form class="position-relative">
+              <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
+                placeholder="Pesquisar Conquistas">
+              <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
+            </form>
+          </div>
+          <div class="badge-container2">
+            <div class="row mb-0 pb-0 mt-5">
+              <div class="col-12 text-center">
+                <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Padel <span
+                    class="badge fs-2 fw-semibold rounded-4 py-1 px-2 ms-2 fs-7 badge-container"
+                    style="background-color: #63a340;">6 de 6</span></h1>
               </div>
+            </div>
 
-              <div class="row mb-5 mt-5">
-                <div class="carousel-container" id="carousel1">
-                  <div class="owl-carousel">
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/p50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="50 Vitórias no Padel"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">50\50</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                              aria-valuemax="50" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/p10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="10 Pontos no Padel"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">10\10</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                              aria-valuemax="10" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/p30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="30 Pontos no Padel"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">30\30</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0"
-                              aria-valuemax="30" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/p70pnt.png" alt="Badge 1" class="img-fluid rounded mt-1"
-                            data-toggle="tooltip" data-placement="top" title="70 Pontos no Padel"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">70\70</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                              aria-valuemax="70" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/p-250.png" alt="Badge 1" class="img-fluid rounded mt-1"
-                            data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">250\250</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="250"
-                              aria-valuemin="0" aria-valuemax="250" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded"
-                            data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">1000\1000</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="1000"
-                              aria-valuemin="0" aria-valuemax="1000" style="width: 1000%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">70\70</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                              aria-valuemax="70" style="width: 100%;"></div>
-                          </div>
+            <div class="row mb-5 mt-5">
+              <div class="carousel-container" id="carousel1">
+                <div class="owl-carousel">
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/p50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="50 Vitórias no Padel"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">50\50</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                            aria-valuemax="50" style="width: 100%;"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button class="owl-prev" data-owl="prev" data-carousel="carousel1"><i
-                      class="ti ti-chevron-left fs-10"></i></button>
-                  <button class="owl-next" data-owl="next" data-carousel="carousel1"><i
-                      class="ti ti-chevron-right fs-10"></i></button>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="badge-container2">
-              <div class="row mb-0 pb-0 mt-5">
-                <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Ténis <span
-                      class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-7 badge-container fw-semibold"
-                      style="background-color: #6AAD45;">5 de 6</span>
-                  </h1>
-                </div>
-              </div>
-              <div class="row mb-5 mt-5">
-                <div class="carousel-container" id="carousel2">
-                  <div class="owl-carousel">
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/19.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="10 Vitórias no Ténis"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">10\10</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                              aria-valuemax="50" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/t10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="10 Pontos no Ténis"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">10\10</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                              aria-valuemax="10" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/t30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="30 Pontos no Ténis"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">30\30</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0"
-                              aria-valuemax="30" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/t70pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded"
-                            data-toggle="tooltip" data-placement="top" title="70 Pontos no Ténis"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">70\70</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                              aria-valuemax="70" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/t-250.png" alt="Badge 1" class="img-fluid rounded mt-1"
-                            data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">250\250</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="250"
-                              aria-valuemin="0" aria-valuemax="250" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/t1000pnt.png" alt="Badge 1"
-                            class="img-fluid mt-1 rounded opacity-50" data-toggle="tooltip" data-placement="top"
-                            title="1000 Pontos no Ténis" style="max-width: 200px; filter: grayscale(36%);">
-                          <h1 class="fs-5 fw-bolder">647\1000</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="647" aria-valuemin="0"
-                              aria-valuemax="1000" style="width: 64%; background-color: #F8CF29;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">70\70</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                              aria-valuemax="70" style="width: 100%;"></div>
-                          </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/p10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="10 Pontos no Padel"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">10\10</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                            aria-valuemax="10" style="width: 100%;"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button class="owl-prev" data-owl="prev" data-carousel="carousel2"><i
-                      class="ti ti-chevron-left fs-10"></i></button>
-                  <button class="owl-next" data-owl="next" data-carousel="carousel2"><i
-                      class="ti ti-chevron-right fs-10"></i></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="badge-container2">
-              <div class="row mb-0 pb-0 mt-5">
-                <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Futsal <span
-                      class="badge fs-2 rounded-4 fw-semibold py-1 px-2 ms-2 fs-7 badge-container"
-                      style="background-color: #f84b29;">2 de 6</span></h1>
-                </div>
-              </div>
-
-              <div class="row mb-5 mt-5">
-                <div class="carousel-container" id="carousel3">
-                  <div class="owl-carousel">
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/20.png" alt="Badge 1"
-                            class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="30 Vitórias no Futsal" style="max-width: 200px; filter: grayscale(75%);">
-                          <h1 class="fs-5 fw-bolder">12\30</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0"
-                              aria-valuemax="30" style="width: 38%; background-color: #F8CF29;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/f10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="10 Golos" style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">10\10</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                              aria-valuemax="10" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/f30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="30 Golos" style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">30\30</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0"
-                              aria-valuemax="30" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/f70pnt.png" alt="Badge 1"
-                            class="img-fluid pt-2 rounded opacity-50" data-toggle="tooltip" data-placement="top"
-                            title="70 Golos" style="max-width: 200px; filter: grayscale(50%);">
-                          <h1 class="fs-5 fw-bolder">35\70</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0"
-                              aria-valuemax="70" style="width: 50%; background-color: #F8CF29;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/f-100.png" alt="Badge 1"
-                            class="img-fluid pt-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="100 Golos" style="max-width: 200px; filter: grayscale(50%);">
-                          <h1 class="fs-5 fw-bolder">35\100</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0"
-                              aria-valuemax="100" style="width: 35%; background-color: #f88629;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/f-250.png" alt="Badge 1"
-                            class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="200 Golos no Futsal" style="max-width: 200px; filter: grayscale(75%);">
-                          <h1 class="fs-5 fw-bolder">35\200</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0"
-                              aria-valuemax="200" style="width: 17%; background-color: #f44028;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">20\20</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                              aria-valuemax="20" style="width: 100%;"></div>
-                          </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/p30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="30 Pontos no Padel"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">30\30</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                            aria-valuemax="30" style="width: 100%;"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button class="owl-prev" data-owl="prev" data-carousel="carousel3"><i
-                      class="ti ti-chevron-left fs-10"></i></button>
-                  <button class="owl-next" data-owl="next" data-carousel="carousel3"><i
-                      class="ti ti-chevron-right fs-10"></i></button>
-                </div>
-              </div>
-
-            </div>
-            <div class="badge-container2">
-              <div class="row mb-0 pb-0 mt-5">
-                <div class="col-12 text-center">
-                  <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Basquetebol <span
-                      class="badge fs-2 rounded-4 py-1 fw-semibold px-2 ms-2 fs-7 badge-container"
-                      style="background-color: firebrick;">1 de 6</span></h1>
-                </div>
-              </div>
-
-
-              <div class="row mb-5 mt-5">
-                <div class="carousel-container" id="carousel4">
-                  <div class="owl-carousel">
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/30.png" alt="Badge 1"
-                            class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="50 Vitórias no Basquetebol" style="max-width: 200px; filter: grayscale(100%);">
-                          <h1 class="fs-5 fw-bolder">5\50</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                              aria-valuemax="50" style="width: 10%; background-color: firebrick;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">10\10</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                              aria-valuemax="10" style="width: 100%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/b30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="30 Pontos no Basquetebol"
-                            style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">25\30</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                              aria-valuemax="30" style="width: 86%;  background-color: #63a340;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/b70pnt.png" alt="Badge 1"
-                            class="img-fluid mb-2 rounded opacity-50" data-toggle="tooltip" data-placement="top"
-                            title="70 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(75%);">
-                          <h1 class="fs-5 fw-bolder">25\70</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                              aria-valuemax="70" style="width: 36%; background-color: #f87c29;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/b-250.png" alt="Badge 1"
-                            class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="250 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(90%);">
-                          <h1 class="fs-5 fw-bolder">25\250</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                              aria-valuemax="250" style="width: 10%; background-color: firebrick"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow ">
-                          <img src="../../dist/images/badges/b1000pnt.png" alt="Badge 1"
-                            class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="1000 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(97%);">
-                          <h1 class="fs-5 fw-bolder">25\1000</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                              aria-valuemax="1000" style="width: 3%; background-color: firebrick"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="mt-1">
-                        <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img text-center shadow">
-                          <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">20\20</h1>
-                          <div class="progress" style="height: 15px;">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                              aria-valuemax="20" style="width: 100%;"></div>
-                          </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/p70pnt.png" alt="Badge 1" class="img-fluid rounded mt-1"
+                          data-toggle="tooltip" data-placement="top" title="70 Pontos no Padel"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">70\70</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                            aria-valuemax="70" style="width: 100%;"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button class="owl-prev" data-owl="prev" data-carousel="carousel4"><i
-                      class="ti ti-chevron-left fs-10"></i></button>
-                  <button class="owl-next" data-owl="next" data-carousel="carousel4"><i
-                      class="ti ti-chevron-right fs-10"></i></button>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/p-250.png" alt="Badge 1" class="img-fluid rounded mt-1"
+                          data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">250\250</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="250" aria-valuemin="0"
+                            aria-valuemax="250" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded"
+                          data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">1000\1000</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="1000" aria-valuemin="0"
+                            aria-valuemax="1000" style="width: 1000%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">70\70</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                            aria-valuemax="70" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <button class="owl-prev" data-owl="prev" data-carousel="carousel1"><i
+                    class="ti ti-chevron-left fs-10"></i></button>
+                <button class="owl-next" data-owl="next" data-carousel="carousel1"><i
+                    class="ti ti-chevron-right fs-10"></i></button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="badge-container2">
+            <div class="row mb-0 pb-0 mt-5">
+              <div class="col-12 text-center">
+                <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Ténis <span
+                    class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-7 badge-container fw-semibold"
+                    style="background-color: #6AAD45;">5 de 6</span>
+                </h1>
+              </div>
+            </div>
+            <div class="row mb-5 mt-5">
+              <div class="carousel-container" id="carousel2">
+                <div class="owl-carousel">
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/19.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="10 Vitórias no Ténis"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">10\10</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                            aria-valuemax="50" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/t10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="10 Pontos no Ténis"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">10\10</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                            aria-valuemax="10" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/t30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="30 Pontos no Ténis"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">30\30</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                            aria-valuemax="30" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/t70pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded"
+                          data-toggle="tooltip" data-placement="top" title="70 Pontos no Ténis"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">70\70</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                            aria-valuemax="70" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/t-250.png" alt="Badge 1" class="img-fluid rounded mt-1"
+                          data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">250\250</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="250" aria-valuemin="0"
+                            aria-valuemax="250" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/t1000pnt.png" alt="Badge 1"
+                          class="img-fluid mt-1 rounded opacity-50" data-toggle="tooltip" data-placement="top"
+                          title="1000 Pontos no Ténis" style="max-width: 200px; filter: grayscale(36%);">
+                        <h1 class="fs-5 fw-bolder">647\1000</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="647" aria-valuemin="0"
+                            aria-valuemax="1000" style="width: 64%; background-color: #F8CF29;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">70\70</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                            aria-valuemax="70" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="owl-prev" data-owl="prev" data-carousel="carousel2"><i
+                    class="ti ti-chevron-left fs-10"></i></button>
+                <button class="owl-next" data-owl="next" data-carousel="carousel2"><i
+                    class="ti ti-chevron-right fs-10"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="badge-container2">
+            <div class="row mb-0 pb-0 mt-5">
+              <div class="col-12 text-center">
+                <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Futsal <span
+                    class="badge fs-2 rounded-4 fw-semibold py-1 px-2 ms-2 fs-7 badge-container"
+                    style="background-color: #f84b29;">2 de 6</span></h1>
+              </div>
+            </div>
+
+            <div class="row mb-5 mt-5">
+              <div class="carousel-container" id="carousel3">
+                <div class="owl-carousel">
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/20.png" alt="Badge 1"
+                          class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
+                          title="30 Vitórias no Futsal" style="max-width: 200px; filter: grayscale(75%);">
+                        <h1 class="fs-5 fw-bolder">12\30</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0"
+                            aria-valuemax="30" style="width: 38%; background-color: #F8CF29;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/f10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="10 Golos" style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">10\10</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                            aria-valuemax="10" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/f30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="30 Golos" style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">30\30</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                            aria-valuemax="30" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/f70pnt.png" alt="Badge 1"
+                          class="img-fluid pt-2 rounded opacity-50" data-toggle="tooltip" data-placement="top"
+                          title="70 Golos" style="max-width: 200px; filter: grayscale(50%);">
+                        <h1 class="fs-5 fw-bolder">35\70</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0"
+                            aria-valuemax="70" style="width: 50%; background-color: #F8CF29;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/f-100.png" alt="Badge 1"
+                          class="img-fluid pt-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
+                          title="100 Golos" style="max-width: 200px; filter: grayscale(50%);">
+                        <h1 class="fs-5 fw-bolder">35\100</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0"
+                            aria-valuemax="100" style="width: 35%; background-color: #f88629;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/f-250.png" alt="Badge 1"
+                          class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
+                          title="200 Golos no Futsal" style="max-width: 200px; filter: grayscale(75%);">
+                        <h1 class="fs-5 fw-bolder">35\200</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0"
+                            aria-valuemax="200" style="width: 17%; background-color: #f44028;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">20\20</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                            aria-valuemax="20" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="owl-prev" data-owl="prev" data-carousel="carousel3"><i
+                    class="ti ti-chevron-left fs-10"></i></button>
+                <button class="owl-next" data-owl="next" data-carousel="carousel3"><i
+                    class="ti ti-chevron-right fs-10"></i></button>
+              </div>
+            </div>
+
+          </div>
+          <div class="badge-container2">
+            <div class="row mb-0 pb-0 mt-5">
+              <div class="col-12 text-center">
+                <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Basquetebol <span
+                    class="badge fs-2 rounded-4 py-1 fw-semibold px-2 ms-2 fs-7 badge-container"
+                    style="background-color: firebrick;">1 de 6</span></h1>
+              </div>
+            </div>
+
+
+            <div class="row mb-5 mt-5">
+              <div class="carousel-container" id="carousel4">
+                <div class="owl-carousel">
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/30.png" alt="Badge 1"
+                          class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
+                          title="50 Vitórias no Basquetebol" style="max-width: 200px; filter: grayscale(100%);">
+                        <h1 class="fs-5 fw-bolder">5\50</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                            aria-valuemax="50" style="width: 10%; background-color: firebrick;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">10\10</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                            aria-valuemax="10" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/b30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="30 Pontos no Basquetebol"
+                          style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">25\30</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="30" style="width: 86%;  background-color: #63a340;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/b70pnt.png" alt="Badge 1"
+                          class="img-fluid mb-2 rounded opacity-50" data-toggle="tooltip" data-placement="top"
+                          title="70 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(75%);">
+                        <h1 class="fs-5 fw-bolder">25\70</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                            aria-valuemax="70" style="width: 36%; background-color: #f87c29;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                        <img src="../../dist/images/badges/b-250.png" alt="Badge 1"
+                          class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
+                          title="250 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(90%);">
+                        <h1 class="fs-5 fw-bolder">25\250</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="250" style="width: 10%; background-color: firebrick"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow ">
+                        <img src="../../dist/images/badges/b1000pnt.png" alt="Badge 1"
+                          class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top"
+                          title="1000 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(97%);">
+                        <h1 class="fs-5 fw-bolder">25\1000</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="1000" style="width: 3%; background-color: firebrick"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="mt-1">
+                      <div
+                        class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img text-center shadow">
+                        <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                          data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                        <h1 class="fs-5 fw-bolder">20\20</h1>
+                        <div class="progress" style="height: 15px;">
+                          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                            aria-valuemax="20" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="owl-prev" data-owl="prev" data-carousel="carousel4"><i
+                    class="ti ti-chevron-left fs-10"></i></button>
+                <button class="owl-next" data-owl="next" data-carousel="carousel4"><i
+                    class="ti ti-chevron-right fs-10"></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
 
-    <div style="margin-left: 60px; margin-right: 60px;">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+  <div style="margin-left: 60px; margin-right: 60px;">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
-        <a href="#"
-          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-        </a>
-        <div>
-          <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-        </div>
+      <a href="#"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+      </a>
+      <div>
+        <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+      </div>
 
-      </footer>
-    </div>
+    </footer>
+  </div>
   </div>
   </div>
   </div>
@@ -2424,11 +2683,11 @@ if (isset($_SESSION['id'])) {?>
         <div class="modal-header d-flex align-items-center">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" id = "corpoModal">
+        <div class="modal-body" id="corpoModal">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
-           data-bs-dismiss="modal" id= "guardarVotacao">
+            data-bs-dismiss="modal" id="guardarVotacao">
             Guardar
           </button>
           <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
@@ -2555,7 +2814,7 @@ if (isset($_SESSION['id'])) {?>
         if (selectedImage) {
           selectedImage.classList.remove('selected-img');
         }
-        
+
         imgElement.classList.add('selected-img');
 
 
