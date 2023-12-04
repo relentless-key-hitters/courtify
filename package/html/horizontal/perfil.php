@@ -1046,7 +1046,7 @@ if (isset($_SESSION['id'])) {?>
               <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Amigos <span
                   class="badge text-bg-primary fs-2 rounded-4 py-1 px-2 ms-2 mt-1 badge-container" id="contagemAmigos"></span></h3>
               <div class="position-relative">
-                <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
+                <input type="text" class="form-control search-chat py-2 ps-5"
                   id="pesquisaAmigos" placeholder="Pesquisar Amigos">
                 <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
               </div>
