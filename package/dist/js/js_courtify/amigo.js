@@ -50,6 +50,7 @@ function procurarAmigos() {
 
   .done(function (msg) {
     $("#pesquisaAmigos").val("");
+
     $("#amigosUtilizador").fadeOut("fast", function() {
       $(this).html("");
       
@@ -60,6 +61,7 @@ function procurarAmigos() {
       $(this).fadeIn("fast");
     });
 
+    setTimeout(getAmigos(), 5000);
   })
 
   .fail(function (jqXHR, textStatus) {

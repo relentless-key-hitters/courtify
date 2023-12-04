@@ -133,6 +133,7 @@ function alerta2(titulo,msg,icon){
         text: msg,
         showConfirmButton: false,
         confirmButtonColor: '#45702d',
+        time: 3000
       })
 }
 
