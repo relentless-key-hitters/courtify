@@ -185,6 +185,11 @@ class Amigo
                             </div>
                         </div>";
             }
+        } else {
+            $msg .= "<div class='text-center mt-5'>
+                        <h3>Sem resultados!</h3>
+                        <p>Por favor verifique os termos da sua pesquisa e tente de novo.</p>
+                    </div>";
         }
 
         $conn->close();
