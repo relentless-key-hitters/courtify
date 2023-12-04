@@ -57,6 +57,8 @@ function getMarcacoesAbertasLocalidade() {
 }
 getMarcacoesAbertasLocalidade();
 
+
+
 $(function () {
 
 });

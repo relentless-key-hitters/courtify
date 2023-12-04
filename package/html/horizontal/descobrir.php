@@ -600,33 +600,6 @@ if (isset($_SESSION['id'])) { ?>
         resetSessionTimeout();
       </script>
 
-  <script>
-    $(".animated-text").addClass("show");
-
-    $(".owl-carousel").each(function() {
-      var carouselId = $(this).closest(".carousel-container").attr("id");
-      $(this).owlCarousel({
-        loop: false,
-        margin: 40,
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          768: {
-            items: 2,
-          },
-          1200: {
-            items: 3,
-          },
-        },
-      });
-    });
-
-  </script>
 
   <style>
     .selected-img {
@@ -656,7 +629,7 @@ if (isset($_SESSION['id'])) { ?>
     }
   </script>
 
-<script>
+  <script>
     $(".animated-text").addClass("show");
 
     $(".owl-carousel").each(function() {

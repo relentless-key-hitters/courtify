@@ -103,7 +103,7 @@ class Descobrir {
               $stringHora = $hora->format('H:i');
 
               $contagem = $row['num_rows'];
-              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
+              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."' style='max-width: 400px;'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
@@ -168,11 +168,6 @@ class Descobrir {
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
-
-                                        </div>
                                     </div>
                                     <div class='col-md-2'>
                                         <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
@@ -288,7 +283,7 @@ class Descobrir {
               $stringHora = $hora->format('H:i');
 
               $contagem = $row['num_rows'];
-              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
+              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."' style='max-width: 400px;'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
@@ -353,11 +348,6 @@ class Descobrir {
                                     </div>
                                     <div class='col-md-2'>
                                         <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
-
-                                        </div>
                                     </div>
                                     <div class='col-md-2'>
                                         <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
