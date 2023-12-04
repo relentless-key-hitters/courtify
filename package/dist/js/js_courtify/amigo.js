@@ -50,7 +50,17 @@ function procurarAmigos() {
 
   .done(function (msg) {
     console.log(msg);
-    $("#amigosUtilizador").html(msg);
+
+    $("#amigosUtilizador").fadeOut("fast", function() {
+      $(this).html("");
+      
+      
+      $(this).html(msg);
+  
+      
+      $(this).fadeIn("fast");
+    });
+
   })
 
   .fail(function (jqXHR, textStatus) {
