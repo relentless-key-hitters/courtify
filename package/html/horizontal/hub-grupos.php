@@ -179,7 +179,7 @@ if (isset($_SESSION['id'])) { ?>
                           <span class="d-block text-dark"></span>
                         </div>
                       </a>
-                      <a href="./app-email.html" class="py-8 px-7 d-flex align-items-center">
+                      <a href="#" class="py-8 px-7 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-message fs-7 text-primary"></i>
                         </span>
