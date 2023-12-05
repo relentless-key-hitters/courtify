@@ -1068,6 +1068,7 @@ class User{
         $arrRes = json_decode($resultados);
         $nVit = 0;
         $nDerr = 0;
+        $nSets = sizeof($arrRes);
         $nPontosSet = 0;
         for($i = 0; $i < sizeof($arrRes); $i++){
             if($arrRes[$i][0] > $arrRes[$i][1]){
@@ -1088,16 +1089,16 @@ class User{
             while($row = $result->fetch_assoc()) {
                 if($nVit >  $nDerr){
                     if($modalidade == "Padel"){
-                        $sql2 .= "UPDATE info_padel SET n_jogos = ".$row['n_jogos']." + 1 , n_vitorias = ".$row['n_vitorias']." + 1, n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit." WHERE id_atleta = ".$_SESSION['id'];
+                        $sql2 .= "UPDATE info_padel SET n_jogos = ".$row['n_jogos']." + 1 , n_vitorias = ".$row['n_vitorias']." + 1, n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit.", n_sets =".$row['n_sets']." + ".$nSets." WHERE id_atleta = ".$_SESSION['id'];
                     }else {
-                        $sql2 .= "UPDATE info_tenis SET n_jogos = ".$row['n_jogos']." + 1 , n_vitorias = ".$row['n_vitorias']." + 1, n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit." WHERE id_atleta = ".$_SESSION['id'];
+                        $sql2 .= "UPDATE info_tenis SET n_jogos = ".$row['n_jogos']." + 1 , n_vitorias = ".$row['n_vitorias']." + 1, n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit." , n_sets =".$row['n_sets']." + ".$nSets." WHERE id_atleta = ".$_SESSION['id'];
                     }
 
                 }else{
                     if($modalidade == "Padel"){
-                        $sql2 .= "UPDATE info_padel SET n_jogos = ".$row['n_jogos']." + 1 , n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit." WHERE id_atleta = ".$_SESSION['id'];
+                        $sql2 .= "UPDATE info_padel SET n_jogos = ".$row['n_jogos']." + 1 , n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit.", n_sets =".$row['n_sets']." + ".$nSets." WHERE id_atleta = ".$_SESSION['id'];
                     }else {
-                        $sql2 .= "UPDATE info_tenis SET n_jogos = ".$row['n_jogos']." + 1 , n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit." WHERE id_atleta = ".$_SESSION['id'];
+                        $sql2 .= "UPDATE info_tenis SET n_jogos = ".$row['n_jogos']." + 1 , n_pontos_set = ".$row['n_pontos_set']." + ".$nPontosSet.", n_set_ganhos = ".$row['n_set_ganhos']." + ".$nVit.", n_sets =".$row['n_sets']." + ".$nSets." WHERE id_atleta = ".$_SESSION['id'];
                     }
                 }
             }
@@ -1176,12 +1177,17 @@ class User{
         $nPontos = 0;
         $nSetsGanhos = 0;
         $nMvp = 0;
+        $percSetsGanhos = 0;
+        $mediaPontosSet = 0;
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 if($row['n_jogos'] != 0){
                     $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
                 }
-               
+                if($row['n_sets'] != 0){
+                $percSetsGanhos = round(( $row['n_set_ganhos']/$row['n_sets'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
+                $mediaPontosSet = round(( $row['n_pontos_set']/$row['n_sets'] ), 1 , PHP_ROUND_HALF_DOWN);
+                }
                 $percVitorias = $percVitorias1 ."%";
                 $nJogos = $row['n_jogos'];
                 $nPontos = $row['n_pontos_set'];
@@ -1189,7 +1195,7 @@ class User{
                 $nMvp = $row['n_mvp'];
             }
         }
-        $resp = array("modalidade" => "Padel" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp);
+        $resp = array("modalidade" => "Padel" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp , "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet);
         return($resp);
     }
 
@@ -1203,11 +1209,18 @@ class User{
         $nPontos = 0;
         $nSetsGanhos = 0;
         $nMvp = 0;
+        $percSetsGanhos = 0;
+        $mediaPontosSet = 0;
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 if($row['n_jogos'] != 0){
-                    $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
+                    $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN);
                 }
+                if($row['n_sets'] != 0){
+                $percSetsGanhos = round(( $row['n_set_ganhos']/$row['n_sets'] )*100 , 1 , PHP_ROUND_HALF_DOWN);
+                $mediaPontosSet = round(( $row['n_pontos_set']/$row['n_sets'] ), 1 , PHP_ROUND_HALF_DOWN);
+                }
+                
                 $percVitorias = $percVitorias1 ."%";
                 $nJogos = $row['n_jogos'];
                 $nPontos = $row['n_pontos_set'];
@@ -1215,7 +1228,7 @@ class User{
                 $nMvp = $row['n_mvp'];
             }
         }
-        $resp = array("modalidade" => "Ténis" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp);
+        $resp = array("modalidade" => "Ténis" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet);
         return($resp);
     }
 
