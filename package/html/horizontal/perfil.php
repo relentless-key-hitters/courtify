@@ -768,7 +768,7 @@ if (isset($_SESSION['id'])) {?>
 
             <div class="row">
               <div class="col-md-12 text-center pb-5">
-                <span class="badge rounded-pill text-bg-success fw-semibold fs-7">
+                <span class="badge rounded-pill text-bg-primary fw-semibold fs-7">
                   <i class="ti ti-ball-tennis me-1"></i>
                   <small class="me-1">Padel</small>
                 </span>
@@ -908,7 +908,7 @@ if (isset($_SESSION['id'])) {?>
 
             <div class="row">
               <div class="col-md-12 text-center pb-5">
-                <span class="badge rounded-pill text-bg-primary fw-semibold fs-7">
+                <span class="badge rounded-pill text-bg-success fw-semibold fs-7">
                   <i class="ti ti-ball-tennis me-1"></i>
                   <small class="me-1">Ténis</small>
                 </span>

@@ -59,9 +59,9 @@ function procurarAmigos() {
   
       
       $(this).fadeIn("fast");
+
     });
 
-    setTimeout(getAmigos(), 5000);
   })
 
   .fail(function (jqXHR, textStatus) {

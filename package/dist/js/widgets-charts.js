@@ -1044,7 +1044,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
+    colors: ["#044967", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
     tooltip: {
       theme: "dark",
       fillSeriesColor: false,
@@ -1090,7 +1090,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
+    colors: ["#45702d", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
     tooltip: {
       theme: "dark",
       fillSeriesColor: false,
@@ -1135,7 +1135,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
+    colors: ["#FFAE1F", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
     tooltip: {
       theme: "dark",
       fillSeriesColor: false,
@@ -1180,7 +1180,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["#F8CF29", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
+    colors: ["#FA896B", "#0779AB", "#6AAD45", "#0779AB", "#6AAD45"],
     tooltip: {
       theme: "dark",
       fillSeriesColor: false,
@@ -1222,12 +1222,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#044967',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#044967']
     },
     dataLabels: {
       enabled: false,
@@ -1301,12 +1301,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#044967',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#044967']
     },
     dataLabels: {
       enabled: false,
@@ -1380,12 +1380,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#45702d',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#45702d']
     },
     dataLabels: {
       enabled: false,
@@ -1459,12 +1459,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#45702d',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#45702d']
     },
     dataLabels: {
       enabled: false,
@@ -1538,12 +1538,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#FFAE1F',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#FFAE1F']
     },
     dataLabels: {
       enabled: false,
@@ -1617,12 +1617,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#FFAE1F',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#FFAE1F']
     },
     dataLabels: {
       enabled: false,
@@ -1696,12 +1696,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#FA896B',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#FA896B']
     },
     dataLabels: {
       enabled: false,
@@ -1775,12 +1775,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#ff4040',
+      colors: '#FA896B',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#ee8080']
+      colors: ['#FA896B']
     },
     dataLabels: {
       enabled: false,
