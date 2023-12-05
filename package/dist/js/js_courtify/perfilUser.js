@@ -64,6 +64,24 @@ function getEstatisticas(id){
 
         .done(function(msg) {
             console.log(msg)
+            let obj = JSON.parse(msg);
+            for(let i = 0; i < obj.length; i++){
+                if(obj[i].modalidade == 'Basquetebol'){
+
+                }else if(obj[i].modalidade  == 'Futsal'){
+                    
+                }else if(obj[i].modalidade == "Padel"){
+                    $("#pontuacaoPadel").html(obj[i].nPontos)
+                    $("#nJogosPadel").html(obj[i].nJogos)
+                    $("#percVitPadel").html(obj[i].percVitorias)
+                    $("#nSetsGanhosPadel").html(obj[i].nSetsGanhos)
+                    $("#mediaVitSetPadel").html(obj[i].mediaPontosSet)
+                    $("#mediaSetsGanhosPadel").html(obj[i].percSets)
+                    $("#nMvpPadel").html(obj[i].nMvp)
+                }else{
+                    
+                }
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
