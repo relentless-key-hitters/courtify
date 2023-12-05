@@ -26,7 +26,7 @@ if (isset($_SESSION['id'])) {?>
 
   <style>
     body {
-        overflow-x: hidden;
+      overflow-x: hidden;
     }
   </style>
 </head>
@@ -163,7 +163,8 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                     </div>
                     <div class="message-body">
-                      <a href="./perfil.php?id=<?php echo $_SESSION['id']?>" class="py-8 px-7 mt-8 d-flex align-items-center">
+                      <a href="./perfil.php?id=<?php echo $_SESSION['id']?>"
+                        class="py-8 px-7 mt-8 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <i class="ti ti-user-circle fs-7 text-primary"></i>
                         </span>
@@ -217,7 +218,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="card-body p-0">
             <div class="image-container">
               <img alt="" id="fotoCapaView" class="img-fluid">
-              <div class="icon-container" id = "iconAlterarFoto">
+              <div class="icon-container" id="iconAlterarFoto">
 
               </div>
             </div>
@@ -777,12 +778,12 @@ if (isset($_SESSION['id'])) {?>
 
             <div class="row">
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
@@ -790,12 +791,12 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-tennis fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Pontuação <span class="ti ti-ball-tennis fs-5"></span></h4>
                         <p class="pt-2 fs-9">422</p>
                       </div>
                     </div>
@@ -803,12 +804,12 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-device-gamepad-2 fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Jogos <span class="ti ti-device-gamepad-2 fs-5"></span></h4>
                         <p class="pt-2 fs-9">109</p>
                       </div>
                     </div>
@@ -816,26 +817,30 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
                         <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
+            <div class="row">
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span>
+                        </h4>
                         <p class="pt-2 fs-9">239</p>
                       </div>
                     </div>
@@ -843,12 +848,40 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Média Vitórias / Set <span class="ti ti-trophy fs-5"></span></h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-5">Média Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span></h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-5">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
@@ -856,6 +889,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
+
 
             <div class="card">
               <div class="card-body p-4">
@@ -918,12 +952,12 @@ if (isset($_SESSION['id'])) {?>
 
             <div class="row">
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
@@ -931,12 +965,12 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-tennis fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Pontuação <span class="ti ti-ball-tennis fs-5"></span></h4>
                         <p class="pt-2 fs-9">422</p>
                       </div>
                     </div>
@@ -944,12 +978,12 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-device-gamepad-2 fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Jogos <span class="ti ti-device-gamepad-2 fs-5"></span></h4>
                         <p class="pt-2 fs-9">109</p>
                       </div>
                     </div>
@@ -957,38 +991,71 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
                         <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span></h4>
-                        <p class="pt-2 fs-9">47</p>
+                        <h4 class="mb-0 fw-semibold fs-5">Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span>
+                        </h4>
+                        <p class="pt-2 fs-9">239</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Média Vitórias / Set <span class="ti ti-trophy fs-5"></span></h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-5">Média Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span></h4>
+                        <p class="pt-2 fs-9">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-6 col-lg-3 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-5">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
@@ -1064,7 +1131,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
@@ -1075,7 +1142,8 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-basketball fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Pontuação <span class="ti ti-ball-basketball fs-5"></span>
+                        </h4>
                         <p class="pt-2 fs-9">422</p>
                       </div>
                     </div>
@@ -1086,7 +1154,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-shoe fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Jogos <span class="ti ti-shoe fs-5"></span></h4>
                         <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
@@ -1097,7 +1165,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
                         <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
@@ -1109,7 +1177,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
@@ -1184,7 +1252,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
@@ -1195,7 +1263,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-football fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Pontuação <span class="ti ti-ball-football fs-5"></span></h4>
                         <p class="pt-2 fs-9">422</p>
                       </div>
                     </div>
@@ -1206,7 +1274,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-soccer-field fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">Jogos <span class="ti ti-soccer-field fs-5"></span></h4>
                         <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
@@ -1218,7 +1286,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
                         <p class="pt-2 fs-9">109</p>
                       </div>
                     </div>
@@ -1229,7 +1297,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
+                        <h4 class="mb-0 fw-semibold fs-5">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
@@ -1293,10 +1361,12 @@ if (isset($_SESSION['id'])) {?>
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
               <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Amigos <span
-                  class="badge text-bg-primary fs-2 rounded-4 py-1 px-2 ms-2 mt-1 badge-container" id="contagemAmigos"></span></h3>
+                  class="badge text-bg-primary fs-2 rounded-4 py-1 px-2 ms-2 mt-1 badge-container"
+                  id="contagemAmigos"></span>
+              </h3>
               <div class="position-relative">
-                <input type="text" class="form-control search-chat py-2 ps-5"
-                  id="pesquisaAmigos" placeholder="Pesquisar Amigos">
+                <input type="text" class="form-control search-chat py-2 ps-5" id="pesquisaAmigos"
+                  placeholder="Pesquisar Amigos">
                 <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
               </div>
             </div>
@@ -2673,11 +2743,11 @@ if (isset($_SESSION['id'])) {?>
         <div class="modal-header d-flex align-items-center">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" id = "corpoModal">
+        <div class="modal-body" id="corpoModal">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
-           data-bs-dismiss="modal" id= "guardarVotacao">
+            data-bs-dismiss="modal" id="guardarVotacao">
             Guardar
           </button>
           <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
@@ -2804,7 +2874,7 @@ if (isset($_SESSION['id'])) {?>
         if (selectedImage) {
           selectedImage.classList.remove('selected-img');
         }
-        
+
         imgElement.classList.add('selected-img');
 
 
