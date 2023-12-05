@@ -782,7 +782,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
@@ -795,33 +795,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº de Jogos:</h4>
-                        <p class="pt-2 fs-9">109</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
-                        <p class="pt-2 fs-9">65%</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-tennis fs-5"></span></h4>
                         <p class="pt-2 fs-9">422</p>
                       </div>
                     </div>
@@ -834,7 +808,34 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-device-gamepad-2 fs-5"></span></h4>
+                        <p class="pt-2 fs-9">109</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span></h4>
                         <p class="pt-2 fs-9">239</p>
                       </div>
                     </div>
@@ -847,7 +848,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">MVP's:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
@@ -922,7 +923,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
@@ -930,39 +931,12 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
-
               <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº de Jogos:</h4>
-                        <p class="pt-2 fs-9">109</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
-                        <p class="pt-2 fs-9">65%</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-tennis fs-5"></span></h4>
                         <p class="pt-2 fs-9">422</p>
                       </div>
                     </div>
@@ -975,7 +949,33 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Sets Ganhos</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-device-gamepad-2 fs-5"></span></h4>
+                        <p class="pt-2 fs-9">109</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span></h4>
                         <p class="pt-2 fs-9">47</p>
                       </div>
                     </div>
@@ -988,7 +988,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">MVP's:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
@@ -1064,20 +1064,40 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-basketball fs-5"></span></h4>
+                        <p class="pt-2 fs-9">422</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-shoe fs-5"></span></h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
                         <p class="pt-2 fs-9">65%</p>
                       </div>
                     </div>
@@ -1085,39 +1105,11 @@ if (isset($_SESSION['id'])) {?>
                 </div>
 
 
-
-
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Jogos:</h4>
-                        <p class="pt-2 fs-9">109</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Pontos:</h4>
-                        <p class="pt-2 fs-9">422</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº MVP's:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
@@ -1192,41 +1184,18 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Ranking:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
                         <p class="pt-2 fs-9"> 36827º</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-
                 <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias</h4>
-                        <p class="pt-2 fs-9">109</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Jogos</h4>
-                        <p class="pt-2 fs-9">65%</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
-                  <div class="card-body">
-                    <div class="d-flex align-items-end justify-content-between">
-                      <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº Golos:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Pontuação <span class="ti ti-ball-football fs-5"></span></h4>
                         <p class="pt-2 fs-9">422</p>
                       </div>
                     </div>
@@ -1237,7 +1206,30 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-3">Nº MVP's:</h4>
+                        <h4 class="mb-0 fw-semibold fs-3">Jogos <span class="ti ti-soccer-field fs-5"></span></h4>
+                        <p class="pt-2 fs-9">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
+                        <p class="pt-2 fs-9">109</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card w-100 position-relative overflow-hidden card-hover shadow">
+                  <div class="card-body">
+                    <div class="d-flex align-items-end justify-content-between">
+                      <div>
+                        <h4 class="mb-0 fw-semibold fs-3">MVP's <span class="ti ti-award fs-5"></span></h4>
                         <p class="pt-2 fs-9">12</p>
                       </div>
                     </div>
