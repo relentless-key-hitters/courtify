@@ -637,13 +637,13 @@ class Campo
                             <h5 class='fw-semibold m-0 p-0 mb-1'>Tipo</h5>
                             
                             <div class='form-check' data-toggle='tooltip' data-placement='top' title='Convida amigos e permite que outros utilizadores se juntem á tua marcação'>
-                                <input class='form-check-input' type='radio' name='exampleRadios' id='aberta' value='aberta' onclick='mostrarAmigos(".$row['numParticipantesMax'].")'>
+                                <input class='form-check-input' type='radio' name='exampleRadios' id='aberta' value='aberta' onclick='mostrarAmigosModalMarcacao()'>
                                 <label class='form-check-label' for='aberta'>
                                     Aberta
                                 </label>
                             </div>
                             <div class='form-check' data-toggle='tooltip' data-placement='top' title='Mantém a marcação fechada'>
-                                <input class='form-check-input' type='radio' name='exampleRadios' id='fechada' value='fechada'>
+                                <input class='form-check-input' type='radio' name='exampleRadios' id='fechada' value='fechada' onclick='esconderAmigos()'>
                                 <label class='form-check-label' for='fechada'>
                                     Fechada
                                 </label>

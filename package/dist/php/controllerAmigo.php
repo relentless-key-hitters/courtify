@@ -10,4 +10,7 @@ if ($_POST['op'] == 1){
 } else if ($_POST['op'] == 2) {
     $res = $amigo -> procurarAmigos($_POST['userId'], $_POST['stringPesquisa']);
     echo($res);
+} else if ($_POST['op'] == 3) {
+    $res = $amigo -> mostrarAmigosModalMarcacao();
+    echo($res);
 }

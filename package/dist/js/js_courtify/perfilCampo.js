@@ -174,17 +174,13 @@ function guardarMarcacao(id){
 
 }
 
-function mostrarAmigos(nParticipantes) {
-    $("#divAmigosMarcacao").removeClass("d-none");
-    amigosEscolhidos.maxLength = nParticipantes; 
-
-}
 
 function esconderAmigos() {
     if ($("#divAmigosMarcacao").find('.selected-img').length > 0) {
         $("#divAmigosMarcacao").find('.selected-img').removeClass('selected-img');
     }
 
+    $("#tituloAmigosMarcacaoEscolher").addClass("d-none");
     $("#divAmigosMarcacao").addClass("d-none");
     amigosEscolhidos.length = 0;
 
@@ -196,12 +192,12 @@ function podeSelecionarAmigo() {
 }
 
 
-function toggleImageSelection1(imgElement) {
-    if (imgElement.classList.contains('selected-img')) {
-      imgElement.classList.remove('selected-img');
+function adicionarAmigoMarcacao(imagem) {
+    if (imagem.classList.contains('selected-img')) {
+        imagem.classList.remove('selected-img');
   
 
-      var index = amigosEscolhidos.indexOf(imgElement);
+      var index = amigosEscolhidos.indexOf(imagem.id);
   
 
       if (index !== -1) {
@@ -209,12 +205,8 @@ function toggleImageSelection1(imgElement) {
         amigosEscolhidos.splice(index, 1);
       }
     } else {
-      if (podeSelecionarAmigo()) {
-        $(imgElement).addClass('selected-img');
-        amigosEscolhidos.push(imgElement);
-      } else {
-        alert("Limite máximo de jogadores atingido!");
-      }
+        $(imagem).addClass('selected-img');
+        amigosEscolhidos.push(imagem.id);
     }
   }
 

@@ -140,6 +140,7 @@ class Amigo
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $contagem = $row['contagem'];
                 $msg .= "<div class='col-sm-6 col-lg-4'>
                             <div class='card hover-img'>
                                 <div class='card-body p-4 text-center border-bottom'>
@@ -186,13 +187,74 @@ class Amigo
                         </div>";
             }
         } else {
+            $contagem = 0;
             $msg .= "<div class='text-center mt-5'>
                         <h3>Sem resultados!</h3>
                         <p>Por favor verifique os termos da sua pesquisa e tente de novo.</p>
+                        <button type='button' class='btn btn-primary btn-small' onclick='getAmigos()'>Redefinir</button>
                     </div>";
         }
 
         $conn->close();
+        $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
+        return ($resp);
+    }
+
+    function mostrarAmigosModalMarcacao() {
+        global $conn;
+        $msg = "";
+        $userId = $_SESSION['id'];
+
+        $sql = "SELECT 
+                    CASE
+                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta2
+                        ELSE amigo.id_atleta1
+                    END AS idPerfilCurrent,
+                    CASE
+                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta1
+                        ELSE amigo.id_atleta2
+                    END AS idAmigo,
+                    user.nome AS nomeAmigo,
+                    user.foto AS fotoAmigo,
+                    user.localidade AS localidadeAmigo,
+                    user.telemovel AS telemovelAmigo,
+                    user.email AS emailAmigo,
+                    user.nif AS nifAmigo,
+                    COUNT(*) AS contagem
+                FROM amigo
+                INNER JOIN (
+                    SELECT 
+                        id_atleta1,
+                        id_atleta2,
+                        CASE
+                            WHEN id_atleta1 = ".$userId." THEN id_atleta2
+                            WHEN id_atleta2 = ".$userId." THEN id_atleta1
+                            ELSE NULL
+                        END AS matched_column
+                    FROM amigo
+                    WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
+                ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
+                INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
+                INNER JOIN user ON atleta.id_atleta = user.id
+                GROUP BY idPerfilCurrent, idAmigo, nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+
+        $result = $conn -> query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<div class='col-2'>
+                            <div class='d-flex align-items-center mt-2'>
+                                <img id='".$row['idAmigo']."' src='../../dist/".$row['fotoAmigo']."' alt='".$row['nomeAmigo']."'
+                                    class='rounded-circle object-fit-cover' width='60' height='60' onclick='adicionarAmigoMarcacao(this)' data-toggle='tooltip'
+                                        data-placement='top' title='".$row['nomeAmigo']."' style='cursor: pointer'>
+                            </div>
+                        </div>";
+            }
+        } else {
+
+        }
+
+        $conn->close();
         return ($msg);
+
     }
 }
