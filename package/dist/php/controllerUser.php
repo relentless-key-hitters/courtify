@@ -62,7 +62,11 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 19){
     $res = $user ->  getPerfilNavbar();
     echo($res);
+}else if($_POST['op'] == 20){
+    $res = $user ->   getEstatisticas($_POST['id']);
+    echo($res);
 }
+
 
 
 ?>

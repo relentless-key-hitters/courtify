@@ -1139,6 +1139,136 @@ class User{
         return($resp);
     }
 
+    function getEstatisticas($id){
+        global $conn; 
+        $sql = "SELECT modalidade.descricao as modalidade FROM modalidade INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade WHERE atleta_modalidade.id_atleta = '".$id."'";
+        $result = $conn->query($sql);
+        $arrEst = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if($row['modalidade'] == 'Basquetebol'){
+                    $resp = $this -> getEstatisticasBasquetebol($id);
+                    array_push($arrEst, $resp);
+                }else if($row['modalidade'] == 'Futsal'){
+                    $resp = $this -> getEstatisticasFutsal($id);
+                    array_push($arrEst, $resp);
+                }else if($row['modalidade'] == 'Padel'){
+                    $resp = $this -> getEstatisticasPadel($id);
+                    array_push($arrEst, $resp);
+                }else{
+                    $resp = $this -> getEstatisticasTenis($id);
+                    array_push($arrEst, $resp);
+                }
+            }
+        }
+        $resp = json_encode( $arrEst);
+        $conn -> close();
+        return($resp);
+    }
+
+    function getEstatisticasPadel($id){
+        global $conn; 
+        $sql = "SELECT * FROM info_padel WHERE id_atleta = '".$id."'";
+        $result = $conn->query($sql);
+        $percVitorias1 = 0;
+        $percVitorias = "";
+        $nJogos = 0;
+        $nPontos = 0;
+        $nSetsGanhos = 0;
+        $nMvp = 0;
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if($row['n_jogos'] != 0){
+                    $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
+                }
+               
+                $percVitorias = $percVitorias1 ."%";
+                $nJogos = $row['n_jogos'];
+                $nPontos = $row['n_pontos_set'];
+                $nSetsGanhos = $row['n_set_ganhos'];
+                $nMvp = $row['n_mvp'];
+            }
+        }
+        $resp = array("modalidade" => "Padel" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp);
+        return($resp);
+    }
+
+    function getEstatisticasTenis($id){
+        global $conn; 
+        $sql = "SELECT * FROM info_tenis WHERE id_atleta = '".$id."'";
+        $result = $conn->query($sql);
+        $percVitorias1 = 0;
+        $percVitorias = "";
+        $nJogos = 0;
+        $nPontos = 0;
+        $nSetsGanhos = 0;
+        $nMvp = 0;
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if($row['n_jogos'] != 0){
+                    $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
+                }
+                $percVitorias = $percVitorias1 ."%";
+                $nJogos = $row['n_jogos'];
+                $nPontos = $row['n_pontos_set'];
+                $nSetsGanhos = $row['n_set_ganhos'];
+                $nMvp = $row['n_mvp'];
+            }
+        }
+        $resp = array("modalidade" => "Ténis" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp);
+        return($resp);
+    }
+
+    function getEstatisticasBasquetebol($id){
+        global $conn; 
+        $sql = "SELECT * FROM info_basquetebol WHERE id_atleta = '".$id."'";
+        $result = $conn->query($sql);
+        $percVitorias1 = 0;
+        $percVitorias = "";
+        $nJogos = 0;
+        $nPontos = 0;
+        $nMvp = 0;
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if($row['n_jogos'] != 0){
+                    $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
+                }
+                $percVitorias = $percVitorias1 ."%";
+                $nJogos = $row['n_jogos'];
+                $nPontos = $row['n_pontos'];
+                $nMvp = $row['n_mvp'];
+            }
+        }
+        $resp = array("modalidade" => "Basquetebol" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nMvp" => $nMvp);
+        return($resp);
+    }
+
+    function getEstatisticasFutsal($id){
+        global $conn; 
+        $sql = "SELECT * FROM info_futsal WHERE id_atleta = '".$id."'";
+        $result = $conn->query($sql);
+        $percVitorias1 = 0;
+        $percVitorias = "";
+        $nJogos = 0;
+        $nGolos = 0;
+        $nMvp = 0;
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if($row['n_jogos'] != 0){
+                    $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
+                }
+                $percVitorias = $percVitorias1 ."%";
+                $nJogos = $row['n_jogos'];
+                $nGolos = $row['n_golos'];
+                $nMvp = $row['n_mvp'];
+            }
+        }
+        $resp = array("modalidade" => "Futsal" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nGolos" => $nGolos, "nMvp" => $nMvp);
+        return($resp);
+    }
+   
+
+
 
 }
 
