@@ -38,7 +38,7 @@ function getPerfil(){
             $("#nomeEquipa5").html(obj.nome);
             $("#mod").html(obj.mod);
             $("#iconAlterarFoto").html(obj.altFotoCapa);
-
+            getEstatisticas(perfilId);
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -47,7 +47,31 @@ function getPerfil(){
 
 }
 
+function getEstatisticas(id){
+    let dados = new FormData();
+    dados.append("op", 20);
+    dados.append("id", id)
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            console.log(msg)
+        })
         
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
 function altFotoCapa(){
 
     let dados = new FormData();
