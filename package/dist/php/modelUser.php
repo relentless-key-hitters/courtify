@@ -126,16 +126,26 @@ class User{
             $title = "Erro";
             $flag = false;
         }
-
-        $resp = json_encode(array(
-            "flag" => $flag,
-            "flagFirstLogin" => $flagFirstLogin, 
-            "msg" => $msg,
-            "icon" => $icon,
-            "title" => $title,
-            "id" => $_SESSION['id']
-
-        ));
+        if($flag) {
+            $resp = json_encode(array(
+                "flag" => $flag,
+                "flagFirstLogin" => $flagFirstLogin, 
+                "msg" => $msg,
+                "icon" => $icon,
+                "title" => $title,
+                "id" => $_SESSION['id']
+    
+            ));
+        } else {
+            $resp = json_encode(array(
+                "flag" => $flag,
+                "flagFirstLogin" => $flagFirstLogin, 
+                "msg" => $msg,
+                "icon" => $icon,
+                "title" => $title
+    
+            ));
+        }
         $conn->close();
     
         return ($resp); 

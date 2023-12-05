@@ -171,18 +171,21 @@ function login(){
         
         .done(function(msg) {
             let obj = JSON.parse(msg);
-            alerta2(obj.title, obj.msg, obj.icon); 
             if(obj.flag){
                 if(obj.flagFirstLogin){
+                    alerta2(obj.title, obj.msg, obj.icon); 
                     setTimeout(function(){ 
                         window.location.href = "../../html/main/continuacao-registo.html";
                     }, 2000);
                 }else{
+                    alerta2(obj.title, obj.msg, obj.icon); 
                     setTimeout(function(){ 
                         window.location.href = "../horizontal/perfil.php?id=" + obj.id;
                     }, 2000);
                 }
 
+            } else {
+                alerta2(obj.title, obj.msg, obj.icon); 
             }
         })
         
