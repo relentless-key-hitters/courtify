@@ -38,28 +38,28 @@ document.addEventListener('DOMContentLoaded', function() {
           console.log(arrayCalendario);
 
           
-          populateCalendar();
+          popularCalendario();
         })
         .fail(function (jqXHR, textStatus) {
           alert("Request failed: " + textStatus);
         });
     }
 
-    function populateCalendar() {
+    function popularCalendario() {
         for (let i = 0; i < arrayCalendario.length; i++) {
-            let hourStart = arrayCalendario[i][0];
-            let hourEnd = arrayCalendario[i][1]; 
-            let date = arrayCalendario[i][2];
+            let inicioHora = arrayCalendario[i][0];
+            let fimHora = arrayCalendario[i][1]; 
+            let data = arrayCalendario[i][2];
             let nomeClube = arrayCalendario[i][3];
     
 
-            let fullHourStart = hourStart.padStart(8, '0');
-            let fullHourEnd = hourEnd.padStart(8, '0');
+            let fullHoraInicio = inicioHora.padStart(8, '0');
+            let fullHoraFim = fimHora.padStart(8, '0');
     
             let event = {
                 title: nomeClube,
-                start: date + 'T' + fullHourStart,
-                end: date + 'T' + fullHourEnd,
+                start: data + 'T' + fullHoraInicio,
+                end: data + 'T' + fullHoraFim,
                 color: 'text-primary' 
             };
     

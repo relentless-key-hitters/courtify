@@ -893,6 +893,7 @@ class User{
         marcacao.hora_inicio AS horaMarcInicio,
         marcacao.hora_fim AS horaMarcFim,  
         modalidade.descricao AS modalidade, 
+        user.id AS idClube,
         user.nome AS nomeClube, 
         user.foto as fotoClube, 
         user.nome AS nomeClube, 
@@ -934,11 +935,14 @@ class User{
                             <img src='".$row['fotoCampo']."' class='card-img-top' alt='".$row['nomeCampo']."'>
                             <div class='p-3'>
                                 <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampo']."</h5>
-                                <div class='d-flex justify-content-between'>
-                                    <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p> 
+                                <div class='d-flex justify-content-around'>
+                                    <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p>
+                                    <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
                                     <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</p>
                                 </div>
-                                <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
+                                <a href='./clube.php?id=".$row['idClube']."'>
+                                        <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
+                                </a>
                                 <a href='#' class='btn btn-primary'>Mais Info</a>
                             </div>
                         </div>
@@ -965,7 +969,9 @@ class User{
                                         <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p> 
                                         <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</p>
                                     </div>
-                                    <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
+                                    <a href='./clube.php?id=".$row['idClube']."'>
+                                        <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
+                                    </a>
                                     <a href='#' class='btn btn-primary'>Mais Info</a>
                                 </div>
                             </div>
@@ -987,7 +993,9 @@ class User{
                                         <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p> 
                                         <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</p>
                                     </div>
-                                    <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
+                                    <a href='./clube.php?id=".$row['idClube']."'>
+                                        <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>".$row['nomeClube']."</p>
+                                    </a>
                                     <a href='#' class='btn btn-primary'>Mais Info</a>
                                 </div>
                             </div>
