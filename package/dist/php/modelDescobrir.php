@@ -5,7 +5,7 @@ session_start();
 require_once 'connection.php';
 
 class Descobrir {
-
+    //TODO - AINDA VERIFICAR ATLETA HOST NA FOTO
     function getMarcacoesAbertasLocalidade() {
         global $conn;
         $msg = "";
@@ -157,32 +157,44 @@ class Descobrir {
                                     </div>
                                 </div>
                                 <div class='mt-2 mb-2'>
-                                    <span class='fs-3'>Participantes</span>
-                                </div>
-                                <div class='row mt-1'>
-                                    <div class='col-md-2'>
-                                        <a href='./perfil.php?id=".$row['idAtletaHost']."'><img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;'></a>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
+                                <span class='fs-3'>Participantes</span>
+                            </div>
+                            <div class='row mt-1'>
+                                <div class='col-md-2'>
+                                    <a href='./perfil.php?id=".$row['idAtletaHost']."'><img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;'></a>
+                                </div>";
+                                
+            $sql1 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                    listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                    user.nome AS nomeAmigo,
+                    user.foto AS fotoAmigo
+                    FROM
+                    listagem_atletas_marcacao
+                    INNER JOIN
+                    user ON listagem_atletas_marcacao.id_atleta = user.id
+                    WHERE id_marcacao = ".$row['idMarcacao'];
+            $result1 = $conn->query($sql1);
+            
+            if ($result1->num_rows > 0) {
+                while ($row1 = $result1->fetch_assoc()) {
+                    if($row1['idAtleta'] != $row['idAtletaHost']) {
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='row'>
-                                    <div class='col-md-12 mt-4'>
-                                        <button type='button' class='btn btn-primary w-100'>Mais Informação</button>
-                                    </div>
-                                </div>
+                        $msg .= "<div class='col-md-2'>
+                                    <img src='../../dist/".$row1['fotoAmigo']."' alt='".$row1['nomeAmigo']."' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row1['nomeAmigo']."' style='cursor: pointer;'>
+                                </div>";
+                    }
+                }
+            }
+
+            $msg .= "</div>
+                            <div class='row'>
+                                <div class='col-md-12 mt-4'>
+                                    <button type='button' class='btn btn-primary w-100'>Mais Informação</button>
                                 </div>
                             </div>
-                        </div>";
+                            </div>
+                        </div>
+                    </div>";
             }
         } else {
             $msg .= "<div class='text-center'>
@@ -195,7 +207,7 @@ class Descobrir {
         $resp = json_encode(array("msg" => $msg, "localidadeUser" => $localidadeUserLogin, "contagem" => $contagem));
         return ($resp);
     }
-
+    //TODO - AINDA VERIFICAR ATLETA HOST NA FOTO
     function getMarcacoesAbertasModalidades() {
         global $conn;
         $msg = "";
@@ -342,19 +354,31 @@ class Descobrir {
                                 <div class='row mt-1'>
                                     <div class='col-md-2'>
                                         <a href='./perfil.php?id=".$row['idAtletaHost']."'><img src='../../dist/".$row['fotoAtletaHost']."' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row['nomeAtletaHost']." (Host)' style='cursor: pointer;'></a>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='Gonçalo Ricardo' style='cursor: pointer;'>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
+                                    </div>";
+                                    
+                $sql1 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                        listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                        user.nome AS nomeAmigo,
+                        user.foto AS fotoAmigo
+                        FROM
+                        listagem_atletas_marcacao
+                        INNER JOIN
+                        user ON listagem_atletas_marcacao.id_atleta = user.id
+                        WHERE id_marcacao = ".$row['idMarcacao'];
+                $result1 = $conn->query($sql1);
+                
+                if ($result1->num_rows > 0) {
+                    while ($row1 = $result1->fetch_assoc()) {
+                        if($row1['idAtleta'] != $row['idAtletaHost']) {
 
-                                        </div>
-                                    </div>
-                                </div>
+                            $msg .= "<div class='col-md-2'>
+                                        <img src='../../dist/".$row1['fotoAmigo']."' alt='".$row1['nomeAmigo']."' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='".$row1['nomeAmigo']."' style='cursor: pointer;'>
+                                    </div>";
+                        }
+                    }
+                }
+
+                $msg .= "</div>
                                 <div class='row'>
                                     <div class='col-md-12 mt-4'>
                                         <button type='button' class='btn btn-primary w-100'>Mais Informação</button>
@@ -363,6 +387,7 @@ class Descobrir {
                                 </div>
                             </div>
                         </div>";
+
             }
         } else {
             $msg .= "<div class='text-center'>

@@ -72,33 +72,6 @@ function procurarAmigos() {
 
 }
 
-function mostrarAmigosModalMarcacao() {
-
-
-    let dados = new FormData();
-    dados.append("op", 3);
-
-    $.ajax({
-      url: "../../dist/php/controllerAmigo.php",
-      method: "POST",
-      data: dados,
-      dataType: "html",
-      cache: false,
-      contentType: false,
-      processData: false
-    })
-
-    .done(function (msg) {
-      $("#tituloAmigosMarcacaoEscolher").removeClass("d-none");
-      $("#divAmigosMarcacao").removeClass("d-none");
-      $("#divImagensAmigosMarcacao").html(msg);
-    })
-
-    .fail(function (jqXHR, textStatus) {
-      alert("Request failed: " + textStatus);
-    });
-
-}
 
 $(function () {
   getAmigos();

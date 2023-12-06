@@ -659,8 +659,8 @@ class Campo
         return json_encode($data);
     }
 
-    function guardarMarcacao($id, $duracao, $horas, $tipoMarcacao){
-
+    function guardarMarcacao($id, $duracao, $horas, $tipoMarcacao, $arrayAmigos){
+        $arrayAmigosDecode = json_decode($arrayAmigos);
         global $conn;
         $flag = true;
         $msg = "";
@@ -678,8 +678,25 @@ class Campo
 
             $ultimoId = mysqli_insert_id($conn);
             $sql1 = "INSERT INTO listagem_atletas_marcacao (id_marcacao, id_atleta) VALUES (".$ultimoId.", ".$_SESSION['id'].")";
+            if ($conn->query($sql1) !== TRUE) {
+                $msg = "Error inserting session ID into listagem_atletas_marcacao.";
+                $flag = false;
+                $icon = "error";
+            }
 
-            if($conn->query($sql1) === TRUE){
+            // Insert the friend ID
+            foreach ($arrayAmigosDecode as $amigoId) {
+                $sql2 = "INSERT INTO listagem_atletas_marcacao (id_marcacao, id_atleta) VALUES (".$ultimoId.", ".$amigoId.")";
+                if ($conn->query($sql2) !== TRUE) {
+                    $msg = "Error inserting friend ID ".$amigoId." into listagem_atletas_marcacao.";
+                    $flag = false;
+                    $icon = "error";
+                    break;
+                }
+            }
+
+            // Check if both inserts were successful
+            if ($flag === true) {
                 $msg = "Marcação feita com sucesso!";
             }
         }else{

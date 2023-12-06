@@ -132,45 +132,33 @@ function marcarCampo(id){
 }
 
 
-function guardarMarcacao(id){
+
+
+function mostrarAmigosModalMarcacao() {
+
 
     let dados = new FormData();
-    dados.append("op", 7);
-    dados.append("id", id);
-    dados.append("duracao", $("#selecthora").val());
-    console.log( $("#selecthora").val())
-    dados.append("horas", hora);
-    if($("#aberta").is(":checked")){
-        dados.append("tipoMarcacao", 'aberta');
-    }
-    if($("#fechada").is(":checked")){
-        dados.append("tipoMarcacao", 'fechada');
-    }
-
+    dados.append("op", 3);
 
     $.ajax({
-        url: "../../dist/php/controllerCampo.php",
-        method: "POST",
-        data: dados,
-        dataType: "html", 
-        cache: false,
-        contentType: false,
-        processData: false
+      url: "../../dist/php/controllerAmigo.php",
+      method: "POST",
+      data: dados,
+      dataType: "html",
+      cache: false,
+      contentType: false,
+      processData: false
     })
-    .done(function(msg) {
-        let obj = JSON.parse(msg);
-        alerta2("Sucesso", obj.msg, obj.icon);
-        setTimeout(function(){ 
-            location.reload();
-        }, 2000);
-        getInfoPagCampo();
-    })
-    .fail(function(jqXHR, textStatus) {
-        console.error("Request failed:", textStatus);
-        console.log(jqXHR.responseText);
-        alert("Request failed: " + textStatus);
-    });  
 
+    .done(function (msg) {
+      $("#tituloAmigosMarcacaoEscolher").removeClass("d-none");
+      $("#divAmigosMarcacao").removeClass("d-none");
+      $("#divImagensAmigosMarcacao").html(msg);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
 
 }
 
@@ -208,7 +196,52 @@ function adicionarAmigoMarcacao(imagem) {
         $(imagem).addClass('selected-img');
         amigosEscolhidos.push(imagem.id);
     }
-  }
+}
+
+function guardarMarcacao(id){
+
+    let dados = new FormData();
+    dados.append("op", 7);
+    dados.append("id", id);
+    dados.append("duracao", $("#selecthora").val());
+    console.log( $("#selecthora").val())
+    dados.append("horas", hora);
+    if($("#aberta").is(":checked")){
+        dados.append("tipoMarcacao", 'aberta');
+    }
+    if($("#fechada").is(":checked")){
+        dados.append("tipoMarcacao", 'fechada');
+    }
+
+    console.log(amigosEscolhidos);
+    dados.append("listaIdsAmigosMarcacao", JSON.stringify(amigosEscolhidos));
+
+
+    $.ajax({
+        url: "../../dist/php/controllerCampo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html", 
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+    .done(function(msg) {
+        let obj = JSON.parse(msg);
+        alerta2("Sucesso", obj.msg, obj.icon);
+        setTimeout(function(){ 
+            location.reload();
+        }, 2000);
+        getInfoPagCampo();
+    })
+    .fail(function(jqXHR, textStatus) {
+        console.error("Request failed:", textStatus);
+        console.log(jqXHR.responseText);
+        alert("Request failed: " + textStatus);
+    });  
+
+
+}
 
 
   function alerta2(titulo,msg,icon){

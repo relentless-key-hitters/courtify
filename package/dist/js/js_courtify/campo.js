@@ -358,6 +358,8 @@ function aplicarFiltros(){
     }
 }
 
+
+
 function removerFiltros(){
     arrHiden = []
     constroiMapa(obsCampos, obsUser)
