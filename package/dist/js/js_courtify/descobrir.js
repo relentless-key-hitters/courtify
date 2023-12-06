@@ -47,7 +47,7 @@ function getMarcacoesAbertasLocalidade() {
       let obj = JSON.parse(msg);
       $("#quantidadeMarcacoesLocalidade").text(obj.contagem);
       $("#localidadeUser").text(obj.localidadeUser);
-      setTimeout($("#marcacaoLocalidade").html(obj.msg), 6000);
+      $("#marcacaoLocalidade").html(obj.msg)
       
     })
 
@@ -60,5 +60,25 @@ getMarcacoesAbertasLocalidade();
 
 
 $(function () {
-
+  $(".owl-carousel").each(function() {
+    $(this).owlCarousel({
+      loop: false,
+      margin: 40,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 2,
+        },
+        1200: {
+          items: 3,
+        },
+      },
+    });
+  });
 });

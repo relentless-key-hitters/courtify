@@ -103,7 +103,7 @@ class Descobrir {
               $stringHora = $hora->format('H:i');
 
               $contagem = $row['num_rows'];
-              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."' style='max-width: 400px;'>
+              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
@@ -295,7 +295,7 @@ class Descobrir {
               $stringHora = $hora->format('H:i');
 
               $contagem = $row['num_rows'];
-              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."' style='max-width: 400px;'>
+              $msg .=  "<div class='item' id='marcacao".$row['idMarcacao']."'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>

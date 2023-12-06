@@ -541,71 +541,65 @@ if (isset($_SESSION['id'])) { ?>
 
 
       <!-- Import Js Files -->
-      <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
-      <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
-      <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-      <!-- core files -->
-      <script src="../../dist/js/app.min.js"></script>
-      <script src="../../dist/js/app.horizontal.init.js"></script>
-      <script src="../../dist/js/app-style-switcher.js"></script>
-      <script src="../../dist/js/sidebarmenu.js"></script>
-      <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-      <script src="../../dist/js/js_courtify/descobrir.js"></script>
+  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- core files -->
+  <script src="../../dist/js/app.min.js"></script>
+  <script src="../../dist/js/app.horizontal.init.js"></script>
+  <script src="../../dist/js/app-style-switcher.js"></script>
+  <script src="../../dist/js/sidebarmenu.js"></script>
+  <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../dist/js/js_courtify/descobrir.js"></script>
 
-      <script src="../../dist/js/custom.js"></script>
-      <!-- current page js files -->
-      <script src="../../dist/js/js_courtify/sweatalert.js"></script>
-      <script src="../../dist/js/js_courtify/user.js"></script>
-      <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-      <script src="../../dist/js/js_courtify/notificacao.js"></script>
+  <script src="../../dist/js/custom.js"></script>
+  <!-- current page js files -->
+  <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+  <script src="../../dist/js/js_courtify/user.js"></script>
+  <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+  <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
-      <script>
-        $(function () {
-          $("[data-toggle = 'tooltip']").tooltip();
-        });
-      </script>
-
-
+  <script>
+    $(function () {
+      $("[data-toggle = 'tooltip']").tooltip();
+    });
+  </script>
 
 
 
-      <script type="text/javascript">
-        var timeout;
 
 
-        function resetSessionTimeout() {
-          clearTimeout(timeout);
-          timeout = setTimeout(function() {
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'logout.php', true);
-            xhr.onreadystatechange = function() {
-              if (xhr.readyState == 4 && xhr.status == 200) {
-                alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
-                setTimeout(function() {
-                  window.location.href = '../../../landingpage/index.html';
-                }, 3000);
-
-              }
-            };
-            xhr.send();
-          }, 900000);
-        }
+  <script type="text/javascript">
+    var timeout;
 
 
-        document.onmousemove = resetSessionTimeout;
-        document.onkeypress = resetSessionTimeout;
+    function resetSessionTimeout() {
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
 
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'logout.php', true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
+            setTimeout(function() {
+              window.location.href = '../../../landingpage/index.html';
+            }, 3000);
 
-        resetSessionTimeout();
-      </script>
-
-
-  <style>
-    .selected-img {
-      border: 6px solid #63a340;
+          }
+        };
+        xhr.send();
+      }, 900000);
     }
-  </style>
+
+
+    document.onmousemove = resetSessionTimeout;
+    document.onkeypress = resetSessionTimeout;
+
+
+    resetSessionTimeout();
+  </script>
+
 
   <script>
     var selectedImage = null;
@@ -627,34 +621,6 @@ if (isset($_SESSION['id'])) { ?>
         selectedImage = imgElement;
       }
     }
-  </script>
-
-  <script>
-    $(".animated-text").addClass("show");
-
-    $(".owl-carousel").each(function() {
-      var carouselId = $(this).closest(".carousel-container").attr("id");
-      $(this).owlCarousel({
-        loop: false,
-        margin: 40,
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          768: {
-            items: 2,
-          },
-          1200: {
-            items: 3,
-          },
-        },
-      });
-    });
-
   </script>
 
   </body>
