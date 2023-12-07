@@ -67,9 +67,15 @@ function getEstatisticas(id){
             let obj = JSON.parse(msg);
             for(let i = 0; i < obj.length; i++){
                 if(obj[i].modalidade == 'Basquetebol'){
-
+                    $("#pontuacaoBasq").html(obj[i].nPontos)
+                    $("#nJogosBasq").html(obj[i].nJogos)
+                    $("#percVitBasq").html(obj[i].percVitorias)
+                    $("#nMvpBasq").html(obj[i].nMvp)
                 }else if(obj[i].modalidade  == 'Futsal'){
-                    
+                    $("#pontuacaoFutsal").html(obj[i].nGolos)
+                    $("#nJogosFutsal").html(obj[i].nJogos)
+                    $("#percVitFutsal").html(obj[i].percVitorias)
+                    $("#nMvpFutsal").html(obj[i].nMvp)
                 }else if(obj[i].modalidade == "Padel"){
                     $("#pontuacaoPadel").html(obj[i].nPontos)
                     $("#nJogosPadel").html(obj[i].nJogos)
@@ -79,7 +85,13 @@ function getEstatisticas(id){
                     $("#mediaSetsGanhosPadel").html(obj[i].percSets)
                     $("#nMvpPadel").html(obj[i].nMvp)
                 }else{
-                    
+                    $("#pontuacaoTenis").html(obj[i].nPontos)
+                    $("#nJogosTenis").html(obj[i].nJogos)
+                    $("#percVitTenis").html(obj[i].percVitorias)
+                    $("#nSetsGanhosTenis").html(obj[i].nSetsGanhos)
+                    $("#mediaVitSetTenis").html(obj[i].mediaPontosSet)
+                    $("#mediaSetsGanhosTenis").html(obj[i].percSets)
+                    $("#nMvpTenis").html(obj[i].nMvp)
                 }
             }
         })

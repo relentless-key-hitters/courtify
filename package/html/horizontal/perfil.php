@@ -958,7 +958,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
-                        <p class="pt-2 fs-9"> 36827º</p>
+                        <p class="pt-2 fs-9" id="rankingTenis"> 36827º</p>
                       </div>
                     </div>
                   </div>
@@ -971,7 +971,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Pontuação <span class="ti ti-ball-tennis fs-5"></span></h4>
-                        <p class="pt-2 fs-9">422</p>
+                        <p class="pt-2 fs-9"  id= "pontuacaoTenis"></p>
                       </div>
                     </div>
                   </div>
@@ -984,7 +984,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Jogos <span class="ti ti-device-gamepad-2 fs-5"></span></h4>
-                        <p class="pt-2 fs-9">109</p>
+                        <p class="pt-2 fs-9" id= "nJogosTenis"></p>
                       </div>
                     </div>
                   </div>
@@ -998,7 +998,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
-                        <p class="pt-2 fs-9">65%</p>
+                        <p class="pt-2 fs-9" id= "percVitTenis"></p>
                       </div>
                     </div>
                   </div>
@@ -1015,7 +1015,7 @@ if (isset($_SESSION['id'])) {?>
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span>
                         </h4>
-                        <p class="pt-2 fs-9">239</p>
+                        <p class="pt-2 fs-9"  id= "nSetsGanhosTenis"></p>
                       </div>
                     </div>
                   </div>
@@ -1027,8 +1027,8 @@ if (isset($_SESSION['id'])) {?>
                   <div class="card-body">
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
-                        <h4 class="mb-0 fw-semibold fs-5">Média Vitórias / Set <span class="ti ti-trophy fs-5"></span></h4>
-                        <p class="pt-2 fs-9">12</p>
+                        <h4 class="mb-0 fw-semibold fs-5">Média Jogos Ganhos/Set <span class="ti ti-trophy fs-5"></span></h4>
+                        <p class="pt-2 fs-9" id= "mediaVitSetTenis"></p>
                       </div>
                     </div>
                   </div>
@@ -1042,7 +1042,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Média Sets Ganhos <span class="ti ti-trophy-filled fs-5"></span></h4>
-                        <p class="pt-2 fs-9">12</p>
+                        <p class="pt-2 fs-9" id= "mediaSetsGanhosTenis"></p>
                       </div>
                     </div>
                   </div>
@@ -1056,7 +1056,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">MVP's <span class="ti ti-award fs-5"></span></h4>
-                        <p class="pt-2 fs-9">12</p>
+                        <p class="pt-2 fs-9" id= "nMvpTenis"></p>
                       </div>
                     </div>
                   </div>
@@ -1132,7 +1132,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
-                        <p class="pt-2 fs-9"> 36827º</p>
+                        <p class="pt-2 fs-9" id="rankingBasq"> 36827º</p>
                       </div>
                     </div>
                   </div>
@@ -1144,7 +1144,7 @@ if (isset($_SESSION['id'])) {?>
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Pontuação <span class="ti ti-ball-basketball fs-5"></span>
                         </h4>
-                        <p class="pt-2 fs-9">422</p>
+                        <p class="pt-2 fs-9" id= "pontuacaoBasq"></p>
                       </div>
                     </div>
                   </div>
@@ -1155,7 +1155,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Jogos <span class="ti ti-shoe fs-5"></span></h4>
-                        <p class="pt-2 fs-9">65%</p>
+                        <p class="pt-2 fs-9" id= "nJogosBasq"></p>
                       </div>
                     </div>
                   </div>
@@ -1166,7 +1166,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
-                        <p class="pt-2 fs-9">65%</p>
+                        <p class="pt-2 fs-9" id= "percVitBasq"></p>
                       </div>
                     </div>
                   </div>
@@ -1178,7 +1178,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">MVP's <span class="ti ti-award fs-5"></span></h4>
-                        <p class="pt-2 fs-9">12</p>
+                        <p class="pt-2 fs-9" id= "nMvpBasq"></p>
                       </div>
                     </div>
                   </div>
@@ -1253,7 +1253,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
-                        <p class="pt-2 fs-9"> 36827º</p>
+                        <p class="pt-2 fs-9" id="rankingFutsal"> 36827º</p>
                       </div>
                     </div>
                   </div>
@@ -1264,7 +1264,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Pontuação <span class="ti ti-ball-football fs-5"></span></h4>
-                        <p class="pt-2 fs-9">422</p>
+                        <p class="pt-2 fs-9" id= "pontuacaoFutsal"></p>
                       </div>
                     </div>
                   </div>
@@ -1275,7 +1275,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">Jogos <span class="ti ti-soccer-field fs-5"></span></h4>
-                        <p class="pt-2 fs-9">65%</p>
+                        <p class="pt-2 fs-9" id= "nJogosFutsal"></p>
                       </div>
                     </div>
                   </div>
@@ -1287,7 +1287,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">% Vitórias <span class="ti ti-trophy fs-5"></span></h4>
-                        <p class="pt-2 fs-9">109</p>
+                        <p class="pt-2 fs-9" id= "percVitFutsal"></p>
                       </div>
                     </div>
                   </div>
@@ -1298,7 +1298,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-end justify-content-between">
                       <div>
                         <h4 class="mb-0 fw-semibold fs-5">MVP's <span class="ti ti-award fs-5"></span></h4>
-                        <p class="pt-2 fs-9">12</p>
+                        <p class="pt-2 fs-9" id= "nMvpFutsal"></p>
                       </div>
                     </div>
                   </div>

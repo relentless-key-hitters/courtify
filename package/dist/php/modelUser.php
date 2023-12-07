@@ -1191,12 +1191,14 @@ class User{
             while($row = $result->fetch_assoc()) {
                 if($row['n_jogos'] != 0){
                     $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
+                    $percVitorias = $percVitorias1 ."%";
+                }else{
+                    $percVitorias .= "0 %";
                 }
                 if($row['n_sets'] != 0){
                 $percSetsGanhos = round(( $row['n_set_ganhos']/$row['n_sets'] )*100 , 1 , PHP_ROUND_HALF_DOWN) ;
                 $mediaPontosSet = round(( $row['n_pontos_set']/$row['n_sets'] ), 1 , PHP_ROUND_HALF_DOWN);
                 }
-                $percVitorias = $percVitorias1 ."%";
                 $nJogos = $row['n_jogos'];
                 $nPontos = $row['n_pontos_set'];
                 $nSetsGanhos = $row['n_set_ganhos'];
@@ -1223,13 +1225,14 @@ class User{
             while($row = $result->fetch_assoc()) {
                 if($row['n_jogos'] != 0){
                     $percVitorias1 = round(( $row['n_vitorias']/$row['n_jogos'] )*100 , 1 , PHP_ROUND_HALF_DOWN);
+                    $percVitorias = $percVitorias1 ."%";
+                }else{
+                    $percVitorias .= "0 %";
                 }
                 if($row['n_sets'] != 0){
                 $percSetsGanhos = round(( $row['n_set_ganhos']/$row['n_sets'] )*100 , 1 , PHP_ROUND_HALF_DOWN);
                 $mediaPontosSet = round(( $row['n_pontos_set']/$row['n_sets'] ), 1 , PHP_ROUND_HALF_DOWN);
                 }
-                
-                $percVitorias = $percVitorias1 ."%";
                 $nJogos = $row['n_jogos'];
                 $nPontos = $row['n_pontos_set'];
                 $nSetsGanhos = $row['n_set_ganhos'];
