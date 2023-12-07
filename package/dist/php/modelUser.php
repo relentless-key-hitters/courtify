@@ -919,9 +919,10 @@ class User{
             $flag = false;
             while($row = $result->fetch_assoc()) {
                 $currentDate = "";
-                $currentDate .= date("Y-m-d");
+                $currentDate = date("Y-m-d");
                 $rowDate = $row['dataMarc'];
-                if($contador < 2 && $currentDate < $rowDate) {
+
+                if($contador < 2 && strtotime($currentDate) <= strtotime($rowDate)) {
                     if($contador == 0) {
 
                         $data = new DateTime($row['dataMarc']);
@@ -966,7 +967,8 @@ class User{
                                 <div class='p-3'>
                                     <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampo']."</h5>
                                     <div class='d-flex justify-content-between'>
-                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p> 
+                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</p>
+                                        <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p>  
                                         <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</p>
                                     </div>
                                     <a href='./clube.php?id=".$row['idClube']."'>

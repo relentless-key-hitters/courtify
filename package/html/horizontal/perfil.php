@@ -264,7 +264,13 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-lg-2 mt-2">
                 <div class="container">
                   <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
-                    <button class="btn btn-outline-success"><i class="me-2 ti ti-message"></i>Mensagem</button>
+                      <?php 
+                      if(isset($_GET['id'])) {
+                        if($_GET['id'] != $_SESSION['id']) {
+                          echo '<button class="btn btn-outline-success"><i class="me-2 ti ti-message"></i>Mensagem</button>';
+                        }
+                      }
+                      ?>
                   </div>
                 </div>
               </div>
