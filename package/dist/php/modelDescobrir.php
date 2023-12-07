@@ -44,6 +44,7 @@ class Descobrir
                     AND listagem_atletas_marcacao.votacao = '2'
                     AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
                     AND concelho.descricao = '" . $localidadeUserLogin . "'
+                    AND marcacao.id_atleta != " . $_SESSION['id'] . "
                     ) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
@@ -88,6 +89,7 @@ class Descobrir
                 AND listagem_atletas_marcacao.votacao = '2'
                 AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
                 AND concelho.descricao = '" . $localidadeUserLogin . "'
+                AND marcacao.id_atleta != " . $_SESSION['id'] . "
                 ORDER BY marcacao.data_inicio ASC;";
 
 
@@ -232,6 +234,7 @@ class Descobrir
                     WHERE marcacao.tipo = 'aberta'
                     AND listagem_atletas_marcacao.votacao = '2'
                     AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
+                    AND marcacao.id_atleta != " . $_SESSION['id'] . "
                     ) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
@@ -275,6 +278,7 @@ class Descobrir
                 WHERE marcacao.tipo = 'aberta'
                 AND listagem_atletas_marcacao.votacao = '2'
                 AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
+                AND marcacao.id_atleta != " . $_SESSION['id'] . "
                 AND modalidade.id IN (SELECT modalidade.id
                                         FROM
                                         modalidade
