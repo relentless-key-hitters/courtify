@@ -9,16 +9,9 @@ class Amigo
         $msg = "";
         $contagem = 0;
 
-        $sql = "SELECT 
-                    CASE
-                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta2
-                        ELSE amigo.id_atleta1
-                    END AS idPerfilCurrent,
-                    CASE
-                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta1
-                        ELSE amigo.id_atleta2
-                    END AS idAmigo,
+        $sql = "SELECT
                     user.nome AS nomeAmigo,
+                    user.id AS idAmigo,
                     user.foto AS fotoAmigo,
                     user.localidade AS localidadeAmigo,
                     user.telemovel AS telemovelAmigo,
@@ -40,7 +33,7 @@ class Amigo
                 ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
                 INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
                 INNER JOIN user ON atleta.id_atleta = user.id
-                GROUP BY idPerfilCurrent, idAmigo, nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+                GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -91,6 +84,12 @@ class Amigo
                             </div>
                         </div>";
             }
+        } else {
+            $msg .= "<div class='text-center mt-5'>
+                        <h3>Sem amigos!</h3>
+                        <p>Conecta com outros utilizadores e eles aparecerão aqui.</p>
+                        
+                    </div>";
         }
 
         $conn->close();
@@ -102,16 +101,9 @@ class Amigo
         global $conn;
         $msg = "";
 
-        $sql = "SELECT 
-                    CASE
-                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta2
-                        ELSE amigo.id_atleta1
-                    END AS idPerfilCurrent,
-                    CASE
-                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta1
-                        ELSE amigo.id_atleta2
-                    END AS idAmigo,
+        $sql = "SELECT
                     user.nome AS nomeAmigo,
+                    user.id AS idAmigo,
                     user.foto AS fotoAmigo,
                     user.localidade AS localidadeAmigo,
                     user.telemovel AS telemovelAmigo,
@@ -134,7 +126,7 @@ class Amigo
                 INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
                 INNER JOIN user ON atleta.id_atleta = user.id
                 WHERE user.nome LIKE '%" . $nomeAmigo . "%'
-                GROUP BY idPerfilCurrent, idAmigo, nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+                GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
 
         $result = $conn->query($sql);
 
@@ -205,16 +197,9 @@ class Amigo
         $msg = "";
         $userId = $_SESSION['id'];
 
-        $sql = "SELECT 
-                    CASE
-                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta2
-                        ELSE amigo.id_atleta1
-                    END AS idPerfilCurrent,
-                    CASE
-                        WHEN subquery.matched_column = amigo.id_atleta1 THEN amigo.id_atleta1
-                        ELSE amigo.id_atleta2
-                    END AS idAmigo,
+        $sql = "SELECT
                     user.nome AS nomeAmigo,
+                    user.id AS idAmigo,
                     user.foto AS fotoAmigo,
                     user.localidade AS localidadeAmigo,
                     user.telemovel AS telemovelAmigo,
@@ -236,17 +221,15 @@ class Amigo
                 ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
                 INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
                 INNER JOIN user ON atleta.id_atleta = user.id
-                GROUP BY idPerfilCurrent, idAmigo, nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+                GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
 
         $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $msg .= "<div class='col-2'>
-                            <div class='d-flex align-items-center mt-2'>
+                $msg .= "<div class='col-2 me-3'>
                                 <img id='".$row['idAmigo']."' src='../../dist/".$row['fotoAmigo']."' alt='".$row['nomeAmigo']."'
                                     class='rounded-circle object-fit-cover' width='60' height='60' onclick='adicionarAmigoMarcacao(this)' data-toggle='tooltip'
                                         data-placement='top' title='".$row['nomeAmigo']."' style='cursor: pointer'>
-                            </div>
                         </div>";
             }
         } else {

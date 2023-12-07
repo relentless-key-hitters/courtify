@@ -6,7 +6,7 @@ require_once 'connection.php';
 
 class Descobrir
 {
-    //TODO - AINDA VERIFICAR ATLETA HOST NA FOTO
+
     function getMarcacoesAbertasLocalidade()
     {
         global $conn;
@@ -28,24 +28,30 @@ class Descobrir
         }
 
 
-        $sql = "SELECT
-                    (SELECT COUNT(*) as contagemMarcacoes
-                    FROM marcacao
-                    INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
-                    INNER JOIN campo ON marcacao.id_campo = campo.id
-                    INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
-                    INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
-                    INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
-                    INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
-                    INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
-                    INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
-                    INNER JOIN concelho ON user_clube.localidade = concelho.id
-                    WHERE marcacao.tipo = 'aberta'
-                    AND listagem_atletas_marcacao.votacao = '2'
-                    AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
-                    AND concelho.descricao = '" . $localidadeUserLogin . "'
-                    AND marcacao.id_atleta != " . $_SESSION['id'] . "
-                    ) AS num_rows,
+        $sql = "SELECT DISTINCT
+                    (SELECT 
+                        COUNT(*) as numRows
+                    FROM (
+                        SELECT 
+                            DISTINCT marcacao.id,
+                            COUNT(marcacao.id) as contagemMarcacoes
+                        FROM marcacao
+                        INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
+                        INNER JOIN campo ON marcacao.id_campo = campo.id
+                        INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
+                        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+                        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
+                        INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
+                        INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
+                        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
+                        INNER JOIN concelho ON user_clube.localidade = concelho.id
+                        WHERE marcacao.tipo = 'aberta'
+                            AND listagem_atletas_marcacao.votacao = '2'
+                            AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
+                            AND concelho.descricao = '" . $localidadeUserLogin . "'
+                            AND marcacao.id_atleta != " . $_SESSION['id'] . "
+                        GROUP BY marcacao.id
+                    ) t) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
@@ -80,7 +86,7 @@ class Descobrir
                 INNER JOIN
                 user AS user_clube ON clube.id_clube = user_clube.id
                 INNER JOIN
-    			user AS user_atleta ON marcacao.id_atleta = user_atleta.id
+                user AS user_atleta ON marcacao.id_atleta = user_atleta.id
                 INNER JOIN 
                 tipo_campo ON campo.tipo_campo = tipo_campo.id
                 INNER JOIN
@@ -90,7 +96,16 @@ class Descobrir
                 AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
                 AND concelho.descricao = '" . $localidadeUserLogin . "'
                 AND marcacao.id_atleta != " . $_SESSION['id'] . "
-                ORDER BY marcacao.data_inicio ASC;";
+                AND modalidade.id IN (SELECT modalidade.id
+                                        FROM
+                                        modalidade
+                                        INNER JOIN
+                                        atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade
+                                        INNER JOIN
+                                        atleta
+                                        ON
+                                        atleta_modalidade.id_atleta = atleta.id_atleta
+                                        WHERE atleta.id_atleta = " . $_SESSION['id'] . ") ORDER BY marcacao.data_inicio, marcacao.hora_inicio ASC;";
 
 
         $result = $conn->query($sql);
@@ -108,7 +123,7 @@ class Descobrir
                     $contagem = $row['num_rows'];
                     $msg .=  "<div class='item' id='marcacao" . $row['idMarcacao'] . "'>
                             <div class='mt-1'>
-                                <div class='card pt-5 pb-2 px-3 hover-img'>
+                                <div class='card pt-5 pb-2 px-3 hover-img' height='300px'>
                                 <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
                                     <i class='ti ti-map-pin me-1'></i>
                                     " . $row['localidadeClubeMarcacao'] . "
@@ -162,8 +177,8 @@ class Descobrir
                                 <div class='mt-2 mb-2'>
                                 <span class='fs-3'>Participantes</span>
                             </div>
-                            <div class='row mt-1'>
-                                <div class='col-md-2'>
+                            <div class='row mt-1 over'>
+                                <div class='col-md-2 d-flex overflow-y-auto'>
                                     <a href='./perfil.php?id=" . $row['idAtletaHost'] . "'><img src='../../dist/" . $row['fotoAtletaHost'] . "' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row['nomeAtletaHost'] . " (Host)' style='cursor: pointer;'></a>
                                 </div>";
 
@@ -181,10 +196,45 @@ class Descobrir
                     if ($result2->num_rows > 0) {
                         while ($row2 = $result2->fetch_assoc()) {
                             if ($row2['idAtleta'] != $row['idAtletaHost']) {
+                                if($row2['idAtleta'] == $_SESSION['id']) {
+                                    $msg .= "<div class='col-md-2 mb-2'>
+                                        <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                    </div>";
+                                } else {
+                                    $msg .= "<div class='col-md-2 mb-2'>
+                                        <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                    </div>";
+                                }
+                            }
+                        }
+                    }
 
-                                $msg .= "<div class='col-md-2'>
-                                    <img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'>
-                                </div>";
+                    $sql3 = "SELECT
+                    modalidade.n_participantes_max,
+                    COUNT(listagem_atletas_marcacao.id_marcacao) AS num_atletas_inscritos
+                  FROM
+                    modalidade
+                  INNER JOIN
+                    campo_clube ON modalidade.id = campo_clube.id_modalidade
+                  INNER JOIN
+                    marcacao ON campo_clube.id_campo = marcacao.id_campo
+                  LEFT JOIN
+                    listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
+                  WHERE
+                    marcacao.id = ".$row['idMarcacao']."
+                  GROUP BY
+                    modalidade.n_participantes_max;";
+
+                    $result3 = $conn->query($sql3);
+
+                    if ($result3->num_rows > 0) {
+                        while ($row3 = $result3->fetch_assoc()) {
+                            for($i = 0; $i < ($row3['n_participantes_max'] - $row3['num_atletas_inscritos']); $i++) {
+                                $msg .= "<div class='col-md-2 mb-2'>
+                                            <div class='lugar-livre'>
+                                        
+                                            </div>
+                                        </div>";
                             }
                         }
                     }
@@ -202,10 +252,7 @@ class Descobrir
             }
         } else {
             $contagem = 0;
-            $msg .= "<div class='text-center'>
-                <span class='fs-8'>Sem Resultados!</span>
-            </div>
-            ";
+            $msg .= "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>";
         }
 
         $conn->close();
@@ -219,23 +266,29 @@ class Descobrir
         $msg = "";
         $contagem = 0;
 
-        $sql = "SELECT
-                    (SELECT COUNT(*) as contagemMarcacoes
-                    FROM marcacao
-                    INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
-                    INNER JOIN campo ON marcacao.id_campo = campo.id
-                    INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
-                    INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
-                    INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
-                    INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
-                    INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
-                    INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
-                    INNER JOIN concelho ON user_clube.localidade = concelho.id
-                    WHERE marcacao.tipo = 'aberta'
-                    AND listagem_atletas_marcacao.votacao = '2'
-                    AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
-                    AND marcacao.id_atleta != " . $_SESSION['id'] . "
-                    ) AS num_rows,
+        $sql = "SELECT DISTINCT
+                    (SELECT 
+                        COUNT(*) as numRows
+                    FROM (
+                        SELECT 
+                            DISTINCT marcacao.id,
+                            COUNT(marcacao.id) as contagemMarcacoes
+                        FROM marcacao
+                        INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
+                        INNER JOIN campo ON marcacao.id_campo = campo.id
+                        INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
+                        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+                        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
+                        INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
+                        INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
+                        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
+                        INNER JOIN concelho ON user_clube.localidade = concelho.id
+                        WHERE marcacao.tipo = 'aberta'
+                            AND listagem_atletas_marcacao.votacao = '2'
+                            AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
+                            AND marcacao.id_atleta != " . $_SESSION['id'] . "
+                        GROUP BY marcacao.id
+                    ) t) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
@@ -270,7 +323,7 @@ class Descobrir
                 INNER JOIN
                 user AS user_clube ON clube.id_clube = user_clube.id
                 INNER JOIN
-    			user AS user_atleta ON marcacao.id_atleta = user_atleta.id
+                user AS user_atleta ON marcacao.id_atleta = user_atleta.id
                 INNER JOIN 
                 tipo_campo ON campo.tipo_campo = tipo_campo.id
                 INNER JOIN
@@ -288,7 +341,7 @@ class Descobrir
                                         atleta
                                         ON
                                         atleta_modalidade.id_atleta = atleta.id_atleta
-                                        WHERE atleta.id_atleta = " . $_SESSION['id'] . ") ORDER BY marcacao.data_inicio ASC;";
+                                        WHERE atleta.id_atleta = " . $_SESSION['id'] . ") ORDER BY marcacao.data_inicio, marcacao.hora_inicio ASC;";
 
 
         $result = $conn->query($sql);
@@ -359,8 +412,8 @@ class Descobrir
                                     <div class='mt-2 mb-2'>
                                         <span class='fs-3'>Participantes</span>
                                     </div>
-                                    <div class='row mt-1'>
-                                        <div class='col-md-2'>
+                                    <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>
+                                        <div class='col-md-2 mb-2'>
                                             <a href='./perfil.php?id=" . $row['idAtletaHost'] . "'><img src='../../dist/" . $row['fotoAtletaHost'] . "' alt='" . $row['nomeAtletaHost'] . "' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row['nomeAtletaHost'] . " (Host)' style='cursor: pointer;'></a>
                                         </div>";
 
@@ -378,9 +431,44 @@ class Descobrir
                     if ($result1->num_rows > 0) {
                         while ($row1 = $result1->fetch_assoc()) {
                             if ($row1['idAtleta'] != $row['idAtletaHost']) {
+                                if($row1['idAtleta'] == $_SESSION['id']) {
+                                    $msg .= "<div class='col-md-2 mb-2'>
+                                        <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img src='../../dist/" . $row1['fotoAmigo'] . "' alt='" . $row1['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                    </div>";
+                                } else {
+                                    $msg .= "<div class='col-md-2 mb-2'>
+                                    <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img src='../../dist/" . $row1['fotoAmigo'] . "' alt='" . $row1['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                    </div>";
+                                }
+                            }
+                        }
+                    }
 
-                                $msg .= "<div class='col-md-2'>
-                                            <img src='../../dist/" . $row1['fotoAmigo'] . "' alt='" . $row1['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAmigo'] . "' style='cursor: pointer;'>
+                    $sql2 = "SELECT
+                    modalidade.n_participantes_max,
+                    COUNT(listagem_atletas_marcacao.id_marcacao) AS num_atletas_inscritos
+                  FROM
+                    modalidade
+                  INNER JOIN
+                    campo_clube ON modalidade.id = campo_clube.id_modalidade
+                  INNER JOIN
+                    marcacao ON campo_clube.id_campo = marcacao.id_campo
+                  LEFT JOIN
+                    listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
+                  WHERE
+                    marcacao.id = ".$row['idMarcacao']."
+                  GROUP BY
+                    modalidade.n_participantes_max;";
+
+                    $result2 = $conn->query($sql2);
+
+                    if ($result2->num_rows > 0) {
+                        while ($row2 = $result2->fetch_assoc()) {
+                            for($i = 0; $i < ($row2['n_participantes_max'] - $row2['num_atletas_inscritos']); $i++) {
+                                $msg .= "<div class='col-md-2 mb-2'>
+                                            <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
+                                        
+                                            </div>
                                         </div>";
                             }
                         }
@@ -399,10 +487,7 @@ class Descobrir
             }
         } else {
             $contagem = 0;
-            $msg .= "<div class='text-center'>
-                <span class='fs-8'>Sem Resultados!</span>
-            </div>
-            ";
+            $msg .= "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>";
         }
 
         $conn->close();

@@ -17,8 +17,14 @@ function getMarcacoesAbertasModalidades() {
 
     .done(function (msg) {
       let obj = JSON.parse(msg);
+      console.log(obj.msg)
       $("#quantidadeMarcacoesModalidades").text(obj.contagem);
-      $("#marcacaoModalidades").html(obj.msg)
+
+      if(obj.msg == "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>") {
+        $("#cardCarousel2").html(obj.msg);
+      } else {
+        $("#marcacaoModalidades").html(obj.msg)
+      }
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -47,7 +53,12 @@ function getMarcacoesAbertasLocalidade() {
       let obj = JSON.parse(msg);
       $("#quantidadeMarcacoesLocalidade").text(obj.contagem);
       $("#localidadeUser").text(obj.localidadeUser);
-      $("#marcacaoLocalidade").html(obj.msg)
+
+      if(obj.msg == "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>") {
+        $("#cardCarousel3").html(obj.msg);
+      } else {
+        $("#marcacaoLocalidade").html(obj.msg)
+      }
       
     })
 

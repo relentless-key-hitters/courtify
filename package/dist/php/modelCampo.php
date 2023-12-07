@@ -679,7 +679,7 @@ class Campo
             $ultimoId = mysqli_insert_id($conn);
             $sql1 = "INSERT INTO listagem_atletas_marcacao (id_marcacao, id_atleta) VALUES (".$ultimoId.", ".$_SESSION['id'].")";
             if ($conn->query($sql1) !== TRUE) {
-                $msg = "Error inserting session ID into listagem_atletas_marcacao.";
+                $msg = "Não foi possível realizar a sua marcação.";
                 $flag = false;
                 $icon = "error";
             }
@@ -687,8 +687,9 @@ class Campo
             // Insert the friend ID
             foreach ($arrayAmigosDecode as $amigoId) {
                 $sql2 = "INSERT INTO listagem_atletas_marcacao (id_marcacao, id_atleta) VALUES (".$ultimoId.", ".$amigoId.")";
+                
                 if ($conn->query($sql2) !== TRUE) {
-                    $msg = "Error inserting friend ID ".$amigoId." into listagem_atletas_marcacao.";
+                    $msg = "Não foi possível realizar a sua marcação.";
                     $flag = false;
                     $icon = "error";
                     break;

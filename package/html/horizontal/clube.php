@@ -606,7 +606,7 @@ if (isset($_SESSION['id'])) {?>
           
         </div>
         <h5 class="fw-semibold ps-3 d-none" id="tituloAmigosMarcacaoEscolher">Escolhe quem convidar</h5>
-        <div class='d-flex justify-content-center align-items-center text-center p-2 d-none' id="divAmigosMarcacao">
+        <div class='d-flex justify-content-center align-items-center p-2 d-none' id="divAmigosMarcacao">
             <div class="row grid gap-3" id="divImagensAmigosMarcacao">
             </div>
           </div>
@@ -670,12 +670,6 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/amigo.js"></script>
 
 
-  
-  <style>
-    .selected-img {
-      border: 3px solid #63a340;
-    }
-  </style>
 
 
   <script type="text/javascript">

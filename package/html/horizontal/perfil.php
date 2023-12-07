@@ -223,15 +223,28 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
             <div class="row align-items-center">
-              <div class="col-lg-4 order-lg-1 order-2 mt-2">
+              <div class="col-lg-3 mt-2">
                 <div class="container">
                   <h6 class="text-center fw-semibold">Modalidades</h6>
                   <ul class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id="mod">
                   </ul>
                 </div>
               </div>
-              <div class="col-lg-4 mt-n3 order-lg-2 order-1">
-                <div class="mt-n5">
+              <div class="col-lg-2 mt-2">
+                <div class="container">
+                  <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
+                      <?php 
+                      if(isset($_GET['id'])) {
+                        if($_GET['id'] != $_SESSION['id']) {
+                          echo '<button class="btn btn-primary"><i class="me-2 ti ti-user-plus"></i>Adicionar</button>';
+                        }
+                      }
+                      ?>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 mt-0 mt-lg-n3">
+                <div class="mt-0 mt-lg-n5">
                   <div class="d-flex align-items-center justify-content-center mb-2">
                     <div class="d-flex align-items-center justify-content-center rounded-circle "
                       style="width: 160px; height: 160px; z-index: 1;" ;>
@@ -248,7 +261,14 @@ if (isset($_SESSION['id'])) {?>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 order-last mt-2">
+              <div class="col-lg-2 mt-2">
+                <div class="container">
+                  <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
+                    <button class="btn btn-outline-success"><i class="me-2 ti ti-message"></i>Mensagem</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mt-2">
                 <div class="container">
                   <h6 class="text-center fw-semibold">Melhores conquistas</h6>
                   <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
