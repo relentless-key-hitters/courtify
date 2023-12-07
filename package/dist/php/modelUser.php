@@ -344,11 +344,12 @@ class User{
         
         $resp = json_encode(array(
             "flag" => $flag,
-            "msg" => $msg,
-            "icon" => $icon
+            "mensagem" => $msg,
+            "icon" => $icon,
+            "idAtleta" => $_SESSION['id']
         ));
         $conn -> close();
-        return ($msg);
+        return ($resp);
     }
 
     function getInfoPerfil($id){

@@ -323,9 +323,11 @@ function contRegisto(){
             })
             
             .done(function(msg) {
-                alerta2("Sucesso", msg, "success");
+                console.log(msg);
+                let obj = JSON.parse(msg);
+                alerta2("Sucesso", obj.mensagem, "success");
                 setTimeout(function(){ 
-                    window.location.href = "../../html/horizontal/perfil.php";
+                    window.location.href = "../../html/horizontal/perfil.php?id=" + obj.idAtleta;
                 }, 2000);
             })
             
