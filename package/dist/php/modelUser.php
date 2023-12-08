@@ -1396,9 +1396,9 @@ class User{
                       ".$mod."
                             <div class='d-flex justify-content-start'>
                                 <small class='fs-6 mb-3 mt-3 me-3'>Host:</small>
-                                <img id='".$row['idAtletaHost']."' src='../../dist/".$row['fotoAtletaHost']."' alt='".$row['nomeAtletaHost']."'
+                                <a href='./perfil.php?id=".$row['idAtletaHost']."'><img id='".$row['idAtletaHost']."' src='../../dist/".$row['fotoAtletaHost']."' alt='".$row['nomeAtletaHost']."'
                                     class='rounded-circle object-fit-cover mt-2' width='40' height='40' onclick='' data-toggle='tooltip'
-                                        data-placement='top' title='".$row['nomeAtletaHost']."'>
+                                        data-placement='top' title='".$row['nomeAtletaHost']."' style='border: 2px solid transparent; border-radius: 50%; transition: border-color 0.3s;' onmouseover='this.style.borderColor=\"#044967\";' onmouseout='this.style.borderColor=\"transparent\";'></a>
                             </div>            
                     </div>
                   </div>
