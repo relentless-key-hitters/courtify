@@ -106,39 +106,11 @@ if (isset($_SESSION['id'])) { ?>
                   aria-labelledby="drop2">
                   <div class="d-flex align-items-center justify-content-between py-3 px-7">
                     <h5 class="mb-0 fs-5 fw-semibold">Notificações</h5>
-                    <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container">5</span>
+                    <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container"></span>
                   </div>
                   <div class="message-body" data-simplebar>
-                    <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
-                      <span class="me-3">
-                        <img src="../../dist/images/profile/boy11.jpg" alt="user"
-                          class="rounded-circle object-fit-cover" width="48" height="48" />
-                      </span>
-                      <div class="w-75 d-inline-block v-middle">
-                        <h6 class="mb-1 fw-semibold">Vasco Pissarra</h6>
-                        <span class="d-block">Novo Pedido de Amizade</span>
-                      </div>
-                    </a>
-                    <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
-                      <span class="me-3">
-                        <img src="../../dist/images/profile/girl.jpg" alt="user" class="rounded-circle object-fit-cover"
-                          width="48" height="48" />
-                      </span>
-                      <div class="w-75 d-inline-block v-middle">
-                        <h6 class="mb-1 fw-semibold">Joana Cruz</h6>
-                        <span class="d-block">Nova Mensagem</span>
-                      </div>
-                    </a>
-                    <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
-                      <span class="me-3">
-                        <img src="../../dist/images/profile/boy5.jpg" alt="user" class="rounded-circle object-fit-cover"
-                          width="48" height="48" />
-                      </span>
-                      <div class="w-75 d-inline-block v-middle">
-                        <h6 class="mb-1 fw-semibold">Vitor Andrade</h6>
-                        <span class="d-block">Nova Mensagem</span>
-                      </div>
-                    </a>
+                    <div id="notifVotacao">
+                    </div>
                   </div>
                   <div class="py-6 px-7 mb-1">
                     <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
@@ -1444,25 +1416,6 @@ if (isset($_SESSION['id'])) { ?>
       </div>
     </div>
 
-
-
-    <!-- Import Js Files -->
-    <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
-    <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- core files -->
-    <script src="../../dist/js/app.min.js"></script>
-    <script src="../../dist/js/app.horizontal.init.js"></script>
-    <script src="../../dist/js/app-style-switcher.js"></script>
-    <script src="../../dist/js/sidebarmenu.js"></script>
-
-    <script src="../../dist/js/custom.js"></script>
-    <!-- current page js files -->
-    <script src="../../dist/js/js_courtify/sweatalert.js"></script>
-    <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-    <script src="../../dist/js/js_courtify/user.js"></script>
-
-
     <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1508,6 +1461,28 @@ if (isset($_SESSION['id'])) { ?>
       </div>
     </div>
   </div>
+
+
+
+    <!-- Import Js Files -->
+    <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- core files -->
+    <script src="../../dist/js/app.min.js"></script>
+    <script src="../../dist/js/app.horizontal.init.js"></script>
+    <script src="../../dist/js/app-style-switcher.js"></script>
+    <script src="../../dist/js/sidebarmenu.js"></script>
+
+    <script src="../../dist/js/custom.js"></script>
+    <!-- current page js files -->
+    <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+    <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+    <script src="../../dist/js/js_courtify/user.js"></script>
+    <script src="../../dist/js/js_courtify/notificacao.js"></script>
+
+
+
 
     <script type="text/javascript">
       var timeout;
