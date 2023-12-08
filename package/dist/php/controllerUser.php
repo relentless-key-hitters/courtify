@@ -65,6 +65,12 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 20){
     $res = $user ->   getEstatisticas($_POST['id']);
     echo($res);
+}else if($_POST['op'] == 21){
+    $res = $user ->   getNotificacaoConviteMarcacao();
+    echo($res);
+}else if($_POST['op'] == 22){
+    $res = $user ->   getModalConviteMarcacao($_POST['id']);
+    echo($res);
 }
 
 

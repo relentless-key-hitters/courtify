@@ -190,7 +190,8 @@ class Descobrir
                     listagem_atletas_marcacao
                     INNER JOIN
                     user ON listagem_atletas_marcacao.id_atleta = user.id
-                    WHERE id_marcacao = " . $row['idMarcacao'];
+                    WHERE id_marcacao = " . $row['idMarcacao'] ."
+                    AND listagem_atletas_marcacao.estado = 1";
                     $result2 = $conn->query($sql2);
 
                     if ($result2->num_rows > 0) {
@@ -222,6 +223,8 @@ class Descobrir
                     listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
                   WHERE
                     marcacao.id = ".$row['idMarcacao']."
+                  AND 
+                    listagem_atletas_marcacao.estado = 1
                   GROUP BY
                     modalidade.n_participantes_max;";
 
@@ -425,7 +428,8 @@ class Descobrir
                             listagem_atletas_marcacao
                             INNER JOIN
                             user ON listagem_atletas_marcacao.id_atleta = user.id
-                            WHERE id_marcacao = " . $row['idMarcacao'];
+                            WHERE id_marcacao = " . $row['idMarcacao'] ."
+                            AND listagem_atletas_marcacao.estado = 1";
                     $result1 = $conn->query($sql1);
 
                     if ($result1->num_rows > 0) {
@@ -457,6 +461,8 @@ class Descobrir
                     listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
                   WHERE
                     marcacao.id = ".$row['idMarcacao']."
+                  AND 
+                    listagem_atletas_marcacao.estado = 1
                   GROUP BY
                     modalidade.n_participantes_max;";
 

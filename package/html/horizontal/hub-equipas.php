@@ -956,6 +956,29 @@ if (isset($_SESSION['id'])) { ?>
     </div>
   </div>
 
+  <div class="modal fade" id="scroll-long-inner-modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id = "corpoModal1">
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-3">
+          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3"
+           data-bs-dismiss="modal" id= "aceitar">
+            Aceitar
+          </button>
+          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3"
+            data-bs-dismiss="modal" id= "rejeitar">
+            Rejeitar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
       <!-- Import Js Files -->

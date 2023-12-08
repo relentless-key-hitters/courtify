@@ -125,6 +125,68 @@ function guardarVotacaoPT(id, nSets){
         });
 }
 
+function getNotificacaoConviteMarcacao() {
+
+    let dados = new FormData();
+    dados.append("op", 21);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            $("#notifVotacao").html(msg)
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+}
+
+function getModalConviteMarcacao(id){
+    let dados = new FormData();
+    dados.append("op", 22);
+    dados.append("id", id);
+    idVot = id;
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            $("#corpoModal1").html(obj.msg);
+            $('#scroll-long-inner-modal1').modal('show')
+            $("#aceitar").attr("onclick", "aceitarConvite("+id+")");
+            $("#rejeitar").attr("onclick", "rejeitarConvite("+id+")");
+            modalidade =  obj.modalidade;
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
+function aceitarConvite(idMarcacao){
+    
+}
+
+function rejeitarConvite(idMarcacao){
+    
+}
+
 function alerta2(titulo,msg,icon){
     Swal.fire({
         position: 'center',
@@ -139,4 +201,5 @@ function alerta2(titulo,msg,icon){
 
 $(function() {
     getNotificacao()
+    getNotificacaoConviteMarcacao()
 });

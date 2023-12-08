@@ -761,7 +761,7 @@ class User{
                       </div>
                   </div>";
                 }else if($row['modalidade'] == "Futsal"){
-                    $mod = "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    $mod = "<span class='badge rounded-pill text-bg-danger mt-2 fs-5'><i
                     class='ti ti-ball-football me-1'></i><small>Futsal</small></span>";
                     $corpo .= "<h5 class='mt-4 text-center fw-semibold border-top border-2 border-light pt-3 fs-9'>Resultado</h5>
                     <div class='d-flex justify-content-between align-items-center' style='margin: 50px;'>
@@ -788,7 +788,7 @@ class User{
                       </div>
                   </div>";
                 }else if($row['modalidade'] == "Padel"){
-                    $mod = "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    $mod = "<span class='badge rounded-pill text-bg-primary mt-2 fs-5'><i
                     class='ti ti-ball-tennis me-1'></i><small>Padel</small></span>";
                     $corpo .= "<h5 class='mt-4 text-center fw-semibold border-top border-2 border-light pt-3 fs-9'>Resultado</h5>
                     <div class='d-flex align-items-center' style='margin: 50px;'>
@@ -815,7 +815,7 @@ class User{
                     </div>
                   </div>";
                 }else{
-                    $mod = "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    $mod = "<span class='badge rounded-pill text-bg-success mt-2 fs-5'><i
                     class='ti ti-ball-tennis me-1'></i><small>Ténis</small></span>";
                     $corpo .= "<h5 class='mt-4 text-center fw-semibold border-top border-2 border-light pt-3 fs-9'>Resultado</h5>
                     <div class='d-flex align-items-center' style='margin: 50px;'>
@@ -1292,6 +1292,128 @@ class User{
         }
         $resp = array("modalidade" => "Futsal" ,"percVitorias" => $percVitorias, "nJogos" => $nJogos, "nGolos" => $nGolos, "nMvp" => $nMvp);
         return($resp);
+    }
+
+    function getNotificacaoConviteMarcacao() {
+
+        global $conn;
+        $sql = " SELECT listagem_atletas_marcacao.id_marcacao as idMarcacao 
+                FROM listagem_atletas_marcacao 
+                INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+                INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
+                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+                WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."' 
+                AND marcacao.id_atleta != '".$_SESSION['id']."'  
+                AND listagem_atletas_marcacao.estado = 0";
+        $result = $conn->query($sql);
+        $msg = "";
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;' onclick = 'getModalConviteMarcacao(".$row['idMarcacao'].")'>
+                <span class='me-3'>
+                <img src='../../dist/images/rating/invite.png' alt='user' class='rounded-circle object-fit-cover'
+                    width='48' height='48' />
+                </span>
+                <div class='w-75 d-inline-block v-middle'>
+                <h6 class='mb-1 fw-semibold'>Convite Marcação</h6>
+                <span class='d-block'>Foi convidado para uma marcação.</span>
+                </div>
+            </a>";
+            }
+        }
+        $conn ->close();
+        return ($msg);
+    }
+    
+    function getModalConviteMarcacao($id){
+
+        global $conn;
+        $sql = "SELECT marcacao.data_inicio AS dataMarc, 
+                marcacao.hora_inicio AS horaMarc,
+                marcacao.id_atleta AS idAtletaHost,
+                user_atleta.nome AS nomeAtletaHost,
+                user_atleta.foto AS fotoAtletaHost, 
+                modalidade.descricao AS modalidade,
+                campo.nome AS nomeCampoMarcacao,
+                campo.foto AS fotoCampoMarcacao,
+                campo.morada AS moradaCampoMarcacao,
+                user_clube.id AS idClube,  
+                user_clube.nome AS nomeClube, 
+                user_clube.foto as fotoClube
+                FROM 
+                listagem_atletas_marcacao 
+                INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+                INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo
+                INNER JOIN campo ON campo_clube.id_campo = campo.id 
+                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+                INNER JOIN clube ON campo_clube.id_clube = clube.id_clube 
+                INNER JOIN atleta ON marcacao.id_atleta = atleta.id_atleta
+                INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
+                INNER JOIN user AS user_atleta ON atleta.id_atleta = user_atleta.id
+                WHERE listagem_atletas_marcacao.id_marcacao = ".$id."
+                AND listagem_atletas_marcacao.id_atleta = ".$_SESSION['id'];
+
+        $result = $conn->query($sql);
+        $msg = "";
+        $mod = "";
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if($row['modalidade'] == "Basquetebol"){
+                    $mod .= "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
+                    class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>";
+                }else if($row['modalidade'] == "Futsal"){
+                    $mod = "<span class='badge rounded-pill text-bg-danger mt-2 fs-5'><i
+                    class='ti ti-ball-football me-1'></i><small>Futsal</small></span>";
+                }else if($row['modalidade'] == "Padel"){
+                    $mod = "<span class='badge rounded-pill text-bg-primary mt-2 fs-5'><i
+                    class='ti ti-ball-tennis me-1'></i><small>Padel</small></span>";
+                }else{
+                    $mod = "<span class='badge rounded-pill text-bg-success mt-2 fs-5'><i
+                    class='ti ti-ball-tennis me-1'></i><small>Ténis</small></span>";
+                }
+
+                $data = new DateTime($row['dataMarc']);
+                $stringData = $data -> format('d/m/Y');
+
+                $hora = new DateTime($row['horaMarc']);
+                $stringHora = $hora->format('H:i');
+
+                $msg .= "
+                <div class='d-flex justify-content-center pb-5'>
+                <h4 class='fw-semibold fs-9'>Convite Marcacão</h4>
+              </div>
+              <div class='container-fluid'>
+                <div class='row'>
+                  <div class='col-md-6 text-center'>
+                    <img src='".$row['fotoCampoMarcacao']."' alt='Clube 1' class='img-fluid rounded border border-1 border-primary'>
+                  </div>
+                  <div class='col-md-6 d-flex justify-content-end align-items-center'>
+                    <div class='mb-3'>
+                      <small class='fs-6'><i class='ti ti-calendar me-1'></i>".$stringData."</small><br>
+                      <small class='fs-6'><i class='ti ti-clock me-1'></i>".$stringHora."</small><br>
+                      <small class='fs-6'><i class='ti ti-map-pin me-1'></i>".$row['nomeCampoMarcacao']."</small><br>
+                      <a href='./clube.php?id=".$row['idClube']."'><small class='fs-6'><i class='ti ti-building me-1'></i>".$row['nomeClube']."</small><br></a>
+                      ".$mod."
+                            <div class='d-flex justify-content-start'>
+                                <small class='fs-6 mb-3 mt-3 me-3'>Host:</small>
+                                <img id='".$row['idAtletaHost']."' src='../../dist/".$row['fotoAtletaHost']."' alt='".$row['nomeAtletaHost']."'
+                                    class='rounded-circle object-fit-cover mt-2' width='40' height='40' onclick='' data-toggle='tooltip'
+                                        data-placement='top' title='".$row['nomeAtletaHost']."'>
+                            </div>            
+                    </div>
+                  </div>
+                </div>
+              </div>";
+            }
+        }
+        $resp = json_encode(array(
+            "msg" => $msg
+        ));
+
+        $conn ->close();
+        return ($resp);
+
+
     }
    
 
