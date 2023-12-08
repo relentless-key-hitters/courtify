@@ -63,13 +63,19 @@ if ($_POST['op'] == 1){
     $res = $user ->  getPerfilNavbar();
     echo($res);
 }else if($_POST['op'] == 20){
-    $res = $user ->   getEstatisticas($_POST['id']);
+    $res = $user -> getEstatisticas($_POST['id']);
     echo($res);
 }else if($_POST['op'] == 21){
-    $res = $user ->   getNotificacaoConviteMarcacao();
+    $res = $user -> getNotificacaoConviteMarcacao();
     echo($res);
 }else if($_POST['op'] == 22){
-    $res = $user ->   getModalConviteMarcacao($_POST['id']);
+    $res = $user -> getModalConviteMarcacao($_POST['id']);
+    echo($res);
+}else if($_POST['op'] == 23){
+    $res = $user -> aceitarConvite($_POST['idMarcacao']);
+    echo($res);
+}else if($_POST['op'] == 24){
+    $res = $user -> rejeitarConvite($_POST['idMarcacao']);
     echo($res);
 }
 

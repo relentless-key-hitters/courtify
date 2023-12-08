@@ -909,7 +909,9 @@ class User{
         INNER JOIN user ON clube.id_clube = user.id
         INNER JOIN campo ON campo_clube.id_campo = campo.id
 		WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."'
-        AND listagem_atletas_marcacao.votacao = 2 ORDER BY marcacao.data_inicio ASC";
+        AND listagem_atletas_marcacao.votacao = 2 
+        AND listagem_atletas_marcacao.estado = 1
+        ORDER BY marcacao.data_inicio ASC";
 
         $result = $conn->query($sql);
         $horaA = "";
@@ -1294,36 +1296,36 @@ class User{
         return($resp);
     }
 
-    function getNotificacaoConviteMarcacao() {
+function getNotificacaoConviteMarcacao() {
 
-        global $conn;
-        $sql = " SELECT listagem_atletas_marcacao.id_marcacao as idMarcacao 
-                FROM listagem_atletas_marcacao 
-                INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
-                INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
-                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
-                WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."' 
-                AND marcacao.id_atleta != '".$_SESSION['id']."'  
-                AND listagem_atletas_marcacao.estado = 0";
-        $result = $conn->query($sql);
-        $msg = "";
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;' onclick = 'getModalConviteMarcacao(".$row['idMarcacao'].")'>
-                <span class='me-3'>
-                <img src='../../dist/images/rating/invite.png' alt='user' class='rounded-circle object-fit-cover'
-                    width='48' height='48' />
-                </span>
-                <div class='w-75 d-inline-block v-middle'>
+    global $conn;
+    $sql = " SELECT listagem_atletas_marcacao.id_marcacao as idMarcacao 
+            FROM listagem_atletas_marcacao 
+            INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+            INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
+            INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+            WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."' 
+            AND marcacao.id_atleta != '".$_SESSION['id']."'  
+            AND listagem_atletas_marcacao.estado = 0";
+    $result = $conn->query($sql);
+    $msg = "";
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;' onclick = 'getModalConviteMarcacao(".$row['idMarcacao'].")'>
+            <span class='me-3'>
+            <img src='../../dist/images/rating/invite.png' alt='user' class='rounded-circle object-fit-cover'
+                width='48' height='48' />
+            </span>
+            <div class='w-75 d-inline-block v-middle'>
                 <h6 class='mb-1 fw-semibold'>Convite Marcação</h6>
                 <span class='d-block'>Foi convidado para uma marcação.</span>
-                </div>
-            </a>";
-            }
+            </div>
+        </a>";
         }
-        $conn ->close();
-        return ($msg);
     }
+    $conn ->close();
+    return ($msg);
+}
     
     function getModalConviteMarcacao($id){
 
@@ -1416,7 +1418,73 @@ class User{
 
     }
    
+    function aceitarConvite($idMarcacao){
+       
+        global $conn;
+        $msg = "";
+        $icon = "";
+        $flag = false;
+        $titulo = "";
+        
+        $sql = "UPDATE listagem_atletas_marcacao
+                SET estado = 1
+                WHERE listagem_atletas_marcacao.id_marcacao = ".$idMarcacao."
+                AND listagem_atletas_marcacao.id_atleta = ".$_SESSION['id'];
 
+        if($conn -> query($sql) === TRUE) {
+            $titulo = "Sucesso";
+            $msg = "Convite aceite com sucesso.";
+            $icon = "success";
+            $flag = true;
+        } else {
+            $titulo = "Erro";
+            $msg = "Não foi possível aceitar o convite.";
+            $icon = "success";
+            $flag = true;
+        }
+        
+        $resp = json_encode(array(
+            "titulo" => $titulo,
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+        $conn -> close();
+        return ($resp);
+    }
+
+    function rejeitarConvite($idMarcacao) {
+        global $conn;
+        $msg = "";
+        $icon = "";
+        $flag = false;
+        $titulo = "";
+        
+        $sql = "DELETE FROM listagem_atletas_marcacao
+                WHERE listagem_atletas_marcacao.id_marcacao = ".$idMarcacao."
+                AND listagem_atletas_marcacao.id_atleta = ".$_SESSION['id'];
+
+        if($conn -> query($sql) === TRUE) {
+            $titulo = "Sucesso";
+            $msg = "Convite rejeitado com sucesso.";
+            $icon = "success";
+            $flag = true;
+        } else {
+            $titulo = "Erro";
+            $msg = "Não foi possível rejeitar o convite.";
+            $icon = "success";
+            $flag = true;
+        }
+        
+        $resp = json_encode(array(
+            "titulo" => $titulo,
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+        $conn -> close();
+        return ($resp);
+    }
 
 
 }

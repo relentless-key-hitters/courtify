@@ -180,11 +180,60 @@ function getModalConviteMarcacao(id){
 }
 
 function aceitarConvite(idMarcacao){
-    
+    let dados = new FormData();
+    dados.append("op", 23);
+    dados.append("idMarcacao", idMarcacao);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
 }
 
 function rejeitarConvite(idMarcacao){
-    
+
+    let dados = new FormData();
+    dados.append("op", 24);
+    dados.append("idMarcacao", idMarcacao);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
 }
 
 function alerta2(titulo,msg,icon){
@@ -195,7 +244,7 @@ function alerta2(titulo,msg,icon){
         text: msg,
         showConfirmButton: false,
         confirmButtonColor: '#45702d',
-        time: 3000
+        timer: 3000
       })
 }
 
