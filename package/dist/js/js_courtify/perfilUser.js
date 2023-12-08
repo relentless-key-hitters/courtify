@@ -20,6 +20,8 @@ function getPerfil(){
         .done(function(msg) {
 
             let obj = JSON.parse(msg);
+            console.log(obj);
+            
             $("#fotoCapaView").attr('src', obj.fotoCapa);
             $("#perfil3").attr('src', obj.fotoPerfil);
             $("#perfil4").attr('src', obj.fotoPerfil);
@@ -38,6 +40,8 @@ function getPerfil(){
             $("#nomeEquipa5").html(obj.nome);
             $("#mod").html(obj.mod);
             $("#iconAlterarFoto").html(obj.altFotoCapa);
+            $("#botaoAdicionarAmigo").html(obj.botaoAmigo);
+            $("#botaoMensagemAmigo").html(obj.botaoMensagem);
             getEstatisticas(perfilId);
         })
         

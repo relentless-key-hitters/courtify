@@ -1,3 +1,36 @@
+function getMarcacoesAbertasAmigos() {
+
+  let dados = new FormData();
+  dados.append("op", 4);
+
+
+  $.ajax({
+    url: "../../dist/php/controllerDescobrir.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false
+  })
+
+    .done(function (msg) {
+      let obj = JSON.parse(msg);
+      console.log(obj.msg)
+      $("#quantidadeMarcacoesAmigos").text(obj.contagem);
+
+      if(obj.msg == "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>") {
+        $("#cardCarousel1").html(obj.msg);
+      } else {
+        $("#marcacaoAmigos").html(obj.msg)
+      }
+    })
+
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
+}
+getMarcacoesAbertasAmigos();
 
 function getMarcacoesAbertasModalidades() {
 
@@ -68,6 +101,45 @@ function getMarcacoesAbertasLocalidade() {
 }
 getMarcacoesAbertasLocalidade();
 
+
+function juntarMarcacao(idMarcacao) {
+  
+  let dados = new FormData();
+  dados.append("op", 3);
+  dados.append("idMarcacao", idMarcacao);
+
+  $.ajax({
+    url: "../../dist/php/controllerDescobrir.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false
+  })
+
+    .done(function (mensagem) {
+      let obj = JSON.parse(mensagem);
+      alerta2(obj.title, obj.msg, obj.icon);
+      setTimeout(function () { location.reload(); }, 3000);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
+}
+
+function alerta2(titulo,msg,icon){
+  Swal.fire({
+      position: 'center',
+      icon: icon,
+      title: titulo,
+      text: msg,
+      showConfirmButton: false,
+      confirmButtonColor: '#45702d',
+      timer: 3000
+    })
+}
 
 
 $(function () {

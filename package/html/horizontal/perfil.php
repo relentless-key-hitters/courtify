@@ -232,14 +232,8 @@ if (isset($_SESSION['id'])) {?>
               </div>
               <div class="col-lg-2 mt-2">
                 <div class="container">
-                  <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
-                      <?php 
-                      if(isset($_GET['id'])) {
-                        if($_GET['id'] != $_SESSION['id']) {
-                          echo '<button class="btn btn-primary"><i class="me-2 ti ti-user-plus"></i>Adicionar</button>';
-                        }
-                      }
-                      ?>
+                  <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id="botaoAdicionarAmigo">
+
                   </div>
                 </div>
               </div>
@@ -263,14 +257,8 @@ if (isset($_SESSION['id'])) {?>
               </div>
               <div class="col-lg-2 mt-2">
                 <div class="container">
-                  <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
-                      <?php 
-                      if(isset($_GET['id'])) {
-                        if($_GET['id'] != $_SESSION['id']) {
-                          echo '<button class="btn btn-outline-success"><i class="me-2 ti ti-message"></i>Mensagem</button>';
-                        }
-                      }
-                      ?>
+                  <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id="botaoMensagemAmigo">
+
                   </div>
                 </div>
               </div>

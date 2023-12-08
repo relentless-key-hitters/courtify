@@ -362,9 +362,42 @@ class User{
         $mod = "";
         $fotoCapa = "";
         $altFotoCapaIcon = "";
+        $sql4 = "";
+        $botaoAmigo = "";
+        $botaoMensagem = "";
         if($id == $_SESSION['id']){
             $altFotoCapaIcon .="<i class='fas fa-pencil-alt text-white fs-6' data-toggle='tooltip' data-placement='top' title='Editar'
             data-bs-toggle='modal' data-bs-target='#vertical-center-modal'></i>";
+        } else {
+            $sql4 = "SELECT IF(amigo = ".$id." , 1, 0) AS amigos, estado
+                    FROM (
+                    SELECT amigo.id_atleta1 AS amigo, amigo.estado AS estado
+                    FROM amigo 
+                    WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
+                    OR amigo.id_atleta2 = ".$_SESSION['id'].")
+                    AND  amigo.id_atleta1 = ".$id."
+                    UNION 
+                    SELECT amigo.id_atleta2 AS amigo, amigo.estado AS estado
+                    FROM amigo 
+                    WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
+                    OR amigo.id_atleta1 = ".$_SESSION['id'].")
+                    AND amigo.id_atleta2 = ".$id.") AS temp";
+
+            $result4 = $conn->query($sql4);
+            if ($result4->num_rows > 0) {
+                while($row4 = $result4->fetch_assoc()) {
+                    if($row4['amigos'] == 1){
+                        if($row4['estado'] == 1){
+                            $botaoMensagem .= "<button class='btn btn-outline-success'><i class='me-2 ti ti-message'></i>Mensagem</button>";
+                            $botaoAmigo .= "<button class='btn btn-primary disabled'><i class='me-2 ti ti-check'></i>Amigo</button>";
+                        } else {
+                            $botaoAmigo .= "<button class='btn btn-primary disabled'><i class='me-2 ti ti-clock-pause'></i>Pendente</button>";
+                        }
+                    } else if($row4['amigos'] == 0){
+                        $botaoAmigo .= "<button class='btn btn-primary' onclick='adicionarAmigo(".$id.")'><i class='me-2 ti ti-user-plus'></i>Adicionar</button>";
+                    }
+                }
+            }        
         }
         $sql = "SELECT user.foto as foto, user.email as email, user.nome as nome, atleta.bio as bio, atleta.fotoCapa as fotoCapa FROM user INNER JOIN atleta ON user.id = atleta.id_atleta WHERE user.id = ".$id;
         $sql2 = "SELECT concelho.descricao as concelho, distrito.descricao as distrito FROM user INNER JOIN concelho ON user.localidade = concelho.id INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id WHERE user.id = ".$id;
@@ -428,7 +461,9 @@ class User{
             "localizacao" => $localizacao,
             "bio" => $bio, 
             "mod" => $mod,
-            "altFotoCapa" => $altFotoCapaIcon
+            "altFotoCapa" => $altFotoCapaIcon,
+            "botaoAmigo" => $botaoAmigo,
+            "botaoMensagem" => $botaoMensagem
         ));
         $conn -> close();
         return ($resp);
@@ -1474,6 +1509,37 @@ function getNotificacaoConviteMarcacao() {
             $msg = "Não foi possível rejeitar o convite.";
             $icon = "success";
             $flag = true;
+        }
+        
+        $resp = json_encode(array(
+            "titulo" => $titulo,
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+        $conn -> close();
+        return ($resp);
+    }
+
+    function adicionarAmigo($idAmigo) {
+        global $conn;
+        $msg = "";
+        $icon = "";
+        $flag = false;
+        $titulo = "";
+
+        $sql = "INSERT INTO amigo(id_atleta1, id_atleta2) VALUES (".$_SESSION['id'].", ".$idAmigo.")";
+
+        if($conn -> query($sql) === TRUE) {
+            $titulo = "Sucesso";
+            $msg = "Pedido de Amizade efetuado com sucesso!";
+            $icon = "success";
+            $flag = true;
+        } else {
+            $titulo = "Erro";
+            $msg = "Não foi possível pedir amizade a este Utilizador!";
+            $icon = "error";
+            $flag = false;
         }
         
         $resp = json_encode(array(

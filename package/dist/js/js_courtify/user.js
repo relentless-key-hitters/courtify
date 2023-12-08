@@ -580,6 +580,33 @@ function guardaEditInfo(){
 
 }
 
+function adicionarAmigo(id) {
+
+    let dados = new FormData();
+    dados.append("op", 25);
+    dados.append("idAmigo", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2("Utilizador", obj.msg, obj.icon);
+            setTimeout(function () { location.reload(); }, 3000);
+        })
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
 
 function alerta(titulo,msg,icon){
     Swal.fire({

@@ -77,6 +77,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 24){
     $res = $user -> rejeitarConvite($_POST['idMarcacao']);
     echo($res);
+}else if($_POST['op'] == 25){
+    $res = $user -> adicionarAmigo($_POST['idAmigo']);
+    echo($res);
 }
 
 

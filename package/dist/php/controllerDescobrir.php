@@ -10,6 +10,12 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 2) {
     $res = $descobrir -> getMarcacoesAbertasModalidades();
     echo($res);
+} else if($_POST['op'] == 3) {
+    $res = $descobrir -> juntarMarcacao($_POST['idMarcacao']);
+    echo($res);
+} else if($_POST['op'] == 4) {
+    $res = $descobrir -> getMarcacoesAbertasAmigos();
+    echo($res);
 }
 
 ?>
