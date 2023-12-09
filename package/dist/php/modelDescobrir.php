@@ -447,7 +447,7 @@ class Descobrir
                                 <div class='mt-2 mb-2'>
                                 <span class='fs-3'>Participantes</span>
                             </div>
-                            <div class='row mt-1 over'>
+                            <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>
                                 <div class='col-md-2 d-flex overflow-y-auto'>
                                     <a href='./perfil.php?id=" . $row['idAtletaHost'] . "'><img src='../../dist/" . $row['fotoAtletaHost'] . "' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row['nomeAtletaHost'] . " (Host)' style='cursor: pointer;'></a>
                                 </div>";
