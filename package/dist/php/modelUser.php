@@ -1746,7 +1746,7 @@ class User
                                         class='ti ti-plus'></i>Info</button>
                                     </div>
                                     <div class='col-md-3 mt-2 mt-md-0'>
-                                    <small class='fs-5'>NOME TESTE</small><br>
+                                    <small class='fs-5'>ID: ".$row['idMarcacao']."</small><br>
                                     <small><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
                                     <small><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
                                     <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>
