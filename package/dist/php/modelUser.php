@@ -1097,6 +1097,8 @@ class User
         $sql = "";
         $sql2 = "";
         $msg = "";
+        $nPontos = 0;
+        $nVitorias = 0;
         if ($modalidade == "Basquetebol") {
             $sql .= "SELECT * FROM info_basquetebol WHERE id_atleta = " . $_SESSION['id'];
         } else {
@@ -1111,13 +1113,18 @@ class User
                     } else {
                         $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . " WHERE id_atleta = " . $_SESSION['id'];
                     }
+                    $nPontos .=  $row['n_pontos'] + $numPontos;
+                    $nVitorias .= $row['n_vitorias'] + 1;
                 } else {
                     if ($modalidade == "Basquetebol") {
                         $sql2 .= "UPDATE info_basquetebol SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos = " . $row['n_pontos'] . " + " . $numPontos . " WHERE id_atleta = " . $_SESSION['id'];
                     } else {
                         $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . " WHERE id_atleta = " . $_SESSION['id'];
                     }
+                    $nPontos .=  $row['n_pontos'] + $numPontos;
+                    $nVitorias .= $row['n_vitorias'];
                 }
+                
             }
         }
         $sql3 = "UPDATE listagem_atletas_marcacao SET votacao = 1 WHERE id_marcacao = " . $id . " AND id_atleta = " . $_SESSION['id'];
@@ -1128,8 +1135,16 @@ class User
             $msg = "Error: " . $sql2 . "<br>" . $conn->error;
             $icon = "error";
         }
+
+        $resultadoBadges1 = $this->getBadgesPontos($modalidade,  $nPontos);
+        $resultadoBadges2 = $this-> getBadgesVitorias($modalidade, $nVitorias);
         $conn->close();
-        return ($msg);
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "respBadgesPontos" =>  $resultadoBadges1,
+            "respBadgesVitorias" =>  $resultadoBadges2,
+        ));
+        return ($resp);
     }
 
     function votacaoPadelTenis($id, $modalidade, $resultados)
@@ -1143,6 +1158,8 @@ class User
         $nDerr = 0;
         $nSets = sizeof($arrRes);
         $nPontosSet = 0;
+        $nPontos = 0;
+        $nVitorias = 0;
         for ($i = 0; $i < sizeof($arrRes); $i++) {
             if ($arrRes[$i][0] > $arrRes[$i][1]) {
                 $nVit++;
@@ -1166,12 +1183,16 @@ class User
                     } else {
                         $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . " , n_sets =" . $row['n_sets'] . " + " . $nSets . " WHERE id_atleta = " . $_SESSION['id'];
                     }
+                    $nPontos = $row['n_pontos_set'] + $nPontosSet ;
+                    $nVitorias .= $row['n_vitorias'] + 1;
                 } else {
                     if ($modalidade == "Padel") {
                         $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . " WHERE id_atleta = " . $_SESSION['id'];
                     } else {
                         $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . " WHERE id_atleta = " . $_SESSION['id'];
                     }
+                    $nPontos = $row['n_pontos_set'] + $nPontosSet ;
+                    $nVitorias .= $row['n_vitorias'];
                 }
             }
         }
@@ -1184,8 +1205,15 @@ class User
             $msg = "Error: " . $sql3 . "<br>" . $conn->error;
             $icon = "error";
         }
+        $resultadoBadges1 = $this-> getBadgesPontos($modalidade,  $nPontos);
+        $resultadoBadges2 = $this-> getBadgesVitorias($modalidade, $nVitorias);
         $conn->close();
-        return ($msg);
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "respBadges" =>  $resultadoBadges1,
+            "respBadgesVitorias" =>  $resultadoBadges2
+        ));
+        return ($resp);
     }
 
     function getPerfilNavbar()
@@ -1871,5 +1899,59 @@ class User
         ));
         $conn->close();
         return ($resp);
+    }
+
+    function getBadgesPontos($modalidade, $pontos){
+        global $conn;
+        $sql = "";        
+        $arrayRes = array();
+        $sql .= " SELECT descricao, id, foto
+        FROM badge 
+        WHERE badge.id NOT IN (
+            SELECT atleta_badges.id_badge
+            FROM atleta_badges INNER JOIN 
+            badge ON atleta_badges.id_badge = badge.id 
+            WHERE atleta_badges.id_atleta = ".$_SESSION['id']." 
+        ) AND badge.id_modalidade = (
+            SELECT id
+            FROM modalidade 
+            WHERE descricao LIKE '".$modalidade."'
+        ) AND valorPatamar <= ".$pontos." AND categoria LIKE 'Pontos'";
+        $result = $conn -> query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($arrayRes , array($row['descricao'], $row['id'], $row['foto']));
+                $sql2 = "INSERT INTO atleta_badges VALUES (".$row['id'].", ".$_SESSION['id'].", '". date("Y/m/d")."')";
+                $result2 = $conn->query($sql2);
+                }
+            } 
+        return($arrayRes);
+    }
+
+    function getBadgesVitorias($modalidade, $vitorias){
+        global $conn;
+        $sql = "";        
+        $arrayRes = array();
+        $sql .= " SELECT descricao, id, foto
+        FROM badge 
+        WHERE badge.id NOT IN (
+            SELECT atleta_badges.id_badge
+            FROM atleta_badges INNER JOIN 
+            badge ON atleta_badges.id_badge = badge.id 
+            WHERE atleta_badges.id_atleta = ".$_SESSION['id']." 
+        ) AND badge.id_modalidade = (
+            SELECT id
+            FROM modalidade 
+            WHERE descricao LIKE '".$modalidade."'
+        ) AND valorPatamar <= ".$vitorias." AND categoria LIKE 'Vitórias'";
+        $result = $conn -> query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($arrayRes , array($row['descricao'], $row['id'], $row['foto']));
+                $sql2 = "INSERT INTO atleta_badges VALUES (".$row['id'].", ".$_SESSION['id'].", '". date("Y/m/d")."')";
+                $result2 = $conn->query($sql2);
+                }
+            } 
+        return($arrayRes);
     }
 }

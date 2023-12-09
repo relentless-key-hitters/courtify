@@ -87,7 +87,10 @@ function guardarVotacaoBF(id){
         })
 
         .done(function(msg) {
-            alerta2("Votação",msg,"success");
+            let obj = JSON.parse(msg)
+            alerta2("Votação",obj.msg,"success");
+            console.log(obj.respBadges)
+            console.log(obj.respBadgesVitorias)
             getNotificacao();
         })
         
@@ -117,7 +120,10 @@ function guardarVotacaoPT(id, nSets){
         })
 
         .done(function(msg) {
-            alerta2("Votação",msg,"success");
+            let obj = JSON.parse(msg)
+            alerta2("Votação",obj.msg,"success");
+            console.log(obj.respBadges)
+            console.log(obj.respBadgesVitorias)
             getNotificacao();
         })
         
