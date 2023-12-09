@@ -1582,16 +1582,9 @@ class User{
                 FROM (
                 SELECT amigo.id_atleta1 AS amigo, amigo.estado AS estado
                 FROM amigo 
-                WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
-                OR amigo.id_atleta2 = ".$_SESSION['id'].")
-                AND  amigo.id_atleta1 != ".$_SESSION['id']."
-                UNION 
-                SELECT amigo.id_atleta2 AS amigo, amigo.estado AS estado
-                FROM amigo 
-                WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
-                OR amigo.id_atleta1 = ".$_SESSION['id'].")
-                AND amigo.id_atleta2 != ".$_SESSION['id'].") AS temp
-                WHERE estado = 0);";
+                WHERE amigo.id_atleta2 = ".$_SESSION['id']."
+                AND  amigo.estado = 0
+                )as temp)";
        
         $result = $conn->query($sql);
        
