@@ -1577,7 +1577,7 @@ class User{
 
         $sql = "SELECT user.nome, user.id, user.foto
                 FROM user 
-                WHERE user.id = (
+                WHERE user.id IN (
                 SELECT amigo
                 FROM (
                 SELECT amigo.id_atleta1 AS amigo, amigo.estado AS estado
