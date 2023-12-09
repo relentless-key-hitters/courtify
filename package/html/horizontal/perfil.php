@@ -1936,6 +1936,28 @@ if (isset($_SESSION['id'])) {?>
     </div>
   </div>
 
+  <div class="modal fade" id="scroll-long-inner-modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <h4 class="modal-title">
+            Remover Amizade
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <span>Estás prestes a remover a tua amizade com este Utilizador.<br></span>
+          <small>Caso o faças, poderás sempre voltar a fazer-lhe um pedido.</small>
+          <h5 class='mt-3'>Remover?</h5>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-3" id="corpoBotoesAmizade">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>

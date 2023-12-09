@@ -607,9 +607,34 @@ function adicionarAmigo(id) {
 
 }
 
-function removerAmigo(id) {
+function getModalRemoverAmizade(id) {
     let dados = new FormData();
     dados.append("op", 30);
+    dados.append("idAmigo", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            $("#corpoBotoesAmizade").html(msg);
+            $('#scroll-long-inner-modal2').modal('show')
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+
+function removerAmizade(id) {
+    let dados = new FormData();
+    dados.append("op", 31);
     dados.append("idAmigo", id);
 
     $.ajax({

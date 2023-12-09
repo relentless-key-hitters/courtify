@@ -79,7 +79,7 @@ class Amigo
                                 <i class='ti ti-star'></i>
                             </a>
                             </li>
-                            <li class='position-relative' onclick='removerAmigo(".$row['idAmigo'].")'>
+                            <li class='position-relative' onclick='getModalRemoverAmizade(".$row['idAmigo'].")'>
                             <a class='text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
                                 href='javascript:void(0)'>
                                 <i class='ti ti-square-x'></i>

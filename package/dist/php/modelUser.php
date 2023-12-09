@@ -1828,6 +1828,17 @@ class User
         $conn->close();
         return ($msg);
     }
+    function getModalRemoverAmizade($id) {
+        $msg = "<button type='button' class='btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3'
+                    data-bs-dismiss='modal' onclick='removerAmizade(" . $id . ")'>
+                    Sim
+                </button>
+                <button type='button' class='btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3'
+                    data-bs-dismiss='modal'>
+                    Não
+                </button>";
+        return ($msg);        
+    }
 
     function removerAmizade($idAmigo) {
         global $conn;
