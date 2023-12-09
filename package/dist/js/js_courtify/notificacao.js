@@ -16,7 +16,8 @@ function getNotificacao(){
         })
 
         .done(function(msg) {
-            $("#notifVotacao").html(msg)
+            console.log(msg);
+            $("#divNotificacoesVotacao").html(msg)
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -141,7 +142,7 @@ function getNotificacaoConviteMarcacao() {
         })
 
         .done(function(msg) {
-            $("#notifVotacao").html(msg)
+            $("#divNotificacoesConviteMarcacao").html(msg)
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -251,7 +252,7 @@ function notificacaoPedidoAmizade() {
         })
 
         .done(function(msg) {
-            $("#notifVotacao").html(msg)
+            $("#divNotificacoesPedidoAmizade").html(msg)
         })
         
         .fail(function( jqXHR, textStatus ) {
