@@ -164,6 +164,34 @@ function getPerfilNavbar() {
         });
 }
 
+function getJogosRecentes() {
+    urlParams = new URLSearchParams(window.location.search);
+    let idUser = urlParams.get('id');
+
+    let dados = new FormData();
+    dados.append("op", 29);
+    dados.append("idUser", idUser);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function(msg) {
+        $("#jogosRecentes").html(msg);
+    })
+
+    .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus ); 
+    });
+
+}
+
 function alerta(titulo,msg,icon){
     Swal.fire({
         position: 'center',
@@ -190,6 +218,7 @@ function alerta2(titulo,msg,icon){
 $(function() {
     getPerfilNavbar();
     getPerfil();
+    getJogosRecentes();
 
 });
 

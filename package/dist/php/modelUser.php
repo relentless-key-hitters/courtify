@@ -1689,6 +1689,110 @@ class User{
         return ($resp);
     }
 
+    function getJogosRecentes($idUser) {
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT 
+                listagem_atletas_marcacao.id_marcacao as idMarcacao,
+                marcacao.id_atleta AS idAtletaHostMarcacao,
+                marcacao.data_inicio AS dataInicioMarcacao,
+                marcacao.hora_inicio AS horaInicioMarcacao,
+                marcacao.tipo AS tipoMarcacao,
+                marcacao.id_campo AS idCampoMarcacao,
+                campo.foto as fotoCampoMarcacao,
+                campo.nome AS nomeCampoMarcacao,
+                modalidade.descricao AS modalidadeMarcacao
+                FROM listagem_atletas_marcacao 
+                INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+                INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo
+                INNER JOIN campo ON campo_clube.id_campo = campo.id 
+                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id  
+                WHERE listagem_atletas_marcacao.id_atleta = ".$idUser." 
+                AND listagem_atletas_marcacao.votacao = 1
+                LIMIT 5";
+
+        $result = $conn->query($sql);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+
+                $msg .= "<div class='card shadow border hover-img'>
+                            <div class='card-body'>
+                                <div class='row mt-2'>
+                                    
+                                    <div class='col-md-3'>
+                                    <img src='".$row['fotoCampoMarcacao']."' alt='".$row['nomeCampoMarcacao']."'
+                                        class='object-fit-cover rounded-2 border border-1 border-primary' width='150'
+                                        height='110'>
+                                    <button class='btn btn-sm btn-primary mt-2 ms-2 ms-md-0'><i
+                                        class='ti ti-plus'></i>Info</button>
+                                    </div>
+                                    <div class='col-md-4 mt-2 mt-md-0'>
+                                    <small class='fs-5'>NOME TESTE</small><br>
+                                    <small><i class='ti ti-calendar me-1'></i>".$row['dataInicioMarcacao']."</small><br>
+                                    <small><i class='ti ti-clock me-1'></i>".$row['horaInicioMarcacao']."</small><br>
+                                    <small><i class='ti ti-map-pin me-1'></i>".$row['nomeCampoMarcacao']."</small><br>
+                                    <span class='badge rounded-pill text-bg-warning mt-2'><i
+                                        class='ti ti-ball-basketball me-1'></i><small>".$row['modalidadeMarcacao']."</small></span>
+                                    </div>
+                                    <div class='col-md-5 mt-2 mt-md-0'>
+                                        <div class='row'>
+                                            <small class='fs-3'>Participantes</small><br>
+                                            <div class='col-4'>
+                                                <div class='d-flex align-items-center mt-2'>
+                                                    <img alt='Participant 1' id='perfil4' class='rounded-circle object-fit-cover'
+                                                    width='30' height='30'>
+                                                    <small class='ms-2' id='nomeEquipa1'></small>
+                                                </div>
+                                                <div class='d-flex align-items-center mt-2'>
+                                                    <img src='../../dist/images/profile/girl2.jpg' alt='Participant 2'
+                                                    class='rounded-circle object-fit-cover' width='30' height='30'>
+                                                    <small class='ms-2'>Teresa Norte</small>
+                                                </div>
+                                            </div>
+                                            <div class='col-4'>
+                                                <div class='d-flex align-items-center mt-2'>
+                                                <img src='../../dist/images/profile/boy12.jpg' alt='Participant 1'
+                                                class='rounded-circle object-fit-cover' width='30' height='30'>
+                                                <small class='ms-2'>Gonçalo Nunes</small>
+                                                </div>
+                                                <div class='d-flex align-items-center mt-2'>
+                                                    <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2'
+                                                    class='rounded-circle object-fit-cover' width='30' height='30'>
+                                                    <small class='ms-2'>Rui Paulo</small>
+                                                </div>
+                                            </div>
+                                            <div class='col-4'>
+                                                <div class='d-flex align-items-center mt-2'>
+                                                    <img src='../../dist/images/profile/girl5.jpg' alt='Participant 1'
+                                                    class='rounded-circle object-fit-cover' width='30' height='30'>
+                                                    <small class='ms-2'>Ana Cruz</small>
+                                                </div>
+                                                <div class='d-flex align-items-center mt-2'>
+                                                    <img src='../../dist/images/profile/boy6.jpg' alt='Participant 2'
+                                                    class='rounded-circle object-fit-cover' width='30' height='30'>
+                                                    <small class='ms-2'>Fábio Santos</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+            }
+        } else {
+            $msg .= "<div class='text-center mt-5'>
+                        <h3>Sem resultados!</h3>
+                        <p>Cria ou junta-te a marcações, dá a tua votação, e os teus jogos irão aparecer aqui!</p>
+                    </div>";
+        }
+
+        $conn -> close();
+        return ($msg);
+
+    }
+
 }
 
 
