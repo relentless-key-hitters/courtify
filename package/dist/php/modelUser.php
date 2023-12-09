@@ -369,38 +369,19 @@ class User{
             $altFotoCapaIcon .="<i class='fas fa-pencil-alt text-white fs-6' data-toggle='tooltip' data-placement='top' title='Editar'
             data-bs-toggle='modal' data-bs-target='#vertical-center-modal'></i>";
         } else {
-            $sql4 = "SELECT IF(amigo = ".$id.", 1, 0) AS amigos, estado 
-                        FROM (
-                        SELECT amigo.id_atleta1 AS amigo, amigo.estado AS estado
-                        FROM amigo 
-                        WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
-                            OR amigo.id_atleta2 = ".$_SESSION['id'].")
-                        AND  amigo.id_atleta1 = ".$id."
-                        UNION 
-                        SELECT amigo.id_atleta2 AS amigo, amigo.estado AS estado
-                        FROM amigo 
-                        WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
-                            OR amigo.id_atleta1 = ".$_SESSION['id'].")
-                        AND amigo.id_atleta2 = ".$id.") AS temp
-                        UNION 
-                        SELECT 0 AS amigos, 0 AS estado
-                        FROM (
-                            SELECT id_atleta AS id
-                            FROM atleta
-                            WHERE id_atleta NOT IN (
-                                SELECT amigo.id_atleta1 AS amigo
-                                FROM amigo 
-                                WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
-                                OR amigo.id_atleta2 = ".$_SESSION['id'].")
-                                AND  amigo.id_atleta1 = ".$id."
-                                UNION 
-                                SELECT amigo.id_atleta2 AS amigo
-                                FROM amigo 
-                                WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
-                                OR amigo.id_atleta1 = ".$_SESSION['id'].")
-                                AND amigo.id_atleta2 = ".$id.")) AS temp2
-                        WHERE temp2.id != ".$_SESSION['id']."
-                        AND temp2.id = ".$id;
+            $sql4 = "SELECT IF(amigo = ".$id." , 1, 0) AS amigos, estado
+                    FROM (
+                    SELECT amigo.id_atleta1 AS amigo, amigo.estado AS estado
+                    FROM amigo 
+                    WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
+                    OR amigo.id_atleta2 = ".$_SESSION['id'].")
+                    AND  amigo.id_atleta1 = ".$id."
+                    UNION 
+                    SELECT amigo.id_atleta2 AS amigo, amigo.estado AS estado
+                    FROM amigo 
+                    WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
+                    OR amigo.id_atleta1 = ".$_SESSION['id'].")
+                    AND amigo.id_atleta2 = ".$id.") AS temp";
 
             $result4 = $conn->query($sql4);
             if ($result4->num_rows > 0) {
@@ -1350,36 +1331,36 @@ class User{
         return($resp);
     }
 
-    function getNotificacaoConviteMarcacao() {
+function getNotificacaoConviteMarcacao() {
 
-        global $conn;
-        $sql = " SELECT listagem_atletas_marcacao.id_marcacao as idMarcacao 
-                FROM listagem_atletas_marcacao 
-                INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
-                INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
-                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
-                WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."' 
-                AND marcacao.id_atleta != '".$_SESSION['id']."'  
-                AND listagem_atletas_marcacao.estado = 0";
-        $result = $conn->query($sql);
-        $msg = "";
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;' onclick = 'getModalConviteMarcacao(".$row['idMarcacao'].")'>
-                <span class='me-3'>
-                <img src='../../dist/images/rating/invite.png' alt='user' class='rounded-circle object-fit-cover'
-                    width='48' height='48' />
-                </span>
-                <div class='w-75 d-inline-block v-middle'>
-                    <h6 class='mb-1 fw-semibold'>Convite Marcação</h6>
-                    <span class='d-block'>Foi convidado para uma marcação.</span>
-                </div>
-            </a>";
-            }
+    global $conn;
+    $sql = " SELECT listagem_atletas_marcacao.id_marcacao as idMarcacao 
+            FROM listagem_atletas_marcacao 
+            INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+            INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
+            INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+            WHERE listagem_atletas_marcacao.id_atleta = '".$_SESSION['id']."' 
+            AND marcacao.id_atleta != '".$_SESSION['id']."'  
+            AND listagem_atletas_marcacao.estado = 0";
+    $result = $conn->query($sql);
+    $msg = "";
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;' onclick = 'getModalConviteMarcacao(".$row['idMarcacao'].")'>
+            <span class='me-3'>
+            <img src='../../dist/images/rating/invite.png' alt='user' class='rounded-circle object-fit-cover'
+                width='48' height='48' />
+            </span>
+            <div class='w-75 d-inline-block v-middle'>
+                <h6 class='mb-1 fw-semibold'>Convite Marcação</h6>
+                <span class='d-block'>Foi convidado para uma marcação.</span>
+            </div>
+        </a>";
         }
-        $conn ->close();
-        return ($msg);
     }
+    $conn ->close();
+    return ($msg);
+}
     
     function getModalConviteMarcacao($id){
 
@@ -1571,123 +1552,6 @@ class User{
         return ($resp);
     }
 
-    function notificacaoPedidoAmizade() {
-        global $conn;
-        $msg = "";
-
-        $sql = "SELECT user.nome, user.id, user.foto
-                FROM user 
-                WHERE user.id = (
-                SELECT amigo
-                FROM (
-                SELECT amigo.id_atleta1 AS amigo, amigo.estado AS estado
-                FROM amigo 
-                WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
-                OR amigo.id_atleta2 = ".$_SESSION['id'].")
-                AND  amigo.id_atleta1 != ".$_SESSION['id']."
-                UNION 
-                SELECT amigo.id_atleta2 AS amigo, amigo.estado AS estado
-                FROM amigo 
-                WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
-                OR amigo.id_atleta1 = ".$_SESSION['id'].")
-                AND amigo.id_atleta2 != ".$_SESSION['id'].") AS temp
-                WHERE estado = 0);";
-       
-        $result = $conn->query($sql);
-       
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;'>
-                            <span class='me-3'>
-                                <img src='../../dist/".$row['foto']."' alt='".$row['nome']."' class='rounded-circle object-fit-cover'
-                                    width='48' height='48' />
-                            </span>
-                            <div class='w-75 d-inline-block v-middle'>
-                                <h6 class='mb-1 fw-semibold'>Pedido de Amizade</h6>
-                                <span class='d-block'>".$row['nome']." pretende adicioná-lo.</span>
-                                <div class='d-flex justify-content-around align-items-center mt-1'>
-                                    <button class='btn btn-success' 
-                                        style='--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .25rem; --bs-btn-font-size: .75rem;' onclick='aceitarPedido(".$row['id'].")'>
-                                        <i class='ti ti-check me-1'></i>
-                                        <span class='me-1'>Aceitar</span>
-                                    </button>
-                                    <button class='btn' style='--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .25rem; --bs-btn-font-size: .75rem; background-color: #b80000; color: white;'
-                                        onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='rejeitarPedido(".$row['id'].")'>
-                                        <i class='ti ti-x me-1'></i>
-                                        <span class='me-1'>Rejeitar</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </a>";
-            }
-        }
-        $conn -> close();
-        return ($msg);
-    }
-
-    function aceitarPedido($id){
-       
-        global $conn;
-        $msg = "";
-        $icon = "";
-        $flag = false;
-        $titulo = "";
-        
-        $sql = "UPDATE amigo SET estado = 1 WHERE id_atleta1 = ".$id." AND id_atleta2 = ".$_SESSION['id'];
-
-        if($conn -> query($sql) === TRUE) {
-            $titulo = "Sucesso";
-            $msg = "Pedido aceite com sucesso";
-            $icon = "success";
-            $flag = true;
-        } else {
-            $titulo = "Erro";
-            $msg = "Não foi possível aceitar o pedido.";
-            $icon = "success";
-            $flag = true;
-        }
-        
-        $resp = json_encode(array(
-            "titulo" => $titulo,
-            "msg" => $msg,
-            "icon" => $icon,
-            "flag" => $flag
-        ));
-        $conn -> close();
-        return ($resp);
-    }
-
-    function rejeitarPedido($id){
-       
-        global $conn;
-        $msg = "";
-        $icon = "";
-        $flag = false;
-        $titulo = "";
-        
-        $sql = "DELETE FROM amigo WHERE id_atleta1 = ".$id." AND id_atleta2 = ".$_SESSION['id'];
-
-        if($conn -> query($sql) === TRUE) {
-            $titulo = "Sucesso";
-            $msg = "Pedido rejeitado com sucesso";
-            $icon = "success";
-            $flag = true;
-        } else {
-            $titulo = "Erro";
-            $msg = "Não foi possível rejeitar o pedido.";
-            $icon = "success";
-            $flag = true;
-        }
-        
-        $resp = json_encode(array(
-            "titulo" => $titulo,
-            "msg" => $msg,
-            "icon" => $icon,
-            "flag" => $flag
-        ));
-        $conn -> close();
-        return ($resp);
-    }
 
 }
 

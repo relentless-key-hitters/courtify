@@ -80,15 +80,6 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 25){
     $res = $user -> adicionarAmigo($_POST['idAmigo']);
     echo($res);
-}else if($_POST['op'] == 26){
-    $res = $user -> notificacaoPedidoAmizade();
-    echo($res);
-}else if($_POST['op'] == 27){
-    $res = $user -> aceitarPedido($_POST['id']);
-    echo($res);
-}else if($_POST['op'] == 28){
-    $res = $user -> rejeitarPedido($_POST['id']);
-    echo($res);
 }
 
 

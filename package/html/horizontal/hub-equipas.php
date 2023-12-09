@@ -96,12 +96,37 @@ if (isset($_SESSION['id'])) { ?>
                   <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                     <div class="d-flex align-items-center justify-content-between py-3 px-7">
                       <h5 class="mb-0 fs-5 fw-semibold">Notificações</h5>
-                      <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container"></span>
+                      <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container">5</span>
                     </div>
                     <div class="message-body" data-simplebar>
-                    <div id="notifVotacao">
+                      <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
+                        <span class="me-3">
+                          <img src="../../dist/images/profile/boy11.jpg" alt="user" class="rounded-circle object-fit-cover" width="48" height="48" />
+                        </span>
+                        <div class="w-75 d-inline-block v-middle">
+                          <h6 class="mb-1 fw-semibold">Vasco Pissarra</h6>
+                          <span class="d-block">Novo Pedido de Amizade</span>
+                        </div>
+                      </a>
+                      <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
+                        <span class="me-3">
+                          <img src="../../dist/images/profile/girl.jpg" alt="user" class="rounded-circle object-fit-cover" width="48" height="48" />
+                        </span>
+                        <div class="w-75 d-inline-block v-middle">
+                          <h6 class="mb-1 fw-semibold">Joana Cruz</h6>
+                          <span class="d-block">Nova Mensagem</span>
+                        </div>
+                      </a>
+                      <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
+                        <span class="me-3">
+                          <img src="../../dist/images/profile/boy5.jpg" alt="user" class="rounded-circle object-fit-cover" width="48" height="48" />
+                        </span>
+                        <div class="w-75 d-inline-block v-middle">
+                          <h6 class="mb-1 fw-semibold">Vitor Andrade</h6>
+                          <span class="d-block">Nova Mensagem</span>
+                        </div>
+                      </a>
                     </div>
-                  </div>
                     <div class="py-6 px-7 mb-1">
                       <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
                     </div>
@@ -971,7 +996,6 @@ if (isset($_SESSION['id'])) { ?>
       <script src="../../dist/js/js_courtify/sweatalert.js"></script>
       <script src="../../dist/js/js_courtify/perfilUser.js"></script>
       <script src="../../dist/js/js_courtify/user.js"></script>
-      <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
 
