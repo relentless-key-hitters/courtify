@@ -1789,6 +1789,13 @@ class User
                                             <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
                                         </div>
                                     </div>";
+                        } else if($row1['idAtleta'] == $_SESSION['id']) {
+                            $msg .= "<div class='col-4'>
+                                        <div class='d-flex align-items-center mt-2'>
+                                            <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='" . $row1['nomeAtleta'] . " (Host)' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . " (Tu)' class='object-fit-cover rounded-circle border border-2 border-primary' width='40' height='40'></a>
+                                            <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
+                                        </div>
+                                    </div>";
                         } else {
                             $msg .= "<div class='col-4'>
                                         <div class='d-flex align-items-center mt-2'>
