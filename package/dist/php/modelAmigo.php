@@ -23,6 +23,7 @@ class Amigo
                     SELECT 
                         id_atleta1,
                         id_atleta2,
+                        amigo.estado as estado,
                         CASE
                             WHEN id_atleta1 = ".$userId." THEN id_atleta2
                             WHEN id_atleta2 = ".$userId." THEN id_atleta1
@@ -30,9 +31,11 @@ class Amigo
                         END AS matched_column
                     FROM amigo
                     WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
+                    AND amigo.estado = 1
                 ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
                 INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
                 INNER JOIN user ON atleta.id_atleta = user.id
+                WHERE subquery.estado = 1
                 GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
         $result = $conn->query($sql);
 
@@ -115,6 +118,7 @@ class Amigo
                     SELECT 
                         id_atleta1,
                         id_atleta2,
+                        amigo.estado as estado,
                         CASE
                             WHEN id_atleta1 = ".$userId." THEN id_atleta2
                             WHEN id_atleta2 = ".$userId." THEN id_atleta1
@@ -122,10 +126,12 @@ class Amigo
                         END AS matched_column
                     FROM amigo
                     WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
+                    AND amigo.estado = 1
                 ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
                 INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
                 INNER JOIN user ON atleta.id_atleta = user.id
                 WHERE user.nome LIKE '%" . $nomeAmigo . "%'
+                AND subquery.estado = 1
                 GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
 
         $result = $conn->query($sql);
@@ -211,6 +217,7 @@ class Amigo
                     SELECT 
                         id_atleta1,
                         id_atleta2,
+                        amigo.estado as estado,
                         CASE
                             WHEN id_atleta1 = ".$userId." THEN id_atleta2
                             WHEN id_atleta2 = ".$userId." THEN id_atleta1
@@ -218,9 +225,11 @@ class Amigo
                         END AS matched_column
                     FROM amigo
                     WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
+                    AND amigo.estado = 1
                 ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
                 INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
                 INNER JOIN user ON atleta.id_atleta = user.id
+                WHERE subquery.estado = 1
                 GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
 
         $result = $conn -> query($sql);

@@ -236,6 +236,86 @@ function rejeitarConvite(idMarcacao){
         });
 }
 
+function notificacaoPedidoAmizade() {
+    let dados = new FormData();
+    dados.append("op", 26);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            $("#notifVotacao").html(msg)
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+    
+}
+
+function aceitarPedido(id){
+    let dados = new FormData();
+    dados.append("op", 27);
+    dados.append("id", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+
+function rejeitarPedido(id){
+    let dados = new FormData();
+    dados.append("op", 28);
+    dados.append("id", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+
 function alerta2(titulo,msg,icon){
     Swal.fire({
         position: 'center',
@@ -251,4 +331,5 @@ function alerta2(titulo,msg,icon){
 $(function() {
     getNotificacao()
     getNotificacaoConviteMarcacao()
+    notificacaoPedidoAmizade();
 });
