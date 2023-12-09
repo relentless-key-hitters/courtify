@@ -1782,12 +1782,21 @@ class User
                 $result1 = $conn->query($sql1);
                 if ($result1->num_rows > 0) {
                     while ($row1 = $result1->fetch_assoc()) {
-                        $msg .= "<div class='col-4'>
-                                    <div class='d-flex align-items-center mt-2'>
-                                        <img alt='Participant 1' src='../../dist/" . $row1['fotoAtleta'] . "' class='rounded-circle object-fit-cover' width='40' height='40'>
-                                        <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
-                                    </div>
-                                </div>";
+                        if($row1['isHost'] == 1) {
+                            $msg .= "<div class='col-4'>
+                                        <div class='d-flex align-items-center mt-2'>
+                                            <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='" . $row1['nomeAtleta'] . " (Host)' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . " (Host)' class='object-fit-cover rounded-circle border border-2 border-success' width='40' height='40'></a>
+                                            <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
+                                        </div>
+                                    </div>";
+                        } else {
+                            $msg .= "<div class='col-4'>
+                                        <div class='d-flex align-items-center mt-2'>
+                                            <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='Participant 1' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . "' class='rounded-circle object-fit-cover' width='40' height='40'></a>
+                                            <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
+                                        </div>
+                                    </div>";
+                        }
                     }
                     
                     
