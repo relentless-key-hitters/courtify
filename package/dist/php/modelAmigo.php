@@ -88,11 +88,17 @@ class Amigo
                         </div>";
             }
         } else {
-            $msg .= "<div class='text-center mt-5'>
-                        <h3>Sem amigos!</h3>
-                        <p>Conecta com outros utilizadores e eles aparecerão aqui.</p>
-                        
-                    </div>";
+            if($userId != $_SESSION['id']) {
+                $msg .= "<div class='text-center mt-5'>
+                            <h4>Sem resultados!</h4>
+                            <p>Este Utilizador ainda não tem amigos.</p>
+                        </div>";
+            } else {
+                $msg .= "<div class='text-center mt-5'>
+                            <h3>Sem amigos!</h3>
+                            <p>Conecta com outros utilizadores e eles aparecerão aqui.</p>
+                        </div>";
+            }
         }
 
         $conn->close();
