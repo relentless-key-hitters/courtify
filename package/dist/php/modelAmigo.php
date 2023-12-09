@@ -57,35 +57,42 @@ class Amigo
                                         </h6>
                                     </a>
                                 <span class='text-dark fs-2'>Futebol</span>
-                            </div>
-                            <ul class='px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0'>
-                                <li class='position-relative'>
-                                <a class='text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold'
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-plus'></i>
-                                </a>
-                                </li>
-                                <li class='position-relative'>
-                                <a class='text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-message'></i>
-                                </a>
-                                </li>
-                                <li class='position-relative'>
-                                <a class='text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-star'></i>
-                                </a>
-                                </li>
-                                <li class='position-relative'>
-                                <a class='text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-square-x'></i>
-                                </a>
-                                </li>
-                            </ul>
-                            </div>
-                        </div>";
+                            </div>";
+                
+                if($userId == $_SESSION['id']) {      
+                    $msg .= "<ul class='px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0'>
+                            <li class='position-relative'>
+                            <a class='text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold'
+                                href='javascript:void(0)'>
+                                <i class='ti ti-plus'></i>
+                            </a>
+                            </li>
+                            <li class='position-relative'>
+                            <a class='text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
+                                href='javascript:void(0)'>
+                                <i class='ti ti-message'></i>
+                            </a>
+                            </li>
+                            <li class='position-relative'>
+                            <a class='text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
+                                href='javascript:void(0)'>
+                                <i class='ti ti-star'></i>
+                            </a>
+                            </li>
+                            <li class='position-relative' onclick='removerAmigo(".$row['idAmigo'].")'>
+                            <a class='text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
+                                href='javascript:void(0)'>
+                                <i class='ti ti-square-x'></i>
+                            </a>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>";
+                } else {
+                    $msg .= "
+                    </div>
+                </div>";
+                }     
             }
         } else {
             if($userId != $_SESSION['id']) {

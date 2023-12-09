@@ -1828,4 +1828,37 @@ class User
         $conn->close();
         return ($msg);
     }
+
+    function removerAmizade($idAmigo) {
+        global $conn;
+        $msg = "";
+        $icon = "";
+        $flag = false;
+        $titulo = "";
+
+        $sql = "DELETE FROM amigo 
+        WHERE (id_atleta1 = " . $idAmigo . " AND id_atleta2 = " . $_SESSION['id'] . ") 
+        OR (id_atleta1 = " . $_SESSION['id'] . " AND id_atleta2 = " . $idAmigo . ")";
+
+        if ($conn->query($sql) === TRUE) {
+            $titulo = "Sucesso";
+            $msg = "Já não és amigo deste utilizador!";
+            $icon = "success";
+            $flag = true;
+        } else {
+            $titulo = "Erro";
+            $msg = "Não foi possível remover esta amizade.";
+            $icon = "error";
+            $flag = true;
+        }
+
+        $resp = json_encode(array(
+            "titulo" => $titulo,
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+        $conn->close();
+        return ($resp);
+    }
 }

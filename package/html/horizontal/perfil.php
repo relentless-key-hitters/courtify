@@ -2060,6 +2060,36 @@ if (isset($_SESSION['id'])) {?>
     }
   </script>
 
+  <script>
+    function removerAmigo(id) {
+    let dados = new FormData();
+    dados.append("op", 30);
+    dados.append("idAmigo", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+  </script>
+
 </body>
 
 </html>

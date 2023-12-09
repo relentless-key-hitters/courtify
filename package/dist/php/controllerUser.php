@@ -92,6 +92,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 29){
     $res = $user -> getJogosRecentes($_POST['idUser']);
     echo($res);
+}else if($_POST['op'] == 30){
+    $res = $user -> removerAmizade($_POST['idAmigo']);
+    echo($res);
 }
 
 
