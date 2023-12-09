@@ -1776,7 +1776,7 @@ class User{
             }
         } else {
             $msg .= "<div class='text-center mt-5'>
-                        <h3>Sem resultados!</h3>
+                        <h4>Sem resultados!</h4>
                         <p>Cria ou junta-te a marcações, dá a tua votação, e os teus jogos irão aparecer aqui!</p>
                     </div>";
         }
