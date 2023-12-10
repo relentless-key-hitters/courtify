@@ -370,6 +370,7 @@ class User
         $sql4 = "";
         $botaoAmigo = "";
         $botaoMensagem = "";
+        $modalidades = array();
         if ($id == $_SESSION['id']) {
             $altFotoCapaIcon .= "<i class='fas fa-pencil-alt text-white fs-6' data-toggle='tooltip' data-placement='top' title='Editar'
             data-bs-toggle='modal' data-bs-target='#vertical-center-modal'></i>";
@@ -452,6 +453,7 @@ class User
         if ($result3->num_rows > 0) {
 
             while ($row3 = $result3->fetch_assoc()) {
+                array_push($modalidades, $row3['descricao']);
                 if ($row3['descricao'] == 'Basquetebol') {
                     $mod .= "<li>
                     <img src='../../dist/images/modalidades/basquetebol.png' alt='Badge 1' class='img-fluid mb-2 rounded'
@@ -487,7 +489,8 @@ class User
             "mod" => $mod,
             "altFotoCapa" => $altFotoCapaIcon,
             "botaoAmigo" => $botaoAmigo,
-            "botaoMensagem" => $botaoMensagem
+            "botaoMensagem" => $botaoMensagem,
+            "modalidades" => $modalidades
         ));
         $conn->close();
         return ($resp);

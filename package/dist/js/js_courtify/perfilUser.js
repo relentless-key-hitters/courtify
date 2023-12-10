@@ -33,6 +33,20 @@ function getPerfil(){
             $("#botaoAdicionarAmigo").html(obj.botaoAmigo);
             $("#botaoMensagemAmigo").html(obj.botaoMensagem);
             getEstatisticas(perfilId);
+
+            let mod = obj.modalidades;
+            for(let i = 0; i < mod.length; i++){
+                if(mod[i] == "Basquetebol"){
+                    $("#badgesBasquetebol").removeClass("d-none");
+                }else if(mod[i] == "Futsal"){
+                    $("#badgesFutsal").removeClass("d-none");
+                }else if(mod[i] == "Padel"){
+                    $("#badgesPadel").removeClass("d-none");
+                }else{
+                    $("#badgesTenis").removeClass("d-none");
+                }
+
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
