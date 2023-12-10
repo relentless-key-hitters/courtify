@@ -1777,10 +1777,25 @@ class User
                                     <small class='fs-5'>ID: ".$row['idMarcacao']."</small><br>
                                     <small><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
                                     <small><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
-                                    <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>
-                                    <span class='badge rounded-pill text-bg-warning mt-2'><i
-                                        class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small></span>
-                                    </div>
+                                    <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>";
+                                    if($row['modalidadeMarcacao'] == "Basquetebol") {
+                                        $msg .= "<span class='badge rounded-pill text-bg-warning mt-2'>
+                                                    <i class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
+                                                </span>";
+                                    } else if($row['modalidadeMarcacao'] == "Futebol") {
+                                        $msg .= "<span class='badge rounded-pill text-bg-danger mt-2'>
+                                                    <i class='ti ti-ball-football me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
+                                                </span>";
+                                    } else if($row['modalidadeMarcacao'] == "Ténis") {
+                                        $$msg .= "<span class='badge rounded-pill text-bg-success mt-2'>
+                                                    <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
+                                                </span>";
+                                    } else {
+                                        $msg .= "<span class='badge rounded-pill text-bg-primary mt-2'>
+                                                    <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
+                                                </span>";
+                                    }
+                                    $msg .= "</div>
                                     <div class='col-md-6 mt-md-0'>
                                         <div class='row'>
                                             <small class='fs-3'>Participantes</small><br>";
