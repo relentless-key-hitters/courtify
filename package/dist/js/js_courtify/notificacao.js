@@ -124,6 +124,7 @@ function guardarVotacaoPT(id, nSets){
             alerta2("Votação",obj.msg,"success");
             console.log(obj.respBadges)
             console.log(obj.respBadgesVitorias)
+            console.log(obj.respBadgesPercVitorias)
             getNotificacao();
         })
         
