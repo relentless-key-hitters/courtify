@@ -453,11 +453,6 @@ if (isset($_SESSION['id'])) {?>
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
               <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Estatísticas</h3>
-              <form class="position-relative">
-                <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
-                  placeholder="Procurar Estatísticas">
-                <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
-              </form>
             </div>
           <div id= "estatisticasPadel" class="d-none">
             <div class="row">

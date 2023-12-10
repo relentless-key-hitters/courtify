@@ -11,6 +11,6 @@ if ($_POST['op'] == 1){
     $res = $amigo -> procurarAmigos($_POST['userId'], $_POST['stringPesquisa']);
     echo($res);
 } else if ($_POST['op'] == 3) {
-    $res = $amigo -> mostrarAmigosModalMarcacao();
+    $res = $amigo -> mostrarAmigosModalMarcacao($_POST['idCampo']);
     echo($res);
 }

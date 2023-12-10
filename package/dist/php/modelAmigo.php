@@ -211,39 +211,52 @@ class Amigo
         return ($resp);
     }
 
-    function mostrarAmigosModalMarcacao() {
+    function mostrarAmigosModalMarcacao($idCampo) {
         global $conn;
         $msg = "";
         $userId = $_SESSION['id'];
 
+        $split = array();
+        $split = explode(".", $idCampo, 2);
+        $idCampoSplit = $split[0];
+
         $sql = "SELECT
-                    user.nome AS nomeAmigo,
-                    user.id AS idAmigo,
-                    user.foto AS fotoAmigo,
-                    user.localidade AS localidadeAmigo,
-                    user.telemovel AS telemovelAmigo,
-                    user.email AS emailAmigo,
-                    user.nif AS nifAmigo,
-                    COUNT(*) AS contagem
+                user.nome AS nomeAmigo,
+                user.id AS idAmigo,
+                user.foto AS fotoAmigo,
+                user.localidade AS localidadeAmigo,
+                user.telemovel AS telemovelAmigo,
+                user.email AS emailAmigo,
+                user.nif AS nifAmigo,
+                COUNT(*) AS contagem
+            FROM amigo
+            INNER JOIN (
+                SELECT 
+                    id_atleta1,
+                    id_atleta2,
+                    amigo.estado as estado,
+                    CASE
+                        WHEN id_atleta1 = ".$userId." THEN id_atleta2
+                        WHEN id_atleta2 = ".$userId." THEN id_atleta1
+                        ELSE NULL
+                    END AS matched_column
                 FROM amigo
-                INNER JOIN (
-                    SELECT 
-                        id_atleta1,
-                        id_atleta2,
-                        amigo.estado as estado,
-                        CASE
-                            WHEN id_atleta1 = ".$userId." THEN id_atleta2
-                            WHEN id_atleta2 = ".$userId." THEN id_atleta1
-                            ELSE NULL
-                        END AS matched_column
-                    FROM amigo
-                    WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
-                    AND amigo.estado = 1
-                ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
-                INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
-                INNER JOIN user ON atleta.id_atleta = user.id
-                WHERE subquery.estado = 1
-                GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+                WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
+                AND amigo.estado = 1
+            ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
+            INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
+            INNER JOIN user ON atleta.id_atleta = user.id
+            INNER JOIN atleta_modalidade ON atleta.id_atleta = atleta_modalidade.id_atleta
+            WHERE subquery.estado = 1
+            AND atleta_modalidade.id_modalidade = (
+                    SELECT campo_clube.id_modalidade 
+                    FROM campo_clube INNER JOIN 
+                    campo ON campo_clube.id_campo = campo.id
+                    WHERE campo.id = ".$idCampoSplit."
+                )
+            GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+
+        $msg .= "<div class='row gap-4 d-flex justify-content-center align-items-center'>";
 
         $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
@@ -255,8 +268,14 @@ class Amigo
                         </div>";
             }
         } else {
-
+            $msg .= "<div class='text-center mt-3'>
+                        <h5>Sem resultados!</h5>
+                        <span>Não tens Amigos ou os mesmos não praticam esta modalidade.</span><br>
+                        <small class='text-muted mt-5'>No entanto, podes deixar a marcação aberta. Assim outros atletas podem juntar-se!</small>
+                    </div>";
         }
+
+        $msg .= "</div>";
 
         $conn->close();
         return ($msg);
