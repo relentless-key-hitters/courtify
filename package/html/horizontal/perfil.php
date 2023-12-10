@@ -437,7 +437,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-8">
-                <div class="card shadow border" style='min-height: 613px;'>
+                <div class="card shadow border">
                   <div class="card-body">
                     <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos Recentes</h4>
                     <div id="jogosRecentes">
