@@ -437,39 +437,12 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
               <div class="col-lg-8">
-                <div class="card shadow border">
+                <div class="card shadow border" style='min-height: 613px;'>
                   <div class="card-body">
                     <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos Recentes</h4>
                     <div id="jogosRecentes">
                       
                     </div>
-                    <nav aria-label="Page navigation example" class="d-flex justify-content-end">
-                      <ul class="pagination me-3">
-                        <li class="page-item">
-                          <a class="page-link link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">
-                              <i class="ti ti-chevrons-left fs-4"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#" aria-label="Next">
-                            <span aria-hidden="true">
-                              <i class="ti ti-chevrons-right fs-4"></i>
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
                   </div>
                 </div>
               </div>
