@@ -139,6 +139,7 @@ function mostrarAmigosModalMarcacao() {
 
     let dados = new FormData();
     dados.append("op", 3);
+    
 
     $.ajax({
       url: "../../dist/php/controllerAmigo.php",

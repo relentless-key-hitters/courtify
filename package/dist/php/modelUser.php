@@ -954,6 +954,8 @@ class User
         $arrayHorasMarcacoesCalendario = array();
 
         $sql = "SELECT
+        marcacao.id as idMarcacao,
+        marcacao.id_atleta as idAtletaHost,
         marcacao.data_inicio AS dataMarc, 
         marcacao.hora_inicio AS horaMarcInicio,
         marcacao.hora_fim AS horaMarcFim,  
@@ -1011,10 +1013,45 @@ class User
                                 <a href='./clube.php?id=" . $row['idClube'] . "'>
                                         <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
                                 </a>
-                                <a href='#' class='btn btn-primary'>Mais Info</a>
+                                <div class='mt-2 mb-2'>
+                                    <span class='fs-3'>Participantes</span>
+                                </div>
+                                <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>";
+
+                        $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                        listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                        user.nome AS nomeAmigo,
+                        user.foto AS fotoAmigo
+                        FROM
+                        listagem_atletas_marcacao
+                        INNER JOIN
+                        user ON listagem_atletas_marcacao.id_atleta = user.id
+                        WHERE id_marcacao = " . $row['idMarcacao'] ."
+                        AND listagem_atletas_marcacao.estado = 1";
+
+                        $result2 = $conn->query($sql2);
+                        
+                        if ($result2->num_rows > 0) {
+                            while ($row2 = $result2->fetch_assoc()) {
+                                if ($row2['idAtleta'] != $row['idAtletaHost']) {
+                                    if($row2['idAtleta'] == $_SESSION['id']) {
+                                        $msgA .= "<div class='col-md-2 mb-2'>
+                                            <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                        </div>";
+                                    } else {
+                                        $msgA .= "<div class='col-md-2 mb-2'>
+                                            <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                        </div>";
+                                    }
+                                }
+                            }
+                        }
+                        
+                        $msgA .= "</div>
                             </div>
                         </div>
                     </div>";
+                    
                         $horaA = $row['horaMarcInicio'];
                         $diaA = $row['dataMarc'];
                     } else {
@@ -1033,15 +1070,49 @@ class User
                                 <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
                                 <div class='p-3'>
                                     <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
-                                    <div class='d-flex justify-content-between'>
+                                    <div class='d-flex justify-content-around'>
                                         <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
-                                        <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p>  
+                                        <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
                                         <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
                                     </div>
                                     <a href='./clube.php?id=" . $row['idClube'] . "'>
-                                        <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
+                                            <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
                                     </a>
-                                    <a href='#' class='btn btn-primary'>Mais Info</a>
+                                    <div class='mt-2 mb-2'>
+                                        <span class='fs-3'>Participantes</span>
+                                    </div>                                    
+                                    <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>";
+    
+                            $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                            listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                            user.nome AS nomeAmigo,
+                            user.foto AS fotoAmigo
+                            FROM
+                            listagem_atletas_marcacao
+                            INNER JOIN
+                            user ON listagem_atletas_marcacao.id_atleta = user.id
+                            WHERE id_marcacao = " . $row['idMarcacao'] ."
+                            AND listagem_atletas_marcacao.estado = 1";
+    
+                            $result2 = $conn->query($sql2);
+                            
+                            if ($result2->num_rows > 0) {
+                                while ($row2 = $result2->fetch_assoc()) {
+                                    if ($row2['idAtleta'] != $row['idAtletaHost']) {
+                                        if($row2['idAtleta'] == $_SESSION['id']) {
+                                            $msg .= "<div class='col-md-2 mb-2'>
+                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                            </div>";
+                                        } else {
+                                            $msg .= "<div class='col-md-2 mb-2'>
+                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                            </div>";
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            $msg .= "</div>
                                 </div>
                             </div>
                         </div>";
@@ -1058,14 +1129,49 @@ class User
                                 <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
                                 <div class='p-3'>
                                     <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
-                                    <div class='d-flex justify-content-between'>
-                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p> 
+                                    <div class='d-flex justify-content-around'>
+                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
+                                        <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
                                         <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
                                     </div>
                                     <a href='./clube.php?id=" . $row['idClube'] . "'>
-                                        <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
+                                            <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
                                     </a>
-                                    <a href='#' class='btn btn-primary'>Mais Info</a>
+                                    <div class='mt-2 mb-2'>
+                                        <span class='fs-3'>Participantes</span>
+                                    </div>
+                                    <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>";
+    
+                            $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                            listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                            user.nome AS nomeAmigo,
+                            user.foto AS fotoAmigo
+                            FROM
+                            listagem_atletas_marcacao
+                            INNER JOIN
+                            user ON listagem_atletas_marcacao.id_atleta = user.id
+                            WHERE id_marcacao = " . $row['idMarcacao'] ."
+                            AND listagem_atletas_marcacao.estado = 1";
+    
+                            $result2 = $conn->query($sql2);
+                            
+                            if ($result2->num_rows > 0) {
+                                while ($row2 = $result2->fetch_assoc()) {
+                                    if ($row2['idAtleta'] != $row['idAtletaHost']) {
+                                        if($row2['idAtleta'] == $_SESSION['id']) {
+                                            $msg .= "<div class='col-md-2 mb-2'>
+                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                            </div>";
+                                        } else {
+                                            $msg .= "<div class='col-md-2 mb-2'>
+                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                            </div>";
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            $msg .= "</div>
                                 </div>
                             </div>
                         </div>";
@@ -1764,12 +1870,15 @@ class User
                 marcacao.id_campo AS idCampoMarcacao,
                 campo.foto as fotoCampoMarcacao,
                 campo.nome AS nomeCampoMarcacao,
+                user.nome AS nomeClube,
                 modalidade.descricao AS modalidadeMarcacao
                 FROM listagem_atletas_marcacao 
                 INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
                 INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo
                 INNER JOIN campo ON campo_clube.id_campo = campo.id 
-                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id  
+                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+                INNER JOIN clube ON campo_clube.id_clube = clube.id_clube  
+                INNER JOIN user ON clube.id_clube = user.id  
                 WHERE listagem_atletas_marcacao.id_atleta = " . $idUser . " 
                 AND listagem_atletas_marcacao.votacao = 1
                 LIMIT 5";
@@ -1786,38 +1895,34 @@ class User
                 $stringHora = $hora->format('H:i');
 
                 $msg .= "<div class='card shadow border hover-img'>
-                            <div class='card-body'>
+                            <div class='p-3'>
                                 <div class='row mt-2'>
-                                    
-                                    <div class='col-md-3'>
-                                    <img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
-                                        class='object-fit-cover rounded-2 border border-1 border-primary' width='150'
-                                        height='110'>
-                                    <button class='btn btn-sm btn-primary mt-2 ms-2 ms-md-0'><i
-                                        class='ti ti-plus'></i>Info</button>
-                                    </div>
-                                    <div class='col-md-3 mt-2 mt-md-0'>
-                                    <small class='fs-5'>ID: ".$row['idMarcacao']."</small><br>
-                                    <small><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
-                                    <small><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
-                                    <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>";
+                                    <div class='col-md-3'>";
                                     if($row['modalidadeMarcacao'] == "Basquetebol") {
-                                        $msg .= "<span class='badge rounded-pill text-bg-warning mt-2'>
+                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-warning'>
                                                     <i class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
                                     } else if($row['modalidadeMarcacao'] == "Futebol") {
-                                        $msg .= "<span class='badge rounded-pill text-bg-danger mt-2'>
+                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-danger mt-2'>
                                                     <i class='ti ti-ball-football me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
                                     } else if($row['modalidadeMarcacao'] == "Ténis") {
-                                        $$msg .= "<span class='badge rounded-pill text-bg-success mt-2'>
+                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-success mt-2'>
                                                     <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
                                     } else {
-                                        $msg .= "<span class='badge rounded-pill text-bg-primary mt-2'>
+                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-primary mt-2'>
                                                     <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
                                     }
+                                    $msg .= "<img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
+                                                 class='mt-3 img-fluid object-fit-cover rounded-2 border border-1 border-primary'>";
+                                    $msg .= "</div>
+                                    <div class='col-md-3 mt-3'>
+                                    <small class='fs-4'>".$row['nomeClube']."</small><br>
+                                    <small><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
+                                    <small><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
+                                    <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>";
                                     $msg .= "</div>
                                     <div class='col-md-6 mt-md-0'>
                                         <div class='row'>
