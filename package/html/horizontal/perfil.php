@@ -459,7 +459,7 @@ if (isset($_SESSION['id'])) {?>
                 <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
               </form>
             </div>
-
+          <div id= "estatisticasPadel" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-primary fw-semibold fs-7">
@@ -632,8 +632,8 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-
-
+          </div>
+          <div id= "estatisticasTenis" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-success fw-semibold fs-7">
@@ -805,8 +805,8 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-
-
+          </div>
+          <div id= "estatisticasBasquetebol" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-warning fw-semibold fs-7">
@@ -927,8 +927,8 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-
-
+          </div>
+          <div id= "estatisticasFutsal" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-danger fw-semibold fs-7">
@@ -1049,7 +1049,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
           </div>
-
+        </div>
           <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab"
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">

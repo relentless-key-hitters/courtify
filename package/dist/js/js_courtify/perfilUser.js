@@ -38,14 +38,17 @@ function getPerfil(){
             for(let i = 0; i < mod.length; i++){
                 if(mod[i] == "Basquetebol"){
                     $("#badgesBasquetebol").removeClass("d-none");
+                    $("#estatisticasBasquetebol").removeClass("d-none");
                 }else if(mod[i] == "Futsal"){
                     $("#badgesFutsal").removeClass("d-none");
+                    $("#estatisticasFutsal").removeClass("d-none");
                 }else if(mod[i] == "Padel"){
                     $("#badgesPadel").removeClass("d-none");
+                    $("#estatisticasPadel").removeClass("d-none");
                 }else{
                     $("#badgesTenis").removeClass("d-none");
+                    $("#estatisticasTenis").removeClass("d-none");
                 }
-
             }
         })
         
