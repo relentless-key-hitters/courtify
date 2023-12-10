@@ -1127,10 +1127,10 @@ class User
                     } else {
                         $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . " WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_futsal";
-                        $percVitorias .=  ($nVitorias / $row['n_jogos'])*100;
                     }
                     $nPontos .=  $row['n_pontos'] + $numPontos;
                     $nVitorias .= $row['n_vitorias'];
+                    $percVitorias .=  ($nVitorias / $row['n_jogos'])*100;
                 }
                 
             }
@@ -1170,6 +1170,8 @@ class User
         $nPontosSet = 0;
         $nPontos = 0;
         $nVitorias = 0;
+        $percVitorias = 0;
+        $nomeTabela = "";
         for ($i = 0; $i < sizeof($arrRes); $i++) {
             if ($arrRes[$i][0] > $arrRes[$i][1]) {
                 $nVit++;
@@ -1190,19 +1192,25 @@ class User
                 if ($nVit >  $nDerr) {
                     if ($modalidade == "Padel") {
                         $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . " WHERE id_atleta = " . $_SESSION['id'];
+                        $nomeTabela .= "info_padel";
                     } else {
                         $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . " , n_sets =" . $row['n_sets'] . " + " . $nSets . " WHERE id_atleta = " . $_SESSION['id'];
+                        $nomeTabela .= "info_tenis";
                     }
                     $nPontos = $row['n_pontos_set'] + $nPontosSet ;
                     $nVitorias .= $row['n_vitorias'] + 1;
+                    $percVitorias .=  ($nVitorias / $row['n_jogos'] + 1)*100;
                 } else {
                     if ($modalidade == "Padel") {
                         $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . " WHERE id_atleta = " . $_SESSION['id'];
+                        $nomeTabela .= "info_padel";
                     } else {
                         $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . " WHERE id_atleta = " . $_SESSION['id'];
+                        $nomeTabela .= "info_tenis";
                     }
                     $nPontos = $row['n_pontos_set'] + $nPontosSet ;
                     $nVitorias .= $row['n_vitorias'];
+                    $percVitorias .=  ($nVitorias / $row['n_jogos'])*100;
                 }
             }
         }
@@ -1217,11 +1225,13 @@ class User
         }
         $resultadoBadges1 = $this-> getBadgesPontos($modalidade,  $nPontos);
         $resultadoBadges2 = $this-> getBadgesVitorias($modalidade, $nVitorias);
+        $resultadoBadges3 = $this-> getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
         $conn->close();
         $resp = json_encode(array(
             "msg" => $msg,
             "respBadges" =>  $resultadoBadges1,
-            "respBadgesVitorias" =>  $resultadoBadges2
+            "respBadgesVitorias" =>  $resultadoBadges2, 
+            "respBadgesPercVitorias" =>  $resultadoBadges3
         ));
         return ($resp);
     }
