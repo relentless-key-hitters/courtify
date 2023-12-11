@@ -16,7 +16,8 @@ function getNotificacao(){
         })
 
         .done(function(msg) {
-            $("#notifVotacao").html(msg)
+            console.log(msg);
+            $("#divNotificacoesVotacao").html(msg)
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -86,7 +87,35 @@ function guardarVotacaoBF(id){
         })
 
         .done(function(msg) {
-            alerta2("Votação",msg,"success");
+            let obj = JSON.parse(msg)
+            console.log("Estou antes do alerta");
+            alerta2("Votação",obj.msg,"success");
+            console.log("Estou depois do alerta");
+
+            setTimeout(function(){
+
+                let pontos = obj.respBadgesPontos;
+                let vitorias = obj.respBadgesVitorias;
+                let percVitorias = obj.respBadgesPercVitorias;
+                if(pontos.length != 0) {
+                    for(let i = 0; i < pontos.length; i++) {
+                        alertaToast("Conquista desbloqueada", "Acabaste de desbloquar a conquista " + pontos[i][0] + ". Parabéns!", pontos[i][2]);
+                    }
+                }
+
+                if(vitorias.length != 0) {
+                    for(let i = 0; i < vitorias.length; i++) {
+                        alertaToast("Conquista desbloqueada", "Acabaste de desbloquar a conquista " + vitorias[i][0] + ". Parabéns!", vitorias[i][2]);
+                    }
+                }
+
+                if(percVitorias.length != 0) {
+                    for(let i = 0; i < percVitorias.length; i++) {
+                        alertaToast("Conquista desbloqueada", "Acabaste de desbloquar a conquista " + percVitorias[i][0] + ". Parabéns!", percVitorias[i][2]);
+                    }
+                }
+            }, 4000);
+
             getNotificacao();
         })
         
@@ -116,7 +145,32 @@ function guardarVotacaoPT(id, nSets){
         })
 
         .done(function(msg) {
-            alerta2("Votação",msg,"success");
+            let obj = JSON.parse(msg)
+            alerta2("Votação",obj.msg,"success");
+            
+            setTimeout(function(){
+
+                let pontos = obj.respBadgesPontos;
+                let vitorias = obj.respBadgesVitorias;
+                let percVitorias = obj.respBadgesPercVitorias;
+                if(pontos.length != 0) {
+                    for(let i = 0; i < pontos.length; i++) {
+                        alertaToast("Conquista desbloqueada", "Acabaste de desbloquar a conquista " + pontos[i][0] + ". Parabéns!", pontos[i][2]);
+                    }
+                }
+
+                if(vitorias.length != 0) {
+                    for(let i = 0; i < vitorias.length; i++) {
+                        alertaToast("Conquista desbloqueada", "Acabaste de desbloquar a conquista " + vitorias[i][0] + ". Parabéns!", vitorias[i][2]);
+                    }
+                }
+
+                if(percVitorias.length != 0) {
+                    for(let i = 0; i < percVitorias.length; i++) {
+                        alertaToast("Conquista desbloqueada", "Acabaste de desbloquar a conquista " + percVitorias[i][0] + ". Parabéns!", percVitorias[i][2]);
+                    }
+                }
+            }, 4000);
             getNotificacao();
         })
         
@@ -141,7 +195,7 @@ function getNotificacaoConviteMarcacao() {
         })
 
         .done(function(msg) {
-            $("#notifVotacao").html(msg)
+            $("#divNotificacoesConviteMarcacao").html(msg)
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -251,7 +305,7 @@ function notificacaoPedidoAmizade() {
         })
 
         .done(function(msg) {
-            $("#notifVotacao").html(msg)
+            $("#divNotificacoesPedidoAmizade").html(msg)
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -326,6 +380,38 @@ function alerta2(titulo,msg,icon){
         confirmButtonColor: '#45702d',
         timer: 3000
       })
+}
+
+function alertaToast(titulo, msg, imagem) {
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        timer: 10000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        imageUrl: "../../dist" + imagem,
+        title: titulo,
+        text: msg,
+        background: '#FFFFFF',
+        color: "#000000"
+      })
+
+      const imageElement = document.querySelector('.swal2-image');
+      imageElement.style.width = '100px'; 
+      imageElement.style.height = '100px';
+      imageElement.style.marginTop = '20px';
+      imageElement.style.marginBottom = '20px';
+
+      const titleElement = document.querySelector('.swal2-title');
+      titleElement.style.color = '#044967';
 }
 
 $(function() {

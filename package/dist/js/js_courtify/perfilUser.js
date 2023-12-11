@@ -24,25 +24,32 @@ function getPerfil(){
             
             $("#fotoCapaView").attr('src', obj.fotoCapa);
             $("#perfil3").attr('src', obj.fotoPerfil);
-            $("#perfil4").attr('src', obj.fotoPerfil);
-            $("#perfil5").attr('src', obj.fotoPerfil);
-            $("#perfil6").attr('src', obj.fotoPerfil);
-            $("#perfil7").attr('src', obj.fotoPerfil);
-            $("#perfil8").attr('src', obj.fotoPerfil);
             $("#nomePerfil").html(obj.nome);
             $("#email").html(obj.email);
             $("#local").html(obj.localizacao);
             $("#bio").html(obj.bio);
-            $("#nomeEquipa1").html(obj.nome);
-            $("#nomeEquipa2").html(obj.nome);
-            $("#nomeEquipa3").html(obj.nome);
-            $("#nomeEquipa4").html(obj.nome);
-            $("#nomeEquipa5").html(obj.nome);
             $("#mod").html(obj.mod);
             $("#iconAlterarFoto").html(obj.altFotoCapa);
             $("#botaoAdicionarAmigo").html(obj.botaoAmigo);
             $("#botaoMensagemAmigo").html(obj.botaoMensagem);
             getEstatisticas(perfilId);
+
+            let mod = obj.modalidades;
+            for(let i = 0; i < mod.length; i++){
+                if(mod[i] == "Basquetebol"){
+                    $("#badgesBasquetebol").removeClass("d-none");
+                    $("#estatisticasBasquetebol").removeClass("d-none");
+                }else if(mod[i] == "Futsal"){
+                    $("#badgesFutsal").removeClass("d-none");
+                    $("#estatisticasFutsal").removeClass("d-none");
+                }else if(mod[i] == "Padel"){
+                    $("#badgesPadel").removeClass("d-none");
+                    $("#estatisticasPadel").removeClass("d-none");
+                }else{
+                    $("#badgesTenis").removeClass("d-none");
+                    $("#estatisticasTenis").removeClass("d-none");
+                }
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -164,6 +171,34 @@ function getPerfilNavbar() {
         });
 }
 
+function getJogosRecentes() {
+    urlParams = new URLSearchParams(window.location.search);
+    let idUser = urlParams.get('id');
+
+    let dados = new FormData();
+    dados.append("op", 29);
+    dados.append("idUser", idUser);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function(msg) {
+        $("#jogosRecentes").html(msg);
+    })
+
+    .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus ); 
+    });
+
+}
+
 function alerta(titulo,msg,icon){
     Swal.fire({
         position: 'center',
@@ -190,6 +225,7 @@ function alerta2(titulo,msg,icon){
 $(function() {
     getPerfilNavbar();
     getPerfil();
+    getJogosRecentes();
 
 });
 

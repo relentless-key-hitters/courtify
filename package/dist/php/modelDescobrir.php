@@ -32,12 +32,12 @@ class Descobrir
                         INNER JOIN concelho ON user_clube.localidade = concelho.id
                         WHERE marcacao.tipo = 'aberta'
                             AND listagem_atletas_marcacao.votacao = '2'
-                            AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
-                            AND marcacao.id_atleta != ".$_SESSION['id']."
+                            AND listagem_atletas_marcacao.id_atleta != 6
+                            AND marcacao.id_atleta != 6
                         AND marcacao.id NOT IN (
                                 SELECT listagem_atletas_marcacao.id_marcacao 
                                 FROM listagem_atletas_marcacao 
-                                WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']."
+                                WHERE listagem_atletas_marcacao.id_atleta  = 6
                         )     
                         GROUP BY marcacao.id
                     ) t) AS num_rows,
@@ -85,21 +85,23 @@ class Descobrir
                 AND marcacao.id NOT IN (
                         SELECT listagem_atletas_marcacao.id_marcacao 
                         FROM listagem_atletas_marcacao 
-                        WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']."
+                        WHERE listagem_atletas_marcacao.id_atleta  = 6
                     )
-                AND marcacao.id_atleta != ".$_SESSION['id']."
+                AND marcacao.id_atleta != 6
                 AND marcacao.id_atleta IN (
                         SELECT amigo.id_atleta1
                         FROM amigo 
-                        WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
-                        OR amigo.id_atleta2 = ".$_SESSION['id'].")
-                        AND  amigo.id_atleta1 != ".$_SESSION['id']."
+                        WHERE (amigo.id_atleta1 = 6
+                        OR amigo.id_atleta2 = 6)
+                        AND  amigo.id_atleta1 != 6
+                        AND amigo.estado = 1
                         UNION 
                         SELECT amigo.id_atleta2
                         FROM amigo 
-                        WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
-                        OR amigo.id_atleta1 = ".$_SESSION['id'].")
-                        AND amigo.id_atleta2 != ".$_SESSION['id']."
+                        WHERE (amigo.id_atleta2 = 6
+                        OR amigo.id_atleta1 = 6)
+                        AND amigo.id_atleta2 != 6
+                        AND amigo.estado = 1
                     )
                 AND modalidade.id IN (SELECT modalidade.id
                                         FROM
@@ -110,7 +112,7 @@ class Descobrir
                                         atleta
                                         ON
                                         atleta_modalidade.id_atleta = atleta.id_atleta
-                                        WHERE atleta.id_atleta = ".$_SESSION['id'].") ORDER BY marcacao.data_inicio, marcacao.hora_inicio ASC;";
+                                        WHERE atleta.id_atleta = 6) ORDER BY marcacao.data_inicio, marcacao.hora_inicio ASC";
 
 
         $result = $conn->query($sql);
@@ -447,7 +449,7 @@ class Descobrir
                                 <div class='mt-2 mb-2'>
                                 <span class='fs-3'>Participantes</span>
                             </div>
-                            <div class='row mt-1 over'>
+                            <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>
                                 <div class='col-md-2 d-flex overflow-y-auto'>
                                     <a href='./perfil.php?id=" . $row['idAtletaHost'] . "'><img src='../../dist/" . $row['fotoAtletaHost'] . "' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row['nomeAtletaHost'] . " (Host)' style='cursor: pointer;'></a>
                                 </div>";

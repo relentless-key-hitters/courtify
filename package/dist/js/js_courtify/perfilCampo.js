@@ -3,7 +3,8 @@ let hora;
 let idCampoMarc;
 let nParticipantesMax;
 var amigosEscolhidos = [];
-let preco ;
+let preco;
+
 function getInfoPagCampo() {
 
     
@@ -98,11 +99,16 @@ async function constroiMapaCampo(clubeInfo) {
     map.setView(coordinates, 13);
 }
 
+let idCampoMarcacao = "";
 
 function marcarCampo(id){
     let dados = new FormData();
     dados.append("op", 6);
     dados.append("id", id);
+
+
+    idCampoMarcacao = id;
+
 
     $.ajax({
         url: "../../dist/php/controllerCampo.php",
@@ -121,7 +127,6 @@ function marcarCampo(id){
             $("#botaoGuardarMarcacao").attr('onclick',  'guardarMarcacao('+idCampoMarc+')');
             hora = obj.hora;
             preco = obj.preco;
-            console.log(preco);
     })
     .fail(function(jqXHR, textStatus) {
         console.error("Request failed:", textStatus);
@@ -136,9 +141,10 @@ function marcarCampo(id){
 
 function mostrarAmigosModalMarcacao() {
 
-
     let dados = new FormData();
     dados.append("op", 3);
+    dados.append("idCampo", idCampoMarcacao);
+    
 
     $.ajax({
       url: "../../dist/php/controllerAmigo.php",

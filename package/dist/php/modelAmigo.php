@@ -57,42 +57,55 @@ class Amigo
                                         </h6>
                                     </a>
                                 <span class='text-dark fs-2'>Futebol</span>
-                            </div>
-                            <ul class='px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0'>
-                                <li class='position-relative'>
-                                <a class='text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold'
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-plus'></i>
-                                </a>
-                                </li>
-                                <li class='position-relative'>
-                                <a class='text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-message'></i>
-                                </a>
-                                </li>
-                                <li class='position-relative'>
-                                <a class='text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-star'></i>
-                                </a>
-                                </li>
-                                <li class='position-relative'>
-                                <a class='text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
-                                    href='javascript:void(0)'>
-                                    <i class='ti ti-square-x'></i>
-                                </a>
-                                </li>
-                            </ul>
-                            </div>
-                        </div>";
+                            </div>";
+                
+                if($userId == $_SESSION['id']) {      
+                    $msg .= "<ul class='px-2 py-2 bg-light list-unstyled d-flex align-items-center justify-content-center mb-0'>
+                            <li class='position-relative'>
+                            <a class='text-primary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold'
+                                href='javascript:void(0)'>
+                                <i class='ti ti-plus'></i>
+                            </a>
+                            </li>
+                            <li class='position-relative'>
+                            <a class='text-info d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
+                                href='javascript:void(0)'>
+                                <i class='ti ti-message'></i>
+                            </a>
+                            </li>
+                            <li class='position-relative'>
+                            <a class='text-secondary d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
+                                href='javascript:void(0)'>
+                                <i class='ti ti-star'></i>
+                            </a>
+                            </li>
+                            <li class='position-relative' onclick='getModalRemoverAmizade(".$row['idAmigo'].")'>
+                            <a class='text-danger d-flex align-items-center justify-content-center p-2 fs-5 rounded-circle fw-semibold '
+                                href='javascript:void(0)'>
+                                <i class='ti ti-square-x'></i>
+                            </a>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>";
+                } else {
+                    $msg .= "
+                    </div>
+                </div>";
+                }     
             }
         } else {
-            $msg .= "<div class='text-center mt-5'>
-                        <h3>Sem amigos!</h3>
-                        <p>Conecta com outros utilizadores e eles aparecerão aqui.</p>
-                        
-                    </div>";
+            if($userId != $_SESSION['id']) {
+                $msg .= "<div class='text-center mt-5'>
+                            <h4>Sem resultados!</h4>
+                            <p>Este Utilizador ainda não tem amigos.</p>
+                        </div>";
+            } else {
+                $msg .= "<div class='text-center mt-5'>
+                            <h3>Sem amigos!</h3>
+                            <p>Conecta com outros utilizadores e eles aparecerão aqui.</p>
+                        </div>";
+            }
         }
 
         $conn->close();
@@ -198,39 +211,52 @@ class Amigo
         return ($resp);
     }
 
-    function mostrarAmigosModalMarcacao() {
+    function mostrarAmigosModalMarcacao($idCampo) {
         global $conn;
         $msg = "";
         $userId = $_SESSION['id'];
 
+        $split = array();
+        $split = explode(".", $idCampo, 2);
+        $idCampoSplit = $split[0];
+
         $sql = "SELECT
-                    user.nome AS nomeAmigo,
-                    user.id AS idAmigo,
-                    user.foto AS fotoAmigo,
-                    user.localidade AS localidadeAmigo,
-                    user.telemovel AS telemovelAmigo,
-                    user.email AS emailAmigo,
-                    user.nif AS nifAmigo,
-                    COUNT(*) AS contagem
+                user.nome AS nomeAmigo,
+                user.id AS idAmigo,
+                user.foto AS fotoAmigo,
+                user.localidade AS localidadeAmigo,
+                user.telemovel AS telemovelAmigo,
+                user.email AS emailAmigo,
+                user.nif AS nifAmigo,
+                COUNT(*) AS contagem
+            FROM amigo
+            INNER JOIN (
+                SELECT 
+                    id_atleta1,
+                    id_atleta2,
+                    amigo.estado as estado,
+                    CASE
+                        WHEN id_atleta1 = ".$userId." THEN id_atleta2
+                        WHEN id_atleta2 = ".$userId." THEN id_atleta1
+                        ELSE NULL
+                    END AS matched_column
                 FROM amigo
-                INNER JOIN (
-                    SELECT 
-                        id_atleta1,
-                        id_atleta2,
-                        amigo.estado as estado,
-                        CASE
-                            WHEN id_atleta1 = ".$userId." THEN id_atleta2
-                            WHEN id_atleta2 = ".$userId." THEN id_atleta1
-                            ELSE NULL
-                        END AS matched_column
-                    FROM amigo
-                    WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
-                    AND amigo.estado = 1
-                ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
-                INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
-                INNER JOIN user ON atleta.id_atleta = user.id
-                WHERE subquery.estado = 1
-                GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+                WHERE id_atleta1 = ".$userId." OR id_atleta2 = ".$userId."
+                AND amigo.estado = 1
+            ) AS subquery ON subquery.id_atleta1 = amigo.id_atleta1 OR subquery.id_atleta2 = amigo.id_atleta2
+            INNER JOIN atleta ON atleta.id_atleta = subquery.matched_column
+            INNER JOIN user ON atleta.id_atleta = user.id
+            INNER JOIN atleta_modalidade ON atleta.id_atleta = atleta_modalidade.id_atleta
+            WHERE subquery.estado = 1
+            AND atleta_modalidade.id_modalidade = (
+                    SELECT campo_clube.id_modalidade 
+                    FROM campo_clube INNER JOIN 
+                    campo ON campo_clube.id_campo = campo.id
+                    WHERE campo.id = ".$idCampoSplit."
+                )
+            GROUP BY nomeAmigo, fotoAmigo, localidadeAmigo, telemovelAmigo, emailAmigo, nifAmigo";
+
+        $msg .= "<div class='row gap-4 d-flex justify-content-center align-items-center'>";
 
         $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
@@ -242,8 +268,14 @@ class Amigo
                         </div>";
             }
         } else {
-
+            $msg .= "<div class='text-center mt-3'>
+                        <h5>Sem resultados!</h5>
+                        <span>Não tens Amigos ou os mesmos não praticam esta modalidade.</span><br>
+                        <small class='text-muted mt-5'>No entanto, podes deixar a marcação aberta. Assim outros atletas podem juntar-se!</small>
+                    </div>";
         }
+
+        $msg .= "</div>";
 
         $conn->close();
         return ($msg);

@@ -97,40 +97,17 @@ if (isset($_SESSION['id'])) {?>
                   aria-labelledby="drop2">
                   <div class="d-flex align-items-center justify-content-between py-3 px-7">
                     <h5 class="mb-0 fs-5 fw-semibold">Notificações</h5>
-                    <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container">5</span>
+                    <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container"></span>
                   </div>
                   <div class="message-body" data-simplebar>
-                    <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
-                      <span class="me-3">
-                        <img src="../../dist/images/profile/boy11.jpg" alt="user"
-                          class="rounded-circle object-fit-cover" width="48" height="48" />
-                      </span>
-                      <div class="w-75 d-inline-block v-middle">
-                        <h6 class="mb-1 fw-semibold">Vasco Pissarra</h6>
-                        <span class="d-block">Novo Pedido de Amizade</span>
-                      </div>
-                    </a>
-                    <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
-                      <span class="me-3">
-                        <img src="../../dist/images/profile/girl.jpg" alt="user" class="rounded-circle object-fit-cover"
-                          width="48" height="48" />
-                      </span>
-                      <div class="w-75 d-inline-block v-middle">
-                        <h6 class="mb-1 fw-semibold">Joana Cruz</h6>
-                        <span class="d-block">Nova Mensagem</span>
-                      </div>
-                    </a>
-                    <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
-                      <span class="me-3">
-                        <img src="../../dist/images/profile/boy5.jpg" alt="user" class="rounded-circle object-fit-cover"
-                          width="48" height="48" />
-                      </span>
-                      <div class="w-75 d-inline-block v-middle">
-                        <h6 class="mb-1 fw-semibold">Vitor Andrade</h6>
-                        <span class="d-block">Nova Mensagem</span>
-                      </div>
-                    </a>
-                    <div id="notifVotacao">
+                    <div id="divNotificacoesVotacao">
+                      
+                    </div>
+                    <div id="divNotificacoesConviteMarcacao">
+
+                    </div>
+                    <div id="divNotificacoesPedidoAmizade">
+
                     </div>
                   </div>
                   <div class="py-6 px-7 mb-1">
@@ -462,308 +439,10 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-lg-8">
                 <div class="card shadow border">
                   <div class="card-body">
-                    <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos
-                      Recentes</h4>
-                    <div class="card shadow border hover-img">
-                      <div class="card-body">
-                        <div class="row mt-2">
-                          <!-- Game 1 -->
-                          <div class="col-md-3">
-                            <img src="../../dist/images/backgrounds/pesquisa_campo5.jpg" alt="Game 1"
-                              class="object-fit-cover rounded-2 border border-1 border-primary" width="150"
-                              height="110">
-                            <button class="btn btn-sm btn-primary mt-2 ms-2 ms-md-0"><i
-                                class="ti ti-plus"></i>Info</button>
-                          </div>
-                          <div class="col-md-4 mt-2 mt-md-0">
-                            <small class="fs-5">GDRAR vs 7Basket</small><br>
-                            <small><i class="ti ti-calendar me-1"></i>15 Outubro, 2023</small><br>
-                            <small><i class="ti ti-clock me-1"></i>15:00</small><br>
-                            <small><i class="ti ti-map-pin me-1"></i>BLA</small><br>
-                            <span class="badge rounded-pill text-bg-warning mt-2"><i
-                                class="ti ti-ball-basketball me-1"></i><small>Basquetebol</small></span>
-                          </div>
-                          <div class="col-md-5 mt-2 mt-md-0">
-                            <div class="row">
-                              <small class="fs-3">Participantes</small><br>
-                              <div class="col-4">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img alt="Participant 1" id="perfil4" class="rounded-circle object-fit-cover"
-                                    width="30" height="30">
-                                  <small class="ms-2" id="nomeEquipa1"></small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/girl2.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Teresa Norte</small>
-                                </div>
-                              </div>
-                              <div class="col-4">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Gonçalo Nunes</small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Rui Paulo</small>
-                                </div>
-                              </div>
-                              <div class="col-4">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/girl5.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Ana Cruz</small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy6.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Fábio Santos</small>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- Participants for Game 1 -->
-                            <!-- Add more participants in a similar fashion -->
-                          </div>
-                        </div>
-                      </div>
+                    <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos Recentes</h4>
+                    <div id="jogosRecentes">
+                      
                     </div>
-                    <div class="card shadow border hover-img">
-                      <div class="card-body">
-                        <div class="row mt-2">
-                          <!-- Game 1 -->
-                          <div class="col-md-3">
-                            <img src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
-                              alt="Game 1" class="object-fit-cover rounded-2 border border-1 border-primary" width="150"
-                              height="110">
-                            <button class="btn btn-sm btn-primary mt-2 ms-2 ms-md-0"><i
-                                class="ti ti-plus"></i>Info</button>
-                          </div>
-                          <div class="col-md-4 mt-2 mt-md-0">
-                            <small class="fs-5">Equipa A vs Equipa B</small><br>
-                            <small><i class="ti ti-calendar me-1"></i>22 Outubro, 2023</small><br>
-                            <small><i class="ti ti-clock me-1"></i>18:30</small><br>
-                            <small><i class="ti ti-map-pin me-1"></i>CEZ</small><br>
-                            <span class="badge rounded-pill text-bg-primary mt-2"><i
-                                class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
-                            <span class="ms-1 badge rounded-pill text-bg-light mt-2"><i
-                                class="ti ti-users me-1"></i><small>Duplas</small></span>
-                          </div>
-                          <div class="col-md-5 mt-2 mt-md-0">
-                            <div class="row">
-                              <small class="fs-3">Participantes</small><br>
-                              <div class="col-6">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img alt="Participant 1" id="perfil5" class="rounded-circle object-fit-cover"
-                                    width="30" height="30">
-                                  <small class="ms-2" id="nomeEquipa2"></small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/girl3.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Catarina Ferreira</small>
-                                </div>
-                              </div>
-                              <div class="col-6">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy11.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">António Rui</small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/girl4.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Carolina Xavier</small>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- Participants for Game 1 -->
-                            <!-- Add more participants in a similar fashion -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card shadow border hover-img">
-                      <div class="card-body">
-                        <div class="row mt-2">
-                          <!-- Game 1 -->
-                          <div class="col-md-3">
-                            <img src="../../dist/images/backgrounds/pesquisa_campo4.jpg" alt="Game 1"
-                              class="object-fit-cover rounded-2 border border-1 border-primary" width="150"
-                              height="110">
-                            <button class="btn btn-sm btn-primary mt-2 ms-2 ms-md-0"><i
-                                class="ti ti-plus"></i>Info</button>
-                          </div>
-                          <div class="col-md-4 mt-2 mt-md-0">
-                            <small class="fs-5">António vs Rui</small><br>
-                            <small><i class="ti ti-calendar me-1"></i>27 Outubro, 2023</small><br>
-                            <small><i class="ti ti-clock me-1"></i>18:00</small><br>
-                            <small><i class="ti ti-map-pin me-1"></i>CTI</small><br>
-                            <span class="badge rounded-pill text-bg-success mt-2"><i
-                                class="ti ti-ball-tennis me-1"></i><small>Ténis</small></span>
-                            <span class="ms-1 badge rounded-pill text-bg-light mt-2"><i
-                                class="ti ti-user me-1"></i><small>Individuais</small></span>
-                          </div>
-                          <div class="col-md-5 mt-2 mt-md-0">
-                            <div class="row">
-                              <small class="fs-3">Participantes</small><br>
-                              <div class="col-6">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img alt="Participant 1" id="perfil6" class="rounded-circle object-fit-cover"
-                                    width="30" height="30">
-                                  <small class="ms-2" id="nomeEquipa3"></small>
-                                </div>
-                              </div>
-                              <div class="col-6">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy2.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Rui Paulo</small>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- Participants for Game 1 -->
-                            <!-- Add more participants in a similar fashion -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card shadow border hover-img">
-                      <div class="card-body">
-                        <div class="row mb-1">
-                          <!-- Game 1 -->
-                          <div class="col-md-3">
-                            <img src="../../dist/images/backgrounds/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg"
-                              alt="Game 1" class="object-fit-cover rounded-2 border border-1 border-primary" width="150"
-                              height="110">
-                            <button class="btn btn-sm btn-primary mt-2 ms-2 ms-md-0"><i
-                                class="ti ti-plus"></i>Info</button>
-                          </div>
-                          <div class="col-md-4 mt-2 mt-md-0">
-                            <small class="fs-5">SLE vs Juventude</small><br>
-                            <small><i class="ti ti-calendar me-1"></i>30 Outubro, 2023</small><br>
-                            <small><i class="ti ti-clock me-1"></i>21:00</small><br>
-                            <small><i class="ti ti-map-pin me-1"></i>SLA</small><br>
-                            <span class="badge rounded-pill text-bg-danger mt-2"><i
-                                class="ti ti-ball-football me-1"></i><small>Futsal</small></span>
-                          </div>
-                          <div class="col-md-5 mt-2 mt-md-0">
-                            <div class="row">
-                              <small class="fs-3">Participantes</small><br>
-                              <div class="col-4">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img alt="Participant 1" id="perfil7" class="rounded-circle object-fit-cover"
-                                    width="30" height="30">
-                                  <small class="ms-2" id="nomeEquipa4"></small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy2.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Rui Paulo</small>
-                                </div>
-                              </div>
-                              <div class="col-4">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy6.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Fábio Santos</small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy9.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Paulo Chaves</small>
-                                </div>
-                              </div>
-                              <div class="col-4">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy12.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Gonçalo Nunes</small>
-                                </div>
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy10.jpg" alt="Participant 2"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Gonçalo Ricardo</small>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- Participants for Game 1 -->
-                            <!-- Add more participants in a similar fashion -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card shadow border hover-img">
-                      <div class="card-body">
-                        <div class="row mb-1">
-                          <!-- Game 1 -->
-                          <div class="col-md-3">
-                            <img src="../../dist/images/backgrounds/pesquisa_campo3.jpg" alt="Game 1"
-                              class="object-fit-cover rounded-2 border border-1 border-primary" width="150"
-                              height="110">
-                            <button class="btn btn-sm btn-primary mt-2 ms-2 ms-md-0"><i
-                                class="ti ti-plus"></i>Info</button>
-                          </div>
-                          <div class="col-md-4 mt-2 mt-md-0">
-                            <small class="fs-5">António vs Fábio</small><br>
-                            <small><i class="ti ti-calendar me-1"></i>12 Outubro, 2023</small><br>
-                            <small><i class="ti ti-clock me-1"></i>21:00</small><br>
-                            <small><i class="ti ti-map-pin me-1"></i>CCP</small><br>
-                            <span class="badge rounded-pill text-bg-primary mt-2"><i
-                                class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
-                          </div>
-                          <div class="col-md-5 mt-2 mt-md-0">
-                            <div class="row">
-                              <small class="fs-3">Participantes</small><br>
-                              <div class="col-6">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img alt="Participant 1" id="perfil8" class="rounded-circle object-fit-cover"
-                                    width="30" height="30">
-                                  <small class="ms-2" id="nomeEquipa5"></small>
-                                </div>
-                              </div>
-                              <div class="col-6">
-                                <div class="d-flex align-items-center mt-2">
-                                  <img src="../../dist/images/profile/boy6.jpg" alt="Participant 1"
-                                    class="rounded-circle object-fit-cover" width="30" height="30">
-                                  <small class="ms-2">Fábio Santos</small>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- Participants for Game 1 -->
-                            <!-- Add more participants in a similar fashion -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <nav aria-label="Page navigation example" class="d-flex justify-content-end">
-                      <ul class="pagination me-3">
-                        <li class="page-item">
-                          <a class="page-link link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">
-                              <i class="ti ti-chevrons-left fs-4"></i>
-                            </span>
-                          </a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link link" href="#" aria-label="Next">
-                            <span aria-hidden="true">
-                              <i class="ti ti-chevrons-right fs-4"></i>
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
                   </div>
                 </div>
               </div>
@@ -774,13 +453,8 @@ if (isset($_SESSION['id'])) {?>
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
               <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center">Estatísticas</h3>
-              <form class="position-relative">
-                <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh"
-                  placeholder="Procurar Estatísticas">
-                <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
-              </form>
             </div>
-
+          <div id= "estatisticasPadel" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-primary fw-semibold fs-7">
@@ -953,8 +627,8 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-
-
+          </div>
+          <div id= "estatisticasTenis" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-success fw-semibold fs-7">
@@ -1126,8 +800,8 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-
-
+          </div>
+          <div id= "estatisticasBasquetebol" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-warning fw-semibold fs-7">
@@ -1248,8 +922,8 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-
-
+          </div>
+          <div id= "estatisticasFutsal" class="d-none">
             <div class="row">
               <div class="col-md-12 text-center pb-5">
                 <span class="badge rounded-pill text-bg-danger fw-semibold fs-7">
@@ -1370,7 +1044,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
           </div>
-
+        </div>
           <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab"
             tabindex="0">
             <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
@@ -1401,26 +1075,87 @@ if (isset($_SESSION['id'])) {?>
                 <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y text-dark ms-3"></i>
               </form>
             </div>
+          <div id="badgesPadel" class="d-none">
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
                   <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Padel <span
                       class="badge fs-2 fw-semibold rounded-4 py-1 px-2 ms-2 fs-7 badge-container"
-                      style="background-color: #63a340;">6 de 6</span></h1>
+                      style="background-color: #63a340;">6 de 12</span></h1>
                 </div>
               </div>
 
               <div class="row mb-5 mt-5">
                 <div class="carousel-container" id="carousel1">
                   <div class="owl-carousel">
+                  <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/p20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20/20</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="item">
                       <div class="mt-1">
                         <div
                           class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/p50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="50 Vitórias no Padel"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
                             style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">50\50</h1>
+                          <h1 class="fs-5 fw-bolder">20/50</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/p100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\100</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/p150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\150</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/p200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\200</h1>
                           <div class="progress" style="height: 15px;">
                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
                               aria-valuemax="50" style="width: 100%;"></div>
@@ -1507,6 +1242,34 @@ if (isset($_SESSION['id'])) {?>
                       <div class="mt-1">
                         <div
                           class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20\20</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc50.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\50</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                           <h1 class="fs-5 fw-bolder">70\70</h1>
@@ -1526,27 +1289,88 @@ if (isset($_SESSION['id'])) {?>
               </div>
 
             </div>
-
+          </div>
+          <div id="badgesTenis" class="d-none">
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
                   <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Ténis <span
                       class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-7 badge-container fw-semibold"
-                      style="background-color: #6AAD45;">5 de 6</span>
+                      style="background-color: #6AAD45;">5 de 12</span>
                   </h1>
                 </div>
               </div>
               <div class="row mb-5 mt-5">
                 <div class="carousel-container" id="carousel2">
                   <div class="owl-carousel">
+                  <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/t20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20/20</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="item">
                       <div class="mt-1">
                         <div
                           class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/19.png" alt="Badge 1" class="img-fluid mb-2 rounded"
-                            data-toggle="tooltip" data-placement="top" title="10 Vitórias no Ténis"
+                          <img src="../../dist/images/badges/t50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
                             style="max-width: 200px;">
-                          <h1 class="fs-5 fw-bolder">10\10</h1>
+                          <h1 class="fs-5 fw-bolder">20/50</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/t100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\100</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/t150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\150</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/t200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\200</h1>
                           <div class="progress" style="height: 15px;">
                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
                               aria-valuemax="50" style="width: 100%;"></div>
@@ -1633,6 +1457,34 @@ if (isset($_SESSION['id'])) {?>
                       <div class="mt-1">
                         <div
                           class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20\20</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc50.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\50</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                           <h1 class="fs-5 fw-bolder">70\70</h1>
@@ -1651,30 +1503,91 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
-
+          </div>
+          <div id="badgesFutsal" class="d-none">
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
                   <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Futsal <span
                       class="badge fs-2 rounded-4 fw-semibold py-1 px-2 ms-2 fs-7 badge-container"
-                      style="background-color: #f84b29;">2 de 6</span></h1>
+                      style="background-color: #f84b29;">2 de 12</span></h1>
                 </div>
               </div>
 
               <div class="row mb-5 mt-5">
                 <div class="carousel-container" id="carousel3">
                   <div class="owl-carousel">
+                  <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/f20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20/20</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="item">
                       <div class="mt-1">
                         <div
                           class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/20.png" alt="Badge 1"
-                            class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="30 Vitórias no Futsal" style="max-width: 200px; filter: grayscale(75%);">
-                          <h1 class="fs-5 fw-bolder">12\30</h1>
+                          <img src="../../dist/images/badges/f50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20/50</h1>
                           <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0"
-                              aria-valuemax="30" style="width: 38%; background-color: #F8CF29;"></div>
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/f100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\100</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/f150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\150</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/f200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\200</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
                           </div>
                         </div>
                       </div>
@@ -1766,6 +1679,34 @@ if (isset($_SESSION['id'])) {?>
                         </div>
                       </div>
                     </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc50.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\50</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">70\70</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <button class="owl-prev" data-owl="prev" data-carousel="carousel3"><i
                       class="ti ti-chevron-left fs-10"></i></button>
@@ -1773,14 +1714,15 @@ if (isset($_SESSION['id'])) {?>
                       class="ti ti-chevron-right fs-10"></i></button>
                 </div>
               </div>
-
+          </div>
+          <div id="badgesBasquetebol" class="d-none">
             </div>
             <div class="badge-container2">
               <div class="row mb-0 pb-0 mt-5">
                 <div class="col-12 text-center">
                   <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-7">Basquetebol <span
                       class="badge fs-2 rounded-4 py-1 fw-semibold px-2 ms-2 fs-7 badge-container"
-                      style="background-color: firebrick;">1 de 6</span></h1>
+                      style="background-color: firebrick;">1 de 11</span></h1>
                 </div>
               </div>
 
@@ -1788,17 +1730,62 @@ if (isset($_SESSION['id'])) {?>
               <div class="row mb-5 mt-5">
                 <div class="carousel-container" id="carousel4">
                   <div class="owl-carousel">
+                  <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/b20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20/20</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="item">
                       <div class="mt-1">
                         <div
                           class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                          <img src="../../dist/images/badges/30.png" alt="Badge 1"
-                            class="img-fluid mb-2 rounded opacity-25" data-toggle="tooltip" data-placement="top"
-                            title="50 Vitórias no Basquetebol" style="max-width: 200px; filter: grayscale(100%);">
-                          <h1 class="fs-5 fw-bolder">5\50</h1>
+                          <img src="../../dist/images/badges/b50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">20/50</h1>
                           <div class="progress" style="height: 15px;">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                              aria-valuemax="50" style="width: 10%; background-color: firebrick;"></div>
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/b100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\100</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/b150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel"
+                            style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\150</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                              aria-valuemax="50" style="width: 100%;"></div>
                           </div>
                         </div>
                       </div>
@@ -1881,13 +1868,41 @@ if (isset($_SESSION['id'])) {?>
                     <div class="item">
                       <div class="mt-1">
                         <div
-                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img text-center shadow">
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                           <img src="../../dist/images/badges/perc20.png" alt="Badge 1" class="img-fluid mb-2 rounded"
                             data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                           <h1 class="fs-5 fw-bolder">20\20</h1>
                           <div class="progress" style="height: 15px;">
                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
                               aria-valuemax="20" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc50.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">50\50</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="mt-1">
+                        <div
+                          class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                          <img src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded"
+                            data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
+                          <h1 class="fs-5 fw-bolder">70\70</h1>
+                          <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                              aria-valuemax="70" style="width: 100%;"></div>
                           </div>
                         </div>
                       </div>
@@ -1900,6 +1915,7 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -2230,6 +2246,28 @@ if (isset($_SESSION['id'])) {?>
     </div>
   </div>
 
+  <div class="modal fade" id="scroll-long-inner-modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <h4 class="modal-title">
+            Remover Amizade
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <span>Estás prestes a remover a tua amizade com este Utilizador.<br></span>
+          <small>Caso o faças, poderás sempre voltar a fazer-lhe um pedido.</small>
+          <h5 class='mt-3'>Remover?</h5>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-3" id="corpoBotoesAmizade">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
@@ -2245,12 +2283,12 @@ if (isset($_SESSION['id'])) {?>
   <!-- current page js files -->
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-  <script src="../../dist/js/js_courtify/notificacao.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../dist/js/js_courtify/amigo.js"></script>
+  <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
   <script>
     $(function () {
@@ -2352,6 +2390,36 @@ if (isset($_SESSION['id'])) {?>
         selectedImage = imgElement;
       }
     }
+  </script>
+
+  <script>
+    function removerAmigo(id) {
+    let dados = new FormData();
+    dados.append("op", 30);
+    dados.append("idAmigo", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
   </script>
 
 </body>

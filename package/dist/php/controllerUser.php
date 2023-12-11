@@ -89,6 +89,15 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 28){
     $res = $user -> rejeitarPedido($_POST['id']);
     echo($res);
+}else if($_POST['op'] == 29){
+    $res = $user -> getJogosRecentes($_POST['idUser']);
+    echo($res);
+}else if($_POST['op'] == 30){
+    $res = $user -> getModalRemoverAmizade($_POST['idAmigo']);
+    echo($res);
+}else if($_POST['op'] == 31){
+    $res = $user -> removerAmizade($_POST['idAmigo']);
+    echo($res);
 }
 
 
