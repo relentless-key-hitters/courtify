@@ -76,7 +76,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4 link-active" href="./stats_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./stats_dash.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-chart-histogram"></i>
                 </span>
@@ -108,7 +108,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./equipas_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4 link-active" href="./equipas_dash.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-clock"></i>
                 </span>
@@ -195,60 +195,155 @@
 
     <div class="col-lg-7">
       <div class="badge-container2">
-        <div class="row mb-0 pb-0 mt-5">
+        <div class="row mb-0 pb-5 mt-5">
           <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Dezembro 2023</h1>
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Campos</h1>
           </div>
         </div>
 
-        <div class="row mb-5 mt-5">
-          <div class="card">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
-                <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
-              </div>
-              <div class="row">
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="radarBasket"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="barBasket"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="barBasket2"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+                <label for="modalidadeInput" class="form-label mt-2">Campo</label>
+                <select class="form-control" id="modalidadeInput" name="modalidade">
+                  <option value="" selected disabled>Escolha um Campo</option>
+                    <option value="p1">P1</option>
+                    <option value="p2">P2</option>
+                    <option value="p3">P3</option>
+                    <option value="p4">P4</option>
+                    <option value="t1">T1</option>
+                    <option value="t2">T2</option>
+                    <option value="t3">T3</option>
+                    <option value="t4">T4</option>
+                </select>
             </div>
+        </div>
+      
+          <div class="col-md-4">
+              <div class="mb-3">
+                  <label for="modalidadeInput" class="form-label mt-2">Modalidade</label>
+                  <select class="form-control" id="modalidadeInput" name="modalidade">
+                    <option value="" selected disabled>Escolha uma Modalidade</option>
+                      <option value="padel">Padel</option>
+                      <option value="tenis">Ténis</option>
+                  </select>
+              </div>
+          </div>
+      
+          <div class="col-md-4 d-flex justify-content-between align-items-center">
+              <div class="mb-0">
+                  <button type="button" class="btn btn btn-primary mt-3">Filtrar</button>
+              </div>
+          </div>
+      </div>
+      
+
+
+        <div class="row mb-5 mt-5">
+          <div class="container mt-5">
+            <table class="table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col"></th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Modalidade</th>
+                  <th scope="col">Última Manutenção</th>
+                  <th scope="col">Próxima Manutenção</th>
+                  <th scope="col">Reservas</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
+                      alt="Thumbnail 1" class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>P1</td>
+                  <td>Padel</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/parsoa-khorsand-AHw2qiaO_k4-unsplash.jpg"
+                      alt="Thumbnail 1" class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>P2</td>
+                  <td>Padel</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/max-bohme-DRwfzyyKw1s-unsplash.jpg" alt="Thumbnail 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>P3</td>
+                  <td>Padel</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/valentin-bolder-KF7Cx94z8-4-unsplash.jpg"
+                      alt="Thumbnail 1" class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>P4</td>
+                  <td>Padel</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/campoTenisA.jpg" alt="Thumbnail 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>T1</td>
+                  <td>Ténis</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/camposTenis.jpg" alt="Thumbnail 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>T2</td>
+                  <td>Ténis</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/shu-kuinan-bXDmr4wJPjA-unsplash.jpg" alt="Thumbnail 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>T3</td>
+                  <td>Ténis</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td><img src="./../../dist/images/backgrounds/david-vives-14PwdtTss5c-unsplash.jpg" alt="Thumbnail 1"
+                      class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                  <td>T4</td>
+                  <td>Ténis</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                </tr>
+
+
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -256,141 +351,6 @@
     <div class="col-lg-2"></div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-3">
-
-    </div>
-
-    <div class="col-lg-7">
-      <div class="badge-container2">
-        <div class="row mb-0 pb-0 mt-5">
-          <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Novembro 2023</h1>
-          </div>
-        </div>
-
-        <div class="row mb-5 mt-5">
-          <div class="card">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
-                <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
-              </div>
-              <div class="row">
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="radarFutsal"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="barFutsal"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="barFutsal2"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-2"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-3">
-
-    </div>
-
-    <div class="col-lg-7">
-      <div class="badge-container2">
-        <div class="row mb-0 pb-0 mt-5">
-          <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Outubro 2023
-            </h1>
-          </div>
-        </div>
-        <div class="row mb-5 mt-5">
-          <div class="card">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
-                <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
-              </div>
-              <div class="row">
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="radarPadel"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="barPadel"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 d-flex align-items-stretch">
-                  <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
-                    <div class="card-body">
-                      <div id="barPadel2"></div>
-                      <div class="d-flex align-items-end justify-content-between mt-7">
-                        <div>
-                          <p class="mb-1">Descrição</p>
-                          <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-2"></div>
-  </div>
 
   <div class="row">
     <div class="col-lg-2"></div>
@@ -398,7 +358,7 @@
       <div style="margin-left: 60px; margin-right: 60px;">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
-    
+
           <a href="#"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
@@ -406,7 +366,7 @@
           <div>
             <p class="mb-0 text-muted">Todos os direitos reservados.</p>
           </div>
-    
+
         </footer>
       </div>
     </div>
@@ -931,7 +891,7 @@
   <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../../dist/js/dashboard.js"></script>
 
-  <script src="../../dist/js/widgets-charts.js"></script>
+
 
   <script>
     $(document).ready(function () {
