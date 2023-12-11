@@ -231,17 +231,17 @@ if (isset($_SESSION['id'])) { ?>
                     <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center">
                       <!-- Badge 1 -->
                       <div class="text-center">
-                        <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded hover-img" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel" style="max-width: 50px;">
+                        <img src="../../dist/images/badges/padel/pontos/p1000pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded hover-img" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel" style="max-width: 50px;">
                       </div>
 
                       <!-- Badge 2 -->
                       <div class="text-center">
-                        <img src="../../dist/images/badges/t-250.png" alt="Badge 3" class="img-fluid mb-2 rounded hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis" style="max-width: 50px;">
+                        <img src="../../dist/images/badges/tenis/pontos/t250pnt.png" alt="Badge 3" class="img-fluid mb-2 rounded hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis" style="max-width: 50px;">
                       </div>
 
                       <!-- Badge 3 -->
                       <div class="text-center">
-                        <img src="../../dist/images/badges/p-250.png" alt="Badge 3" class="img-fluid mb-2 rounded hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel" style="max-width: 50px;">
+                        <img src="../../dist/images/badges/padel/pontos/p250pnt.png" alt="Badge 3" class="img-fluid mb-2 rounded hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel" style="max-width: 50px;">
                       </div>
 
                       <!-- Badge 4 -->
@@ -307,15 +307,15 @@ if (isset($_SESSION['id'])) { ?>
                       </h4>
                       <div class="row">
                         <div class="col-4">
-                          <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1" class="rounded-2 img-fluid mb-3 hover-img" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel">
+                          <img src="../../dist/images/badges/padel/pontos/p1000pnt.png" alt="Badge 1" class="rounded-2 img-fluid mb-3 hover-img" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel">
                           <p><span class="fw-semibold"></span></p>
                         </div>
                         <div class="col-4">
-                          <img src="../../dist/images/badges/t-250.png" alt="Bade 2" class="rounded-2 img-fluid hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis">
+                          <img src="../../dist/images/badges/tenis/pontos/t250pnt.png" alt="Bade 2" class="rounded-2 img-fluid hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis">
                           <p><span class="fw-semibold"></span></p>
                         </div>
                         <div class="col-4">
-                          <img src="../../dist/images/badges/p-250.png" alt="Badge 3" class="rounded-2 img-fluid mb-3 hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel">
+                          <img src="../../dist/images/badges/padel/pontos/p250pnt.png" alt="Badge 3" class="rounded-2 img-fluid mb-3 hover-img" data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel">
                           <p><span class="fw-semibold"></span></p>
                         </div>
                         <div class="col-4">
@@ -323,11 +323,11 @@ if (isset($_SESSION['id'])) { ?>
                           <p><span class="fw-semibold"></span></p>
                         </div>
                         <div class="col-4">
-                          <img src="../../dist/images/badges/p50vit.png" alt="Badge 6" class="rounded-2 img-fluid hover-img" data-toggle="tooltip" data-placement="top" title="50 Vitórias no Padel">
+                          <img src="../../dist/images/badges/padel/vitorias/p50vit.png" alt="Badge 6" class="rounded-2 img-fluid hover-img" data-toggle="tooltip" data-placement="top" title="50 Vitórias no Padel">
                           <p><span class="fw-semibold"></span></p>
                         </div>
                         <div class="col-4">
-                          <img src="../../dist/images/badges/f30pnt.png" alt="Badge 5" class="rounded-2 img-fluid hover-img" data-toggle="tooltip" data-placement="top" title="30 Golos">
+                          <img src="../../dist/images/badges/futsal/pontos/f30pnt.png" alt="Badge 5" class="rounded-2 img-fluid hover-img" data-toggle="tooltip" data-placement="top" title="30 Golos">
                           <p><span class="fw-semibold"></span></p>
                         </div>
                       </div>
@@ -1021,7 +1021,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/vitorias/p20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP20Vit">10/20</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP20Vit" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="20" style="width: 50%;"></div>
@@ -1032,7 +1032,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/vitorias/p50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP50Vit">20/50</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP50Vit" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="50" ></div>
@@ -1043,7 +1043,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/vitorias/p100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP100Vit">50\100</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP100Vit" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1054,7 +1054,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/vitorias/p150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP150Vit">50\150</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP150Vit" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1065,7 +1065,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/vitorias/p200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP200Vit">50\200</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP200Vit" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1076,7 +1076,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/pontos/p10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP10Pnt">10\10</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP10Pnt" class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%;"></div>
@@ -1087,7 +1087,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Pontos no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/pontos/p30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Pontos no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP30Pnt">30\30</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP30Pnt" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="30" style="width: 100%;"></div>
@@ -1098,7 +1098,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p70pnt.png" alt="Badge 1" class="img-fluid rounded mt-1" data-toggle="tooltip" data-placement="top" title="70 Pontos no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/pontos/p70pnt.png" alt="Badge 1" class="img-fluid rounded mt-1" data-toggle="tooltip" data-placement="top" title="70 Pontos no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP70Pnt">70\70</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP70Pnt" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="70" style="width: 100%;"></div>
@@ -1109,7 +1109,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p250pnt.png" alt="Badge 1" class="img-fluid rounded mt-1" data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/pontos/p250pnt.png" alt="Badge 1" class="img-fluid rounded mt-1" data-toggle="tooltip" data-placement="top" title="250 Pontos no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP250Pnt">250\250</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP250Pnt" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="250" style="width: 100%;"></div>
@@ -1120,7 +1120,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/p1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/padel/pontos/p1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeP1000Pnt">1000\1000</h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarP1000Pnt" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="1000" style="width: 1000%;"></div>
@@ -1183,7 +1183,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/vitorias/t20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">20/20</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1194,7 +1194,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/vitorias/t50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">20/50</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1205,7 +1205,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/vitorias/t100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\100</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1216,7 +1216,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/vitorias/t150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\150</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1227,7 +1227,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/vitorias/t200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\200</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1238,7 +1238,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Ténis" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/pontos/t10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Ténis" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">10\10</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%;"></div>
@@ -1249,7 +1249,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Pontos no Ténis" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/pontos/t30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Pontos no Ténis" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">30\30</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30" style="width: 100%;"></div>
@@ -1260,7 +1260,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t70pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded" data-toggle="tooltip" data-placement="top" title="70 Pontos no Ténis" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/pontos/t70pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded" data-toggle="tooltip" data-placement="top" title="70 Pontos no Ténis" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">70\70</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="70" style="width: 100%;"></div>
@@ -1271,7 +1271,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t-250.png" alt="Badge 1" class="img-fluid rounded mt-1" data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/tenis/pontos/t250pnt.png" alt="Badge 1" class="img-fluid rounded mt-1" data-toggle="tooltip" data-placement="top" title="250 Pontos no Ténis" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">250\250</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="250" aria-valuemin="0" aria-valuemax="250" style="width: 100%;"></div>
@@ -1282,7 +1282,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/t1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-50" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Ténis" style="max-width: 200px; filter: grayscale(36%);">
+                              <img src="../../dist/images/badges/tenis/pontos/t1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-50" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Ténis" style="max-width: 200px; filter: grayscale(36%);">
                               <h1 class="fs-5 fw-bolder">647\1000</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="647" aria-valuemin="0" aria-valuemax="1000" style="width: 64%; background-color: #F8CF29;"></div>
@@ -1344,7 +1344,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/futsal/vitorias/f20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">20/20</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1355,7 +1355,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/futsal/vitorias/f50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">20/50</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1366,7 +1366,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/futsal/vitorias/f100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\100</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1377,7 +1377,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/futsal/vitorias/f150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\150</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1388,7 +1388,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/futsal/vitorias/f200vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="200 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\200</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1399,7 +1399,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Golos" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/futsal/pontos/f10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Golos" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">10\10</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%;"></div>
@@ -1410,7 +1410,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Golos" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/futsal/pontos/f30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Golos" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">30\30</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30" style="width: 100%;"></div>
@@ -1421,7 +1421,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f70pnt.png" alt="Badge 1" class="img-fluid pt-2 rounded opacity-50" data-toggle="tooltip" data-placement="top" title="70 Golos" style="max-width: 200px; filter: grayscale(50%);">
+                              <img src="../../dist/images/badges/futsal/pontos/f70pnt.png" alt="Badge 1" class="img-fluid pt-2 rounded opacity-50" data-toggle="tooltip" data-placement="top" title="70 Golos" style="max-width: 200px; filter: grayscale(50%);">
                               <h1 class="fs-5 fw-bolder">35\70</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="70" style="width: 50%; background-color: #F8CF29;"></div>
@@ -1432,7 +1432,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f-100.png" alt="Badge 1" class="img-fluid pt-2 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="100 Golos" style="max-width: 200px; filter: grayscale(50%);">
+                              <img src="../../dist/images/badges/futsal/pontos/f100pnt.png" alt="Badge 1" class="img-fluid pt-2 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="100 Golos" style="max-width: 200px; filter: grayscale(50%);">
                               <h1 class="fs-5 fw-bolder">35\100</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%; background-color: #f88629;"></div>
@@ -1443,7 +1443,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/f-250.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="200 Golos no Futsal" style="max-width: 200px; filter: grayscale(75%);">
+                              <img src="../../dist/images/badges/futsal/pontos/f250pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="200 Golos no Futsal" style="max-width: 200px; filter: grayscale(75%);">
                               <h1 class="fs-5 fw-bolder">35\200</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="200" style="width: 17%; background-color: #f44028;"></div>
@@ -1506,7 +1506,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/basquetebol/vitorias/b20vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">20/20</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1517,7 +1517,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/basquetebol/vitorias/b50vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="20 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">20/50</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1528,7 +1528,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/basquetebol/vitorias/b100vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="100 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\100</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1539,7 +1539,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/basquetebol/vitorias/b150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">50\150</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%;"></div>
@@ -1550,7 +1550,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/basquetebol/pontos/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">10\10</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar bg-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%;"></div>
@@ -1561,7 +1561,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Pontos no Basquetebol" style="max-width: 200px;">
+                              <img src="../../dist/images/badges/basquetebol/pontos/b30pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="30 Pontos no Basquetebol" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder">25\30</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="30" style="width: 86%;  background-color: #63a340;"></div>
@@ -1572,7 +1572,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b70pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded opacity-50" data-toggle="tooltip" data-placement="top" title="70 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(75%);">
+                              <img src="../../dist/images/badges/basquetebol/pontos/b70pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded opacity-50" data-toggle="tooltip" data-placement="top" title="70 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(75%);">
                               <h1 class="fs-5 fw-bolder">25\70</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="70" style="width: 36%; background-color: #f87c29;"></div>
@@ -1583,7 +1583,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/b-250.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="250 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(90%);">
+                              <img src="../../dist/images/badges/basquetebol/pontos/b250pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="250 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(90%);">
                               <h1 class="fs-5 fw-bolder">25\250</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="250" style="width: 10%; background-color: firebrick"></div>
@@ -1594,7 +1594,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow ">
-                              <img src="../../dist/images/badges/b1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(97%);">
+                              <img src="../../dist/images/badges/basquetebol/pontos/b1000pnt.png" alt="Badge 1" class="img-fluid mt-1 rounded opacity-25" data-toggle="tooltip" data-placement="top" title="1000 Pontos no Basquetebol" style="max-width: 200px; filter: grayscale(97%);">
                               <h1 class="fs-5 fw-bolder">25\1000</h1>
                               <div class="progress" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="1000" style="width: 3%; background-color: firebrick"></div>
