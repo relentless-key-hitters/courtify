@@ -102,6 +102,33 @@ function getMarcacoesAbertasLocalidade() {
 getMarcacoesAbertasLocalidade();
 
 
+
+
+function getModalJuntarMarcacao(id) {
+    let dados = new FormData();
+    dados.append("op", 5);
+    dados.append("idMarcacao", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerDescobrir.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            $("#corpoBotoesDescobrir").html(msg);
+            $('#scroll-long-inner-modal3').modal('show')
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+
 function juntarMarcacao(idMarcacao) {
   
   let dados = new FormData();

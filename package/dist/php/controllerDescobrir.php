@@ -16,6 +16,9 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 4) {
     $res = $descobrir -> getMarcacoesAbertasAmigos();
     echo($res);
+}else if($_POST['op'] == 5){
+    $res = $descobrir -> getModalJuntarMarcacao($_POST['idMarcacao']);
+    echo($res);
 }
 
 ?>
