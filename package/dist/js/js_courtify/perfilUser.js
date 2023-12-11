@@ -33,7 +33,8 @@ function getPerfil(){
             $("#botaoAdicionarAmigo").html(obj.botaoAmigo);
             $("#botaoMensagemAmigo").html(obj.botaoMensagem);
             getEstatisticas(perfilId);
-
+            getValoresBadges(obj.valoresBadges);
+            console.log(obj.valoresBadges)
             let mod = obj.modalidades;
             for(let i = 0; i < mod.length; i++){
                 if(mod[i] == "Basquetebol"){
@@ -221,6 +222,74 @@ function alerta2(titulo,msg,icon){
       })
 }
 
+
+function getValoresBadges(valores){
+    for(let i = 0; i < valores.length; i++){
+        if(valores[i][0] == "Basquetebol"){
+           
+        }else if(valores[i][0] == "Futsal"){
+
+        }else if(valores[i][0] == "Padel"){
+            let vit = valores[i][1];
+            console.log(vit)
+            if(vit > 20){
+                $("#quantidadePerc20").html(20+"/20%");
+            }else{
+                $("#quantidadePerc20").html(vit+"/20%");
+            }
+            if(vit > 50){
+                $("#quantidadePerc50").html(50+"/50%");
+            }else{
+                $("#quantidadePerc50").html(vit+"/50%");
+            }
+            if(vit > 70){
+                $("#quantidadePerc70").html(70+"/70%");
+            }else{
+                $("#quantidadePerc70").html(vit+"/70%");
+            }
+            $("#progressBarPerc20").css("width", vit + "%");
+            $("#progressBarPerc50").css("width", vit + "%");
+            $("#progressBarPerc70").css("width", vit + "%");
+            let nvit = valores[i][2];
+            $("#progressBarP20Vit").css("width", (nvit/20)*100 + "%");
+            if(nvit > 20){
+                $("#quantidadeP20Vit").html(20+"/20");
+            }else{
+                $("#quantidadeP20Vit").html(nvit+"/20");
+            }
+            $("#progressBarP50Vit").css("width", (nvit/50)*100 + "%");
+            if(nvit > 50){
+                $("#quantidadeP50Vit").html(50+"/50");
+            }else{
+                $("#quantidadeP50Vit").html(nvit+"/50");
+            }
+            $("#progressBarP100Vit").css("width", nvit + "%");
+            if(nvit > 100){
+                $("#quantidadeP100Vit").html(100+"/100");
+            }else{
+                $("#quantidadeP100Vit").html(nvit+"/100");
+            }
+            $("#progressBarP150Vit").css("width", (nvit/150)*100 + "%");
+            if(nvit > 150){
+                $("#quantidadeP150Vit").html(150+"/150");
+            }else{
+                $("#quantidadeP150Vit").html(nvit+"/150");
+            }
+            $("#progressBarP200Vit").css("width", (nvit/200)*100 + "%");
+            if(nvit > 50){
+                $("#quantidadeP200Vit").html(200+"/200");
+            }else{
+                $("#quantidadeP200Vit").html(nvit+"/200");
+            }
+        }else{
+
+        }
+
+
+    }
+
+
+}
 
 $(function() {
     getPerfilNavbar();
