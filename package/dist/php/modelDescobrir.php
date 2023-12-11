@@ -32,12 +32,12 @@ class Descobrir
                         INNER JOIN concelho ON user_clube.localidade = concelho.id
                         WHERE marcacao.tipo = 'aberta'
                             AND listagem_atletas_marcacao.votacao = '2'
-                            AND listagem_atletas_marcacao.id_atleta != 6
-                            AND marcacao.id_atleta != 6
+                            AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
+                            AND marcacao.id_atleta != ".$_SESSION['id']."
                         AND marcacao.id NOT IN (
                                 SELECT listagem_atletas_marcacao.id_marcacao 
                                 FROM listagem_atletas_marcacao 
-                                WHERE listagem_atletas_marcacao.id_atleta  = 6
+                                WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']."
                         )     
                         GROUP BY marcacao.id
                     ) t) AS num_rows,
@@ -85,22 +85,22 @@ class Descobrir
                 AND marcacao.id NOT IN (
                         SELECT listagem_atletas_marcacao.id_marcacao 
                         FROM listagem_atletas_marcacao 
-                        WHERE listagem_atletas_marcacao.id_atleta  = 6
+                        WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']."
                     )
-                AND marcacao.id_atleta != 6
+                AND marcacao.id_atleta != ".$_SESSION['id']."
                 AND marcacao.id_atleta IN (
                         SELECT amigo.id_atleta1
                         FROM amigo 
-                        WHERE (amigo.id_atleta1 = 6
-                        OR amigo.id_atleta2 = 6)
-                        AND  amigo.id_atleta1 != 6
+                        WHERE (amigo.id_atleta1 = ".$_SESSION['id']."
+                        OR amigo.id_atleta2 = ".$_SESSION['id'].")
+                        AND  amigo.id_atleta1 != ".$_SESSION['id']."
                         AND amigo.estado = 1
                         UNION 
                         SELECT amigo.id_atleta2
                         FROM amigo 
-                        WHERE (amigo.id_atleta2 = 6
-                        OR amigo.id_atleta1 = 6)
-                        AND amigo.id_atleta2 != 6
+                        WHERE (amigo.id_atleta2 = ".$_SESSION['id']."
+                        OR amigo.id_atleta1 = ".$_SESSION['id'].")
+                        AND amigo.id_atleta2 != ".$_SESSION['id']."
                         AND amigo.estado = 1
                     )
                 AND modalidade.id IN (SELECT modalidade.id
@@ -112,7 +112,7 @@ class Descobrir
                                         atleta
                                         ON
                                         atleta_modalidade.id_atleta = atleta.id_atleta
-                                        WHERE atleta.id_atleta = 6) ORDER BY marcacao.data_inicio, marcacao.hora_inicio ASC";
+                                        WHERE atleta.id_atleta = ".$_SESSION['id'].") ORDER BY marcacao.data_inicio, marcacao.hora_inicio ASC";
 
 
         $result = $conn->query($sql);
@@ -251,7 +251,7 @@ class Descobrir
                     $msg .= "</div>
                                     <div class='row'>
                                         <div class='col-md-12 mt-4'>
-                                            <button type='button' class='btn btn-success w-100' onclick='juntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
+                                            <button type='button' class='btn btn-success w-100' onclick='getModalJuntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
                                         </div>
                                     </div>
                                     </div>
@@ -780,6 +780,20 @@ class Descobrir
         $conn->close();
         $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
         return ($resp);
+    }
+
+
+
+    function getModalJuntarMarcacao($idMarcacao) {
+        $msg = "<button type='button' class='btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3'
+                    data-bs-dismiss='modal' onclick='juntarMarcacao(".$idMarcacao.")'>
+                    Sim
+                </button>
+                <button type='button' class='btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3'
+                    data-bs-dismiss='modal'>
+                    Não
+                </button>";
+        return ($msg);
     }
 
     function juntarMarcacao($idMarcacao) {
