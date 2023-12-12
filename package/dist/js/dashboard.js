@@ -227,8 +227,8 @@ $(function () {
   var salary = {
     series: [
       {
-        name: "Employee Salary",
-        data: [20, 15, 30, 25, 10, 15],
+        name: "Ganhos Mensais",
+        data: [5820, 6800, 7340, 8220, 7280],
       },
     ],
 
@@ -241,7 +241,7 @@ $(function () {
       fontFamily: "Plus Jakarta Sans', sans-serif",
       foreColor: "#adb0bb",
     },
-    colors: ["#f2f6fad9", "#f2f6fad9", "var(--bs-primary)", "#f2f6fad9", "#f2f6fad9", "#f2f6fad9"],
+    colors: ["#f2f6fad9", "#f2f6fad9", "#f2f6fad9", "var(--bs-primary)", "#f2f6fad9", "#f2f6fad9"],
     plotOptions: {
       bar: {
         borderRadius: 4,
@@ -270,7 +270,7 @@ $(function () {
       },
     },
     xaxis: {
-      categories: [["Abr"], ["Mai"], ["Jun"], ["Jul"], ["Ago"], ["Set"]],
+      categories: [["Ago"], ["Set"], ["Out"], ["Nov"], ["Dez"]],
       axisBorder: {
         show: false,
       },

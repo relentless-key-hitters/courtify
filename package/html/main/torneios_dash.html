@@ -181,46 +181,70 @@
       <div class="badge-container2">
         <div class="row mb-0 pb-5 mt-5">
           <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Campos</h1>
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Torneios</h1>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="mb-3">
-                <label for="modalidadeInput" class="form-label mt-2">Campo</label>
-                <select class="form-control" id="modalidadeInput" name="modalidade">
-                  <option value="" selected disabled>Escolha um Campo</option>
-                    <option value="p1">P1</option>
-                    <option value="p2">P2</option>
-                    <option value="p3">P3</option>
-                    <option value="p4">P4</option>
-                    <option value="t1">T1</option>
-                    <option value="t2">T2</option>
-                    <option value="t3">T3</option>
-                    <option value="t4">T4</option>
-                </select>
+              <label for="searchInput" class="form-label mt-2">Nome</label>
+              <input type="text" class="form-control" id="searchInput" placeholder="Torneio Misto 980">
             </div>
-        </div>
-      
-          <div class="col-md-4">
-              <div class="mb-3">
-                  <label for="modalidadeInput" class="form-label mt-2">Modalidade</label>
-                  <select class="form-control" id="modalidadeInput" name="modalidade">
-                    <option value="" selected disabled>Escolha uma Modalidade</option>
-                      <option value="padel">Padel</option>
-                      <option value="tenis">Ténis</option>
-                  </select>
-              </div>
           </div>
-      
-          <div class="col-md-4 d-flex justify-content-between align-items-center">
+
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label for="modalidadeInput" class="form-label mt-2">Modalidade</label>
+              <select class="form-control" id="modalidadeInput" name="modalidade">
+                <option value="" selected disabled>Escolha uma Modalidade</option>
+                <option value="padel">Padel</option>
+                <option value="tenis">Ténis</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="mb-3">
+              <label for="modalidadeInput" class="form-label mt-2">Nível</label>
+              <select class="form-control" id="nivelInput" name="nivel">
+                <option value="" selected disabled>Escolha um Nível</option>
+                <option value="n5">N5</option>
+                <option value="n4">N4</option>
+                <option value="n3">N3</option>
+                <option value="n2">N2</option>
+                <option value="n1">N1</option>
+                <option value="pr">Principiante</option>
+                <option value="in">Intermédio</option>
+                <option value="av">Avançado</option>
+                <option value="sc">Sem Classificação</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="mb-3">
+              <label for="dateInput" class="form-label mt-2">Dia</label>
+              <input type="date" class="form-control" id="dateInput">
+            </div>
+          </div>
+
+          <div class="col-md-2 d-flex justify-content-between align-items-center">
+            <div class="mb-0">
+              <button type="button" class="btn btn btn-primary mt-3">Filtrar</button>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-2 d-flex justify-content-between align-items-center">
               <div class="mb-0">
-                  <button type="button" class="btn btn btn-primary mt-3">Filtrar</button>
+                <button type="button" class="btn btn-primary mt-3">Criar Torneio</button>
               </div>
+            </div>
           </div>
-      </div>
-      
+        </div>
+
 
 
         <div class="row mb-5 mt-5">
@@ -231,9 +255,10 @@
                   <th scope="col"></th>
                   <th scope="col">Nome</th>
                   <th scope="col">Modalidade</th>
-                  <th scope="col">Última Manutenção</th>
-                  <th scope="col">Próxima Manutenção</th>
-                  <th scope="col">Reservas</th>
+                  <th scope="col">Nível</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Hora</th>
+                  <th scope="col">Cancelar</th>
                 </tr>
               </thead>
               <tbody>
@@ -241,88 +266,96 @@
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg"
                       alt="Thumbnail 1" class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>P1</td>
+                  <td>Torneio Masculino 220</td>
                   <td>Padel</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>N2</td>
+                  <td>2024-01-09</td>
+                  <td>16:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/parsoa-khorsand-AHw2qiaO_k4-unsplash.jpg"
                       alt="Thumbnail 1" class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>P2</td>
+                  <td>Torneio Masculino 880</td>
                   <td>Padel</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>N5/N4</td>
+                  <td>2024-01-09</td>
+                  <td>18:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/max-bohme-DRwfzyyKw1s-unsplash.jpg" alt="Thumbnail 1"
                       class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>P3</td>
+                  <td>Torneio Feminino 190</td>
                   <td>Padel</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>N3</td>
+                  <td>2024-01-09</td>
+                  <td>16:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/valentin-bolder-KF7Cx94z8-4-unsplash.jpg"
                       alt="Thumbnail 1" class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>P4</td>
+                  <td>Torneio Feminino 230</td>
                   <td>Padel</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>N2</td>
+                  <td>2024-01-09</td>
+                  <td>18:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/campoTenisA.jpg" alt="Thumbnail 1"
                       class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>T1</td>
-                  <td>Ténis</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>Torneio Misto 210</td>
+                  <td>Padel</td>
+                  <td>Sem Classificação</td>
+                  <td>2024-01-12</td>
+                  <td>20:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/camposTenis.jpg" alt="Thumbnail 1"
                       class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>T2</td>
-                  <td>Ténis</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>Torneio Sub-12</td>
+                  <td>Padel</td>
+                  <td>Sem Classificação</td>
+                  <td>2024-01-16</td>
+                  <td>10:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/shu-kuinan-bXDmr4wJPjA-unsplash.jpg" alt="Thumbnail 1"
                       class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>T3</td>
+                  <td>Torneio Sub-14</td>
                   <td>Ténis</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>Sem Classificação</td>
+                  <td>2024-01-16</td>
+                  <td>16:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td><img src="./../../dist/images/backgrounds/david-vives-14PwdtTss5c-unsplash.jpg" alt="Thumbnail 1"
                       class="rounded-circle object-fit-cover" width="30" height="30"></td>
-                  <td>T4</td>
-                  <td>Ténis</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>Torneio Sub-10</td>
+                  <td>Padel</td>
+                  <td>Sem Classificação</td>
+                  <td>2024-01-21</td>
+                  <td>16:00</td>
+                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i class="text-white ti ti-x"></i></button></td>
                 </tr>
 
 
