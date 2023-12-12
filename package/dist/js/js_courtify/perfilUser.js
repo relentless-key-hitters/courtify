@@ -225,6 +225,7 @@ function alerta2(titulo,msg,icon){
 
 
 function getValoresBadges(valores){
+    contagemTotal = 0;
     for(let i = 0; i < valores.length; i++){
         if(valores[i][0] == "Basquetebol"){
             let cont = 0;
@@ -377,7 +378,7 @@ function getValoresBadges(valores){
             opacidadeGreyScale("#imgB1000Pnt", (nPontos/1000))
 
             $("#contagemBasquetebol").html(cont + " de 13")
-
+            contagemTotal += cont;
         }else if(valores[i][0] == "Futsal"){
             let cont = 0;
             let vit = valores[i][1];
@@ -539,6 +540,7 @@ function getValoresBadges(valores){
             opacidadeGreyScale("#imgF250Pnt", (nPontos/200))
 
             $("#contagemFutsal").html(cont + " de 13")
+            contagemTotal += cont;
 
         }else if(valores[i][0] == "Padel"){
             let cont = 0;
@@ -695,6 +697,7 @@ function getValoresBadges(valores){
             opacidadeGreyScale("#imgP1000Pnt", (nPontos/1000))
 
             $("#contagemPadel").html(cont + " de 13")
+            contagemTotal += cont;
 
         }else{
             let cont = 0;
@@ -856,7 +859,10 @@ function getValoresBadges(valores){
             opacidadeGreyScale("#imgT1000Pnt", (nPontos/1000))
 
             $("#contagemTenis").html(cont + " de 13")
+            contagemTotal += cont;
         }
+
+        $("#numeroConquistasTotais").html(contagemTotal + " de 52")
 
 
     }

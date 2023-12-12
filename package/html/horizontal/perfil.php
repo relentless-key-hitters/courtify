@@ -962,7 +962,7 @@ if (isset($_SESSION['id'])) { ?>
             </div>
             <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab" tabindex="0">
               <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-5">
-                <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center fs-5">Conquistas <span class="badge fs-2 rounded-4 py-1 px-2 ms-2 fs-5 badge-container fw-bosemiboldlder" style="background-color: #63a340;">11
+                <h3 class="mb-3 mb-sm-0 fw-semibold d-flex align-items-center fs-5">Conquistas <span class="badge bg-primary fs-2 rounded-4 py-1 px-2 ms-2 fs-5 badge-container" id="numeroConquistasTotais">11
                     de 16</span></h3>
               </div>
               <div id="badgesPadel" class="d-none">
