@@ -891,9 +891,13 @@ function opacidadeGreyScale(imagem, val){
 function getBadgesRecentes(badges){
     let msg = "";
     for(let i = 0; i< badges.length; i++){
+
+        let data = new Date(badges[i][2]);
+        let stringData = data.toLocaleDateString('pt-PT', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
         msg += "<div class='col-4'>"+
         "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
-        "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+badges[i][2]+"</span></div></div>";
+        "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+stringData+"</span></div></div>";
     }
     $("#badgesRecentes").html(msg);
 }
