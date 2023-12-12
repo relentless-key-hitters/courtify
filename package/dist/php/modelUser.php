@@ -478,7 +478,8 @@ class User
             }
         }
         $valBadges = $this -> getBadgesPerfil($modalidades);
-
+        $melhoresBadges = $this -> getMelhoresBadges();
+        $badgesRecentes = $this -> getBadgesRecentes();
         $resp = json_encode(array(
             "fotoPerfil" => $fotoPerfil,
             "fotoCapa" => $fotoCapa,
@@ -491,7 +492,9 @@ class User
             "botaoAmigo" => $botaoAmigo,
             "botaoMensagem" => $botaoMensagem,
             "modalidades" => $modalidades,
-            "valoresBadges" => $valBadges
+            "valoresBadges" => $valBadges,
+            "melhoresBadges" => $melhoresBadges,
+            "badgesRecentes" => $badgesRecentes
         ));
         $conn->close();
         return ($resp);
@@ -2153,5 +2156,53 @@ class User
         }
         return($valBadges);
     }
+
+    function getMelhoresBadges(){
+        global $conn;
+        $melhoresBadges = array();
+        $sql = "SELECT *
+        FROM badge 
+        WHERE id IN (
+        SELECT id_badge
+        FROM atleta_badges
+        WHERE id_atleta = ".$_SESSION['id']."
+        )
+        ORDER BY valorPatamar DESC
+        LIMIT 4";
+        $result = $conn -> query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($melhoresBadges , array($row['descricao'], $row['foto']));
+            }
+        }
+
+        return ($melhoresBadges);
+    }
+
+    function getBadgesRecentes(){
+        global $conn;
+        $badgesRecentes = array();
+        $sql = "SELECT badge.*, atleta_badges.dataAq
+        FROM badge INNER JOIN
+        atleta_badges ON badge.id = atleta_badges.id_badge
+        WHERE 
+        id IN (
+        SELECT id_badge
+        FROM atleta_badges
+        WHERE id_atleta = ". $_SESSION['id'] . "
+        )
+        ORDER BY atleta_badges.dataAq ASC
+        LIMIT 6
+        ";
+        $result = $conn -> query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($badgesRecentes , array($row['descricao'], $row['foto'], $row['dataAq']));
+            }
+        }
+
+        return ($badgesRecentes);
+    }
+
 
 }
