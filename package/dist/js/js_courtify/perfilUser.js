@@ -377,7 +377,20 @@ function getValoresBadges(valores){
             gradiente("#progressBarB1000Pnt", (nPontos/1000)*100);
             opacidadeGreyScale("#imgB1000Pnt", (nPontos/1000))
 
-            $("#contagemBasquetebol").html(cont + " de 13")
+
+            if(cont <= 3) {
+                $("#contagemBasquetebol").html(cont + " de 13");
+                $("#contagemBasquetebol").css("background-color", "red");
+            } else if (cont <= 6) {
+                $("#contagemBasquetebol").html(cont + " de 13")
+                $("#contagemBasquetebol").css("background-color", "orange");
+            } else if (cont <= 9) {
+                $("#contagemBasquetebol").html(cont + " de 13")
+                $("#contagemBasquetebol").css("background-color", "gold");
+            } else if (cont <= 13) {
+                $("#contagemBasquetebol").html(cont + " de 13")
+                $("#contagemBasquetebol").css("background-color", "green");
+            }
             contagemTotal += cont;
         }else if(valores[i][0] == "Futsal"){
             let cont = 0;
@@ -539,7 +552,19 @@ function getValoresBadges(valores){
             gradiente("#progressBarF250Pnt", (nPontos/200)*100);
             opacidadeGreyScale("#imgF250Pnt", (nPontos/200))
 
-            $("#contagemFutsal").html(cont + " de 13")
+            if(cont <= 3) {
+                $("#contagemFutsal").html(cont + " de 13");
+                $("#contagemFutsal").css("background-color", "red");
+            } else if (cont <= 6) {
+                $("#contagemFutsal").html(cont + " de 13")
+                $("#contagemFutsal").css("background-color", "orange");
+            } else if (cont <= 9) {
+                $("#contagemFutsal").html(cont + " de 13")
+                $("#contagemFutsal").css("background-color", "gold");
+            } else if (cont <= 13) {
+                $("#contagemFutsal").html(cont + " de 13")
+                $("#contagemFutsal").css("background-color", "green");
+            }
             contagemTotal += cont;
 
         }else if(valores[i][0] == "Padel"){
@@ -696,7 +721,20 @@ function getValoresBadges(valores){
             gradiente("#progressBarP1000Pnt", (nPontos/1000)*100);
             opacidadeGreyScale("#imgP1000Pnt", (nPontos/1000))
 
-            $("#contagemPadel").html(cont + " de 13")
+            if(cont <= 3) {
+                $("#contagemPadel").html(cont + " de 13");
+                $("#contagemPadel").css("background-color", "red");
+            } else if (cont <= 6) {
+                $("#contagemPadel").html(cont + " de 13")
+                $("#contagemPadel").css("background-color", "orange");
+            } else if (cont <= 9) {
+                $("#contagemPadel").html(cont + " de 13")
+                $("#contagemPadel").css("background-color", "gold");
+            } else if (cont <= 13) {
+                $("#contagemPadel").html(cont + " de 13")
+                $("#contagemPadel").css("background-color", "green");
+            }
+
             contagemTotal += cont;
 
         }else{
@@ -858,7 +896,19 @@ function getValoresBadges(valores){
             gradiente("#progressBarT1000Pnt", (nPontos/1000)*100);
             opacidadeGreyScale("#imgT1000Pnt", (nPontos/1000))
 
-            $("#contagemTenis").html(cont + " de 13")
+            if(cont <= 3) {
+                $("#contagemTenis").html(cont + " de 13");
+                $("#contagemTenis").css("background-color", "red");
+            } else if (cont <= 6) {
+                $("#contagemTenis").html(cont + " de 13")
+                $("#contagemTenis").css("background-color", "orange");
+            } else if (cont <= 9) {
+                $("#contagemTenis").html(cont + " de 13")
+                $("#contagemTenis").css("background-color", "gold");
+            } else if (cont <= 13) {
+                $("#contagemTenis").html(cont + " de 13")
+                $("#contagemTenis").css("background-color", "green");
+            }
             contagemTotal += cont;
         }
 
@@ -876,7 +926,7 @@ function gradiente(id, x){
     }else if(x < 50){
         $(id).css("background-color", "orange");
     }else if(x < 75){
-        $(id).css("background-color", "yellow");
+        $(id).css("background-color", "gold");
     }else {
         $(id).css("background-color", "green");
     }
