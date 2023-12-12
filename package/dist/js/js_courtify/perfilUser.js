@@ -247,9 +247,10 @@ function getValoresBadges(valores){
             }else{
                 $("#quantidadePerc70").html(vit+"/70%");
             }
-            $("#progressBarPerc20").css("width", vit + "%");
-            $("#progressBarPerc50").css("width", vit + "%");
-            $("#progressBarPerc70").css("width", vit + "%");
+            console.log(vit*0.2)
+            $("#progressBarPerc20").css("width",(vit/20)*100 + "%");
+            $("#progressBarPerc50").css("width", (vit/50)*100 + "%");
+            $("#progressBarPerc70").css("width", (vit/70)*100 + "%");
             let nvit = valores[i][2];
             $("#progressBarP20Vit").css("width", (nvit/20)*100 + "%");
             if(nvit > 20){
@@ -276,10 +277,41 @@ function getValoresBadges(valores){
                 $("#quantidadeP150Vit").html(nvit+"/150");
             }
             $("#progressBarP200Vit").css("width", (nvit/200)*100 + "%");
-            if(nvit > 50){
+            if(nvit > 200){
                 $("#quantidadeP200Vit").html(200+"/200");
             }else{
                 $("#quantidadeP200Vit").html(nvit+"/200");
+            }
+            let nPontos = valores[i][3];
+            $("#progressBarP10Pnt").css("width", (nPontos/10)*100 + "%");
+            if(nvit > 10){
+                $("#quantidadeP10Pnt").html(10+"/10");
+            }else{
+                $("#quantidadeP10Pnt").html(nPontos+"/10");
+            }
+            $("#progressBarP30Pnt").css("width", (nPontos/30)*100 + "%");
+            if(nvit > 30){
+                $("#quantidadeP30Pnt").html(30+"/30");
+            }else{
+                $("#quantidadeP30Pnt").html(nPontos+"/30");
+            }
+            $("#progressBarP70Pnt").css("width", (nPontos/70)*100 + "%");
+            if(nvit > 70){
+                $("#quantidadeP70Pnt").html(70+"/70");
+            }else{
+                $("#quantidadeP70Pnt").html(nPontos+"/70");
+            }
+            $("#progressBarP250Pnt").css("width", (nPontos/250)*100 + "%");
+            if(nvit > 250){
+                $("#quantidadeP250Pnt").html(250+"/250");
+            }else{
+                $("#quantidadeP250Pnt").html(nPontos+"/250");
+            }
+            $("#progressBarP1000Pnt").css("width", (nPontos/1000)*100 + "%");
+            if(nvit > 1000){
+                $("#quantidadeP1000Pnt").html(1000+"/1000");
+            }else{
+                $("#quantidadeP1000Pnt").html(nPontos+"/1000");
             }
         }else{
 
