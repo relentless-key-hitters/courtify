@@ -478,8 +478,8 @@ class User
             }
         }
         $valBadges = $this -> getBadgesPerfil($modalidades);
-        $melhoresBadges = $this -> getMelhoresBadges();
-        $badgesRecentes = $this -> getBadgesRecentes();
+        $melhoresBadges = $this -> getMelhoresBadges($id);
+        $badgesRecentes = $this -> getBadgesRecentes($id);
         $resp = json_encode(array(
             "fotoPerfil" => $fotoPerfil,
             "fotoCapa" => $fotoCapa,
@@ -2149,7 +2149,11 @@ class User
             $result = $conn->query($sql);
             if($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    $pVit = round(($row['n_vitorias'] / $row['n_jogos']) * 100, 0, PHP_ROUND_HALF_DOWN);
+                    if( $row['n_jogos'] == 0){
+                        $pVit = 0;
+                    }else{
+                        $pVit = round(($row['n_vitorias'] / $row['n_jogos']) * 100, 0, PHP_ROUND_HALF_DOWN);
+                    }
                     array_push($valBadges, array($modalidades[$i], $pVit, $row['n_vitorias'], $row['n_pontos']));
                 }
             }
@@ -2157,7 +2161,7 @@ class User
         return($valBadges);
     }
 
-    function getMelhoresBadges(){
+    function getMelhoresBadges($id){
         global $conn;
         $melhoresBadges = array();
         $sql = "SELECT *
@@ -2165,7 +2169,7 @@ class User
         WHERE id IN (
         SELECT id_badge
         FROM atleta_badges
-        WHERE id_atleta = ".$_SESSION['id']."
+        WHERE id_atleta = ".$id."
         )
         ORDER BY valorPatamar DESC
         LIMIT 4";
@@ -2179,7 +2183,7 @@ class User
         return ($melhoresBadges);
     }
 
-    function getBadgesRecentes(){
+    function getBadgesRecentes($id){
         global $conn;
         $badgesRecentes = array();
         $sql = "SELECT badge.*, atleta_badges.dataAq
@@ -2189,7 +2193,7 @@ class User
         id IN (
         SELECT id_badge
         FROM atleta_badges
-        WHERE id_atleta = ". $_SESSION['id'] . "
+        WHERE id_atleta = ".$id. "
         )
         ORDER BY atleta_badges.dataAq ASC
         LIMIT 6
