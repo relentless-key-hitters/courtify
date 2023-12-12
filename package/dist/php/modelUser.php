@@ -477,7 +477,7 @@ class User
                 }
             }
         }
-        $valBadges = $this -> getBadgesPerfil($modalidades);
+        $valBadges = $this -> getBadgesPerfil($modalidades, $id);
         $melhoresBadges = $this -> getMelhoresBadges($id);
         $badgesRecentes = $this -> getBadgesRecentes($id);
         $resp = json_encode(array(
@@ -2132,19 +2132,19 @@ class User
         return($arrayRes);
     }
 
-    function getBadgesPerfil($modalidades) {
+    function getBadgesPerfil($modalidades, $id) {
         global $conn;
         $valBadges =  array();
         for($i = 0; $i < count($modalidades); $i++){
             $sql = "";
             if($modalidades[$i] == "Basquetebol"){
-                $sql .= "SELECT n_jogos, n_vitorias, n_pontos as n_pontos FROM info_basquetebol WHERE id_atleta = ".$_SESSION['id'];
+                $sql .= "SELECT n_jogos, n_vitorias, n_pontos as n_pontos FROM info_basquetebol WHERE id_atleta = ".$id;
             }else if($modalidades[$i] == "Futsal"){
-                $sql .= "SELECT n_jogos, n_vitorias, n_golos as n_pontos FROM info_futsal WHERE id_atleta = ".$_SESSION['id'];
+                $sql .= "SELECT n_jogos, n_vitorias, n_golos as n_pontos FROM info_futsal WHERE id_atleta = ".$id;
             }else if($modalidades[$i] == "Padel"){
-                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_padel WHERE id_atleta = ".$_SESSION['id'];
+                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_padel WHERE id_atleta = ".$id;
             }else{
-                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_tenis WHERE id_atleta = ".$_SESSION['id'];
+                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_tenis WHERE id_atleta = ".$id;
             }
             $result = $conn->query($sql);
             if($result->num_rows > 0) {
