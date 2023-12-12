@@ -4,6 +4,7 @@ let idCampoMarc;
 let nParticipantesMax;
 var amigosEscolhidos = [];
 let preco;
+let idCampoMarcacao = "";
 
 function getInfoPagCampo() {
 
@@ -99,8 +100,6 @@ async function constroiMapaCampo(clubeInfo) {
     map.setView(coordinates, 13);
 }
 
-let idCampoMarcacao = "";
-
 function marcarCampo(id){
     let dados = new FormData();
     dados.append("op", 6);
@@ -136,9 +135,6 @@ function marcarCampo(id){
 
 }
 
-
-
-
 function mostrarAmigosModalMarcacao() {
 
     let dados = new FormData();
@@ -168,7 +164,6 @@ function mostrarAmigosModalMarcacao() {
 
 }
 
-
 function esconderAmigos() {
     if ($("#divAmigosMarcacao").find('.selected-img').length > 0) {
         $("#divAmigosMarcacao").find('.selected-img').removeClass('selected-img');
@@ -184,7 +179,6 @@ function podeSelecionarAmigo() {
 
     return amigosEscolhidos.length < amigosEscolhidos.maxLength - 1;
 }
-
 
 function adicionarAmigoMarcacao(imagem) {
     if (imagem.classList.contains('selected-img')) {
