@@ -1903,7 +1903,7 @@ $(function () {
 
 
    var options = {
-    color: "#adb5bd",
+    color: "#044967",
     series: [{
       name: "histogram",
       data: [
@@ -1934,12 +1934,12 @@ $(function () {
       }
     },
     fill: {
-      colors: '#FA896B',
+      colors: '#044967',
       opacity: 0.3,
     },
     stroke: {
       width: 2,
-      colors: ['#FA896B']
+      colors: ['#044967']
     },
     dataLabels: {
       enabled: false,
