@@ -1508,7 +1508,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                              <img src="../../dist/images/badges/basquetebol/pontos/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol" style="max-width: 200px;">
+                              <img id = "imgB10Pnt" src="../../dist/images/badges/basquetebol/pontos/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeB10Pnt"></h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarB10Pnt" class="progress-bar" role="progressbar"></div>
