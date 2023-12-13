@@ -16,14 +16,80 @@
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
   <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/Portuguese.json"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
+
+
   <style>
     body {
       overflow-x: hidden;
+    }
+
+    #tabela.dataTables_wrapper {
+      padding: 10px;
+    }
+
+    #tabela_wrapper .dataTables_filter input {
+      width: 250px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    #tabela_length select {
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+
+    #tabela.dataTable thead th {
+      text-align: center;
+      font-weight: 600;
+    }
+
+
+    #tabela.dataTables tbody tr:nth-child(odd) {
+      background-color: #e6e6e6;
+      text-align: center;
+    }
+
+
+    #tabela.dataTables tbody tr.selected {
+      background-color: #c7d4e8;
+      text-align: center;
+    }
+
+
+
+    #tabela_paginate .paginate_button.current {
+      background-color: #e6e6e6;
+      color: white;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
+
+    #tabela_paginate .paginate_button:hover {
+      background-color: #e6e6e6;
+      color: white;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
+
+
+    #tabela_paginate .paginate_button.previous.hover,
+    #tabela_paginate .paginate_button.next:hover,
+    #tabela_paginate .paginate_button:hover {
+      background-color: #e6e6e6;
+      color: white;
+      border: 1px solid white;
+      border-radius: 6px;
     }
   </style>
 
@@ -102,7 +168,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link fs-4" href="./equipas_dash.html" aria-expanded="false">
                 <span>
-                  <i class="ti ti-clock"></i>
+                  <i class="ti ti-shirt-sport"></i>
                 </span>
                 <span class="hide-menu">Equipas</span>
               </a>
@@ -179,42 +245,11 @@
 
     <div class="col-lg-7">
       <div class="badge-container2">
-        <div class="row mb-0 pb-5 mt-5">
+        <div class="row mb-0 mt-5">
           <div class="col-12 text-center">
             <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Reservas</h1>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label for="searchInput" class="form-label mt-2">Nome</label>
-              <input type="text" class="form-control" id="searchInput" placeholder="António Silva">
-            </div>
-          </div>
-
-          <div class="col-md-2">
-            <div class="mb-3">
-              <label for="dateInput" class="form-label mt-2">Dia</label>
-              <input type="date" class="form-control" id="dateInput">
-            </div>
-          </div>
-
-          <div class="col-md-2">
-            <div class="mb-3">
-              <label for="numberInput" class="form-label mt-2">Nº Reserva</label>
-              <input type="number" class="form-control" id="numberInput" placeholder="8899">
-            </div>
-          </div>
-
-          <div class="col-md-2 d-flex justify-content-between align-items-center">
-            <div class="mb-0">
-              <button type="button" class="btn btn btn-primary mt-3">Filtrar</button>
-            </div>
-          </div>
-        </div>
-
-
 
       </div>
     </div>
@@ -222,12 +257,12 @@
 
     <div class="col-lg-3"></div>
     <div class="col-lg-7">
-      <div class="row mb-5 mt-5">
+      <div class="row mb-5 mt-2">
         <div class="container mt-5">
-          <table class="table">
+          <table class="table text-center" id="tabela">
             <thead>
               <tr class="text-center">
-                <th scope="col"></th>
+                <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Dia</th>
                 <th scope="col">Hora</th>
@@ -240,8 +275,7 @@
             <tbody>
 
               <tr class="text-center">
-                <td><img src="./../../dist/images/profile/boy11.jpg" alt="Thumbnail 1"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Pedro Barros</td>
                 <td>2023-12-09</td>
                 <td>10:00</td>
@@ -253,8 +287,7 @@
               </tr>
 
               <tr class="text-center">
-                <td><img src="../../dist/images/profile/boy.jpg" alt="Thumbnail 2"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Rui Silva</td>
                 <td>2023-12-10</td>
                 <td>16:30</td>
@@ -262,12 +295,11 @@
                 <td>25.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
                 <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
-                <td><img src="./../../dist/images/profile/boy10.jpg" alt="Thumbnail 1"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Pedro Barros</td>
                 <td>2023-12-09</td>
                 <td>10:00</td>
@@ -275,12 +307,11 @@
                 <td>20.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
                 <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
-                <td><img src="../../dist/images/profile/boy12.jpg" alt="Thumbnail 2"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Rui Silva</td>
                 <td>2023-12-10</td>
                 <td>16:30</td>
@@ -288,12 +319,11 @@
                 <td>25.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
                 <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
-                <td><img src="./../../dist/images/profile/boy2.jpg" alt="Thumbnail 1"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Pedro Barros</td>
                 <td>2023-12-09</td>
                 <td>10:00</td>
@@ -301,12 +331,11 @@
                 <td>20.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
                 <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
-                <td><img src="../../dist/images/profile/boy3.jpg" alt="Thumbnail 2"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Rui Silva</td>
                 <td>2023-12-10</td>
                 <td>16:30</td>
@@ -314,12 +343,11 @@
                 <td>25.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
                 <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
-                <td><img src="./../../dist/images/profile/girl2.jpg" alt="Thumbnail 1"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Pedro Barros</td>
                 <td>2023-12-09</td>
                 <td>10:00</td>
@@ -327,12 +355,11 @@
                 <td>20.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
                 <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
-                <td><img src="../../dist/images/profile/girl3.jpg" alt="Thumbnail 2"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Rui Silva</td>
                 <td>2023-12-10</td>
                 <td>16:30</td>
@@ -340,12 +367,11 @@
                 <td>25.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
                 <td><button type="button" disabled class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
-                <td><img src="./../../dist/images/profile/boy5.jpg" alt="Thumbnail 1"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Pedro Barros</td>
                 <td>2023-12-09</td>
                 <td>10:00</td>
@@ -353,12 +379,11 @@
                 <td>20.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
                 <td><button type="button" disabled class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
-                <td><img src="../../dist/images/profile/boy7.jpg" alt="Thumbnail 2"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Rui Silva</td>
                 <td>2023-12-10</td>
                 <td>16:30</td>
@@ -366,12 +391,11 @@
                 <td>25.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
                 <td><button type="button" disabled class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
-                <td><img src="./../../dist/images/profile/girl5.jpg" alt="Thumbnail 1"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Pedro Barros</td>
                 <td>2023-12-09</td>
                 <td>10:00</td>
@@ -379,12 +403,11 @@
                 <td>20.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
                 <td><button type="button" disabled class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
-                <td><img src="../../dist/images/profile/girl4.jpg" alt="Thumbnail 2"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Rui Silva</td>
                 <td>2023-12-10</td>
                 <td>16:30</td>
@@ -392,12 +415,11 @@
                 <td>25.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
                 <td><button type="button" disabled class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
-                <td><img src="./../../dist/images/profile/boy8.jpg" alt="Thumbnail 1"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Pedro Barros</td>
                 <td>2023-12-09</td>
                 <td>10:00</td>
@@ -405,12 +427,11 @@
                 <td>20.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
                 <td><button type="button" disabled class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
-                <td><img src="../../dist/images/profile/boy9.jpg" alt="Thumbnail 2"
-                    class="rounded-circle object-fit-cover" width="30" height="30"></td>
+                <td></td>
                 <td>Rui Silva</td>
                 <td>2023-12-10</td>
                 <td>16:30</td>
@@ -418,7 +439,7 @@
                 <td>25.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
                 <td><button type="button" disabled class="btn btn-sm ti ti-x text-white"
-                  style="background-color: firebrick;"></button></td>
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
             </tbody>
@@ -955,7 +976,6 @@
     </div>
   </div>
   <!--  Import Js Files -->
-  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
   <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--  core files -->
@@ -965,48 +985,49 @@
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
   <!--  current page js files -->
-  <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="../../dist/js/dashboard.js"></script>
 
 
 
   <script>
     $(document).ready(function () {
-
-      $(".owl-carousel").each(function () {
-        var carouselId = $(this).closest(".carousel-container").attr("id");
-        $(this).owlCarousel({
-          items: 3,
-          margin: 20,
-          loop: false,
-          nav: false,
-          autoplay: false,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 2
-            },
-            992: {
-              items: 3
+      $('#tabela').DataTable({
+        responsive: true,
+        ordering: false,
+        "language": {
+          "sEmptyTable": "Nenhum registo encontrado",
+          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
+          "sInfoEmpty": "Mostrando 0 de 0 registros",
+          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+          "sInfoPostFix": "",
+          "sInfoThousands": ".",
+          "sLengthMenu": "_MENU_ resultados por página",
+          "sLoadingRecords": "Carregando...",
+          "sProcessing": "Processando...",
+          "sZeroRecords": "Nenhum registo encontrado",
+          "sSearch": "Pesquisar (nome, dia, hora, etc...)",
+          "oPaginate": {
+            "sNext": "Próximo",
+            "sPrevious": "Anterior",
+            "sFirst": "Primeiro",
+            "sLast": "Último"
+          },
+          "oAria": {
+            "sSortAscending": ": Ordenar colunas de forma ascendente",
+            "sSortDescending": ": Ordenar colunas de forma descendente"
+          },
+          "select": {
+            "rows": {
+              "_": "Selecionado %d linhas",
+              "0": "Nenhuma linha selecionada",
+              "1": "Selecionado 1 linha"
             }
           }
-        });
-
-
-        $("#" + carouselId + " .owl-prev").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("prev.owl.carousel");
-        });
-
-        $("#" + carouselId + " .owl-next").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("next.owl.carousel");
-        });
+        }
       });
     });
   </script>
+
+
 </body>
 
 </html>
