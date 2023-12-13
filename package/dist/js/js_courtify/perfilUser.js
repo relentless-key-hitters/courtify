@@ -946,25 +946,18 @@ function opacidadeGreyScale(imagem, val){
 
 function getBadgesRecentes(badges){
     let msg = "";
-<<<<<<< Updated upstream
-    for(let i = 0; i< badges.length; i++){
-
-        let data = new Date(badges[i][2]);
-        let stringData = data.toLocaleDateString('pt-PT', { day: '2-digit', month: '2-digit', year: 'numeric' });
-
-        msg += "<div class='col-4'>"+
-        "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
-        "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+stringData+"</span></div></div>";
-=======
-    if(badges.length != 0){
+    if(badges.length != 0) {
         for(let i = 0; i< badges.length; i++){
+
+            let data = new Date(badges[i][2]);
+            let stringData = data.toLocaleDateString('pt-PT', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    
             msg += "<div class='col-4'>"+
             "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
-            "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+badges[i][2]+"</span></div></div>";
+            "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+stringData+"</span></div></div>";
         }
     } else {
-        msg += "<h5 class='text-center'>Sem badges recentes</h5>";
->>>>>>> Stashed changes
+        msg += "<h5 class='text-center'>Sem resultados</h5>";
     }
     $("#badgesRecentes").html(msg);
 }
@@ -979,7 +972,7 @@ function getMelhoresBadges(badges){
             "</div>";
         }
     } else {
-        msg += "<h5 class='text-center'>Sem badges recentes</h5>";
+        msg += "<h5 class='text-center'>Sem resultados</h5>";
     }
     $("#melhoresBadges").html(msg);
 
