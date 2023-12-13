@@ -946,36 +946,66 @@ function opacidadeGreyScale(imagem, val){
 
 function getBadgesRecentes(badges){
     let msg = "";
-    if(badges.length != 0) {
-        for(let i = 0; i< badges.length; i++){
+    let maxPlaceholders = 6;
 
+    if(badges.length != 0) {
+        for(let i = 0; i < badges.length; i++){
             let data = new Date(badges[i][2]);
             let stringData = data.toLocaleDateString('pt-PT', { day: '2-digit', month: '2-digit', year: 'numeric' });
     
             msg += "<div class='col-4'>"+
-            "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
+                "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
             "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+stringData+"</span></div></div>";
         }
+
+        
+        let restantes = maxPlaceholders - badges.length;
+        for (let j = 0; j < restantes; j++) {
+            msg += "<div class='col-4 mb-1'>"+
+                "<img src='https://placehold.co/80' alt='Bloqueado' class='rounded-circle img-fluid mb-0' data-toggle='tooltip' data-placement='top' title='Bloqueado'>"+
+            "</div>";
+        }
     } else {
-        msg += "<h5 class='text-center'>Sem resultados</h5>";
+        
+        for (let k = 0; k < maxPlaceholders; k++) {
+            msg += "<div class='col-4 mb-1'>"+
+                "<img src='https://placehold.co/80' alt='Bloqueado' class='rounded-circle img-fluid mb-0' data-toggle='tooltip' data-placement='top' title='Bloqueado'>"+
+            "</div>";
+        }
     }
+
     $("#badgesRecentes").html(msg);
 }
 
 
 function getMelhoresBadges(badges){
     let msg = "";
+    let maxPlaceholders = 4;
+
     if(badges.length != 0) {
-        for(let i = 0; i< badges.length; i++){
+        for(let i = 0; i < badges.length; i++){
             msg += "<div class='text-center'>"+
-            "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='img-fluid mb-2 rounded hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"' style='max-width: 50px;'>"+
-            "</div>";
+                "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='img-fluid mb-2 rounded hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"' style='max-width: 50px;'>"+
+                "</div>";
+        }
+
+        // Add placeholders for remaining slots
+        let restantes = maxPlaceholders - badges.length;
+        for (let j = 0; j < restantes; j++) {
+            msg += "<div class='text-center'>"+
+                "<img src='https://placehold.co/50' alt='Bloqueado' class='img-fluid mb-2 rounded-circle' data-toggle='tooltip' data-placement='top' title='Bloqueado' style='max-width: 50px;'>"+
+                "</div>";
         }
     } else {
-        msg += "<h5 class='text-center'>Sem resultados</h5>";
+        // Display all placeholders if no badges are present
+        for (let k = 0; k < maxPlaceholders; k++) {
+            msg += "<div class='text-center'>"+
+                "<img src='https://placehold.co/50' alt='Bloqueado' class='img-fluid mb-2 rounded-circle' data-toggle='tooltip' data-placement='top' title='Bloqueado' style='max-width: 50px;'>"+
+                "</div>";
+        }
     }
-    $("#melhoresBadges").html(msg);
 
+    $("#melhoresBadges").html(msg);
 }
 
 $(function() {
