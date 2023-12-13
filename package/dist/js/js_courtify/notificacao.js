@@ -1,5 +1,6 @@
 let idVot;
 let modalidade;
+
 function getNotificacao(){
 
     let dados = new FormData();
@@ -67,6 +68,28 @@ function getSets(nSets){
     $("#campoResultadoSets").html(msg)
 
 }
+let idMvp = 0;
+
+function toggleImageSelection(imgElement) {
+    var selectedImage = null;
+
+    // Check if the clicked image is already selected
+    if (imgElement.classList.contains('selected-img')) {
+        imgElement.classList.remove('selected-img');
+        selectedImage = null;
+    } else {
+        // Deselect the previously selected image
+        var previouslySelected = document.querySelector('.selected-img');
+        if (previouslySelected) {
+            previouslySelected.classList.remove('selected-img');
+        }
+
+        // Select the clicked image
+        imgElement.classList.add('selected-img');
+        selectedImage = imgElement;
+        idMvp = imgElement.id;
+    }
+}
 
 function guardarVotacaoBF(id){
     let dados = new FormData();
@@ -76,6 +99,7 @@ function guardarVotacaoBF(id){
     dados.append("resEquipa", $("#resultadoEquipa").val());
     dados.append("resAdver", $("#resultadoAdvers").val());
     dados.append("numPontos", $("#numPontos").val());
+    dados.append("idMvp", idMvp);
     $.ajax({
         url: "../../dist/php/controllerUser.php",
         method: "POST",
@@ -133,7 +157,8 @@ function guardarVotacaoPT(id, nSets){
     for(let i = 0; i < nSets; i++){
         arrRes.push([ $("#resultadoEqSet"+(i+1)).val(), $("resultadoAdvSet"+(i+1)).val()]);
     }
-    dados.append('resultados', JSON.stringify(arrRes));  
+    dados.append('resultados', JSON.stringify(arrRes));
+    dados.append("idMvp", idMvp);  
     $.ajax({
         url: "../../dist/php/controllerUser.php",
         method: "POST",
@@ -369,6 +394,8 @@ function rejeitarPedido(id){
             alert( "Request failed: " + textStatus );
         });
 }
+
+
 
 function alerta2(titulo,msg,icon){
     Swal.fire({

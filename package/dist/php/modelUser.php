@@ -701,10 +701,24 @@ class User
 
 
         global $conn;
-        $sql = " SELECT marcacao.data_inicio AS dataMarc, marcacao.hora_inicio AS horaMarc, modalidade.descricao AS modalidade, user.nome AS nomeClube, user.foto as fotoClube FROM listagem_atletas_marcacao INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id INNER JOIN clube ON campo_clube.id_clube = clube.id_clube INNER JOIN user ON clube.id_clube = user.id WHERE listagem_atletas_marcacao.id_marcacao = '" . $id . "'";
+        $sql = "SELECT marcacao.data_inicio AS dataMarc, 
+        marcacao.hora_inicio AS horaMarc, 
+        modalidade.descricao AS modalidade, 
+        user.nome AS nomeClube, 
+        user.foto as fotoClube 
+        FROM listagem_atletas_marcacao 
+        INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+        INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
+        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube 
+        INNER JOIN user ON clube.id_clube = user.id 
+        WHERE listagem_atletas_marcacao.id_marcacao = '" . $id . "'
+        LIMIT 1";
         $result = $conn->query($sql);
         $msg = "";
         $modalidade = "";
+        
+
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
@@ -712,96 +726,30 @@ class User
                 $corpo = "";
                 $mod = "";
                 $modalidade = $row['modalidade'];
-                if ($row['modalidade'] == "Basquetebol" || $row['modalidade'] == "Futsal") {
-                    $mvp = "<div class='col-2'>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Rui Paulo'>
-                    </div>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Rui Paulo'>
-                    </div>
-                  </div>
-                  <div class='col-2'>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy6.jpg' alt='Participant 1'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Fábio Santos'>
-                    </div>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy9.jpg' alt='Participant 2'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Paulo Chaves'>
-                    </div>
-                  </div>
-                  <div class='col-2'>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy12.jpg' alt='Participant 1'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Gonçalo Nunes'>
-    
-                    </div>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy10.jpg' alt='Participant 1'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Gonçalo Ricardo'>
-                    </div>
-                  </div>
-                  <div class='col-2'>
-                  <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy11.jpg' alt='Participant 1'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Gonçalo Nunes'>
-                    </div>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy8.jpg' alt='Participant 1'
-                        class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Gonçalo Ricardo'>
-                    </div>
-                  </div>
-                  <div class='col-2'>
-                  <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy7.jpg' alt='Participant 1'
-                      class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Gonçalo Nunes'>
-    
-                    </div>
-                    <div class='d-flex align-items-center mt-2'>
-                      <img src='../../dist/images/profile/boy5.jpg' alt='Participant 1'
-                      class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                        data-placement='top' title='Gonçalo Ricardo'>
-    
-                    </div>
-                  </div>";
-                } else {
-                    $mvp = "
-                    <div class='d-flex justify-content-center gap-4'>
-                        <div class='col-3'>
-                        <div class='d-flex align-items-center mt-2'>
-                        <img src='../../dist/images/profile/boy2.jpg' alt='Participant 2'
-                            class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                            data-placement='top' title='Rui Paulo'>
-                        </div>
-                        </div>
-                        <div class='col-3'>
-                        <div class='d-flex align-items-center mt-2'>
-                        <img src='../../dist/images/profile/boy3.jpg' alt='Participant 2'
-                            class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                            data-placement='top' title='Rui Paulo'>
-                        </div>
-                    </div>
-                    <div class='col-3'>
-                        <div class='d-flex align-items-center mt-2'>
-                        <img src='../../dist/images/profile/boy6.jpg' alt='Participant 1'
-                            class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                            data-placement='top' title='Fábio Santos'>
-                        </div>
-                        </div>
-                    </div>";
+
+                $sql1 = "SELECT * 
+                FROM 
+                user
+                INNER JOIN 
+                listagem_atletas_marcacao ON user.id = listagem_atletas_marcacao.id_atleta
+                WHERE listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
+                AND listagem_atletas_marcacao.id_marcacao = ".$id."
+                ";
+                $result1 = $conn->query($sql1);
+                $mvp .= "<div class='row gap-4 d-flex justify-content-center align-items-center'>";
+                if ($result1->num_rows > 0) {
+                    while ($row1 = $result1->fetch_assoc()) {
+                        $mvp .= "<div class='col-2 me-4'>
+                                        <img id='".$row1['id']."' src='../../dist/".$row1['foto']."' alt='".$row1['nome']."'
+                                            class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
+                                                data-placement='top' title='".$row1['nome']."'>
+                                </div>";
+                    }
                 }
+
+                $mvp .= "</div>";
+
+
                 if ($row['modalidade'] == "Basquetebol") {
                     $mod .= "<span class='badge rounded-pill text-bg-warning mt-2 fs-5'><i
                     class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>";
@@ -1204,7 +1152,7 @@ class User
         return ($resp);
     }
 
-    function  votacaoBasqFuts($id, $modalidade, $resEquipa, $resAdver, $numPontos)
+    function  votacaoBasqFuts($id, $modalidade, $resEquipa, $resAdver, $numPontos, $idMvp)
     {
         global $conn;
         $sql = "";
@@ -1214,10 +1162,13 @@ class User
         $nVitorias = 0;
         $percVitorias = 0;
         $nomeTabela = "";
+        $sql5 = "";
         if ($modalidade == "Basquetebol") {
             $sql .= "SELECT * FROM info_basquetebol WHERE id_atleta = " . $_SESSION['id'];
+            $sql5 .= "UPDATE info_basquetebol SET n_mvp = n_mvp + 1 WHERE id_atleta = ".$idMvp;
         } else {
             $sql .= "SELECT * FROM info_futsal WHERE id_atleta = " . $_SESSION['id'];
+            $sql5 .= "UPDATE info_futsal SET n_mvp = n_mvp + 1 WHERE id_atleta = ".$idMvp;
         }
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -1257,6 +1208,14 @@ class User
             $icon = "error";
         }
 
+
+        if($conn -> query($sql5) === TRUE) {
+            $flag = true;
+        } else {
+            $flag = false;
+            $msg .= "Nao foi possível adicionar o mvp";
+        }
+
         $resultadoBadges1 = $this->getBadgesPontos($modalidade,  $nPontos);
         $resultadoBadges2 = $this-> getBadgesVitorias($modalidade, $nVitorias);
         $resultadoBadges3 = $this-> getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
@@ -1270,7 +1229,7 @@ class User
         return ($resp);
     }
 
-    function votacaoPadelTenis($id, $modalidade, $resultados)
+    function votacaoPadelTenis($id, $modalidade, $resultados, $idMvp)
     {
         global $conn;
         $sql = "";
@@ -2178,6 +2137,8 @@ class User
             while ($row = $result->fetch_assoc()) {
                 array_push($melhoresBadges , array($row['descricao'], $row['foto']));
             }
+        } else {
+            
         }
 
         return ($melhoresBadges);

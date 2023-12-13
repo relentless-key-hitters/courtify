@@ -665,9 +665,9 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
-  <script src="../../dist/js/js_courtify/notificacao.js"></script>
   <script src="../../dist/js/js_courtify/perfilCampo.js"></script>
   <script src="../../dist/js/js_courtify/amigo.js"></script>
+  <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
 
@@ -715,27 +715,6 @@ if (isset($_SESSION['id'])) {?>
     }
   </style>
 
-<script>
-    var selectedImage = null;
-
-    function toggleImageSelection(imgElement) {
-
-      if (imgElement.classList.contains('selected-img')) {
-        imgElement.classList.remove('selected-img');
-        selectedImage = null;
-      } else {
-
-        if (selectedImage) {
-          selectedImage.classList.remove('selected-img');
-        }
-        
-        imgElement.classList.add('selected-img');
-
-
-        selectedImage = imgElement;
-      }
-    }
-  </script>
 
 
 

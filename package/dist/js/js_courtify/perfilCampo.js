@@ -180,6 +180,8 @@ function podeSelecionarAmigo() {
     return amigosEscolhidos.length < amigosEscolhidos.maxLength - 1;
 }
 
+
+
 function adicionarAmigoMarcacao(imagem) {
     if (imagem.classList.contains('selected-img')) {
         imagem.classList.remove('selected-img');

@@ -946,6 +946,7 @@ function opacidadeGreyScale(imagem, val){
 
 function getBadgesRecentes(badges){
     let msg = "";
+<<<<<<< Updated upstream
     for(let i = 0; i< badges.length; i++){
 
         let data = new Date(badges[i][2]);
@@ -954,6 +955,16 @@ function getBadgesRecentes(badges){
         msg += "<div class='col-4'>"+
         "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
         "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+stringData+"</span></div></div>";
+=======
+    if(badges.length != 0){
+        for(let i = 0; i< badges.length; i++){
+            msg += "<div class='col-4'>"+
+            "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
+            "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+badges[i][2]+"</span></div></div>";
+        }
+    } else {
+        msg += "<h5 class='text-center'>Sem badges recentes</h5>";
+>>>>>>> Stashed changes
     }
     $("#badgesRecentes").html(msg);
 }
@@ -961,10 +972,14 @@ function getBadgesRecentes(badges){
 
 function getMelhoresBadges(badges){
     let msg = "";
-    for(let i = 0; i< badges.length; i++){
-        msg += "<div class='text-center'>"+
-        "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='img-fluid mb-2 rounded hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"' style='max-width: 50px;'>"+
-        "</div>";
+    if(badges.length != 0) {
+        for(let i = 0; i< badges.length; i++){
+            msg += "<div class='text-center'>"+
+            "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='img-fluid mb-2 rounded hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"' style='max-width: 50px;'>"+
+            "</div>";
+        }
+    } else {
+        msg += "<h5 class='text-center'>Sem badges recentes</h5>";
     }
     $("#melhoresBadges").html(msg);
 
