@@ -15,7 +15,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
-
+  <!-- Owl Carousel  -->
 
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
@@ -42,7 +42,6 @@
       margin-bottom: 10px;
       border-radius: 5px;
     }
-
 
     #tabela_length select {
       margin-bottom: 10px;
@@ -91,12 +90,6 @@
       color: white;
       border: 1px solid white;
       border-radius: 6px;
-    }
-  </style>
-
-  <style>
-    body {
-      overflow-x: hidden;
     }
   </style>
 
@@ -173,7 +166,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./membros_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4 link-active" href="./membros_dash.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -189,7 +182,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4 link-active" href="./torneios_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./torneios_dash.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-tournament"></i>
                 </span>
@@ -262,230 +255,146 @@
       <div class="badge-container2">
         <div class="row mb-0 mt-5">
           <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Torneios</h1>
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Membros</h1>
           </div>
         </div>
 
-        <div class="row mb-5">
-          <div class="container mt-5">
-            <table class="table" id="tabela">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">ID</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Nível</th>
-                  <th scope="col">Data</th>
-                  <th scope="col">Hora</th>
-                  <th scope="col">Preço € (por pax)</th>
-                  <th scope="col">Cancelar</th>
-                </tr>
-              </thead>
-              <tbody>
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
 
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Masculino 220</td>
-                  <td>N2</td>
-                  <td>2024-01-09</td>
-                  <td>16:00</td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-7">
+      <div class="row mb-5 mt-2">
+        <div class="container mt-5">
+          <table class="table text-center" id="tabela">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">ID</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Nível</th>
+                <th scope="col">Nº Jogos Realizados</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
 
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Masculino 880</td>
-                  <td>N5/N4</td>
-                  <td>2024-01-09</td>
-                  <td>18:00</td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Feminino 190</td>
-                  <td>N3</td>
-                  <td>2024-01-09</td>
-                  <td>16:00</td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Feminino 230</td>
-                  <td>N2</td>
-                  <td>2024-01-09</td>
-                  <td>18:00</td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Misto 210</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-12</td>
-                  <td>20:00</td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
+              <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>Pedro Barros</td>
+                <td>N3</td>
+                <td>23</td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white"
+                  style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Sub-12</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-16</td>
-                  <td>10:00</td>
-                  <td>6.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Sub-14</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-16</td>
-                  <td>16:00</td>
-                  <td>6.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Sub-10</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-21</td>
-                  <td>16:00</td>
-                  <td>5.00</td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
     <div class="col-lg-2"></div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6"></div>
-    <div class="col-lg-3">
-      <h2 class="text-muted fs-5">Criar Torneio <button data-toggle="modal" data-target="#tournamentModal"
-           type="button" class="btn btn-sm fs-4 btn-success"><i
-            class="ti ti-circle-plus text-white"></i></button></h2>
-    </div>
-  </div>
-
-
-  <div class="modal modal-lg fade" id="tournamentModal" tabindex="-1" role="dialog"
-    aria-labelledby="tournamentModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-7" id="tournamentModalLabel">Criar Torneio</h5>
-          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
-            aria-label="Close">
-            <span> <i class="ti ti-x text-white"></i></span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-7 pt-4">
-              <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do torneio">
-              </div>
-            </div>
-
-            <div class="col-md-5 pt-4">
-              <div class="form-group">
-                <label for="imagem">Imagem</label>
-                <input type="file" class="form-control" id="imagem" accept="image/*">
-                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-5 pt-4">
-              <div class="form-group">
-                <label for="nome">Nº Máx de Participantes</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nº máx de participantes">
-              </div>
-            </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="nivel">Nível</label>
-                <select name="nivel" class="form-select" id="">
-                  <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
-                  <option value="sc">Sem Classificação</option>
-                  <option value="n5">N5</option>
-                  <option value="n54">N5/N4</option>
-                  <option value="n4">N4</option>
-                  <option value="n43">N4/N3</option>
-                  <option value="n3">N3</option>
-                  <option value="n32">N3/N2</option>
-                  <option value="n2">N2</option>
-                  <option value="n21">N2/N1</option>
-                  <option value="n1">N1</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-md-3 pt-4">
-              <div class="form-group">
-                <label for="data">Data:</label>
-                <input type="date" class="form-control" id="data">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-3 pt-4">
-              <div class="form-group">
-                <label for="hora">Hora:</label>
-                <input type="time" class="form-control" id="hora">
-              </div>
-            </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="preco">Preço:</label>
-                <input type="text" class="form-control" id="preco" placeholder="Digite o preço do torneio">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success">Guardar</button>
-        </div>
-      </div>
-    </div>
   </div>
 
 
@@ -1025,9 +934,6 @@
   <!--  current page js files -->
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 
   <script>
     $(document).ready(function () {
@@ -1045,11 +951,11 @@
           "sLoadingRecords": "Carregando...",
           "sProcessing": "Processando...",
           "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, nível, etc...)",
+          "sSearch": "Pesquisar (id, nome, nível, etc...)",
           "oPaginate": {
-            "sNext": "Próximo",
             "sNext": ">",
             "sPrevious": "<",
+            "sFirst": "Primeiro",
             "sLast": "Último"
           },
           "oAria": {
@@ -1067,6 +973,8 @@
       });
     });
   </script>
+
+
 </body>
 
 </html>

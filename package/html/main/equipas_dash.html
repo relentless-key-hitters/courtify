@@ -178,11 +178,11 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./stats_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./calendario_dash.html" aria-expanded="false">
                 <span>
-                  <i class="ti ti-chart-histogram"></i>
+                  <i class="ti ti-calendar"></i>
                 </span>
-                <span class="hide-menu">Estatísticas</span>
+                <span class="hide-menu">Calendário</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -199,6 +199,14 @@
                   <i class="ti ti-soccer-field"></i>
                 </span>
                 <span class="hide-menu">Campos</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link fs-4" href="./membros_dash.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Membros</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -273,7 +281,6 @@
   <div class="dark-transparent sidebartoggler"></div>
 
 
-
   <div class="row">
     <div class="col-lg-3">
 
@@ -287,6 +294,20 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-3"></div>
+
+
+    <div class="col-lg-7">
+      <div class="badge-container2">
         <div class="row mb-5">
           <div class="container mt-5">
             <table class="table" id="tabela">
@@ -295,7 +316,6 @@
                   <th scope="col">ID</th>
                   <th scope="col">Logo</th>
                   <th scope="col">Nome</th>
-                  <th scope="col">Modalidade</th>
                   <th scope="col">Nível</th>
                   <th scope="col">Próximos Jogos</th>
                 </tr>
@@ -305,55 +325,50 @@
                 <tr class="text-center">
                   <td></td>
                   <td><img src="./../../dist/images/backgrounds/w.png" alt="Thumbnail 1" class="object-fit-cover"
-                      width="40" height="40"></td>
+                      width="30" height="30"></td>
                   <td>WPC</td>
-                  <td>Padel</td>
                   <td>N2</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td></td>
                   <td><img src="./../../dist/images/backgrounds/padelball3.png" alt="Thumbnail 1"
-                      class="object-fit-cover" width="40" height="40"></td>
+                      class="object-fit-cover" width="30" height="30"></td>
                   <td>PadelBall 3</td>
-                  <td>Padel</td>
                   <td>N2</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td></td>
                   <td><img src="./../../dist/images/backgrounds/30.png" alt="Thumbnail 1" class="object-fit-cover"
-                      width="40" height="40"></td>
-                  <td>Skulls</td>
-                  <td>Padel</td>
+                      width="30" height="30"></td>
+                  <td>Skeletons</td>
                   <td>N2</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td></td>
                   <td><img src="./../../dist/images/backgrounds/racketman.png" alt="Thumbnail 1"
-                      class="object-fit-cover" width="40" height="40"></td>
+                      class="object-fit-cover" width="30" height="30"></td>
                   <td>RacketMan</td>
-                  <td>Ténis</td>
-                  <td>Intermédio</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>N4</td>
+                  <td><button type="button" class="btn btn-sm btn-light">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
                   <td></td>
                   <td><img src="./../../dist/images/backgrounds/smoothsailors.png" alt="Thumbnail 1"
-                      class="object-fit-cover" width="40" height="40"></td>
+                      class="object-fit-cover" width="30" height="30"></td>
                   <td>SmoothSailors</td>
-                  <td>Ténis</td>
-                  <td>Principiante</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td>N4</td>
+                  <td><button type="button" class="btn btn-sm btn-light">Ver</button></td>
                 </tr>
 
               </tbody>
@@ -363,6 +378,84 @@
       </div>
     </div>
     <div class="col-lg-2"></div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6"></div>
+    <div class="col-lg-3">
+      <h2 class="text-muted fs-5">Criar Equipa <button data-toggle="modal" data-target="#teamModal"
+          style="background-color: gold;" type="button" class="btn btn-sm fs-4"><i
+            class="ti ti-circle-plus"></i></button></h2>
+    </div>
+  </div>
+
+
+  <div class="modal modal-lg fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="tournamentModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-7" id="tournamentModalLabel">Criar Equipa</h5>
+          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
+            aria-label="Close">
+            <span> <i class="ti ti-x text-white"></i></span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-7 pt-4">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome da equipa">
+              </div>
+            </div>
+
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="imagem">Imagem</label>
+                <input type="file" class="form-control" id="imagem" accept="image/*">
+                <small class="form-text text-muted">Selecione uma imagem para a equipa</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="nome">Nº Máx de Participantes</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nº máx de participantes">
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="nivel">Nível</label>
+                <select name="nivel" class="form-select" id="">
+                  <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
+                  <option value="sc">Sem Classificação</option>
+                  <option value="n5">N5</option>
+                  <option value="n54">N5/N4</option>
+                  <option value="n4">N4</option>
+                  <option value="n43">N4/N3</option>
+                  <option value="n3">N3</option>
+                  <option value="n32">N3/N2</option>
+                  <option value="n2">N2</option>
+                  <option value="n21">N2/N1</option>
+                  <option value="n1">N1</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 
@@ -901,6 +994,10 @@
   <script src="../../dist/js/custom.js"></script>
 
 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
   <script>
     $(document).ready(function () {
       $('#tabela').DataTable({
@@ -917,10 +1014,10 @@
           "sLoadingRecords": "Carregando...",
           "sProcessing": "Processando...",
           "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, modalidade, nível, etc...)",
+          "sSearch": "Pesquisar (nome, nível, etc...)",
           "oPaginate": {
-            "sNext": "Próximo",
-            "sPrevious": "Anterior",
+            "sNext": ">",
+            "sPrevious": "<",
             "sFirst": "Primeiro",
             "sLast": "Último"
           },

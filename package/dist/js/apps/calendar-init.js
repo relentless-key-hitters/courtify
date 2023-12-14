@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   };
   var calendarHeaderToolbar = {
-    left: "prev next addEventButton",
+    left: false,
     center: "title",
-    right: false,
+    right: "prev next",
   };
   var calendarEventsList = [
 

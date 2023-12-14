@@ -147,11 +147,11 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./stats_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./calendario_dash.html" aria-expanded="false">
                 <span>
-                  <i class="ti ti-chart-histogram"></i>
+                  <i class="ti ti-calendar"></i>
                 </span>
-                <span class="hide-menu">Estatísticas</span>
+                <span class="hide-menu">Calendário</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -168,6 +168,14 @@
                   <i class="ti ti-soccer-field"></i>
                 </span>
                 <span class="hide-menu">Campos</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link fs-4" href="./membros_dash.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Membros</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -264,7 +272,6 @@
                 <tr class="text-center">
                   <th scope="col">ID</th>
                   <th scope="col">Nome</th>
-                  <th scope="col">Modalidade</th>
                   <th scope="col">Última Manutenção</th>
                   <th scope="col">Próxima Manutenção</th>
                   <th scope="col">Reservas</th>
@@ -275,7 +282,6 @@
                 <tr class="text-center">
                   <td></td>
                   <td>P1</td>
-                  <td>Padel</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -285,7 +291,6 @@
                 <tr class="text-center">
                   <td></td>
                   <td>P2</td>
-                  <td>Padel</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -295,7 +300,6 @@
                 <tr class="text-center">
                   <td></td>
                   <td>P3</td>
-                  <td>Padel</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -305,7 +309,6 @@
                 <tr class="text-center">
                   <td></td>
                   <td>P4</td>
-                  <td>Padel</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -314,8 +317,7 @@
 
                 <tr class="text-center">
                   <td></td>
-                  <td>T1</td>
-                  <td>Ténis</td>
+                  <td>P5</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -324,8 +326,7 @@
 
                 <tr class="text-center">
                   <td></td>
-                  <td>T2</td>
-                  <td>Ténis</td>
+                  <td>P6</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -334,8 +335,7 @@
 
                 <tr class="text-center">
                   <td></td>
-                  <td>T3</td>
-                  <td>Ténis</td>
+                  <td>P7</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -344,8 +344,7 @@
 
                 <tr class="text-center">
                   <td></td>
-                  <td>T4</td>
-                  <td>Ténis</td>
+                  <td>P8</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
                   <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
@@ -914,10 +913,10 @@
           "sLoadingRecords": "Carregando...",
           "sProcessing": "Processando...",
           "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, modalidade, data, etc...)",
+          "sSearch": "Pesquisar (nome, data, etc...)",
           "oPaginate": {
-            "sNext": "Próximo",
-            "sPrevious": "Anterior",
+            "sNext": ">",
+            "sPrevious": "<",
             "sFirst": "Primeiro",
             "sLast": "Último"
           },
