@@ -517,7 +517,7 @@ class Descobrir
                     $msg .= "</div>
                             <div class='row'>
                                 <div class='col-md-12 mt-4'>
-                                    <button type='button' class='btn btn-success w-100' onclick='juntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
+                                    <button type='button' class='btn btn-success w-100' onclick='getModalJuntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
                                 </div>
                             </div>
                             </div>
@@ -764,7 +764,7 @@ class Descobrir
                     $msg .= "</div>
                                     <div class='row'>
                                         <div class='col-md-12 mt-4'>
-                                            <button type='button' class='btn btn-success w-100' onclick='juntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
+                                            <button type='button' class='btn btn-success w-100' onclick='getModalJuntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
                                         </div>
                                     </div>
                                     </div>

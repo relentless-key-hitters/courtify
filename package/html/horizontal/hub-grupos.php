@@ -21,6 +21,8 @@ if (isset($_SESSION['id'])) { ?>
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/favicon.ico" />
   <!-- Owl Carousel -->
   <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+
+
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
@@ -657,79 +659,51 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
                 </div>
               </div>
+              
               <div class=" mt-5">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                  <h3 class="">Grupo existentes em #LOCALIDADE USER#</h3>
+                  <h3 class="">Mracações abertas dos teus Grupos <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesGrupos"></span></h3>
                   <div class="d-flex justify-content-center align-items-center">
                     <p class="fs-5 me-3 mt-3">Não tens grupo?</p>
                     <button type="button" class="btn btn-primary btn-small">Criar Grupo</button>
                   </div>
                 </div>
-                <div class="card bg-light px-3 py-3">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
-                          <div class="d-flex justify-content-center align-items-center">
-                            <img>
+                <div class="card bg-light px-3" id="cardCarousel1">
+                  <div class="carousel-container mt-5" id="carousel1">
+                    <div class="owl-carousel" id="marcacaoAmigos">
+                    <div class="item">
+                        <div class="mt-1">
+                          <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
+                      <div class="item">
+                        <div class="mt-1">
+                          <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
+                      <div class="item">
+                        <div class="mt-1">
+                          <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
+                      <div class="item">
+                        <div class="mt-1">
+                          <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                      <div class="card hover-img shadow">
-                        <div class="card-body">
-                          sdfsd
+                      <div class="item">
+                        <div class="mt-1">
+                          <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
+
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -851,7 +825,6 @@ if (isset($_SESSION['id'])) { ?>
         </div>
       </div>
     </div>
-
     <!--  Mobilenavbar -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar"
       aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -1040,14 +1013,21 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/app.horizontal.init.js"></script>
     <script src="../../dist/js/app-style-switcher.js"></script>
     <script src="../../dist/js/sidebarmenu.js"></script>
+    <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../../dist/js/js_courtify/grupo.js"></script>
+
 
     <script src="../../dist/js/custom.js"></script>
     <!-- current page js files -->
     <script src="../../dist/js/js_courtify/sweatalert.js"></script>
-    <script src="../../dist/js/js_courtify/perfilUser.js"></script>
     <script src="../../dist/js/js_courtify/user.js"></script>
+    <script src="../../dist/js/js_courtify/perfilUser.js"></script>
     <script src="../../dist/js/js_courtify/notificacao.js"></script>
+    
 
+
+    
+    
 
 
     <script type="text/javascript">
@@ -1081,12 +1061,11 @@ if (isset($_SESSION['id'])) { ?>
       resetSessionTimeout();
     </script>
 
-<style>
+  <style>
     .selected-img {
       border: 6px solid #63a340;
     }
   </style>
-
 
 
 </body>
