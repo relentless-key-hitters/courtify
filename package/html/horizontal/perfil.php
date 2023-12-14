@@ -1671,7 +1671,7 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                         <div class="item">
                           <div class="mt-1">
-                            <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                            <div class="card px-5 py-3 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                               <small>Percentagem Vitórias</small>
                               <h5>50% Vitórias</h5>
                               <img id="imgPerc50B" src="../../dist/images/badges/perc50.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
@@ -1684,7 +1684,7 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                         <div class="item">
                           <div class="mt-1">
-                            <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img shadow">
+                            <div class="card px-5 py-3 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                               <small>Percentagem Vitórias</small>
                               <h5>70% Vitórias</h5>
                               <img id="imgPerc70B" src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
