@@ -962,14 +962,14 @@ function getBadgesRecentes(badges){
         let restantes = maxPlaceholders - badges.length;
         for (let j = 0; j < restantes; j++) {
             msg += "<div class='col-4 mb-1'>"+
-                "<img src='https://placehold.co/80' alt='Bloqueado' class='rounded-circle img-fluid mb-0' data-toggle='tooltip' data-placement='top' title='Bloqueado'>"+
+                "<img src='../../dist/images/badges/badge_bloq.png' alt='Bloqueado' class='rounded-circle img-fluid mb-0' data-toggle='tooltip' data-placement='top' title='Bloqueado'>"+
             "</div>";
         }
     } else {
         
         for (let k = 0; k < maxPlaceholders; k++) {
             msg += "<div class='col-4 mb-1'>"+
-                "<img src='https://placehold.co/80' alt='Bloqueado' class='rounded-circle img-fluid mb-0' data-toggle='tooltip' data-placement='top' title='Bloqueado'>"+
+                "<img src='../../dist/images/badges/badge_bloq.png' alt='Bloqueado' class='rounded-circle img-fluid mb-0' data-toggle='tooltip' data-placement='top' title='Bloqueado'>"+
             "</div>";
         }
     }
@@ -989,18 +989,18 @@ function getMelhoresBadges(badges){
                 "</div>";
         }
 
-        // Add placeholders for remaining slots
+
         let restantes = maxPlaceholders - badges.length;
         for (let j = 0; j < restantes; j++) {
             msg += "<div class='text-center'>"+
-                "<img src='https://placehold.co/50' alt='Bloqueado' class='img-fluid mb-2 rounded-circle' data-toggle='tooltip' data-placement='top' title='Bloqueado' style='max-width: 50px;'>"+
+                "<img src='../../dist/images/badges/badge_bloq.png' alt='Bloqueado' class='img-fluid mb-2 rounded-circle' data-toggle='tooltip' data-placement='top' title='Bloqueado' style='max-width: 50px;'>"+
                 "</div>";
         }
     } else {
-        // Display all placeholders if no badges are present
+
         for (let k = 0; k < maxPlaceholders; k++) {
             msg += "<div class='text-center'>"+
-                "<img src='https://placehold.co/50' alt='Bloqueado' class='img-fluid mb-2 rounded-circle' data-toggle='tooltip' data-placement='top' title='Bloqueado' style='max-width: 50px;'>"+
+                "<img src='../../dist/images/badges/badge_bloq.png' alt='Bloqueado' class='img-fluid mb-2 rounded-circle' data-toggle='tooltip' data-placement='top' title='Bloqueado' style='max-width: 50px;'>"+
                 "</div>";
         }
     }
