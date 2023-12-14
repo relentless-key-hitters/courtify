@@ -668,9 +668,9 @@ if (isset($_SESSION['id'])) { ?>
                     <button type="button" class="btn btn-primary btn-small">Criar Grupo</button>
                   </div>
                 </div>
-                <div class="card bg-light px-3" id="cardCarousel1">
-                  <div class="carousel-container mt-5" id="carousel1">
-                    <div class="owl-carousel" id="marcacaoAmigos">
+                <div class="card bg-light px-3" id="cardCarousel4">
+                  <div class="carousel-container mt-5" id="carousel4">
+                    <div class="owl-carousel" id="marcacaoGrupos">
                     <div class="item">
                         <div class="mt-1">
                           <div class="card px-5 py-5 d-flex flex-column align-items-center justify-content-center hover-img">
@@ -1002,6 +1002,27 @@ if (isset($_SESSION['id'])) { ?>
     </div>
   </div>
 
+  <div class="modal fade" id="scroll-long-inner-modal3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <h4 class="modal-title">
+            Marcação
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <span>Estás prestes a juntar-te a esta Marcação.<br></span>
+          <h5 class='mt-3'>Tens a certeza?</h5>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-3" id="corpoBotoesDescobrir">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
     <!-- Import Js Files -->
@@ -1015,6 +1036,7 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/sidebarmenu.js"></script>
     <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
     <script src="../../dist/js/js_courtify/grupo.js"></script>
+    <script src="../../dist/js/js_courtify/descobrir.js"></script>
 
 
     <script src="../../dist/js/custom.js"></script>
@@ -1023,6 +1045,7 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/js_courtify/user.js"></script>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
     <script src="../../dist/js/js_courtify/notificacao.js"></script>
+
     
 
 
