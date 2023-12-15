@@ -100,15 +100,15 @@ if (isset($_SESSION['id'])) { ?>
                       <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container"></span>
                     </div>
                     <div class="message-body" data-simplebar>
-                    <div id="divNotificacoesVotacao">
-                      
-                    </div>
-                    <div id="divNotificacoesConviteMarcacao">
+                      <div id="divNotificacoesVotacao">
 
-                    </div>
-                    <div id="divNotificacoesPedidoAmizade">
+                      </div>
+                      <div id="divNotificacoesConviteMarcacao">
 
-                    </div>
+                      </div>
+                      <div id="divNotificacoesPedidoAmizade">
+
+                      </div>
                     </div>
                     <div class="py-6 px-7 mb-1">
                       <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
@@ -138,7 +138,7 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                       </div>
                       <div class="message-body">
-                      <a href="./perfil.php?id=<?php echo $_SESSION['id']?>" class="py-8 px-7 mt-8 d-flex align-items-center">
+                        <a href="./perfil.php?id=<?php echo $_SESSION['id'] ?>" class="py-8 px-7 mt-8 d-flex align-items-center">
                           <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                             <i class="ti ti-user-circle fs-7 text-primary"></i>
                           </span>
@@ -204,8 +204,47 @@ if (isset($_SESSION['id'])) { ?>
           </div>
           <div class="body-wrapper">
             <div class="container">
-              <div class=" mt-5">
-                <h2 class="mb-4">Marcações abertas dos teus amigos <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesAmigos"></span></h2></h2>
+            <div class="mt-5">
+              <div class="row arrow-container">
+                  <div class="col-md-4">
+                    <div class="card shadow" style="height: 250px">
+                      <div class="card-header">
+                      <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">1</span>Descobrir</h4>
+                      </div>
+                      <div class="card-body">
+                        <p class="fs-4 card-text">Nesta página, tens acesso a todas a Marcações abertas que consideramos ser as que mais
+                          se identificam contigo. Todos os resultados foram cuidadosamente selecionados para o teu perfil.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card shadow" style="height: 250px">
+                      <div class="card-header">
+                      <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">2</span>Juntar</h4>
+                      </div>
+                      <div class="card-body">
+                        <p class="fs-4 card-text">Agora que encontras-te a marcação perfeita para ti, é altura de te juntares a ela.
+                          No fim de cada resultado, encontras um botão verde com o nome "Juntar-se". Clica, confirma a seleção, e já está!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card shadow" style="height: 250px">
+                      <div class="card-header">
+                      <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">3</span>Jogar</h4>
+                      </div>
+                      <div class="card-body">
+                        <p class="fs-4 card-text">Agora que estás inscrito nesta Marcação, o último passo é jogar! 
+                        Confirma as horas, a morada do clube (clica no seu nome!), e não te esqueças de levar o teu equipamento</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="mt-5">
+                <h2 class="mb-4">Marcações abertas dos teus amigos <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesAmigos"></span></h2>
+                </h2>
                 <div class="card bg-light px-3" id="cardCarousel1">
                   <div class="carousel-container mt-5" id="carousel1">
                     <div class="owl-carousel" id="marcacaoAmigos">
@@ -256,7 +295,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                     </div>
                   </div>
-                  <div class=" mt-5">
+                  <div class="mt-5">
                     <h2 class="mb-4">Marcações abertas em <span id="localidadeUser"></span> <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesLocalidade"></span></h2>
                     <div class="card bg-light px-3" id="cardCarousel3">
                       <div class="carousel-container mt-5" id="carousel3">
@@ -267,364 +306,354 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
+                <div style="margin-left: 60px; margin-right: 60px;">
+                  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
+                    <a href="#" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                      <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+                    </a>
+                    <div>
+                      <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+                    </div>
+
+                  </footer>
+                </div>
               </div>
             </div>
-            <div style="margin-left: 60px; margin-right: 60px;">
-              <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
-
-                <a href="#" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                  <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-                </a>
-                <div>
-                  <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-                </div>
-
-              </footer>
-            </div>
           </div>
+          <div class="dark-transparent sidebartoggler"></div>
         </div>
-      </div>
-      <div class="dark-transparent sidebartoggler"></div>
-    </div>
-    <!--  Shopping Cart -->
-    <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header py-4">
-        <h5 class="offcanvas-title fs-5 fw-semibold" id="offcanvasRightLabel">Shopping Cart</h5>
-        <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">5 new</span>
-      </div>
-      <div class="offcanvas-body h-100 px-4 pt-0" data-simplebar>
-        <ul class="mb-0">
-          <li class="pb-7">
-            <div class="d-flex align-items-center">
-              <img src="../../dist/images/products/product-1.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
-              <div>
-                <h6 class="mb-1">Supreme toys cooker</h6>
-                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                <div class="d-flex align-items-center justify-content-between mt-2">
-                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                  <div class="input-group input-group-sm w-50">
-                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add1"> - </button>
-                    <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add1" value="1" />
-                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addo2">
-                      + </button>
+        <!--  Shopping Cart -->
+        <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header py-4">
+            <h5 class="offcanvas-title fs-5 fw-semibold" id="offcanvasRightLabel">Shopping Cart</h5>
+            <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">5 new</span>
+          </div>
+          <div class="offcanvas-body h-100 px-4 pt-0" data-simplebar>
+            <ul class="mb-0">
+              <li class="pb-7">
+                <div class="d-flex align-items-center">
+                  <img src="../../dist/images/products/product-1.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
+                  <div>
+                    <h6 class="mb-1">Supreme toys cooker</h6>
+                    <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+                    <div class="d-flex align-items-center justify-content-between mt-2">
+                      <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                      <div class="input-group input-group-sm w-50">
+                        <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add1"> - </button>
+                        <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add1" value="1" />
+                        <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addo2">
+                          + </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </li>
-          <li class="pb-7">
-            <div class="d-flex align-items-center">
-              <img src="../../dist/images/products/product-2.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
-              <div>
-                <h6 class="mb-1">Supreme toys cooker</h6>
-                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                <div class="d-flex align-items-center justify-content-between mt-2">
-                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                  <div class="input-group input-group-sm w-50">
-                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add2"> - </button>
-                    <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add2" value="1" />
-                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addon34"> + </button>
+              </li>
+              <li class="pb-7">
+                <div class="d-flex align-items-center">
+                  <img src="../../dist/images/products/product-2.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
+                  <div>
+                    <h6 class="mb-1">Supreme toys cooker</h6>
+                    <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+                    <div class="d-flex align-items-center justify-content-between mt-2">
+                      <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                      <div class="input-group input-group-sm w-50">
+                        <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add2"> - </button>
+                        <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add2" value="1" />
+                        <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addon34"> + </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </li>
-          <li class="pb-7">
-            <div class="d-flex align-items-center">
-              <img src="../../dist/images/products/product-3.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
-              <div>
-                <h6 class="mb-1">Supreme toys cooker</h6>
-                <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
-                <div class="d-flex align-items-center justify-content-between mt-2">
-                  <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
-                  <div class="input-group input-group-sm w-50">
-                    <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add3"> - </button>
-                    <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add3" value="1" />
-                    <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addon3"> + </button>
+              </li>
+              <li class="pb-7">
+                <div class="d-flex align-items-center">
+                  <img src="../../dist/images/products/product-3.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="" />
+                  <div>
+                    <h6 class="mb-1">Supreme toys cooker</h6>
+                    <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
+                    <div class="d-flex align-items-center justify-content-between mt-2">
+                      <h6 class="fs-2 fw-semibold mb-0 text-muted">$250</h6>
+                      <div class="input-group input-group-sm w-50">
+                        <button class="btn border-0 round-20 minus p-0 bg-light-success text-success " type="button" id="add3"> - </button>
+                        <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0  text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add3" value="1" />
+                        <button class="btn text-success bg-light-success  p-0 round-20 border-0 add" type="button" id="addon3"> + </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="align-bottom">
-          <div class="d-flex align-items-center pb-7">
-            <span class="text-dark fs-3">Sub Total</span>
-            <div class="ms-auto">
-              <span class="text-dark fw-semibold fs-3">$2530</span>
-            </div>
-          </div>
-          <div class="d-flex align-items-center pb-7">
-            <span class="text-dark fs-3">Total</span>
-            <div class="ms-auto">
-              <span class="text-dark fw-semibold fs-3">$6830</span>
-            </div>
-          </div>
-          <a href="./eco-checkout.html" class="btn btn-outline-primary w-100">Go to shopping cart</a>
-        </div>
-      </div>
-    </div>
-
-    <!--  Mobilenavbar -->
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
-      <nav class="sidebar-nav scroll-sidebar">
-        <div class="offcanvas-header justify-content-between">
-          <img src="../../dist/images/logos/favicon.ico" alt="" class="img-fluid">
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body profile-dropdown mobile-navbar" data-simplebar="" data-simplebar>
-          <ul id="sidebarnav">
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
-                <span>
-                  <i class="ti ti-home"></i>
-                </span>
-                <span class="hide-menu">Home</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-soccer-field"></i>
-                </span>
-                <span class="hide-menu">Marcação</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
-                <span>
-                  <i class="ti ti-radar"></i>
-                </span>
-                <span class="hide-menu">Descobrir</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <!--  Search Bar -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content rounded-1">
-          <div class="modal-header border-bottom">
-            <input type="search" class="form-control fs-3" placeholder="Search here" id="search" />
-            <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
-              <i class="ti ti-x fs-5 ms-3"></i>
-            </span>
-          </div>
-          <div class="modal-body message-body" data-simplebar="">
-            <h5 class="mb-0 fs-5 p-1">Quick Page Links</h5>
-            <ul class="list mb-0 py-2">
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Modern</span>
-                  <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
-                  <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Contacts</span>
-                  <span class="fs-3 text-muted d-block">/apps/contacts</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Posts</span>
-                  <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Detail</span>
-                  <span class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Shop</span>
-                  <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Modern</span>
-                  <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
-                  <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Contacts</span>
-                  <span class="fs-3 text-muted d-block">/apps/contacts</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Posts</span>
-                  <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Detail</span>
-                  <span class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
-                </a>
-              </li>
-              <li class="p-1 mb-1 bg-hover-light-black">
-                <a href="#">
-                  <span class="fs-3 text-black fw-normal d-block">Shop</span>
-                  <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
-                </a>
               </li>
             </ul>
+            <div class="align-bottom">
+              <div class="d-flex align-items-center pb-7">
+                <span class="text-dark fs-3">Sub Total</span>
+                <div class="ms-auto">
+                  <span class="text-dark fw-semibold fs-3">$2530</span>
+                </div>
+              </div>
+              <div class="d-flex align-items-center pb-7">
+                <span class="text-dark fs-3">Total</span>
+                <div class="ms-auto">
+                  <span class="text-dark fw-semibold fs-3">$6830</span>
+                </div>
+              </div>
+              <a href="./eco-checkout.html" class="btn btn-outline-primary w-100">Go to shopping cart</a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!--  Mobilenavbar -->
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
+          <nav class="sidebar-nav scroll-sidebar">
+            <div class="offcanvas-header justify-content-between">
+              <img src="../../dist/images/logos/favicon.ico" alt="" class="img-fluid">
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body profile-dropdown mobile-navbar" data-simplebar="" data-simplebar>
+              <ul id="sidebarnav">
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-home"></i>
+                    </span>
+                    <span class="hide-menu">Home</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-soccer-field"></i>
+                    </span>
+                    <span class="hide-menu">Marcação</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-radar"></i>
+                    </span>
+                    <span class="hide-menu">Descobrir</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <div class="modal-body" id = "corpoModal">
+        <!--  Search Bar -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content rounded-1">
+              <div class="modal-header border-bottom">
+                <input type="search" class="form-control fs-3" placeholder="Search here" id="search" />
+                <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
+                  <i class="ti ti-x fs-5 ms-3"></i>
+                </span>
+              </div>
+              <div class="modal-body message-body" data-simplebar="">
+                <h5 class="mb-0 fs-5 p-1">Quick Page Links</h5>
+                <ul class="list mb-0 py-2">
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Modern</span>
+                      <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
+                      <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Contacts</span>
+                      <span class="fs-3 text-muted d-block">/apps/contacts</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Posts</span>
+                      <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Detail</span>
+                      <span class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Shop</span>
+                      <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Modern</span>
+                      <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Dashboard</span>
+                      <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Contacts</span>
+                      <span class="fs-3 text-muted d-block">/apps/contacts</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Posts</span>
+                      <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Detail</span>
+                      <span class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
+                    </a>
+                  </li>
+                  <li class="p-1 mb-1 bg-hover-light-black">
+                    <a href="#">
+                      <span class="fs-3 text-black fw-normal d-block">Shop</span>
+                      <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
-           data-bs-dismiss="modal" id= "guardarVotacao">
-            Guardar
-          </button>
-          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
-            data-bs-dismiss="modal">
-            Fechar
-          </button>
+
+        <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header d-flex align-items-center">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="corpoModal">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start" data-bs-dismiss="modal" id="guardarVotacao">
+                  Guardar
+                </button>
+                <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start" data-bs-dismiss="modal">
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="modal fade" id="scroll-long-inner-modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal fade" id="scroll-long-inner-modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header d-flex align-items-center">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="corpoModal1">
+              </div>
+              <div class="d-flex justify-content-center align-items-center gap-3">
+                <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3" data-bs-dismiss="modal" id="aceitar">
+                  Aceitar
+                </button>
+                <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3" data-bs-dismiss="modal" id="rejeitar">
+                  Rejeitar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-body" id = "corpoModal1">
+
+        <div class="modal fade" id="scroll-long-inner-modal3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header d-flex align-items-center">
+                <h4 class="modal-title">
+                  Marcação
+                </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <span>Estás prestes a juntar-te a esta Marcação.<br></span>
+                <h5 class='mt-3'>Tens a certeza?</h5>
+              </div>
+              <div class="d-flex justify-content-center align-items-center gap-3" id="corpoBotoesDescobrir">
+
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="d-flex justify-content-center align-items-center gap-3">
-          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3"
-           data-bs-dismiss="modal" id= "aceitar">
-            Aceitar
-          </button>
-          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3"
-            data-bs-dismiss="modal" id= "rejeitar">
-            Rejeitar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="scroll-long-inner-modal3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <h4 class="modal-title">
-            Marcação
-          </h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <span>Estás prestes a juntar-te a esta Marcação.<br></span>
-          <h5 class='mt-3'>Tens a certeza?</h5>
-        </div>
-        <div class="d-flex justify-content-center align-items-center gap-3" id="corpoBotoesDescobrir">
-          
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 
 
 
-      <!-- Import Js Files -->
-  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
-  <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
-  <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- core files -->
-  <script src="../../dist/js/app.min.js"></script>
-  <script src="../../dist/js/app.horizontal.init.js"></script>
-  <script src="../../dist/js/app-style-switcher.js"></script>
-  <script src="../../dist/js/sidebarmenu.js"></script>
-  <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/js/js_courtify/descobrir.js"></script>
+        <!-- Import Js Files -->
+        <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+        <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
+        <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- core files -->
+        <script src="../../dist/js/app.min.js"></script>
+        <script src="../../dist/js/app.horizontal.init.js"></script>
+        <script src="../../dist/js/app-style-switcher.js"></script>
+        <script src="../../dist/js/sidebarmenu.js"></script>
+        <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+        <script src="../../dist/js/js_courtify/descobrir.js"></script>
 
-  <script src="../../dist/js/custom.js"></script>
-  <!-- current page js files -->
-  <script src="../../dist/js/js_courtify/sweatalert.js"></script>
-  <script src="../../dist/js/js_courtify/user.js"></script>
-  <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-  <script src="../../dist/js/js_courtify/notificacao.js"></script>
+        <script src="../../dist/js/custom.js"></script>
+        <!-- current page js files -->
+        <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+        <script src="../../dist/js/js_courtify/user.js"></script>
+        <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+        <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
-  <script>
-    $(function () {
-      $("[data-toggle = 'tooltip']").tooltip();
-    });
-  </script>
-
-
+        <script>
+          $(function() {
+            $("[data-toggle = 'tooltip']").tooltip();
+          });
+        </script>
 
 
 
-  <script type="text/javascript">
-    var timeout;
 
 
-    function resetSessionTimeout() {
-      clearTimeout(timeout);
-      timeout = setTimeout(function() {
+        <script type="text/javascript">
+          var timeout;
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'logout.php', true);
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
-            setTimeout(function() {
-              window.location.href = '../../../landingpage/index.html';
-            }, 3000);
 
+          function resetSessionTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+
+              var xhr = new XMLHttpRequest();
+              xhr.open('GET', 'logout.php', true);
+              xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                  alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
+                  setTimeout(function() {
+                    window.location.href = '../../../landingpage/index.html';
+                  }, 3000);
+
+                }
+              };
+              xhr.send();
+            }, 900000);
           }
-        };
-        xhr.send();
-      }, 900000);
-    }
 
 
-    document.onmousemove = resetSessionTimeout;
-    document.onkeypress = resetSessionTimeout;
+          document.onmousemove = resetSessionTimeout;
+          document.onkeypress = resetSessionTimeout;
 
 
-    resetSessionTimeout();
-  </script>
+          resetSessionTimeout();
+        </script>
 
 
 

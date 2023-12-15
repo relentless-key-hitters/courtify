@@ -192,3 +192,5 @@ function alerta2(titulo,msg,icon){
       timer: 3000
     })
 }
+
+
