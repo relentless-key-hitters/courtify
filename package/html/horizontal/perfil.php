@@ -374,7 +374,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="d-flex align-items-end justify-content-between">
                           <div>
                             <h4 class="mb-0 fw-semibold fs-5">Ranking <span class="ti ti-chart-bar fs-5"></span></h4>
-                            <p class="pt-2 fs-9" id="rankingPadel"> 36827º</p>
+                            <p class="pt-2 fs-9" id="rankingPadel"></p>
                           </div>
                         </div>
                       </div>

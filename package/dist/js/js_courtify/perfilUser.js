@@ -97,6 +97,7 @@ function getEstatisticas(id){
                     $("#mediaVitSetPadel").html(obj[i].mediaPontosSet)
                     $("#mediaSetsGanhosPadel").html(obj[i].percSets)
                     $("#nMvpPadel").html(obj[i].nMvp)
+                    $("#rankingPadel").html(obj[i].ranking + "º")
                 }else{
                     $("#pontuacaoTenis").html(obj[i].nPontos)
                     $("#nJogosTenis").html(obj[i].nJogos)
