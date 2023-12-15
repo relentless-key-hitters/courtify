@@ -30,7 +30,10 @@ class Grupo
                     tipo_campo.descricao AS tipoCampoMarcacao,
                     concelho.descricao AS localidadeClubeMarcacao,
                     modalidade.descricao AS modalidadeMarcacao,
-                    user_clube.nome AS nomeClubeMarcacao
+                    user_clube.nome AS nomeClubeMarcacao,
+                    comunidade.id AS idComunidade,
+                    comunidade.nome AS nomeComunidade,
+                    comunidade.foto AS fotoComunidade
                     FROM marcacao
                         INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
                     INNER JOIN campo ON marcacao.id_campo = campo.id
@@ -114,11 +117,6 @@ class Grupo
                                             <small class='fs-5'><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
                                             <small class='fs-5'><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
                                             <small class='fs-5'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>
-                                            <div class='d-flex align-items-center justify-content-center mt-2 d-none' id='espacopreco'>
-                                            <div class='bg-light mt-2 rounded p-2 w-50'>
-                                                <h5 class='m-0 p-0' id='precomarcacao'></h5>
-                                            </div>
-                                            </div>
                                         </div>
                                         </div>
                                     </div>
