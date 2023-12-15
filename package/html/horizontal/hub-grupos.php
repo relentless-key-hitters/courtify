@@ -662,7 +662,7 @@ if (isset($_SESSION['id'])) { ?>
               
               <div class=" mt-5">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                  <h3 class="">Mracações abertas dos teus Grupos <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesGrupos"></span></h3>
+                  <h3 class="">Marcações abertas dos teus Grupos <span class="ms-2 badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container" id="quantidadeMarcacoesGrupos"></span></h3>
                   <div class="d-flex justify-content-center align-items-center">
                     <p class="fs-5 me-3 mt-3">Não tens grupo?</p>
                     <button type="button" class="btn btn-primary btn-small">Criar Grupo</button>

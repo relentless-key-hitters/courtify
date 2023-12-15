@@ -25,6 +25,8 @@ function getMarcacoesAbertasGrupos() {
             $("#marcacaoGrupos").html(obj.msg)
           }
 
+         setTimeout(function(){
+
           $(".owl-carousel").each(function() {
             $(this).owlCarousel({
               loop: false,
@@ -45,7 +47,7 @@ function getMarcacoesAbertasGrupos() {
                 },
               },
             });
-          });
+          })}, 1000);
       })
   
       .fail(function (jqXHR, textStatus) {
