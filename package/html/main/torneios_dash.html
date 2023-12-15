@@ -277,6 +277,7 @@
                   <th scope="col">Data</th>
                   <th scope="col">Hora</th>
                   <th scope="col">Preço € (por pax)</th>
+                  <th scope="col">Editar</th>
                   <th scope="col">Cancelar</th>
                 </tr>
               </thead>
@@ -289,6 +290,8 @@
                   <td>2024-01-09</td>
                   <td>16:00</td>
                   <td>10.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -301,6 +304,8 @@
                   <td>2024-01-09</td>
                   <td>18:00</td>
                   <td>10.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -313,6 +318,8 @@
                   <td>2024-01-09</td>
                   <td>16:00</td>
                   <td>10.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -325,6 +332,8 @@
                   <td>2024-01-09</td>
                   <td>18:00</td>
                   <td>10.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -337,6 +346,8 @@
                   <td>2024-01-12</td>
                   <td>20:00</td>
                   <td>10.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -349,6 +360,8 @@
                   <td>2024-01-16</td>
                   <td>10:00</td>
                   <td>6.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -361,6 +374,8 @@
                   <td>2024-01-16</td>
                   <td>16:00</td>
                   <td>6.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -373,6 +388,8 @@
                   <td>2024-01-21</td>
                   <td>16:00</td>
                   <td>5.00</td>
+                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
+                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
                   <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
                         class="text-white ti ti-x"></i></button></td>
                 </tr>
@@ -392,9 +409,8 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6"></div>
     <div class="col-lg-3">
-      <h2 class="text-muted fs-5">Criar Torneio <button data-toggle="modal" data-target="#tournamentModal"
-           type="button" class="btn btn-sm fs-4 btn-success"><i
-            class="ti ti-circle-plus text-white"></i></button></h2>
+      <h2 class="text-muted fs-5">Criar Torneio <button data-toggle="modal" data-target="#tournamentModal" type="button"
+          class="btn btn-sm fs-4 btn-success"><i class="ti ti-circle-plus text-white"></i></button></h2>
     </div>
   </div>
 
@@ -483,6 +499,97 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-lg fade" id="tournamentEditModal" tabindex="-1" role="dialog"
+    aria-labelledby="tournamentEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-7" id="tournamentEditModalLabel">Editar Torneio</h5>
+          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
+            aria-label="Close">
+            <span> <i class="ti ti-x text-white"></i></span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="idEditTour">ID</label>
+                <input type="number" disabled class="form-control" id="idEditTour">
+              </div>
+            </div>
+
+            <div class="col-md-8 pt-4">
+              <div class="form-group">
+                <label for="nomeEditTour">Nome</label>
+                <input type="text" class="form-control" id="nomeEditTour">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="nivelEditTour">Nível</label>
+                  <select name="nivel" class="form-select" id="nivelEditTour">
+                    <option class="text-muted" value="" selected disabled>Escolha o nível</option>
+                    <option value="editSC">Sem Classificação</option>
+                    <option value="editN5">N5</option>
+                    <option value="editN5N4">N5/N4</option>
+                    <option value="editN4">N4</option>
+                    <option value="editN4N3">N4/N3</option>
+                    <option value="editN3">N3</option>
+                    <option value="editN3N2">N3/N2</option>
+                    <option value="editN2">N2</option>
+                    <option value="editN2/N1">N2/N1</option>
+                    <option value="editN1">N1</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="dataEditTour">Data</label>
+                  <input type="date" class="form-control" id="dataEditTour">
+                </div>
+              </div>
+
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="timeEditTour">Hora</label>
+                  <input type="time" class="form-control" id="timeEditTour">
+                </div>
+              </div>
+
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="precoEditTour">Preço</label>
+                  <input type="number" class="form-control" id="precoEditTour">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 pt-4">
+                <label for="obsEditTour">Observações</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <textarea id="obsEditTour" cols="6" rows="3" class="form-control"></textarea>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success">Guardar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

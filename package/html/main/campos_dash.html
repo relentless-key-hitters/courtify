@@ -32,41 +32,46 @@
       overflow-x: hidden;
     }
 
+    #tabela2.dataTables_wrapper,
     #tabela.dataTables_wrapper {
       padding: 10px;
     }
 
+    #tabela2_wrapper .dataTables_filter input,
     #tabela_wrapper .dataTables_filter input {
       width: 250px;
       margin-bottom: 10px;
       border-radius: 5px;
     }
 
+    #tabela2_length select,
     #tabela_length select {
       margin-bottom: 10px;
       border-radius: 5px;
     }
 
 
+    #tabela2.dataTable thead th,
     #tabela.dataTable thead th {
       text-align: center;
       font-weight: 600;
     }
 
 
+    #tabela2.dataTable tbody tr:nth-child(odd),
     #tabela.dataTables tbody tr:nth-child(odd) {
       background-color: #e6e6e6;
       text-align: center;
     }
 
 
+    #tabela2.dataTable tbody tr.selected,
     #tabela.dataTables tbody tr.selected {
       background-color: #c7d4e8;
       text-align: center;
     }
 
-
-
+    #tabela2_paginate .paginate_button.current,
     #tabela_paginate .paginate_button.current {
       background-color: #e6e6e6;
       color: white;
@@ -74,6 +79,7 @@
       border-radius: 6px;
     }
 
+    #tabela2_paginate .paginate_button.hover,
     #tabela_paginate .paginate_button:hover {
       background-color: #e6e6e6;
       color: white;
@@ -82,6 +88,8 @@
     }
 
 
+    #tabela2_paginate .paginate_button.next:hover,
+    #tabela2_paginate .paginate_button.previous.hover,
     #tabela_paginate .paginate_button.previous.hover,
     #tabela_paginate .paginate_button.next:hover,
     #tabela_paginate .paginate_button:hover {
@@ -270,8 +278,7 @@
             <table class="table" id="tabela">
               <thead>
                 <tr class="text-center">
-                  <th scope="col">ID</th>
-                  <th scope="col">Nome</th>
+                  <th scope="col">ID (Campo)</th>
                   <th scope="col">Última Manutenção</th>
                   <th scope="col">Próxima Manutenção</th>
                   <th scope="col">Reservas</th>
@@ -280,74 +287,74 @@
               <tbody>
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P1</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P2</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P3</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P4</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P5</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P6</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P7</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
                 <tr class="text-center">
-                  <td></td>
                   <td>P8</td>
                   <td>2023-03-09</td>
                   <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-warning">Ver</button></td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
                 </tr>
 
 
@@ -360,6 +367,84 @@
     <div class="col-lg-2"></div>
   </div>
 
+
+  <div class="modal modal-lg fade" id="campoResModal" tabindex="-1" role="dialog" aria-labelledby="campoResModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-7" id="campoResModalLabel">Próximas Reservas</h5>
+          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
+            aria-label="Close">
+            <span> <i class="ti ti-x text-white"></i></span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <table class="table" id="tabela2">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">ID (Campo)</th>
+                <th scope="col">Data</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Membro</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="text-center">
+                <td>P1</td>
+                <td>2024-01-09</td>
+                <td>16:00</td>
+                <td>João Pedro</td>
+              </tr>
+
+              <tr class="text-center">
+                <td>P1</td>
+                <td>2024-01-09</td>
+                <td>16:00</td>
+                <td>João Pedro</td>
+              </tr>
+
+              <tr class="text-center">
+                <td>P1</td>
+                <td>2024-01-09</td>
+                <td>16:00</td>
+                <td>João Pedro</td>
+              </tr>
+
+              <tr class="text-center">
+                <td>P1</td>
+                <td>2024-01-09</td>
+                <td>16:00</td>
+                <td>João Pedro</td>
+              </tr>
+
+              <tr class="text-center">
+                <td>P1</td>
+                <td>2024-01-09</td>
+                <td>16:00</td>
+                <td>João Pedro</td>
+              </tr>
+
+              <tr class="text-center">
+                <td>P1</td>
+                <td>2024-01-09</td>
+                <td>16:00</td>
+                <td>João Pedro</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-lg-2"></div>
@@ -897,6 +982,9 @@
   <!--  current page js files -->
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
   <script>
     $(document).ready(function () {
       $('#tabela').DataTable({
@@ -913,7 +1001,45 @@
           "sLoadingRecords": "Carregando...",
           "sProcessing": "Processando...",
           "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, data, etc...)",
+          "sSearch": "Pesquisar (id, data, etc...)",
+          "oPaginate": {
+            "sNext": ">",
+            "sPrevious": "<",
+            "sFirst": "Primeiro",
+            "sLast": "Último"
+          },
+          "oAria": {
+            "sSortAscending": ": Ordenar colunas de forma ascendente",
+            "sSortDescending": ": Ordenar colunas de forma descendente"
+          },
+          "select": {
+            "rows": {
+              "_": "Selecionado %d linhas",
+              "0": "Nenhuma linha selecionada",
+              "1": "Selecionado 1 linha"
+            }
+          }
+        }
+      });
+    });
+
+
+    $(document).ready(function () {
+      $('#tabela2').DataTable({
+        responsive: true,
+        ordering: false,
+        "language": {
+          "sEmptyTable": "Nenhum registo encontrado",
+          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
+          "sInfoEmpty": "Mostrando 0 de 0 registros",
+          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+          "sInfoPostFix": "",
+          "sInfoThousands": ".",
+          "sLengthMenu": "_MENU_ resultados por página",
+          "sLoadingRecords": "Carregando...",
+          "sProcessing": "Processando...",
+          "sZeroRecords": "Nenhum registo encontrado",
+          "sSearch": "Pesquisar (data, hora, etc...)",
           "oPaginate": {
             "sNext": ">",
             "sPrevious": "<",
