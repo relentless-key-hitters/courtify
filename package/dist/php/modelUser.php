@@ -1372,7 +1372,7 @@ class User
         SELECT temp.posicao AS ranking
             FROM (
             SELECT ROW_NUMBER() OVER (ORDER BY ranking DESC) AS posicao, ranking, id_atleta
-            FROM info_basquetebol
+            FROM info_padel
             ORDER BY ranking DESC
             )AS temp
             WHERE temp.id_atleta = ".$id."
@@ -1414,7 +1414,18 @@ class User
     function getEstatisticasTenis($id)
     {
         global $conn;
-        $sql = "SELECT * FROM info_tenis WHERE id_atleta = '" . $id . "'";
+        $sql = "SELECT info_tenis.*, temp2.ranking AS posicao 
+        FROM info_tenis,
+        (
+        SELECT temp.posicao AS ranking
+            FROM (
+            SELECT ROW_NUMBER() OVER (ORDER BY ranking DESC) AS posicao, ranking, id_atleta
+            FROM info_tenis
+            ORDER BY ranking DESC
+            )AS temp
+            WHERE temp.id_atleta = ".$id."
+        )AS temp2
+        WHERE id_atleta = ".$id;
         $result = $conn->query($sql);
         $percVitorias1 = 0;
         $percVitorias = "";
@@ -1424,6 +1435,7 @@ class User
         $nMvp = 0;
         $percSetsGanhos = 0;
         $mediaPontosSet = 0;
+        $ranking = 0;
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 if ($row['n_jogos'] != 0) {
@@ -1440,22 +1452,35 @@ class User
                 $nPontos = $row['n_pontos_set'];
                 $nSetsGanhos = $row['n_set_ganhos'];
                 $nMvp = $row['n_mvp'];
+                $ranking = $row['posicao'];
             }
         }
-        $resp = array("modalidade" => "Ténis", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet);
+        $resp = array("modalidade" => "Ténis", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet, "ranking"=> $ranking);
         return ($resp);
     }
 
     function getEstatisticasBasquetebol($id)
     {
         global $conn;
-        $sql = "SELECT * FROM info_basquetebol WHERE id_atleta = '" . $id . "'";
+        $sql = "SELECT info_basquetebol.*, temp2.ranking AS posicao 
+        FROM info_basquetebol,
+        (
+        SELECT temp.posicao AS ranking
+            FROM (
+            SELECT ROW_NUMBER() OVER (ORDER BY ranking DESC) AS posicao, ranking, id_atleta
+            FROM info_basquetebol
+            ORDER BY ranking DESC
+            )AS temp
+            WHERE temp.id_atleta = ".$id."
+        )AS temp2
+        WHERE id_atleta = ".$id;
         $result = $conn->query($sql);
         $percVitorias1 = 0;
         $percVitorias = "";
         $nJogos = 0;
         $nPontos = 0;
         $nMvp = 0;
+        $ranking = 0;
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 if ($row['n_jogos'] != 0) {
@@ -1465,22 +1490,35 @@ class User
                 $nJogos = $row['n_jogos'];
                 $nPontos = $row['n_pontos'];
                 $nMvp = $row['n_mvp'];
+                $ranking = $row['posicao'];
             }
         }
-        $resp = array("modalidade" => "Basquetebol", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nMvp" => $nMvp);
+        $resp = array("modalidade" => "Basquetebol", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nMvp" => $nMvp, "ranking"=> $ranking);
         return ($resp);
     }
 
     function getEstatisticasFutsal($id)
     {
         global $conn;
-        $sql = "SELECT * FROM info_futsal WHERE id_atleta = '" . $id . "'";
+        $sql = "SELECT info_futsal.*, temp2.ranking AS posicao 
+        FROM info_futsal,
+        (
+        SELECT temp.posicao AS ranking
+            FROM (
+            SELECT ROW_NUMBER() OVER (ORDER BY ranking DESC) AS posicao, ranking, id_atleta
+            FROM info_futsal
+            ORDER BY ranking DESC
+            )AS temp
+            WHERE temp.id_atleta = ".$id."
+        )AS temp2
+        WHERE id_atleta = ".$id;
         $result = $conn->query($sql);
         $percVitorias1 = 0;
         $percVitorias = "";
         $nJogos = 0;
         $nGolos = 0;
         $nMvp = 0;
+        $ranking = 0;
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 if ($row['n_jogos'] != 0) {
@@ -1490,9 +1528,10 @@ class User
                 $nJogos = $row['n_jogos'];
                 $nGolos = $row['n_golos'];
                 $nMvp = $row['n_mvp'];
+                $ranking = $row['posicao'];
             }
         }
-        $resp = array("modalidade" => "Futsal", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nGolos" => $nGolos, "nMvp" => $nMvp);
+        $resp = array("modalidade" => "Futsal", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nGolos" => $nGolos, "nMvp" => $nMvp, "ranking"=> $ranking);
         return ($resp);
     }
 

@@ -84,11 +84,13 @@ function getEstatisticas(id){
                     $("#nJogosBasq").html(obj[i].nJogos)
                     $("#percVitBasq").html(obj[i].percVitorias)
                     $("#nMvpBasq").html(obj[i].nMvp)
+                    $("#rankingBasq").html(obj[i].ranking + "º")
                 }else if(obj[i].modalidade  == 'Futsal'){
                     $("#pontuacaoFutsal").html(obj[i].nGolos)
                     $("#nJogosFutsal").html(obj[i].nJogos)
                     $("#percVitFutsal").html(obj[i].percVitorias)
                     $("#nMvpFutsal").html(obj[i].nMvp)
+                    $("#rankingFutsal").html(obj[i].ranking + "º")
                 }else if(obj[i].modalidade == "Padel"){
                     $("#pontuacaoPadel").html(obj[i].nPontos)
                     $("#nJogosPadel").html(obj[i].nJogos)
@@ -106,6 +108,7 @@ function getEstatisticas(id){
                     $("#mediaVitSetTenis").html(obj[i].mediaPontosSet)
                     $("#mediaSetsGanhosTenis").html(obj[i].percSets)
                     $("#nMvpTenis").html(obj[i].nMvp)
+                    $("#rankingTenis").html(obj[i].ranking + "º")
                 }
             }
         })
