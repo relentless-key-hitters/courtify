@@ -805,7 +805,7 @@ if (isset($_SESSION['id'])) { ?>
                 </a>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
+                <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
                   <span>
                     <i class="ti ti-soccer-field"></i>
                   </span>

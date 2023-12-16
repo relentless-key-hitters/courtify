@@ -206,8 +206,8 @@ if (isset($_SESSION['id'])) { ?>
             <div class="container">
             <div class="mt-5">
               <div class="row arrow-container">
-                  <div class="col-md-4">
-                    <div class="card shadow" style="height: 250px">
+                  <div class="col-lg-4">
+                    <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">1</span>Descobrir</h4>
                       </div>
@@ -218,20 +218,20 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="card shadow" style="height: 250px">
+                  <div class="col-lg-4">
+                    <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">2</span>Juntar</h4>
                       </div>
                       <div class="card-body">
                         <p class="fs-4 card-text">Agora que encontras-te a marcação perfeita para ti, é altura de te juntares a ela.
-                          No fim de cada resultado, encontras um botão verde com o nome "Juntar-se". Clica, confirma a seleção, e já está!
+                          No fim de cada resultado, encontras um botão verde com o nome "Juntar". Clica, confirma a seleção, e já está!
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="card shadow" style="height: 250px">
+                  <div class="col-lg-4">
+                    <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">3</span>Jogar</h4>
                       </div>
@@ -421,7 +421,7 @@ if (isset($_SESSION['id'])) { ?>
                   </a>
                 </li>
                 <li class="sidebar-item">
-                  <a class="sidebar-link" href="marcacao_editavel.php" aria-expanded="false">
+                  <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
                     <span>
                       <i class="ti ti-soccer-field"></i>
                     </span>

@@ -46457,5 +46457,26 @@ ul {
   border: 6px solid #63a340;
 }
 
+.flex-container-badges {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; 
+}
+
+.flex-container-badges .card {
+  width: 100%;
+  max-width: 100%; 
+}
+
+@media (max-width: 782px) {
+  .flex-container-badges {
+    flex-wrap: wrap;
+  }
+
+  .flex-container-badges .card {
+    width: calc(50% - 0.5rem); /* Subtract half of the gap to fit two cards per row */
+    max-width: calc(50% - 0.5rem);
+  }
+}
 
 
