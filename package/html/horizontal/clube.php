@@ -242,7 +242,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="card border mb-3 shadow">
                       <div class="p-3">
                         <div class="text-center">
-                          <h4 class="fw-semibold mb-3 pb-2 text-center fs-7">Sobre
+                          <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Sobre
                           </h4>
                         </div>
                         <p id="descricaoCampo">
@@ -267,7 +267,7 @@ if (isset($_SESSION['id'])) {?>
 
                 <div class="card border shadow">
                   <div class="p-3">
-                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7">Serviços
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Serviços
                     </h4>
                     <div id="servicosCampo"></div>
                   </div>
@@ -275,7 +275,7 @@ if (isset($_SESSION['id'])) {?>
 
                 <div class="card border shadow">
                   <div class="p-3">
-                    <h4 class="fw-semibold mb-4 pb-2 text-center fs-7">Horários
+                    <h4 class="fw-semibold mb-4 pb-2 text-center fs-7 border-2 border-bottom border-light">Horários
                     </h4>
                     <div id="horariosCampo"></div>
                   </div>
@@ -283,7 +283,7 @@ if (isset($_SESSION['id'])) {?>
 
                 <div class="card border shadow">
                   <div class="p-3">
-                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7">Modalidades
+                    <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Modalidades
                     </h4>
                     <div id="modalidadesCampo" class="d-flex flex-wrap gap-2 justify-content-center">
 
