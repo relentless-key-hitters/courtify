@@ -2223,5 +2223,70 @@ class User
         return ($badgesRecentes);
     }
 
+    function getComunidades($idUser) {
+        global $conn;
+        $msg = "";
+        $sql = "SELECT 
+                comunidade.id AS idComunidade,
+                comunidade.nome AS nomeComunidade,
+                comunidade.foto AS fotoComunidade,
+                tipo_comunidade.descricao AS tipoComunidade,
+                modalidade.descricao AS tipoModalidade
+                FROM 
+                comunidade
+                INNER JOIN
+                comunidade_atletas ON comunidade.id = comunidade_atletas.id_comunidade
+                INNER JOIN
+                modalidade ON comunidade.id_modalidade = modalidade.id
+                INNER JOIN 
+                tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id
+                WHERE comunidade_atletas.id_atleta = ".$idUser."
+                LIMIT 2";
+
+        $result = $conn -> query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<div class='col-lg-12 col-md-6 col-sm-6'>
+                            <div class='shadow rounded d-flex align-items-center mt-3 position-relative'>
+                                <a href='./comunidade.php?id=".$row['idComunidade']."'>
+                                    <img src='../../dist/".$row['fotoComunidade']."' alt='".$row['nomeComunidade']."' class='img-fluid rounded-2 mt-3' width='100' height='100'>
+                                </a>
+                                <div class='ms-3 mt-3'>
+                                    <p><span class='fw-bolder fs-5'>".$row['nomeComunidade']."</span></p>";
+
+                if ($row['tipoModalidade'] == "Ténis") {
+                    $msg .= "<span class='badge bg-success rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Ténis</span>";
+                } else if ($row['tipoModalidade'] == "Futsal") {
+                    $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-football me-1'></i>Futsal</span>";
+                } else if ($row['tipoModalidade'] == "Basquetebol") {
+                    $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
+                } else {
+                    $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
+                }
+
+                $msg .= "<span><span class='fw-bolder'>Desde:</span> 21/03/2023</span>
+                                </div>
+                            </div>
+                        </div>";
+
+            }
+        } else {
+            if ($idUser != $_SESSION['id']) {
+                $msg .= "<div class='text-center mt-5'>
+                            <h4>Sem resultados!</h4>
+                            <p>Não existem comunidades associadas a este Utilizador.</p>
+                        </div>";
+            } else {
+                $msg .= "<div class='text-center mt-5'>
+                            <h4>Sem resultados!</h4>
+                            <p>Cria ou junta-te a Comunidades, e elas aparecerão aqui!</p>
+                        </div>";
+            }
+        }
+
+        $conn -> close();
+        return ($msg);
+    }
+
 
 }

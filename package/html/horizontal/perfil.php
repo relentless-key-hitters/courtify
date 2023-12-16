@@ -296,7 +296,7 @@ if (isset($_SESSION['id'])) { ?>
                     <div class="card-body">
                       <h4 class="fw-semibold mb-2 pb-2 text-center fs-7 border-2 border-bottom border-light">Comunidades
                       </h4>
-                      <div class="row">
+                      <div class="row" id="comunidadesPerfil">
                         <div class="col-lg-12 col-md-6">
                           <div class="d-flex align-items-center mt-4">
                             <img src="../../dist/images/backgrounds/w.png" alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">

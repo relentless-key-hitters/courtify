@@ -1012,10 +1012,39 @@ function getMelhoresBadges(badges){
     $("#melhoresBadges").html(msg);
 }
 
+function getComunidades() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let userId = urlParams.get('id');
+
+    let dados = new FormData();
+    dados.append("op", 32);
+    dados.append("userId", userId);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        $("#comunidadesPerfil").html(msg);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+
+}
+
 $(function() {
     getPerfilNavbar();
     getPerfil();
     getJogosRecentes();
+    getComunidades();
 
 });
 
