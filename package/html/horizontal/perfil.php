@@ -297,44 +297,6 @@ if (isset($_SESSION['id'])) { ?>
                       <h4 class="fw-semibold mb-2 pb-2 text-center fs-7 border-2 border-bottom border-light">Comunidades
                       </h4>
                       <div class="row" id="comunidadesPerfil">
-                        <div class="col-lg-12 col-md-6">
-                          <div class="d-flex align-items-center mt-4">
-                            <img src="../../dist/images/backgrounds/w.png" alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
-                            <div class="ms-3">
-                              <p><span class="fw-bolder fs-5">World Padel Club</span></p>
-                              <span class="badge rounded-pill text-bg-primary"><i class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
-                              <p class="mt-2"><span class="fw-bolder">Posição: </span>Esquerda</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6">
-                          <div class="d-flex align-items-center mt-2">
-                            <img src="../../dist/images/backgrounds/padelball3.png" alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
-                            <div class="ms-3">
-                              <p><span class="fw-bolder fs-5">Padel Ball 3</span></p>
-                              <span class="badge rounded-pill text-bg-primary"><i class="ti ti-ball-tennis me-1"></i><small>Padel</small></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6">
-                          <div class="d-flex align-items-center mt-2">
-                            <img src="../../dist/images/backgrounds/98.png" alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
-                            <div class="ms-3">
-                              <p><span class="fw-bolder fs-5">ETC</span></p>
-                              <span class="badge rounded-pill text-bg-success"><i class="ti ti-ball-tennis me-1"></i><small>Ténis</small></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6">
-                          <div class="d-flex align-items-center mt-2">
-                            <img src="../../dist/images/backgrounds/g.png" alt="Equipa 1" class="rounded-2 mb-3" width="100" height="100">
-                            <div class="ms-3">
-                              <p><span class="fw-bolder fs-5">Futsal Geckos</span></p>
-                              <span class="badge rounded-pill text-bg-danger"><i class="ti ti-ball-football me-1"></i><small>Futsal</small></span>
-                              <p class="mt-2"><span class="fw-bolder">Posição: </span>Extremo</p>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1144,9 +1106,10 @@ if (isset($_SESSION['id'])) { ?>
                           </div>
                         </div>
                       </div>
+                      <button class="owl-prev" data-owl="prev" data-carousel="carousel4"><i class="ti ti-chevron-left fs-10"></i></button>
+                      <button class="owl-next" data-owl="next" data-carousel="carousel4"><i class="ti ti-chevron-right fs-10"></i></button>
                     </div>
                   </div>
-
                 </div>
               </div>
               <div id="badgesTenis" class="d-none">
@@ -1330,6 +1293,8 @@ if (isset($_SESSION['id'])) { ?>
                           </div>
                         </div>
                       </div>
+                      <button class="owl-prev" data-owl="prev" data-carousel="carousel4"><i class="ti ti-chevron-left fs-10"></i></button>
+                      <button class="owl-next" data-owl="next" data-carousel="carousel4"><i class="ti ti-chevron-right fs-10"></i></button>
                     </div>
                   </div>
                 </div>
@@ -1515,6 +1480,8 @@ if (isset($_SESSION['id'])) { ?>
                           </div>
                         </div>
                       </div>
+                      <button class="owl-prev" data-owl="prev" data-carousel="carousel4"><i class="ti ti-chevron-left fs-10"></i></button>
+                      <button class="owl-next" data-owl="next" data-carousel="carousel4"><i class="ti ti-chevron-right fs-10"></i></button>
                     </div>
                   </div>
                 </div>
@@ -1688,6 +1655,8 @@ if (isset($_SESSION['id'])) { ?>
                           </div>
                         </div>
                       </div>
+                      <button class="owl-prev" data-owl="prev" data-carousel="carousel4"><i class="ti ti-chevron-left fs-10"></i></button>
+                      <button class="owl-next" data-owl="next" data-carousel="carousel4"><i class="ti ti-chevron-right fs-10"></i></button>
                     </div>
                   </div>
                 </div>
