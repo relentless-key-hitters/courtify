@@ -216,4 +216,60 @@ class Grupo
         $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
         return ($resp);
     }
+
+    function getGruposUser() {
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT 
+                comunidade.id AS idComunidade,
+                comunidade.nome AS nomeComunidade,
+                comunidade.foto AS fotoComunidade,
+                tipo_comunidade.descricao AS tipoComunidade,
+                modalidade.descricao AS tipoModalidade
+                FROM 
+                comunidade
+                INNER JOIN
+                comunidade_atletas ON comunidade.id = comunidade_atletas.id_comunidade
+                INNER JOIN
+                modalidade ON comunidade.id_modalidade = modalidade.id
+                INNER JOIN 
+                tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id
+                WHERE comunidade_atletas.id_atleta = ".$_SESSION['id']."
+                AND comunidade.tipo_comunidade = 1
+                LIMIT 12";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {       
+                $msg .= "<div class='col-md-2'>
+                            <div class='card hover-img shadow'>
+                            <div class='d-flex flex-column p-3 align-items-center mt-3'>
+                                <a href='./comunidade.php?id=".$row['idComunidade']."'><img src='../../dist/".$row['fotoComunidade']."' class='img-fluid' style='max-width: 100px;'></a>
+                                <span class='fs-4'>".$row['nomeComunidade']."</span>
+                                <a href='./comunidade.php?id=".$row['idComunidade']."'>
+                                    <button class='btn btn-primary btn-sm mt-3'>Ver</button>
+                                </a>";
+                if ($row['tipoModalidade'] == "Ténis") {
+                    $msg .= "<span class='badge bg-success rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Ténis</span>";
+                } else if ($row['tipoModalidade'] == "Futsal") {
+                    $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-football me-1'></i>Futsal</span>";
+                } else if ($row['tipoModalidade'] == "Basquetebol") {
+                    $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
+                } else  {
+                    $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
+                }                   
+                
+        
+                $msg .= "</div>
+                    </div>
+                </div>"; 
+            }
+        }
+
+        $conn -> close();
+
+        return ($msg);
+    }
 }
