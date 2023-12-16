@@ -14,33 +14,6 @@ class Descobrir
         $contagem = 0;
 
         $sql = "SELECT DISTINCT
-                    (SELECT 
-                        COUNT(*) as numRows
-                    FROM (
-                        SELECT 
-                            DISTINCT marcacao.id,
-                            COUNT(marcacao.id) as contagemMarcacoes
-                        FROM marcacao
-                        INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
-                        INNER JOIN campo ON marcacao.id_campo = campo.id
-                        INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
-                        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
-                        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
-                        INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
-                        INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
-                        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
-                        INNER JOIN concelho ON user_clube.localidade = concelho.id
-                        WHERE marcacao.tipo = 'aberta'
-                            AND listagem_atletas_marcacao.votacao = '2'
-                            AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
-                            AND marcacao.id_atleta != ".$_SESSION['id']."
-                        AND marcacao.id NOT IN (
-                                SELECT listagem_atletas_marcacao.id_marcacao 
-                                FROM listagem_atletas_marcacao 
-                                WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']."
-                        )     
-                        GROUP BY marcacao.id
-                    ) t) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
@@ -126,7 +99,7 @@ class Descobrir
                     $hora = new DateTime($row['horaInicioMarcacao']);
                     $stringHora = $hora->format('H:i');
 
-                    $contagem = $row['num_rows'];
+                    $contagem++;
                     $msg .=  "<div class='item' id='marcacao" . $row['idMarcacao'] . "'>
                                 <div class='mt-1'>
                                     <div class='card pt-5 pb-2 px-3 hover-img'>
@@ -291,34 +264,6 @@ class Descobrir
 
 
         $sql = "SELECT DISTINCT
-                    (SELECT 
-                        COUNT(*) as numRows
-                    FROM (
-                        SELECT 
-                            DISTINCT marcacao.id,
-                            COUNT(marcacao.id) as contagemMarcacoes
-                        FROM marcacao
-                        INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
-                        INNER JOIN campo ON marcacao.id_campo = campo.id
-                        INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
-                        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
-                        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
-                        INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
-                        INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
-                        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
-                        INNER JOIN concelho ON user_clube.localidade = concelho.id
-                        WHERE marcacao.tipo = 'aberta'
-                            AND listagem_atletas_marcacao.votacao = '2'
-                            AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
-                            AND concelho.descricao = '" . $localidadeUserLogin . "'
-                            AND marcacao.id_atleta != " . $_SESSION['id'] . "
-                        AND marcacao.id NOT IN (
-                                SELECT listagem_atletas_marcacao.id_marcacao 
-                                FROM listagem_atletas_marcacao 
-                                WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']." 
-                        )     
-                        GROUP BY marcacao.id
-                    ) t) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
@@ -392,7 +337,7 @@ class Descobrir
                     $hora = new DateTime($row['horaInicioMarcacao']);
                     $stringHora = $hora->format('H:i');
 
-                    $contagem = $row['num_rows'];
+                    $contagem++;
                     $msg .=  "<div class='item' id='marcacao" . $row['idMarcacao'] . "'>
                             <div class='mt-1'>
                                 <div class='card pt-5 pb-2 px-3 hover-img' height='300px'>
@@ -450,7 +395,7 @@ class Descobrir
                                 <span class='fs-3'>Participantes</span>
                             </div>
                             <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>
-                                <div class='col-md-2 d-flex overflow-y-auto'>
+                                <div class='col-md-2 mb-2'>
                                     <a href='./perfil.php?id=" . $row['idAtletaHost'] . "'><img src='../../dist/" . $row['fotoAtletaHost'] . "' alt='Participant 2' class='rounded-circle border border-2 border-success' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row['nomeAtletaHost'] . " (Host)' style='cursor: pointer;'></a>
                                 </div>";
 
@@ -542,33 +487,6 @@ class Descobrir
         $contagem = 0;
 
         $sql = "SELECT DISTINCT
-                    (SELECT 
-                        COUNT(*) as numRows
-                    FROM (
-                        SELECT 
-                            DISTINCT marcacao.id,
-                            COUNT(marcacao.id) as contagemMarcacoes
-                        FROM marcacao
-                        INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
-                        INNER JOIN campo ON marcacao.id_campo = campo.id
-                        INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
-                        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
-                        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube
-                        INNER JOIN user AS user_clube ON clube.id_clube = user_clube.id
-                        INNER JOIN user AS user_atleta ON listagem_atletas_marcacao.id_atleta = user_atleta.id
-                        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
-                        INNER JOIN concelho ON user_clube.localidade = concelho.id
-                        WHERE marcacao.tipo = 'aberta'
-                            AND listagem_atletas_marcacao.votacao = '2'
-                            AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
-                            AND marcacao.id_atleta != ".$_SESSION['id']."
-                        AND marcacao.id NOT IN (
-                                SELECT listagem_atletas_marcacao.id_marcacao 
-                                FROM listagem_atletas_marcacao 
-                                WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']." 
-                        )     
-                        GROUP BY marcacao.id
-                    ) t) AS num_rows,
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
@@ -639,7 +557,7 @@ class Descobrir
                     $hora = new DateTime($row['horaInicioMarcacao']);
                     $stringHora = $hora->format('H:i');
 
-                    $contagem = $row['num_rows'];
+                    $contagem++;
                     $msg .=  "<div class='item' id='marcacao" . $row['idMarcacao'] . "'>
                                 <div class='mt-1'>
                                     <div class='card pt-5 pb-2 px-3 hover-img'>
