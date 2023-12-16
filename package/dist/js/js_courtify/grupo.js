@@ -43,7 +43,7 @@ function getMarcacoesAbertasGrupos() {
       obj.msg ==
       "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>"
     ) {
-      $("#cardCarousel3").html(obj.msg);
+      $("#cardCarousel4").html(obj.msg);
     } else {
       $("#marcacaoGrupos").html(obj.msg);
     }

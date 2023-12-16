@@ -266,6 +266,8 @@ class Grupo
                     </div>
                 </div>"; 
             }
+        } else {
+            $msg .= "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não estás associado a nenhum Grupo. Podes criar o teu próprio no botão no canto superior direito, ou juntares-te a Grupos existentes!</p></div>";
         }
 
         $conn -> close();
