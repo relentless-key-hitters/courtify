@@ -24,6 +24,8 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
+    <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
+
     <style>
       body {
         overflow-x: hidden;
@@ -392,7 +394,7 @@ if (isset($_SESSION['id'])) { ?>
             </div>
           </div>
 
-          <div class="m-5">
+          <div class="m-5 p-5">
             <div class="row mt-2">
               <div class="col-sm-12 mt-2 mt-md-0 col-lg-3" data-aos="fade-right" data-aos-delay="600" data-aos-duration="1000">
                 <div class="card">
@@ -784,6 +786,7 @@ if (isset($_SESSION['id'])) { ?>
 
     <!-- Import Js Files -->
     <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../../landingpage/dist/libs/aos/dist/aos.js"></script>
     <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
     <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- core files -->
@@ -798,8 +801,19 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
     <script src="../../dist/js/js_courtify/user.js"></script>
     <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-
+    <script src="../../../landingpage/dist/js/custom.js"></script>
     <script src="../../dist/js/js_courtify/notificacao.js"></script>
+
+    <script src="../../../landingpage/dist/js/landingpage.js"></script>
+
+    <style>
+    .card {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  </style>
+
+
 
 
 

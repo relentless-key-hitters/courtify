@@ -549,6 +549,9 @@ function getEditInfo(){
 }
 
 function guardaEditInfo(){
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get("id");
+
     let dados = new FormData();
     dados.append("op", 13);
     dados.append("nome", $("#nomeEdit").val());
@@ -573,6 +576,7 @@ function guardaEditInfo(){
         .done(function(msg) {
             let obj = JSON.parse(msg);
             alerta2("Utilizador", obj.msg, obj.icon);
+            setTimeout(function () { location.href = "./perfil.php?id=" + obj.id; }, 3000);
         })
         .fail(function( jqXHR, textStatus ) {
         alert( "Request failed: " + textStatus );

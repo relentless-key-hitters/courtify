@@ -664,7 +664,8 @@ class User
         $resp = json_encode(array(
             "msg" => $msg,
             "icon" => $icon,
-            "flag" => $flag
+            "flag" => $flag,
+            "id" => $_SESSION['id']
         ));
 
         $conn->close();
