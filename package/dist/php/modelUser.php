@@ -1873,10 +1873,26 @@ class User
         return ($resp);
     }
 
-    function getJogosRecentes($idUser)
+    function getJogosRecentes($idUser, $offset, $porPagina)
     {
         global $conn;
         $msg = "";
+
+        $offset = max(0, $offset); // Ter a certeza que o offset não é inferior a 0, se sim, mete a 0
+
+        $sqlContagem = "SELECT COUNT(*) AS total FROM listagem_atletas_marcacao
+                INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+                INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo
+                INNER JOIN campo ON campo_clube.id_campo = campo.id 
+                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+                INNER JOIN clube ON campo_clube.id_clube = clube.id_clube  
+                INNER JOIN user ON clube.id_clube = user.id  
+                WHERE listagem_atletas_marcacao.id_atleta = " . $idUser . " 
+                AND listagem_atletas_marcacao.votacao = 1";
+
+        $resultadoContagem = $conn->query($sqlContagem);
+        $totalRows = $resultadoContagem->fetch_assoc();
+        $itemsTotais = $totalRows['total'];
 
         $sql = "SELECT 
                 listagem_atletas_marcacao.id_marcacao as idMarcacao,
@@ -1898,9 +1914,12 @@ class User
                 INNER JOIN user ON clube.id_clube = user.id  
                 WHERE listagem_atletas_marcacao.id_atleta = " . $idUser . " 
                 AND listagem_atletas_marcacao.votacao = 1
-                LIMIT 5";
+                LIMIT ".$offset.", ".$porPagina;
 
         $result = $conn->query($sql);
+
+        $paginasTotais = ceil($itemsTotais / $porPagina);
+        $paginaAtual = ceil(($offset + 1) / $porPagina);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -2014,7 +2033,9 @@ class User
         }
 
         $conn->close();
-        return ($msg);
+
+        $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual);
+        return json_encode($data);
     }
     function getModalRemoverAmizade($id) {
         $msg = "<button type='button' class='btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3'

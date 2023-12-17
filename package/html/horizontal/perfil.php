@@ -308,6 +308,9 @@ if (isset($_SESSION['id'])) { ?>
                       <div id="jogosRecentes">
 
                       </div>
+                      <div id="paginacaoJogosRecentes">
+
+                      </div>
                     </div>
                   </div>
                 </div>

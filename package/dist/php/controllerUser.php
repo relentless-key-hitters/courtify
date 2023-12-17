@@ -90,7 +90,11 @@ if ($_POST['op'] == 1){
     $res = $user -> rejeitarPedido($_POST['id']);
     echo($res);
 }else if($_POST['op'] == 29){
-    $res = $user -> getJogosRecentes($_POST['idUser']);
+    $pagina = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
+    $porPagina = 1; // Número de resultados por página
+    $offset = ($pagina - 1) * $porPagina;
+
+    $res = $user -> getJogosRecentes($_POST['idUser'], $offset, $porPagina);
     echo($res);
 }else if($_POST['op'] == 30){
     $res = $user -> getModalRemoverAmizade($_POST['idAmigo']);

@@ -177,13 +177,14 @@ function getPerfilNavbar() {
         });
 }
 
-function getJogosRecentes() {
+function getJogosRecentes(pagina) {
     urlParams = new URLSearchParams(window.location.search);
     let idUser = urlParams.get('id');
 
     let dados = new FormData();
     dados.append("op", 29);
     dados.append("idUser", idUser);
+    dados.append("pagina", pagina);
 
     $.ajax({
         url: "../../dist/php/controllerUser.php",
@@ -196,13 +197,59 @@ function getJogosRecentes() {
     })
 
     .done(function(msg) {
-        $("#jogosRecentes").html(msg);
+        let obj = JSON.parse(msg);
+        $("#jogosRecentes").html(obj.msg);
+
+        adicionarLinksPaginacaoJogosRecentes(obj.paginasTotais, obj.paginaAtual);
     })
 
     .fail(function( jqXHR, textStatus ) {
         alert( "Request failed: " + textStatus ); 
     });
 
+}
+
+function adicionarLinksPaginacaoJogosRecentes(paginasTotais, paginaAtual) {
+    let msgHtml = "<nav aria-label='Page navigation example' class='d-flex justify-content-end'>";
+    msgHtml += "<ul class='pagination bg-light me-3'>";
+
+
+    msgHtml += "<li class='page-item " + (paginaAtual === 1 ? "disabled" : "") + "'>";
+    msgHtml += "<a class='page-link link' href='#' data-page='" + (paginaAtual - 1) + "'>Anterior</a>";
+    msgHtml += "</li>";
+
+
+    const maximoBotoesPagina = 5;
+
+    // Calcular as páginas iniciaius e finais a mostrar consoant a restrição
+    let paginaInicio = Math.max(1, paginaAtual - Math.floor(maximoBotoesPagina / 2));
+    let paginaFim = Math.min(paginasTotais, paginaInicio + maximoBotoesPagina - 1);
+    
+    // Ajustar a página inicial se esta ultrapassar o intervalo válido
+    paginaInicio = Math.max(1, paginaFim - maximoBotoesPagina + 1);
+    
+    // Botões da página
+    for (let i = paginaInicio; i <= paginaFim; i++) {
+        msgHtml += "<li class='page-item " + (i === paginaAtual ? "active" : "") + "'>";
+        msgHtml += "<a class='page-link link' href='#' data-page='" + i + "'>" + i + "</a>";
+        msgHtml += "</li>";
+    }
+
+
+    msgHtml += "<li class='page-item " + (paginaAtual === paginasTotais ? "disabled" : "") + "'>";
+    msgHtml += "<a class='page-link link' href='#' data-page='" + (paginaAtual + 1) + "'>Próximo</a>";
+    msgHtml += "</li>";
+
+    msgHtml += "</ul></nav>";
+
+    $("#paginacaoJogosRecentes").html(msgHtml);
+
+    // Event listener para os botões da página que redirecionam para outras páginas para impedir o recarregamento da página
+    $(".page-link.link").on("click", function(event) {
+        event.preventDefault();
+        let paginaClicada = $(this).data("page");
+        getJogosRecentes(paginaClicada);
+    });
 }
 
 function alerta(titulo,msg,icon){
@@ -1043,7 +1090,7 @@ function getComunidades() {
 $(function() {
     getPerfilNavbar();
     getPerfil();
-    getJogosRecentes();
+    getJogosRecentes(1);
     getComunidades();
 
 });
