@@ -70,7 +70,7 @@ function getMarcacoesAbertasGrupos() {
           },
         });
       });
-    }, 500);
+    }, 1000);
   })
 
     .fail(function (jqXHR, textStatus) {

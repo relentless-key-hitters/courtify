@@ -20,7 +20,7 @@ function getPerfil(){
         .done(function(msg) {
 
             let obj = JSON.parse(msg);
-            console.log(obj);
+
             
             $("#fotoCapaView").attr('src', obj.fotoCapa);
             $("#perfil3").attr('src', obj.fotoPerfil);
@@ -76,7 +76,7 @@ function getEstatisticas(id){
         })
 
         .done(function(msg) {
-            console.log(msg)
+
             let obj = JSON.parse(msg);
             for(let i = 0; i < obj.length; i++){
                 if(obj[i].modalidade == 'Basquetebol'){
@@ -234,7 +234,7 @@ function getValoresBadges(valores){
         if(valores[i][0] == "Basquetebol"){
             let cont = 0;
             let vit = valores[i][1];
-            console.log(vit)
+
             if(vit >= 20){
                 $("#quantidadePerc20B").html(20+"/20%");
                 cont += 1;
@@ -574,7 +574,7 @@ function getValoresBadges(valores){
         }else if(valores[i][0] == "Padel"){
             let cont = 0;
             let vit = valores[i][1];
-            console.log(vit)
+
             if(vit >= 20){
                 $("#quantidadePerc20").html(20+"/20%");
                 cont += 1;
@@ -744,7 +744,7 @@ function getValoresBadges(valores){
         }else{
             let cont = 0;
             let vit = valores[i][1];
-            console.log(vit)
+
             if(vit >= 20){
                 cont += 1;
                 $("#quantidadePerc20T").html(20+"/20%");
@@ -847,7 +847,7 @@ function getValoresBadges(valores){
             if(nPontos >= 10){
                 $("#quantidadeT10Pnt").html(10+"/10");
                 cont += 1;
-                console.log(cont);
+
             }else{
                 $("#quantidadeT10Pnt").html(nPontos+"/10");
             }
@@ -859,7 +859,7 @@ function getValoresBadges(valores){
             if(nPontos >= 30){
                 $("#quantidadeT30Pnt").html(30+"/30");
                 cont += 1;
-                console.log(cont);
+
             }else{
                 $("#quantidadeT30Pnt").html(nPontos+"/30");
             }

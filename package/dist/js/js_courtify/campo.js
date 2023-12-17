@@ -71,7 +71,6 @@ function getCampos(localidade, pagina) {
 
         .done(function(msg) {
             let obj = JSON.parse(msg);
-            console.log(obj);
             obsCampos = obj.dados;
             obsUser = obj.localidadeUser;
             $("#rowCampos").html(obj.html);

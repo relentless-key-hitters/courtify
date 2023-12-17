@@ -17,7 +17,6 @@ function getNotificacao(){
         })
 
         .done(function(msg) {
-            console.log(msg);
             $("#divNotificacoesVotacao").html(msg)
         })
         

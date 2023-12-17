@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
           let obj = JSON.parse(msg);
           $("#proximosJogosCalendario").html(obj.msg);
           arrayCalendario = obj.arrayCalendario;
-          console.log(arrayCalendario);
 
           
           popularCalendario();

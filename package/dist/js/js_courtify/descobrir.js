@@ -16,7 +16,7 @@ function getMarcacoesAbertasAmigos() {
 
     .done(function (msg) {
       let obj = JSON.parse(msg);
-      console.log(obj.msg)
+
       $("#quantidadeMarcacoesAmigos").text(obj.contagem);
 
       if(obj.msg == "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>") {
@@ -50,7 +50,6 @@ function getMarcacoesAbertasModalidades() {
 
     .done(function (msg) {
       let obj = JSON.parse(msg);
-      console.log(obj.msg)
       $("#quantidadeMarcacoesModalidades").text(obj.contagem);
 
       if(obj.msg == "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não existem marcações abertas que se apliquem a este contexto. Verifica mais tarde!</p></div>") {

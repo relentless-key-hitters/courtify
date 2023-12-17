@@ -997,10 +997,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/custom.js"></script>
   <!-- current page js files -->
   <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="../../dist/js/dashboard.js"></script>
   <script src="../../dist/js/apps/chat.js"></script>
-  <script src="../../dist/js/widgets-charts.js"></script>
   <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../../dist/libs/dropzone/dist/min/dropzone.min.js"></script>
   <script src="../../dist/js/js_courtify/sweatalert.js"></script>
