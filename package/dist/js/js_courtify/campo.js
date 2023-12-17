@@ -74,7 +74,6 @@ function getCampos(localidade, pagina) {
             obsCampos = obj.dados;
             obsUser = obj.localidadeUser;
             $("#rowCampos").fadeOut("fast", function() {
-                obsCampos = obj.dados
                 $(this).html("");
                 
                 
