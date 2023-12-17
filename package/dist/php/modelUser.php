@@ -958,16 +958,17 @@ class User
                         <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
                             <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
                             <div class='p-3'>
-                                <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
+                                <span class='fs-4 text-dark mt-2'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
+                                <h5 class='m-0 p-0 card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
                                 <div class='d-flex justify-content-around'>
-                                    <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
-                                    <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
-                                    <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
+                                    <p class='m-0 p-0 card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
+                                    <p class='m-0 p-0 card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
+                                    <p class='m-0 p-0 card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
                                 </div>
                                 <a href='./clube.php?id=" . $row['idClube'] . "'>
-                                        <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
+                                        <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
                                 </a>
-                                <div class='mt-2 mb-2'>
+                                <div class='mt-1 mb-1'>
                                     <span class='fs-3'>Participantes</span>
                                 </div>
                                 <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
@@ -1021,16 +1022,17 @@ class User
                             <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
                                 <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
                                 <div class='p-3'>
-                                    <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
+                                    <span class='fs-4 text-dark mt-2'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
+                                    <h5 class='m-0 p-0 card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
                                     <div class='d-flex justify-content-around'>
-                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
-                                        <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
-                                        <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
+                                        <p class='m-0 p-0 card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
+                                        <p class='m-0 p-0 card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
+                                        <p class='m-0 p-0 card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
                                     </div>
                                     <a href='./clube.php?id=" . $row['idClube'] . "'>
-                                            <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
+                                            <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
                                     </a>
-                                    <div class='mt-2 mb-2'>
+                                    <div class='mt-1 mb-1'>
                                         <span class='fs-3'>Participantes</span>
                                     </div>                                    
                                     <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
@@ -1078,16 +1080,17 @@ class User
                             <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
                                 <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
                                 <div class='p-3'>
-                                    <h5 class='card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
+                                    <span class='fs-4 text-dark mt-1'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
+                                    <h5 class='m-0 p-0 card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
                                     <div class='d-flex justify-content-around'>
-                                        <p class='card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
-                                        <p class='card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
-                                        <p class='card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
+                                        <p class='m-0 p-0 card-text fs-6'><i class='ti ti-calendar me-1'></i>" . $stringData . "</p>
+                                        <p class='m-0 p-0 card-text fs-6'>&nbsp;&nbsp;&nbsp;</p> 
+                                        <p class='m-0 p-0 card-text fs-6'><i class='ti ti-clock me-1'></i>" . $stringHora . "</p>
                                     </div>
                                     <a href='./clube.php?id=" . $row['idClube'] . "'>
-                                            <p class='card-text fs-4 mb-2'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
+                                            <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
                                     </a>
-                                    <div class='mt-2 mb-2'>
+                                    <div class='mt-1 mb-1'>
                                         <span class='fs-3'>Participantes</span>
                                     </div>
                                     <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
