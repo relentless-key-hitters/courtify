@@ -91,7 +91,7 @@ if ($_POST['op'] == 1){
     echo($res);
 }else if($_POST['op'] == 29){
     $pagina = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
-    $porPagina = 1; // Número de resultados por página
+    $porPagina = 2; // Número de resultados por página
     $offset = ($pagina - 1) * $porPagina;
 
     $res = $user -> getJogosRecentes($_POST['idUser'], $offset, $porPagina);

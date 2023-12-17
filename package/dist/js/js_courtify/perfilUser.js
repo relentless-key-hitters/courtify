@@ -424,7 +424,7 @@ function getValoresBadges(valores){
             }else{
                 $("#quantidadeB1000Pnt").html(nPontos+"/1000");
             }
-            $("#progressBaB1000Pnt").css("width", (nPontos/1000)*100 + "%");
+            $("#progressBarB1000Pnt").css("width", (nPontos/1000)*100 + "%");
             gradiente("#progressBarB1000Pnt", (nPontos/1000)*100);
             opacidadeGreyScale("#imgB1000Pnt", (nPontos/1000))
 

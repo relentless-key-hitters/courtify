@@ -1938,7 +1938,7 @@ class User
                                         $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-warning'>
                                                     <i class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
-                                    } else if($row['modalidadeMarcacao'] == "Futebol") {
+                                    } else if($row['modalidadeMarcacao'] == "Futsal") {
                                         $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-danger mt-2'>
                                                     <i class='ti ti-ball-football me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
@@ -1952,7 +1952,7 @@ class User
                                                 </span>";
                                     }
                                     $msg .= "<img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
-                                                 class='mt-3 img-fluid object-fit-cover rounded-2 border border-1 border-primary'>";
+                                                 class='mt-3 img-fluid object-fit-cover rounded-2 border border-1 border-primary' style='height: 100px; width: 150px;'>";
                                     $msg .= "</div>
                                     <div class='col-md-3 mt-3'>
                                     <small class='fs-4'>".$row['nomeClube']."</small><br>
