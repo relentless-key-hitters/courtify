@@ -46,7 +46,7 @@ class Amigo
                             <div class='card hover-img'>
                                 <div class='card-body p-4 text-center border-bottom'>
                                     <a href='./perfil.php?id=".$row['idAmigo']."'>
-                                        <img src='../../dist/".$row['fotoAmigo']."' alt='' class='rounded-circle mb-3 object-fit-cover'
+                                        <img src='../../dist/".$row['fotoAmigo']."' alt='' class='rounded-circle mb-3'
                                             height='100' width='100' style='border: 2px solid transparent; border-radius: 50%; transition: border-color 0.3s;' onmouseover='this.style.borderColor=\"#044967\";' onmouseout='this.style.borderColor=\"transparent\";'>
                                     </a>
                         

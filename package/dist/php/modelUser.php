@@ -1182,7 +1182,8 @@ class User
                         $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_futsal";
                     }
-                    $nPontos .=  $row['n_pontos'] + $numPontos;
+                    $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
+                    $nPontos .=  $row[$columnNamePontos] + $numPontos;
                     $nVitorias .= $row['n_vitorias'] + 1;
                     $percVitorias .=  ($nVitorias / ( $row['n_jogos'] + 1))*100;
                 } else {
@@ -1193,7 +1194,8 @@ class User
                         $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_futsal";
                     }
-                    $nPontos .=  $row['n_pontos'] + $numPontos;
+                    $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
+                    $nPontos .=  $row[$columnNamePontos] + $numPontos;
                     $nVitorias .= $row['n_vitorias'];
                     $percVitorias .=  ($nVitorias / $row['n_jogos'])*100;
                 }
@@ -1914,6 +1916,7 @@ class User
                 INNER JOIN user ON clube.id_clube = user.id  
                 WHERE listagem_atletas_marcacao.id_atleta = " . $idUser . " 
                 AND listagem_atletas_marcacao.votacao = 1
+                ORDER BY marcacao.data_inicio DESC
                 LIMIT ".$offset.", ".$porPagina;
 
         $result = $conn->query($sql);
@@ -2222,7 +2225,7 @@ class User
     function getBadgesRecentes($id){
         global $conn;
         $badgesRecentes = array();
-        $sql = "SELECT badge.*, atleta_badges.dataAq
+        $sql = "SELECT DISTINCT badge.*, atleta_badges.dataAq
         FROM badge INNER JOIN
         atleta_badges ON badge.id = atleta_badges.id_badge
         WHERE 
