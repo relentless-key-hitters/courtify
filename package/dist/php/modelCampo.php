@@ -43,28 +43,44 @@ class Campo
         return ($msg);
     }
 
-    function getCampo($localidadeUser)
+    function getCampo($localidadeUser, $offset, $porPagina)
     {
         global $conn;
         $msg = "";
         $dados = array();
+    
+        $offset = max(0, $offset);
+
+        // Retrieve total count without LIMIT clause
+        $sqlCount = "SELECT COUNT(*) AS total FROM user
+            INNER JOIN clube ON user.id = clube.id_clube 
+            INNER JOIN concelho ON user.localidade = concelho.id
+            INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
+            INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id";
+        $resultCount = $conn->query($sqlCount);
+        $rowCount = $resultCount->fetch_assoc();
+        $itemsTotais = $rowCount['total'];
 
         $sql = "SELECT clube.id_clube AS idClube,  
-        user.foto AS fotoClube, 
-        user.nome AS nomeClube, 
-        clube.descricao AS clubeDesc,  
-        user.morada AS moradaClube, 
-        concelho.descricao AS descConcelho,
-        distrito.descricao AS descDistrito, 
-        user.lat as lat, 
-        user.lon as lon 
-        FROM user 
-        INNER JOIN clube ON user.id = clube.id_clube 
-        INNER JOIN concelho ON user.localidade = concelho.id
-        INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
-        INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
-        LIMIT 12";
+                user.foto AS fotoClube, 
+                user.nome AS nomeClube, 
+                clube.descricao AS clubeDesc,  
+                user.morada AS moradaClube, 
+                concelho.descricao AS descConcelho,
+                distrito.descricao AS descDistrito, 
+                user.lat as lat, 
+                user.lon as lon 
+                FROM user 
+                INNER JOIN clube ON user.id = clube.id_clube 
+                INNER JOIN concelho ON user.localidade = concelho.id
+                INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
+                INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id
+                LIMIT ".$offset.", ".$porPagina;
+
         $result = $conn->query($sql);
+
+        $paginasTotais = ceil($itemsTotais / $porPagina);
+        $paginaAtual = ceil(($offset + 1) / $porPagina);
 
 
         if ($result->num_rows > 0) {
@@ -121,9 +137,10 @@ class Campo
         }
 
 
+
         $conn->close();
 
-        $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser);
+        $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual);
         return json_encode($data);
     }
 

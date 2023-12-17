@@ -349,33 +349,7 @@ if (isset($_SESSION['id'])) {?>
 
               </div>
             </div>
-            <nav aria-label="Page navigation example" class="bg-light d-flex justify-content-end">
-              <ul class="pagination bg-light me-3">
-                <li class="page-item">
-                  <a class="page-link link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">
-                      <i class="ti ti-chevrons-left fs-4"></i>
-                    </span>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link link" href="#" aria-label="Next">
-                    <span aria-hidden="true">
-                      <i class="ti ti-chevrons-right fs-4"></i>
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <div id="paginationContainer"></div>
           </div>
         </div>
         <div class="divider d-none d-xxl-flex" id="divider">

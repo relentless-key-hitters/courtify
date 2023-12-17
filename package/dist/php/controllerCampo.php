@@ -5,7 +5,11 @@ require_once 'modelCampo.php';
 $campo = new Campo();
 
 if ($_POST['op'] == 1){
-    $res = $campo -> getCampo($_POST['localidade']);
+    $pagina = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
+    $porPagina = 1; // Número de resultados por página
+    $offset = ($pagina - 1) * $porPagina;
+
+    $res = $campo->getCampo($_POST['localidade'], $offset, $porPagina);
     echo($res);
 } else if ($_POST['op'] == 2){
     $res = $campo -> getUserLocation();
