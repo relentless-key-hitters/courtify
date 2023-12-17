@@ -985,7 +985,6 @@ class User
                         
                         if ($result2->num_rows > 0) {
                             while ($row2 = $result2->fetch_assoc()) {
-                                if ($row2['idAtleta'] != $row['idAtletaHost']) {
                                     if($row2['idAtleta'] == $_SESSION['id']) {
                                         $msgA .= "<div class='col-md-2 mb-2'>
                                             <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
@@ -995,7 +994,6 @@ class User
                                             <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
                                         </div>";
                                     }
-                                }
                             }
                         }
                         
