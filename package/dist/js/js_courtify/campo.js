@@ -73,7 +73,7 @@ function getCampos(localidade, pagina) {
             let obj = JSON.parse(msg);
             obsCampos = obj.dados;
             obsUser = obj.localidadeUser;
-            $("#rowCampos").html(obj.html);
+            $("#rowCampos").hide().html(obj.html).fadeIn('slow');
 
             adicionarLinksPaginacao(obj.paginasTotais, obj.paginaAtual, obj.localidadeUser);
 
