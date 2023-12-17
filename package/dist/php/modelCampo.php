@@ -51,15 +51,18 @@ class Campo
     
         $offset = max(0, $offset);
 
-        // Retrieve total count without LIMIT clause
-        $sqlCount = "SELECT COUNT(*) AS total FROM user
+
+        $sqlContagem = "SELECT COUNT(*) AS total FROM user
             INNER JOIN clube ON user.id = clube.id_clube 
             INNER JOIN concelho ON user.localidade = concelho.id
             INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho
             INNER JOIN distrito ON distrito_concelho.id_distrito = distrito.id";
-        $resultCount = $conn->query($sqlCount);
-        $rowCount = $resultCount->fetch_assoc();
-        $itemsTotais = $rowCount['total'];
+
+        $resultadoContagem = $conn->query($sqlContagem);
+
+        $totalRows = $resultadoContagem->fetch_assoc();
+        
+        $itemsTotais = $totalRows['total'];
 
         $sql = "SELECT clube.id_clube AS idClube,  
                 user.foto AS fotoClube, 
