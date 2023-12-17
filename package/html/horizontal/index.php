@@ -238,7 +238,7 @@ if (isset($_SESSION['id'])) { ?>
           </div>
         </div>
 
-        <section class="bg-light-primary hero-section position-relative overflow-hidden pt-2 pt-lg-7 pt-xl-9 pb-8 pb-lg-9">
+        <section class="bg-light hero-section position-relative overflow-hidden pt-2 pt-lg-7 pt-xl-9 pb-8 pb-lg-9">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-xl-9">
@@ -294,7 +294,7 @@ if (isset($_SESSION['id'])) { ?>
             </div>
           </div>
         </section>
-        <section class="features-section bg-light-primary pt-lg-7 pt-sm-3 pb-8 pb-lg-9" id="features-courtify">
+        <section class="features-section bg-light pt-lg-7 pt-sm-3 pb-8 pb-lg-9" id="features-courtify">
           <div class="container">
             <div class="row justify-content-center mt-3">
               <div class="col-lg-10">
@@ -546,7 +546,7 @@ if (isset($_SESSION['id'])) { ?>
           </div>
 
         </section>
-        <section class="pt-lg-7 pt-sm-3 pb-8 pb-lg-9 bg-light-primary" id="equipa-courtify">
+        <section class="pt-lg-7 pt-sm-3 pb-8 pb-lg-9 bg-light" id="equipa-courtify">
           <div class="container">
             <div class="row">
 
