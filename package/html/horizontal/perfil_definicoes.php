@@ -25,6 +25,8 @@ if (isset($_SESSION['id'])) {?>
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
+  
+
   <style>
     body {
         overflow-x: hidden;
@@ -58,6 +60,9 @@ if (isset($_SESSION['id'])) {?>
           </li>
         </ul>
         <ul class="navbar-nav quick-links d-none d-xl-flex">
+          <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./index.php">Home</a>
+          </li>
           <li class="nav-item dropdown-hover d-none d-xl-block">
             <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
           </li>

@@ -180,7 +180,7 @@ function login(){
                 }else{
                     alerta2(obj.title, obj.msg, obj.icon); 
                     setTimeout(function(){ 
-                        window.location.href = "../horizontal/perfil.php?id=" + obj.id;
+                        window.location.href = "../horizontal/index.php";
                     }, 2000);
                 }
 
