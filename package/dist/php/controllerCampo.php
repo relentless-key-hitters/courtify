@@ -6,7 +6,7 @@ $campo = new Campo();
 
 if ($_POST['op'] == 1){
     $pagina = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
-    $porPagina = 4; // Número de resultados por página
+    $porPagina = 8; // Número de resultados por página
     $offset = ($pagina - 1) * $porPagina;
 
     $res = $campo->getCampo($_POST['localidade'], $offset, $porPagina);
