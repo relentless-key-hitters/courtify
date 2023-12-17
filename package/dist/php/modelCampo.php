@@ -49,7 +49,8 @@ class Campo
         $msg = "";
         $dados = array();
     
-        $offset = max(0, $offset);
+
+        $offset = max(0, $offset); // Ter a certeza que o offset não é inferior a 0, se sim, mete a 0
 
 
         $sqlContagem = "SELECT COUNT(*) AS total FROM user
@@ -61,7 +62,7 @@ class Campo
         $resultadoContagem = $conn->query($sqlContagem);
 
         $totalRows = $resultadoContagem->fetch_assoc();
-        
+
         $itemsTotais = $totalRows['total'];
 
         $sql = "SELECT clube.id_clube AS idClube,  
