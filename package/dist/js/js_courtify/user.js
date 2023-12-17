@@ -327,7 +327,7 @@ function contRegisto(){
                 let obj = JSON.parse(msg);
                 alerta2("Sucesso", obj.mensagem, "success");
                 setTimeout(function(){ 
-                    window.location.href = "../../html/horizontal/perfil.php?id=" + obj.idAtleta;
+                    window.location.href = "../../html/horizontal/index.php";
                 }, 2000);
             })
             
