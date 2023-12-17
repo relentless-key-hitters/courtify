@@ -47,7 +47,7 @@ if (isset($_SESSION['id'])) {?>
       <nav class="navbar navbar-expand-xl navbar-light container-fluid px-0">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-xl-block">
-            <a href="#" class="text-nowrap nav-link mb-2">
+            <a href="./index.php" class="text-nowrap nav-link mb-2">
               <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo" width="180" alt="" />
               <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
             </a>
