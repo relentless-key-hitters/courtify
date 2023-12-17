@@ -929,7 +929,8 @@ class User
 		WHERE listagem_atletas_marcacao.id_atleta = '" . $_SESSION['id'] . "'
         AND listagem_atletas_marcacao.votacao = 2 
         AND listagem_atletas_marcacao.estado = 1
-        ORDER BY marcacao.data_inicio ASC";
+        ORDER BY marcacao.data_inicio ASC
+        LIMIT 2";
 
         $result = $conn->query($sql);
         $horaA = "";
@@ -968,7 +969,7 @@ class User
                                 <div class='mt-2 mb-2'>
                                     <span class='fs-3'>Participantes</span>
                                 </div>
-                                <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>";
+                                <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
 
                         $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
                         listagem_atletas_marcacao.id_atleta AS idAtleta, 
@@ -1031,7 +1032,7 @@ class User
                                     <div class='mt-2 mb-2'>
                                         <span class='fs-3'>Participantes</span>
                                     </div>                                    
-                                    <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>";
+                                    <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
     
                             $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
                             listagem_atletas_marcacao.id_atleta AS idAtleta, 
@@ -1048,7 +1049,6 @@ class User
                             
                             if ($result2->num_rows > 0) {
                                 while ($row2 = $result2->fetch_assoc()) {
-                                    if ($row2['idAtleta'] != $row['idAtletaHost']) {
                                         if($row2['idAtleta'] == $_SESSION['id']) {
                                             $msg .= "<div class='col-md-2 mb-2'>
                                                 <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
@@ -1058,7 +1058,6 @@ class User
                                                 <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
                                             </div>";
                                         }
-                                    }
                                 }
                             }
                             
@@ -1090,7 +1089,7 @@ class User
                                     <div class='mt-2 mb-2'>
                                         <span class='fs-3'>Participantes</span>
                                     </div>
-                                    <div class='mt-1 d-flex overflow-y-auto' style='min-height: 70px'>";
+                                    <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
     
                             $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
                             listagem_atletas_marcacao.id_atleta AS idAtleta, 
@@ -1107,7 +1106,6 @@ class User
                             
                             if ($result2->num_rows > 0) {
                                 while ($row2 = $result2->fetch_assoc()) {
-                                    if ($row2['idAtleta'] != $row['idAtletaHost']) {
                                         if($row2['idAtleta'] == $_SESSION['id']) {
                                             $msg .= "<div class='col-md-2 mb-2'>
                                                 <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
@@ -1117,7 +1115,6 @@ class User
                                                 <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
                                             </div>";
                                         }
-                                    }
                                 }
                             }
                             
