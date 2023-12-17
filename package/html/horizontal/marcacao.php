@@ -726,14 +726,6 @@ if (isset($_SESSION['id'])) {?>
     currentDateInput.addEventListener("change", updateOptions);
   </script>
 
-<style>
-    .selected-img {
-      border: 6px solid #63a340;
-    }
-  </style>
-
-
-
 
 </body>
 

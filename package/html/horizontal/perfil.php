@@ -2018,14 +2018,12 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/js_courtify/amigo.js"></script>
     <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
-    <script>
-      $(function() {
-        $("[data-toggle = 'tooltip']").tooltip();
-      });
-    </script>
+
 
     <script>
       $(document).ready(function() {
+
+        $('body').tooltip({selector: '[data-toggle="tooltip"]'});
 
         $(".owl-carousel").each(function() {
           var carouselId = $(this).closest(".carousel-container").attr("id");

@@ -83,6 +83,7 @@ class Grupo
                     $msg .=  "<div class='item' id='marcacao" . $row['idMarcacao'] . "'>
                                 <div class='mt-1'>
                                     <div class='card pt-5 pb-2 px-3 hover-img'>
+                                    <span class='fs-4 text-dark position-absolute top-0 start-50 mt-2'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
                                     <span class='badge rounded-pill position-absolute top-0 start-0 mt-2 ms-2 text-dark' style='background-color: #f0f0f0'>
                                         <i class='ti ti-map-pin me-1'></i>
                                         " . $row['localidadeClubeMarcacao'] . "

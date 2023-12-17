@@ -65,7 +65,7 @@ if (isset($_SESSION['id'])) { ?>
           </ul>
           <ul class="navbar-nav quick-links d-none d-xl-flex">
             <li class="nav-item dropdown-hover d-none d-xl-block">
-                <a class="nav-link fs-6" href="./index.php">Home</a>
+              <a class="nav-link fs-6" href="./index.php">Home</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
               <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
@@ -137,7 +137,7 @@ if (isset($_SESSION['id'])) { ?>
                           <h5 class="mb-1 fs-3 fw-bolder" id="nome2"></h5>
                           <span class="badge rounded-pill border border-1 border-primary bg-light text-dark fs-3 mt-1">
                             <i class="ti ti-trophy text-primary fs-4"></i>
-                              Atleta
+                            Atleta
                           </span>
                           <p class="mb-0 d-flex text-dark align-items-center gap-2" id="email2">
                             <i class="ti ti-mail fs-4"></i>
@@ -627,7 +627,7 @@ if (isset($_SESSION['id'])) { ?>
               </div>
               <div class="card bg-light px-3 py-3 mt-2">
                 <div class="row" id="gruposUser">
-                  
+
                 </div>
               </div>
 
@@ -989,14 +989,7 @@ if (isset($_SESSION['id'])) { ?>
 
         resetSessionTimeout();
       </script>
-
-      <style>
-        .selected-img {
-          border: 6px solid #63a340;
-        }
-      </style>
-
-
+      
   </body>
 
   </html>

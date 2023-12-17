@@ -1014,45 +1014,13 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
-  <script>
-    $(function (
-    ) { $("[data-toggle = 'tooltip']").tooltip() })
-  </script>
+
 
   <script>
     $(document).ready(function () {
 
-      $(".owl-carousel").each(function () {
-        var carouselId = $(this).closest(".carousel-container").attr("id");
-        $(this).owlCarousel({
-          items: 3,
-          margin: 20,
-          loop: true,
-          nav: false,
-          autoplay: true,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 2
-            },
-            992: {
-              items: 3
-            }
-          }
-        });
+      $('body').tooltip({selector: '[data-toggle="tooltip"]'});
 
-
-        $("#" + carouselId + " .owl-prev").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("prev.owl.carousel");
-        });
-
-        $("#" + carouselId + " .owl-next").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("next.owl.carousel");
-        });
-      });
     });
   </script>
 
@@ -1104,17 +1072,6 @@ if (isset($_SESSION['id'])) {?>
     });
 
   </script>
-
-<style>
-    .selected-img {
-      border: 6px solid #63a340;
-    }
-  </style>
-
-
-
-
-
 
 </body>
 

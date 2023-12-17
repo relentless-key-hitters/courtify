@@ -1526,14 +1526,6 @@ if (isset($_SESSION['id'])) { ?>
       resetSessionTimeout();
     </script>
 
-<style>
-    .selected-img {
-      border: 6px solid #63a340;
-    }
-  </style>
-
-
-
 </body>
 
 </html>

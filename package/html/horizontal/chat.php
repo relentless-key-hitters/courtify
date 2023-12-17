@@ -1165,13 +1165,8 @@ if (isset($_SESSION['id'])) { ?>
       resetSessionTimeout();
     </script>
 
-    <style>
-      .selected-img {
-        border: 6px solid #63a340;
-      }
-    </style>
 
-    <script>
+    <!--<script>
       var selectedImage = null;
 
       function toggleImageSelection(imgElement) {
@@ -1191,7 +1186,7 @@ if (isset($_SESSION['id'])) { ?>
           selectedImage = imgElement;
         }
       }
-    </script>
+    </script>-->
 
   </body>
 
