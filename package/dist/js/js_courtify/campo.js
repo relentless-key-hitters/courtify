@@ -120,7 +120,7 @@ function adicionarLinksPaginacao(paginasTotais, paginaAtual, concelho) {
 
     msgHtml += "</ul></nav>";
 
-    $("#paginationContainer").html(msgHtml);
+    $("#paginacaoMarcacao").html(msgHtml);
 
     // Event listener para os botões da página que redirecionam para outras páginas para impedir o recarregamento da página
     $(".page-link.link").on("click", function(event) {
