@@ -1954,7 +1954,7 @@ class User
                                                 </span>";
                                     }
                                     $msg .= "<img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
-                                                 class='mt-3 img-fluid object-fit-cover rounded-2 border border-1 border-primary' style='height: 100px; width: 150px;'>";
+                                                 class='mt-3 img-fluid object-fit-fill rounded-2 border border-1 border-primary' style='height: 100px; width: 150px;'>";
                                     $msg .= "</div>
                                     <div class='col-md-3 mt-3'>
                                     <small class='fs-4'>".$row['nomeClube']."</small><br>

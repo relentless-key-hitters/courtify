@@ -131,7 +131,7 @@ class Descobrir
                     }
                     $msg .= "<div class='row'>
                                         <div class='col-md-6'>
-                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary' style='height: 100px; width: 250px;'>
+                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill'>
                                         </div>
                                         <div class='col-md-6'>
                                         <div class='text-center mt-sm-2'>
@@ -224,7 +224,7 @@ class Descobrir
 
                     $msg .= "</div>
                                     <div class='row'>
-                                        <div class='col-md-12 mt-4'>
+                                        <div class='col-md-12 mt-1'>
                                             <button type='button' class='btn btn-success w-100' onclick='getModalJuntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
                                         </div>
                                     </div>
@@ -370,7 +370,7 @@ class Descobrir
                     }
                     $msg .= "<div class='row'>
                                     <div class='col-md-6'>
-                                    <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary' style='height: 100px; width: 250px;'>
+                                    <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill'>
                                     </div>
                                     <div class='col-md-6'>
                                     <div class='text-center mt-sm-2'>
@@ -463,7 +463,7 @@ class Descobrir
 
                     $msg .= "</div>
                             <div class='row'>
-                                <div class='col-md-12 mt-4'>
+                                <div class='col-md-12 mt-1'>
                                     <button type='button' class='btn btn-success w-100' onclick='getModalJuntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
                                 </div>
                             </div>
@@ -591,7 +591,7 @@ class Descobrir
                     }
                     $msg .= "<div class='row'>
                                         <div class='col-md-6'>
-                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary' style='height: 100px; width: 250px;'>
+                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill'>
                                         </div>
                                         <div class='col-md-6'>
                                         <div class='text-center mt-sm-2'>
@@ -684,7 +684,7 @@ class Descobrir
 
                     $msg .= "</div>
                                     <div class='row'>
-                                        <div class='col-md-12 mt-4'>
+                                        <div class='col-md-12 mt-1'>
                                             <button type='button' class='btn btn-success w-100' onclick='getModalJuntarMarcacao(" . $row['idMarcacao'] . ")'>Juntar</button>
                                         </div>
                                     </div>
