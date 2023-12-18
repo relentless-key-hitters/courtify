@@ -520,6 +520,12 @@ if (isset($_SESSION['id'])) {?>
       resetSessionTimeout();
     </script>
 
+<script>
+    $(function () {
+      $('body').tooltip({selector: '[data-toggle="tooltip"]'});
+    });
+  </script>
+
 </body>
 
 </html>

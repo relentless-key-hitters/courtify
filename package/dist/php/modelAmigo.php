@@ -41,7 +41,7 @@ class Amigo
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $contagem = $row['contagem'];
+                $contagem++;
                 $msg .= "<div class='col-sm-6 col-lg-4'>
                             <div class='card hover-img'>
                                 <div class='card-body p-4 text-center border-bottom'>
@@ -116,6 +116,7 @@ class Amigo
     function procurarAmigos($userId, $nomeAmigo) {
         global $conn;
         $msg = "";
+        $contagem = 0;
 
         $sql = "SELECT
                     user.nome AS nomeAmigo,
@@ -151,7 +152,7 @@ class Amigo
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $contagem = $row['contagem'];
+                $contagem++;
                 $msg .= "<div class='col-sm-6 col-lg-4'>
                             <div class='card hover-img'>
                                 <div class='card-body p-4 text-center border-bottom'>

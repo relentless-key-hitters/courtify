@@ -467,8 +467,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="radarPadel"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Performance Geral</p>
+                                <h4 class="mb-0 fw-semibold">Performance</h4>
                               </div>
                             </div>
                           </div>
@@ -480,8 +480,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barPadel"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatísticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Novembro</h4>
                               </div>
                             </div>
                           </div>
@@ -493,8 +493,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barPadel2"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatísticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Dezembro</h4>
                               </div>
                             </div>
                           </div>
@@ -640,8 +640,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="radarTenis"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Performance Geral</p>
+                                <h4 class="mb-0 fw-semibold">Performance</h4>
                               </div>
                             </div>
                           </div>
@@ -653,8 +653,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barTenis"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatísticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Novembro</h4>
                               </div>
                             </div>
                           </div>
@@ -666,8 +666,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barTenis2"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatísticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Dezembro</h4>
                               </div>
                             </div>
                           </div>
@@ -760,8 +760,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="radarBasket"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Performance Geral</p>
+                                <h4 class="mb-0 fw-semibold">Performance</h4>
                               </div>
                             </div>
                           </div>
@@ -773,8 +773,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barBasket"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatísticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Novembro</h4>
                               </div>
                             </div>
                           </div>
@@ -786,8 +786,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barBasket2"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatísticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Dezembro</h4>
                               </div>
                             </div>
                           </div>
@@ -881,8 +881,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="radarFutsal"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Performance Geral</p>
+                                <h4 class="mb-0 fw-semibold">Performance</h4>
                               </div>
                             </div>
                           </div>
@@ -894,8 +894,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barFutsal"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatisticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Novembro</h4>
                               </div>
                             </div>
                           </div>
@@ -907,8 +907,8 @@ if (isset($_SESSION['id'])) { ?>
                             <div id="barFutsal2"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
-                                <p class="mb-1">Descrição</p>
-                                <h4 class="mb-0 fw-semibold">Descrição Adicional</h4>
+                                <p class="mb-1">Estatisticas Mensais</p>
+                                <h4 class="mb-0 fw-semibold">Dezembro</h4>
                               </div>
                             </div>
                           </div>
@@ -1469,7 +1469,7 @@ if (isset($_SESSION['id'])) { ?>
                           <div class="mt-1">
                             <div class="card px-5 py-3 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                             <small>Percentagem Vitórias</small>
-                              <h5>20% Vitórias</h5>
+                              <h5>50% Vitórias</h5>
                               <img id="imgPerc50F" src="../../dist/images/badges/perc50.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadePerc50F">50\50</h1>
                               <div class="progress" style="height: 15px;">
@@ -1482,7 +1482,7 @@ if (isset($_SESSION['id'])) { ?>
                           <div class="mt-1">
                             <div class="card px-5 py-3 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                               <small>Percentagem Vitórias</small>
-                              <h5>20% Vitórias</h5>
+                              <h5>70% Vitórias</h5>
                               <img id="imgPerc70F" src="../../dist/images/badges/perc70.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadePerc70F">70\70</h1>
                               <div class="progress" style="height: 15px;">

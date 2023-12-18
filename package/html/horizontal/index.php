@@ -482,7 +482,7 @@ if (isset($_SESSION['id'])) { ?>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
-                        <span class="text-dark">Gestão de Campos (1 campo)</span>
+                        <span class="text-dark">Gestão Campos (1 campo)</span>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
@@ -498,7 +498,7 @@ if (isset($_SESSION['id'])) { ?>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-x text-primary fs-4"></i>
-                        <span class="text-muted">Disponibilização de Resultados</span>
+                        <span class="text-muted">Resultados</span>
                       </li>
                     </ul>
                     <button class="btn btn-success fw-bolder rounded-2 py-6 w-100 text-capitalize">Saber Mais</button>
@@ -521,7 +521,7 @@ if (isset($_SESSION['id'])) { ?>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
-                        <span class="text-success fw-bolder">Gestão de Campos (N campos)</span>
+                        <span class="text-success fw-bolder">Gestão Campos (N campos)</span>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
@@ -537,7 +537,7 @@ if (isset($_SESSION['id'])) { ?>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
-                        <span class="text-success fw-bolder">Disponibilização de Resultados</span>
+                        <span class="text-success fw-bolder">Resultados</span>
                       </li>
                     </ul>
                     <button class="btn btn-success fw-bolder rounded-2 py-6 w-100 text-capitalize">Saber Mais</button>
