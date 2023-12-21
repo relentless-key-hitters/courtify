@@ -668,6 +668,8 @@ function getAtletasPesquisaNavbar() {
     let dados = new FormData();
     dados.append("op", 33);
 
+    $("#search").val("");
+
     $.ajax({
         url: "../../dist/php/controllerUser.php",
         method: "POST",
@@ -737,21 +739,32 @@ $(function() {
         var cont = 0;
 
         $('#pesquisaAtletasNavbar li').each(function() {
-          var listItemText = $(this).text().toLowerCase();
-          if (listItemText.includes(searchTerm)) {
-            $(this).show();
-            cont++;
-          } else {
-            $(this).hide();
-          }
-
-          if (cont == 0) {
-            $("#pesquisaAtletasNavbar").html("<div class='text-center mt-5'>" +
-              "<h4>Sem resultados!</h4>" +
-              "<p>Oops! A tua pesquisa não obteve resultados. Tenta novamente.</p>" +
-              "</div>");
-          }
+            var listItemText = $(this).text().toLowerCase();
+            if (listItemText.includes(searchTerm)) {
+                $(this).show();
+                cont++;
+            } else {
+                $(this).hide();
+            }
         });
-      });
+
+        // Show "No results" message if no matches
+        if (cont === 0) {
+            $("#pesquisaAtletasNavbar").html("<div id='noResultsPesquisa' class='text-center mt-5'>" +
+                "<h4>Sem resultados!</h4>" +
+                "<p>Oops! A tua pesquisa não obteve resultados. Tenta novamente.</p>" +
+                "<button type='button' class='btn btn-primary btn-sm' onclick='getAtletasPesquisaNavbar()'>Redefinir</button>" +
+                "</div>");
+        } else {
+            // Hide "No results" message if there are matches
+            $("#noResultsPesquisa").remove();
+        }
+
+        // Check if the search input is empty
+        if (searchTerm === '') {
+            // Call getAtletasPesquisaNavbar() when the input is cleared
+            getAtletasPesquisaNavbar();
+        }
+    });
 });
 

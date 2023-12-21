@@ -1340,12 +1340,19 @@ if (isset($_SESSION['id'])) { ?>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content rounded-1">
+          <div class='d-flex'>
+          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
           <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
-          <div class="modal-header border-bottom">
-            <input type="search" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
-            <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
-              <i class="ti ti-x fs-5 ms-3"></i>
+          </div>
+          <div class='pt-3 pb-2 ps-3 pe-3'>
+            <span>
+              Através desta pesquisa, consegues facilmente encontrar quem ou o que procuras. 
+              Sejam outros Atletas como tu, Clubes, Grupos ou Equipas, esta Pesquisa geral está aqui a tua disposição.
             </span>
+          </div> 
+          <div class="modal-header border-bottom">
+            <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <input type="text" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
           </div>
           <div class="modal-body message-body" data-simplebar="">
             <h5 class="mb-0 fs-4 p-1">Resultados</h5>
