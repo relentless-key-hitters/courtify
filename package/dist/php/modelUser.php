@@ -2330,34 +2330,54 @@ class User
         global $conn;
         $msg = "";
 
-        $sql = "SELECT user.*, IF(amigo.id_atleta1 = ".$_SESSION['id']."  OR amigo.id_atleta2 = ".$_SESSION['id']." , 1, 0) AS are_friends
+        $sql = "SELECT DISTINCT user.*, IF(amigo.id_atleta1 = ".$_SESSION['id']."  OR amigo.id_atleta2 = ".$_SESSION['id']." , 1, 0) AS are_friends,
+        concelho.descricao AS concelho
         FROM user
         LEFT JOIN amigo ON (user.id = amigo.id_atleta1 OR user.id = amigo.id_atleta2)
                        AND amigo.estado = 1
-        WHERE user.tipo_user = 1
-          AND user.id != ".$_SESSION['id']." 
+        INNER JOIN concelho ON user.localidade = concelho.id               
+        WHERE user.id != ".$_SESSION['id']." 
         ORDER BY user.nome ASC;";
 
         $result = $conn -> query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $textoBotaoAmigo = ($row['are_friends'] == 1) ? "Amigo" : "Adicionar";
-                $classBotaoAmigo = ($row['are_friends'] == 1) ? "btn-primary" : "btn-primary";
-                $botaoAmigoDisabled = ($row['are_friends'] == 1) ? "disabled" : "";
-        
-                $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
-                    <div class='d-flex justify-content-between align-items-center'>
-                        <div class='d-flex align-items-center gap-3'>
-                            <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
-                            <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
-                            
-                        </div>
-                        <div class='d-flex align-items-center'>
-                            <button class='btn $classBotaoAmigo btn-sm' $botaoAmigoDisabled onclick='adicionarAmigo(" . $row['id'] . ")'>$textoBotaoAmigo</button>
-                        </div>
-                    </div>   
-                </li>";
+
+                if($row['tipo_user'] == 1) {
+                    $textoBotaoAmigo = ($row['are_friends'] == 1) ? "Amigo" : "Adicionar";
+                    $classBotaoAmigo = ($row['are_friends'] == 1) ? "btn-primary" : "btn-primary";
+                    $botaoAmigoDisabled = ($row['are_friends'] == 1) ? "disabled" : "";
+            
+                    $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            <div class='d-flex align-items-center gap-3'>
+                                <i class='ti ti-user fs-6'></i>
+                                <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
+                                <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
+                                <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
+                            </div>
+                            <div class='d-flex align-items-center'>
+                                <button class='btn $classBotaoAmigo btn-sm' $botaoAmigoDisabled onclick='adicionarAmigo(" . $row['id'] . ")'>$textoBotaoAmigo</button>
+                            </div>
+                        </div>   
+                    </li>";
+                } else {
+                    $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            <div class='d-flex align-items-center gap-3'>
+                                <i class='ti ti-building fs-5'></i>
+                                <a href='./clube.php?id=" . $row['id'] . "'><img src='" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
+                                <a href='./clube.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
+                                <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
+                            </div>
+                            <div class='d-flex align-items-center'>
+                                <a href='./clube.php?id=" . $row['id'] . "'><button class='btn btn-success btn-sm'>Marcar</button></a>
+                            </div>
+                        </div>   
+                    </li>";
+                }
+                
             }
         }
 

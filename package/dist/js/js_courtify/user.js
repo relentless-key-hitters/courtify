@@ -730,5 +730,28 @@ $(function() {
     if (link == "/courtify/package/html/horizontal/perfil_definicoes.php"){
         getEditInfo();
     }
+
+    
+    $('#search').on('keyup', function() {
+        var searchTerm = $(this).val().toLowerCase();
+        var cont = 0;
+
+        $('#pesquisaAtletasNavbar li').each(function() {
+          var listItemText = $(this).text().toLowerCase();
+          if (listItemText.includes(searchTerm)) {
+            $(this).show();
+            cont++;
+          } else {
+            $(this).hide();
+          }
+
+          if (cont == 0) {
+            $("#pesquisaAtletasNavbar").html("<div class='text-center mt-5'>" +
+              "<h4>Sem resultados!</h4>" +
+              "<p>Oops! A tua pesquisa não obteve resultados. Tenta novamente.</p>" +
+              "</div>");
+          }
+        });
+      });
 });
 

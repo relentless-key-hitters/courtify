@@ -433,15 +433,15 @@ if (isset($_SESSION['id'])) {?>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content rounded-1">
-          <h4 class="mb-0 mt-2 ms-2 fs-5 p-1">Pesquisa de Atletas</h4>
+          <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
           <div class="modal-header border-bottom">
-            <input type="search" class="form-control fs-3" placeholder="Introduza um nome..." id="search" />
+            <input type="search" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
             <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
               <i class="ti ti-x fs-5 ms-3"></i>
             </span>
           </div>
           <div class="modal-body message-body" data-simplebar="">
-            <h5 class="mb-0 fs-5 p-1">Resultados</h5>
+            <h5 class="mb-0 fs-4 p-1">Resultados</h5>
             <ul class="list mb-0 py-2" id="pesquisaAtletasNavbar">
 
             </ul>

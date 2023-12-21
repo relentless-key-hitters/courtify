@@ -30,9 +30,9 @@ if (isset($_SESSION['id'])) { ?>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <style>
-    body {
+      body {
         overflow-x: hidden;
-    }
+      }
     </style>
 
 
@@ -61,20 +61,20 @@ if (isset($_SESSION['id'])) { ?>
               </a>
             </li>
           </ul>
-        <ul class="navbar-nav quick-links d-none d-xl-flex">
-          <li class="nav-item dropdown-hover d-none d-xl-block">
+          <ul class="navbar-nav quick-links d-none d-xl-flex">
+            <li class="nav-item dropdown-hover d-none d-xl-block">
               <a class="nav-link fs-6" href="./index.php">Home</a>
-          </li>
-          <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
-          </li>
-          <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
-          </li>
-          <li class="nav-item dropdown-hover d-none d-xl-block">
-            <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
-          </li>
-        </ul>
+            </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
+            </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+            </li>
+            <li class="nav-item dropdown-hover d-none d-xl-block">
+              <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
+            </li>
+          </ul>
           <div class="d-block d-xl-none mb-2 ms-5">
             <a href="index.html" class="text-nowrap nav-link">
               <img src="../../dist/images/logos/logo_courtify.png" width="180" alt="" />
@@ -102,16 +102,16 @@ if (isset($_SESSION['id'])) { ?>
                       <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm badge-container"></span>
                     </div>
                     <div class="message-body" data-simplebar>
-                    <div id="divNotificacoesVotacao">
-                      
-                    </div>
-                    <div id="divNotificacoesConviteMarcacao">
+                      <div id="divNotificacoesVotacao">
 
-                    </div>
-                    <div id="divNotificacoesPedidoAmizade">
+                      </div>
+                      <div id="divNotificacoesConviteMarcacao">
 
+                      </div>
+                      <div id="divNotificacoesPedidoAmizade">
+
+                      </div>
                     </div>
-                  </div>
                     <div class="py-6 px-7 mb-1">
                       <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
                     </div>
@@ -135,7 +135,7 @@ if (isset($_SESSION['id'])) { ?>
                           <h5 class="mb-1 fs-3 fw-bolder" id="nome2"></h5>
                           <span class="badge rounded-pill border border-1 border-primary bg-light text-dark fs-3 mt-1">
                             <i class="ti ti-trophy text-primary fs-4"></i>
-                              Atleta
+                            Atleta
                           </span>
                           <p class="mb-0 d-flex text-dark align-items-center gap-2" id="email2">
                             <i class="ti ti-mail fs-4"></i>
@@ -143,7 +143,7 @@ if (isset($_SESSION['id'])) { ?>
                         </div>
                       </div>
                       <div class="message-body">
-                        <a href="./perfil.php?id=<?php echo $_SESSION['id']?>" class="py-8 px-7 mt-8 d-flex align-items-center">
+                        <a href="./perfil.php?id=<?php echo $_SESSION['id'] ?>" class="py-8 px-7 mt-8 d-flex align-items-center">
                           <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                             <i class="ti ti-user-circle fs-7 text-primary"></i>
                           </span>
@@ -834,15 +834,15 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
           <div class="modal-content rounded-1">
-            <h4 class="mb-0 mt-2 ms-2 fs-5 p-1">Pesquisa de Atletas</h4>
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
             <div class="modal-header border-bottom">
-              <input type="search" class="form-control fs-3" placeholder="Introduza um nome..." id="search" />
+              <input type="search" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
               <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
                 <i class="ti ti-x fs-5 ms-3"></i>
               </span>
             </div>
             <div class="modal-body message-body" data-simplebar="">
-              <h5 class="mb-0 fs-5 p-1">Resultados</h5>
+              <h5 class="mb-0 fs-4 p-1">Resultados</h5>
               <ul class="list mb-0 py-2" id="pesquisaAtletasNavbar">
 
               </ul>
@@ -852,51 +852,45 @@ if (isset($_SESSION['id'])) { ?>
       </div>
 
 
-      <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id = "corpoModal">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start"
-           data-bs-dismiss="modal" id= "guardarVotacao">
-            Guardar
-          </button>
-          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start"
-            data-bs-dismiss="modal">
-            Fechar
-          </button>
+      <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header d-flex align-items-center">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="corpoModal">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start" data-bs-dismiss="modal" id="guardarVotacao">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start" data-bs-dismiss="modal">
+                Fechar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="modal fade" id="scroll-long-inner-modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header d-flex align-items-center">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id = "corpoModal1">
-        </div>
-        <div class="d-flex justify-content-center align-items-center gap-3">
-          <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3"
-           data-bs-dismiss="modal" id= "aceitar">
-            Aceitar
-          </button>
-          <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3"
-            data-bs-dismiss="modal" id= "rejeitar">
-            Rejeitar
-          </button>
+      <div class="modal fade" id="scroll-long-inner-modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header d-flex align-items-center">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="corpoModal1">
+            </div>
+            <div class="d-flex justify-content-center align-items-center gap-3">
+              <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3" data-bs-dismiss="modal" id="aceitar">
+                Aceitar
+              </button>
+              <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3" data-bs-dismiss="modal" id="rejeitar">
+                Rejeitar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
 
 

@@ -128,7 +128,7 @@ if (isset($_SESSION['id'])) { ?>
                           <h5 class="mb-1 fs-3 fw-bolder" id="nome2"></h5>
                           <span class="badge rounded-pill border border-1 border-primary bg-light text-dark fs-3 mt-1">
                             <i class="ti ti-trophy text-primary fs-4"></i>
-                              Atleta
+                            Atleta
                           </span>
                           <p class="mb-0 d-flex text-dark align-items-center gap-2" id="email2">
                             <i class="ti ti-mail fs-4"></i>
@@ -221,8 +221,8 @@ if (isset($_SESSION['id'])) { ?>
                     <div class="text-center">
                       <h5 class="fs-5 mb-1 fw-semibold" id="nomePerfil"></h5>
                       <span class="badge rounded-pill border border-1 border-primary bg-light text-dark fs-4 mt-1">
-                          <i class="ti ti-trophy text-primary fs-5"></i>
-                          Atleta
+                        <i class="ti ti-trophy text-primary fs-5"></i>
+                        Atleta
                       </span>
                     </div>
                   </div>
@@ -237,7 +237,7 @@ if (isset($_SESSION['id'])) { ?>
                 <div class="col-lg-3 mt-2">
                   <div class="container">
                     <h6 class="text-center fw-semibold">Melhores conquistas</h6>
-                    <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id = "melhoresBadges">
+                    <div class="d-flex align-items-center mb-1 mt-3 gap-3 justify-content-center" id="melhoresBadges">
                     </div>
                   </div>
                 </div>
@@ -296,7 +296,7 @@ if (isset($_SESSION['id'])) { ?>
                       <h4 class="fw-semibold mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Conquistas Recentes
                       </h4>
                       <div class="row" id="badgesRecentes">
-                        
+
                       </div>
                     </div>
 
@@ -1177,7 +1177,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-3 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                             <small>Vitórias</small>
+                              <small>Vitórias</small>
                               <h5>150 Vitórias</h5>
                               <img id="imgTVit150" src="../../dist/images/badges/tenis/vitorias/t150vit.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="150 Vitórias no Padel" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeT150Vit"></h1>
@@ -1468,7 +1468,7 @@ if (isset($_SESSION['id'])) { ?>
                         <div class="item">
                           <div class="mt-1">
                             <div class="card px-5 py-3 d-flex flex-column align-items-center justify-content-center hover-img shadow">
-                            <small>Percentagem Vitórias</small>
+                              <small>Percentagem Vitórias</small>
                               <h5>50% Vitórias</h5>
                               <img id="imgPerc50F" src="../../dist/images/badges/perc50.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="% Vitórias" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadePerc50F">50\50</h1>
@@ -1567,7 +1567,7 @@ if (isset($_SESSION['id'])) { ?>
                             <div class="card px-5 py-3 d-flex flex-column align-items-center justify-content-center hover-img shadow">
                               <small>Pontos</small>
                               <h5>10 Pontos</h5>
-                              <img id = "imgB10Pnt" src="../../dist/images/badges/basquetebol/pontos/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol" style="max-width: 200px;">
+                              <img id="imgB10Pnt" src="../../dist/images/badges/basquetebol/pontos/b10pnt.png" alt="Badge 1" class="img-fluid mb-2 rounded" data-toggle="tooltip" data-placement="top" title="10 Pontos no Basquetebol" style="max-width: 200px;">
                               <h1 class="fs-5 fw-bolder" id="quantidadeB10Pnt"></h1>
                               <div class="progress" style="height: 15px;">
                                 <div id="progressBarB10Pnt" class="progress-bar" role="progressbar"></div>
@@ -1818,15 +1818,15 @@ if (isset($_SESSION['id'])) { ?>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content rounded-1">
-          <h4 class="mb-0 mt-2 ms-2 fs-5 p-1">Pesquisa de Atletas</h4>
+          <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
           <div class="modal-header border-bottom">
-            <input type="search" class="form-control fs-3" placeholder="Introduza um nome..." id="search" />
+            <input type="search" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
             <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
               <i class="ti ti-x fs-5 ms-3"></i>
             </span>
           </div>
           <div class="modal-body message-body" data-simplebar="">
-            <h5 class="mb-0 fs-5 p-1">Resultados</h5>
+            <h5 class="mb-0 fs-4 p-1">Resultados</h5>
             <ul class="list mb-0 py-2" id="pesquisaAtletasNavbar">
 
             </ul>
@@ -1953,7 +1953,9 @@ if (isset($_SESSION['id'])) { ?>
     <script>
       $(document).ready(function() {
 
-        $('body').tooltip({selector: '[data-toggle="tooltip"]'});
+        $('body').tooltip({
+          selector: '[data-toggle="tooltip"]'
+        });
 
         $(".owl-carousel").each(function() {
           var carouselId = $(this).closest(".carousel-container").attr("id");
@@ -2020,11 +2022,6 @@ if (isset($_SESSION['id'])) { ?>
       resetSessionTimeout();
     </script>
 
-    <style>
-      .selected-img {
-        border: 6px solid #63a340;
-      }
-    </style>
 
 
 
