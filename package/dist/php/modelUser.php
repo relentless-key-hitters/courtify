@@ -1172,7 +1172,13 @@ class User
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $ranking = ($row['n_vitorias']/$row['n_jogos'])*0.75 + ($row['n_mvp']/$row['n_jogos'])*0.25;
+                if ($row['n_jogos'] != 0 && $row['n_sets'] != 0) {
+                    $ranking = ($row['n_vitorias'] / $row['n_jogos']) * 0.45 +
+                               ($row['n_mvp'] / $row['n_jogos']) * 0.25 +
+                               ($row['n_set_ganhos'] / $row['n_sets']) * 0.3;
+                } else {
+                    $ranking = 0;
+                }
                 if ($resEquipa > $resAdver) {
                     if ($modalidade == "Basquetebol") {
                         $sql2 .= "UPDATE info_basquetebol SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos = " . $row['n_pontos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
@@ -1184,7 +1190,11 @@ class User
                     $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
                     $nPontos .=  $row[$columnNamePontos] + $numPontos;
                     $nVitorias .= $row['n_vitorias'] + 1;
-                    $percVitorias .=  ($nVitorias / ( $row['n_jogos'] + 1))*100;
+                    if ($row['n_jogos'] != 0) {
+                        $percVitorias .= ($nVitorias / $row['n_jogos'] + 1) * 100;
+                    } else {
+                        $percVitorias = 0; 
+                    }
                 } else {
                     if ($modalidade == "Basquetebol") {
                         $sql2 .= "UPDATE info_basquetebol SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos = " . $row['n_pontos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
@@ -1196,7 +1206,11 @@ class User
                     $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
                     $nPontos .=  $row[$columnNamePontos] + $numPontos;
                     $nVitorias .= $row['n_vitorias'];
-                    $percVitorias .=  ($nVitorias / $row['n_jogos'])*100;
+                    if ($row['n_jogos'] != 0) {
+                        $percVitorias .= ($nVitorias / $row['n_jogos'] + 1) * 100;
+                    } else {
+                        $percVitorias = 0; 
+                    }
                 }
                 
             }
@@ -1558,8 +1572,8 @@ class User
                     width='48' height='48' />
                 </span>
                 <div class='w-75 d-inline-block v-middle'>
-                    <h6 class='mb-1 fw-semibold'>Convite Marcação</h6>
-                    <span class='d-block'>Foi convidado para uma marcação.</span>
+                    <h6 class='mb-1 fw-semibold'>Convite Partida</h6>
+                    <span class='d-block'>Foi convidado para uma partida.</span>
                 </div>
             </a>";
             }
@@ -2311,6 +2325,45 @@ class User
         $conn -> close();
         return ($msg);
     }
+
+    function getAtletasPesquisaNavbar() {
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT user.*, IF(amigo.id_atleta1 = ".$_SESSION['id']."  OR amigo.id_atleta2 = ".$_SESSION['id']." , 1, 0) AS are_friends
+        FROM user
+        LEFT JOIN amigo ON (user.id = amigo.id_atleta1 OR user.id = amigo.id_atleta2)
+                       AND amigo.estado = 1
+        WHERE user.tipo_user = 1
+          AND user.id != ".$_SESSION['id']." 
+        ORDER BY user.nome ASC;";
+
+        $result = $conn -> query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $textoBotaoAmigo = ($row['are_friends'] == 1) ? "Amigo" : "Adicionar";
+                $classBotaoAmigo = ($row['are_friends'] == 1) ? "btn-primary" : "btn-primary";
+                $botaoAmigoDisabled = ($row['are_friends'] == 1) ? "disabled" : "";
+        
+                $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
+                    <div class='d-flex justify-content-between align-items-center'>
+                        <div class='d-flex align-items-center gap-3'>
+                            <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
+                            <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
+                            
+                        </div>
+                        <div class='d-flex align-items-center'>
+                            <button class='btn $classBotaoAmigo btn-sm' $botaoAmigoDisabled onclick='adicionarAmigo(" . $row['id'] . ")'>$textoBotaoAmigo</button>
+                        </div>
+                    </div>   
+                </li>";
+            }
+        }
+
+        $conn -> close();
+        return ($msg);
+    }   
 
 
 }

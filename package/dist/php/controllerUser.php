@@ -105,6 +105,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 32){
     $res = $user -> getComunidades($_POST['userId']);
     echo($res);
+}else if($_POST['op'] == 33){
+    $res = $user -> getAtletasPesquisaNavbar();
+    echo($res);
 }
 
 

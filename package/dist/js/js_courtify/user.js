@@ -664,6 +664,29 @@ function removerAmizade(id) {
         });
 }
 
+function getAtletasPesquisaNavbar() {
+    let dados = new FormData();
+    dados.append("op", 33);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+    .done(function(msg) {
+        $("#pesquisaAtletasNavbar").html(msg);
+    })
+
+    .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+    });
+}
+
 
 function alerta(titulo,msg,icon){
     Swal.fire({
