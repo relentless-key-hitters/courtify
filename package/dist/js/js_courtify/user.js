@@ -735,12 +735,12 @@ $(function() {
 
     
     $('#search').on('keyup', function() {
-        var searchTerm = $(this).val().toLowerCase();
+        var termoPesquisa = $(this).val().toLowerCase();
         var cont = 0;
 
         $('#pesquisaAtletasNavbar li').each(function() {
-            var listItemText = $(this).text().toLowerCase();
-            if (listItemText.includes(searchTerm)) {
+            var textoItem = $(this).text().toLowerCase();
+            if (textoItem.includes(termoPesquisa)) {
                 $(this).show();
                 cont++;
             } else {
@@ -748,7 +748,7 @@ $(function() {
             }
         });
 
-        // Show "No results" message if no matches
+        
         if (cont === 0) {
             $("#pesquisaAtletasNavbar").html("<div id='noResultsPesquisa' class='text-center mt-5'>" +
                 "<h4>Sem resultados!</h4>" +
@@ -756,13 +756,12 @@ $(function() {
                 "<button type='button' class='btn btn-primary btn-sm' onclick='getAtletasPesquisaNavbar()'>Redefinir</button>" +
                 "</div>");
         } else {
-            // Hide "No results" message if there are matches
+            
             $("#noResultsPesquisa").remove();
         }
 
-        // Check if the search input is empty
-        if (searchTerm === '') {
-            // Call getAtletasPesquisaNavbar() when the input is cleared
+        if (termoPesquisa === '') {
+            
             getAtletasPesquisaNavbar();
         }
     });
