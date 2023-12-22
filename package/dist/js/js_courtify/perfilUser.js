@@ -1138,7 +1138,7 @@ function getRadar(userId){
             size: 0
           },
           
-          colors: ["#615dff", "#3dd9eb", "#ffae1f"],
+          colors: ["#056087", "#619e3f", "#ffae1f"],
         xaxis: {
           categories: ["% Vitórias", "% Set Ganhos", "% MVP"],
         },

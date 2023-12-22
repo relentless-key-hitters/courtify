@@ -247,9 +247,9 @@ class Grupo
                 $msg .= "<div class='col-md-2'>
                             <div class='card hover-img shadow'>
                             <div class='d-flex flex-column p-3 align-items-center mt-3'>
-                                <a href='./comunidade.php?id=".$row['idComunidade']."'><img src='../../dist/".$row['fotoComunidade']."' class='img-fluid' style='max-width: 100px;'></a>
+                                <a href='./grupo.php?id=".$row['idComunidade']."'><img src='../../dist/".$row['fotoComunidade']."' class='img-fluid' style='max-width: 100px;'></a>
                                 <span class='fs-4'>".$row['nomeComunidade']."</span>
-                                <a href='./comunidade.php?id=".$row['idComunidade']."'>
+                                <a href='./grupo.php?id=".$row['idComunidade']."'>
                                     <button class='btn btn-primary btn-sm mt-3'>Ver</button>
                                 </a>";
                 if ($row['tipoModalidade'] == "Ténis") {
