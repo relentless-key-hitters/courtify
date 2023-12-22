@@ -455,7 +455,7 @@ if (isset($_SESSION['id'])) { ?>
                 </div>
 
 
-                <!--<div class="card">
+                <div class="card">
                   <div class="card-body p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4 pb-8">
                       <h5 class="card-title fw-semibold mb-0">Gráficos</h5>
@@ -464,7 +464,7 @@ if (isset($_SESSION['id'])) { ?>
                       <div class="col-md-4 d-flex align-items-stretch">
                         <div class="card w-100 position-relative overflow-hidden mb-7 mb-lg-0">
                           <div class="card-body">
-                            <div id="radarPadel"></div>
+                            <div id="radarPadel2"></div>
                             <div class="d-flex align-items-end justify-content-between mt-7">
                               <div>
                                 <p class="mb-1">Performance Geral</p>
@@ -502,7 +502,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                     </div>
                   </div>
-                </div>-->
+                </div>
               </div>
               <div id="estatisticasTenis" class="d-none">
                 <div class="row">

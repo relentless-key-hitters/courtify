@@ -2385,5 +2385,33 @@ class User
         return ($msg);
     }   
 
+    function getGraficos($id){
+        global $conn;
+        $msg = "";
+        $sql = "SELECT * FROM info_padel WHERE id_atleta =".$id;
+        $result = $conn -> query($sql);
+        $sql2 = "SELECT * FROM estatisticas_padel";
+        $result2 = $conn -> query($sql2);
+        $vals = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $percVit = $row['n_vitorias'] / $row['n_jogos'];
+                $mediaPS = $row['n_pontos_set'] / $row['n_sets'];
+                $percSetGanhos =  $row['n_set_ganhos'] / $row['n_sets'];
+                $mediaPJ = $row['n_pontos_set'] / $row['n_jogos'];
+                $percMVP = $row['n_mvp'] / $row['n_jogos'];
+                array_push($vals, array($percVit*100, $percSetGanhos*100, $percMVP*100));
+            }
+        }
+        if ($result2->num_rows > 0) {
+            while ($row2 = $result2->fetch_assoc()) {
+                array_push($vals, array($row2['percVitorias']*100, $row2['percSetsGanhos']*100, $row2['percMvp']*100));
+            }
+        }
+        $resp = json_encode($vals);
+        $conn->close();
+        return ($resp);
+    
+    }
 
 }

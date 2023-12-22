@@ -20,7 +20,7 @@ function getPerfil(){
         .done(function(msg) {
 
             let obj = JSON.parse(msg);
-
+            getRadar(perfilId)
             
             $("#fotoCapaView").attr('src', obj.fotoCapa);
             $("#perfil3").attr('src', obj.fotoPerfil);
@@ -1087,12 +1087,85 @@ function getComunidades() {
 
 }
 
+function getRadar(userId){
+
+    let dados = new FormData();
+    dados.append("op", 34);
+    dados.append("userId", userId);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        let obj = JSON.parse(msg);
+        console.log(obj[0])
+
+        var options = {
+            series: [{
+            name: 'Tu',
+            data: obj[0],
+          }, {
+            name: 'Altetas Courtify',
+            data: obj[1],
+          }],
+            chart: {
+            height: 350,
+            type: 'radar',
+            toolbar: {
+                show: false,
+              },
+            dropShadow: {
+              enabled: true,
+              blur: 1,
+              left: 1,
+              top: 1
+            }
+          },
+          stroke: {
+            width: 2
+          },
+          fill: {
+            opacity: 0.1
+          },
+          markers: {
+            size: 0
+          },
+          
+          colors: ["#615dff", "#3dd9eb", "#ffae1f"],
+        xaxis: {
+          categories: ["% Vitórias", "% Set Ganhos", "% MVP"],
+        },
+        tooltip: {
+          theme: "dark",
+        }
+    
+          };
+    
+          var chart = new ApexCharts(document.querySelector("#radarPadel2"), options);
+          chart.render();
+    
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+}
+
+
+
+
 $(function() {
     getPerfilNavbar();
     getPerfil();
     getJogosRecentes(1);
     getComunidades();
-
 });
 
 
