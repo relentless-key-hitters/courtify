@@ -105,7 +105,7 @@ function getAtletasGrupo(pagina) {
       let msgSemResults = "";
 
       if (obj.total != 0) {
-        let placeholdersCount = Math.max(12 - obj.total, 0); // Ensure placeholdersCount is not negative
+        let placeholdersCount = Math.max(12 - obj.total, 0);
 
         for (let i = 0; i < placeholdersCount; i++) {
           msgSemResults +=
