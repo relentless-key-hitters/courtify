@@ -362,8 +362,8 @@ class Grupo
                 
                 $msg .= "<img src='../../dist/" . $row['foto'] . "' class='mt-2 rounded-circle' width='130' height='130' alt='" . $row['nome'] . "' />
                         <h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
-                        <div class='px-2'>
-                            <span>" . $descricao . "</span>
+                        <div class='px-2 text-center'>
+                            <span class=''>" . $descricao . "</span>
                         </div>
                     </div>";
             }
