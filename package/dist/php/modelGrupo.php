@@ -319,4 +319,55 @@ class Grupo
         $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual, 'total' => $itemsTotais);
         return json_encode($data);
     }
+
+    function getInfoGrupo($idGrupo) {
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT comunidade.*, modalidade.descricao AS modalidadeGrupo FROM comunidade
+        INNER JOIN 
+        modalidade ON comunidade.id_modalidade = modalidade.id
+        WHERE tipo_comunidade = 1
+        AND comunidade.id = " . $idGrupo;
+
+        $result = $conn -> query($sql);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $msg .= "<div class='p-2 d-flex flex-column align-items-center'>";
+                if($row['modalidadeGrupo'] == "Basquetebol") {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-warning'>
+                                <i class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeGrupo'] . "</small>
+                            </span>";
+                } else if($row['modalidadeGrupo'] == "Futsal") {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-danger mt-2'>
+                                <i class='ti ti-ball-football me-1'></i><small>" . $row['modalidadeGrupo'] . "</small>
+                            </span>";
+                } else if($row['modalidadeGrupo'] == "Ténis") {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-success mt-2'>
+                                <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeGrupo'] . "</small>
+                            </span>";
+                } else {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-primary mt-2'>
+                                <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeGrupo'] . "</small>
+                            </span>";
+                }
+                $maximoCaracteresDesc = 150; 
+                $descricao = substr($row['descricao'], 0, $maximoCaracteresDesc);
+
+                if (strlen($row['descricao']) > $maximoCaracteresDesc) {
+                    $ultimoEspaco = strrpos(substr($descricao, 0, $maximoCaracteresDesc), ' ');
+                    $descricao = substr($descricao, 0, $ultimoEspaco) . " (...)"; 
+                }
+                
+                $msg .= "<img src='../../dist/" . $row['foto'] . "' class='rounded-circle' width='120' height='120' alt='" . $row['nome'] . "' />
+                        <h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
+                        <span class='text-center'>" . $descricao . "</span>
+                    </div>";
+            }
+        }
+
+        $conn->close();
+        return $msg;
+    }
 }

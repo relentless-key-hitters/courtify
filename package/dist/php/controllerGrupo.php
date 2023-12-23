@@ -17,6 +17,9 @@ if($_POST['op'] == 1) {
 
     $res = $grupo -> getAtletasGrupo($_POST['idGrupo'], $offset, $porPagina);
     echo($res);
+} else if($_POST['op'] == 4) {
+    $res = $grupo -> getInfoGrupo($_POST['idGrupo']);
+    echo($res);
 }
 
 ?>

@@ -191,18 +191,18 @@ if (isset($_SESSION['id'])) { ?>
 
     <div class="container">
       <div class="card shadow" style="margin-top: 120px;">
-        <div class="row">
-          <div class="col-md-3" style="height: 200px">
+        <div class="row" style="height: 300px;">
+          <div class="col-md-3">
             <div id="infoGrupo">
-              Info do Grupo ( foto, etc etc)
+              
             </div>
           </div>
-          <div class="col-md-6" style="height: 200px">
+          <div class="col-md-6">
             <div id="estatisticasGrupo">
               Estatisticas Principais
             </div>
           </div>
-          <div class="col-md-3" style="height: 200px">
+          <div class="col-md-3">
             <div id="algoGrupo">
                 Botoes?? algo?? juntar?? fazer pedido
             </div>
@@ -412,7 +412,7 @@ if (isset($_SESSION['id'])) { ?>
     <!-- ---------------------------------------------- -->
 
     <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
-    <script src="../../dist/js/js_courtify/grupo.js"></script>
+    <script src="../../dist/js/js_courtify/perfilGrupo.js"></script>
 
     <script class="script">
       $(function () {
