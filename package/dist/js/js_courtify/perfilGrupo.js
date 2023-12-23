@@ -144,8 +144,36 @@ function getInfoGrupo() {
     })
 }
 
+function getMarcacoesConcluidasGrupo() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get("id");
+
+    let dados = new FormData();
+    dados.append("op", 5);
+    dados.append("idGrupo", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerGrupo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    
+    .done(function (msg) {
+      $("#marcacoesConcluidasGrupo").html(msg);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+      
+    });
+  }
+
 
 $(function () {
   getAtletasGrupo(1);
   getInfoGrupo();
+  getMarcacoesConcluidasGrupo();
 });

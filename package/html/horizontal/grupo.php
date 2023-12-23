@@ -238,8 +238,20 @@ if (isset($_SESSION['id'])) { ?>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card shadow" style="height: 400px" id="marcacoesConcluidasGrupo">
-            Últimas marcações concluídas de atletas deste grupo
+          <div class="card shadow p-3">
+            <div class="d-flex justify-content-center">
+              <h4 class="fw-semibold mb-3 pb-2 text-center fs-6 border-2 border-bottom border-light">Últimas Marcações</h4>
+              <svg xmlns="http://www.w3.org/2000/svg" class="ms-1 icon icon-tabler icon-tabler-info-circle" data-toggle="tooltip" data-bs-placement="top" title='Aqui podes encontrar as últimas Marcações já concluidas onde Atletas deste grupo participaram.' width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                <path d="M12 9h.01" />
+                <path d="M11 12h1v4h1" />
+              </svg>
+            </div>
+            
+            <div class="" id="marcacoesConcluidasGrupo">
+
+            </div>
           </div>
         </div>
       </div>

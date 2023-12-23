@@ -20,6 +20,9 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 4) {
     $res = $grupo -> getInfoGrupo($_POST['idGrupo']);
     echo($res);
+} else if($_POST['op'] == 5) {
+    $res = $grupo -> getMarcacoesConcluidasGrupo($_POST['idGrupo']);
+    echo($res);
 }
 
 ?>
