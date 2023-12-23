@@ -221,7 +221,7 @@ if (isset($_SESSION['id'])) { ?>
             <div class="p-3">
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Membros</h4>
               <div class="text-end mb-1">
-                <span class="fw-bold">Total:</span> <span id="totalMembros"></span>
+                <span class="fw-bolder">Total:</span> <span id="totalMembros"></span>
               </div>
               <div class="row gap-4" id="atletasGrupo">
 
