@@ -6,7 +6,8 @@ require_once 'connection.php';
 
 class Grupo
 {
-    function getMarcacoesAbertasGrupos() {
+    function getMarcacoesAbertasGrupos()
+    {
         global $conn;
         $msg = "";
         $contagem = 0;
@@ -48,12 +49,12 @@ class Grupo
                         INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id 
                     WHERE marcacao.tipo = 'aberta'
                     AND listagem_atletas_marcacao.votacao = '2'
-                        AND listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
-                        AND marcacao.id_atleta != ".$_SESSION['id']."
+                        AND listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
+                        AND marcacao.id_atleta != " . $_SESSION['id'] . "
                     AND marcacao.id NOT IN (
                             SELECT listagem_atletas_marcacao.id_marcacao 
                             FROM listagem_atletas_marcacao 
-                            WHERE listagem_atletas_marcacao.id_atleta  = ".$_SESSION['id']."
+                            WHERE listagem_atletas_marcacao.id_atleta  = " . $_SESSION['id'] . "
                     )          
                     AND marcacao.id_atleta IN (
                             SELECT comunidade_atletas.id_atleta
@@ -64,7 +65,7 @@ class Grupo
                                 AND comunidade_atletas.id_comunidade IN 
                                 (SELECT comunidade_atletas.id_comunidade
                                 FROM comunidade_atletas
-                                WHERE comunidade_atletas.id_atleta = ".$_SESSION['id'].")
+                                WHERE comunidade_atletas.id_atleta = " . $_SESSION['id'] . ")
                         ) ";
 
 
@@ -145,14 +146,14 @@ class Grupo
                             listagem_atletas_marcacao
                             INNER JOIN
                             user ON listagem_atletas_marcacao.id_atleta = user.id
-                            WHERE id_marcacao = " . $row['idMarcacao'] ."
+                            WHERE id_marcacao = " . $row['idMarcacao'] . "
                             AND listagem_atletas_marcacao.estado = 1";
                     $result1 = $conn->query($sql1);
 
                     if ($result1->num_rows > 0) {
                         while ($row1 = $result1->fetch_assoc()) {
                             if ($row1['idAtleta'] != $row['idAtletaHost']) {
-                                if($row1['idAtleta'] == $_SESSION['id']) {
+                                if ($row1['idAtleta'] == $_SESSION['id']) {
                                     $msg .= "<div class='col-md-2 mb-2'>
                                         <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img src='../../dist/" . $row1['fotoAmigo'] . "' alt='" . $row1['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
                                     </div>";
@@ -177,7 +178,7 @@ class Grupo
                   LEFT JOIN
                     listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
                   WHERE
-                    marcacao.id = ".$row['idMarcacao']."
+                    marcacao.id = " . $row['idMarcacao'] . "
                   AND 
                     listagem_atletas_marcacao.estado = 1
                   GROUP BY
@@ -187,7 +188,7 @@ class Grupo
 
                     if ($result2->num_rows > 0) {
                         while ($row2 = $result2->fetch_assoc()) {
-                            for($i = 0; $i < ($row2['n_participantes_max'] - $row2['num_atletas_inscritos']); $i++) {
+                            for ($i = 0; $i < ($row2['n_participantes_max'] - $row2['num_atletas_inscritos']); $i++) {
                                 $msg .= "<div class='col-md-2 mb-2'>
                                             <div class='lugar-livre' data-toggle='tooltip' data-placement='top' title='Junta-te!' style='cursor: pointer;'>
                                         
@@ -218,7 +219,8 @@ class Grupo
         return ($resp);
     }
 
-    function getGruposUser() {
+    function getGruposUser()
+    {
         global $conn;
         $msg = "";
 
@@ -236,20 +238,20 @@ class Grupo
                 modalidade ON comunidade.id_modalidade = modalidade.id
                 INNER JOIN 
                 tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id
-                WHERE comunidade_atletas.id_atleta = ".$_SESSION['id']."
+                WHERE comunidade_atletas.id_atleta = " . $_SESSION['id'] . "
                 AND comunidade.tipo_comunidade = 1
                 LIMIT 12";
 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {       
+            while ($row = $result->fetch_assoc()) {
                 $msg .= "<div class='col-md-2'>
                             <div class='card hover-img shadow'>
                             <div class='d-flex flex-column p-3 align-items-center mt-3'>
-                                <a href='./grupo.php?id=".$row['idComunidade']."'><img src='../../dist/".$row['fotoComunidade']."' class='img-fluid' style='max-width: 100px;'></a>
-                                <span class='fs-4'>".$row['nomeComunidade']."</span>
-                                <a href='./grupo.php?id=".$row['idComunidade']."'>
+                                <a href='./grupo.php?id=" . $row['idComunidade'] . "'><img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid' style='max-width: 100px;'></a>
+                                <span class='fs-4'>" . $row['nomeComunidade'] . "</span>
+                                <a href='./grupo.php?id=" . $row['idComunidade'] . "'>
                                     <button class='btn btn-primary btn-sm mt-3'>Ver</button>
                                 </a>";
                 if ($row['tipoModalidade'] == "Ténis") {
@@ -258,21 +260,63 @@ class Grupo
                     $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-football me-1'></i>Futsal</span>";
                 } else if ($row['tipoModalidade'] == "Basquetebol") {
                     $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
-                } else  {
+                } else {
                     $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
-                }                   
-                
-        
+                }
+
+
                 $msg .= "</div>
                     </div>
-                </div>"; 
+                </div>";
             }
         } else {
             $msg .= "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não estás associado a nenhum Grupo. Podes criar o teu próprio no botão no canto superior direito, ou juntares-te a Grupos existentes!</p></div>";
         }
 
-        $conn -> close();
+        $conn->close();
 
         return ($msg);
+    }
+
+    function getAtletasGrupo($id, $offset, $porPagina)
+    {
+        global $conn;
+        $msg = "";
+
+        $offset = max(0, $offset); // Ter a certeza que o offset não é inferior a 0, se sim, mete a 0
+
+        $sqlContagem = "SELECT COUNT(*) AS total FROM user
+        INNER JOIN
+        comunidade_atletas ON user.id = comunidade_atletas.id_atleta
+        WHERE comunidade_atletas.id_comunidade = " . $id;
+
+        $resultadoContagem = $conn->query($sqlContagem);
+        $totalRows = $resultadoContagem->fetch_assoc();
+        $itemsTotais = $totalRows['total'];
+
+        $sql = "SELECT * 
+        FROM
+        user
+        INNER JOIN
+        comunidade_atletas ON user.id = comunidade_atletas.id_atleta
+        WHERE comunidade_atletas.id_comunidade = " . $id. "
+        LIMIT ".$offset.", ".$porPagina;
+
+        $result = $conn->query($sql);
+
+        $paginasTotais = ceil($itemsTotais / $porPagina);
+        $paginaAtual = ceil(($offset + 1) / $porPagina);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<div class='col-md-2'>
+                                <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' data-toggle='tooltip' data-bs-placement='top' title='" . $row['nome'] . "' class='img-fluid rounded-circle border border-1 border-primary' style='max-width: 50px;'></a>
+                        </div>";
+            }
+        }
+
+        $conn->close();
+        $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual, 'total' => $itemsTotais);
+        return json_encode($data);
     }
 }

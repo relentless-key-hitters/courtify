@@ -190,7 +190,7 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Main wrapper -->
 
     <div class="container">
-      <div class="card" style="margin-top: 120px;">
+      <div class="card shadow" style="margin-top: 120px;">
         <div class="row">
           <div class="col-md-3" style="height: 200px">
             <div id="infoGrupo">
@@ -214,20 +214,31 @@ if (isset($_SESSION['id'])) { ?>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <div class="card" style="height: 150px">
+          <div class="card shadow" style="height: 150px" id="conquistasGrupo">
             Conquistas
           </div>
-          <div class="card" style="height: 200px">
-            Atletas
+          <div class="card shadow">
+            <div class="p-3">
+              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Membros</h4>
+              <div class="text-end mb-1">
+                <span class="fw-bold">Total:</span> <span id="totalMembros"></span>
+              </div>
+              <div class="row gap-4" id="atletasGrupo">
+
+              </div>
+            </div>
+            <div class='mt-1' id="paginacaoAtletasGrupo">
+                
+            </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card" style="height: 600px">
+          <div class="card shadow" style="height: 600px" id="atividadeGrupo">
             Atividade
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card" style="height: 400px">
+          <div class="card shadow" style="height: 400px" id="marcacoesConcluidasGrupo">
             Últimas marcações concluídas de atletas deste grupo
           </div>
         </div>
@@ -401,6 +412,15 @@ if (isset($_SESSION['id'])) { ?>
     <!-- ---------------------------------------------- -->
 
     <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
+    <script src="../../dist/js/js_courtify/grupo.js"></script>
+
+    <script class="script">
+      $(function () {
+        $('body').tooltip({
+          selector: '[data-toggle="tooltip"]'
+        });
+      });
+    </script>
 
     <script type="text/javascript">
       var timeout;
@@ -432,6 +452,8 @@ if (isset($_SESSION['id'])) { ?>
 
       resetSessionTimeout();
     </script>
+
+
 
 
     <!--<script>

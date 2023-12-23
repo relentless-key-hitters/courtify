@@ -2286,7 +2286,7 @@ class User
             while ($row = $result->fetch_assoc()) {
                 $msg .= "<div class='col-lg-12 col-md-6 col-sm-6'>
                             <div class='shadow rounded d-flex align-items-center mt-3 position-relative'>
-                                <a href='./comunidade.php?id=".$row['idComunidade']."'>
+                                <a href='./grupo.php?id=".$row['idComunidade']."'>
                                     <img src='../../dist/".$row['fotoComunidade']."' alt='".$row['nomeComunidade']."' class='img-fluid rounded-2 mt-3' width='100' height='100'>
                                 </a>
                                 <div class='ms-3 mt-3'>
