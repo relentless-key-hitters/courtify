@@ -352,7 +352,7 @@ class Grupo
                                 <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeGrupo'] . "</small>
                             </span>";
                 }
-                $maximoCaracteresDesc = 150; 
+                $maximoCaracteresDesc = 205; 
                 $descricao = substr($row['descricao'], 0, $maximoCaracteresDesc);
 
                 if (strlen($row['descricao']) > $maximoCaracteresDesc) {
@@ -362,7 +362,9 @@ class Grupo
                 
                 $msg .= "<img src='../../dist/" . $row['foto'] . "' class='mt-2 rounded-circle' width='130' height='130' alt='" . $row['nome'] . "' />
                         <h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
-                        <span class='text-center'>" . $descricao . "</span>
+                        <div class='px-2'>
+                            <span>" . $descricao . "</span>
+                        </div>
                     </div>";
             }
         }

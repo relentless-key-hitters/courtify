@@ -191,7 +191,7 @@ if (isset($_SESSION['id'])) { ?>
 
     <div class="container">
       <div class="card shadow" style="margin-top: 120px;">
-        <div class="row" style="min-height: 300px; max-height: 300px;">
+        <div class="row" style="max-height: 300px">
           <div class="col-md-3">
             <div id="infoGrupo">
               
