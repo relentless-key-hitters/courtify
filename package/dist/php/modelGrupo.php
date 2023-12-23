@@ -360,7 +360,7 @@ class Grupo
                     $descricao = substr($descricao, 0, $ultimoEspaco) . " (...)"; 
                 }
                 
-                $msg .= "<img src='../../dist/" . $row['foto'] . "' class='rounded-circle' width='120' height='120' alt='" . $row['nome'] . "' />
+                $msg .= "<img src='../../dist/" . $row['foto'] . "' class='mt-2 rounded-circle' width='130' height='130' alt='" . $row['nome'] . "' />
                         <h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
                         <span class='text-center'>" . $descricao . "</span>
                     </div>";
