@@ -300,6 +300,7 @@ class Grupo
         INNER JOIN
         comunidade_atletas ON user.id = comunidade_atletas.id_atleta
         WHERE comunidade_atletas.id_comunidade = " . $id . "
+        ORDER BY nome ASC
         LIMIT " . $offset . ", " . $porPagina;
 
         $result = $conn->query($sql);
