@@ -1105,52 +1105,10 @@ function getRadar(userId){
 
     .done(function (msg) {
         let obj = JSON.parse(msg);
-        console.log(obj[0])
-
-        var options = {
-            series: [{
-            name: 'Tu',
-            data: obj[0],
-          }, {
-            name: 'Altetas Courtify',
-            data: obj[1],
-          }],
-            chart: {
-            height: 350,
-            type: 'radar',
-            toolbar: {
-                show: false,
-              },
-            dropShadow: {
-              enabled: true,
-              blur: 1,
-              left: 1,
-              top: 1
-            }
-          },
-          stroke: {
-            width: 2
-          },
-          fill: {
-            opacity: 0.1
-          },
-          markers: {
-            size: 0
-          },
-          
-          colors: ["#056087", "#619e3f", "#ffae1f"],
-        xaxis: {
-          categories: ["% Vitórias", "% Set Ganhos", "% MVP"],
-        },
-        tooltip: {
-          theme: "dark",
-        }
-    
-          };
-    
-          var chart = new ApexCharts(document.querySelector("#radarPadel2"), options);
-          chart.render();
-    
+        console.log(obj)
+        plotRadarPadelTenis(obj[0], obj[1], "radarPadel2", '#044967')
+        plotRadarPadelTenis(obj[2], obj[3], "radarTenis1", '#45702d')
+        plotRadarBasqFutsal(obj[4], obj[5], "radarBasket1", '#ffae1f')
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -1158,8 +1116,150 @@ function getRadar(userId){
     })
 }
 
+function plotRadarPadelTenis(array1, array2, nome, cor){
+
+    var options = {
+        series: [
+        {
+          name: 'Tu',
+          data: [
+            {
+              x: '% Vitórias',
+              y: array1[0],
+              goals: [
+                {
+                  name: 'Atletas Courtify',
+                  value: array2[0],
+                  strokeHeight: 5,
+                  strokeColor: '#1860b8'
+                }
+              ]
+            },
+            {
+              x: '% Sets Ganhos',
+              y: array1[1],
+              goals: [
+                {
+                  name: 'Atletas Courtify',
+                  value: array2[1],
+                  strokeHeight: 5,
+                  strokeColor: '#1860b8'
+                }
+              ]
+            },
+            {
+                x: '% MVP',
+                y: array1[2],
+                goals: [
+                  {
+                    name: 'Atletas Courtify',
+                    value: array2[2],
+                    strokeHeight: 5,
+                    strokeColor: '#1860b8'
+                  }
+                ]
+              }
+          ]
+        }
+      ],
+        chart: {
+        height: 350,
+        type: 'bar',
+        toolbar: {
+            show: false,
+          }
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: '50%'
+        }
+      },
+      colors: [cor],
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: true,
+        showForSingleSeries: true,
+        customLegendItems: ['Tu', 'Atletas Courtify'],
+        markers: {
+          fillColors: [cor, '#1860b8']
+        }
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#"+nome), options);
+      chart.render();
+
+}
+
+function plotRadarBasqFutsal(array1, array2, nome, cor){
+
+    var options = {
+        series: [
+        {
+          name: 'Tu',
+          data: [
+            {
+              x: '% Vitórias',
+              y: array1[0],
+              goals: [
+                {
+                  name: 'Atletas Courtify',
+                  value: array2[0],
+                  strokeHeight: 5,
+                  strokeColor: '#1860b8'
+                }
+              ]
+            },
+            {
+              x: '% MVP',
+              y: array1[1],
+              goals: [
+                {
+                  name: 'Atletas Courtify',
+                  value: array2[1],
+                  strokeHeight: 5,
+                  strokeColor: '#1860b8'
+                }
+              ]
+            }
+            
+          ]
+        }
+      ],
+        chart: {
+        height: 350,
+        type: 'bar',
+        toolbar: {
+            show: false,
+          }
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: '50%'
+        }
+      },
+      colors: [cor],
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: true,
+        showForSingleSeries: true,
+        customLegendItems: ['Tu', 'Atletas Courtify'],
+        markers: {
+          fillColors: [cor, '#1860b8']
+        }
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#"+nome), options);
+      chart.render();
+    
 
 
+}
 
 $(function() {
     getPerfilNavbar();
@@ -1167,5 +1267,3 @@ $(function() {
     getJogosRecentes(1);
     getComunidades();
 });
-
-

@@ -2396,18 +2396,52 @@ class User
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $percVit = $row['n_vitorias'] / $row['n_jogos'];
-                $mediaPS = $row['n_pontos_set'] / $row['n_sets'];
                 $percSetGanhos =  $row['n_set_ganhos'] / $row['n_sets'];
-                $mediaPJ = $row['n_pontos_set'] / $row['n_jogos'];
                 $percMVP = $row['n_mvp'] / $row['n_jogos'];
-                array_push($vals, array($percVit*100, $percSetGanhos*100, $percMVP*100));
+                array_push($vals, array(round($percVit*100, 1), round($percSetGanhos*100,1), round($percMVP*100),1));
             }
         }
         if ($result2->num_rows > 0) {
             while ($row2 = $result2->fetch_assoc()) {
-                array_push($vals, array($row2['percVitorias']*100, $row2['percSetsGanhos']*100, $row2['percMvp']*100));
+                array_push($vals, array(round($row2['percVitorias']*100,1), round($row2['percSetsGanhos']*100,1), round($row2['percMvp']*100,1)));
             }
         }
+
+        $sql3 = "SELECT * FROM info_tenis WHERE id_atleta =".$id;
+        $result3 = $conn -> query($sql3);
+        $sql4 = "SELECT * FROM estatisticas_tenis";
+        $result4 = $conn -> query($sql4);
+        if ($result3->num_rows > 0) {
+            while ($row3 = $result3->fetch_assoc()) {
+                $percVit = $row3['n_vitorias'] / $row3['n_jogos'];
+                $percSetGanhos =  $row3['n_set_ganhos'] / $row3['n_sets'];
+                $percMVP = $row3['n_mvp'] / $row3['n_jogos'];
+                array_push($vals, array(round($percVit*100, 1), round($percSetGanhos*100, 1), round($percMVP*100, 1)));
+            }
+        }
+        if ($result4->num_rows > 0) {
+            while ($row4 = $result4->fetch_assoc()) {
+                array_push($vals, array(round($row4['percVitorias']*100, 1), round($row4['percSetsGanhos']*100, 1), round($row4['percMvp']*100, 1)));
+            }
+        }
+
+        $sql5 = "SELECT * FROM info_basquetebol WHERE id_atleta =".$id;
+        $result5 = $conn -> query($sql5);
+        $sql6 = "SELECT * FROM estatisticas_basquetebol";
+        $result6 = $conn -> query($sql6);
+        if ($result5->num_rows > 0) {
+            while ($row5 = $result5->fetch_assoc()) {
+                $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
+                $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
+                array_push($vals, array(round($percVit*100, 1), round($percMVP*100, 1)));
+            }
+        }
+        if ($result6->num_rows > 0) {
+            while ($row6 = $result6->fetch_assoc()) {
+                array_push($vals, array(round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
+            }
+        }
+
         $resp = json_encode($vals);
         $conn->close();
         return ($resp);
