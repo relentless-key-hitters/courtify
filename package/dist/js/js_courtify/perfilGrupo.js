@@ -118,76 +118,74 @@ function adicionarLinksPaginacaoAtletasGrupo(paginasTotais, paginaAtual) {
 }
 
 function getInfoGrupo() {
-    let urlParams = new URLSearchParams(window.location.search);
-    let id = urlParams.get("id");
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
 
-    let dados = new FormData();
-    dados.append("op", 4);
-    dados.append("idGrupo", id);
+  let dados = new FormData();
+  dados.append("op", 4);
+  dados.append("idGrupo", id);
 
-    $.ajax({
-        url: "../../dist/php/controllerGrupo.php",
-        method: "POST",
-        data: dados,
-        dataType: "html",
-        cache: false,
-        contentType: false,
-        processData: false,
-    })
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
 
     .done(function (msg) {
-        $("#infoGrupo").html(msg);
+      $("#infoGrupo").html(msg);
     })
 
     .fail(function (jqXHR, textStatus) {
-        alert("Request failed: " + textStatus);
-    })
+      alert("Request failed: " + textStatus);
+    });
 }
 
 function getMarcacoesConcluidasGrupo() {
-    let urlParams = new URLSearchParams(window.location.search);
-    let id = urlParams.get("id");
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
 
-    let dados = new FormData();
-    dados.append("op", 5);
-    dados.append("idGrupo", id);
+  let dados = new FormData();
+  dados.append("op", 5);
+  dados.append("idGrupo", id);
 
-    $.ajax({
-        url: "../../dist/php/controllerGrupo.php",
-        method: "POST",
-        data: dados,
-        dataType: "html",
-        cache: false,
-        contentType: false,
-        processData: false,
-    })
-    
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
     .done(function (msg) {
       $("#marcacoesConcluidasGrupo").html(msg);
     })
 
-    .fail(function (jqXHR, textStatus) {
-      
-    });
+    .fail(function (jqXHR, textStatus) {});
 }
 
 function getBadgesGrupo() {
-    let urlParams = new URLSearchParams(window.location.search);
-    let id = urlParams.get("id");
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
 
-    let dados = new FormData();
-    dados.append("op", 6);
-    dados.append("idGrupo", id);
+  let dados = new FormData();
+  dados.append("op", 6);
+  dados.append("idGrupo", id);
 
-    $.ajax({
-        url: "../../dist/php/controllerGrupo.php",
-        method: "POST",
-        data: dados,
-        dataType: "html",
-        cache: false,
-        contentType: false,
-        processData: false,
-    })
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
 
     .done(function (msg) {
       let obj = JSON.parse(msg);
@@ -196,12 +194,47 @@ function getBadgesGrupo() {
     })
 
     .fail(function (jqXHR, textStatus) {
-        alert("Request failed: " + textStatus);
-    })
+      alert("Request failed: " + textStatus);
+    });
 }
 
+function getBotoesMenus() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 7);
+  dados.append("idGrupo", id);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+    .done(function (msg) {
+      let obj = JSON.parse(msg)
+
+      if(obj.userIsHost) {
+        $("#botoesNonAdmin").hide(msg);
+        $("#botoesAdmin").show(msg);
+      } else {
+        $("#botoesNonAdmin").show(msg);
+        $("#botoesAdmin").hide(msg);
+      }
+    })
+
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
+}
 
 $(function () {
+  getBotoesMenus();
   getAtletasGrupo(1);
   getInfoGrupo();
   getMarcacoesConcluidasGrupo();

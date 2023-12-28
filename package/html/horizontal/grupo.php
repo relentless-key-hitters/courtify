@@ -202,9 +202,24 @@ if (isset($_SESSION['id'])) { ?>
               Estatisticas Principais
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 d-flex flex-column justify-content-center">
             <div id="algoGrupo">
-              Botoes?? algo?? juntar?? fazer pedido
+            <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Menu</h4>
+              <div class="p-3">
+                <div class="row text-center">
+                  <div class="col-md-12" id="botoesNonAdmin">
+                    <button class="btn btn-lg btn-primary w-100 mb-3">Juntar<i class="ms-1 ti ti-plus"></i></button>
+                    <button class="btn btn-lg btn-outline-danger w-100 mb-3">Sair<i class="ms-1 ti ti-x"></i></button>
+                  </div>
+                  <div class="col-md-12" id="botoesAdmin">
+                    <div class="d-flex justify-content-between gap-2 mb-3">
+                      <button class="btn btn-outline-success w-75">Editar<i class="ti ti-pencil ms-1"></i></button>
+                      <button class="btn btn-outline-danger w-75">Apagar<i class="ms-1 ti ti-x"></i></button>
+                    </div>
+                    <button class="btn btn-outline-primary w-50">Membros<i class="ms-1 ti ti-pencil"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

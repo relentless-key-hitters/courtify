@@ -544,4 +544,30 @@ class Grupo
         $resp = array('msg' => $msg, 'total' => $result->num_rows);
         return json_encode($resp);
     }
+
+    function getBotoesMenus($id) {
+        global $conn;
+        $idAtletaHost = 0;
+        $userIsHost = false;
+        
+        $sql = "SELECT * FROM comunidade WHERE comunidade.tipo_comunidade = ".$id;
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $idAtletaHost = $row['id_atletaHost'];
+            }
+        }
+
+        if($_SESSION['id'] == $idAtletaHost) {
+            $userIsHost = true;
+        } else {
+            $userIsHost = false;
+        }
+
+        $conn -> close();
+
+        return json_encode(array('userIsHost' => $userIsHost));
+    }
 }

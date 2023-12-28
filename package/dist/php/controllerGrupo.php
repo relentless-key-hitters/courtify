@@ -26,6 +26,9 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 6) {
     $res = $grupo -> getBadgesGrupo($_POST['idGrupo']);
     echo($res);
+} else if($_POST['op'] == 7) {
+    $res = $grupo -> getBotoesMenus($_POST['idGrupo']);
+    echo($res);
 }
 
 ?>
