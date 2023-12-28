@@ -530,7 +530,7 @@ class Grupo
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $msg .= "<div class='col-4'>
-                            <img src='../../dist".$row['fotoBadge']."' alt='".$row['descricaoBadge']."' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='".$row['descricaoBadge']."'>
+                            <img src='../../dist" . $row['fotoBadge'] . "' alt='" . $row['descricaoBadge'] . "' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='" . $row['descricaoBadge'] . "'>
                         </div>";
             }
         } else {
@@ -545,28 +545,19 @@ class Grupo
         return json_encode($resp);
     }
 
-    function getBotoesMenus($id) {
+    function getBotoesMenus($id)
+    {
         global $conn;
-        $idAtletaHost = 0;
-        $userIsHost = false;
-        
-        $sql = "SELECT * FROM comunidade WHERE comunidade.tipo_comunidade = ".$id;
 
-        $result = $conn->query($sql);
+        $sql = "SELECT id_atletaHost FROM comunidade WHERE comunidade.tipo_comunidade = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->bind_result($idAtletaHost);
+        $stmt->fetch();
+        $stmt->close();
 
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $idAtletaHost = $row['id_atletaHost'];
-            }
-        }
-
-        if($_SESSION['id'] == $idAtletaHost) {
-            $userIsHost = true;
-        } else {
-            $userIsHost = false;
-        }
-
-        $conn -> close();
+        $userIsHost = $_SESSION['id'] == $idAtletaHost;
 
         return json_encode(array('userIsHost' => $userIsHost));
     }

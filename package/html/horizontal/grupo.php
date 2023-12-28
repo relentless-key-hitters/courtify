@@ -216,7 +216,7 @@ if (isset($_SESSION['id'])) { ?>
                       <button class="btn btn-outline-success w-75">Editar<i class="ti ti-pencil ms-1"></i></button>
                       <button class="btn btn-outline-danger w-75">Apagar<i class="ms-1 ti ti-x"></i></button>
                     </div>
-                    <button class="btn btn-outline-primary w-50">Membros<i class="ms-1 ti ti-pencil"></i></button>
+                    <button class="btn btn-outline-primary w-50" data-toggle="tooltip" data-placement="top" title="Visualiza e edita os Membros do Grupo">Membros<i class="ms-1 ti ti-pencil"></i></button>
                   </div>
                 </div>
               </div>
