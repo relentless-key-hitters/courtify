@@ -221,15 +221,16 @@ function getBotoesMenus() {
       console.log(obj);
 
       if(obj.userIsHost) {
-        $("#botoesNonAdmin").hide();
-        $("#botoesAdmin").show();
+        $("#botoesAdmin").html("<div class='d-flex justify-content-between gap-2 mb-3'>" +
+                                  "<button class='btn btn-outline-success w-75'>Editar<i class='ti ti-pencil ms-1'></i></button>" +
+                                  "<button class='btn btn-outline-danger w-75'>Apagar<i class='ms-1 ti ti-x'></i></button>" +
+                                "</div>" +
+                                "<button class='btn btn-outline-primary w-50' data-toggle='tooltip' data-placement='top' title='Visualiza e edita os Membros do Grupo'>Membros<i class='ms-1 ti ti-pencil'></i></button>");
       } else {
         if(obj.userIsMember) {
-          $("#botaoJuntarGrupo").hide();
-          $("#botaoSairGrupo").show();
+          $("#botoesNonAdmin").html("<button class='btn btn-lg btn-outline-danger w-100 mb-3' id='botaoSairGrupo' data-bs-toggle='modal' data-bs-target='#modalSairGrupo'>Sair<i class='ms-1 ti ti-x'></i></button>");
         } else {
-          $("#botaoJuntarGrupo").show();
-          $("#botaoSairGrupo").hide();
+          $("#botoesNonAdmin").html("<button class='btn btn-lg btn-primary w-100 mb-3' id='botaoJuntarGrupo' data-bs-toggle='modal' data-bs-target='#modalJuntarGrupo'>Juntar<i class='ms-1 ti ti-plus'></i></button>");
         }
 
         $("#botoesAdmin").hide();
@@ -239,6 +240,78 @@ function getBotoesMenus() {
     .fail(function (jqXHR, textStatus) {
       alert("Request failed: " + textStatus);
     });
+}
+
+function sairGrupo() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 8);
+  dados.append("idGrupo", id);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+  .done(function (msg) {
+    alerta2("Sucesso!", msg, "success");
+    setTimeout(function () {
+      window.location.reload();
+    }, 3000);
+  })
+
+  .fail(function (jqXHR, textStatus) {
+    
+  })
+}
+
+function juntarGrupo() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 9);
+  dados.append("idGrupo", id);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+  .done(function (msg) {
+    alerta2("Sucesso!", msg, "success");
+    setTimeout(function () {
+      window.location.reload();
+    }, 3000);
+  })
+
+  .fail(function (jqXHR, textStatus) {
+    alert("Request failed: " + textStatus);
+  })
+}
+
+function alerta2(titulo,msg,icon){
+  Swal.fire({
+      position: 'center',
+      icon: icon,
+      title: titulo,
+      text: msg,
+      showConfirmButton: false,
+      confirmButtonColor: '#45702d',
+      timer: 3000
+    })
 }
 
 $(function () {
