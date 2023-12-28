@@ -169,11 +169,41 @@ function getMarcacoesConcluidasGrupo() {
     .fail(function (jqXHR, textStatus) {
       
     });
-  }
+}
+
+function getBadgesGrupo() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get("id");
+
+    let dados = new FormData();
+    dados.append("op", 6);
+    dados.append("idGrupo", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerGrupo.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+
+    .done(function (msg) {
+      let obj = JSON.parse(msg);
+      $("#badgesGrupo").html(obj.msg);
+      $("#totalBadges").html(obj.total);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+}
 
 
 $(function () {
   getAtletasGrupo(1);
   getInfoGrupo();
   getMarcacoesConcluidasGrupo();
+  getBadgesGrupo();
 });

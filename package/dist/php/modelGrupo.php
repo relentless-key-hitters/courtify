@@ -381,18 +381,20 @@ class Grupo
         $msg = "";
 
         $sql = "SELECT DISTINCT
-                marcacao.id as idMarcacao,
-                marcacao.id_atleta as idAtletaHost,
-                marcacao.data_inicio AS dataInicioMarcacao, 
-                marcacao.hora_inicio AS horaInicioMarcacao,
-                marcacao.hora_fim AS horaMarcFim,  
-                modalidade.descricao AS modalidadeMarcacao, 
-                user.id AS idClube,
-                user.nome AS nomeClube, 
-                user.foto as fotoClube, 
-                user.nome AS nomeClube, 
-                campo.foto AS fotoCampoMarcacao,
-                campo.nome AS nomeCampoMarcacao
+                    marcacao.id as idMarcacao,
+                    marcacao.id_atleta as idAtletaHost,
+                    marcacao.data_inicio AS dataInicioMarcacao, 
+                    marcacao.hora_inicio AS horaInicioMarcacao,
+                    marcacao.hora_fim AS horaMarcFim,
+                    modalidade.id AS idModalidadeCampo,  
+                    modalidade.descricao AS modalidadeMarcacao, 
+                    user.id AS idClube,
+                    user.nome AS nomeClube, 
+                    user.foto as fotoClube, 
+                    user.nome AS nomeClube, 
+                    campo.foto AS fotoCampoMarcacao,
+                    campo.nome AS nomeCampoMarcacao,
+                    comunidade.id_modalidade AS idModalidadeGrupo
                 FROM listagem_atletas_marcacao 
                 INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
                 INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
@@ -403,10 +405,11 @@ class Grupo
                 INNER JOIN comunidade_atletas ON listagem_atletas_marcacao.id_atleta = comunidade_atletas.id_atleta
                 INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
                 WHERE listagem_atletas_marcacao.votacao = 1 
-                AND listagem_atletas_marcacao.estado = 1
-                AND comunidade.id = " . $id . "
+                    AND listagem_atletas_marcacao.estado = 1
+                    AND comunidade.id = " . $id . "
+                    AND comunidade.id_modalidade = modalidade.id
                 ORDER BY marcacao.data_inicio ASC
-                LIMIT 2";
+                LIMIT 2;";
 
         $result = $conn->query($sql);
 
@@ -499,5 +502,46 @@ class Grupo
 
         $conn->close();
         return $msg;
+    }
+
+    function getBadgesGrupo($id)
+    {
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT badge.id AS idBadge,
+        badge.id_modalidade AS idModalidadeBadge,
+        badge.foto AS fotoBadge,
+        badge.descricao AS descricaoBadge,
+        badge.valorPatamar AS valorPatamarBadge,
+        badge.categoria AS categoriaBadge
+        FROM
+        badge
+        INNER JOIN
+        comunidade_badges ON badge.id = comunidade_badges.id_badge
+        INNER JOIN 
+        comunidade ON comunidade_badges.id_comunidade = comunidade.id
+        WHERE comunidade.id = " . $id . "
+        ORDER BY comunidade_badges.dataAq ASC
+        LIMIT 6";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<div class='col-4'>
+                            <img src='../../dist".$row['fotoBadge']."' alt='".$row['descricaoBadge']."' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='".$row['descricaoBadge']."'>
+                        </div>";
+            }
+        } else {
+            $msg .= "<div class='text-center mt-2'>
+                        <h5>Sem resultados!</h5>
+                        <p>Este grupo ainda não desbloqueou nenhuma conquista.</p>
+                    </div>";
+        }
+
+        $conn->close();
+        $resp = array('msg' => $msg, 'total' => $result->num_rows);
+        return json_encode($resp);
     }
 }
