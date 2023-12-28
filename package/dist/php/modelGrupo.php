@@ -545,46 +545,39 @@ class Grupo
         return json_encode($resp);
     }
 
-    function getBotoesMenus($id) {
-        global $conn;
-        $idAtletaHost = 0;
-        $userIsHost = false;
-        $userIsMember = false;
-        
-        $sql = "SELECT * FROM comunidade WHERE comunidade.tipo_comunidade = ".$id;
+function getBotoesMenus($id) {
+    global $conn;
+    
+    $idAtletaHost = 0;
+    $userIsHost = false;
+    $userIsMember = false;
 
-        $sql1 = "SELECT comunidade_atletas.id_atleta
-        FROM comunidade_atletas
-        INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
-        WHERE comunidade.id = ".$id;
-        
+    $sql = "SELECT id_atletaHost FROM comunidade WHERE comunidade.tipo_comunidade = ".$id;
+    $result = $conn->query($sql);
 
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $idAtletaHost = $row['id_atletaHost'];
-            }
-        }
-
-        if($_SESSION['id'] == $idAtletaHost) {
-            $userIsHost = true;
-        }
-
-        $resultSql1 = $conn->query($sql1);
-
-        if ($resultSql1->num_rows > 0) {
-            while($rowSql1 = $resultSql1->fetch_assoc()) {
-                if ($_SESSION['id'] == $rowSql1['id_atleta']) {
-                    $userIsMember = true;
-                    break;
-                }
-            }
-        }
-
-
-        $conn -> close();
-
-        return json_encode(array('userIsHost' => $userIsHost, 'userIsMember' => $userIsMember));
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $idAtletaHost = $row['id_atletaHost'];
     }
+
+    if ($_SESSION['id'] == $idAtletaHost) {
+        $userIsHost = true;
+    }
+
+    $sql1 = "SELECT id_atleta FROM comunidade_atletas WHERE id_comunidade = ".$id;
+    $resultSql1 = $conn->query($sql1);
+
+    if ($resultSql1->num_rows > 0) {
+        while($rowSql1 = $resultSql1->fetch_assoc()) {
+            if ($_SESSION['id'] == $rowSql1['id_atleta']) {
+                $userIsMember = true;
+                break;
+            }
+        }
+    }
+
+    $conn->close();
+
+    return json_encode(array('userIsHost' => $userIsHost, 'userIsMember' => $userIsMember));
+}
 }
