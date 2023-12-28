@@ -218,13 +218,21 @@ function getBotoesMenus() {
 
     .done(function (msg) {
       let obj = JSON.parse(msg)
+      console.log(obj);
 
       if(obj.userIsHost) {
-        $("#botoesNonAdmin").hide(msg);
-        $("#botoesAdmin").show(msg);
+        $("#botoesNonAdmin").hide();
+        $("#botoesAdmin").show();
       } else {
-        $("#botoesNonAdmin").show(msg);
-        $("#botoesAdmin").hide(msg);
+        if(obj.userIsMember) {
+          $("#botaoJuntarGrupo").hide();
+          $("#botaoSairGrupo").show();
+        } else {
+          $("#botaoJuntarGrupo").show();
+          $("#botaoSairGrupo").hide();
+        }
+
+        $("#botoesAdmin").hide();
       }
     })
 

@@ -549,8 +549,15 @@ class Grupo
         global $conn;
         $idAtletaHost = 0;
         $userIsHost = false;
+        $userIsMember = false;
         
         $sql = "SELECT * FROM comunidade WHERE comunidade.tipo_comunidade = ".$id;
+
+        $sql1 = "SELECT comunidade_atletas.id_atleta
+        FROM comunidade_atletas
+        INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
+        WHERE comunidade.id = ".$id;
+        
 
         $result = $conn->query($sql);
 
@@ -562,12 +569,22 @@ class Grupo
 
         if($_SESSION['id'] == $idAtletaHost) {
             $userIsHost = true;
-        } else {
-            $userIsHost = false;
         }
+
+        $resultSql1 = $conn->query($sql1);
+
+        if ($resultSql1->num_rows > 0) {
+            while($rowSql1 = $resultSql1->fetch_assoc()) {
+                if ($_SESSION['id'] == $rowSql1['id_atleta']) {
+                    $userIsMember = true;
+                    break;
+                }
+            }
+        }
+
 
         $conn -> close();
 
-        return json_encode(array('userIsHost' => $userIsHost));
+        return json_encode(array('userIsHost' => $userIsHost, 'userIsMember' => $userIsMember));
     }
 }

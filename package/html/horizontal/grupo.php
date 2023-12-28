@@ -208,8 +208,8 @@ if (isset($_SESSION['id'])) { ?>
               <div class="p-3">
                 <div class="row text-center">
                   <div class="col-md-12" id="botoesNonAdmin">
-                    <button class="btn btn-lg btn-primary w-100 mb-3">Juntar<i class="ms-1 ti ti-plus"></i></button>
-                    <button class="btn btn-lg btn-outline-danger w-100 mb-3">Sair<i class="ms-1 ti ti-x"></i></button>
+                    <button class="btn btn-lg btn-primary w-100 mb-3" id="botaoJuntarGrupo">Juntar<i class="ms-1 ti ti-plus"></i></button>
+                    <button class="btn btn-lg btn-outline-danger w-100 mb-3" id="botaoSairGrupo">Sair<i class="ms-1 ti ti-x"></i></button>
                   </div>
                   <div class="col-md-12" id="botoesAdmin">
                     <div class="d-flex justify-content-between gap-2 mb-3">
