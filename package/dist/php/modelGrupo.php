@@ -258,7 +258,7 @@ class Grupo
         global $conn;
         $msg = "";
 
-        $sql = "SELECT 
+        $sql = "SELECT  DISTINCT
                 comunidade.id AS idComunidade,
                 comunidade.nome AS nomeComunidade,
                 comunidade.foto AS fotoComunidade,
@@ -744,5 +744,36 @@ class Grupo
             "icon" => $icon, 
             "msg" => $msg
         ));
+    }
+
+    function apagarGrupo($id) {
+        global $conn;
+        $title = "";
+        $icon = "";
+        $msg = "";
+
+        $sql = "DELETE FROM comunidade WHERE id = " . $id;
+        $sql1 = "DELETE FROM comunidade_atletas WHERE id_comunidade = " . $id;
+        $sql2 = "DELETE FROM comunidade_badges WHERE id_comunidade = " . $id;
+
+        if ($conn->query($sql2) === TRUE && $conn->query($sql1) === TRUE && $conn->query($sql) === TRUE) {
+            $msg = "Apagado com sucesso!";
+            $title = "Sucesso";
+            $icon = "success";
+        } else {
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+            $title = "Erro";
+            $icon = "error";
+        }
+
+        $conn->close();
+
+        $resp = json_encode(array(
+            "title" => $title,
+            "icon" => $icon,
+            "msg" => $msg
+        ));
+
+        return $resp;
     }
 }

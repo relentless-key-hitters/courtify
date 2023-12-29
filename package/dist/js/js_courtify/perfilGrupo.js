@@ -224,7 +224,7 @@ function getBotoesMenus() {
         $("#botoesAdmin").html(
           "<div class='d-flex justify-content-between gap-2 mb-3'>" +
             "<button class='btn btn-outline-success w-75' data-bs-toggle='modal' data-bs-target='#modalEditarGrupo'>Editar<i class='ti ti-pencil ms-1'></i></button>" +
-            "<button class='btn btn-outline-danger w-75'>Apagar<i class='ms-1 ti ti-x'></i></button>" +
+            "<button class='btn btn-outline-danger w-75' data-bs-toggle='modal' data-bs-target='#modalApagarGrupo'>Apagar<i class='ms-1 ti ti-x'></i></button>" +
             "</div>" +
             "<button class='btn btn-outline-primary w-50' data-toggle='tooltip' data-placement='top' title='Visualiza e edita os Membros do Grupo'>Membros<i class='ms-1 ti ti-pencil'></i></button>"
         );
@@ -267,7 +267,7 @@ function sairGrupo() {
   })
 
     .done(function (msg) {
-      alerta2("Sucesso!", msg, "success");
+      alerta2("Sucesso", msg, "success");
       setTimeout(function () {
         window.location.reload();
       }, 3000);
@@ -295,7 +295,7 @@ function juntarGrupo() {
   })
 
     .done(function (msg) {
-      alerta2("Sucesso!", msg, "success");
+      alerta2("Sucesso", msg, "success");
       setTimeout(function () {
         window.location.reload();
       }, 3000);
@@ -384,7 +384,7 @@ function guardaEditGrupo() {
     .done(function (msg) {
       let obj = JSON.parse(msg);
       console.log(obj);
-      alerta2("Sucesso!", obj.msg, obj.icon);
+      alerta2("Sucesso", obj.msg, obj.icon);
       setTimeout(function () {
         window.location.reload();
       }, 3000);
@@ -393,6 +393,37 @@ function guardaEditGrupo() {
     .fail(function (jqXHR, textStatus) {
       alert("Request failed: " + textStatus);
     });
+}
+
+function apagarGrupo() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 12);
+  dados.append("idGrupo", id);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+  .done(function (msg) {
+    let obj = JSON.parse(msg);
+    alerta2(obj.title, obj.msg, obj.icon);
+    setTimeout(function () {
+      window.location.href = "./hub-grupos.php";
+    }, 3000);
+  })
+
+  .fail(function (jqXHR, textStatus) {
+    alert("Request failed: " + textStatus);
+  })
 }
 
 $("#modalEditarGrupo").on("hidden.bs.modal", function () {

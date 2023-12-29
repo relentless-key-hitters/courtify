@@ -682,6 +682,7 @@ function getAtletasPesquisaNavbar() {
 
     .done(function(msg) {
         $("#pesquisaAtletasNavbar").html(msg);
+
     })
 
     .fail(function( jqXHR, textStatus ) {

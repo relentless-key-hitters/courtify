@@ -22,8 +22,11 @@ if (isset($_SESSION['id'])) { ?>
 
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+    
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
+    
 
 
 
@@ -435,6 +438,31 @@ if (isset($_SESSION['id'])) { ?>
       </div>
     </div>
 
+    <div class="modal fade" id="modalSairGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSairGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+            <h4 class="modal-title">
+              Sair do Grupo
+            </h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <span class="fs-4">Estás prestes a sair deste grupo.<br></span>
+            <h5 class='mt-3'>Tens a certeza?</h5>
+          </div>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="sairGrupo()">
+              Sim
+            </button>
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
+              Não
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="modalEditarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarGrupo" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -460,19 +488,28 @@ if (isset($_SESSION['id'])) { ?>
     </div>
 
 
-    <div class="modal fade" id="modalEditarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarGrupo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable">
+
+    <div class="modal fade" id="modalApagarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalApagarGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Edição de Grupo</h1>
+          <div class="modal-header d-flex align-items-center">
+            <h4 class="modal-title">
+              Apagar Grupo
+            </h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            ...
+          <div class="modal-body text-center">
+            <span class="fs-4">Estás prestes a apagar este Grupo.<br></span>
+            <small>Todo o conteúdo gerado para este Grupo será apagado.<br> Isto inclui conquistas, estatísticas, etc</small>
+            <h5 class='mt-3'>Tens a certeza?</h5>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="apagarGrupo()">
+              Sim
+            </button>
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
+              Não
+            </button>
           </div>
         </div>
       </div>

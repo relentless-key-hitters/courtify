@@ -41,6 +41,9 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 11) {
     $res = $grupo -> guardaEditGrupo($_POST['idGrupo'], $_POST['nomeGrupo'], $_POST['descricaoGrupo'], $_FILES);
     echo($res);
+} else if($_POST['op'] == 12) {
+    $res = $grupo -> apagarGrupo($_POST['idGrupo']);
+    echo($res);
 }
 
 ?>
