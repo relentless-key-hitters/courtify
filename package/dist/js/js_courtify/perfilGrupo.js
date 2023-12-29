@@ -217,20 +217,26 @@ function getBotoesMenus() {
   })
 
     .done(function (msg) {
-      let obj = JSON.parse(msg)
+      let obj = JSON.parse(msg);
       console.log(obj);
 
-      if(obj.userIsHost) {
-        $("#botoesAdmin").html("<div class='d-flex justify-content-between gap-2 mb-3'>" +
-                                  "<button class='btn btn-outline-success w-75'>Editar<i class='ti ti-pencil ms-1'></i></button>" +
-                                  "<button class='btn btn-outline-danger w-75'>Apagar<i class='ms-1 ti ti-x'></i></button>" +
-                                "</div>" +
-                                "<button class='btn btn-outline-primary w-50' data-toggle='tooltip' data-placement='top' title='Visualiza e edita os Membros do Grupo'>Membros<i class='ms-1 ti ti-pencil'></i></button>");
+      if (obj.userIsHost) {
+        $("#botoesAdmin").html(
+          "<div class='d-flex justify-content-between gap-2 mb-3'>" +
+            "<button class='btn btn-outline-success w-75' data-bs-toggle='modal' data-bs-target='#modalEditarGrupo'>Editar<i class='ti ti-pencil ms-1'></i></button>" +
+            "<button class='btn btn-outline-danger w-75'>Apagar<i class='ms-1 ti ti-x'></i></button>" +
+            "</div>" +
+            "<button class='btn btn-outline-primary w-50' data-toggle='tooltip' data-placement='top' title='Visualiza e edita os Membros do Grupo'>Membros<i class='ms-1 ti ti-pencil'></i></button>"
+        );
       } else {
-        if(obj.userIsMember) {
-          $("#botoesNonAdmin").html("<button class='btn btn-lg btn-outline-danger w-100 mb-3' id='botaoSairGrupo' data-bs-toggle='modal' data-bs-target='#modalSairGrupo'>Sair<i class='ms-1 ti ti-x'></i></button>");
+        if (obj.userIsMember) {
+          $("#botoesNonAdmin").html(
+            "<button class='btn btn-lg btn-outline-danger w-100 mb-3' id='botaoSairGrupo' data-bs-toggle='modal' data-bs-target='#modalSairGrupo'>Sair<i class='ms-1 ti ti-x'></i></button>"
+          );
         } else {
-          $("#botoesNonAdmin").html("<button class='btn btn-lg btn-primary w-100 mb-3' id='botaoJuntarGrupo' data-bs-toggle='modal' data-bs-target='#modalJuntarGrupo'>Juntar<i class='ms-1 ti ti-plus'></i></button>");
+          $("#botoesNonAdmin").html(
+            "<button class='btn btn-lg btn-primary w-100 mb-3' id='botaoJuntarGrupo' data-bs-toggle='modal' data-bs-target='#modalJuntarGrupo'>Juntar<i class='ms-1 ti ti-plus'></i></button>"
+          );
         }
 
         $("#botoesAdmin").hide();
@@ -260,16 +266,14 @@ function sairGrupo() {
     processData: false,
   })
 
-  .done(function (msg) {
-    alerta2("Sucesso!", msg, "success");
-    setTimeout(function () {
-      window.location.reload();
-    }, 3000);
-  })
+    .done(function (msg) {
+      alerta2("Sucesso!", msg, "success");
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
+    })
 
-  .fail(function (jqXHR, textStatus) {
-    
-  })
+    .fail(function (jqXHR, textStatus) {});
 }
 
 function juntarGrupo() {
@@ -290,28 +294,124 @@ function juntarGrupo() {
     processData: false,
   })
 
-  .done(function (msg) {
-    alerta2("Sucesso!", msg, "success");
-    setTimeout(function () {
-      window.location.reload();
-    }, 3000);
-  })
+    .done(function (msg) {
+      alerta2("Sucesso!", msg, "success");
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
+    })
 
-  .fail(function (jqXHR, textStatus) {
-    alert("Request failed: " + textStatus);
-  })
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
 }
 
-function alerta2(titulo,msg,icon){
-  Swal.fire({
-      position: 'center',
-      icon: icon,
-      title: titulo,
-      text: msg,
-      showConfirmButton: false,
-      confirmButtonColor: '#45702d',
-      timer: 3000
+function previewImagem() {
+  let input = document.getElementById("imgGrupoEdit");
+  let image = document.getElementById("imgGrupo");
+
+  let file = input.files[0];
+
+  if (file) {
+    let reader = new FileReader();
+
+    reader.onload = function (e) {
+      image.src = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  }
+}
+
+function getInfoEditGrupo() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 10);
+  dados.append("idGrupo", id);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+    .done(function (msg) {
+      $("#bodyModalEditarGrupo").html(msg);
     })
+
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
+}
+
+function guardaEditGrupo() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 11);
+  dados.append("idGrupo", id);
+  dados.append("nomeGrupo", $("#nomeGrupoEdit").val());
+  dados.append("descricaoGrupo", $("#descricaoGrupoEdit").val());
+  var fileInput = $("#imgGrupoEdit")[0]; // Get the file input element
+  var selectedFile = fileInput.files[0];
+
+  if (selectedFile) {
+    // If a file is selected, append it to FormData
+    dados.append("imagemGrupo", selectedFile);
+  } else {
+    // If no file is selected, use the existing image source
+    var existingImageSrc = $("#imgGrupo").prop("src");
+    dados.append("imagemGrupo", existingImageSrc);
+  }
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+    .done(function (msg) {
+      let obj = JSON.parse(msg);
+      console.log(obj);
+      alerta2("Sucesso!", obj.msg, obj.icon);
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
+}
+
+$("#modalEditarGrupo").on("hidden.bs.modal", function () {
+  var image = document.getElementById("imgGrupo");
+  image.src = "../../dist/images/backgrounds/g.png";
+
+  document.getElementById("imgGrupoEdit").value = "";
+});
+
+function alerta2(titulo, msg, icon) {
+  Swal.fire({
+    position: "center",
+    icon: icon,
+    title: titulo,
+    text: msg,
+    showConfirmButton: false,
+    confirmButtonColor: "#45702d",
+    timer: 3000,
+  });
 }
 
 $(function () {
@@ -320,4 +420,5 @@ $(function () {
   getInfoGrupo();
   getMarcacoesConcluidasGrupo();
   getBadgesGrupo();
+  getInfoEditGrupo();
 });

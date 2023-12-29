@@ -19,10 +19,13 @@ if (isset($_SESSION['id'])) { ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/favicon.ico" />
+
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
+
 
     <style>
       body {
@@ -204,14 +207,14 @@ if (isset($_SESSION['id'])) { ?>
           </div>
           <div class="col-md-3 d-flex flex-column justify-content-center">
             <div id="algoGrupo">
-            <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Menu</h4>
+              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Menu</h4>
               <div class="p-3">
                 <div class="row text-center">
                   <div class="col-md-12" id="botoesNonAdmin">
-                    
+
                   </div>
                   <div class="col-md-12" id="botoesAdmin">
-                    
+
                   </div>
                 </div>
               </div>
@@ -432,27 +435,44 @@ if (isset($_SESSION['id'])) { ?>
       </div>
     </div>
 
-    <div class="modal fade" id="modalSairGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSairGrupo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="modalEditarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
             <h4 class="modal-title">
-              Sair do Grupo
+              Edição de Grupo
             </h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body text-center">
-            <span class="fs-4">Estás prestes a sair deste grupo.<br></span>
-            <small>Caso o faças, poderás sempre voltar a fazer um pedido para te juntares.</small>
-            <h5 class='mt-3'>Sair?</h5>
+          <div class="modal-body" id="bodyModalEditarGrupo">
+
           </div>
           <div class="d-flex justify-content-center align-items-center gap-3">
-            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="sairGrupo()">
-              Sim
+            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="guardaEditGrupo()">
+              Salvar
             </button>
             <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
-              Não
+              Cancelar
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="modalEditarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edição de Grupo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -483,6 +503,7 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/sidebarmenu.js"></script>
 
     <script src="../../dist/js/custom.js"></script>
+    <script src="../../dist/js/apps/chat.js"></script>
     <script src="../../dist/libs/prismjs/prism.js"></script>
     <script src="../../dist/js/js_courtify/sweatalert.js"></script>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
@@ -494,7 +515,6 @@ if (isset($_SESSION['id'])) { ?>
     <!-- current page js files -->
     <!-- ---------------------------------------------- -->
 
-    <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
     <script src="../../dist/js/js_courtify/perfilGrupo.js"></script>
 
     <script class="script">
@@ -538,7 +558,6 @@ if (isset($_SESSION['id'])) { ?>
 
 
 
-
     <!--<script>
       var selectedImage = null;
 
@@ -560,6 +579,7 @@ if (isset($_SESSION['id'])) { ?>
         }
       }
     </script>-->
+
 
   </body>
 

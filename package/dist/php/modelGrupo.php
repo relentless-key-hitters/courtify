@@ -6,6 +6,40 @@ require_once 'connection.php';
 
 class Grupo
 {
+
+    function uploads($img, $id)
+    {
+
+        $dir = "../images/grupos/" . $id . "/";
+        $dir1 = "images/grupos/" . $id . "/";
+        $flag = false;
+        $targetBD = "";
+
+        if (!is_dir($dir)) {
+            if (!mkdir($dir, 0777, TRUE)) {
+                die("Erro não é possivel criar o diretório");
+            }
+        }
+        if (array_key_exists('imagemGrupo', $img)) {
+            if (is_array($img)) {
+                if (is_uploaded_file($img['imagemGrupo']['tmp_name'])) {
+                    $fonte = $img['imagemGrupo']['tmp_name'];
+                    $ficheiro = $img['imagemGrupo']['name'];
+                    $end = explode(".", $ficheiro);
+                    $extensao = end($end);
+                    $newName = "grupo" . date("YmdHis") . "." . $extensao;
+                    $target = $dir . $newName;
+                    $targetBD = $dir1 . $newName;
+                    $flag = move_uploaded_file($fonte, $target);
+                }
+            }
+        }
+        return (json_encode(array(
+            "flag" => $flag,
+            "target" => $targetBD
+        )));
+    }
+
     function getMarcacoesAbertasGrupos()
     {
         global $conn;
@@ -530,7 +564,7 @@ class Grupo
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $msg .= "<div class='col-4'>
-                            <img src='../../dist".$row['fotoBadge']."' alt='".$row['descricaoBadge']."' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='".$row['descricaoBadge']."'>
+                            <img src='../../dist" . $row['fotoBadge'] . "' alt='" . $row['descricaoBadge'] . "' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='" . $row['descricaoBadge'] . "'>
                         </div>";
             }
         } else {
@@ -545,14 +579,15 @@ class Grupo
         return json_encode($resp);
     }
 
-    function getBotoesMenus($id) {
+    function getBotoesMenus($id)
+    {
         global $conn;
-        
+
         $idAtletaHost = 0;
         $userIsHost = false;
         $userIsMember = false;
 
-        $sql = "SELECT id_atletaHost FROM comunidade WHERE comunidade.tipo_comunidade = ".$id;
+        $sql = "SELECT id_atletaHost FROM comunidade WHERE comunidade.id = " . $id;
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -564,11 +599,11 @@ class Grupo
             $userIsHost = true;
         }
 
-        $sql1 = "SELECT id_atleta FROM comunidade_atletas WHERE id_comunidade = ".$id;
+        $sql1 = "SELECT id_atleta FROM comunidade_atletas WHERE id_comunidade = " . $id;
         $resultSql1 = $conn->query($sql1);
 
         if ($resultSql1->num_rows > 0) {
-            while($rowSql1 = $resultSql1->fetch_assoc()) {
+            while ($rowSql1 = $resultSql1->fetch_assoc()) {
                 if ($_SESSION['id'] == $rowSql1['id_atleta']) {
                     $userIsMember = true;
                     break;
@@ -581,13 +616,14 @@ class Grupo
         return json_encode(array('userIsHost' => $userIsHost, 'userIsMember' => $userIsMember));
     }
 
-    function sairGrupo($id) {
+    function sairGrupo($id)
+    {
         global $conn;
         $msg = "";
 
         $sql = "DELETE FROM comunidade_atletas WHERE id_atleta = " . $_SESSION['id'] . " AND id_comunidade = " . $id;
 
-        if($conn -> query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE) {
             $msg .= "Saíste deste grupo com sucesso!";
         }
 
@@ -596,18 +632,117 @@ class Grupo
         return $msg;
     }
 
-    function juntarGrupo($id) {
+    function juntarGrupo($id)
+    {
         global $conn;
         $msg = "";
 
         $sql = "INSERT INTO comunidade_atletas (id_atleta, id_comunidade) VALUES (" . $_SESSION['id'] . ", " . $id . ")";
 
-        if($conn -> query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE) {
             $msg .= "Entraste neste grupo com sucesso!";
         }
 
         $conn->close();
 
         return $msg;
+    }
+
+    function getInfoEditGrupo($id)
+    {
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT 
+                comunidade.id AS idComunidade,
+                comunidade.foto AS fotoComunidade,
+                tipo_comunidade.descricao AS tipoComunidade,
+                comunidade.nome AS nomeComunidade,
+                comunidade.descricao AS descricaoComunidade,
+                modalidade.descricao AS modalidadeComunidade,
+                user.nome AS nomeAtletaHost
+                FROM
+                comunidade
+                INNER JOIN
+                modalidade ON comunidade.id_modalidade = modalidade.id
+                INNER JOIN
+                user ON comunidade.id_atletaHost = user.id
+                INNER JOIN 
+                tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id 
+                WHERE comunidade.tipo_comunidade = 1
+                AND comunidade.id = " . $id;
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<form class='row g-3'>
+                            <div class='col-md-12'>
+                                <div class='d-flex flex-column gap-3 align-items-center'>
+                                    <img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid img-thumbnail' width='200' alt='' id='imgGrupo'>
+                                    <div class='col-md-6 text-center'>
+                                        <input type='file' class='form-control' id='imgGrupoEdit' accept='image/png, image/gif, image/jpeg' onchange='previewImagem()'>
+                                        <small class='mb-0'>Permitido JPG ou PNG. Tamanho máximo de 10MB.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-7'>
+                                <label for='nomeGrupoEdit' class='form-label'>Nome</label>
+                                <input type='text' class='form-control' id='nomeGrupoEdit' value='" . $row['nomeComunidade'] . "'>
+                            </div>
+                            <div class='col-md-5'>
+                                <label for='modalidadeGrupoEdit' class='form-label'>Modalidade</label>
+                                <svg xmlns='http://www.w3.org/2000/svg' class='ms-1 icon icon-tabler icon-tabler-info-circle' data-toggle='tooltip' data-bs-placement='top' width='20' height='20' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round' aria-label='Informação' data-bs-original-title='A escolha da Modalidade na criação do Grupo é permanente e portanto não pode ser alterada.'>
+                                    <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+                                    <path d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0'></path>
+                                    <path d='M12 9h.01'></path>
+                                    <path d='M11 12h1v4h1'></path>
+                                </svg>
+                                <input type='text' disabled class='form-control' id='modalidadeGrupoEdit' value='" . $row['modalidadeComunidade'] . "'>
+                            </div>
+                            <div class='col-12'>
+                                <label for='inputAddress' class='form-label'>Descrição</label>
+                                <textarea name='' class='form-control' cols='30' rows='8' id='descricaoGrupoEdit' maxlength='500'>" . $row['descricaoComunidade'] . "</textarea>
+                            </div>
+                        </form>";
+            }
+        }
+
+        $conn->close();
+
+        return $msg;
+    }
+
+    function guardaEditGrupo($id, $nome, $descricao, $imagem)
+    {
+        global $conn;
+        $icon = "success";
+        $msg = "Alterado com sucesso!";
+
+
+        $sql = "UPDATE comunidade SET nome = '" . $nome . "', descricao = '" . $descricao . "' WHERE id = " . $id;
+
+        $upload = $this->uploads($imagem, $id);
+        $upload = json_decode($upload, TRUE);
+
+        if ($conn->query($sql) === TRUE) {
+            if ($upload['flag']) {
+                $sql1 = "UPDATE comunidade SET foto = '" . $upload['target'] . "' WHERE id = '" .  $id . "'";
+                if ($conn->query($sql1) === FALSE) {
+                    $icon = "error";
+                    $msg = "Não foi possível guardar as alterações na foto de perfil.";
+                }
+            }
+        } else {
+            $icon = "error";
+            $msg = "Não foi possível guardar as alterações.";
+        }
+
+        $conn -> close();
+
+        return json_encode(array(
+            "icon" => $icon, 
+            "msg" => $msg
+        ));
     }
 }
