@@ -417,9 +417,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-            <h4 class="modal-title">
-              Juntar ao Grupo
-            </h4>
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Juntar ao Grupo</h4>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">
@@ -442,9 +443,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-            <h4 class="modal-title">
-              Sair do Grupo
-            </h4>
+          <div class='d-flex'>
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Sair do Grupo</h4>
+          </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">
@@ -467,9 +469,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-            <h4 class="modal-title">
-              Edição de Grupo
-            </h4>
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Edição de Grupo</h4>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="bodyModalEditarGrupo">
@@ -493,9 +496,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-            <h4 class="modal-title">
-              Apagar Grupo
-            </h4>
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Apagar Grupo</h4>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">
@@ -514,6 +518,37 @@ if (isset($_SESSION['id'])) { ?>
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="modalEditMembrosGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditMembrosGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+          <div class='d-flex'>
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Lista de Membros</h4>
+          </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class='pb-2 ps-3 pe-3'>
+              <span>
+                Através desta lista, consegues encontrar todos os membros que estão atualmente no teu Grupo.
+                Podes consultar alguma informação básica, assim como visitar rapidamente o seu perfil ou até mesmo remover.
+              </span>
+            </div>
+            <ul class="list mb-0 py-2" id="listaMembrosGrupo">
+
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start" data-bs-dismiss="modal">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- --------------------------------------------------- -->
     <!-- Customizer -->

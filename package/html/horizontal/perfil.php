@@ -1848,9 +1848,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-            <h4 class="modal-title">
-              Alterar foto de capa
-            </h4>
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Alterar Foto de Capa</h4>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -1916,9 +1917,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-            <h4 class="modal-title">
-              Remover Amizade
-            </h4>
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Remover Amizade</h4>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">

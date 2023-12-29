@@ -738,15 +738,16 @@ class Grupo
             $msg = "Não foi possível guardar as alterações.";
         }
 
-        $conn -> close();
+        $conn->close();
 
         return json_encode(array(
-            "icon" => $icon, 
+            "icon" => $icon,
             "msg" => $msg
         ));
     }
 
-    function apagarGrupo($id) {
+    function apagarGrupo($id)
+    {
         global $conn;
         $title = "";
         $icon = "";
@@ -775,5 +776,80 @@ class Grupo
         ));
 
         return $resp;
+    }
+
+    function getMembrosGrupo($id)
+    {
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT 
+                user.id,
+                user.foto,
+                user.nome,
+                concelho.descricao as concelho 
+                FROM
+                user
+                INNER JOIN
+                comunidade_atletas ON user.id = comunidade_atletas.id_atleta
+                INNER JOIN
+                concelho ON user.localidade = concelho.id
+                INNER JOIN
+                comunidade ON comunidade_atletas.id_comunidade = comunidade.id
+                WHERE
+                comunidade_atletas.id_comunidade = " . $id . "
+                ORDER BY
+                comunidade.id_atletaHost = user.id DESC, nome ASC";
+
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if($row['id'] == $_SESSION['id']){
+                    $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
+                                <div class='d-flex justify-content-between align-items-center'>
+                                    <div class='d-flex align-items-center gap-3'>
+                                        <i class='ti ti-user text-success fs-6' data-toggle='tooltip' data-bs-placement='top' title='Atleta'></i>
+                                        <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-2 border-success' width='40' height='40'></a>
+                                        <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
+                                        <span class='fw-bolder '><i class='ti ti-award text-success me-1'></i>Host</span>
+                                    </div>
+                                </div>   
+                            </li>";
+                } else {
+                    $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
+                                <div class='d-flex justify-content-between align-items-center'>
+                                    <div class='d-flex align-items-center gap-3'>
+                                        <i class='ti ti-user fs-6' data-toggle='tooltip' data-bs-placement='top' title='Atleta'></i>
+                                        <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
+                                        <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
+                                        <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
+                                    </div>
+                                    <div class='d-flex align-items-center gap-2'>
+                                        <button class='btn btn-sm btn-success' data-toggle='tooltip' data-bs-placement='top' title='Ver Perfil'  onclick=''><i class='ti ti-plus'></i></button>
+                                        <button class='btn btn-sm text-white' data-toggle='tooltip' data-bs-placement='top' title='Remover' style='background-color: #b80000;' onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick=''><i class='ti ti-trash'></i></button>
+                                    </div>
+                                </div>   
+                            </li>";
+                }
+            }
+        } else {
+            $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            <div class='d-flex align-items-center gap-3'>
+                                <i class='ti ti-user fs-6' data-toggle='tooltip' data-bs-placement='top' title='Atleta'></i>
+                                <span class='fs-4 text-black fw-normal d-block'>Sem atletas</span>
+                            </div>
+                            <div class='d-flex align-items-center'>
+                                <button class='btn btn-sm' onclick=''></button>
+                            </div>
+                        </div>   
+                    </li>";
+        }
+
+        $conn->close();
+
+        return $msg;
     }
 }

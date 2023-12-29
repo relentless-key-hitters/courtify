@@ -226,7 +226,7 @@ function getBotoesMenus() {
             "<button class='btn btn-outline-success w-75' data-bs-toggle='modal' data-bs-target='#modalEditarGrupo'>Editar<i class='ti ti-pencil ms-1'></i></button>" +
             "<button class='btn btn-outline-danger w-75' data-bs-toggle='modal' data-bs-target='#modalApagarGrupo'>Apagar<i class='ms-1 ti ti-x'></i></button>" +
             "</div>" +
-            "<button class='btn btn-outline-primary w-50' data-toggle='tooltip' data-placement='top' title='Visualiza e edita os Membros do Grupo'>Membros<i class='ms-1 ti ti-pencil'></i></button>"
+            "<button class='btn btn-outline-primary w-50' data-toggle='tooltip' data-placement='top' title='Visualiza e edita os Membros do Grupo' data-bs-toggle='modal' data-bs-target='#modalEditMembrosGrupo' onclick='getMembrosGrupo()'>Membros<i class='ms-1 ti ti-pencil'></i></button>"
         );
       } else {
         if (obj.userIsMember) {
@@ -419,6 +419,33 @@ function apagarGrupo() {
     setTimeout(function () {
       window.location.href = "./hub-grupos.php";
     }, 3000);
+  })
+
+  .fail(function (jqXHR, textStatus) {
+    alert("Request failed: " + textStatus);
+  })
+}
+
+function getMembrosGrupo() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 13);
+  dados.append("idGrupo", id);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+  .done(function (msg) {
+    $("#listaMembrosGrupo").html(msg);
   })
 
   .fail(function (jqXHR, textStatus) {
