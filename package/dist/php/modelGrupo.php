@@ -286,7 +286,7 @@ class Grupo
                             <div class='d-flex flex-column p-3 align-items-center mt-3'>
                                 <a href='./grupo.php?id=" . $row['idComunidade'] . "'><img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid' style='max-width: 100px;'></a>
                                 <span class='fs-4'>" . $row['nomeComunidade'] . "</span>";
-                if($row['idAtletaHost'] == $_SESSION['id']) {
+                if ($row['idAtletaHost'] == $_SESSION['id']) {
                     $msg .= "<span class='fw-bolder'><i class='ti ti-award text-success me-1'></i>Host</span>";
                 }
                 $msg .= "<a href='./grupo.php?id=" . $row['idComunidade'] . "'>
@@ -400,8 +400,11 @@ class Grupo
                     $descricao = substr($descricao, 0, $ultimoEspaco) . " (...)";
                 }
 
-                $msg .= "<img src='../../dist/" . $row['foto'] . "' class='mt-3 rounded-circle' width='130' height='130' alt='" . $row['nome'] . "' />
-                        <h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
+                $msg .= "<img src='../../dist/" . $row['foto'] . "' class='mt-3 rounded-circle' width='130' height='130' alt='" . $row['nome'] . "' />";
+                if ($row['id_atletaHost'] == $_SESSION['id']) {
+                    $msg .= "<span class='fw-bolder mb-2'><i class='ti ti-award text-success me-1'></i>Host</span>";
+                }
+                $msg .= "<h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
                         <div class='px-2 text-center'>
                             <span class=''>" . $descricao . "</span>
                         </div>
@@ -810,7 +813,7 @@ class Grupo
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                if($row['id'] == $_SESSION['id']){
+                if ($row['id'] == $_SESSION['id']) {
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                                 <div class='d-flex justify-content-between align-items-center'>
                                     <div class='d-flex align-items-center gap-3'>
@@ -857,7 +860,8 @@ class Grupo
         return $msg;
     }
 
-    function removerMembroGrupo($idUser, $idGrupo){
+    function removerMembroGrupo($idUser, $idGrupo)
+    {
         global $conn;
         $title = "";
         $icon = "";
@@ -874,7 +878,7 @@ class Grupo
             $icon = "error";
             $msg .= "Não foi possível eliminar este membro. Por favor tenta de novo mais tarde!";
         }
-        
+
         $conn->close();
 
         return json_encode(array(
@@ -884,7 +888,8 @@ class Grupo
         ));
     }
 
-    function registaGrupo($nome, $descricao, $modalidade, $imagem) {
+    function registaGrupo($nome, $descricao, $modalidade, $imagem)
+    {
         global $conn;
         $icon = "success";
         $msg = "Grupo criado com sucesso!";
@@ -899,7 +904,7 @@ class Grupo
 
             $sql2 = "INSERT INTO comunidade_atletas (id_comunidade, id_atleta) VALUES (" . $lastId . ", " . $_SESSION['id'] . ")";
 
-            if($conn->query($sql2) === TRUE){
+            if ($conn->query($sql2) === TRUE) {
 
                 $upload = $this->uploads($imagem, $lastId);
                 $upload = json_decode($upload, TRUE);
@@ -912,7 +917,6 @@ class Grupo
                         $title = "Erro";
                     }
                 }
-
             } else {
                 $icon = "error";
                 $msg = "Não foi possível inserir-te no grupo que acabaste de criar. Tenta novamente mais tarde.";
