@@ -2385,9 +2385,35 @@ class User
         return ($msg);
     }   
 
-    function getGraficos($id){
+    function getGraficos($id, $mod){
         global $conn;
         $msg = "";
+        $vals = array();
+        $modalid = json_decode($mod);
+        for($i = 0; $i < count($modalid); $i++){
+            if($modalid[$i] == "Basquetebol"){
+                $res = $this -> getGraficosBasquetebol($id);
+                array_push($vals, $res);
+            }else if($modalid[$i] == "Futsal"){
+                $res = $this -> getGraficosFutsal($id);
+                array_push($vals, $res);
+            }else if ($modalid[$i] == "Padel"){
+                $res = $this -> getGraficosPadel($id);
+                array_push($vals, $res);
+            }else{
+                $res = $this -> getGraficosTenis($id);
+                array_push($vals, $res);
+            }
+        }
+
+        $resp = json_encode($vals);
+        $conn->close();
+        return ($resp);
+    }
+
+
+    function getGraficosPadel($id){
+        global $conn;
         $sql = "SELECT * FROM info_padel WHERE id_atleta =".$id;
         $result = $conn -> query($sql);
         $sql2 = "SELECT * FROM estatisticas_padel";
@@ -2398,33 +2424,111 @@ class User
                 $percVit = $row['n_vitorias'] / $row['n_jogos'];
                 $percSetGanhos =  $row['n_set_ganhos'] / $row['n_sets'];
                 $percMVP = $row['n_mvp'] / $row['n_jogos'];
-                array_push($vals, array(round($percVit*100, 1), round($percSetGanhos*100,1), round($percMVP*100),1));
+                array_push($vals, array("Padel", round($percVit*100, 1), round($percSetGanhos*100,1), round($percMVP*100),1));
             }
         }
         if ($result2->num_rows > 0) {
             while ($row2 = $result2->fetch_assoc()) {
-                array_push($vals, array(round($row2['percVitorias']*100,1), round($row2['percSetsGanhos']*100,1), round($row2['percMvp']*100,1)));
+                array_push($vals, array("Padel", round($row2['percVitorias']*100,1), round($row2['percSetsGanhos']*100,1), round($row2['percMvp']*100,1)));
             }
         }
 
+        $sql3 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_padel
+            WHERE (n_vitorias/n_jogos) < 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_padel
+            WHERE (n_mvp/n_jogos) < 0.2
+        )AS temp3
+        
+            UNION 
+            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_padel
+            WHERE (n_vitorias/n_jogos) < 0.4 AND (n_vitorias/n_jogos) >= 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_padel
+            WHERE (n_mvp/n_jogos) < 0.4 AND (n_mvp/n_jogos) >= 0.2
+        )AS temp3
+            UNION 
+                            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_padel
+            WHERE (n_vitorias/n_jogos) < 0.6 AND (n_vitorias/n_jogos) >= 0.4
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_padel
+            WHERE (n_mvp/n_jogos) < 0.6 AND (n_mvp/n_jogos) >= 0.4
+        )AS temp3
+                        UNION 
+                            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_padel
+            WHERE (n_vitorias/n_jogos) < 0.8 AND (n_vitorias/n_jogos) >= 0.6
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_padel
+            WHERE (n_mvp/n_jogos) < 0.8 AND (n_mvp/n_jogos) >= 0.6
+        )AS temp3
+            UNION 
+            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_padel
+            WHERE (n_vitorias/n_jogos) >= 0.8
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_padel
+            WHERE (n_mvp/n_jogos) >= 0.8
+        )AS temp3";
+        $arrGraf1 = array();
+        $arrGraf2 = array();
+        $result3 = $conn -> query($sql3);
+        if ($result3->num_rows > 0) {
+            while ($row3 = $result3->fetch_assoc()) {
+                array_push( $arrGraf1, $row3['percVit']);
+                array_push( $arrGraf2, $row3['percMvp']);
+            }
+        }
+        array_push($vals,  $arrGraf1);
+        array_push($vals,  $arrGraf2);
+        return($vals);
+    }
+
+    function getGraficosTenis($id){
+        global $conn;
         $sql3 = "SELECT * FROM info_tenis WHERE id_atleta =".$id;
         $result3 = $conn -> query($sql3);
         $sql4 = "SELECT * FROM estatisticas_tenis";
         $result4 = $conn -> query($sql4);
+        $vals = array();
         if ($result3->num_rows > 0) {
             while ($row3 = $result3->fetch_assoc()) {
                 $percVit = $row3['n_vitorias'] / $row3['n_jogos'];
                 $percSetGanhos =  $row3['n_set_ganhos'] / $row3['n_sets'];
                 $percMVP = $row3['n_mvp'] / $row3['n_jogos'];
-                array_push($vals, array(round($percVit*100, 1), round($percSetGanhos*100, 1), round($percMVP*100, 1)));
+                array_push($vals, array("Ténis", round($percVit*100, 1), round($percSetGanhos*100, 1), round($percMVP*100, 1)));
             }
         }
         if ($result4->num_rows > 0) {
             while ($row4 = $result4->fetch_assoc()) {
-                array_push($vals, array(round($row4['percVitorias']*100, 1), round($row4['percSetsGanhos']*100, 1), round($row4['percMvp']*100, 1)));
+                array_push($vals, array("Ténis", round($row4['percVitorias']*100, 1), round($row4['percSetsGanhos']*100, 1), round($row4['percMvp']*100, 1)));
             }
         }
 
+        return($vals);
+    }
+
+    function getGraficosBasquetebol($id){
+        global $conn;
+        $vals = array();
         $sql5 = "SELECT * FROM info_basquetebol WHERE id_atleta =".$id;
         $result5 = $conn -> query($sql5);
         $sql6 = "SELECT * FROM estatisticas_basquetebol";
@@ -2433,19 +2537,36 @@ class User
             while ($row5 = $result5->fetch_assoc()) {
                 $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
                 $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
-                array_push($vals, array(round($percVit*100, 1), round($percMVP*100, 1)));
+                array_push($vals, array("Basquetebol",round($percVit*100, 1), round($percMVP*100, 1)));
             }
         }
         if ($result6->num_rows > 0) {
             while ($row6 = $result6->fetch_assoc()) {
-                array_push($vals, array(round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
+                array_push($vals, array("Basquetebol", round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
             }
         }
-
-        $resp = json_encode($vals);
-        $conn->close();
-        return ($resp);
-    
+        return($vals);
     }
 
+    function getGraficosFutsal($id){
+        global $conn;
+        $vals = array();
+        $sql5 = "SELECT * FROM info_futsal WHERE id_atleta =".$id;
+        $result5 = $conn -> query($sql5);
+        $sql6 = "SELECT * FROM estatisticas_futsal";
+        $result6 = $conn -> query($sql6);
+        if ($result5->num_rows > 0) {
+            while ($row5 = $result5->fetch_assoc()) {
+                $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
+                $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
+                array_push($vals, array("Futsal", round($percVit*100, 1), round($percMVP*100, 1)));
+            }
+        }
+        if ($result6->num_rows > 0) {
+            while ($row6 = $result6->fetch_assoc()) {
+                array_push($vals, array("Futsal", round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
+            }
+        }
+        return($vals);
+    }
 }

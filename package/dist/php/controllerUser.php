@@ -109,7 +109,7 @@ if ($_POST['op'] == 1){
     $res = $user -> getAtletasPesquisaNavbar();
     echo($res);
 }else if($_POST['op'] == 34){
-    $res = $user -> getGraficos($_POST['userId']);
+    $res = $user -> getGraficos($_POST['userId'], $_POST['modalidades']);
     echo($res);
 }
 
