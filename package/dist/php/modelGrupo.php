@@ -258,10 +258,11 @@ class Grupo
         global $conn;
         $msg = "";
 
-        $sql = "SELECT  DISTINCT
+        $sql = "SELECT DISTINCT
                 comunidade.id AS idComunidade,
                 comunidade.nome AS nomeComunidade,
                 comunidade.foto AS fotoComunidade,
+                comunidade.id_atletaHost as idAtletaHost,
                 tipo_comunidade.descricao AS tipoComunidade,
                 modalidade.descricao AS tipoModalidade
                 FROM 
@@ -284,8 +285,11 @@ class Grupo
                             <div class='card hover-img shadow'>
                             <div class='d-flex flex-column p-3 align-items-center mt-3'>
                                 <a href='./grupo.php?id=" . $row['idComunidade'] . "'><img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid' style='max-width: 100px;'></a>
-                                <span class='fs-4'>" . $row['nomeComunidade'] . "</span>
-                                <a href='./grupo.php?id=" . $row['idComunidade'] . "'>
+                                <span class='fs-4'>" . $row['nomeComunidade'] . "</span>";
+                if($row['idAtletaHost'] == $_SESSION['id']) {
+                    $msg .= "<span class='fw-bolder'><i class='ti ti-award text-success me-1'></i>Host</span>";
+                }
+                $msg .= "<a href='./grupo.php?id=" . $row['idComunidade'] . "'>
                                     <button class='btn btn-primary btn-sm mt-3'>Ver</button>
                                 </a>";
                 if ($row['tipoModalidade'] == "Ténis") {
@@ -293,7 +297,7 @@ class Grupo
                 } else if ($row['tipoModalidade'] == "Futsal") {
                     $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-football me-1'></i>Futsal</span>";
                 } else if ($row['tipoModalidade'] == "Basquetebol") {
-                    $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
+                    $msg .= "<span class='badge bg-warning rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
                 } else {
                     $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
                 }
@@ -892,16 +896,27 @@ class Grupo
         if ($conn->query($sql) === TRUE) {
 
             $lastId = mysqli_insert_id($conn);
-            $upload = $this->uploads($imagem, $lastId);
-            $upload = json_decode($upload, TRUE);
 
-            if ($upload['flag']) {
-                $sql1 = "UPDATE comunidade SET foto = '" . $upload['target'] . "' WHERE id = '" .  $lastId . "'";
-                if ($conn->query($sql1) === FALSE) {
-                    $icon = "error";
-                    $msg = "Não foi possível dar upload a esta foto. Tenta novamente mais tarde.";
-                    $title = "Erro";
+            $sql2 = "INSERT INTO comunidade_atletas (id_comunidade, id_atleta) VALUES (" . $lastId . ", " . $_SESSION['id'] . ")";
+
+            if($conn->query($sql2) === TRUE){
+
+                $upload = $this->uploads($imagem, $lastId);
+                $upload = json_decode($upload, TRUE);
+
+                if ($upload['flag']) {
+                    $sql1 = "UPDATE comunidade SET foto = '" . $upload['target'] . "' WHERE id = '" .  $lastId . "'";
+                    if ($conn->query($sql1) === FALSE) {
+                        $icon = "error";
+                        $msg = "Não foi possível dar upload a esta foto. Tenta novamente mais tarde.";
+                        $title = "Erro";
+                    }
                 }
+
+            } else {
+                $icon = "error";
+                $msg = "Não foi possível inserir-te no grupo que acabaste de criar. Tenta novamente mais tarde.";
+                $title = "Erro";
             }
         } else {
             $icon = "error";
