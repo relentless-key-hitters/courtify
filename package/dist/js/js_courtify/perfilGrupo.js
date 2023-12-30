@@ -359,14 +359,14 @@ function guardaEditGrupo() {
   dados.append("idGrupo", id);
   dados.append("nomeGrupo", $("#nomeGrupoEdit").val());
   dados.append("descricaoGrupo", $("#descricaoGrupoEdit").val());
-  var fileInput = $("#imgGrupoEdit")[0]; // Get the file input element
+  var fileInput = $("#imgGrupoEdit")[0]; 
   var selectedFile = fileInput.files[0];
 
   if (selectedFile) {
-    // If a file is selected, append it to FormData
+    
     dados.append("imagemGrupo", selectedFile);
   } else {
-    // If no file is selected, use the existing image source
+    
     var existingImageSrc = $("#imgGrupo").prop("src");
     dados.append("imagemGrupo", existingImageSrc);
   }
@@ -452,7 +452,6 @@ function getMembrosGrupo() {
     alert("Request failed: " + textStatus);
   })
 }
-
 
 function removerMembroGrupo(id) {
   let urlParams = new URLSearchParams(window.location.search);

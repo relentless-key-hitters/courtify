@@ -396,7 +396,7 @@ class Grupo
                     $descricao = substr($descricao, 0, $ultimoEspaco) . " (...)";
                 }
 
-                $msg .= "<img src='../../dist/" . $row['foto'] . "' class='mt-2 rounded-circle' width='130' height='130' alt='" . $row['nome'] . "' />
+                $msg .= "<img src='../../dist/" . $row['foto'] . "' class='mt-3 rounded-circle' width='130' height='130' alt='" . $row['nome'] . "' />
                         <h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
                         <div class='px-2 text-center'>
                             <span class=''>" . $descricao . "</span>
@@ -853,7 +853,6 @@ class Grupo
         return $msg;
     }
 
-
     function removerMembroGrupo($idUser, $idGrupo){
         global $conn;
         $title = "";
@@ -878,6 +877,45 @@ class Grupo
             "title" => $title,
             "icon" => $icon,
             "msg" => $msg
+        ));
+    }
+
+    function registaGrupo($nome, $descricao, $modalidade, $imagem) {
+        global $conn;
+        $icon = "success";
+        $msg = "Grupo criado com sucesso!";
+        $title = "Sucesso";
+
+
+        $sql = "INSERT INTO comunidade (tipo_comunidade, nome, descricao, id_modalidade, id_atletaHost) VALUES (1, '" . $nome . "', '" . $descricao . "', '" . $modalidade . "', '" . $_SESSION['id'] . "')";
+
+        if ($conn->query($sql) === TRUE) {
+
+            $lastId = mysqli_insert_id($conn);
+            $upload = $this->uploads($imagem, $lastId);
+            $upload = json_decode($upload, TRUE);
+
+            if ($upload['flag']) {
+                $sql1 = "UPDATE comunidade SET foto = '" . $upload['target'] . "' WHERE id = '" .  $lastId . "'";
+                if ($conn->query($sql1) === FALSE) {
+                    $icon = "error";
+                    $msg = "Não foi possível dar upload a esta foto. Tenta novamente mais tarde.";
+                    $title = "Erro";
+                }
+            }
+        } else {
+            $icon = "error";
+            $msg = "Não foi possível criar este Grupo. Tenta novamente mais tarde.";
+            $title = "Erro";
+        }
+
+        $conn->close();
+
+        return json_encode(array(
+            "icon" => $icon,
+            "msg" => $msg,
+            "title" => $title,
+            "id" => $lastId
         ));
     }
 }

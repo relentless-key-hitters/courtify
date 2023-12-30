@@ -21,6 +21,69 @@ function getGruposUser() {
     });
 }
 
+function limpaCampos() {
+  $("#imgNovoGrupo").attr("src", "");
+  $("#imgNovoGrupo").hide();
+  $("#fotoNovoGrupo").val("");
+  $("#nomeNovoGrupo").val("");
+  $("#descricaoNovoGrupo").val("");
+  $("#modalidadeNovoGrupo").val("-1");
+
+}
+
+function previewImagemNovoGrupo() {
+  $("#imgNovoGrupo").show();
+  let input = document.getElementById("fotoNovoGrupo");
+  let image = document.getElementById("imgNovoGrupo");
+
+  let file = input.files[0];
+
+  if (file) {
+    let reader = new FileReader();
+
+    reader.onload = function (e) {
+      image.src = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  }
+}
+
+function registaGrupo() {
+
+  let dados = new FormData();
+  dados.append("op", 15);
+  dados.append("nome", $("#nomeNovoGrupo").val());
+  dados.append("descricao", $("#descricaoNovoGrupo").val());
+  dados.append("modalidade", $("#modalidadeNovoGrupo").val());
+  var fileInput = $("#fotoNovoGrupo")[0]; 
+  var selectedFile = fileInput.files[0];
+  dados.append("imagemGrupo", selectedFile);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+  .done(function (msg) {
+    let obj = JSON.parse(msg);
+    alerta2(obj.title, obj.msg, obj.icon);
+    setTimeout(function () {
+      window.location.href = "./grupo.php?id=" + obj.id;
+    }, 3000);
+  })
+
+  .fail(function (jqXHR, textStatus) {
+    alert("Request failed: " + textStatus);
+  })
+}
+
+
 function getMarcacoesAbertasGrupos() {
   let dados = new FormData();
   dados.append("op", 1);
@@ -82,5 +145,6 @@ setTimeout(function() {
 }, 1000);
 
 $(function () {
+  $("#imgNovoGrupo").hide();
   getGruposUser();
 });

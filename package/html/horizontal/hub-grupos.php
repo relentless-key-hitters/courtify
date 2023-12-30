@@ -622,7 +622,7 @@ if (isset($_SESSION['id'])) { ?>
                 <h3 class="">Os teus Grupos</span></h3>
                 <div class="d-flex justify-content-center align-items-center">
                   <p class="fs-5 me-3 mt-3">Não tens grupo?</p>
-                  <button type="button" class="btn btn-primary btn-small">Criar Grupo</button>
+                  <button type="button" class="btn btn-primary btn-small" data-bs-toggle="modal" data-bs-target="#modalCriarGrupo">Criar Grupo</button>
                 </div>
               </div>
               <div class="card bg-light px-3 py-3 mt-2">
@@ -780,31 +780,31 @@ if (isset($_SESSION['id'])) { ?>
       </div>
       <!--  Search Bar -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content rounded-1">
-          <div class='d-flex'>
-          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-          <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
-          </div>
-          <div class='pt-3 pb-2 ps-3 pe-3'>
-            <span>
-              Através desta pesquisa, consegues facilmente encontrar quem ou o que procuras. 
-              Sejam outros Atletas como tu, Clubes, Grupos ou Equipas, esta Pesquisa geral está aqui a tua disposição.
-            </span>
-          </div> 
-          <div class="modal-header border-bottom">
-            <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
-            <input type="text" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
-          </div>
-          <div class="modal-body message-body" data-simplebar="">
-            <h5 class="mb-0 fs-4 p-1">Resultados</h5>
-            <ul class="list mb-0 py-2" id="pesquisaAtletasNavbar">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+          <div class="modal-content rounded-1">
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
+            </div>
+            <div class='pt-3 pb-2 ps-3 pe-3'>
+              <span>
+                Através desta pesquisa, consegues facilmente encontrar quem ou o que procuras.
+                Sejam outros Atletas como tu, Clubes, Grupos ou Equipas, esta Pesquisa geral está aqui a tua disposição.
+              </span>
+            </div>
+            <div class="modal-header border-bottom">
+              <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
+              <input type="text" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
+            </div>
+            <div class="modal-body message-body" data-simplebar="">
+              <h5 class="mb-0 fs-4 p-1">Resultados</h5>
+              <ul class="list mb-0 py-2" id="pesquisaAtletasNavbar">
 
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -850,9 +850,10 @@ if (isset($_SESSION['id'])) { ?>
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header d-flex align-items-center">
-              <h4 class="modal-title">
-                Marcação
-              </h4>
+              <div class='d-flex'>
+                <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+                <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Marcação</h4>
+              </div>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
@@ -866,66 +867,118 @@ if (isset($_SESSION['id'])) { ?>
         </div>
       </div>
 
+      <div class="modal fade" id="modalCriarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCriarGrupo" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header d-flex align-items-center">
+              <div class='d-flex'>
+                <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+                <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Criação de Grupo</h4>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="bodyModalEditarGrupo">
+              <form class="row g-3">
+                <div class="col-md-12">
+                  <div class="d-flex flex-column gap-3 align-items-center">
+                    <img src="" class="img-fluid img-thumbnail" width="200" alt="" id="imgNovoGrupo">
+                    <div class="col-md-6 text-center">
+                        <label for="fotoNovoGrupo" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="fotoNovoGrupo" accept="image/png, image/gif, image/jpeg" onchange="previewImagemNovoGrupo()">
+                        <small class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <label for="nomeNovoGrupo" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="nomeNovoGrupo">
+                </div>
+                <div class="col-md-5">
+                  <label for="modalidadeNovoGrupo" class="form-label">Modalidade</label>
+                  <select class="form-select" id="modalidadeNovoGrupo">
+                    <option value="-1" selected disabled>Selecione uma opção</option>
+                    <option value="1">Basquetebol</option>
+                    <option value="2">Futsal</option>
+                    <option value="3">Padel</option>
+                    <option value="4">Ténis</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="descricaoNovoGrupo" class="form-label">Descrição</label>
+                  <textarea name="" class="form-control" cols="30" rows="8" id="descricaoNovoGrupo" maxlength="500"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class=" d-flex justify-content-center align-items-center gap-3">
+              <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="registaGrupo()">
+                Criar
+              </button>
+              <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="limpaCampos()">
+                Cancelar
+              </button>
+            </div>
+          </div>
 
 
-      <!-- Import Js Files -->
-      <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
-      <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
-      <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-      <!-- core files -->
-      <script src="../../dist/js/app.min.js"></script>
-      <script src="../../dist/js/app.horizontal.init.js"></script>
-      <script src="../../dist/js/app-style-switcher.js"></script>
-      <script src="../../dist/js/sidebarmenu.js"></script>
-      <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-      <script src="../../dist/js/js_courtify/grupo.js"></script>
-      <script src="../../dist/js/js_courtify/descobrir.js"></script>
+
+          <!-- Import Js Files -->
+          <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+          <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
+          <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+          <!-- core files -->
+          <script src="../../dist/js/app.min.js"></script>
+          <script src="../../dist/js/app.horizontal.init.js"></script>
+          <script src="../../dist/js/app-style-switcher.js"></script>
+          <script src="../../dist/js/sidebarmenu.js"></script>
+          <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+          <script src="../../dist/js/js_courtify/grupo.js"></script>
+          <script src="../../dist/js/js_courtify/descobrir.js"></script>
 
 
-      <script src="../../dist/js/custom.js"></script>
-      <!-- current page js files -->
-      <script src="../../dist/js/js_courtify/sweatalert.js"></script>
-      <script src="../../dist/js/js_courtify/user.js"></script>
-      <script src="../../dist/js/js_courtify/perfilUser.js"></script>
-      <script src="../../dist/js/js_courtify/notificacao.js"></script>
-
-
-
-
+          <script src="../../dist/js/custom.js"></script>
+          <!-- current page js files -->
+          <script src="../../dist/js/js_courtify/sweatalert.js"></script>
+          <script src="../../dist/js/js_courtify/user.js"></script>
+          <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+          <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
 
 
-      <script type="text/javascript">
-        var timeout;
 
 
-        function resetSessionTimeout() {
-          clearTimeout(timeout);
-          timeout = setTimeout(function() {
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'logout.php', true);
-            xhr.onreadystatechange = function() {
-              if (xhr.readyState == 4 && xhr.status == 200) {
-                alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
-                setTimeout(function() {
-                  window.location.href = '../../../landingpage/index.html';
-                }, 3000);
-
-              }
-            };
-            xhr.send();
-          }, 900000);
-        }
 
 
-        document.onmousemove = resetSessionTimeout;
-        document.onkeypress = resetSessionTimeout;
+          <script type="text/javascript">
+            var timeout;
 
 
-        resetSessionTimeout();
-      </script>
+            function resetSessionTimeout() {
+              clearTimeout(timeout);
+              timeout = setTimeout(function() {
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'logout.php', true);
+                xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    alerta2("Alerta", "Sessão terminada após 15m de inatividade", "warning");
+                    setTimeout(function() {
+                      window.location.href = '../../../landingpage/index.html';
+                    }, 3000);
+
+                  }
+                };
+                xhr.send();
+              }, 900000);
+            }
+
+
+            document.onmousemove = resetSessionTimeout;
+            document.onkeypress = resetSessionTimeout;
+
+
+            resetSessionTimeout();
+          </script>
 
   </body>
 
