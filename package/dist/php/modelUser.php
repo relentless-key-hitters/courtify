@@ -2330,14 +2330,40 @@ class User
         global $conn;
         $msg = "";
 
-        $sql = "SELECT DISTINCT user.*, IF(amigo.id_atleta1 = ".$_SESSION['id']."  OR amigo.id_atleta2 = ".$_SESSION['id']." , 1, 0) AS are_friends,
-        concelho.descricao AS concelho
-        FROM user
-        LEFT JOIN amigo ON (user.id = amigo.id_atleta1 OR user.id = amigo.id_atleta2)
-                       AND amigo.estado = 1
-        INNER JOIN concelho ON user.localidade = concelho.id               
-        WHERE user.id != ".$_SESSION['id']." 
-        ORDER BY user.nome ASC;";
+        $sql = "SELECT DISTINCT user.id,
+                        user.nome,
+                        user.foto,
+                        'N/A' AS descricao,
+                        user.tipo_user,
+                        concelho.descricao AS concelho, 
+                IF(amigo_status.are_friends = 1, 1, 0) AS are_friends
+                FROM user
+                LEFT JOIN (
+                SELECT id_atleta1 AS friend_id, 1 AS are_friends
+                FROM amigo
+                WHERE id_atleta2 = ".$_SESSION['id']." AND estado = 1
+                UNION
+                SELECT id_atleta2 AS friend_id, 1 AS are_friends
+                FROM amigo
+                WHERE id_atleta1 = ".$_SESSION['id']." AND estado = 1
+                ) AS amigo_status ON user.id = amigo_status.friend_id
+                INNER JOIN concelho ON user.localidade = concelho.id               
+                WHERE user.id != ".$_SESSION['id']."
+
+
+                UNION
+
+
+                SELECT comunidade.id,
+                comunidade.nome,
+                comunidade.foto,
+                modalidade.descricao,
+                0 AS tipo_user, 
+                NULL AS descricao,
+                NULL AS are_friends  
+                FROM comunidade
+                INNER JOIN
+                modalidade ON comunidade.id_modalidade = modalidade.id";
 
         $result = $conn -> query($sql);
 
@@ -2352,7 +2378,7 @@ class User
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                         <div class='d-flex justify-content-between align-items-center'>
                             <div class='d-flex align-items-center gap-3'>
-                                <i class='ti ti-user fs-6'></i>
+                                <i class='ti ti-user fs-6' data-toggle='tooltip' data-bs-placement='top' title='Atleta'></i>
                                 <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
                                 <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
                                 <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
@@ -2362,17 +2388,45 @@ class User
                             </div>
                         </div>   
                     </li>";
-                } else {
+                } else if($row['tipo_user'] == 2) {
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                         <div class='d-flex justify-content-between align-items-center'>
                             <div class='d-flex align-items-center gap-3'>
-                                <i class='ti ti-building fs-5'></i>
+                                <i class='ti ti-building fs-5' data-toggle='tooltip' data-bs-placement='top' title='Clube'></i>
                                 <a href='./clube.php?id=" . $row['id'] . "'><img src='" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
                                 <a href='./clube.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
                                 <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
                             </div>
                             <div class='d-flex align-items-center'>
                                 <a href='./clube.php?id=" . $row['id'] . "'><button class='btn btn-success btn-sm'>Marcar</button></a>
+                            </div>
+                        </div>   
+                    </li>";
+                } else {
+                    $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
+                        <div class='d-flex justify-content-between align-items-center'>
+                            <div class='d-flex align-items-center gap-3'>
+                                <i class='ti ti-users fs-5' data-toggle='tooltip' data-bs-placement='top' title='Grupo'></i>
+                                <a href='./grupo.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
+                                <a href='./grupo.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>";
+                                
+                                if ($row['descricao'] == "Basquetebol") {
+                                    $msg .= "<span class='badge rounded-pill text-bg-warning'><i
+                                    class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>";
+                                } else if ($row['descricao'] == "Futsal") {
+                                    $msg .= "<span class='badge rounded-pill text-bg-danger'><i
+                                    class='ti ti-ball-football me-1'></i><small>Futsal</small></span>";
+                                } else if ($row['descricao'] == "Padel") {
+                                    $msg .= "<span class='badge rounded-pill text-bg-primary mt-2 fs-5'><i
+                                    class='ti ti-ball-tennis me-1'></i><small>Padel</small></span>";
+                                } else {
+                                    $msg .= "<span class='badge rounded-pill text-bg-success mt-2 fs-5'><i
+                                    class='ti ti-ball-tennis me-1'></i><small>Ténis</small></span>";
+                                }
+
+                    $msg .= "</div>
+                            <div class='d-flex align-items-center'>
+                                <a href='./grupo.php?id=" . $row['id'] . "'><button class='btn btn-success btn-sm'>Ver</button></a>
                             </div>
                         </div>   
                     </li>";

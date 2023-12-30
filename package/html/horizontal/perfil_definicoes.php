@@ -992,23 +992,7 @@ if (isset($_SESSION['id'])) {?>
     resetSessionTimeout();
   </script>
 
-  <script>
-    var myDropzone = new Dropzone("#fotoPerfilEditNova", {
-      url: "#",
-      addRemoveLinks: true,
-      acceptedFiles: "image/jpeg,image/png",
-      maxFilesize: 10,
-      dictRemoveFile: "Remover ficheiro",
-      init: function () {
-        this.on("addedfile", function (file) {
-          if (this.files.length > 1) {
-            this.removeFile(this.files[0]);
-          }
-        });
-      }
-    });
 
-  </script>
 
 </body>
 

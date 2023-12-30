@@ -19,10 +19,16 @@ if (isset($_SESSION['id'])) { ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/favicon.ico" />
+
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+    
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
+    
+
+
 
     <style>
       body {
@@ -57,7 +63,7 @@ if (isset($_SESSION['id'])) { ?>
           </ul>
           <ul class="navbar-nav quick-links d-none d-xl-flex">
             <li class="nav-item dropdown-hover d-none d-xl-block">
-                <a class="nav-link fs-6" href="./index.php">Home</a>
+              <a class="nav-link fs-6" href="./index.php">Home</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
               <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
@@ -129,7 +135,7 @@ if (isset($_SESSION['id'])) { ?>
                           <h5 class="mb-1 fs-3 fw-bolder" id="nome2"></h5>
                           <span class="badge rounded-pill border border-1 border-primary bg-light text-dark fs-3 mt-1">
                             <i class="ti ti-trophy text-primary fs-4"></i>
-                              Atleta
+                            Atleta
                           </span>
                           <p class="mb-0 d-flex text-dark align-items-center gap-2" id="email2">
                             <i class="ti ti-mail fs-4"></i>
@@ -194,7 +200,7 @@ if (isset($_SESSION['id'])) { ?>
         <div class="row">
           <div class="col-md-3">
             <div id="infoGrupo">
-              
+
             </div>
           </div>
           <div class="col-md-6">
@@ -202,9 +208,19 @@ if (isset($_SESSION['id'])) { ?>
               Estatisticas Principais
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 d-flex flex-column justify-content-center">
             <div id="algoGrupo">
-                Botoes?? algo?? juntar?? fazer pedido
+              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Menu</h4>
+              <div class="p-3">
+                <div class="row text-center">
+                  <div class="col-md-12" id="botoesNonAdmin">
+
+                  </div>
+                  <div class="col-md-12" id="botoesAdmin">
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -214,9 +230,19 @@ if (isset($_SESSION['id'])) { ?>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <div class="card shadow" style="height: 150px" id="conquistasGrupo">
-            Conquistas
+
+          <div class="card shadow">
+            <div class="p-3">
+              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Conquistas</h4>
+              <div class="text-end mb-1">
+                <span class="fw-bolder">Total:</span> <span id="totalBadges"></span>
+              </div>
+              <div class="row" id="badgesGrupo">
+
+              </div>
+            </div>
           </div>
+
           <div class="card shadow">
             <div class="p-3">
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Membros</h4>
@@ -228,7 +254,7 @@ if (isset($_SESSION['id'])) { ?>
               </div>
             </div>
             <div class='mt-1' id="paginacaoAtletasGrupo">
-                
+
             </div>
           </div>
         </div>
@@ -241,14 +267,14 @@ if (isset($_SESSION['id'])) { ?>
           <div class="card shadow p-3">
             <div class="d-flex justify-content-center">
               <h4 class="fw-semibold mb-3 pb-2 text-center fs-6 border-2 border-bottom border-light">Últimas Marcações</h4>
-              <svg xmlns="http://www.w3.org/2000/svg" class="ms-1 icon icon-tabler icon-tabler-info-circle" data-toggle="tooltip" data-bs-placement="top" title='Aqui podes encontrar as últimas Marcações já concluidas onde Atletas deste grupo participaram.' width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" class="ms-1 icon icon-tabler icon-tabler-info-circle" data-toggle="tooltip" data-bs-placement="top" title='Aqui podes encontrar as últimas Marcações já concluidas (na Modalidade deste Grupo) onde outros membros participaram.' width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
                 <path d="M12 9h.01" />
                 <path d="M11 12h1v4h1" />
               </svg>
             </div>
-            
+
             <div class="" id="marcacoesConcluidasGrupo">
 
             </div>
@@ -288,32 +314,32 @@ if (isset($_SESSION['id'])) { ?>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body profile-dropdown mobile-navbar" data-simplebar="" data-simplebar>
-        <ul id="sidebarnav">
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
-              <span>
-                <i class="ti ti-home"></i>
-              </span>
-              <span class="hide-menu">Home</span>
-            </a>
-          </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
-              <span>
-                <i class="ti ti-soccer-field"></i>
-              </span>
-              <span class="hide-menu">Marcação</span>
-            </a>
-          </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="descobrir.php" aria-expanded="false">
-              <span>
-                <i class="ti ti-radar"></i>
-              </span>
-              <span class="hide-menu">Descobrir</span>
-            </a>
-          </li>
-        </ul>
+          <ul id="sidebarnav">
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="#" aria-expanded="false">
+                <span>
+                  <i class="ti ti-home"></i>
+                </span>
+                <span class="hide-menu">Home</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-soccer-field"></i>
+                </span>
+                <span class="hide-menu">Marcação</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="descobrir.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-radar"></i>
+                </span>
+                <span class="hide-menu">Descobrir</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>
@@ -323,15 +349,15 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content rounded-1">
           <div class='d-flex'>
-          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-          <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
           </div>
           <div class='pt-3 pb-2 ps-3 pe-3'>
             <span>
-              Através desta pesquisa, consegues facilmente encontrar quem ou o que procuras. 
+              Através desta pesquisa, consegues facilmente encontrar quem ou o que procuras.
               Sejam outros Atletas como tu, Clubes, Grupos ou Equipas, esta Pesquisa geral está aqui a tua disposição.
             </span>
-          </div> 
+          </div>
           <div class="modal-header border-bottom">
             <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
             <input type="text" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" />
@@ -345,7 +371,7 @@ if (isset($_SESSION['id'])) { ?>
         </div>
       </div>
     </div>
-    
+
 
     <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modal" aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -387,6 +413,143 @@ if (isset($_SESSION['id'])) { ?>
       </div>
     </div>
 
+    <div class="modal fade" id="modalJuntarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalJuntarGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Juntar ao Grupo</h4>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <span class="fs-4">Estás prestes a juntar-te deste grupo.<br></span>
+            <h5 class='mt-3'>Juntar?</h5>
+          </div>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="juntarGrupo()">
+              Sim
+            </button>
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
+              Não
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalSairGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSairGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+          <div class='d-flex'>
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Sair do Grupo</h4>
+          </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <span class="fs-4">Estás prestes a sair deste grupo.<br></span>
+            <h5 class='mt-3'>Tens a certeza?</h5>
+          </div>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="sairGrupo()">
+              Sim
+            </button>
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
+              Não
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalEditarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Edição de Grupo</h4>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="bodyModalEditarGrupo">
+
+          </div>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="guardaEditGrupo()">
+              Salvar
+            </button>
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="modalApagarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalApagarGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Apagar Grupo</h4>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <span class="fs-4">Estás prestes a apagar este Grupo.<br></span>
+            <small>Todo o conteúdo gerado para este Grupo será apagado.<br> Isto inclui conquistas, estatísticas, etc</small>
+            <h5 class='mt-3'>Tens a certeza?</h5>
+          </div>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="apagarGrupo()">
+              Sim
+            </button>
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
+              Não
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalEditMembrosGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditMembrosGrupo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header d-flex align-items-center">
+          <div class='d-flex'>
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Lista de Membros</h4>
+          </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class='pb-2 ps-3 pe-3'>
+              <span>
+                Através desta lista, consegues encontrar todos os membros que estão atualmente no teu Grupo.
+                Podes consultar alguma informação básica, assim como visitar rapidamente o seu perfil ou até mesmo remover.
+              </span>
+            </div>
+            <ul class="list mb-0 py-2" id="listaMembrosGrupo">
+
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start" data-bs-dismiss="modal">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <!-- --------------------------------------------------- -->
     <!-- Customizer -->
     <!-- --------------------------------------------------- -->
@@ -412,6 +575,7 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/sidebarmenu.js"></script>
 
     <script src="../../dist/js/custom.js"></script>
+    <script src="../../dist/js/apps/chat.js"></script>
     <script src="../../dist/libs/prismjs/prism.js"></script>
     <script src="../../dist/js/js_courtify/sweatalert.js"></script>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
@@ -423,11 +587,10 @@ if (isset($_SESSION['id'])) { ?>
     <!-- current page js files -->
     <!-- ---------------------------------------------- -->
 
-    <script src="../../dist/libs/fullcalendar/index.global.min.js"></script>
     <script src="../../dist/js/js_courtify/perfilGrupo.js"></script>
 
     <script class="script">
-      $(function () {
+      $(function() {
         $('body').tooltip({
           selector: '[data-toggle="tooltip"]'
         });
@@ -467,7 +630,6 @@ if (isset($_SESSION['id'])) { ?>
 
 
 
-
     <!--<script>
       var selectedImage = null;
 
@@ -489,6 +651,7 @@ if (isset($_SESSION['id'])) { ?>
         }
       }
     </script>-->
+
 
   </body>
 

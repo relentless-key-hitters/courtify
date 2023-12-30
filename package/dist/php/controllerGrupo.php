@@ -23,6 +23,33 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 5) {
     $res = $grupo -> getMarcacoesConcluidasGrupo($_POST['idGrupo']);
     echo($res);
+} else if($_POST['op'] == 6) {
+    $res = $grupo -> getBadgesGrupo($_POST['idGrupo']);
+    echo($res);
+} else if($_POST['op'] == 7) {
+    $res = $grupo -> getBotoesMenus($_POST['idGrupo']);
+    echo($res);
+} else if($_POST['op'] == 8) {
+    $res = $grupo -> sairGrupo($_POST['idGrupo']);
+    echo($res);
+} else if($_POST['op'] == 9) {
+    $res = $grupo -> juntarGrupo($_POST['idGrupo']);
+    echo($res);
+} else if($_POST['op'] == 10) {
+    $res = $grupo -> getInfoEditGrupo($_POST['idGrupo']);
+    echo($res);
+} else if($_POST['op'] == 11) {
+    $res = $grupo -> guardaEditGrupo($_POST['idGrupo'], $_POST['nomeGrupo'], $_POST['descricaoGrupo'], $_FILES);
+    echo($res);
+} else if($_POST['op'] == 12) {
+    $res = $grupo -> apagarGrupo($_POST['idGrupo']);
+    echo($res);
+} else if($_POST['op'] == 13) {
+    $res = $grupo -> getMembrosGrupo($_POST['idGrupo']);
+    echo($res);
+} else if($_POST['op'] == 14) {
+    $res = $grupo -> removerMembroGrupo($_POST['idUser'], $_POST['idGrupo']);
+    echo($res);
 }
 
 ?>

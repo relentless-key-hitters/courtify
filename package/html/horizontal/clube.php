@@ -515,9 +515,10 @@ if (isset($_SESSION['id'])) {?>
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex align-items-center">
-          <h4 class="modal-title">
-            Marcar Campo
-          </h4>
+          <div class='d-flex'>
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Marcar Campo</h4>
+          </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="esconderAmigos()"></button>
         </div>
         <div class="modal-body" id="bodyMarcacao">

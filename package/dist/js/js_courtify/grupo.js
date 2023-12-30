@@ -48,29 +48,6 @@ function getMarcacoesAbertasGrupos() {
         $("#marcacaoGrupos").html(obj.msg);
       }
 
-      setTimeout(function () {
-        $(".owl-carousel").each(function () {
-          $(this).owlCarousel({
-            loop: false,
-            margin: 40,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            responsive: {
-              0: {
-                items: 1,
-              },
-              768: {
-                items: 2,
-              },
-              1200: {
-                items: 3,
-              },
-            },
-          });
-        });
-      }, 1000);
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -79,6 +56,30 @@ function getMarcacoesAbertasGrupos() {
 }
 getMarcacoesAbertasGrupos();
 
+setTimeout(function() {
+  $(".owl-carousel").each(function() {
+    $(this).owlCarousel({
+      loop: false,
+      margin: 40,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 2,
+        },
+        1200: {
+          items: 3,
+        },
+      },
+    });
+  });
+  
+}, 1000);
 
 $(function () {
   getGruposUser();
