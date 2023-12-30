@@ -828,7 +828,7 @@ class Grupo
                                     </div>
                                     <div class='d-flex align-items-center gap-2'>
                                         <a href='./perfil.php?id=" . $row['id'] . "'><button class='btn btn-sm btn-success' data-toggle='tooltip' data-bs-placement='top' title='Ver Perfil'><i class='ti ti-plus'></i></button></a>
-                                        <button class='btn btn-sm text-white' data-toggle='tooltip' data-bs-placement='top' title='Remover' style='background-color: #b80000;' onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick=''><i class='ti ti-trash'></i></button>
+                                        <button class='btn btn-sm text-white' data-toggle='tooltip' data-bs-placement='top' title='Remover' style='background-color: #b80000;' onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='removerMembroGrupo(" . $row['id'] . ")'><i class='ti ti-trash'></i></button>
                                     </div>
                                 </div>   
                             </li>";
@@ -851,5 +851,33 @@ class Grupo
         $conn->close();
 
         return $msg;
+    }
+
+
+    function removerMembroGrupo($idUser, $idGrupo){
+        global $conn;
+        $title = "";
+        $icon = "";
+        $msg = "";
+
+        $sql = "DELETE FROM comunidade_atletas WHERE id_atleta = " . $idUser . " AND id_comunidade = " . $idGrupo;
+
+        if ($conn->query($sql) === TRUE) {
+            $title = "Sucesso";
+            $icon = "success";
+            $msg .= "Removeste este membro do Grupo com sucesso!";
+        } else {
+            $title = "Erro";
+            $icon = "error";
+            $msg .= "Não foi possível eliminar este membro. Por favor tenta de novo mais tarde!";
+        }
+        
+        $conn->close();
+
+        return json_encode(array(
+            "title" => $title,
+            "icon" => $icon,
+            "msg" => $msg
+        ));
     }
 }

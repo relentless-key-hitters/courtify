@@ -453,6 +453,40 @@ function getMembrosGrupo() {
   })
 }
 
+
+function removerMembroGrupo(id) {
+  let urlParams = new URLSearchParams(window.location.search);
+  let idGrupo = urlParams.get("id");
+
+  let dados = new FormData();
+  dados.append("op", 14);
+  dados.append("idUser", id);
+  dados.append("idGrupo", idGrupo);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+  .done(function (msg) {
+    let obj = JSON.parse(msg);
+    alerta2(obj.title, obj.msg, obj.icon);
+    setTimeout(function () {
+      window.location.reload();
+    }, 3000);
+    
+  })
+
+  .fail(function (jqXHR, textStatus) {
+    alert("Request failed: " + textStatus);
+  })
+}
+
 $("#modalEditarGrupo").on("hidden.bs.modal", function () {
   var image = document.getElementById("imgGrupo");
   image.src = "../../dist/images/backgrounds/g.png";

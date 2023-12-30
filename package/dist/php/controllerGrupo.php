@@ -47,6 +47,9 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 13) {
     $res = $grupo -> getMembrosGrupo($_POST['idGrupo']);
     echo($res);
+} else if($_POST['op'] == 14) {
+    $res = $grupo -> removerMembroGrupo($_POST['idUser'], $_POST['idGrupo']);
+    echo($res);
 }
 
 ?>
