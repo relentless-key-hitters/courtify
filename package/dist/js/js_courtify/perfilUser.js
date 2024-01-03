@@ -1151,11 +1151,19 @@ function plotHist(array, val, id, color1 , color2, nome){
             value += val[i][1];
         }
     }
-    let valUser = parseFloat(value.substring(0,2));
+    console.log(value)
+    let valUser = 0;
+    if(value == '100%' || value == '100'){
+         valUser = 100;
+    }else{
+         valUser = parseFloat(value.substring(0,2));
+    }
+    console.log(valUser)
     let color = [];
     for(let i = 0; i< 100; i+=20){
-        if(valUser >= i && valUser < i+20){
+        if(valUser > i && valUser <= i+20){
             color.push(color1);
+            
         }else{
             color.push(color2);
         }
