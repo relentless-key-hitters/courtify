@@ -616,9 +616,23 @@ if (isset($_SESSION['id'])) { ?>
                 </div>
               </div>-->
 
+              <div class="card mt-5 shadow">
+                <div class="card-body">
+                  <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                      <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-2">É aqui que a Comunidade entra em ação</h1>
+                      <p class="lead">Esta página é o teu ponto de partida para te tornares parte da comunidade da Courtify. Cria ou junta-te a grupos, junta-te a marcações abertas de outros atletas dos grupos que estás inserido, e começa a partilhar momentos e experiências.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
-              <div class="d-flex justify-content-between align-items-center mt-5">
+
+              <div class="d-flex justify-content-between align-items-center mt-3">
                 <h3 class="">Os teus Grupos</span></h3>
                 <div class="d-flex justify-content-center align-items-center">
                   <p class="fs-5 me-3 mt-3">Não tens grupo?</p>
@@ -883,9 +897,9 @@ if (isset($_SESSION['id'])) { ?>
                   <div class="d-flex flex-column gap-3 align-items-center">
                     <img src="" class="img-fluid img-thumbnail" width="200" alt="" id="imgNovoGrupo">
                     <div class="col-md-6 text-center">
-                        <label for="fotoNovoGrupo" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="fotoNovoGrupo" accept="image/png, image/gif, image/jpeg" onchange="previewImagemNovoGrupo()">
-                        <small class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</small>
+                      <label for="fotoNovoGrupo" class="form-label">Foto</label>
+                      <input type="file" class="form-control" id="fotoNovoGrupo" accept="image/png, image/gif, image/jpeg" onchange="previewImagemNovoGrupo()">
+                      <small class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</small>
                     </div>
                   </div>
                 </div>

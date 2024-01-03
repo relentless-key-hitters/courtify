@@ -205,7 +205,24 @@ if (isset($_SESSION['id'])) { ?>
           </div>
           <div class="col-md-6">
             <div id="estatisticasGrupo">
-              Estatisticas Principais
+            <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Estatísticas</h4>
+              <div class="row d-flex align-content-center mt-3">
+                <div class="col-md-4">
+                  <div class="card shadow p-3">
+                  <h4 class="mb-0 fw-semibold fs-5">% Vitórias<span class="ti ti-bolt fs-5 ms-1"></span></h4>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card shadow p-3">
+                <h4 class="mb-0 fw-semibold fs-5">% Sets Ganhos<span class="ti ti-trophy fs-5 ms-1"></span></h4>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card shadow p-3">
+                <h4 class="mb-0 fw-semibold fs-5">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-3 d-flex flex-column justify-content-center">
