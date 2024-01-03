@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //  Calender Date variable
   /*=================*/
 
-  
+
   var newDate = new Date();
   function getDynamicMonth() {
     getMonthValue = newDate.getMonth();
@@ -61,55 +61,130 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   var calendarEventsList = [
 
-   /*
-    {
-      id: 1,
-      title: "Event Conf.",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-01`,
-      extendedProps: { calendar: "Danger" },
-    },
-    {
-      id: 2,
-      title: "Seminar #4",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-07`,
-      end: `${newDate.getFullYear()}-${getDynamicMonth()}-10`,
-      extendedProps: { calendar: "Success" },
-    },
-    {
-      groupId: "999",
-      id: 3,
-      title: "Meeting #5",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-09T16:00:00`,
-      extendedProps: { calendar: "Primary" },
-    },
-    {
-      groupId: "999",
-      id: 4,
-      title: "Submission #1",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-16T16:00:00`,
-      extendedProps: { calendar: "Warning" },
-    },
-    {
-      id: 5,
-      title: "Seminar #6",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-11`,
-      end: `${newDate.getFullYear()}-${getDynamicMonth()}-13`,
-      extendedProps: { calendar: "Danger" },
-    },
-    */
-    {
-      id: 6,
-      title: "Padel",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-10T18:30:00`,
-      end: `${newDate.getFullYear()}-${getDynamicMonth()}-10T12:30:00`,
-      extendedProps: { calendar: "Success" },
-    },
+    /*
+     {
+       id: 1,
+       title: "Event Conf.",
+       start: `${newDate.getFullYear()}-${getDynamicMonth()}-01`,
+       extendedProps: { calendar: "Danger" },
+     },
+     {
+       id: 2,
+       title: "Seminar #4",
+       start: `${newDate.getFullYear()}-${getDynamicMonth()}-07`,
+       end: `${newDate.getFullYear()}-${getDynamicMonth()}-10`,
+       extendedProps: { calendar: "Success" },
+     },
+     {
+       groupId: "999",
+       id: 3,
+       title: "Meeting #5",
+       start: `${newDate.getFullYear()}-${getDynamicMonth()}-09T16:00:00`,
+       extendedProps: { calendar: "Primary" },
+     },
+     {
+       groupId: "999",
+       id: 4,
+       title: "Submission #1",
+       start: `${newDate.getFullYear()}-${getDynamicMonth()}-16T16:00:00`,
+       extendedProps: { calendar: "Warning" },
+     },
+     {
+       id: 5,
+       title: "Seminar #6",
+       start: `${newDate.getFullYear()}-${getDynamicMonth()}-11`,
+       end: `${newDate.getFullYear()}-${getDynamicMonth()}-13`,
+       extendedProps: { calendar: "Danger" },
+     },
+     */
     {
       id: 6,
-      title: "Ténis",
-      start: `${newDate.getFullYear()}-${getDynamicMonth()}-14T19:30:00`,
+      title: "000919",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-18T10:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-18T14:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+    {
+      id: 6,
+      title: "000921",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-18T16:30:00`,
       end: `${newDate.getFullYear()}-${getDynamicMonth()}-14T12:30:00`,
-      extendedProps: { calendar: "Warning" },
+      extendedProps: { calendar: "light" },
+    },
+
+    {
+      id: 6,
+      title: "000922",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-18T19:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-18T14:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+    {
+      id: 6,
+      title: "000923",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-18T19:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-14T12:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+
+    {
+      id: 6,
+      title: "000924",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-19T19:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-18T14:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+    {
+      id: 6,
+      title: "000925",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-19T19:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-14T12:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+
+    {
+      id: 6,
+      title: "000926",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-19T21:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-18T14:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+    {
+      id: 6,
+      title: "000927",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-19T21:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-14T12:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+
+    {
+      id: 6,
+      title: "000928",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-20T09:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-18T14:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+    {
+      id: 6,
+      title: "000929",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-20T17:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-14T12:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+
+    {
+      id: 6,
+      title: "000930",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-20T18:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-18T14:30:00`,
+      extendedProps: { calendar: "light" },
+    },
+    {
+      id: 6,
+      title: "000931",
+      start: `${newDate.getFullYear()}-${getDynamicMonth()}-20T19:30:00`,
+      end: `${newDate.getFullYear()}-${getDynamicMonth()}-14T12:30:00`,
+      extendedProps: { calendar: "light" },
     },
     /*
     {
@@ -138,9 +213,9 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     */
-    
+
   ];
-  
+
   /*=====================*/
   // Calendar Select fn.
   /*=====================*/
@@ -175,23 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (eventObj.url) {
       window.open(eventObj.url);
 
-      info.jsEvent.preventDefault(); 
-    } else {
-      var getModalEventId = eventObj._def.publicId;
-      var getModalEventLevel = eventObj._def.extendedProps["calendar"];
-      var getModalCheckedRadioBtnEl = document.querySelector(
-        `input[value="${getModalEventLevel}"]`
-      );
-
-      getModalTitleEl.value = eventObj.title;
-      getModalCheckedRadioBtnEl.checked = true;
-      getModalUpdateBtnEl.setAttribute(
-        "data-fc-event-public-id",
-        getModalEventId
-      );
-      getModalAddBtnEl.style.display = "none";
-      getModalUpdateBtnEl.style.display = "block";
-      myModal.show();
+      info.jsEvent.preventDefault();
     }
   };
 
@@ -284,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /*=====================*/
   // Calendar Init
   /*=====================*/
-  calendar.render(); 
+  calendar.render();
 
   var myModal = new bootstrap.Modal(document.getElementById("eventModal"));
   var modalToggle = document.querySelector(".fc-addEventButton-button ");
