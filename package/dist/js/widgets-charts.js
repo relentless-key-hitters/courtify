@@ -249,6 +249,7 @@ $(function () {
     tooltip: {
       theme: "dark",
     },
+    
   };
 
   var chart = new ApexCharts(document.querySelector("#widgest-chart-4"), options);

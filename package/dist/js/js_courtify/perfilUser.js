@@ -1,4 +1,5 @@
 let percVit = [];
+let percMvp = [];
 function getPerfil(){
 
     let urlParams = new URLSearchParams(window.location.search);
@@ -88,6 +89,7 @@ function getEstatisticas(id){
                     $("#nMvpBasq").html(obj[i].nMvp)
                     $("#rankingBasq").html(obj[i].ranking + "º")
                     percVit.push(["Basquetebol", obj[i].percVitorias])
+                    percMvp.push(["Basquetebol", (obj[i].nMvp / obj[i].nJogos)*100])
                 }else if(obj[i].modalidade  == 'Futsal'){
                     $("#pontuacaoFutsal").html(obj[i].nGolos)
                     $("#nJogosFutsal").html(obj[i].nJogos)
@@ -95,6 +97,7 @@ function getEstatisticas(id){
                     $("#nMvpFutsal").html(obj[i].nMvp)
                     $("#rankingFutsal").html(obj[i].ranking + "º")
                     percVit.push(["Futsal", obj[i].percVitorias])
+                    percMvp.push(["Futsal", (obj[i].nMvp / obj[i].nJogos)*100])
                 }else if(obj[i].modalidade == "Padel"){
                     $("#pontuacaoPadel").html(obj[i].nPontos)
                     $("#nJogosPadel").html(obj[i].nJogos)
@@ -105,6 +108,7 @@ function getEstatisticas(id){
                     $("#nMvpPadel").html(obj[i].nMvp)
                     $("#rankingPadel").html(obj[i].ranking + "º")
                     percVit.push(["Padel", obj[i].percVitorias])
+                    percMvp.push(["Padel", (obj[i].nMvp / obj[i].nJogos)*100])
                 }else{
                     $("#pontuacaoTenis").html(obj[i].nPontos)
                     $("#nJogosTenis").html(obj[i].nJogos)
@@ -115,8 +119,8 @@ function getEstatisticas(id){
                     $("#nMvpTenis").html(obj[i].nMvp)
                     $("#rankingTenis").html(obj[i].ranking + "º")
                     percVit.push(["Ténis", obj[i].percVitorias])
+                    percMvp.push(["Ténis", (obj[i].nMvp / obj[i].nJogos)*100])
                 }
-                console.log(percVit)
             }
         })
         
@@ -1116,18 +1120,23 @@ function getRadar(userId, mod){
         console.log(obj)
         for(let i = 0 ; i < obj.length; i++){
             if(obj[i][0][0] == "Padel"){
-                plotRadarPadelTenis(obj[i][0], obj[i][1], "radarPadel2",  '#044967');
-                plotHist1Padel(obj[i][2], 1);
+                plotRadarPadelTenis(obj[i][0], obj[i][1], "radarPadel2",  '#044967', '#1860b8');
+                plotHist(obj[i][2], percVit, "#barPadel3", "#044967", '#1860b8', "Padel");
+                plotHist(obj[i][3], percMvp, "#barPadel4", "#044967", '#1860b8', "Padel");
             }else if(obj[i][0][0] == "Ténis"){
-                plotRadarPadelTenis(obj[i][0], obj[i][1], "radarTenis1",  '#45702d');
+                plotRadarPadelTenis(obj[i][0], obj[i][1], "radarTenis1",  '#45702d', '#73ab54');
+                plotHist(obj[i][2], percVit, "#barTenis3", "#45702d", '#73ab54', "Ténis");
+                plotHist(obj[i][3], percMvp, "#barTenis4", "#45702d", '#73ab54', "Ténis");
             }else if(obj[i][0][0] == "Basquetebol"){
-                plotRadarBasqFutsal(obj[i][0], obj[i][1], "radarBasket1", '#ffae1f')
+                plotRadarBasqFutsal(obj[i][0], obj[i][1], "radarBasket1", '#ffae1f', '#fbe47e')
+                plotHist(obj[i][2], percVit, "#barBasket3", "#ffae1f", '#fbe47e', "Basquetebol");
+                plotHist(obj[i][3], percMvp, "#barBasket4", "#ffae1f", '#fbe47e', "Basquetebol");
             }else{
-                plotRadarBasqFutsal(obj[i][0], obj[i][1], "radarFutsal1", '#fa896b')
+                plotRadarBasqFutsal(obj[i][0], obj[i][1], "radarFutsal1", '#fa896b', '#ffb6a3')
+                plotHist(obj[i][2], percVit, "#barFutsal3", "#fa896b", '#ffb6a3', "Futsal");
+                plotHist(obj[i][3], percMvp, "#barFutsal4", "#fa896b", '#ffb6a3', "Futsal");
             }
         }
-        console.log(obj[0].length)
-        console.log(obj[0][1])
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -1135,91 +1144,99 @@ function getRadar(userId, mod){
     })
 }
 
-function plotHist1Padel(array){
-
-    var options = {
-        color: "#adb5bd",
-        series: [{
-          name: "histogram",
-          data: [
-            { x: "0-20%", y: array[0] },
-            { x: "20-40%", y: array[1] },
-            { x: "40-60%", y: array[2] },
-            { x: "60-80%", y: array[3] },
-            { x: "80-100%", y: array[4] },
-          ],
-        }],
-        chart: {
-          height: 300,
-          width: '100%',
-          type: "bar",
-          fontFamily: "Plus Jakarta Sans', sans-serif",
-          foreColor: "#adb0bb",
-          toolbar: {
-            tools: {
-              download: false
-            }
-          }
-        },
-        plotOptions: {
-          bar: {
-            columnWidth: "95%",
-            borderRadius: 5,
-            borderRadiusApplication: "end",
-          }
-        },
-        fill: {
-          colors: '#45702d',
-          opacity: 0.3,
-        },
-        stroke: {
-          width: 2,
-          colors: ['#45702d']
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        grid: {
-          xaxis: {
-            lines: {
-              show: true
-            }
-          },
-          yaxis: {
-            lines: {
-              show: true
-            }
-          }
-        },
-        xaxis: {
-          type: "category",
-          categories: ["0-20%", "20-40%", "40-60%", "60-80%", "80-100%"],
-          title: {text: "Sports", offsetY: 70},
-          axisBorder: {
-            color: "#000000"
-          }
-        },
-        yaxis: {
-          title: {text: "nº Atletas"},
-          axisBorder: {
-            show: true,
-            color: "#000000"
-          }
-        },
-        tooltip:{
-          onDatasetHover: {
-            highlightDataSeries: true,
-          },
+function plotHist(array, val, id, color1 , color2, nome){
+    let value  = "";
+    for(let i = 0; i < val.length; i++){
+        if(val[i][0] == nome){
+            value += val[i][1];
         }
-       };
-       
-       var chart = new ApexCharts(document.querySelector("#barPadel3"), options);
-       chart.render();
+    }
+    let valUser = parseFloat(value.substring(0,2));
+    let color = [];
+    for(let i = 0; i< 100; i+=20){
+        if(valUser >= i && valUser < i+20){
+            color.push(color1);
+        }else{
+            color.push(color2);
+        }
+    }
+       var options = {
+        series: [{
+        data: [array[0], array[1], array[2], array[3], array[4]],
+        name: "Número de atletas",
+      }],
+        chart: {
+        height: 350,
+        type: 'bar',
+        events: {
+          click: function(chart, w, e) {
+            // console.log(chart, w, e)
+          }
+        },
+        toolbar: {
+            show: false,
+          },
+        fontFamily: "Plus Jakarta Sans"
+      },
+      colors: color,
+      plotOptions: {
+        bar: {
+          columnWidth: '70%',
+          distributed: true,
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: false
+      },
+      xaxis: {
+        categories: [
+          '0-20',
+          '20-40',
+          '40-60',
+          '60-80',
+          '80-100',
+        ],
+        title: {text: "%"}
+      }, 
+      yaxis: {
+        title: {text: "Nº Atletas"},
+        labels: {
+          style: {
+            fontSize: '12px',
+          }
+        }
+      },
+      states: {
+        hover:{
+            filter:{
+                type: "none"
+            }
+        }
+      },
+      fill: {
+        type: "solid",
+        opacity: 1.0
+      }, 
+      legend: {
+        show: true,
+        showForSingleSeries: true,
+        customLegendItems: ['Tu', 'Atletas Courtify'],
+        markers: {
+          fillColors: [color1, color2]
+        }
+      }
+      };
+
+      var chart = new ApexCharts(document.querySelector(id), options);
+      chart.render();
     
 }
 
 
-function plotRadarPadelTenis(array1, array2, nome, cor){
+function plotRadarPadelTenis(array1, array2, nome, cor, cor2){
 
     var options = {
         series: [
@@ -1227,38 +1244,38 @@ function plotRadarPadelTenis(array1, array2, nome, cor){
           name: 'Tu',
           data: [
             {
-              x: '% Vitórias',
+              x: 'Vitórias',
               y: array1[1],
               goals: [
                 {
                   name: 'Atletas Courtify',
                   value: array2[1],
                   strokeHeight: 5,
-                  strokeColor: '#1860b8'
+                  strokeColor: cor2
                 }
               ]
             },
             {
-              x: '% Sets Ganhos',
+              x: 'Sets Ganhos',
               y: array1[2],
               goals: [
                 {
                   name: 'Atletas Courtify',
                   value: array2[2],
                   strokeHeight: 5,
-                  strokeColor: '#1860b8'
+                  strokeColor: cor2
                 }
               ]
             },
             {
-                x: '% MVP',
+                x: 'MVP',
                 y: array1[3],
                 goals: [
                   {
                     name: 'Atletas Courtify',
                     value: array2[3],
                     strokeHeight: 5,
-                    strokeColor: '#1860b8'
+                    strokeColor: cor2
                   }
                 ]
               }
@@ -1271,6 +1288,8 @@ function plotRadarPadelTenis(array1, array2, nome, cor){
         toolbar: {
             show: false,
           }
+        ,
+        fontFamily: "Plus Jakarta Sans"
       },
       plotOptions: {
         bar: {
@@ -1286,7 +1305,26 @@ function plotRadarPadelTenis(array1, array2, nome, cor){
         showForSingleSeries: true,
         customLegendItems: ['Tu', 'Atletas Courtify'],
         markers: {
-          fillColors: [cor, '#1860b8']
+          fillColors: [cor, cor2]
+        }
+      },
+      states: {
+        hover:{
+            filter:{
+                type: "none"
+            }
+        }
+      },
+      fill: {
+        type: "solid",
+        opacity: 1.0
+      },
+      xaxis: {
+        title: {text: "%"},
+        labels: {
+          style: {
+            fontSize: '12px',
+          }
         }
       }
       };
@@ -1296,7 +1334,7 @@ function plotRadarPadelTenis(array1, array2, nome, cor){
 
 }
 
-function plotRadarBasqFutsal(array1, array2, nome, cor){
+function plotRadarBasqFutsal(array1, array2, nome, cor, cor2){
 
     var options = {
         series: [
@@ -1311,7 +1349,7 @@ function plotRadarBasqFutsal(array1, array2, nome, cor){
                   name: 'Atletas Courtify',
                   value: array2[1],
                   strokeHeight: 5,
-                  strokeColor: '#1860b8'
+                  strokeColor: cor2
                 }
               ]
             },
@@ -1323,7 +1361,7 @@ function plotRadarBasqFutsal(array1, array2, nome, cor){
                   name: 'Atletas Courtify',
                   value: array2[2],
                   strokeHeight: 5,
-                  strokeColor: '#1860b8'
+                  strokeColor: cor2
                 }
               ]
             }
@@ -1347,12 +1385,24 @@ function plotRadarBasqFutsal(array1, array2, nome, cor){
       dataLabels: {
         enabled: false
       },
+      fill: {
+        type: "solid",
+        opacity: 1.0
+      },
       legend: {
         show: true,
         showForSingleSeries: true,
         customLegendItems: ['Tu', 'Atletas Courtify'],
         markers: {
-          fillColors: [cor, '#1860b8']
+          fillColors: [cor, cor2]
+        }
+      },
+      xaxis: {
+        title: {text: "%"},
+        labels: {
+          style: {
+            fontSize: '12px',
+          }
         }
       }
       };
@@ -1369,5 +1419,4 @@ $(function() {
     getPerfil();
     getJogosRecentes(1);
     getComunidades();
-    plotHist1Padel()
 });

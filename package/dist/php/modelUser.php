@@ -2487,7 +2487,7 @@ class User
             }
         }
 
-        $sql3 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+        $sql3 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 0 AS res
         FROM (
             SELECT COUNT(*) AS posicao
             FROM info_padel
@@ -2497,9 +2497,8 @@ class User
             FROM info_padel
             WHERE (n_mvp/n_jogos) < 0.2
         )AS temp3
-        
             UNION 
-            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 1 AS res
         FROM (
             SELECT COUNT(*) AS posicao
             FROM info_padel
@@ -2510,7 +2509,7 @@ class User
             WHERE (n_mvp/n_jogos) < 0.4 AND (n_mvp/n_jogos) >= 0.2
         )AS temp3
             UNION 
-                            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 2 AS res
         FROM (
             SELECT COUNT(*) AS posicao
             FROM info_padel
@@ -2520,8 +2519,8 @@ class User
             FROM info_padel
             WHERE (n_mvp/n_jogos) < 0.6 AND (n_mvp/n_jogos) >= 0.4
         )AS temp3
-                        UNION 
-                            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+               UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 3 AS res
         FROM (
             SELECT COUNT(*) AS posicao
             FROM info_padel
@@ -2532,7 +2531,7 @@ class User
             WHERE (n_mvp/n_jogos) < 0.8 AND (n_mvp/n_jogos) >= 0.6
         )AS temp3
             UNION 
-            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp
+            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 4 AS res
         FROM (
             SELECT COUNT(*) AS posicao
             FROM info_padel
@@ -2576,7 +2575,72 @@ class User
                 array_push($vals, array("Ténis", round($row4['percVitorias']*100, 1), round($row4['percSetsGanhos']*100, 1), round($row4['percMvp']*100, 1)));
             }
         }
+        $sql5 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 0 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_tenis
+            WHERE (n_vitorias/n_jogos) < 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_tenis
+            WHERE (n_mvp/n_jogos) < 0.2
+        )AS temp3
+            UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 1 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_tenis
+            WHERE (n_vitorias/n_jogos) < 0.4 AND (n_vitorias/n_jogos) >= 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_tenis
+            WHERE (n_mvp/n_jogos) < 0.4 AND (n_mvp/n_jogos) >= 0.2
+        )AS temp3
+            UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 2 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_tenis
+            WHERE (n_vitorias/n_jogos) < 0.6 AND (n_vitorias/n_jogos) >= 0.4
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_tenis
+            WHERE (n_mvp/n_jogos) < 0.6 AND (n_mvp/n_jogos) >= 0.4
+        )AS temp3
+               UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 3 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_tenis
+            WHERE (n_vitorias/n_jogos) < 0.8 AND (n_vitorias/n_jogos) >= 0.6
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_tenis
+            WHERE (n_mvp/n_jogos) < 0.8 AND (n_mvp/n_jogos) >= 0.6
+        )AS temp3
+            UNION 
+            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 4 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_tenis
+            WHERE (n_vitorias/n_jogos) >= 0.8
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_tenis
+            WHERE (n_mvp/n_jogos) >= 0.8
+        )AS temp3";
 
+        $arrGraf1 = array();
+        $arrGraf2 = array();
+        $result5 = $conn -> query($sql5);
+        if ($result5->num_rows > 0) {
+            while ($row5 = $result5->fetch_assoc()) {
+                array_push( $arrGraf1, $row5['percVit']);
+                array_push( $arrGraf2, $row5['percMvp']);
+            }
+        }
+        array_push($vals,  $arrGraf1);
+        array_push($vals,  $arrGraf2);
         return($vals);
     }
 
@@ -2599,6 +2663,72 @@ class User
                 array_push($vals, array("Basquetebol", round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
             }
         }
+        $sql7 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 0 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_basquetebol
+            WHERE (n_vitorias/n_jogos) < 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_basquetebol
+            WHERE (n_mvp/n_jogos) < 0.2
+        )AS temp3
+            UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 1 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_basquetebol
+            WHERE (n_vitorias/n_jogos) < 0.4 AND (n_vitorias/n_jogos) >= 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_basquetebol
+            WHERE (n_mvp/n_jogos) < 0.4 AND (n_mvp/n_jogos) >= 0.2
+        )AS temp3
+            UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 2 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_basquetebol
+            WHERE (n_vitorias/n_jogos) < 0.6 AND (n_vitorias/n_jogos) >= 0.4
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_basquetebol
+            WHERE (n_mvp/n_jogos) < 0.6 AND (n_mvp/n_jogos) >= 0.4
+        )AS temp3
+               UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 3 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_basquetebol
+            WHERE (n_vitorias/n_jogos) < 0.8 AND (n_vitorias/n_jogos) >= 0.6
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_basquetebol
+            WHERE (n_mvp/n_jogos) < 0.8 AND (n_mvp/n_jogos) >= 0.6
+        )AS temp3
+            UNION 
+            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 4 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_basquetebol
+            WHERE (n_vitorias/n_jogos) >= 0.8
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_basquetebol
+            WHERE (n_mvp/n_jogos) >= 0.8
+        )AS temp3";
+
+        $arrGraf1 = array();
+        $arrGraf2 = array();
+        $result7 = $conn -> query($sql7);
+        if ($result7->num_rows > 0) {
+            while ($row7 = $result7->fetch_assoc()) {
+                array_push( $arrGraf1, $row7['percVit']);
+                array_push( $arrGraf2, $row7['percMvp']);
+            }
+        }
+        array_push($vals,  $arrGraf1);
+        array_push($vals,  $arrGraf2);
         return($vals);
     }
 
@@ -2621,6 +2751,72 @@ class User
                 array_push($vals, array("Futsal", round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
             }
         }
+        $sql7 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 0 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_futsal
+            WHERE (n_vitorias/n_jogos) < 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_futsal
+            WHERE (n_mvp/n_jogos) < 0.2
+        )AS temp3
+            UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 1 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_futsal
+            WHERE (n_vitorias/n_jogos) < 0.4 AND (n_vitorias/n_jogos) >= 0.2
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_futsal
+            WHERE (n_mvp/n_jogos) < 0.4 AND (n_mvp/n_jogos) >= 0.2
+        )AS temp3
+            UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 2 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_futsal
+            WHERE (n_vitorias/n_jogos) < 0.6 AND (n_vitorias/n_jogos) >= 0.4
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_futsal
+            WHERE (n_mvp/n_jogos) < 0.6 AND (n_mvp/n_jogos) >= 0.4
+        )AS temp3
+               UNION 
+         SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 3 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_futsal
+            WHERE (n_vitorias/n_jogos) < 0.8 AND (n_vitorias/n_jogos) >= 0.6
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_futsal
+            WHERE (n_mvp/n_jogos) < 0.8 AND (n_mvp/n_jogos) >= 0.6
+        )AS temp3
+            UNION 
+            SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 4 AS res
+        FROM (
+            SELECT COUNT(*) AS posicao
+            FROM info_futsal
+            WHERE (n_vitorias/n_jogos) >= 0.8
+        )AS temp, 
+        (SELECT COUNT(*) AS posicao2
+            FROM info_futsal
+            WHERE (n_mvp/n_jogos) >= 0.8
+        )AS temp3";
+
+        $arrGraf1 = array();
+        $arrGraf2 = array();
+        $result7 = $conn -> query($sql7);
+        if ($result7->num_rows > 0) {
+            while ($row7 = $result7->fetch_assoc()) {
+                array_push( $arrGraf1, $row7['percVit']);
+                array_push( $arrGraf2, $row7['percMvp']);
+            }
+        }
+        array_push($vals,  $arrGraf1);
+        array_push($vals,  $arrGraf2);
         return($vals);
     }
 }
