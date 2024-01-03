@@ -621,10 +621,6 @@ if (isset($_SESSION['id'])) { ?>
                 <div class=" mt-5">
                   <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="">Equipas existentes em #LOCALIDADE USER#</h3>
-                    <div class="d-flex justify-content-center align-items-center">
-                      <p class="fs-5 me-3 mt-3">É um clube?</p>
-                      <button type="button" class="btn btn-success btn-small">Nova Equipa</button>
-                    </div>
                   </div>
                   <div class="card bg-light px-3 py-3">
                     <div class="row">

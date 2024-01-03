@@ -937,4 +937,34 @@ class Grupo
             "id" => $lastId
         ));
     }
+
+
+    function getEstatisticasGrupoPadel($idGrupo){
+        global $conn;
+        $percVit = 0;
+        $percSetsGanhos = 0;
+        $percMvp = 0;
+        $sql = "SELECT info_padel.*
+        FROM info_padel
+        WHERE id_atleta IN (
+            SELECT id_atleta
+            FROM comunidade_atletas
+            WHERE id_comunidade = '".$idGrupo."'
+        )";
+        $count = 0;
+        $result = $conn ->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+               $count++;
+               if($row['n_jogos']!=0){
+                   $percVit .= ($row['n_vitorias']/$row['n_jogos']);
+               }
+               if($row['n_sets']!=0){
+                $percVit .= ($row['n_set_ganhos']/$row['n_sets']);
+            }
+               
+            }
+        }
+        $conn->close();
+    }
 }
