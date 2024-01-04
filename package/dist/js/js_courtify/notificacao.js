@@ -140,6 +140,9 @@ function guardarVotacaoBF(id){
             }, 4000);
 
             getNotificacao();
+            if(modalidade == "Basquetebol"){
+                getEstatisticasGerais(1);
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -438,6 +441,29 @@ function alertaToast(titulo, msg, imagem) {
 
       const titleElement = document.querySelector('.swal2-title');
       titleElement.style.color = '#044967';
+}
+
+function getEstatisticasGerais(op){
+    let dados = new FormData();
+    dados.append("op", op);
+    $.ajax({
+        url: "../../dist/php/controllerEstatisticas.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            console.log(msg);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+
 }
 
 $(function() {

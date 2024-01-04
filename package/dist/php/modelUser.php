@@ -1172,10 +1172,9 @@ class User
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                if ($row['n_jogos'] != 0 && $row['n_sets'] != 0) {
+                if ($row['n_jogos'] != 0) {
                     $ranking = ($row['n_vitorias'] / $row['n_jogos']) * 0.45 +
-                               ($row['n_mvp'] / $row['n_jogos']) * 0.25 +
-                               ($row['n_set_ganhos'] / $row['n_sets']) * 0.3;
+                               ($row['n_mvp'] / $row['n_jogos']) * 0.25;
                 } else {
                     $ranking = 0;
                 }

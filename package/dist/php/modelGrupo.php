@@ -939,6 +939,30 @@ class Grupo
     }
 
 
+    function getEstatisticasGrupo($idGrupo){
+        global $conn;
+        $sql = "SELECT modalidade.descricao 
+        FROM modalidade 
+        WHERE modalidade.id = (
+            SELECT id_modalidade
+            FROM comunidade 
+            WHERE id = ".$idGrupo.")";
+        $result = $conn -> query($sql);
+        if($result -> num_rows>0){
+            while($row = $result -> fetch_assoc()){
+                if($row['descricao'] == "Basquetebol"){
+
+                }else if ($row['descricao'] == "Futsal"){
+
+                }else if($row['descricao'] == "Padel"){
+
+                }else{
+
+                }
+            }
+        }   
+    }
+
     function getEstatisticasGrupoPadel($idGrupo){
         global $conn;
         $percVit = 0;
@@ -955,13 +979,14 @@ class Grupo
         $result = $conn ->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-               $count++;
-               if($row['n_jogos']!=0){
+                $count++;
+                if($row['n_jogos']!=0){
                    $percVit .= ($row['n_vitorias']/$row['n_jogos']);
-               }
-               if($row['n_sets']!=0){
-                $percVit .= ($row['n_set_ganhos']/$row['n_sets']);
-            }
+                   $percMvp = ($row['n_mvp']/$row['n_jogos']);
+                }
+                if($row['n_sets']!=0){
+                $percSetsGanhos .= ($row['n_set_ganhos']/$row['n_sets']);
+                }
                
             }
         }
