@@ -21,7 +21,7 @@ class Estatistica
                 array_push($nPontos, $row['n_pontos']);
             }
         }
-        $resultPercVit = $this -> percVitMedia($numVitorias, $numJogos);
+        $resultPercVit = $this -> percVitMedia($numVitorias, $numJogos, "percVitorias");
         $conn -> close();
         return($resultPercVit);
     }
@@ -35,14 +35,14 @@ class Estatistica
         return($percVitMedia);
     }
 
-    function avalPercVitoria($percNova){
+    function avalPercVitoria($percNova, $variavel){
         global $conn;
-        $sql = "SELECT percVitorias FROM estatisticas_basquetebol";
+        $sql = "SELECT ".$variavel." FROM estatisticas_basquetebol";
         $result = $conn -> query($sql);
         $percAntiga = 0;
         if($result -> num_rows > 0){
             while($row = $result -> fetch_assoc()){
-                $percAntiga =  $percAntiga + $row['percVitorias'];
+                $percAntiga =  $percAntiga + $row[$variavel];
             }
         }
         $flag = false;
@@ -52,13 +52,13 @@ class Estatistica
         return($flag);
     }
 
-    function percVitMedia($array1, $array2){
+    function percVitMedia($array1, $array2, $variavel){
         global $conn;
         $sql = "";
         $msg = "";
         $percAc = $this -> calcPercVitoriaAtual($array1, $array2);
-        if($this->avalPercVitoria($percAc)){
-            $sql = "UPDATE estatisticas_basquetebol SET percVitorias = ".$percAc;
+        if($this->avalPercVitoria($percAc, $variavel)){
+            $sql = "UPDATE estatisticas_basquetebol SET ".$variavel." = ".$percAc;
             if ($conn->query($sql) === TRUE) {
                 $msg = "Alterado com sucesso!";
             }else{
