@@ -1,5 +1,9 @@
 let idVot;
 let modalidade;
+let flagNotifGeral = false;
+let flagNotifVot = false;
+let flagNotifPA = false;
+let flagNotifConv = false;
 
 function getNotificacao(){
 
@@ -18,6 +22,20 @@ function getNotificacao(){
 
         .done(function(msg) {
             $("#divNotificacoesVotacao").html(msg)
+            if(flagNotifGeral === false && msg.length != 0){
+                flagNotifGeral = true;
+                flagNotifVot = true;
+                $("#notificacaoAtiva").removeClass("d-none")
+            }else if(msg.length == 0){
+                if(flagNotifPA === false && flagNotifConv === false){
+                    flagNotifVot = false;
+                    flagNotifGeral = false;
+                    $("#notificacaoAtiva").addClass("d-none")
+                }else{
+                    flagNotifVot = false;
+                }
+                
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -230,6 +248,20 @@ function getNotificacaoConviteMarcacao() {
 
         .done(function(msg) {
             $("#divNotificacoesConviteMarcacao").html(msg)
+            if(flagNotifGeral === false && msg.length != 0){
+                flagNotifGeral = true;
+                flagNotifConv = true;
+                $("#notificacaoAtiva").removeClass("d-none")
+            }else if(msg.length == 0){
+                if(flagNotifPA === false && flagNotifVot === false){
+                    flagNotifConv = false;
+                    flagNotifGeral = false;
+                    $("#notificacaoAtiva").addClass("d-none")
+                }else{
+                    flagNotifConv = false;
+                }
+                
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -340,6 +372,20 @@ function notificacaoPedidoAmizade() {
 
         .done(function(msg) {
             $("#divNotificacoesPedidoAmizade").html(msg)
+            if(flagNotifGeral === false && msg.length != 0){
+                flagNotifGeral = true;
+                flagNotifPA = true;
+                $("#notificacaoAtiva").removeClass("d-none")
+            }else if(msg.length == 0){
+                if(flagNotifConv === false && flagNotifVot === false){
+                    flagNotifPA = false;
+                    flagNotifGeral = false;
+                    $("#notificacaoAtiva").addClass("d-none")
+                }else{
+                    flagNotifPA = false;
+                }
+                
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
