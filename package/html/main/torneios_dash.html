@@ -16,16 +16,12 @@
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
 
-
-  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../../dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/Portuguese.json"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
 
 
   <style>
@@ -268,10 +264,11 @@
 
         <div class="row mb-5">
           <div class="container mt-5">
-            <table class="table" id="tabela">
+            <table class="table" id="tabelaTorneio">
               <thead>
                 <tr class="text-center">
                   <th scope="col">ID</th>
+                  <th scope="col">Foto</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Nível</th>
                   <th scope="col">Data</th>
@@ -282,136 +279,10 @@
                   <th scope="col">Cancelar</th>
                 </tr>
               </thead>
-              <tbody>
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Masculino 220</td>
-                  <td>N2</td>
-                  <td>2024-01-09</td>
-                  <td>16:00</td>
-                  <td>12/16 <i class="ti ti-lock-open" style="color: forestgreen;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Abertas"></i></td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Masculino 880</td>
-                  <td>N5</td>
-                  <td>2024-01-09</td>
-                  <td>18:00</td>
-                  <td>10/16 <i class="ti ti-lock-open" style="color: forestgreen;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Abertas"></i></td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Misto 210</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-12</td>
-                  <td>20:00</td>
-                  <td>10/16 <i class="ti ti-lock-open" style="color: forestgreen;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Abertas"></i></td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Feminino 190</td>
-                  <td>N3</td>
-                  <td>2024-01-09</td>
-                  <td>16:00</td>
-                  <td>15/16 <i class="ti ti-lock-open" style="color: forestgreen;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Abertas"></i></td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Feminino 230</td>
-                  <td>N2</td>
-                  <td>2024-01-09</td>
-                  <td>18:00</td>
-                  <td>16/16 <i class="ti ti-lock" style="color: firebrick;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Fechadas"></i></td>
-                  </td>
-                  <td>10.00</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
 
 
 
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Sub-14</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-16</td>
-                  <td>16:00</td>
-                  <td>16/16 <i class="ti ti-lock" style="color: firebrick;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Fechadas"></i></td>
-                  <td>3.00</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Sub-12</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-16</td>
-                  <td>10:00</td>
-                  <td>24/24 <i class="ti ti-lock-open" style="color: firebrick;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Fechadas"></i></td>
-                  <td>Entrada Livre</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td></td>
-                  <td>Torneio Sub-10</td>
-                  <td>Sem Classificação</td>
-                  <td>2024-01-21</td>
-                  <td>16:00</td>
-                  <td>24/24 <i class="ti ti-lock" style="color: firebrick;" data-bs-toggle="tooltip"
-                      data-bs-placement="top" title="Inscrições Fechadas"></i></td>
-                  <td>Entrada Livre</td>
-                  <td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#tournamentEditModal"
-                      style="background-color: gold;"> <i class="text-white ti ti-pencil"></i></button></td>
-                  <td><button type="button" class="btn btn-sm" style="background-color: firebrick;"> <i
-                        class="text-white ti ti-x"></i></button></td>
-                </tr>
-
-
+              <tbody id="listaTorneio">
               </tbody>
             </table>
           </div>
@@ -513,10 +384,22 @@
                 <label for="nivel">Estado</label>
                 <select name="nivel" class="form-select" id="trEstado">
                   <option class="text-muted" value="" disabled>Escolha o estado do Torneio</option>
-                  <option selected value="trProg">Ativo</option>
-                  <option disabled value="trCanc">Cancelado</option>
-                  <option disabled value="trTerm">Terminado</option>
+                  <option selected value="trAtivo">Ativo</option>
+                  <option disabled value="trCancelado">Cancelado</option>
+                  <option disabled value="trTerminado">Terminado</option>
                 </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 pt-4">
+                <label for="trObs">Observações</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
               </div>
             </div>
           </div>
@@ -529,12 +412,12 @@
     </div>
   </div>
 
-  <div class="modal modal-lg fade" id="tournamentEditModal" tabindex="-1" role="dialog"
-    aria-labelledby="tournamentEditModalLabel" aria-hidden="true">
+  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog"
+    aria-labelledby="trEditModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-7" id="tournamentEditModalLabel">Editar Torneio</h5>
+          <h5 class="modal-title fs-7" id="trEditModalLabel">Editar Torneio</h5>
           <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
             aria-label="Close">
             <span> <i class="ti ti-x text-white"></i></span>
@@ -553,7 +436,7 @@
             <div class="col-md-8 pt-4">
               <div class="form-group">
                 <label for="nomeEditTour">Nome</label>
-                <input type="text" class="form-control" id="nomeEditTour">
+                <input type="text" class="form-control" id="descEditTour">
               </div>
             </div>
 
@@ -583,7 +466,7 @@
               <div class="col-md-3 pt-4">
                 <div class="form-group">
                   <label for="timeEditTour">Hora</label>
-                  <input type="time" class="form-control" id="timeEditTour">
+                  <input type="time" class="form-control" id="horaEditTour">
                 </div>
               </div>
 
@@ -592,6 +475,14 @@
                   <label for="precoEditTour">Preço</label>
                   <input type="number" class="form-control" id="precoEditTour">
                 </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="imagem">Imagem</label>
+                <input type="file" class="form-control" id="imagemEditTour" accept="image/*">
+                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
               </div>
             </div>
 

@@ -10,6 +10,7 @@ function regTorneio() {
     dados.append("trNivel", $('#trNivel').val());
     dados.append("trEstado", $('#trEstado').val());
     dados.append("trImagem", $('#trImagem').prop('files')[0]);
+    dados.append("trObs", $('#trObs').val());
 
 
     $.ajax({
@@ -27,6 +28,7 @@ function regTorneio() {
             let obj = JSON.parse(msg);
             if (obj.flag) {
                 alerta("Torneio", obj.msg, "success");
+                getListaTorneio();
             } else {
                 alerta("Torneio", obj.msg, "error");
             }
@@ -38,8 +40,165 @@ function regTorneio() {
         });
 }
 
+function getListaTorneio() {
 
-function alerta(titulo, msg, icon){
+    if ($.fn.DataTable.isDataTable('#tabelaTorneio')) {
+        $('#tabelaTorneio').DataTable().destroy();
+    }
+
+    let dados = new FormData();
+    dados.append("op", 2);
+
+
+    $.ajax({
+        url: "../../dist/php/controllerTorneio.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+        .done(function (msg) {
+
+            $('#listaTorneio').html(msg);
+            $('#tabelaTorneio').DataTable();
+
+        })
+
+        .fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+}
+
+function getDadosTorneio(id) {
+
+
+    let dados = new FormData();
+    dados.append("op", 3);
+    dados.append("id", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerTorneio.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+        .done(function (msg) {
+
+            let obj = JSON.parse(msg);
+
+            $('#idEditTour').val(obj.id);
+            $('#descEditTour').val(obj.descricao);
+            $('#dataEditTour').val(obj.data);
+            $('#horaEditTour').val(obj.hora);
+            $('#nmrEditTour').val(obj.num_entradas);
+            $('#precoEditTour').val(obj.preco);
+            $('#nivelEditTour').val(obj.nivel);
+            $('#estadoEditTour').val(obj.estado);
+            $('#imagemEditTour').attr('src', obj.foto);
+            $('#obsEditTour').val(obj.obs);
+
+
+
+            $('#btnGuardar').attr("onclick", "guardaEditTorneio(" + id + ")")
+
+            $('#trEditModal').modal('show')
+        })
+
+        .fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+
+
+}
+
+function guardaEditTorneio(id) {
+
+    let dados = new FormData();
+    dados.append("op", 4);
+    dados.append("trId", id);
+    dados.append("trDesc", $('#descEditTour').val());
+    dados.append("trData", $('#dataEditTour').val());
+    dados.append("trHora", $('#horaEditTour').val());
+    dados.append("trNmr", $('#nmrEditTour').val());
+    dados.append("trPreco", $('#precoEditTour').val());
+    dados.append("trNivel", $('#nivelEditTour').val());
+    dados.append("trEstado", $('#estadoEditTour').prop('files')[0]);
+    dados.append("trImagem", $('#imagemEditTour').val());
+    dados.append("trObs", $('#obsEditTour').val());
+
+    $.ajax({
+        url: "../../dist/php/controllerTorneio.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+        .done(function (msg) {
+
+            let obj = JSON.parse(msg);
+            if (obj.flag) {
+                alerta("Torneio", obj.msg, "success");
+                $('#trEditModal').modal('hide');
+                getListaTorneio();
+            } else {
+                alerta("Torneio", obj.msg, "error");
+            }
+
+        })
+
+        .fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+
+
+}
+
+function removerTorneio(id) {
+
+    let dados = new FormData();
+    dados.append("op", 5);
+    dados.append("id", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerTorneio.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+        .done(function (msg) {
+
+            let obj = JSON.parse(msg);
+            if (obj.flag) {
+                alerta("Torneio", obj.msg, "success");
+                getListaTorneio();
+            } else {
+                alerta("Torneio", obj.msg, "error");
+            }
+
+        })
+
+        .fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+
+}
+
+
+function alerta(titulo, msg, icon) {
     Swal.fire({
         position: 'center',
         icon: icon,
@@ -47,11 +206,11 @@ function alerta(titulo, msg, icon){
         text: msg,
         showConfirmButton: true,
 
-      })
+    })
 }
 
 
-$(function() {
+$(function () {
 
 });
 
