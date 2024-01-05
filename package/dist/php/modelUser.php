@@ -1001,6 +1001,8 @@ class User
                         }
                         
                         $msgA .= "</div>
+                            <button type='button' class='btn' style = 'background-color: #b80000; color: white;'
+                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(".$row['idMarcacao'].")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
                             </div>
                         </div>
                     </div>";
@@ -1065,6 +1067,8 @@ class User
                             }
                             
                             $msg .= "</div>
+                            <button type='button' class='btn' style = 'background-color: #b80000; color: white;'
+                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(".$row['idMarcacao'].")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
                                 </div>
                             </div>
                         </div>";
@@ -1123,6 +1127,8 @@ class User
                             }
                             
                             $msg .= "</div>
+                            <button type='button' class='btn' style = 'background-color: #b80000; color: white;'
+                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(".$row['idMarcacao'].")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
                                 </div>
                             </div>
                         </div>";
@@ -2817,5 +2823,50 @@ class User
         array_push($vals,  $arrGraf1);
         array_push($vals,  $arrGraf2);
         return($vals);
+    }
+
+    function cancelarMarcacao($idMarcacao){
+        global $conn;
+        $sql2 = "SELECT id_atleta FROM marcacao WHERE id = ".$idMarcacao;
+        $sql = "";
+        $sql3 = "";
+        $flag = false;
+        $result2 = $conn -> query($sql2);
+        if ($result2->num_rows > 0) {
+            while ($row = $result2->fetch_assoc()) {
+                if($row['id_atleta'] == $_SESSION['id']){
+                    $flag = true;
+                    $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_marcacao = ".$idMarcacao;
+                    $sql3 = "DELETE FROM marcacao WHERE id = ".$idMarcacao;
+                }else{
+                    $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_atleta = ".$_SESSION['id']." AND id_marcacao = ".$idMarcacao;
+                }
+            }
+        }
+
+        $msg = "";
+        $icon = "success";
+        if ($conn->query($sql) === TRUE) {
+            if($flag === true){
+                if ($conn->query($sql3) === TRUE) {
+                    $msg .= "Marcação cancelada com sucesso!";
+                }else{
+                    $msg .= "Não foi possível cancelar a marcação!";
+                    $icon = "error";
+                }
+            }else{
+                $msg .= "Marcação cancelada com sucesso!";
+            }
+        }else{
+            $msg .= "Não foi possível cancelar a marcação!";
+            $icon = "error";
+        }
+
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "icon" => $icon));
+
+        $conn->close();
+        return ($resp);
     }
 }

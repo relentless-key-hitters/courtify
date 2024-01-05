@@ -70,7 +70,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function alerta2(titulo,msg,icon){
+  Swal.fire({
+      position: 'center',
+      icon: icon,
+      title: titulo,
+      text: msg,
+      showConfirmButton: false,
+      confirmButtonColor: '#45702d',
+      timer: 3000
+    })
+}
 
+function cancelarMarcacao(idMarcacao){
+
+  let dados = new FormData();
+  dados.append("op", 35);
+  dados.append("idMarcacao", idMarcacao);
+
+  $.ajax({
+    url: "../../dist/php/controllerUser.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+    .done(function (msg) {
+      let obj = JSON.parse(msg);
+      alerta2("Marcação", obj.msg, obj.icon);
+      setTimeout(function(){ 
+        location.reload();
+    }, 3000);
+    })
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    });
+
+}
   
 
 $(function () {

@@ -111,6 +111,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 34){
     $res = $user -> getGraficos($_POST['userId'], $_POST['modalidades']);
     echo($res);
+}else if($_POST['op'] == 35){
+    $res = $user -> cancelarMarcacao($_POST['idMarcacao']);
+    echo($res);
 }
 
 
