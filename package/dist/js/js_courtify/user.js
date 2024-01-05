@@ -562,7 +562,7 @@ function guardaEditInfo(){
     dados.append("morada", $("#moradaEdit").val());
     dados.append("local", $("#concelhoEdit").val());
     dados.append("bio", $("#bioEdit").val());
-
+    
     $.ajax({
         url: "../../dist/php/controllerUser.php",
         method: "POST",
