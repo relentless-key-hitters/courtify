@@ -140,7 +140,9 @@ function guardarVotacaoBF(id){
             }, 4000);
 
             getNotificacao();
-            if(modalidade == "Basquetebol"){
+            if(modalidade == "Futsal"){
+                getEstatisticasGerais(2);
+            }else{
                 getEstatisticasGerais(1);
             }
         })
@@ -177,7 +179,7 @@ function guardarVotacaoPT(id, nSets){
             
             setTimeout(function(){
 
-                let pontos = obj.respBadgesPontos;
+                let pontos = obj.respBadges;
                 let vitorias = obj.respBadgesVitorias;
                 let percVitorias = obj.respBadgesPercVitorias;
                 if(pontos.length != 0) {
@@ -199,6 +201,11 @@ function guardarVotacaoPT(id, nSets){
                 }
             }, 4000);
             getNotificacao();
+            if(modalidade == "Padel"){
+                getEstatisticasGerais(3);
+            }else{
+                getEstatisticasGerais(4);
+            }
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -457,7 +464,6 @@ function getEstatisticasGerais(op){
         })
 
         .done(function(msg) {
-            console.log(msg);
         })
         
         .fail(function( jqXHR, textStatus ) {
