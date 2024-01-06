@@ -205,17 +205,19 @@ if (isset($_SESSION['id'])) {?>
     <div class="">
       <div class="">
         <div class="row">
-          <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-            <img class="img-fluid" id="fotoCampo"
-              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(50%);">
-            <div
-              style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
-              <h1 id="nomeCampo" class="text-white fw-bolder"
-              style="letter-spacing: 1px; font-size: 90px">
-                </h1>
-              <p id="moradaCampo" class="text-white lead lead-md-2 lead-lg-1"
-              style="letter-spacing: 1px; font-size: 40px">
-                </p>
+          <div class="d-none d-md-block">
+            <div class="col-lg-12" style="position: relative; margin-top: 80px;">
+              <img class="img-fluid" id="fotoCampo"
+                style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(50%);">
+              <div
+                style="position: absolute; top: 50%; transform: translateY(-50%); left: 20%; text-align: left; color: white;">
+                <h1 id="nomeCampo" class="text-white fw-bolder"
+                style="letter-spacing: 1px; font-size: 90px">
+                  </h1>
+                <p id="moradaCampo" class="text-white lead lead-md-2 lead-lg-1"
+                style="letter-spacing: 1px; font-size: 40px">
+                  </p>
+              </div>
             </div>
           </div>
         </div>
@@ -225,7 +227,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="col-lg-9">
                 <div class="row mt-3 mb-3">
                   <div class="col-12">
-                    <div class="card border mb-3 shadow">
+                    <div class="card border mb-3 mt-5 mt-md-0 shadow">
                       <div class="p-3">
                         <div class="text-center bg-light rounded">
                         <h4 class="fw-semibold mb-1 pt-2 pb-0 text-center fs-7">

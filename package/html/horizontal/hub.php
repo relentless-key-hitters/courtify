@@ -196,22 +196,24 @@ if (isset($_SESSION['id'])) {?>
     <!-- Main wrapper -->
     <div class="body-wrapper">
       <div class="row">
-      <div class="col-lg-12" style="position: relative; margin-top: 80px;">
-        <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
-          <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
-        </div>
-        <img class="img-fluid" src="../../dist/images/backgrounds/david-vives-14PwdtTss5c-unsplash.jpg"
-          style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(40%);">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
-          <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder d-flex flex-column align-items-center"
-            style="letter-spacing: 1px; font-size: 100px;">Comunidade
-          </h1>
-          <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Cria, Partilha,
-            Joga!</p>
+        <div class="d-none d-md-block">
+          <div class="col-lg-12" style="position: relative; margin-top: 80px;">
+            <div style="position: absolute; top: 5px; right: 16px; z-index: 1;">
+              <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
+            </div>
+            <img class="img-fluid" src="../../dist/images/backgrounds/david-vives-14PwdtTss5c-unsplash.jpg"
+              style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(40%);">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+              <h1 class="text-white display-4 display-md-2 display-lg-1 fw-bolder d-flex flex-column align-items-center"
+                style="letter-spacing: 1px; font-size: 100px;">Comunidade
+              </h1>
+              <p class="text-white lead lead-md-2 lead-lg-1" style="letter-spacing: 1px; font-size: 40px;">Cria, Partilha,
+                Joga!</p>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-      <div class="row" style="margin: 60px;">
+      <div class="row p-0 p-md-5">
         <div class="col-md-4 text-center">
             <div class="card shadow">
                 <div class="container text-center pt-2">

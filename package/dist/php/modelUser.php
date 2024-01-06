@@ -1955,7 +1955,7 @@ class User
                 $msg .= "<div class='card shadow border hover-img'>
                             <div class='p-3'>
                                 <div class='row mt-2'>
-                                    <div class='col-md-3'>";
+                                    <div class='col-6 col-md-3 col-sm-6 mt-3'>";
                                     if($row['modalidadeMarcacao'] == "Basquetebol") {
                                         $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-warning'>
                                                     <i class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
@@ -1974,15 +1974,15 @@ class User
                                                 </span>";
                                     }
                                     $msg .= "<img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
-                                                 class='mt-3 img-fluid object-fit-fill rounded-2 border border-1 border-primary' style='height: 100px; width: 150px;'>";
+                                                 class=' img-fluid object-fit-fill rounded-2 border border-1 border-primary' style='height: 100px; width: 150px;'>";
                                     $msg .= "</div>
-                                    <div class='col-md-3 mt-3'>
+                                    <div class='col-6 col-md-3 col-sm-6 mt-3'>
                                     <a href='./clube.php?id=" . $row['idClube'] . "'><small class='fs-4'><i class='ti ti-building me-1'></i>".$row['nomeClube']."</small><br></a>
                                     <small><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
                                     <small><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
                                     <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>";
                                     $msg .= "</div>
-                                    <div class='col-md-6 mt-md-0'>
+                                    <div class='col-12 col-md-6 col-sm-6'>
                                         <div class='row'>
                                             <small class='fs-3'>Participantes</small><br>";
 
@@ -2012,24 +2012,21 @@ class User
                 if ($result1->num_rows > 0) {
                     while ($row1 = $result1->fetch_assoc()) {
                         if($row1['isHost'] == 1) {
-                            $msg .= "<div class='col-4'>
+                            $msg .= "<div class='col-2'>
                                         <div class='d-flex align-items-center mt-2'>
                                             <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='" . $row1['nomeAtleta'] . " (Host)' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . " (Host)' class='object-fit-cover rounded-circle border border-2 border-success' width='40' height='40'></a>
-                                            <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
                                         </div>
                                     </div>";
                         } else if($row1['idAtleta'] == $_SESSION['id']) {
-                            $msg .= "<div class='col-4'>
+                            $msg .= "<div class='col-2'>
                                         <div class='d-flex align-items-center mt-2'>
                                             <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='" . $row1['nomeAtleta'] . " (Host)' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . " (Tu)' class='object-fit-cover rounded-circle border border-2 border-primary' width='40' height='40'></a>
-                                            <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
                                         </div>
                                     </div>";
                         } else {
-                            $msg .= "<div class='col-4'>
+                            $msg .= "<div class='col-2'>
                                         <div class='d-flex align-items-center mt-2'>
                                             <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='Participant 1' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . "' class='rounded-circle object-fit-cover' width='40' height='40'></a>
-                                            <small class='ms-2'>" . $row1['nomeAtleta'] . "</small>
                                         </div>
                                     </div>";
                         }

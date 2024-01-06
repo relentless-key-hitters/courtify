@@ -37,7 +37,8 @@ if (isset($_SESSION['id'])) { ?>
       <img src="../../dist/images/logos/favicon.ico" alt="loader" class="lds-ripple img-fluid" />
     </div>
     <!-- Body Wrapper -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="horizontal" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="horizontal" data-navbarbg="skin6" 
+    data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
       <!-- Header Start -->
       <header class="app-header">
         <nav class="navbar navbar-expand-xl navbar-light container-fluid px-0">
@@ -313,7 +314,7 @@ if (isset($_SESSION['id'])) { ?>
                 <div class="col-lg-8">
                   <div class="card shadow border">
                     <div class="card-body">
-                      <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Jogos Recentes</h4>
+                      <h4 class="fw-semibold  mb-3 pb-2 text-center fs-7 border-2 border-bottom border-light">Atividade</h4>
                       <div id="jogosRecentes">
 
                       </div>

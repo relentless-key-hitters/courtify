@@ -346,9 +346,11 @@ class Grupo
         $paginasTotais = ceil($itemsTotais / $porPagina);
         $paginaAtual = ceil(($offset + 1) / $porPagina);
 
+        $msg .= "<div class='row gap-4'>";
+
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $msg .= "<div class='col-md-2'>
+                $msg .= "<div class='col-2'>
                                 <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' data-toggle='tooltip' data-bs-placement='top' title='" . $row['nome'] . "' class='img-fluid rounded-circle border border-1 border-primary' style='max-width: 50px;'></a>
                         </div>";
             }
@@ -416,10 +418,33 @@ class Grupo
         return $msg;
     }
 
-    function getMarcacoesConcluidasGrupo($id)
+    function getMarcacoesConcluidasGrupo($id, $offset, $porPagina)
     {
         global $conn;
         $msg = "";
+
+        $offset = max(0, $offset); // Ter a certeza que o offset não é inferior a 0, se sim, mete a 0
+
+
+        $sqlContagem = "SELECT COUNT(*) AS total FROM listagem_atletas_marcacao 
+        INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+        INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
+        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube 
+        INNER JOIN user ON clube.id_clube = user.id
+        INNER JOIN campo ON campo_clube.id_campo = campo.id
+        INNER JOIN comunidade_atletas ON listagem_atletas_marcacao.id_atleta = comunidade_atletas.id_atleta
+        INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
+        WHERE listagem_atletas_marcacao.votacao = 1 
+            AND listagem_atletas_marcacao.estado = 1
+            AND comunidade.id = " . $id . "
+            AND comunidade.id_modalidade = modalidade.id
+        ORDER BY marcacao.data_inicio ASC";
+
+        $resultadoContagem = $conn->query($sqlContagem);
+        $totalRows = $resultadoContagem->fetch_assoc();
+        $itemsTotais = $totalRows['total'];
+
 
         $sql = "SELECT DISTINCT
                     marcacao.id as idMarcacao,
@@ -450,9 +475,12 @@ class Grupo
                     AND comunidade.id = " . $id . "
                     AND comunidade.id_modalidade = modalidade.id
                 ORDER BY marcacao.data_inicio ASC
-                LIMIT 2;";
+                LIMIT " . $offset . ", " . $porPagina;
 
         $result = $conn->query($sql);
+
+        $paginasTotais = ceil($itemsTotais / $porPagina);
+        $paginaAtual = ceil(($offset + 1) / $porPagina);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -469,18 +497,20 @@ class Grupo
                                     <div class='col-md-12 text-center'>
                                         <span class='fs-4 text-dark'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
                                     </div>
-                                    <div class='col-md-5'>
+                                    <div class='col-6 col-md-3 col-sm-6 mt-3'>
                                         <img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
-                                                 class='mt-3 img-fluid object-fit-fill rounded-2 border border-1 border-primary'>
+                                                 class=' img-fluid object-fit-fill rounded-2 border border-1 border-primary' style='max-width: 100%'>
                                     </div>
-                                    <div class='col-md-7 mt-3'>
-                                        <a href='./clube.php?id=" . $row['idClube'] . "'><small class='fs-3'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</small><br></a>
-                                        <small><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
-                                        <small><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
-                                        <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>
+                                    <div class='col-6 col-md-3 col-sm-6 mt-3'>
+                                        <div class='row d-flex flex-column gap-1'>
+                                            <a href='./clube.php?id=" . $row['idClube'] . "'><span class='fs-3'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</span></a>
+                                            <span class='fs-3'><i class='ti ti-calendar me-1'></i>" . $stringData . "</span>
+                                            <span class='fs-3'><i class='ti ti-clock me-1'></i>" . $stringHora . "</span>
+                                            <span class='fs-3'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</span>
+                                        </div>
                                     </div>
-                                    <div class='col-md-12 mt-md-0'>
-                                        <div class='row gap-2 overflow-y-auto' style='min-height: 70px'>
+                                    <div class='col-12 col-md-6 col-sm-6 mt-3'>
+                                        <div class='row gap-1 overflow-y-auto' style='min-height: 70px'>
                                             <small class='fs-3'>Participantes</small><br>";
 
 
@@ -542,7 +572,8 @@ class Grupo
         }
 
         $conn->close();
-        return $msg;
+        $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual, 'total' => $itemsTotais);
+        return json_encode($data);
     }
 
     function getBadgesGrupo($id)
@@ -817,7 +848,7 @@ class Grupo
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                                 <div class='d-flex justify-content-between align-items-center'>
                                     <div class='d-flex align-items-center gap-3'>
-                                        <i class='ti ti-user text-success fs-6' data-toggle='tooltip' data-bs-placement='top' title='Atleta'></i>
+                                        <i class='ti ti-user text-success fs-6' data-toggle='tooltip' data-bs-placement='top' title='Host'></i>
                                         <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-2 border-success' width='40' height='40'></a>
                                         <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
                                         <span class='fw-bolder '><i class='ti ti-award text-success me-1'></i>Host</span>
@@ -828,7 +859,7 @@ class Grupo
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                                 <div class='d-flex justify-content-between align-items-center'>
                                     <div class='d-flex align-items-center gap-3'>
-                                        <i class='ti ti-user fs-6' data-toggle='tooltip' data-bs-placement='top' title='Atleta'></i>
+                                        <i class='ti ti-user fs-6' data-toggle='tooltip' data-bs-placement='top' title='Membro'></i>
                                         <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
                                         <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
                                         <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>

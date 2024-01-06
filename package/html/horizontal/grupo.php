@@ -22,11 +22,11 @@ if (isset($_SESSION['id'])) { ?>
 
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
-    
+
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
-    
+
 
 
 
@@ -94,7 +94,7 @@ if (isset($_SESSION['id'])) { ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="ti ti-bell-ringing"></i>
-                    <div class="notification bg-primary rounded-circle d-none" id= "notificacaoAtiva"></div>
+                    <div class="notification bg-primary rounded-circle d-none" id="notificacaoAtiva"></div>
                   </a>
                   <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                     <div class="d-flex align-items-center justify-content-between py-3 px-7">
@@ -205,21 +205,21 @@ if (isset($_SESSION['id'])) { ?>
           </div>
           <div class="col-md-6">
             <div id="estatisticasGrupo">
-            <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Estatísticas</h4>
-              <div class="row d-flex align-content-center mt-3">
-                <div class="col-md-4">
+              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Estatísticas</h4>
+              <div class="row d-flex align-content-center mt-3 p-sm-3 p-3">
+                <div class="col-md-4 col-sm-4">
                   <div class="card shadow p-3">
-                  <h4 class="mb-0 fw-semibold fs-5">% Vitórias<span class="ti ti-bolt fs-5 ms-1"></span></h4>
+                    <h4 class="mb-0 fw-semibold fs-4">% Vitórias<span class="ti ti-bolt fs-5 ms-1"></span></h4>
                   </div>
                 </div>
-                <div class="col-md-4">
-                <div class="card shadow p-3">
-                <h4 class="mb-0 fw-semibold fs-5">% Sets Ganhos<span class="ti ti-trophy fs-5 ms-1"></span></h4>
+                <div class="col-md-4 col-sm-4">
+                  <div class="card shadow p-3">
+                    <h4 class="mb-0 fw-semibold fs-4">% <span class="ti ti-trophy fs-4 ms-1"></span></h4>
                   </div>
                 </div>
-                <div class="col-md-4">
-                <div class="card shadow p-3">
-                <h4 class="mb-0 fw-semibold fs-5">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
+                <div class="col-md-4 col-sm-4">
+                  <div class="card shadow p-3">
+                    <h4 class="mb-0 fw-semibold fs-4">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
                   </div>
                 </div>
               </div>
@@ -248,7 +248,7 @@ if (isset($_SESSION['id'])) { ?>
       <div class="row">
         <div class="col-md-3">
 
-          <div class="card shadow">
+          <!-- <div class="card shadow">
             <div class="p-3">
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Conquistas</h4>
               <div class="text-end mb-1">
@@ -258,7 +258,7 @@ if (isset($_SESSION['id'])) { ?>
 
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="card shadow">
             <div class="p-3">
@@ -266,7 +266,7 @@ if (isset($_SESSION['id'])) { ?>
               <div class="text-end mb-1">
                 <span class="fw-bolder">Total:</span> <span id="totalMembros"></span>
               </div>
-              <div class="row gap-4" id="atletasGrupo">
+              <div class="row gap-4 d-flex" id="atletasGrupo">
 
               </div>
             </div>
@@ -275,24 +275,15 @@ if (isset($_SESSION['id'])) { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card shadow" style="height: 600px" id="atividadeGrupo">
-            Atividade
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card shadow p-3">
-            <div class="d-flex justify-content-center">
-              <h4 class="fw-semibold mb-3 pb-2 text-center fs-6 border-2 border-bottom border-light">Últimas Marcações</h4>
-              <svg xmlns="http://www.w3.org/2000/svg" class="ms-1 icon icon-tabler icon-tabler-info-circle" data-toggle="tooltip" data-bs-placement="top" title='Aqui podes encontrar as últimas Marcações já concluidas (na Modalidade deste Grupo) onde outros membros participaram.' width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                <path d="M12 9h.01" />
-                <path d="M11 12h1v4h1" />
-              </svg>
+        <div class="col-md-7">
+          <div class="card shadow" id="atividadeGrupo">
+            <div class="p-3">
+              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Atividade<i class='ti ti-info-circle ms-1' data-toggle="tooltip" data-bs-placement="top" title='Aqui podes encontrar as últimas Marcações já concluidas (na Modalidade deste Grupo) onde outros membros participaram.'></i></h4>
             </div>
+            <div class="p-3" id="marcacoesConcluidasGrupo">
 
-            <div class="" id="marcacoesConcluidasGrupo">
+            </div>
+            <div class='mt-1' id="paginacaoMarcacoesConcluidas">
 
             </div>
           </div>
@@ -460,10 +451,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-          <div class='d-flex'>
-            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Sair do Grupo</h4>
-          </div>
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Sair do Grupo</h4>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">
@@ -540,10 +531,10 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
           <div class="modal-header d-flex align-items-center">
-          <div class='d-flex'>
-            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Lista de Membros</h4>
-          </div>
+            <div class='d-flex'>
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Lista de Membros</h4>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
