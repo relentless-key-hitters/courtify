@@ -2284,6 +2284,7 @@ class User
                 INNER JOIN 
                 tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id
                 WHERE comunidade_atletas.id_atleta = ".$idUser."
+                AND comunidade_atletas.estado = 1
                 LIMIT 2";
 
         $result = $conn -> query($sql);
