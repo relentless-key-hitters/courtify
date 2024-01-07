@@ -206,23 +206,23 @@ if (isset($_SESSION['id'])) { ?>
           <div class="col-md-6">
             <div id="estatisticasGrupo">
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Estatísticas</h4>
-              <div class="row d-flex align-content-center mt-3 p-sm-3 p-3">
-                <div class="col-md-4 col-sm-4">
+              <div class="d-flex gap-4 align-content-center justify-content-center mt-3 p-sm-3 p-3">
+                <div class="w-100">
                   <div class="card shadow p-3">
                     <h4 class="mb-0 fw-semibold fs-4">% Vitórias<span class="ti ti-bolt fs-5 ms-1"></span></h4>
-                    <p class = "mt-3" id= "estVitorias"></p>
+                    <div class="mt-3" id="estVitorias"></div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-4" id = "cardSets">
+                <div class="w-100" id = "cardSets">
                   <div  class="card shadow p-3">
                     <h4 class="mb-0 fw-semibold fs-4">% Sets Ganhos<span class="ti ti-trophy fs-4 ms-1"></span></h4>
-                    <p class = "mt-3" id= "estSets"></p>
+                    <div class="mt-3" id="estSets"></div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-4">
+                <div class="w-100">
                   <div class="card shadow p-3">
                     <h4 class="mb-0 fw-semibold fs-4">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
-                    <p class = "mt-3" id= "estMvp"></p>
+                    <div class = "mt-3" id= "estMvp"></div>
                   </div>
                 </div>
               </div>
@@ -443,8 +443,7 @@ if (isset($_SESSION['id'])) { ?>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">
-            <span class="fs-4">Estás prestes a juntar-te deste grupo.<br></span>
-            <h5 class='mt-3'>Juntar?</h5>
+            <span class="fs-4">Pretendes juntar-te a este grupo?<br></span>
           </div>
           <div class="d-flex justify-content-center align-items-center gap-3">
             <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="juntarGrupo()">

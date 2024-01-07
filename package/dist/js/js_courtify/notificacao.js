@@ -451,6 +451,116 @@ function rejeitarPedido(id){
 }
 
 
+function getEstatisticasGerais(op){
+    let dados = new FormData();
+    dados.append("op", op);
+    $.ajax({
+        url: "../../dist/php/controllerEstatisticas.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+
+}
+
+function getNotificacaoJuntarGrupo() {
+    let dados = new FormData();
+    dados.append("op", 36);
+    
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+    .done(function(msg) {
+        $("#divNotificacoesPedidoAmizade").html(msg)
+    })
+
+    .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+    });
+}
+
+function aceitarPedidoGrupo(id){
+    let dados = new FormData();
+    dados.append("op", 37);
+    dados.append("id", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+
+
+
+function rejeitarPedidoGrupo(id){
+    let dados = new FormData();
+    dados.append("op", 38);
+    dados.append("id", id);
+
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2(obj.titulo, obj.msg, obj.icon);
+            setTimeout(function(){ 
+                location.reload();
+            }, 3000);
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+
+
+
+
+
+
+
+
 
 function alerta2(titulo,msg,icon){
     Swal.fire({
@@ -463,6 +573,7 @@ function alerta2(titulo,msg,icon){
         timer: 3000
       })
 }
+
 
 function alertaToast(titulo, msg, imagem) {
 
@@ -496,30 +607,11 @@ function alertaToast(titulo, msg, imagem) {
       titleElement.style.color = '#044967';
 }
 
-function getEstatisticasGerais(op){
-    let dados = new FormData();
-    dados.append("op", op);
-    $.ajax({
-        url: "../../dist/php/controllerEstatisticas.php",
-        method: "POST",
-        data: dados,
-        dataType: "html",
-        cache: false,
-        contentType: false,
-        processData: false
-        })
 
-        .done(function(msg) {
-        })
-        
-        .fail(function( jqXHR, textStatus ) {
-            alert( "Request failed: " + textStatus );
-        });
-
-}
 
 $(function() {
     getNotificacao()
     getNotificacaoConviteMarcacao()
     notificacaoPedidoAmizade();
+    getNotificacaoJuntarGrupo();
 });

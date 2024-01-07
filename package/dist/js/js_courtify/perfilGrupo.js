@@ -299,6 +299,10 @@ function getBotoesMenus() {
           $("#botoesNonAdmin").html(
             "<button class='btn btn-lg btn-outline-danger w-100 mb-3' id='botaoSairGrupo' data-bs-toggle='modal' data-bs-target='#modalSairGrupo'>Sair<i class='ms-1 ti ti-x'></i></button>"
           );
+        } else if(obj.userIsPending) {
+          $("#botoesNonAdmin").html(
+            "<button disabled class='btn btn-lg btn-primary w-100 mb-3'>Pendente<i class='ms-1 ti ti-clock'></i></button>"
+          );
         } else {
           $("#botoesNonAdmin").html(
             "<button class='btn btn-lg btn-primary w-100 mb-3' id='botaoJuntarGrupo' data-bs-toggle='modal' data-bs-target='#modalJuntarGrupo'>Juntar<i class='ms-1 ti ti-plus'></i></button>"
@@ -591,13 +595,13 @@ function getEstatisticasGrupo(){
   .done(function (msg) {
     let obj = JSON.parse(msg);
     if(obj.length == 3){
-      $("#estVitorias").html(obj[0] + "%");
-      $("#estSets").html(obj[1]+ "%");
-      $("#estMvp").html(obj[2]+ "%");
+      $("#estVitorias").html("<span class='fs-5'>" + obj[0] + "%</span>");
+      $("#estSets").html("<span class='fs-5'>" + obj[1] + "%</span>");
+      $("#estMvp").html("<span class='fs-5'>" + obj[2] + "%</span>")
     }else{
       $("#cardSets").addClass("d-none");
-      $("#estVitorias").html(obj[0]+ "%");
-      $("#estMvp").html(obj[1]+ "%");
+      $("#estVitorias").html("<span class='fs-5'>" + obj[0] + "%</span>");
+      $("#estMvp").html("<span class='fs-5'>" + obj[1] + "%</span>");
     }
     
   })

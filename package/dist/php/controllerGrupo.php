@@ -55,7 +55,7 @@ if($_POST['op'] == 1) {
     $res = $grupo -> removerMembroGrupo($_POST['idUser'], $_POST['idGrupo']);
     echo($res);
 } else if($_POST['op'] == 15) {
-    $res = $grupo -> registaGrupo($_POST['nome'], $_POST['descricao'], $_POST['modalidade'], $_FILES);
+    $res = $grupo -> registaGrupo($_POST['nome'], $_POST['descricao'], $_POST['modalidade'], $_FILES, $_POST['estado']);
     echo($res);
 } else if($_POST['op'] == 16) {
     $res = $grupo -> getEstatisticasGrupo($_POST['idGrupo']);

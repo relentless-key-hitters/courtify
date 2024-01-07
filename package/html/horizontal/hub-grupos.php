@@ -98,7 +98,7 @@ if (isset($_SESSION['id'])) { ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="ti ti-bell-ringing"></i>
-                    <div class="notification bg-primary rounded-circle d-none" id= "notificacaoAtiva"></div>
+                    <div class="notification bg-primary rounded-circle d-none" id="notificacaoAtiva"></div>
                   </a>
                   <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                     <div class="d-flex align-items-center justify-content-between py-3 px-7">
@@ -777,13 +777,13 @@ if (isset($_SESSION['id'])) { ?>
                 </a>
               </li>
               <li class="sidebar-item">
-              <a class="sidebar-link" href="hub.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-users"></i>
-                </span>
-                <span class="hide-menu">Comunidade</span>
-              </a>
-            </li>
+                <a class="sidebar-link" href="hub.php" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-users"></i>
+                  </span>
+                  <span class="hide-menu">Comunidade</span>
+                </a>
+              </li>
               <li class="sidebar-item">
                 <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
                   <span>
@@ -915,11 +915,11 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-5">
                   <label for="nomeNovoGrupo" class="form-label">Nome</label>
                   <input type="text" class="form-control" id="nomeNovoGrupo">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                   <label for="modalidadeNovoGrupo" class="form-label">Modalidade</label>
                   <select class="form-select" id="modalidadeNovoGrupo">
                     <option value="-1" selected disabled>Selecione uma opção</option>
@@ -928,6 +928,13 @@ if (isset($_SESSION['id'])) { ?>
                     <option value="3">Padel</option>
                     <option value="4">Ténis</option>
                   </select>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Tipo</label><br>
+                  <div class="mt-2 d-flex gap-2">
+                    <input type="checkbox" class="form-check-input" value="aberto" id="checkboxGrupoAberto">Aberto</input>
+                    <input type="checkbox" class="form-check-input" value="fechado" id="checkboxGrupoFechado">Fechado</input>
+                  </div>
                 </div>
                 <div class="col-12">
                   <label for="descricaoNovoGrupo" class="form-label">Descrição</label>

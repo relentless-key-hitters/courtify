@@ -114,6 +114,15 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 35){
     $res = $user -> cancelarMarcacao($_POST['idMarcacao']);
     echo($res);
+}else if($_POST['op'] == 36){
+    $res = $user -> getNotificacaoJuntarGrupo();
+    echo($res);
+}else if($_POST['op'] == 37){
+    $res = $user -> aceitarPedidoGrupo($_POST['id']);
+    echo($res);
+}else if($_POST['op'] == 38){
+    $res = $user -> aceitarPedidoGrupo($_POST['id']);
+    echo($res);
 }
 
 

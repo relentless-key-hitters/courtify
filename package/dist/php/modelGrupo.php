@@ -274,6 +274,7 @@ class Grupo
                 INNER JOIN 
                 tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id
                 WHERE comunidade_atletas.id_atleta = " . $_SESSION['id'] . "
+                AND comunidade_atletas.estado = 1
                 AND comunidade.tipo_comunidade = 1
                 LIMIT 12";
 
@@ -326,7 +327,8 @@ class Grupo
         $sqlContagem = "SELECT COUNT(*) AS total FROM user
         INNER JOIN
         comunidade_atletas ON user.id = comunidade_atletas.id_atleta
-        WHERE comunidade_atletas.id_comunidade = " . $id;
+        WHERE comunidade_atletas.estado = 1
+        AND comunidade_atletas.id_comunidade = " . $id;
 
         $resultadoContagem = $conn->query($sqlContagem);
         $totalRows = $resultadoContagem->fetch_assoc();
@@ -337,7 +339,8 @@ class Grupo
         user
         INNER JOIN
         comunidade_atletas ON user.id = comunidade_atletas.id_atleta
-        WHERE comunidade_atletas.id_comunidade = " . $id . "
+        WHERE comunidade_atletas.estado = 1
+        AND comunidade_atletas.id_comunidade = " . $id . "
         ORDER BY nome ASC
         LIMIT " . $offset . ", " . $porPagina;
 
@@ -406,11 +409,20 @@ class Grupo
                 if ($row['id_atletaHost'] == $_SESSION['id']) {
                     $msg .= "<span class='fw-bolder mb-2'><i class='ti ti-award text-success me-1'></i>Host</span>";
                 }
-                $msg .= "<h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>
+                $msg .= "<h5 class='fw-semibold mb-1 pb-2 fs-7'>" . $row['nome'] . "</h5>";
+                if($row['estado'] == 'aberto'){
+                    $msg .= "<span class='badge badge-primary rounded-pill bg-light text-dark'><i class='ti ti-brand-open-source me-1 '></i>".ucfirst(strtolower($row['estado']))."</span><br>
                         <div class='px-2 text-center'>
                             <span class=''>" . $descricao . "</span>
                         </div>
                     </div>";
+                } else {
+                    $msg .= "<span class='badge badge-primary rounded-pill bg-light text-dark'><i class='ti ti-lock me-1 '></i>".ucfirst(strtolower($row['estado']))."</span><br>
+                        <div class='px-2 text-center'>
+                            <span class=''>" . $descricao . "</span>
+                        </div>
+                    </div>";
+                }
             }
         }
 
@@ -627,6 +639,7 @@ class Grupo
         $idAtletaHost = 0;
         $userIsHost = false;
         $userIsMember = false;
+        $userIsPending = false;
 
         $sql = "SELECT id_atletaHost FROM comunidade WHERE comunidade.id = " . $id;
         $result = $conn->query($sql);
@@ -640,21 +653,23 @@ class Grupo
             $userIsHost = true;
         }
 
-        $sql1 = "SELECT id_atleta FROM comunidade_atletas WHERE id_comunidade = " . $id;
+        $sql1 = "SELECT id_atleta, estado FROM comunidade_atletas WHERE id_comunidade = " . $id;
         $resultSql1 = $conn->query($sql1);
 
         if ($resultSql1->num_rows > 0) {
             while ($rowSql1 = $resultSql1->fetch_assoc()) {
-                if ($_SESSION['id'] == $rowSql1['id_atleta']) {
+                if ($_SESSION['id'] == $rowSql1['id_atleta'] && $rowSql1['estado'] == 1) {
                     $userIsMember = true;
                     break;
+                } else if($_SESSION['id'] == $rowSql1['id_atleta'] && $rowSql1['estado'] == 0) {
+                    $userIsPending = true;
                 }
             }
         }
 
         $conn->close();
 
-        return json_encode(array('userIsHost' => $userIsHost, 'userIsMember' => $userIsMember));
+        return json_encode(array('userIsHost' => $userIsHost, 'userIsMember' => $userIsMember, 'userIsPending' => $userIsPending));
     }
 
     function sairGrupo($id)
@@ -677,13 +692,36 @@ class Grupo
     {
         global $conn;
         $msg = "";
+        $flag = false;
 
-        $sql = "INSERT INTO comunidade_atletas (id_atleta, id_comunidade) VALUES (" . $_SESSION['id'] . ", " . $id . ")";
+        $sql2 = "SELECT comunidade.estado FROM comunidade WHERE comunidade.id = ".$id;
 
-        if ($conn->query($sql) === TRUE) {
-            $msg .= "Entraste neste grupo com sucesso!";
+        $sql = "";
+        $result = $conn -> query($sql2);
+
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                if($row['estado'] == "aberto"){
+
+                    $sql = "INSERT INTO comunidade_atletas (id_atleta, id_comunidade, estado) VALUES (" . $_SESSION['id'] . ", " . $id . ", 1)";
+                    $flag = true;
+
+                } else {
+                    $sql = "INSERT INTO comunidade_atletas (id_atleta, id_comunidade, estado) VALUES (" . $_SESSION['id'] . ", " . $id . ", 0)";
+
+                }
+            }
         }
 
+        if($conn -> query($sql) === TRUE) {
+            if($flag) {
+                $msg .= "Entraste neste grupo com sucesso!";
+            } else {
+                $msg .= "O teu pedido para te juntares foi enviado com sucesso!";
+            }
+        } else {
+            $msg .= "Não foi possível juntar ou fazer pedido a este grupo.";
+        }
         $conn->close();
 
         return $msg;
@@ -839,6 +877,7 @@ class Grupo
                 comunidade ON comunidade_atletas.id_comunidade = comunidade.id
                 WHERE
                 comunidade_atletas.id_comunidade = " . $id . "
+                AND comunidade_atletas.estado = 1
                 ORDER BY
                 comunidade.id_atletaHost = user.id DESC, nome ASC";
 
@@ -922,7 +961,7 @@ class Grupo
         ));
     }
 
-    function registaGrupo($nome, $descricao, $modalidade, $imagem)
+    function registaGrupo($nome, $descricao, $modalidade, $imagem, $estado)
     {
         global $conn;
         $icon = "success";
@@ -930,13 +969,13 @@ class Grupo
         $title = "Sucesso";
 
 
-        $sql = "INSERT INTO comunidade (tipo_comunidade, nome, descricao, id_modalidade, id_atletaHost) VALUES (1, '" . $nome . "', '" . $descricao . "', '" . $modalidade . "', '" . $_SESSION['id'] . "')";
+        $sql = "INSERT INTO comunidade (tipo_comunidade, nome, descricao, id_modalidade, id_atletaHost, estado) VALUES (1, '" . $nome . "', '" . $descricao . "', '" . $modalidade . "', '" . $_SESSION['id'] . "', '".$estado."')";
 
         if ($conn->query($sql) === TRUE) {
 
             $lastId = mysqli_insert_id($conn);
 
-            $sql2 = "INSERT INTO comunidade_atletas (id_comunidade, id_atleta) VALUES (" . $lastId . ", " . $_SESSION['id'] . ")";
+            $sql2 = "INSERT INTO comunidade_atletas (id_comunidade, id_atleta, estado) VALUES (" . $lastId . ", " . $_SESSION['id'] . ", 1)";
 
             if ($conn->query($sql2) === TRUE) {
 

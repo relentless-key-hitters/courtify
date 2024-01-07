@@ -60,6 +60,12 @@ function registaGrupo() {
   var selectedFile = fileInput.files[0];
   dados.append("imagemGrupo", selectedFile);
 
+  if($("#checkboxGrupoAberto").is(":checked")) {
+    dados.append("estado", $("#checkboxGrupoAberto").val());
+  } else if($("#checkboxGrupoFechado").is(":checked")) {
+    dados.append("estado", $("#checkboxGrupoFechado").val());
+  }
+
   $.ajax({
     url: "../../dist/php/controllerGrupo.php",
     method: "POST",

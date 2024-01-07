@@ -2869,4 +2869,126 @@ class User
         $conn->close();
         return ($resp);
     }
+
+    function getNotificacaoJuntarGrupo(){
+        global $conn;
+        $msg = "";
+
+        $sql="SELECT 
+                user.nome, 
+                user.id, 
+                user.foto, 
+                comunidade.id as idComunidade,
+                comunidade.nome as nomeComunidade,
+                comunidade.foto as fotoComunidade
+                FROM user
+                INNER JOIN comunidade_atletas ON user.id = comunidade_atletas.id_atleta
+                INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
+                WHERE user.id IN (
+                SELECT comunidade_atletas.id_atleta
+                FROM comunidade_atletas
+                WHERE comunidade_atletas.estado = 0
+                AND comunidade_atletas.id_atleta != " . $_SESSION['id'] . "
+                )
+                AND comunidade.id_atletaHost = " . $_SESSION['id'];
+
+               
+                $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<a class='py-6 px-7 d-flex align-items-center dropdown-item' style='cursor: pointer;'>
+                            <span class='me-2'>
+                                <img src='../../dist/" . $row['fotoComunidade'] . "' alt='" . $row['nomeComunidade'] . "' class='rounded-circle object-fit-cover'
+                                    width='48' height='48' />
+                            </span>
+                            <div class='w-75 d-inline-block v-middle'>
+                                <h6 class='mb-1 fw-semibold'>Pedido de Grupo</h6>
+                                <span class='d-block'>" . $row['nome'] . " pretende juntar-se<br> ao grupo " . $row['nomeComunidade'] . ".</span>
+                                <div class='d-flex justify-content-around align-items-center mt-1'>
+                                    <button class='btn btn-success' 
+                                        style='--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .25rem; --bs-btn-font-size: .75rem;' onclick='aceitarPedidoGrupo(" . $row['id'] . ")'>
+                                        <i class='ti ti-check me-1'></i>
+                                        <span class='me-1'>Aceitar</span>
+                                    </button>
+                                    <button class='btn' style='--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .25rem; --bs-btn-font-size: .75rem; background-color: #b80000; color: white;'
+                                        onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='rejeitarPedidoGrupo(" . $row['id'] . ")'>
+                                        <i class='ti ti-x me-1'></i>
+                                        <span class='me-1'>Rejeitar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>";
+            }
+        }
+        $conn->close();
+        return ($msg);        
+    }
+
+    function aceitarPedidoGrupo($id)
+    {
+
+        global $conn;
+        $msg = "";
+        $icon = "";
+        $flag = false;
+        $titulo = "";
+
+        $sql = "UPDATE comunidade_atletas SET estado = 1 WHERE id_atleta = " . $id;
+
+        if ($conn->query($sql) === TRUE) {
+            $titulo = "Sucesso";
+            $msg = "Pedido aceite com sucesso";
+            $icon = "success";
+            $flag = true;
+        } else {
+            $titulo = "Erro";
+            $msg = "Não foi possível aceitar o pedido.";
+            $icon = "success";
+            $flag = true;
+        }
+
+        $resp = json_encode(array(
+            "titulo" => $titulo,
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+        $conn->close();
+        return ($resp);
+    }
+
+    function rejeitarPedidoGrupo($id)
+    {
+
+        global $conn;
+        $msg = "";
+        $icon = "";
+        $flag = false;
+        $titulo = "";
+
+        $sql = "DELETE FROM comunidade_atletas WHERE id_atleta = " . $id;
+
+        if ($conn->query($sql) === TRUE) {
+            $titulo = "Sucesso";
+            $msg = "Pedido rejeitado com sucesso";
+            $icon = "success";
+            $flag = true;
+        } else {
+            $titulo = "Erro";
+            $msg = "Não foi possível rejeitar o pedido.";
+            $icon = "success";
+            $flag = true;
+        }
+
+        $resp = json_encode(array(
+            "titulo" => $titulo,
+            "msg" => $msg,
+            "icon" => $icon,
+            "flag" => $flag
+        ));
+        $conn->close();
+        return ($resp);
+    }
+
 }
