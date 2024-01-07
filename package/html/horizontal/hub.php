@@ -24,6 +24,8 @@ if (isset($_SESSION['id'])) {?>
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
+  <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
+
   <style>
     body {
       overflow-x: hidden;
@@ -214,7 +216,7 @@ if (isset($_SESSION['id'])) {?>
         </div>
       </div>
       <div class="row p-0 p-md-5">
-        <div class="col-md-4 text-center mt-5 mt-md-0">
+        <div class="col-md-4 text-center mt-5 mt-md-0" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
             <div class="card shadow mt-5 mt-md-0">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Grupos</h1>
@@ -238,7 +240,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
         </div>
     
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center" data-aos="fade-down" data-aos-delay="400" data-aos-duration="1000">
             <div class="card shadow">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas</h1>
@@ -262,7 +264,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
         </div>
     
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
             <div class="card shadow">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios</h1>
@@ -530,6 +532,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
   <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../landingpage/dist/libs/aos/dist/aos.js"></script>
   <!-- core files -->
   <script src="../../dist/js/app.min.js"></script>
   <script src="../../dist/js/app.horizontal.init.js"></script>
@@ -542,6 +545,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/js_courtify/perfilUser.js"></script>
   <script src="../../dist/js/js_courtify/user.js"></script>
   <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../../../landingpage/dist/js/custom.js"></script>
 
   <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
