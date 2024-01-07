@@ -592,8 +592,6 @@ class Grupo
         return json_encode($data);
     }
 
-
-
     function getBotoesMenus($id)
     {
         global $conn;

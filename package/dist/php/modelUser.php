@@ -2307,8 +2307,13 @@ class User
                     $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
                 }
 
-                $msg .= "<span><span class='fw-bolder'>Desde:</span> 21/03/2023</span>
-                                </div>
+                $msg .= "<span>";
+                if ($row['tipoComunidade'] == "Grupo") {
+                    $msg .= "<span class='fw-bolder'>Tipo:&nbsp</span><i class='ti ti-users me-1'></i>".$row['tipoComunidade']."</span>";
+                } else {
+                    $msg .= "<span class='fw-bolder'>Tipo:&nbsp</span><i class='ti ti-trophy me-1'></i>".$row['tipoComunidade']."</span>";
+                }
+                $msg .= "</div>
                             </div>
                         </div>";
 

@@ -1017,7 +1017,7 @@ function getBadgesRecentes(badges){
     
             msg += "<div class='col-4'>"+
                 "<img src='../../dist"+badges[i][1]+"' alt='"+badges[i][0]+"' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='"+badges[i][0]+"'>"+
-            "<div class='d-flex justify-content-center'><span class='fs-2 mb-3'>"+stringData+"</span></div></div>";
+            "</div>";
         }
 
         
