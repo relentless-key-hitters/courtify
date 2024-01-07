@@ -235,41 +235,14 @@ function adicionarLinksPaginacaoMarcacoesConcluidas(paginasTotais, paginaAtual) 
   });
 }
 
-function getBadgesGrupo() {
-  let urlParams = new URLSearchParams(window.location.search);
-  let id = urlParams.get("id");
 
-  let dados = new FormData();
-  dados.append("op", 6);
-  dados.append("idGrupo", id);
-
-  $.ajax({
-    url: "../../dist/php/controllerGrupo.php",
-    method: "POST",
-    data: dados,
-    dataType: "html",
-    cache: false,
-    contentType: false,
-    processData: false,
-  })
-
-    .done(function (msg) {
-      let obj = JSON.parse(msg);
-      $("#badgesGrupo").html(obj.msg);
-      $("#totalBadges").html(obj.total);
-    })
-
-    .fail(function (jqXHR, textStatus) {
-      alert("Request failed: " + textStatus);
-    });
-}
 
 function getBotoesMenus() {
   let urlParams = new URLSearchParams(window.location.search);
   let id = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 7);
+  dados.append("op", 6);
   dados.append("idGrupo", id);
 
   $.ajax({
@@ -323,7 +296,7 @@ function sairGrupo() {
   let id = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 8);
+  dados.append("op", 7);
   dados.append("idGrupo", id);
 
   $.ajax({
@@ -351,7 +324,7 @@ function juntarGrupo() {
   let id = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 9);
+  dados.append("op", 8);
   dados.append("idGrupo", id);
 
   $.ajax({
@@ -398,7 +371,7 @@ function getInfoEditGrupo() {
   let id = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 10);
+  dados.append("op", 9);
   dados.append("idGrupo", id);
 
   $.ajax({
@@ -425,7 +398,7 @@ function guardaEditGrupo() {
   let id = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 11);
+  dados.append("op", 10);
   dados.append("idGrupo", id);
   dados.append("nomeGrupo", $("#nomeGrupoEdit").val());
   dados.append("descricaoGrupo", $("#descricaoGrupoEdit").val());
@@ -470,7 +443,7 @@ function apagarGrupo() {
   let id = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 12);
+  dados.append("op", 11);
   dados.append("idGrupo", id);
 
   $.ajax({
@@ -501,7 +474,7 @@ function getMembrosGrupo() {
   let id = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 13);
+  dados.append("op", 12);
   dados.append("idGrupo", id);
 
   $.ajax({
@@ -528,7 +501,7 @@ function removerMembroGrupo(id) {
   let idGrupo = urlParams.get("id");
 
   let dados = new FormData();
-  dados.append("op", 14);
+  dados.append("op", 13);
   dados.append("idUser", id);
   dados.append("idGrupo", idGrupo);
 
@@ -579,7 +552,7 @@ function getEstatisticasGrupo(){
   let urlParams = new URLSearchParams(window.location.search);
   let id = urlParams.get("id");
   let dados = new FormData();
-  dados.append("op", 16);
+  dados.append("op", 15);
   dados.append("idGrupo", id);
 
   $.ajax({

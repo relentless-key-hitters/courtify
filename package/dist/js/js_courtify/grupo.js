@@ -52,7 +52,7 @@ function previewImagemNovoGrupo() {
 function registaGrupo() {
 
   let dados = new FormData();
-  dados.append("op", 15);
+  dados.append("op", 14);
   dados.append("nome", $("#nomeNovoGrupo").val());
   dados.append("descricao", $("#descricaoNovoGrupo").val());
   dados.append("modalidade", $("#modalidadeNovoGrupo").val());

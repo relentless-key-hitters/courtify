@@ -70,7 +70,7 @@ class Grupo
                     comunidade.nome AS nomeComunidade,
                     comunidade.foto AS fotoComunidade
                     FROM marcacao
-                        INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
+                    INNER JOIN listagem_atletas_marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao
                     INNER JOIN campo ON marcacao.id_campo = campo.id
                     INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
                     INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
@@ -95,11 +95,12 @@ class Grupo
                             FROM comunidade_atletas
                             INNER JOIN comunidade 
                                 ON comunidade.id = comunidade_atletas.id_comunidade
-                                WHERE comunidade.tipo_comunidade = 1 
+                                WHERE comunidade.tipo_comunidade = 1
                                 AND comunidade_atletas.id_comunidade IN 
                                 (SELECT comunidade_atletas.id_comunidade
                                 FROM comunidade_atletas
-                                WHERE comunidade_atletas.id_atleta = " . $_SESSION['id'] . ")
+                                WHERE comunidade_atletas.estado = 1
+                                AND comunidade_atletas.id_atleta = " . $_SESSION['id'] . ")
                         ) ";
 
 
@@ -591,46 +592,7 @@ class Grupo
         return json_encode($data);
     }
 
-    function getBadgesGrupo($id)
-    {
-        global $conn;
-        $msg = "";
 
-        $sql = "SELECT badge.id AS idBadge,
-        badge.id_modalidade AS idModalidadeBadge,
-        badge.foto AS fotoBadge,
-        badge.descricao AS descricaoBadge,
-        badge.valorPatamar AS valorPatamarBadge,
-        badge.categoria AS categoriaBadge
-        FROM
-        badge
-        INNER JOIN
-        comunidade_badges ON badge.id = comunidade_badges.id_badge
-        INNER JOIN 
-        comunidade ON comunidade_badges.id_comunidade = comunidade.id
-        WHERE comunidade.id = " . $id . "
-        ORDER BY comunidade_badges.dataAq ASC
-        LIMIT 6";
-
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $msg .= "<div class='col-4'>
-                            <img src='../../dist" . $row['fotoBadge'] . "' alt='" . $row['descricaoBadge'] . "' class='rounded-2 img-fluid mb-0 hover-img' data-toggle='tooltip' data-placement='top' title='" . $row['descricaoBadge'] . "'>
-                        </div>";
-            }
-        } else {
-            $msg .= "<div class='text-center mt-2'>
-                        <h5>Sem resultados!</h5>
-                        <p>Este grupo ainda não desbloqueou nenhuma conquista.</p>
-                    </div>";
-        }
-
-        $conn->close();
-        $resp = array('msg' => $msg, 'total' => $result->num_rows);
-        return json_encode($resp);
-    }
 
     function getBotoesMenus($id)
     {

@@ -28,36 +28,33 @@ if($_POST['op'] == 1) {
     $res = $grupo -> getMarcacoesConcluidasGrupo($_POST['idGrupo'], $offset, $porPagina);
     echo($res);
 } else if($_POST['op'] == 6) {
-    $res = $grupo -> getBadgesGrupo($_POST['idGrupo']);
-    echo($res);
-} else if($_POST['op'] == 7) {
     $res = $grupo -> getBotoesMenus($_POST['idGrupo']);
     echo($res);
-} else if($_POST['op'] == 8) {
+} else if($_POST['op'] == 7) {
     $res = $grupo -> sairGrupo($_POST['idGrupo']);
     echo($res);
-} else if($_POST['op'] == 9) {
+} else if($_POST['op'] == 8) {
     $res = $grupo -> juntarGrupo($_POST['idGrupo']);
     echo($res);
-} else if($_POST['op'] == 10) {
+} else if($_POST['op'] == 9) {
     $res = $grupo -> getInfoEditGrupo($_POST['idGrupo']);
     echo($res);
-} else if($_POST['op'] == 11) {
+} else if($_POST['op'] == 10) {
     $res = $grupo -> guardaEditGrupo($_POST['idGrupo'], $_POST['nomeGrupo'], $_POST['descricaoGrupo'], $_FILES);
     echo($res);
-} else if($_POST['op'] == 12) {
+} else if($_POST['op'] == 11) {
     $res = $grupo -> apagarGrupo($_POST['idGrupo']);
     echo($res);
-} else if($_POST['op'] == 13) {
+} else if($_POST['op'] == 12) {
     $res = $grupo -> getMembrosGrupo($_POST['idGrupo']);
     echo($res);
-} else if($_POST['op'] == 14) {
+} else if($_POST['op'] == 13) {
     $res = $grupo -> removerMembroGrupo($_POST['idUser'], $_POST['idGrupo']);
     echo($res);
-} else if($_POST['op'] == 15) {
+} else if($_POST['op'] == 14) {
     $res = $grupo -> registaGrupo($_POST['nome'], $_POST['descricao'], $_POST['modalidade'], $_FILES, $_POST['estado']);
     echo($res);
-} else if($_POST['op'] == 16) {
+} else if($_POST['op'] == 15) {
     $res = $grupo -> getEstatisticasGrupo($_POST['idGrupo']);
     echo($res);
 }
