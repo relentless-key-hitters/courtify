@@ -930,6 +930,7 @@ class User
 		WHERE listagem_atletas_marcacao.id_atleta = '" . $_SESSION['id'] . "'
         AND listagem_atletas_marcacao.votacao = 2 
         AND listagem_atletas_marcacao.estado = 1
+        AND marcacao.data_inicio >= CURRENT_DATE()
         ORDER BY marcacao.data_inicio ASC
         LIMIT 2";
 
@@ -941,11 +942,7 @@ class User
         if ($result->num_rows > 0) {
             $flag = false;
             while ($row = $result->fetch_assoc()) {
-                $currentDate = "";
-                $currentDate = date("Y-m-d");
-                $rowDate = $row['dataMarc'];
-
-                if ($contador < 2 && strtotime($currentDate) <= strtotime($rowDate)) {
+                if ($contador < 2) {
                     if ($contador == 0) {
 
                         $data = new DateTime($row['dataMarc']);

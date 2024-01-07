@@ -491,7 +491,7 @@ class Grupo
                 $hora = new DateTime($row['horaInicioMarcacao']);
                 $stringHora = $hora->format('H:i');
 
-                $msg .= "<div class='card shadow border hover-img'>
+                $msg .= "<div class='card shadow border hover-img3'>
                             <div class='p-3'>
                                 <div class='row'>
                                     <div class='col-6 col-md-6'>
@@ -500,11 +500,11 @@ class Grupo
                                     <div class='col-6 col-md-6 d-flex justify-content-end'>
                                         <button type='button' class='btn btn-success disabled btn-sm'><i class='ti ti-check me-1'></i>Concluída</button>
                                     </div>
-                                    <div class='col-6 col-md-3 col-sm-6 mt-3'>
+                                    <div class='col-6 col-sm-6 col-md-6 col-lg-3 mt-3'>
                                         <img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
-                                                 class=' img-fluid object-fit-fill rounded-2 border border-1 border-primary' style='max-width: 100%'>
+                                                 class=' img-fluid object-fit-fill rounded-2 border border-1 border-primary' style='max-width: 80%'>
                                     </div>
-                                    <div class='col-6 col-md-3 col-sm-6 mt-3'>
+                                    <div class='col-6 col-sm-6 col-md-6 col-lg-3 mt-3'>
                                         <div class='row d-flex flex-column gap-1'>
                                             <a href='./clube.php?id=" . $row['idClube'] . "'><span class='fs-3'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</span></a>
                                             <span class='fs-3'><i class='ti ti-calendar me-1'></i>" . $stringData . "</span>

@@ -246,7 +246,7 @@ if (isset($_SESSION['id'])) { ?>
 
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3">
 
           <!-- <div class="card shadow">
             <div class="p-3">
@@ -275,7 +275,7 @@ if (isset($_SESSION['id'])) { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-9">
           <div class="card shadow" id="atividadeGrupo">
             <div class="p-3">
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Atividade<i class='ti ti-info-circle ms-1' data-toggle="tooltip" data-bs-placement="top" title='Aqui podes encontrar as últimas Marcações já concluidas (na Modalidade deste Grupo) onde outros membros participaram.'></i></h4>
