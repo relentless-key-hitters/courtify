@@ -494,8 +494,11 @@ class Grupo
                 $msg .= "<div class='card shadow border hover-img'>
                             <div class='p-3'>
                                 <div class='row'>
-                                    <div class='col-md-12 text-center'>
+                                    <div class='col-6 col-md-6'>
                                         <span class='fs-4 text-dark'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
+                                    </div>
+                                    <div class='col-6 col-md-6 d-flex justify-content-end'>
+                                        <button type='button' class='btn btn-success disabled btn-sm'><i class='ti ti-check me-1'></i>Concluída</button>
                                     </div>
                                     <div class='col-6 col-md-3 col-sm-6 mt-3'>
                                         <img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'

@@ -29,6 +29,9 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+    
+    <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
+
     <style>
       body {
         overflow-x: hidden;
@@ -56,7 +59,7 @@ if (isset($_SESSION['id'])) { ?>
                 <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
               </a>
             </li>
-            <li class="nav-item d-none d-xl-block mt-1">
+            <li class="nav-item mt-1">
               <a class="nav-link nav-icon-hover" href="javascript:void(0)" onclick="getAtletasPesquisaNavbar()" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="ti ti-search"></i>
               </a>
@@ -70,14 +73,14 @@ if (isset($_SESSION['id'])) { ?>
               <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+              <a class="nav-link fs-6" href="./marcacao.php">Marcação </a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
               <a class="nav-link fs-6" href="#">Descobrir</a>
             </li>
           </ul>
-          <div class="d-block d-xl-none mb-2 ms-5">
-            <a href="index.html" class="text-nowrap nav-link">
+          <div class="d-block d-xl-none mb-2">
+            <a href="./index.php" class="text-nowrap nav-link">
               <img src="../../dist/images/logos/logo_courtify.png" width="180" alt="" />
             </a>
           </div>
@@ -213,7 +216,7 @@ if (isset($_SESSION['id'])) { ?>
             <div class="mt-5">
               <div class="row arrow-container">
                   <div class="col-lg-4">
-                    <div class="card shadow" style="height: 260px">
+                    <div class="card shadow" style="height: 260px" data-aos="fade-right" data-aos-delay="1000" data-aos-duration="2000">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">1</span>Descobrir</h4>
                       </div>
@@ -224,7 +227,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4" data-aos="fade-right" data-aos-delay="2000" data-aos-duration="2000">
                     <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">2</span>Juntar</h4>
@@ -236,7 +239,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4" data-aos="fade-right" data-aos-delay="3000" data-aos-duration="2000">
                     <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">3</span>Jogar</h4>
@@ -427,6 +430,14 @@ if (isset($_SESSION['id'])) { ?>
                   </a>
                 </li>
                 <li class="sidebar-item">
+              <a class="sidebar-link" href="hub.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Comunidade</span>
+              </a>
+            </li>
+                <li class="sidebar-item">
                   <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
                     <span>
                       <i class="ti ti-soccer-field"></i>
@@ -544,12 +555,15 @@ if (isset($_SESSION['id'])) { ?>
         <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
         <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
         <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../landingpage/dist/libs/aos/dist/aos.js"></script>
+
         <!-- core files -->
         <script src="../../dist/js/app.min.js"></script>
         <script src="../../dist/js/app.horizontal.init.js"></script>
         <script src="../../dist/js/app-style-switcher.js"></script>
         <script src="../../dist/js/sidebarmenu.js"></script>
         <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+        <script src="../../../landingpage/dist/js/custom.js"></script>
         <script src="../../dist/js/js_courtify/descobrir.js"></script>
 
         <script src="../../dist/js/custom.js"></script>

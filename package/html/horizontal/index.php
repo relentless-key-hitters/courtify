@@ -26,11 +26,6 @@ if (isset($_SESSION['id'])) { ?>
 
     <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
 
-    <style>
-      body {
-        overflow-x: hidden;
-      }
-    </style>
   </head>
 
   <body>
@@ -50,7 +45,7 @@ if (isset($_SESSION['id'])) { ?>
                 <img src="../../../landingpage/dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
               </a>
             </li>
-            <li class="nav-item d-none d-xl-block mt-1">
+            <li class="nav-item mt-1">
               <a class="nav-link nav-icon-hover" href="javascript:void(0)" onclick="getAtletasPesquisaNavbar()" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="ti ti-search"></i>
               </a>
@@ -64,14 +59,14 @@ if (isset($_SESSION['id'])) { ?>
               <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+              <a class="nav-link fs-6" href="./marcacao.php">Marcação</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
               <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
             </li>
           </ul>
-          <div class="d-block d-xl-none mb-2 ms-5">
-            <a href="index.html" class="text-nowrap nav-link">
+          <div class="d-block d-xl-none mb-2">
+            <a href="./index.php" class="text-nowrap nav-link">
               <img src="../../../landingpage/dist/images/logos/logo_courtify.png" width="180" alt="" />
             </a>
           </div>
@@ -187,8 +182,8 @@ if (isset($_SESSION['id'])) { ?>
       <!-- Sidebar Start -->
       <!-- Main wrapper -->
       <div class="body-wrapper">
-        <div class="body-wrapper overflow-hidden">
-          <div id="carouselExampleAutoplaying" class="carousel slide bg-light-primary" data-bs-ride="carousel" style="width: 100%; margin-top: 80px;">
+        <div class="overflow-hidden">
+          <div id="carouselExampleAutoplaying" class="carousel slide bg-light-primary d-none d-md-block" data-bs-ride="carousel" style="width: 100%; margin-top: 80px;">
             <div class="carousel-inner">
               <div class="carousel-item active ">
                 <div class="text-white d-flex justify-content-center align-items-center" style="height: 700px; overflow: hidden;">
@@ -240,8 +235,8 @@ if (isset($_SESSION['id'])) { ?>
           </div>
         </div>
 
-        <section class="bg-light hero-section position-relative overflow-hidden pt-2 pt-lg-7 pt-xl-9 pb-8 pb-lg-9">
-          <div class="container">
+        <section class="bg-light hero-section position-relative overflow-hidden pt-2 pt-lg-7 pt-xl-9 pb-8 pb-lg-9 mt-5 mt-md-0">
+          <div class="container mt-3 mt-md-0">
             <div class="row align-items-center">
               <div class="col-xl-9">
                 <div class="hero-content my-11 my-xl-0">
@@ -780,6 +775,51 @@ if (isset($_SESSION['id'])) { ?>
       </footer>
     </div>
     </div>
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <nav class="sidebar-nav scroll-sidebar">
+        <div class="offcanvas-header justify-content-between">
+          <img src="../../dist/images/logos/favicon.ico" alt="" class="img-fluid">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body profile-dropdown mobile-navbar" data-simplebar="" data-simplebar>
+          <ul id="sidebarnav">
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="#" aria-expanded="false">
+                <span>
+                  <i class="ti ti-home"></i>
+                </span>
+                <span class="hide-menu">Home</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="hub.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Comunidade</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-soccer-field"></i>
+                </span>
+                <span class="hide-menu">Marcação</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="descobrir.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-radar"></i>
+                </span>
+                <span class="hide-menu">Descobrir</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -958,8 +998,6 @@ if (isset($_SESSION['id'])) { ?>
 
       resetSessionTimeout();
     </script>
-
-
 
   </body>
 

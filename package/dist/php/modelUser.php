@@ -1955,7 +1955,13 @@ class User
                 $msg .= "<div class='card shadow border hover-img'>
                             <div class='p-3'>
                                 <div class='row mt-2'>
-                                    <div class='col-6 col-md-3 col-sm-6 mt-3'>";
+                                    <div class='col-6 col-md-6 mt-2'>
+                                        <span class='fs-4 text-dark'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
+                                    </div>
+                                    <div class='col-6 col-md-6 d-flex justify-content-end mt-2'>
+                                        <button type='button' class='btn btn-success disabled btn-sm'><i class='ti ti-check me-1'></i>Concluída</button>
+                                    </div>
+                                    <div class='col-6 col-md-3 col-sm-6 mt-3 d-flex justify-content-between'>";
                                     if($row['modalidadeMarcacao'] == "Basquetebol") {
                                         $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-warning'>
                                                     <i class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
@@ -2383,7 +2389,7 @@ class User
                                 <i class='ti ti-user fs-6' data-toggle='tooltip' data-bs-placement='top' title='Atleta'></i>
                                 <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
                                 <a href='./perfil.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
-                                <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
+                                <span class='d-none d-md-block'><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
                             </div>
                             <div class='d-flex align-items-center'>
                                 <button class='btn $classBotaoAmigo btn-sm' $botaoAmigoDisabled onclick='adicionarAmigo(" . $row['id'] . ")'>$textoBotaoAmigo</button>
@@ -2397,7 +2403,7 @@ class User
                                 <i class='ti ti-building fs-5' data-toggle='tooltip' data-bs-placement='top' title='Clube'></i>
                                 <a href='./clube.php?id=" . $row['id'] . "'><img src='" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
                                 <a href='./clube.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>
-                                <span class=''><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
+                                <span class='d-none d-md-block'><i class='ti ti-map-pin me-1'></i>" . $row['concelho'] . "</span>
                             </div>
                             <div class='d-flex align-items-center'>
                                 <a href='./clube.php?id=" . $row['id'] . "'><button class='btn btn-success btn-sm'>Marcar</button></a>

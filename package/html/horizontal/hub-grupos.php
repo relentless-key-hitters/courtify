@@ -31,6 +31,8 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+    <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
+
     <style>
       body {
         overflow-x: hidden;
@@ -57,7 +59,7 @@ if (isset($_SESSION['id'])) { ?>
                 <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
               </a>
             </li>
-            <li class="nav-item d-none d-xl-block mt-1">
+            <li class="nav-item mt-1">
               <a class="nav-link nav-icon-hover" href="javascript:void(0)" onclick="getAtletasPesquisaNavbar()" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="ti ti-search"></i>
               </a>
@@ -71,14 +73,14 @@ if (isset($_SESSION['id'])) { ?>
               <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+              <a class="nav-link fs-6" href="./marcacao.php">Marcação</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
               <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
             </li>
           </ul>
-          <div class="d-block d-xl-none mb-2 ms-5">
-            <a href="index.html" class="text-nowrap nav-link">
+          <div class="d-block d-xl-none mb-2">
+            <a href="./index.php" class="text-nowrap nav-link">
               <img src="../../dist/images/logos/logo_courtify.png" width="180" alt="" />
             </a>
           </div>
@@ -621,12 +623,12 @@ if (isset($_SESSION['id'])) { ?>
               <div class="card mt-5 shadow">
                 <div class="card-body">
                   <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
-                    <div class="col-10 col-sm-8 col-lg-6">
-                      <img src="../../dist/images/backgrounds/banner_hub_grupos.jpg" class="img-fluid rounded" alt="Imagem Grupos" width="700" height="500" loading="lazy">
+                    <div class="col-10 col-sm-8 col-lg-6" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                      <img src="../../dist/images/backgrounds/banner_hub_grupos.jpg" class="img-fluid rounded" alt="Imagem Grupos" width="700" height="500">
                     </div>
                     <div class="col-lg-6">
-                      <h1 class="display-5 fw-bold lh-1 mb-2">É aqui que a Comunidade entra em ação</h1>
-                      <p class="lead">Esta página é o teu ponto de partida para te tornares parte da comunidade da Courtify. Cria ou junta-te a grupos, junta-te a marcações abertas de outros atletas dos grupos que estás inserido, e começa a partilhar momentos e experiências.</p>
+                      <h1 class="display-5 fw-bold lh-1 mb-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">É aqui que a Comunidade entra em ação</h1>
+                      <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Esta página é o teu ponto de partida para te tornares parte da comunidade da Courtify. Cria ou junta-te a grupos, junta-te a marcações abertas de outros atletas dos grupos que estás inserido, e começa a partilhar momentos e experiências.</p>
                     </div>
                   </div>
                 </div>
@@ -774,6 +776,14 @@ if (isset($_SESSION['id'])) { ?>
                   <span class="hide-menu">Home</span>
                 </a>
               </li>
+              <li class="sidebar-item">
+              <a class="sidebar-link" href="hub.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Comunidade</span>
+              </a>
+            </li>
               <li class="sidebar-item">
                 <a class="sidebar-link" href="marcacao.php" aria-expanded="false">
                   <span>
@@ -941,12 +951,15 @@ if (isset($_SESSION['id'])) { ?>
           <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
           <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
           <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+          <script src="../../../landingpage/dist/libs/aos/dist/aos.js"></script>
+
           <!-- core files -->
           <script src="../../dist/js/app.min.js"></script>
           <script src="../../dist/js/app.horizontal.init.js"></script>
           <script src="../../dist/js/app-style-switcher.js"></script>
           <script src="../../dist/js/sidebarmenu.js"></script>
           <script src="../../../landingpage/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+          <script src="../../../landingpage/dist/js/custom.js"></script>
           <script src="../../dist/js/js_courtify/grupo.js"></script>
           <script src="../../dist/js/js_courtify/descobrir.js"></script>
 

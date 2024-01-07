@@ -49,7 +49,7 @@ if (isset($_SESSION['id'])) { ?>
                 <img src="../../dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
               </a>
             </li>
-            <li class="nav-item d-none d-xl-block mt-1">
+            <li class="nav-item mt-1">
               <a class="nav-link nav-icon-hover" href="javascript:void(0)" onclick="getAtletasPesquisaNavbar()" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="ti ti-search"></i>
               </a>
@@ -63,14 +63,14 @@ if (isset($_SESSION['id'])) { ?>
               <a class="nav-link fs-6" href="./hub.php">Comunidade</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
-              <a class="nav-link fs-6" href="./marcacao.php">Marcação de Campos</a>
+              <a class="nav-link fs-6" href="./marcacao.php">Marcação</a>
             </li>
             <li class="nav-item dropdown-hover d-none d-xl-block">
               <a class="nav-link fs-6" href="./descobrir.php">Descobrir</a>
             </li>
           </ul>
-          <div class="d-block d-xl-none mb-2 ms-5">
-            <a href="index.html" class="text-nowrap nav-link">
+          <div class="d-block d-xl-none mb-2">
+            <a href="./index.php" class="text-nowrap nav-link">
               <img src="../../dist/images/logos/logo_courtify.png" width="180" alt="" />
             </a>
           </div>
@@ -343,7 +343,7 @@ if (isset($_SESSION['id'])) { ?>
 
                 <div class="row">
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -356,7 +356,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -369,7 +369,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -382,8 +382,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
 
-
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -399,7 +398,7 @@ if (isset($_SESSION['id'])) { ?>
 
                 <div class="row">
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -413,7 +412,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -427,7 +426,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
 
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -441,7 +440,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
 
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -514,7 +513,7 @@ if (isset($_SESSION['id'])) { ?>
 
                 <div class="row">
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -527,7 +526,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -540,7 +539,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -554,7 +553,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
 
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -570,7 +569,7 @@ if (isset($_SESSION['id'])) { ?>
 
                 <div class="row">
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -584,7 +583,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -598,7 +597,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
 
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -612,7 +611,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
 
 
-                  <div class="col-sm-6 col-md-3 d-flex align-items-stretch">
+                  <div class="col-6 col-sm-6 col-md-3 d-flex align-items-stretch">
                     <div class="card w-100 position-relative overflow-hidden card-hover shadow">
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
@@ -1781,6 +1780,14 @@ if (isset($_SESSION['id'])) { ?>
                   <i class="ti ti-home"></i>
                 </span>
                 <span class="hide-menu">Home</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="hub.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Comunidade</span>
               </a>
             </li>
             <li class="sidebar-item">
