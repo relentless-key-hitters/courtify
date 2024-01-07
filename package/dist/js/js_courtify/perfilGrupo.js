@@ -120,7 +120,6 @@ function adicionarLinksPaginacaoAtletasGrupo(paginasTotais, paginaAtual) {
 function getInfoGrupo() {
   let urlParams = new URLSearchParams(window.location.search);
   let id = urlParams.get("id");
-
   let dados = new FormData();
   dados.append("op", 4);
   dados.append("idGrupo", id);
@@ -572,6 +571,42 @@ function alerta2(titulo, msg, icon) {
   });
 }
 
+function getEstatisticasGrupo(){
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+  let dados = new FormData();
+  dados.append("op", 16);
+  dados.append("idGrupo", id);
+
+  $.ajax({
+    url: "../../dist/php/controllerGrupo.php",
+    method: "POST",
+    data: dados,
+    dataType: "html",
+    cache: false,
+    contentType: false,
+    processData: false,
+  })
+
+  .done(function (msg) {
+    let obj = JSON.parse(msg);
+    if(obj.length == 3){
+      $("#estVitorias").html(obj[0] + "%");
+      $("#estSets").html(obj[1]+ "%");
+      $("#estMvp").html(obj[2]+ "%");
+    }else{
+      $("#cardSets").addClass("d-none");
+      $("#estVitorias").html(obj[0]+ "%");
+      $("#estMvp").html(obj[1]+ "%");
+    }
+    
+  })
+
+  .fail(function (jqXHR, textStatus) {
+    alert("Request failed: " + textStatus);
+  })
+}
+
 $(function () {
   getBotoesMenus();
   getAtletasGrupo(1);
@@ -579,4 +614,5 @@ $(function () {
   getMarcacoesConcluidasGrupo(1);
   getBadgesGrupo();
   getInfoEditGrupo();
+  getEstatisticasGrupo();
 });

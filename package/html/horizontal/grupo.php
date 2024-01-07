@@ -210,16 +210,19 @@ if (isset($_SESSION['id'])) { ?>
                 <div class="col-md-4 col-sm-4">
                   <div class="card shadow p-3">
                     <h4 class="mb-0 fw-semibold fs-4">% Vitórias<span class="ti ti-bolt fs-5 ms-1"></span></h4>
+                    <p class = "mt-3" id= "estVitorias"></p>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-4">
-                  <div class="card shadow p-3">
-                    <h4 class="mb-0 fw-semibold fs-4">% <span class="ti ti-trophy fs-4 ms-1"></span></h4>
+                <div class="col-md-4 col-sm-4" id = "cardSets">
+                  <div  class="card shadow p-3">
+                    <h4 class="mb-0 fw-semibold fs-4">% Sets Ganhos<span class="ti ti-trophy fs-4 ms-1"></span></h4>
+                    <p class = "mt-3" id= "estSets"></p>
                   </div>
                 </div>
                 <div class="col-md-4 col-sm-4">
                   <div class="card shadow p-3">
                     <h4 class="mb-0 fw-semibold fs-4">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
+                    <p class = "mt-3" id= "estMvp"></p>
                   </div>
                 </div>
               </div>

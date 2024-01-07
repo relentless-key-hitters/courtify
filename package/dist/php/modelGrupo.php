@@ -982,28 +982,31 @@ class Grupo
             FROM comunidade 
             WHERE id = ".$idGrupo.")";
         $result = $conn -> query($sql);
+        $res = "";
         if($result -> num_rows>0){
             while($row = $result -> fetch_assoc()){
                 if($row['descricao'] == "Basquetebol"){
-
+                    $res = $this -> getEstatisticasGrupoBasqFutsal($idGrupo, "info_basquetebol");
                 }else if ($row['descricao'] == "Futsal"){
-
+                    $res = $this -> getEstatisticasGrupoBasqFutsal($idGrupo, "info_futsal");
                 }else if($row['descricao'] == "Padel"){
-
+                    $res = $this -> getEstatisticasGrupoPadelTenis($idGrupo, "info_padel");
                 }else{
-
+                    $res = $this -> getEstatisticasGrupoPadelTenis($idGrupo, "info_tenis");
                 }
             }
-        }   
+        }  
+        $conn->close();
+        return json_encode($res); 
     }
 
-    function getEstatisticasGrupoPadel($idGrupo){
+    function getEstatisticasGrupoPadelTenis($idGrupo, $nome){
         global $conn;
         $percVit = 0;
         $percSetsGanhos = 0;
         $percMvp = 0;
-        $sql = "SELECT info_padel.*
-        FROM info_padel
+        $sql = "SELECT *
+        FROM ".$nome."
         WHERE id_atleta IN (
             SELECT id_atleta
             FROM comunidade_atletas
@@ -1016,14 +1019,46 @@ class Grupo
                 $count++;
                 if($row['n_jogos']!=0){
                    $percVit .= ($row['n_vitorias']/$row['n_jogos']);
-                   $percMvp = ($row['n_mvp']/$row['n_jogos']);
+                   $percMvp .= ($row['n_mvp']/$row['n_jogos']);
                 }
                 if($row['n_sets']!=0){
                 $percSetsGanhos .= ($row['n_set_ganhos']/$row['n_sets']);
                 }
-               
             }
         }
-        $conn->close();
+        $percVit =  round(($percVit / $count)*100, 2, PHP_ROUND_HALF_UP);
+        $percMvp =  round(($percMvp / $count)*100, 2, PHP_ROUND_HALF_UP);
+        $percSetsGanhos =  round(($percSetsGanhos / $count)*100, 2, PHP_ROUND_HALF_UP);
+        return(array($percVit, $percSetsGanhos, $percMvp));
     }
+
+
+    function getEstatisticasGrupoBasqFutsal($idGrupo, $nome){
+        global $conn;
+        $percVit = 0;
+        $percMvp = 0;
+        $sql = "SELECT *
+        FROM ".$nome."
+        WHERE id_atleta IN (
+            SELECT id_atleta
+            FROM comunidade_atletas
+            WHERE id_comunidade = '".$idGrupo."'
+        )";
+        $count = 0;
+        $result = $conn ->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $count++;
+                if($row['n_jogos']!=0){
+                   $percVit .= ($row['n_vitorias']/$row['n_jogos']);
+                   $percMvp .= ($row['n_mvp']/$row['n_jogos']);
+                }
+            }
+        }
+        $percVit = round(($percVit / $count)*100, 2, PHP_ROUND_HALF_UP);
+        $percMvp = round(($percMvp / $count)*100, 2, PHP_ROUND_HALF_UP);
+        return(array($percVit, $percMvp));
+    }
+
+
 }

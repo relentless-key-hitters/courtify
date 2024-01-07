@@ -57,6 +57,9 @@ if($_POST['op'] == 1) {
 } else if($_POST['op'] == 15) {
     $res = $grupo -> registaGrupo($_POST['nome'], $_POST['descricao'], $_POST['modalidade'], $_FILES);
     echo($res);
+} else if($_POST['op'] == 16) {
+    $res = $grupo -> getEstatisticasGrupo($_POST['idGrupo']);
+    echo($res);
 }
 
 ?>
