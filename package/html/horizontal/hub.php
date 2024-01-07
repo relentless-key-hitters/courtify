@@ -197,6 +197,7 @@ if (isset($_SESSION['id'])) {?>
     <!-- Sidebar Start -->
     <!-- Main wrapper -->
     <div class="body-wrapper">
+      
       <div class="row">
         <div class="d-none d-md-block">
           <div class="col-lg-12" style="position: relative; margin-top: 80px;">
@@ -215,8 +216,10 @@ if (isset($_SESSION['id'])) {?>
           </div>
         </div>
       </div>
-      <div class="row p-0 p-md-5">
-        <div class="col-md-4 text-center mt-5 mt-md-0" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
+
+
+      <div class="row p-3 p-md-5">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center mt-5 mt-md-0" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
             <div class="card shadow mt-5 mt-md-0">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Grupos</h1>
@@ -227,7 +230,7 @@ if (isset($_SESSION['id'])) {?>
                             alt="Placeholder Image 1">
                         <div class="card-body">
                             <div class="col-lg-12">
-                                <h1 class="fw-semibold fs-8">
+                                <h1 class="fw-semibold fs-7">
                                     Cria o teu grupo e convida os teus amigos!
                                 </h1>
                             </div>
@@ -240,7 +243,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
         </div>
     
-        <div class="col-md-4 text-center" data-aos="fade-down" data-aos-delay="400" data-aos-duration="1000">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center" data-aos="fade-down" data-aos-delay="400" data-aos-duration="1000">
             <div class="card shadow">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas</h1>
@@ -251,8 +254,8 @@ if (isset($_SESSION['id'])) {?>
                             class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                         <div class="card-body">
                             <div class="col-lg-12">
-                                <h1 class="fw-semibold fs-8">
-                                    Constrói a tua equipa e enfrenta outros atletas!
+                                <h1 class="fw-semibold fs-7">
+                                    Junta-te a uma equipa de atletas de um clube!
                                 </h1>
                             </div>
                         </div>
@@ -264,7 +267,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
         </div>
     
-        <div class="col-md-4 text-center" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
             <div class="card shadow">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios</h1>
@@ -275,8 +278,8 @@ if (isset($_SESSION['id'])) {?>
                             class="card-img-top object-fit-cover" alt="Placeholder Image 1">
                         <div class="card-body">
                             <div class="col-lg-12">
-                                <h1 class="fw-semibold fs-8">
-                                    Compete contra atletas do teu nível!
+                                <h1 class="fw-semibold fs-7">
+                                    Compete contra outros atletas do teu nível!
                                 </h1>
                             </div>
                         </div>

@@ -620,19 +620,23 @@ if (isset($_SESSION['id'])) { ?>
                 </div>
               </div>-->
 
-              <div class="card mt-5 shadow">
-                <div class="card-body">
-                  <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
-                    <div class="col-10 col-sm-8 col-lg-6" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                      <img src="../../dist/images/backgrounds/banner_hub_grupos.jpg" class="img-fluid rounded" alt="Imagem Grupos" width="700" height="500">
-                    </div>
-                    <div class="col-lg-6">
-                      <h1 class="display-5 fw-bold lh-1 mb-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">É aqui que a Comunidade entra em ação</h1>
-                      <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Esta página é o teu ponto de partida para te tornares parte da comunidade da Courtify. Cria ou junta-te a grupos, junta-te a marcações abertas de outros atletas dos grupos que estás inserido, e começa a partilhar momentos e experiências.</p>
+              <div class="mt-5 mt-md-0">
+                 &nbsp;  
+                <div class="card mt-5 shadow">
+                  <div class="card-body">
+                    <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
+                      <div class="col-10 col-sm-8 col-lg-6" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <img src="../../dist/images/backgrounds/banner_hub_grupos.jpg" class="img-fluid rounded" alt="Imagem Grupos" width="700" height="500">
+                      </div>
+                      <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold lh-1 mb-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">É aqui que a Comunidade entra em ação</h1>
+                        <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Esta página é o teu ponto de partida para te tornares parte da comunidade da Courtify. Cria ou junta-te a grupos, junta-te a marcações abertas de outros atletas dos grupos que estás inserido, e começa a partilhar momentos e experiências.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+
 
 
 
