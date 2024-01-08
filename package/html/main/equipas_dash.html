@@ -74,7 +74,7 @@
       padding: 10px;
     }
 
-    #tabela2_wrapper .dataTables_filter input,  
+    #tabela2_wrapper .dataTables_filter input,
     #tabela_wrapper .dataTables_filter input {
       width: 250px;
       margin-bottom: 10px;
@@ -400,18 +400,18 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6"></div>
     <div class="col-lg-3">
-      <h2 class="text-muted fs-5">Criar Equipa <button data-toggle="modal" data-target="#teamModal" type="button"
+      <h2 class="text-muted fs-5">Criar Equipa <button data-toggle="modal" data-target="#criarEquipaModal" type="button"
           class="btn btn-sm fs-4 btn-success"><i class="ti ti-circle-plus"></i></button></h2>
     </div>
   </div>
 
 
-  <div class="modal modal-lg fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="teamModalLabel"
-    aria-hidden="true">
+  <div class="modal modal-lg fade" id="criarEquipaModal" tabindex="-1" role="dialog"
+    aria-labelledby="criarEquipaModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-7" id="teamModalLabel">Criar Equipa</h5>
+          <h5 class="modal-title fs-7" id="criarEquipaModalLabel">Criar Equipa</h5>
           <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
             aria-label="Close">
             <span> <i class="ti ti-x text-white"></i></span>
@@ -423,14 +423,14 @@
             <div class="col-md-7 pt-4">
               <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome da equipa">
+                <input type="text" class="form-control" id="nomeEquipa" placeholder="Digite o nome da equipa">
               </div>
             </div>
 
             <div class="col-md-5 pt-4">
               <div class="form-group">
                 <label for="imagem">Imagem</label>
-                <input type="file" class="form-control" id="imagem" accept="image/*">
+                <input type="file" class="form-control" id="imgEquipa" accept="image/*">
                 <small class="form-text text-muted">Selecione uma imagem para a equipa</small>
               </div>
             </div>
@@ -440,26 +440,34 @@
             <div class="col-md-5 pt-4">
               <div class="form-group">
                 <label for="nome">Nº Máx de Participantes</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nº máx de participantes">
+                <input type="number" class="form-control" id="nmrEquipa" placeholder="Digite nº máx de participantes">
               </div>
             </div>
 
             <div class="col-md-4 pt-4">
               <div class="form-group">
                 <label for="nivel">Nível</label>
-                <select name="nivel" class="form-select" id="">
+                <select name="nivel" class="form-select" id="nivelEquipa">
                   <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
                   <option value="sc">Sem Classificação</option>
                   <option value="n5">N5</option>
-                  <option value="n54">N5/N4</option>
                   <option value="n4">N4</option>
-                  <option value="n43">N4/N3</option>
                   <option value="n3">N3</option>
-                  <option value="n32">N3/N2</option>
                   <option value="n2">N2</option>
-                  <option value="n21">N2/N1</option>
                   <option value="n1">N1</option>
                 </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 pt-4">
+                <label for="obsEquipa">Observações</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <textarea id="obsEquipa" cols="6" rows="3" class="form-control"></textarea>
               </div>
             </div>
           </div>
@@ -472,13 +480,95 @@
     </div>
   </div>
 
+  <div class="modal modal-lg fade" id="editarEquipaModal" tabindex="-1" role="dialog"
+    aria-labelledby="editarEquipaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-7" id="editarEquipaModalLabel">Editar Equipa</h5>
+          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
+            aria-label="Close">
+            <span> <i class="ti ti-x text-white"></i></span>
+          </button>
+        </div>
 
-  <div class="modal modal-lg fade" id="equipaJogoModal" tabindex="-1" role="dialog" aria-labelledby="equipaJogoModal"
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="nome">ID</label>
+                <input type="number" disabled class="form-control" id="idEditEquipa">
+              </div>
+            </div>
+            <div class="col-md-7 pt-4">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nomeEditEquipa" placeholder="Digite o nome da equipa">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="imagem">Imagem</label>
+                <input type="file" class="form-control" id="imgEditEquipa" accept="image/*">
+                <small class="form-text text-muted">Selecione uma imagem para a equipa</small>
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="nome">Nº Máx de Participantes</label>
+                <input type="number" class="form-control" id="nmrEditEquipa"
+                  placeholder="Digite nº máx de participantes">
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="nivel">Nível</label>
+                <select name="nivel" class="form-select" id="nivelEditEquipa">
+                  <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
+                  <option value="sc">Sem Classificação</option>
+                  <option value="n5">N5</option>
+                  <option value="n4">N4</option>
+                  <option value="n3">N3</option>
+                  <option value="n2">N2</option>
+                  <option value="n1">N1</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 pt-4">
+                <label for="obsEditEquipa">Observações</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <textarea id="obsEditEquipa" cols="6" rows="3" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-lg fade" id="proxJogosModal" tabindex="-1" role="dialog" aria-labelledby="proxJogosModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-7" id="equipaJogoModalLabel">Próximas Jogos</h5>
+          <h5 class="modal-title fs-7" id="proxJogosModalLabel">Próximos Jogos</h5>
           <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
             aria-label="Close">
             <span> <i class="ti ti-x text-white"></i></span>
