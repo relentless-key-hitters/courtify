@@ -641,73 +641,10 @@ if (isset($_SESSION['id'])) { ?>
               </div>
                 <div class=" mt-5">
                   <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="">Equipas existentes em #LOCALIDADE USER#</h3>
+                    <h3 class="">Equipas existentes em <span id ="localidadeUserEquipa"></span></h3>
                   </div>
                   <div class="card bg-light px-3 py-3">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
+                    <div class="row" id="equipasLocalidade">
                     </div>
                   </div>
                 </div>
@@ -941,6 +878,7 @@ if (isset($_SESSION['id'])) { ?>
       <script src="../../dist/js/js_courtify/sweatalert.js"></script>
       <script src="../../dist/js/js_courtify/perfilUser.js"></script>
       <script src="../../dist/js/js_courtify/user.js"></script>
+      <script src="../../dist/js/js_courtify/equipa.js"></script>
       <script src="../../dist/js/js_courtify/notificacao.js"></script>
 
 
