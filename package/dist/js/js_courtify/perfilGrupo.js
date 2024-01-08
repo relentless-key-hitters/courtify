@@ -567,6 +567,7 @@ function getEstatisticasGrupo(){
 
   .done(function (msg) {
     let obj = JSON.parse(msg);
+    console.log(obj)
     if(obj.length == 3){
       $("#estVitorias").html("<span class='fs-5'>" + obj[0] + "%</span>");
       $("#estSets").html("<span class='fs-5'>" + obj[1] + "%</span>");
@@ -589,7 +590,6 @@ $(function () {
   getAtletasGrupo(1);
   getInfoGrupo();
   getMarcacoesConcluidasGrupo(1);
-  getBadgesGrupo();
   getInfoEditGrupo();
   getEstatisticasGrupo();
 });
