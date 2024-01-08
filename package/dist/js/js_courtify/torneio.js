@@ -163,7 +163,7 @@ function guardaEditTorneio(id) {
 
 }
 
-function removeTorneio(id) {
+function removerTorneio(id) {
 
     let dados = new FormData();
     dados.append("op", 5);
