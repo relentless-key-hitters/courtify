@@ -198,6 +198,7 @@ function removerTorneio(id) {
 }
 
 
+
 function alerta(titulo, msg, icon) {
     Swal.fire({
         position: 'center',

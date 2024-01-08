@@ -1390,6 +1390,7 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
     <script src="../../dist/js/js_courtify/user.js"></script>
     <script src="../../dist/js/js_courtify/notificacao.js"></script>
+    <script src="../../dist/js/js_courtify/torneio.js"></script>
 
 
     <div class="modal fade" id="scroll-long-inner-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
