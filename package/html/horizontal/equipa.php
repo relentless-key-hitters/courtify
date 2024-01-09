@@ -26,6 +26,8 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
+    <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
+
 
 
 
@@ -213,19 +215,19 @@ if (isset($_SESSION['id'])) { ?>
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Estatísticas</h4>
               <div class="d-flex gap-4 align-content-center justify-content-center mt-3 p-sm-3 p-3">
                 <div class="w-100">
-                  <div class="card shadow p-3">
+                  <div class="card shadow p-3 text-center">
                     <h4 class="mb-0 fw-semibold fs-4">% Vitórias<span class="ti ti-bolt fs-5 ms-1"></span></h4>
                     <div class="mt-3" id="estVitoriasEquipa"></div>
                   </div>
                 </div>
                 <div class="w-100" id="cardSets">
-                  <div class="card shadow p-3">
+                  <div class="card shadow p-3 text-center">
                     <h4 class="mb-0 fw-semibold fs-4">% Sets Ganhos<span class="ti ti-trophy fs-4 ms-1"></span></h4>
                     <div class="mt-3" id="estSetsEquipa"></div>
                   </div>
                 </div>
                 <div class="w-100">
-                  <div class="card shadow p-3">
+                  <div class="card shadow p-3 text-center">
                     <h4 class="mb-0 fw-semibold fs-4">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
                     <div class="mt-3" id="estMvpEquipa"></div>
                   </div>
@@ -275,7 +277,7 @@ if (isset($_SESSION['id'])) { ?>
             </div>
             <div class="p-3" id="topAtletas">
               <div class="row g-1">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <img src="../../dist/images/equipas/top_atletas_equipa_1.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
@@ -302,7 +304,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                     <img src="../../dist/images/equipas/top_atletas_equipa_2.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
@@ -329,7 +331,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                     <img src="../../dist/images/equipas/top_atletas_equipa_3.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
@@ -356,7 +358,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="1600" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <img src="../../dist/images/equipas/top_atletas_equipa_4.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="width: 40px;"></img>
@@ -548,6 +550,7 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Import Js Files -->
     <!-- ---------------------------------------------- -->
     <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../../landingpage/dist/libs/aos/dist/aos.js"></script>
     <script src="../../dist/libs/jquery-ui/dist/jquery-ui.min.js"></script>
     <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
     <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -565,6 +568,7 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/libs/prismjs/prism.js"></script>
     <script src="../../dist/js/js_courtify/sweatalert.js"></script>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+    <script src="../../../landingpage/dist/js/custom.js"></script>
     <script src="../../dist/js/js_courtify/user.js"></script>
     <script src="../../dist/js/js_courtify/notificacao.js"></script>
     <script src="../../dist/js/js_courtify/perfilEquipa.js"></script>
