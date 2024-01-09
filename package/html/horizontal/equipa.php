@@ -277,7 +277,7 @@ if (isset($_SESSION['id'])) { ?>
             </div>
             <div class="p-3" id="topAtletas">
               <div class="row g-1">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1500">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="400" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <img src="../../dist/images/equipas/top_atletas_equipa_1.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
@@ -304,7 +304,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1500">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="800" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                     <img src="../../dist/images/equipas/top_atletas_equipa_2.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
@@ -331,7 +331,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="1500">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="1200" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                     <img src="../../dist/images/equipas/top_atletas_equipa_3.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
@@ -358,7 +358,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="1600" data-aos-duration="1500">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="1600" data-aos-duration="1500">
                   <div class="card rounded-0 hover-img4">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <img src="../../dist/images/equipas/top_atletas_equipa_4.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="width: 40px;"></img>
