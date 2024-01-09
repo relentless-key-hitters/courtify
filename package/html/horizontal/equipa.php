@@ -292,7 +292,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                       <div class="row container mt-2">
                         <div class="col-md-12 text-center">
-                          <div class="card rounded-0">
+                          <div class="card shadow border border-2 border-light rounded-0">
                             <span class="fs-2"><i class="ti ti-chart-line"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
@@ -319,7 +319,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                       <div class="row container mt-2">
                         <div class="col-md-12 text-center">
-                          <div class="card rounded-0">
+                          <div class="card shadow border border-2 border-light rounded-0">
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
@@ -346,7 +346,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                       <div class="row container mt-2">
                         <div class="col-md-12 text-center">
-                          <div class="card rounded-0">
+                          <div class="card shadow border border-2 border-light rounded-0">
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
@@ -378,7 +378,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                       <div class="row container mt-2">
                         <div class="col-md-12 text-center">
-                          <div class="card rounded-0">
+                          <div class="card shadow border border-2 border-light rounded-0">
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
                             <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
