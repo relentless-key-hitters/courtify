@@ -205,7 +205,7 @@ if (isset($_SESSION['id'])) { ?>
           </div>
           <div class="col-md-3 mt-5">
             <div id="infoClube">
-              
+
             </div>
           </div>
           <div class="col-md-6">
@@ -218,8 +218,8 @@ if (isset($_SESSION['id'])) { ?>
                     <div class="mt-3" id="estVitoriasEquipa"></div>
                   </div>
                 </div>
-                <div class="w-100" id = "cardSets">
-                  <div  class="card shadow p-3">
+                <div class="w-100" id="cardSets">
+                  <div class="card shadow p-3">
                     <h4 class="mb-0 fw-semibold fs-4">% Sets Ganhos<span class="ti ti-trophy fs-4 ms-1"></span></h4>
                     <div class="mt-3" id="estSetsEquipa"></div>
                   </div>
@@ -227,7 +227,7 @@ if (isset($_SESSION['id'])) { ?>
                 <div class="w-100">
                   <div class="card shadow p-3">
                     <h4 class="mb-0 fw-semibold fs-4">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
-                    <div class = "mt-3" id= "estMvpEquipa"></div>
+                    <div class="mt-3" id="estMvpEquipa"></div>
                   </div>
                 </div>
               </div>
@@ -274,7 +274,121 @@ if (isset($_SESSION['id'])) { ?>
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Top Atletas<i class='ti ti-info-circle ms-1' data-toggle="tooltip" data-bs-placement="top" title='Aqui podes explorar quais os melhores atletas desta equipa.'></i></h4>
             </div>
             <div class="p-3" id="topAtletas">
-
+              <div class="row g-1">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                      <img src="../../dist/images/equipas/top_atletas_equipa_1.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
+                      <div class="mt-5">
+                        <img src="../../dist/images/utilizadores/21/user20231217194048.jpg" data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " style="max-width: 70px;" aria-label="António Silva" data-bs-original-title="António Silva">
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-line"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img src="../../dist/images/equipas/top_atletas_equipa_2.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
+                      <div class="mt-5">
+                        <img src="../../dist/images/utilizadores/16/user20231208202450.jpg" data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " style="max-width: 70px;" aria-label="António Silva" data-bs-original-title="António Silva">
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img src="../../dist/images/equipas/top_atletas_equipa_3.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
+                      <div class="mt-5">
+                        <img src="../../dist/images/utilizadores/15/user20231202190513.jpg" data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " style="max-width: 70px;" aria-label="António Silva" data-bs-original-title="António Silva">
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                      <img src="../../dist/images/equipas/top_atletas_equipa_4.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="width: 40px;"></img>
+                      <div class="mt-5">
+                        <a href="IDFOTOsdfaasdf"><img src="../../dist/images/utilizadores/6/user20231029151937.jpg" 
+                            data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " 
+                              style="max-width: 70px; border: 2px solid transparent; border-radius: 50%; transition: border-color 0.3s ease 0s;" 
+                                onmouseover="this.style.borderColor='#044967';" onmouseout="this.style.borderColor='transparent';" aria-label="António Silva" 
+                                  data-bs-original-title="António Silva">
+                        </a>
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -501,6 +615,7 @@ if (isset($_SESSION['id'])) { ?>
       resetSessionTimeout();
     </script>
 
+      
 
 
     <!--<script>
