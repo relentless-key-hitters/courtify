@@ -691,6 +691,7 @@ class Grupo
     {
         global $conn;
         $msg = "";
+        $foto = "";
 
         $sql = "SELECT 
                 comunidade.id AS idComunidade,
@@ -715,6 +716,7 @@ class Grupo
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $foto .= $row['fotoComunidade'];
                 $msg .= "<form class='row g-3'>
                             <div class='col-md-12'>
                                 <div class='d-flex flex-column gap-3 align-items-center'>
@@ -749,7 +751,9 @@ class Grupo
 
         $conn->close();
 
-        return $msg;
+        $resp = json_encode(array("msg" => $msg, "img" => $foto));
+
+        return $resp;
     }
 
     function guardaEditGrupo($id, $nome, $descricao, $imagem)
