@@ -20,5 +20,8 @@ if($_POST['op'] == 1){
 }else if($_POST['op'] == 4){
     $res = $equipa -> getInfoEquipa($_POST['id']);
     echo($res);
+}else if($_POST['op'] == 5){
+    $res = $equipa -> getEstatisticasEquipa($_POST['id']);
+    echo($res);
 }
 ?>

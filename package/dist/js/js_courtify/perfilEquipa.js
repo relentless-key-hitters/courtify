@@ -147,7 +147,45 @@ function adicionarLinksPaginacaoAtletasEquipa(paginasTotais, paginaAtual) {
         });
   }
 
+  function getEstatisticasEquipa(){
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get("id");
+    let dados = new FormData();
+    dados.append("op", 5);
+    dados.append("id", id);
+  
+    $.ajax({
+      url: "../../dist/php/controllerEquipa.php",
+      method: "POST",
+      data: dados,
+      dataType: "html",
+      cache: false,
+      contentType: false,
+      processData: false,
+    })
+  
+    .done(function (msg) {
+      let obj = JSON.parse(msg);
+      console.log(obj)
+      if(obj.length == 3){
+        $("#estVitoriasEquipa").html("<span class='fs-5'>" + obj[0] + "%</span>");
+        $("#estSetsEquipa").html("<span class='fs-5'>" + obj[1] + "%</span>");
+        $("#estMvpEquipa").html("<span class='fs-5'>" + obj[2] + "%</span>")
+      }else{
+        $("#cardSets").addClass("d-none");
+        $("#estVitoriasEquipa").html("<span class='fs-5'>" + obj[0] + "%</span>");
+        $("#estMvpEquipa").html("<span class='fs-5'>" + obj[1] + "%</span>");
+      }
+      
+    })
+  
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    })
+  }
+
   $(function () {
     getAtletasEquipa(1);
     getInfoEquipa();
+    getEstatisticasEquipa();
   });
