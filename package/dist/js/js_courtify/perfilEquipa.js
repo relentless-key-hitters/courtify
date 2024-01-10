@@ -184,6 +184,32 @@ function adicionarLinksPaginacaoAtletasEquipa(paginasTotais, paginaAtual) {
     })
   }
 
+  function getTopAltetas(){
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get("id");
+    let dados = new FormData();
+    dados.append("op", 6);
+    dados.append("id", id);
+  
+    $.ajax({
+      url: "../../dist/php/controllerEquipa.php",
+      method: "POST",
+      data: dados,
+      dataType: "html",
+      cache: false,
+      contentType: false,
+      processData: false,
+    })
+  
+    .done(function (msg) {
+      
+    })
+  
+    .fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    })
+  }
+
   $(function () {
     getAtletasEquipa(1);
     getInfoEquipa();

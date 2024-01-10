@@ -23,5 +23,8 @@ if($_POST['op'] == 1){
 }else if($_POST['op'] == 5){
     $res = $equipa -> getEstatisticasEquipa($_POST['id']);
     echo($res);
+}else if($_POST['op'] == 6){
+    $res = $equipa -> getTopAltetas($_POST['id']);
+    echo($res);
 }
 ?>

@@ -360,6 +360,11 @@ class Equipa
         $percMvp = round(($percMvp / $count)*100, 2, PHP_ROUND_HALF_UP);
         return(array($percVit, $percMvp));
     }
+
+
+    function getTopAltetas($id){
+
+    }
 }
 
 ?>
