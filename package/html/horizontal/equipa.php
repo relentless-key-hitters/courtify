@@ -26,6 +26,8 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
+    <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
+
 
 
 
@@ -213,21 +215,21 @@ if (isset($_SESSION['id'])) { ?>
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Estatísticas</h4>
               <div class="d-flex gap-4 align-content-center justify-content-center mt-3 p-sm-3 p-3">
                 <div class="w-100">
-                  <div class="card shadow p-3">
+                  <div class="card shadow p-3 text-center">
                     <h4 class="mb-0 fw-semibold fs-4">% Vitórias<span class="ti ti-bolt fs-5 ms-1"></span></h4>
-                    <div class="mt-3" id="estVitorias"></div>
+                    <div class="mt-3" id="estVitoriasEquipa"></div>
                   </div>
                 </div>
-                <div class="w-100" id = "cardSets">
-                  <div  class="card shadow p-3">
+                <div class="w-100" id="cardSets">
+                  <div class="card shadow p-3 text-center">
                     <h4 class="mb-0 fw-semibold fs-4">% Sets Ganhos<span class="ti ti-trophy fs-4 ms-1"></span></h4>
-                    <div class="mt-3" id="estSets"></div>
+                    <div class="mt-3" id="estSetsEquipa"></div>
                   </div>
                 </div>
                 <div class="w-100">
-                  <div class="card shadow p-3">
+                  <div class="card shadow p-3 text-center">
                     <h4 class="mb-0 fw-semibold fs-4">% MVP<span class="ti ti-award fs-5 ms-1"></span></h4>
-                    <div class = "mt-3" id= "estMvp"></div>
+                    <div class="mt-3" id="estMvpEquipa"></div>
                   </div>
                 </div>
               </div>
@@ -271,13 +273,124 @@ if (isset($_SESSION['id'])) { ?>
         <div class="col-12 col-sm-12 col-md-8 col-lg-9">
           <div class="card shadow" id="atividadeGrupo">
             <div class="p-3">
-              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Atividade<i class='ti ti-info-circle ms-1' data-toggle="tooltip" data-bs-placement="top" title='Aqui podes encontrar as últimas Marcações já concluidas (na Modalidade deste Grupo) onde outros membros participaram.'></i></h4>
+              <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Top Atletas<i class='ti ti-info-circle ms-1' data-toggle="tooltip" data-bs-placement="top" title='Aqui podes explorar quais os melhores atletas desta equipa.'></i></h4>
             </div>
-            <div class="p-3" id="marcacoesConcluidasGrupo">
-
-            </div>
-            <div class='mt-1' id="paginacaoMarcacoesConcluidas">
-
+            <div class="p-3" id="topAtletas">
+              <div class="row g-1">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="400" data-aos-duration="1500">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                      <img src="../../dist/images/equipas/top_atletas_equipa_1.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
+                      <div class="mt-5">
+                        <img src="../../dist/images/utilizadores/21/user20231217194048.jpg" data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " style="max-width: 70px;" aria-label="António Silva" data-bs-original-title="António Silva">
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card shadow border border-2 border-light rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-line"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="800" data-aos-duration="1500">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img src="../../dist/images/equipas/top_atletas_equipa_2.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
+                      <div class="mt-5">
+                        <img src="../../dist/images/utilizadores/16/user20231208202450.jpg" data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " style="max-width: 70px;" aria-label="António Silva" data-bs-original-title="António Silva">
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card shadow border border-2 border-light rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="1200" data-aos-duration="1500">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img src="../../dist/images/equipas/top_atletas_equipa_3.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
+                      <div class="mt-5">
+                        <img src="../../dist/images/utilizadores/15/user20231202190513.jpg" data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " style="max-width: 70px;" aria-label="António Silva" data-bs-original-title="António Silva">
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card shadow border border-2 border-light rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="1600" data-aos-duration="1500">
+                  <div class="card rounded-0 hover-img4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                      <img src="../../dist/images/equipas/top_atletas_equipa_4.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="width: 40px;"></img>
+                      <div class="mt-5">
+                        <a href="IDFOTOsdfaasdf"><img src="../../dist/images/utilizadores/6/user20231029151937.jpg" 
+                            data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " 
+                              style="max-width: 70px; border: 2px solid transparent; border-radius: 50%; transition: border-color 0.3s ease 0s;" 
+                                onmouseover="this.style.borderColor='#044967';" onmouseout="this.style.borderColor='transparent';" aria-label="António Silva" 
+                                  data-bs-original-title="António Silva">
+                        </a>
+                      </div>
+                      <div class="p-1 text-center">
+                        <div class="">
+                          <span class="fs-4">António Silva</span>
+                        </div>
+                        <div class="">
+                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
+                        </div>
+                      </div>
+                      <div class="row container mt-2">
+                        <div class="col-md-12 text-center">
+                          <div class="card shadow border border-2 border-light rounded-0">
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -422,140 +535,7 @@ if (isset($_SESSION['id'])) { ?>
       </div>
     </div>
 
-    <div class="modal fade" id="modalJuntarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalJuntarGrupo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header d-flex align-items-center">
-            <div class='d-flex'>
-              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Juntar ao Grupo</h4>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center">
-            <span class="fs-4">Pretendes juntar-te a este grupo?<br></span>
-          </div>
-          <div class="d-flex justify-content-center align-items-center gap-3">
-            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="juntarGrupo()">
-              Sim
-            </button>
-            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
-              Não
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="modal fade" id="modalSairGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSairGrupo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header d-flex align-items-center">
-            <div class='d-flex'>
-              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Sair do Grupo</h4>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center">
-            <span class="fs-4">Estás prestes a sair deste grupo.<br></span>
-            <h5 class='mt-3'>Tens a certeza?</h5>
-          </div>
-          <div class="d-flex justify-content-center align-items-center gap-3">
-            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="sairGrupo()">
-              Sim
-            </button>
-            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
-              Não
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="modalEditarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarGrupo" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header d-flex align-items-center">
-            <div class='d-flex'>
-              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Edição de Grupo</h4>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="bodyModalEditarGrupo">
-
-          </div>
-          <div class="d-flex justify-content-center align-items-center gap-3">
-            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="guardaEditGrupo()">
-              Salvar
-            </button>
-            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
-              Cancelar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="modal fade" id="modalApagarGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalApagarGrupo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header d-flex align-items-center">
-            <div class='d-flex'>
-              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Apagar Grupo</h4>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center">
-            <span class="fs-4">Estás prestes a apagar este Grupo.<br></span>
-            <small>Todo o conteúdo gerado para este Grupo será apagado.<br> Isto inclui conquistas, estatísticas, etc</small>
-            <h5 class='mt-3'>Tens a certeza?</h5>
-          </div>
-          <div class="d-flex justify-content-center align-items-center gap-3">
-            <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start mb-3" data-bs-dismiss="modal" onclick="apagarGrupo()">
-              Sim
-            </button>
-            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3" data-bs-dismiss="modal">
-              Não
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="modalEditMembrosGrupo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditMembrosGrupo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-          <div class="modal-header d-flex align-items-center">
-            <div class='d-flex'>
-              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-              <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Lista de Membros</h4>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class='pb-2 ps-3 pe-3'>
-              <span>
-                Através desta lista, consegues encontrar todos os membros que estão atualmente no teu Grupo.
-                Podes consultar alguma informação básica, assim como visitar rapidamente o seu perfil ou até mesmo remover.
-              </span>
-            </div>
-            <ul class="list mb-0 py-2" id="listaMembrosGrupo">
-
-            </ul>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start" data-bs-dismiss="modal">
-              Fechar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
     <!-- --------------------------------------------------- -->
@@ -570,6 +550,7 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Import Js Files -->
     <!-- ---------------------------------------------- -->
     <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../../landingpage/dist/libs/aos/dist/aos.js"></script>
     <script src="../../dist/libs/jquery-ui/dist/jquery-ui.min.js"></script>
     <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
     <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -587,6 +568,7 @@ if (isset($_SESSION['id'])) { ?>
     <script src="../../dist/libs/prismjs/prism.js"></script>
     <script src="../../dist/js/js_courtify/sweatalert.js"></script>
     <script src="../../dist/js/js_courtify/perfilUser.js"></script>
+    <script src="../../../landingpage/dist/js/custom.js"></script>
     <script src="../../dist/js/js_courtify/user.js"></script>
     <script src="../../dist/js/js_courtify/notificacao.js"></script>
     <script src="../../dist/js/js_courtify/perfilEquipa.js"></script>
@@ -637,6 +619,7 @@ if (isset($_SESSION['id'])) { ?>
       resetSessionTimeout();
     </script>
 
+      
 
 
     <!--<script>

@@ -391,6 +391,9 @@ if (isset($_SESSION['id'])) { ?>
 
           <div class="m-5 p-5">
             <div class="row mt-2">
+              <div class="col-sm-12 mt-2 mt-lg-0 col-lg-3">
+                
+              </div>
               <div class="col-sm-12 mt-2 mt-md-0 col-lg-3" data-aos="fade-right" data-aos-delay="600" data-aos-duration="1000">
                 <div class="card">
                   <div class="card-body">
@@ -426,7 +429,7 @@ if (isset($_SESSION['id'])) { ?>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 mt-2 mt-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+              <!-- <div class="col-sm-12 mt-2 mt-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                 <div class="card">
                   <div class="card-body">
                     <span class="fw-bolder text-primary fs-11 d-block mb-7">Atleta+</span>
@@ -464,12 +467,12 @@ if (isset($_SESSION['id'])) { ?>
                     <button class="btn btn-primary fw-bolder rounded-2 py-6 w-100 text-capitalize">Saber Mais</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="col-sm-12 mt-2 mt-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                 <div class="card">
                   <div class="card-body">
                     <span class="fw-bolder text-success fs-11 d-block mb-7">Clube</span>
-                    <h2 class="fw-bolder fs-9 mb-3">Grátis</h2>
+                    <h2 class="fw-bolder fs-9 mb-3">Sob consulta</h2>
                     <ul class="list-unstyled mb-7 fs-5">
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
@@ -477,7 +480,7 @@ if (isset($_SESSION['id'])) { ?>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
-                        <span class="text-dark">Gestão Campos (1 campo)</span>
+                        <span class="text-dark">Gestão Campos (N campo)</span>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
@@ -485,22 +488,25 @@ if (isset($_SESSION['id'])) { ?>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
                         <i class="ti ti-check text-primary fs-4"></i>
-                        <span class="text-dark">Acesso à Comunidade</span>
+                        <span class="text-dark">Comunidade</span>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
-                        <i class="ti ti-x text-primary fs-4"></i>
-                        <span class="text-muted">Equipas e Torneios</span>
+                        <i class="ti ti-check text-primary fs-4"></i>
+                        <span class="text-dark">Equipas e Torneios</span>
                       </li>
                       <li class="d-flex align-items-center gap-2 py-2">
-                        <i class="ti ti-x text-primary fs-4"></i>
-                        <span class="text-muted">Resultados</span>
+                        <i class="ti ti-check text-primary fs-4"></i>
+                        <span class="text-dark">Resultados</span>
                       </li>
                     </ul>
                     <button class="btn btn-success fw-bolder rounded-2 py-6 w-100 text-capitalize">Saber Mais</button>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 mt-2 mt-lg-0 col-lg-3" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
+              <div class="col-sm-12 mt-2 mt-lg-0 col-lg-3">
+
+              </div>
+              <!-- <div class="col-sm-12 mt-2 mt-lg-0 col-lg-3" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
                 <div class="card">
                   <div class="card-body">
                     <span class="fw-bolder text-success fs-11 d-block mb-7">Clube+</span>
@@ -538,7 +544,7 @@ if (isset($_SESSION['id'])) { ?>
                     <button class="btn btn-success fw-bolder rounded-2 py-6 w-100 text-capitalize">Saber Mais</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
 

@@ -38019,7 +38019,18 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .hover-img3:hover {
   transform: scale(1.02);
+
 }
+
+.hover-img4 {
+  transition: all 0.2s ease-in 0s;
+}
+.hover-img4:hover {
+  transform: scale(1.08);
+  z-index: 9999;
+
+}
+
 
 .z-1 {
   position: relative;

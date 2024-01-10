@@ -1,3 +1,4 @@
+let imagemGrupoOriginal = "";
 function getAtletasGrupo(pagina) {
   let urlParams = new URLSearchParams(window.location.search);
   let id = urlParams.get("id");
@@ -235,8 +236,6 @@ function adicionarLinksPaginacaoMarcacoesConcluidas(paginasTotais, paginaAtual) 
   });
 }
 
-
-
 function getBotoesMenus() {
   let urlParams = new URLSearchParams(window.location.search);
   let id = urlParams.get("id");
@@ -385,7 +384,9 @@ function getInfoEditGrupo() {
   })
 
     .done(function (msg) {
-      $("#bodyModalEditarGrupo").html(msg);
+      let obj = JSON.parse(msg);
+      $("#bodyModalEditarGrupo").html(obj.msg);
+      imagemGrupoOriginal = obj.img;
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -531,7 +532,7 @@ function removerMembroGrupo(id) {
 
 $("#modalEditarGrupo").on("hidden.bs.modal", function () {
   var image = document.getElementById("imgGrupo");
-  image.src = "../../dist/images/backgrounds/g.png";
+  image.src = "../../dist/" + imagemGrupoOriginal;
 
   document.getElementById("imgGrupoEdit").value = "";
 });
