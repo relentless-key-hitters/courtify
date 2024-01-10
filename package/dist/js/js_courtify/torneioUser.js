@@ -27,14 +27,13 @@ function getTorneiosAbertosUser() {
             torneiosFutsal.forEach(el => {
                 nivel = el.nivelTorneio;
                 const dateParts = el.dataTorneio.split('-');
-                const formattedDate = `${dateParts[1]}/${dateParts[2]}`;
+                const dataFormatada = `${dateParts[1]}/${dateParts[2]}`;
 
-                // Assuming el.horaTorneio is in "HH:MM:SS" format
-                const timeParts = el.horaTorneio.split(':');
-                const formattedTime = `${timeParts[0]}:${timeParts[1]}`;
 
-                // Final formatted strings
-                const finalFormattedDate = `${formattedDate} ${formattedTime}`;
+                const parteTempo = el.horaTorneio.split(':');
+                const dataForm = `${parteTempo[0]}:${parteTempo[1]}`;
+
+                const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
                 msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
@@ -44,7 +43,7 @@ function getTorneiosAbertosUser() {
 
                                             <div class="d-flex align-items-center mt-2">
                                             <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4" style="background-color: #f0f0f0">
-                                                <i class="ti ti-clock-hour-3 me-1"></i>${formattedDate} (${formattedTime})
+                                                <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                             </span>
                                             </div>
 
@@ -85,15 +84,14 @@ function getTorneiosAbertosUser() {
             nivel = "";
             torneiosBasquetebol.forEach(el => {
                 nivel = el.nivelTorneio;
-                const dateParts = el.dataTorneio.split('-');
-                const formattedDate = `${dateParts[1]}/${dateParts[2]}`;
+                const parteData = el.dataTorneio.split('-');
+                const dataFormatada = `${parteData[1]}/${parteData[2]}`;
 
-                // Assuming el.horaTorneio is in "HH:MM:SS" format
-                const timeParts = el.horaTorneio.split(':');
-                const formattedTime = `${timeParts[0]}:${timeParts[1]}`;
 
-                // Final formatted strings
-                const finalFormattedDate = `${formattedDate} ${formattedTime}`;
+                const parteTempo = el.horaTorneio.split(':');
+                const dataForm = `${parteTempo[0]}:${parteTempo[1]}`;
+
+                const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
                 msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
@@ -103,7 +101,7 @@ function getTorneiosAbertosUser() {
 
                                             <div class="d-flex align-items-center mt-2">
                                             <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4" style="background-color: #f0f0f0">
-                                                <i class="ti ti-clock-hour-3 me-1"></i>${formattedDate} (${formattedTime})
+                                                <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                             </span>
                                             </div>
 
@@ -143,15 +141,14 @@ function getTorneiosAbertosUser() {
             nivel = "";
             torneiosPadel.forEach(el => {
                 nivel = el.nivelTorneio;
-                const dateParts = el.dataTorneio.split('-');
-                const formattedDate = `${dateParts[1]}/${dateParts[2]}`;
+                const parteData = el.dataTorneio.split('-');
+                const dataFormatada = `${parteData[1]}/${parteData[2]}`;
 
-                // Assuming el.horaTorneio is in "HH:MM:SS" format
-                const timeParts = el.horaTorneio.split(':');
-                const formattedTime = `${timeParts[0]}:${timeParts[1]}`;
 
-                // Final formatted strings
-                const finalFormattedDate = `${formattedDate} ${formattedTime}`;
+                const parteTempo = el.horaTorneio.split(':');
+                const dataForm = `${parteTempo[0]}:${parteTempo[1]}`;
+
+                const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
                 msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
@@ -161,7 +158,7 @@ function getTorneiosAbertosUser() {
 
                                             <div class="d-flex align-items-center mt-2">
                                             <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4" style="background-color: #f0f0f0">
-                                                <i class="ti ti-clock-hour-3 me-1"></i>${formattedDate} (${formattedTime})
+                                                <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                             </span>
                                             </div>
 
@@ -201,15 +198,14 @@ function getTorneiosAbertosUser() {
             nivel = "";
             torneiosTenis.forEach(el => {
                 nivel = el.nivelTorneio;
-                const dateParts = el.dataTorneio.split('-');
-                const formattedDate = `${dateParts[1]}/${dateParts[2]}`;
+                const parteData = el.dataTorneio.split('-');
+                const dataFormatada = `${parteData[1]}/${parteData[2]}`;
 
-                // Assuming el.horaTorneio is in "HH:MM:SS" format
-                const timeParts = el.horaTorneio.split(':');
-                const formattedTime = `${timeParts[0]}:${timeParts[1]}`;
 
-                // Final formatted strings
-                const finalFormattedDate = `${formattedDate} ${formattedTime}`;
+                const parteTempo = el.horaTorneio.split(':');
+                const dataForm = `${parteTempo[0]}:${parteTempo[1]}`;
+
+                const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
                 msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
@@ -219,7 +215,7 @@ function getTorneiosAbertosUser() {
 
                                             <div class="d-flex align-items-center mt-2">
                                             <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-4" style="background-color: #f0f0f0">
-                                                <i class="ti ti-clock-hour-3 me-1"></i>${formattedDate} (${formattedTime})
+                                                <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                             </span>
                                             </div>
 
