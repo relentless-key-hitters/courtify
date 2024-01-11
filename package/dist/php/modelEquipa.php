@@ -367,15 +367,17 @@ class Equipa
         $msg = "";
         $tabela = "";
         $nome = "";
+        $modalidade = "";
         $sql2 = "SELECT modalidade.descricao 
         FROM modalidade INNER JOIN 
         comunidade ON comunidade.id_modalidade = modalidade.id
         WHERE comunidade.id = ".$id;
         $result2 = $conn -> query($sql2);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+        if ($result2->num_rows > 0) {
+            while ($row = $result2->fetch_assoc()) {
+                $modalidade = $row['descricao'];
                 if($row['descricao'] == "Basquetebol"){
-                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,temp2.ranking
+                    $tabela.="SELECT user.id, user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,temp2.ranking, info_basquetebol.n_jogos, info_basquetebol.n_vitorias
                     FROM atleta
                     INNER JOIN 
                     info_basquetebol ON atleta.id_atleta = info_basquetebol.id_atleta
@@ -385,7 +387,7 @@ class Equipa
                     concelho.id = user.localidade,";
                     $nome ="info_basquetebol";
                 }else if($row['descricao'] == "Futsal"){
-                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,temp2.ranking
+                    $tabela.="SELECT user.id, user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,temp2.ranking, info_futsal.n_jogos, info_futsal.n_vitorias
                     FROM atleta
                     INNER JOIN 
                     info_futsal ON atleta.id_atleta = info_futsal.id_atleta
@@ -395,7 +397,7 @@ class Equipa
                     concelho.id = user.localidade,";
                     $nome ="info_futsal";
                 }else if($row['descricao'] == "Padel"){
-                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade, nivel_padel.descricao AS nivel,lado_atleta.descricao AS lado,temp2.ranking
+                    $tabela.="SELECT user.id, user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade, nivel_padel.descricao AS nivel, lado_atleta.descricao AS lado,temp2.ranking, info_padel.n_jogos, info_padel.n_vitorias
                     FROM atleta
                     INNER JOIN 
                     info_padel ON atleta.id_atleta = info_padel.id_atleta
@@ -409,7 +411,7 @@ class Equipa
                     nivel_padel.id = info_padel.nivel,";
                     $nome ="info_padel";
                 }else{
-                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,lado_atleta.descricao AS lado,temp2.ranking
+                    $tabela.="SELECT user.id, user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,lado_atleta.descricao AS lado,temp2.ranking, info_tenis.n_jogos, info_tenis.n_vitorias
                     FROM atleta
                     INNER JOIN 
                     info_tenis ON atleta.id_atleta = info_tenis.id_atleta
@@ -436,7 +438,7 @@ class Equipa
         WHERE atleta.id_atleta IN (
             SELECT comunidade_atletas.id_atleta
            FROM comunidade_atletas 
-           WHERE comunidade_atletas.id_comunidade = 3
+           WHERE comunidade_atletas.id_comunidade = ".$id."
         ) 
         AND temp2.atleta = atleta.id_atleta
         ORDER BY ".$nome.".ranking DESC
@@ -446,27 +448,34 @@ class Equipa
         
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $percVit = round(($row['n_vitorias']/$row['n_jogos'])*100, 2, PHP_ROUND_HALF_UP);
                 $msg .= "<div class='col-12 col-sm-6 col-md-6 col-lg-3' data-aos='fade-down-right' data-aos-delay='400' data-aos-duration='1500'>
                 <div class='card rounded-0 hover-img4'>
                 <div class='d-flex flex-column align-items-center justify-content-center'>
-                    <img src='../../dist/images/equipas/top_atletas_equipa_1.png' class='position-absolute top-0 start-0 mt-2 ms-2' style='max-width: 40px;'></img>
+                <img src='../../dist/images/equipas/top_atletas_equipa_1.png' class='position-absolute top-0 start-0 mt-2 ms-2' style='max-width: 40px;'></img>
                     <div class='mt-5'>
-                    <img src='../../dist/".$row['foto']."' data-toggle='tooltip' data-bs-placement='top' class='img-fluid rounded-circle ' style='max-width: 70px;' aria-label='".$row['nome']."' data-bs-original-title='António Silva'>
+                    <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/".$row['foto']."' data-toggle='tooltip' data-bs-placement='top' class='img-fluid rounded-circle ' style='max-width: 70px;' aria-label='".$row['nome']."' data-bs-original-title='António Silva'></a>
                     </div>
                     <div class='p-1 text-center'>
                     <div class=''>
                         <span class='fs-4'>".$row['nome']."</span>
                     </div>
                     <div class=''>
-                        <span class='fs-2'><i class='ti ti-map-pin me-1'></i>Évora</span>
-                    </div>
+                        <span class='fs-2'><i class='ti ti-map-pin me-1'></i>".$row['localidade']."</span><br>";
+
+                if($modalidade == "Padel"){
+                    $msg .= "<span class='fs-2'>Nível: ".$row['nivel']."</span><br>";
+                    $msg .= "<span class='fs-2'>Lado: ".$row['lado']."</span>";
+                }else{
+
+                }
+                    $msg .="</div>
                     </div>
                     <div class='row container mt-2'>
                     <div class='col-md-12 text-center'>
                         <div class='card shadow border border-2 border-light rounded-0'>
-                        <span class='fs-2'><i class='ti ti-chart-line'></i> Ranking Geral:</span> <span id='rankingEquipa' class='fw-bolder'>25º</span>
-                        <span class='fs-2'><i class='ti ti-chart-bar'></i> Ranking Equipa:</span> <span id='rankingEquipa' class='fw-bolder'>3º</span>
-                        <span class='fs-2'><i class='ti ti-chart-bar'></i> Ranking Equipa:</span> <span id='rankingEquipa' class='fw-bolder'>3º</span>
+                        <span class='fs-2'><i class='ti ti-chart-line'></i> Ranking Geral:</span> <span class='fw-bolder'>".$row['ranking']."</span>
+                        <span class='fs-2'><i class='ti ti-bolt fs-5 ms-1'></i> % Vitórias:</span> <span class='fw-bolder'>".$percVit." %</span>
                         </div>
                     </div>
                     </div>
@@ -475,6 +484,8 @@ class Equipa
             </div>";
             }
         }
+        $conn -> close();
+        return($msg);
         
     }
 }

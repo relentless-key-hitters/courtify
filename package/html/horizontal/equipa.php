@@ -278,35 +278,8 @@ if (isset($_SESSION['id'])) { ?>
             <div class="p-3">
               <h4 class="fw-semibold mb-1 pb-2 text-center fs-6 border-2 border-bottom border-light">Top Atletas<i class='ti ti-info-circle ms-1' data-toggle="tooltip" data-bs-placement="top" title='Aqui podes explorar quais os melhores atletas desta equipa.'></i></h4>
             </div>
-            <div class="p-3" id="topAtletas">
-              <div class="row g-1">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-down-right" data-aos-delay="400" data-aos-duration="1500">
-                  <div class="card rounded-0 hover-img4">
-                    <div class="d-flex flex-column align-items-center justify-content-center">
-                      <img src="../../dist/images/equipas/top_atletas_equipa_1.png" class="position-absolute top-0 start-0 mt-2 ms-2" style="max-width: 40px;"></img>
-                      <div class="mt-5">
-                        <img src="../../dist/images/utilizadores/21/user20231217194048.jpg" data-toggle="tooltip" data-bs-placement="top" class="img-fluid rounded-circle " style="max-width: 70px;" aria-label="António Silva" data-bs-original-title="António Silva">
-                      </div>
-                      <div class="p-1 text-center">
-                        <div class="">
-                          <span class="fs-4">António Silva</span>
-                        </div>
-                        <div class="">
-                          <span class="fs-2"><i class="ti ti-map-pin me-1"></i>Évora</span>
-                        </div>
-                      </div>
-                      <div class="row container mt-2">
-                        <div class="col-md-12 text-center">
-                          <div class="card shadow border border-2 border-light rounded-0">
-                            <span class="fs-2"><i class="ti ti-chart-line"></i> Ranking Geral:</span> <span id="rankingEquipa" class="fw-bolder">25º</span>
-                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
-                            <span class="fs-2"><i class="ti ti-chart-bar"></i> Ranking Equipa:</span> <span id="rankingEquipa" class="fw-bolder">3º</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div class="p-3" >
+              <div class="row g-1" id="cardsTopAtletas">
               </div>
             </div>
           </div>

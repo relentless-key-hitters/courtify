@@ -202,7 +202,7 @@ function adicionarLinksPaginacaoAtletasEquipa(paginasTotais, paginaAtual) {
     })
   
     .done(function (msg) {
-      
+      $("#cardsTopAtletas").html(msg)
     })
   
     .fail(function (jqXHR, textStatus) {
@@ -214,4 +214,5 @@ function adicionarLinksPaginacaoAtletasEquipa(paginasTotais, paginaAtual) {
     getAtletasEquipa(1);
     getInfoEquipa();
     getEstatisticasEquipa();
+    getTopAltetas();
   });
