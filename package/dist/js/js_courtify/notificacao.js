@@ -4,6 +4,7 @@ let flagNotifGeral = false;
 let flagNotifVot = false;
 let flagNotifPA = false;
 let flagNotifConv = false;
+let flagNotifPedGrupo = false;
 
 function getNotificacao(){
 
@@ -27,7 +28,7 @@ function getNotificacao(){
                 flagNotifVot = true;
                 $("#notificacaoAtiva").removeClass("d-none")
             }else if(msg.length == 0){
-                if(flagNotifPA === false && flagNotifConv === false){
+                if(flagNotifPA === false && flagNotifConv === false && flagNotifPedGrupo == false){
                     flagNotifVot = false;
                     flagNotifGeral = false;
                     $("#notificacaoAtiva").addClass("d-none")
@@ -253,14 +254,13 @@ function getNotificacaoConviteMarcacao() {
                 flagNotifConv = true;
                 $("#notificacaoAtiva").removeClass("d-none")
             }else if(msg.length == 0){
-                if(flagNotifPA === false && flagNotifVot === false){
+                if(flagNotifConv === false && flagNotifVot === false && flagNotifPedGrupo == false){
                     flagNotifConv = false;
                     flagNotifGeral = false;
                     $("#notificacaoAtiva").addClass("d-none")
                 }else{
                     flagNotifConv = false;
                 }
-                
             }
         })
         
@@ -377,7 +377,7 @@ function notificacaoPedidoAmizade() {
                 flagNotifPA = true;
                 $("#notificacaoAtiva").removeClass("d-none")
             }else if(msg.length == 0){
-                if(flagNotifConv === false && flagNotifVot === false){
+                if(flagNotifConv === false && flagNotifVot === false && flagNotifPedGrupo == false){
                     flagNotifPA = false;
                     flagNotifGeral = false;
                     $("#notificacaoAtiva").addClass("d-none")
@@ -488,7 +488,21 @@ function getNotificacaoJuntarGrupo() {
         })
 
     .done(function(msg) {
-        $("#divNotificacoesPedidoAmizade").html(msg)
+        $("#divNotificacoesConviteGrupo").html(msg)
+        if(flagNotifGeral === false && msg.length != 0){
+            flagNotifGeral = true;
+            flagNotifPedGrupo = true;
+            $("#notificacaoAtiva").removeClass("d-none")
+        }else if(msg.length == 0){
+            if(flagNotifConv === false && flagNotifVot === false && flagNotifPA == false){
+                flagNotifPedGrupo = false;
+                flagNotifGeral = false;
+                $("#notificacaoAtiva").addClass("d-none")
+            }else{
+                flagNotifPedGrupo = false;
+            }
+            
+        }
     })
 
     .fail(function( jqXHR, textStatus ) {
@@ -553,13 +567,6 @@ function rejeitarPedidoGrupo(id){
             alert( "Request failed: " + textStatus );
         });
 }
-
-
-
-
-
-
-
 
 
 function alerta2(titulo,msg,icon){

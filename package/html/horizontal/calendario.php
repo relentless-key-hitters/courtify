@@ -102,6 +102,9 @@ if (isset($_SESSION['id'])) { ?>
                       <div id="divNotificacoesPedidoAmizade">
 
                       </div>
+                      <div id="divNotificacoesConviteGrupo">
+
+                      </div>
                     </div>
                     <div class="py-6 px-7 mb-1">
                       <button class="btn btn-outline-primary w-100"> Ver Tudo </button>
