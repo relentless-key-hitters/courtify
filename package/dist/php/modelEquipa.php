@@ -446,14 +446,14 @@ class Equipa
         LIMIT 4";
 
         $result = $conn -> query($sql);
-        
+        $cont = 1;
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $percVit = round(($row['n_vitorias']/$row['n_jogos'])*100, 2, PHP_ROUND_HALF_UP);
                 $msg .= "<div class='col-12 col-sm-6 col-md-6 col-lg-3' data-aos='fade-down-right' data-aos-delay='400' data-aos-duration='1500'>
                 <div class='card rounded-0 hover-img4'>
                 <div class='d-flex flex-column align-items-center justify-content-center'>
-                <img src='../../dist/images/equipas/top_atletas_equipa_1.png' class='position-absolute top-0 start-0 mt-2 ms-2' style='max-width: 40px;'></img>
+                <img src='../../dist/images/equipas/top_atletas_equipa_".$cont.".png' class='position-absolute top-0 start-0 mt-2 ms-2' style='max-width: 40px;'></img>
                     <div class='mt-5'>
                     <a href='./perfil.php?id=" . $row['id'] . "'><img src='../../dist/".$row['foto']."' data-toggle='tooltip' data-bs-placement='top' class='img-fluid rounded-circle ' style='max-width: 70px;' aria-label='".$row['nome']."' data-bs-original-title='António Silva'></a>
                     </div>
@@ -483,6 +483,7 @@ class Equipa
                 </div>
                 </div>
             </div>";
+            $cont ++;
             }
         }
         $conn -> close();
