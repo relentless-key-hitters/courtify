@@ -259,51 +259,135 @@ if (isset($_SESSION['id'])) { ?>
 
                         <div class="tab-pane fade show active" id="pills-padel" role="tabpanel" aria-labelledby="pills-padel-tab" tabindex="0">
                           <div class="card-text pt-5">
-                            <div class="row" id="torneiosPadel">
-                              
+                            <div class="row d-none" id="bodyTorneiosPadelResultados">
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Avançado</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosPadelAvancado">
+
+
+                                </ol>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Intermediário</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosPadelIntermediario">
+
+
+                                </ol>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Principiante</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosPadelPrincipiante">
+
+
+                                </ol>
+                              </div>
+                            </div>
+                            <div class="row d-none" id="bodyTorneiosPadelSemResultados">
+                              <div class='text-center mt-5'>
+                                <h3>Sem resultados!</h3>
+                                <p>De momento não há torneios disponiveís para te juntares nesta Modalidade. Verifica mais tarde.</p>
+                              </div>
                             </div>
                           </div>
                         </div>
 
                         <div class="tab-pane fade show" id="pills-tenis" role="tabpanel" aria-labelledby="pills-tenis-tab" tabindex="0">
                           <div class="card-text pt-5">
-                            <div class="row" id="torneiosTenis">
-                              
+                            <div class="row d-none" id="bodyTorneiosTenisResultados">
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Avançado</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosTenisAvancado">
+
+
+                                </ol>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Intermediário</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosTenisIntermediario">
+
+
+                                </ol>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Principiante</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosTenisPrincipiante">
+
+
+                                </ol>
+                              </div>
+                            </div>
+                            <div class="row d-none" id="bodyTorneiosTenisSemResultados">
+                              <div class='text-center mt-5'>
+                                <h3>Sem resultados!</h3>
+                                <p>De momento não há torneios disponiveís para te juntares nesta Modalidade. Verifica mais tarde.</p>
+                              </div>
                             </div>
                           </div>
                         </div>
 
                         <div class="tab-pane fade show" id="pills-basket" role="tabpanel" aria-labelledby="pills-basket-tab" tabindex="0">
                           <div class="card-text pt-5">
-                            <div class="row" id="torneiosBasquetebol">
-                              
+                            <div class="row d-none" id="bodyTorneiosBasquetebolResultados">
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Avançado</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosBasquetebolAvancado">
+
+
+                                </ol>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Intermediário</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosBasquetebolIntermediario">
+
+
+                                </ol>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Principiante</h5>
+                                <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosBasquetebolPrincipiante">
+
+
+                                </ol>
+                              </div>
+                            </div>
+                            <div class="row d-none" id="bodyTorneiosBasquetebolSemResultados">
+                              <div class='text-center mt-5'>
+                                <h3>Sem resultados!</h3>
+                                <p>De momento não há torneios disponiveís para te juntares nesta Modalidade. Verifica mais tarde.</p>
+                              </div>
                             </div>
                           </div>
                         </div>
 
                         <div class="tab-pane fade show" id="pills-futsal" role="tabpanel" aria-labelledby="pills-futsal-tab" tabindex="0">
                           <div class="card-text pt-5">
-                            <div class="row">
-                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <div class="row d-none" id="bodyTorneiosFutsalResultados">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                 <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Avançado</h5>
                                 <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosFutsalAvancado">
-                                  
-                                  
+
+
                                 </ol>
                               </div>
-                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                 <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Intermediário</h5>
                                 <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosFutsalIntermediario">
-                                  
-                                  
+
+
                                 </ol>
                               </div>
-                              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                 <h5 class="card-title mt-sm-4 mt-md-0 mb-3 text-center fs-7">Principiante</h5>
                                 <ol class="list-group list-group-numbered text-center" style="font-size: 1.2em; padding-left: 0;" id="torneiosFutsalPrincipiante">
-                                  
-                                  
+
+
                                 </ol>
+                              </div>
+                            </div>
+                            <div class="row d-none" id="bodyTorneiosFutsalSemResultados">
+                              <div class='text-center mt-5'>
+                                <h3>Sem resultados!</h3>
+                                <p>De momento não há torneios disponiveís para te juntares nesta Modalidade. Verifica mais tarde.</p>
                               </div>
                             </div>
                           </div>
@@ -612,6 +696,29 @@ if (isset($_SESSION['id'])) { ?>
               </button>
               <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start mb-3 mt-3" data-bs-dismiss="modal" id="rejeitar">
                 Rejeitar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalInscreverTorneio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modalInscreverTorneio" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content" >
+            <div class="modal-header d-flex align-items-center">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+            <span>Estás prestes a a juntar-te a este Torneio.<br></span>
+            <small>Caso o faças, poderás sempre cancelar antes de o mesmo coemçar.</small>
+            <h5 class='mt-3'>Juntar?</h5>
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start" data-bs-dismiss="modal" onclick="juntarTorneio()">
+                Sim
+              </button>
+              <button type="button" class="btn btn-light text-primary font-medium waves-effect text-start" data-bs-dismiss="modal">
+                Fechar
               </button>
             </div>
           </div>

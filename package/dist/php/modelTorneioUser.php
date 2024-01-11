@@ -16,7 +16,7 @@ class TorneioUser {
                 torneio.id AS idTorneio,
                 torneio.foto AS fotoTorneio,
                 torneio.id_clube AS idClube,
-                user.nome AS nomeClube,
+                user_clube.nome AS nomeClube,
                 torneio.descricao AS descricaoTorneio,
                 torneio.`data` AS dataTorneio,
                 torneio.hora AS horaTorneio,
@@ -26,14 +26,20 @@ class TorneioUser {
                 torneio.estado AS estadoTorneio,
                 torneio.obs AS observacoesTorneio,
                 modalidade.descricao AS modalidadeTorneio
-                FROM torneio
-                INNER JOIN
-                user ON torneio.id_clube = user.id
-                INNER JOIN
+            FROM 
+                torneio
+            INNER JOIN
+                user AS user_clube ON torneio.id_clube = user_clube.id
+            INNER JOIN
                 modalidade ON torneio.modalidade = modalidade.id
-                WHERE torneio.estado = 'nc'
+            WHERE 
+                torneio.estado = 'nc'
                 AND torneio.`data` >= CURDATE()
-                ORDER BY torneio.`data` DESC, torneio.hora DESC";
+                AND NOT EXISTS (
+                    SELECT 1 FROM torneio_atleta WHERE torneio_atleta.id_torneio = torneio.id AND torneio_atleta.id_atleta = ".$_SESSION['id']."
+                )
+            ORDER BY 
+                torneio.`data` DESC, torneio.hora DESC;";
 
         $result = $conn->query($sql);
 
@@ -68,6 +74,36 @@ class TorneioUser {
             "arrayTorneioBasquetebol" => $arrayTorneioBasquetebol,
             "arrayTorneioPadel" => $arrayTorneioPadel,
             "arrayTorneioTenis" => $arrayTorneioTenis,
+        ));
+
+        return ($resp);
+    }
+
+    function juntarTorneio($idTorneio) {
+
+        global $conn;
+        $title = "";
+        $icon = "";
+        $msg = "";
+
+        $sql = "INSERT INTO torneio_atleta (id_torneio, id_atleta) VALUES ('" . $idTorneio . "', '" . $_SESSION['id'] . "')";
+        
+        if ($conn->query($sql) === TRUE) {
+            $title = "Sucesso";
+            $icon = "success";
+            $msg = "Juntaste-te a este Torneio com sucesso.";
+        } else {
+            $title = "Erro";
+            $icon = "error";
+            $msg = "Não foi possível juntares-te a este Torneio. Tenta novamente mais tarde.";
+        }
+
+        $conn->close();
+
+        $resp = json_encode(array(
+            "title" => $title,
+            "icon" => $icon,
+            "msg" => $msg
         ));
 
         return ($resp);
