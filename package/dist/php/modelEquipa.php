@@ -466,8 +466,8 @@ class Equipa
                 if($modalidade == "Padel"){
                     $msg .= "<span class='fs-2'>Nível: ".$row['nivel']."</span><br>";
                     $msg .= "<span class='fs-2'>Lado: ".$row['lado']."</span>";
-                }else{
-
+                }else if($modalidade == "Ténis"){
+                    $msg .= "<span class='fs-2'>Lado: ".$row['lado']."</span>";
                 }
                     $msg .="</div>
                     </div>
