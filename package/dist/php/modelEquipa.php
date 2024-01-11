@@ -363,7 +363,119 @@ class Equipa
 
 
     function getTopAltetas($id){
+        global $conn;
+        $msg = "";
+        $tabela = "";
+        $nome = "";
+        $sql2 = "SELECT modalidade.descricao 
+        FROM modalidade INNER JOIN 
+        comunidade ON comunidade.id_modalidade = modalidade.id
+        WHERE comunidade.id = ".$id;
+        $result2 = $conn -> query($sql2);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if($row['descricao'] == "Basquetebol"){
+                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,temp2.ranking
+                    FROM atleta
+                    INNER JOIN 
+                    info_basquetebol ON atleta.id_atleta = info_basquetebol.id_atleta
+                    INNER JOIN user ON 
+                    user.id = atleta.id_atleta
+                    INNER JOIN concelho ON 
+                    concelho.id = user.localidade,";
+                    $nome ="info_basquetebol";
+                }else if($row['descricao'] == "Futsal"){
+                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,temp2.ranking
+                    FROM atleta
+                    INNER JOIN 
+                    info_futsal ON atleta.id_atleta = info_futsal.id_atleta
+                    INNER JOIN user ON 
+                    user.id = atleta.id_atleta
+                    INNER JOIN concelho ON 
+                    concelho.id = user.localidade,";
+                    $nome ="info_futsal";
+                }else if($row['descricao'] == "Padel"){
+                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade, nivel_padel.descricao AS nivel,lado_atleta.descricao AS lado,temp2.ranking
+                    FROM atleta
+                    INNER JOIN 
+                    info_padel ON atleta.id_atleta = info_padel.id_atleta
+                    INNER JOIN user ON 
+                    user.id = atleta.id_atleta
+                    INNER JOIN concelho ON 
+                    concelho.id = user.localidade
+                    INNER JOIN lado_atleta ON 
+                    lado_atleta.id = info_padel.id_lado
+                    INNER JOIN nivel_padel ON 
+                    nivel_padel.id = info_padel.nivel,";
+                    $nome ="info_padel";
+                }else{
+                    $tabela.="SELECT user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,lado_atleta.descricao AS lado,temp2.ranking
+                    FROM atleta
+                    INNER JOIN 
+                    info_tenis ON atleta.id_atleta = info_tenis.id_atleta
+                    INNER JOIN user ON 
+                    user.id = atleta.id_atleta
+                    INNER JOIN concelho ON 
+                    concelho.id = user.localidade
+                    INNER JOIN lado_atleta ON 
+                    lado_atleta.id = info_tenis.id_lado,";
+                    $nome ="info_tenis";
+                }
+            }
+        }
 
+        $sql = $tabela."
+        (
+           SELECT temp.posicao AS ranking, temp.atleta AS atleta
+           FROM (
+              SELECT ROW_NUMBER() OVER (ORDER BY ranking DESC) AS posicao, ranking, id_atleta AS atleta
+              FROM ".$nome."
+              ORDER BY ranking DESC
+           )AS temp
+        )AS temp2
+        WHERE atleta.id_atleta IN (
+            SELECT comunidade_atletas.id_atleta
+           FROM comunidade_atletas 
+           WHERE comunidade_atletas.id_comunidade = 3
+        ) 
+        AND temp2.atleta = atleta.id_atleta
+        ORDER BY ".$nome.".ranking DESC
+        LIMIT 4";
+
+        $result = $conn -> query($sql);
+        
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<div class='col-12 col-sm-6 col-md-6 col-lg-3' data-aos='fade-down-right' data-aos-delay='400' data-aos-duration='1500'>
+                <div class='card rounded-0 hover-img4'>
+                <div class='d-flex flex-column align-items-center justify-content-center'>
+                    <img src='../../dist/images/equipas/top_atletas_equipa_1.png' class='position-absolute top-0 start-0 mt-2 ms-2' style='max-width: 40px;'></img>
+                    <div class='mt-5'>
+                    <img src='../../dist/".$row['foto']."' data-toggle='tooltip' data-bs-placement='top' class='img-fluid rounded-circle ' style='max-width: 70px;' aria-label='".$row['nome']."' data-bs-original-title='António Silva'>
+                    </div>
+                    <div class='p-1 text-center'>
+                    <div class=''>
+                        <span class='fs-4'>".$row['nome']."</span>
+                    </div>
+                    <div class=''>
+                        <span class='fs-2'><i class='ti ti-map-pin me-1'></i>Évora</span>
+                    </div>
+                    </div>
+                    <div class='row container mt-2'>
+                    <div class='col-md-12 text-center'>
+                        <div class='card shadow border border-2 border-light rounded-0'>
+                        <span class='fs-2'><i class='ti ti-chart-line'></i> Ranking Geral:</span> <span id='rankingEquipa' class='fw-bolder'>25º</span>
+                        <span class='fs-2'><i class='ti ti-chart-bar'></i> Ranking Equipa:</span> <span id='rankingEquipa' class='fw-bolder'>3º</span>
+                        <span class='fs-2'><i class='ti ti-chart-bar'></i> Ranking Equipa:</span> <span id='rankingEquipa' class='fw-bolder'>3º</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>";
+            }
+        }
+        
     }
 }
 
