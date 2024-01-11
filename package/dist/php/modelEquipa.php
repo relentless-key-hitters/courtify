@@ -387,12 +387,13 @@ class Equipa
                     concelho.id = user.localidade,";
                     $nome ="info_basquetebol";
                 }else if($row['descricao'] == "Futsal"){
-                    $tabela.="SELECT user.id, user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,temp2.ranking, info_futsal.n_jogos, info_futsal.n_vitorias
+                    $tabela.="SELECT user.id, user.nome AS nome, user.foto AS foto,concelho.descricao AS localidade,posicao_futsal.descricao AS posicao,temp2.ranking, info_futsal.n_jogos, info_futsal.n_vitorias
                     FROM atleta
                     INNER JOIN 
                     info_futsal ON atleta.id_atleta = info_futsal.id_atleta
                     INNER JOIN user ON 
                     user.id = atleta.id_atleta
+                    INNER JOIN posicao_futsal ON posicao_futsal.id = info_futsal.id_posicao
                     INNER JOIN concelho ON 
                     concelho.id = user.localidade,";
                     $nome ="info_futsal";
@@ -466,8 +467,8 @@ class Equipa
                 if($modalidade == "Padel"){
                     $msg .= "<span class='fs-2'>Nível: ".$row['nivel']."</span><br>";
                     $msg .= "<span class='fs-2'>Lado: ".$row['lado']."</span>";
-                }else if($modalidade == "Ténis"){
-                    $msg .= "<span class='fs-2'>Lado: ".$row['lado']."</span>";
+                }else if($modalidade == "Futsal"){
+                    $msg .= "<span class='fs-2'>Posição: ".$row['posicao']."</span>";
                 }
                     $msg .="</div>
                     </div>
