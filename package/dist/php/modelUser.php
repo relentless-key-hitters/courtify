@@ -907,32 +907,58 @@ class User
         $arrayHorasMarcacoesCalendario = array();
 
         $sql = "SELECT
-        marcacao.id as idMarcacao,
-        marcacao.id_atleta as idAtletaHost,
-        marcacao.data_inicio AS dataMarc, 
-        marcacao.hora_inicio AS horaMarcInicio,
-        marcacao.hora_fim AS horaMarcFim,  
-        modalidade.descricao AS modalidade, 
-        user.id AS idClube,
-        user.nome AS nomeClube, 
-        user.foto as fotoClube, 
-        user.nome AS nomeClube, 
-		campo.foto AS fotoCampo,
-		campo.nome AS nomeCampo,
-        listagem_atletas_marcacao.votacao as estadoVotacao 
-        FROM listagem_atletas_marcacao 
-        INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
-        INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
-        INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
-        INNER JOIN clube ON campo_clube.id_clube = clube.id_clube 
-        INNER JOIN user ON clube.id_clube = user.id
-        INNER JOIN campo ON campo_clube.id_campo = campo.id
-		WHERE listagem_atletas_marcacao.id_atleta = '" . $_SESSION['id'] . "'
-        AND listagem_atletas_marcacao.votacao = 2 
-        AND listagem_atletas_marcacao.estado = 1
-        AND marcacao.data_inicio >= CURRENT_DATE()
-        ORDER BY marcacao.data_inicio ASC
-        LIMIT 2";
+                'Marcação' AS tipo,
+                marcacao.id as idMarcacao,
+                marcacao.id_atleta as idAtletaHost,
+                marcacao.data_inicio AS dataMarc, 
+                marcacao.hora_inicio AS horaMarcInicio,
+                marcacao.hora_fim AS horaMarcFim,  
+                modalidade.descricao AS modalidade, 
+                user.id AS idClube,
+                user.nome AS nomeClube, 
+                user.foto as fotoClube, 
+                user.nome AS nomeClube, 
+                campo.foto AS fotoCampo,
+                campo.nome AS nomeCampo,
+                listagem_atletas_marcacao.votacao as estadoVotacao 
+                FROM listagem_atletas_marcacao 
+                INNER JOIN marcacao ON marcacao.id = listagem_atletas_marcacao.id_marcacao 
+                INNER JOIN campo_clube ON marcacao.id_campo = campo_clube.id_campo 
+                INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id 
+                INNER JOIN clube ON campo_clube.id_clube = clube.id_clube 
+                INNER JOIN user ON clube.id_clube = user.id
+                INNER JOIN campo ON campo_clube.id_campo = campo.id
+                WHERE listagem_atletas_marcacao.id_atleta = ".$_SESSION['id']."
+                AND listagem_atletas_marcacao.votacao = 2 
+                AND listagem_atletas_marcacao.estado = 1
+                AND marcacao.data_inicio >= CURRENT_DATE()
+                
+            
+            UNION
+            
+            SELECT
+                'Torneio' AS tipo,
+                torneio.id AS idMarcacao,
+                torneio.id_clube AS idAtletaHost,
+                torneio.`data` AS dataMarc,
+                torneio.hora AS horaMarcInicio,
+                0 AS horMarcFim,
+                modalidade.descricao AS modalidade,
+                user.id AS idClube,
+                user.nome AS nomeClube,
+                user.foto AS fotoClube,
+                user.nome AS nomeClube,
+                torneio.foto AS fotoCampo,
+                torneio.descricao AS nomeCampo,
+                NULL AS estadoVotacao
+                FROM
+                torneio
+                INNER JOIN modalidade ON torneio.modalidade = modalidade.id
+                INNER JOIN user ON torneio.id_clube = user.id
+                INNER JOIN torneio_atleta ON torneio.id = torneio_atleta.id_torneio
+                WHERE torneio_atleta.id_atleta = ".$_SESSION['id']."
+                ORDER BY dataMarc ASC, horaMarcInicio ASC
+            LIMIT 2 ";
 
         $result = $conn->query($sql);
         $horaA = "";
@@ -953,7 +979,7 @@ class User
 
                         $msgA = "<div class='col-lg-12'>
                         <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
-                            <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
+                            <img src='" . $row['fotoCampo'] . "' class='card-img-top object-fit-cover' style='max-height: 300px' alt='" . $row['nomeCampo'] . "'>
                             <div class='p-3'>
                                 <span class='fs-4 text-dark mt-2'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
                                 <h5 class='m-0 p-0 card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
@@ -1019,7 +1045,7 @@ class User
                             $msg .= $msgA;
                             $msg .= "<div class='col-lg-12'>
                             <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
-                                <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
+                                <img src='" . $row['fotoCampo'] . "' class='card-img-top object-fit-cover' style='max-height: 300px' alt='" . $row['nomeCampo'] . "'>
                                 <div class='p-3'>
                                     <span class='fs-4 text-dark mt-2'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
                                     <h5 class='m-0 p-0 card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>
@@ -1079,7 +1105,7 @@ class User
 
                             $msg .= "<div class='col-lg-12'>
                             <div class='card card-hover align-items-center shadow' style='margin: 20px 40px;'>
-                                <img src='" . $row['fotoCampo'] . "' class='card-img-top' alt='" . $row['nomeCampo'] . "'>
+                                <img src='" . $row['fotoCampo'] . "' class='card-img-top object-fit-cover' style='max-height: 300px' alt='" . $row['nomeCampo'] . "'>
                                 <div class='p-3'>
                                     <span class='fs-4 text-dark mt-1'>Nº: <span class='fw-bolder'>" . $row['idMarcacao'] . "</span></span>
                                     <h5 class='m-0 p-0 card-title fs-7'><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampo'] . "</h5>

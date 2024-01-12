@@ -212,7 +212,7 @@ if (isset($_SESSION['id'])) { ?>
         <div class="col-12 col-sm-12 col-md-3 text-center mt-5 mt-md-0">
           <div class="card shadow">
             <div class="container-fluid">
-              <h1 class="fw-semibold fs-7">Próximos Jogos</h1>
+              <h1 class="fw-semibold fs-7">Próximos Eventos</h1>
             </div>
             <div class="row" id="proximosJogosCalendario">
 

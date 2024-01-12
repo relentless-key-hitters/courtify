@@ -49,7 +49,8 @@ class TorneioUser {
                         SELECT DISTINCT torneio_atleta.id_torneio FROM torneio_atleta)) AS temp
             WHERE 
                 torneio.estado = 'nc'
-                AND torneio.`data` >= CURDATE()
+                AND MONTH(torneio.`data`) = MONTH(CURDATE())
+                AND YEAR(torneio.`data`) = YEAR(CURDATE())
                 AND NOT EXISTS (
                     SELECT 1 FROM torneio_atleta WHERE torneio_atleta.id_torneio = torneio.id AND torneio_atleta.id_atleta = ".$_SESSION['id']."
                 )
