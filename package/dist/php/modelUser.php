@@ -1201,7 +1201,7 @@ class User
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                if ($row['n_jogos'] != 0) {
+                if ($row['n_jogos'] >= 30) {
                     $ranking = ($row['n_vitorias'] / $row['n_jogos']) * 0.45 +
                                ($row['n_mvp'] / $row['n_jogos']) * 0.25;
                 } else {
@@ -1305,7 +1305,11 @@ class User
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $ranking = ($row['n_vitorias']/$row['n_jogos'])*0.45 + ($row['n_mvp']/$row['n_jogos'])*0.25 + ($row['n_set_ganhos']/$row['n_sets'])*0.3;
+                if ($row['n_jogos'] >= 30) {
+                    $ranking = ($row['n_vitorias']/$row['n_jogos'])*0.45 + ($row['n_mvp']/$row['n_jogos'])*0.25 + ($row['n_set_ganhos']/$row['n_sets'])*0.3;
+                }else{
+                    $ranking = 0;
+                }
                 if ($nVit >  $nDerr) {
                     if ($modalidade == "Padel") {
                         $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = ".$ranking."  WHERE id_atleta = " . $_SESSION['id'];

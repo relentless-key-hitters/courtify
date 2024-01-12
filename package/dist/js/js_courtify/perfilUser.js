@@ -87,7 +87,11 @@ function getEstatisticas(id){
                     $("#nJogosBasq").html(obj[i].nJogos)
                     $("#percVitBasq").html(obj[i].percVitorias)
                     $("#nMvpBasq").html(obj[i].nMvp)
-                    $("#rankingBasq").html(obj[i].ranking + "º")
+                    if(obj[i].nJogos < 30){
+                        $("#rankingBasq").html("N/A")
+                    }else{
+                        $("#rankingBasq").html(obj[i].ranking + "º")
+                    }
                     percVit.push(["Basquetebol", obj[i].percVitorias])
                     percMvp.push(["Basquetebol", (obj[i].nMvp / obj[i].nJogos)*100])
                 }else if(obj[i].modalidade  == 'Futsal'){
@@ -95,7 +99,11 @@ function getEstatisticas(id){
                     $("#nJogosFutsal").html(obj[i].nJogos)
                     $("#percVitFutsal").html(obj[i].percVitorias)
                     $("#nMvpFutsal").html(obj[i].nMvp)
-                    $("#rankingFutsal").html(obj[i].ranking + "º")
+                    if(obj[i].nJogos < 30){
+                        $("#rankingFutsal").html("N/A")
+                    }else{
+                        $("#rankingFutsal").html(obj[i].ranking + "º")
+                    }
                     percVit.push(["Futsal", obj[i].percVitorias])
                     percMvp.push(["Futsal", (obj[i].nMvp / obj[i].nJogos)*100])
                 }else if(obj[i].modalidade == "Padel"){
@@ -106,7 +114,11 @@ function getEstatisticas(id){
                     $("#mediaVitSetPadel").html(obj[i].mediaPontosSet)
                     $("#mediaSetsGanhosPadel").html(obj[i].percSets)
                     $("#nMvpPadel").html(obj[i].nMvp)
-                    $("#rankingPadel").html(obj[i].ranking + "º")
+                    if(obj[i].nJogos < 30){
+                        $("#rankingPadel").html("N/A")
+                    }else{
+                        $("#rankingPadel").html(obj[i].ranking + "º")
+                    }
                     percVit.push(["Padel", obj[i].percVitorias])
                     percMvp.push(["Padel", (obj[i].nMvp / obj[i].nJogos)*100])
                 }else{
@@ -117,7 +129,11 @@ function getEstatisticas(id){
                     $("#mediaVitSetTenis").html(obj[i].mediaPontosSet)
                     $("#mediaSetsGanhosTenis").html(obj[i].percSets)
                     $("#nMvpTenis").html(obj[i].nMvp)
-                    $("#rankingTenis").html(obj[i].ranking + "º")
+                    if(obj[i].nJogos < 30){
+                        $("#rankingTenis").html("N/A")
+                    }else{
+                        $("#rankingTenis").html(obj[i].ranking + "º")
+                    }
                     percVit.push(["Ténis", obj[i].percVitorias])
                     percMvp.push(["Ténis", (obj[i].nMvp / obj[i].nJogos)*100])
                 }
