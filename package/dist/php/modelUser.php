@@ -477,9 +477,9 @@ class User
                 }
             }
         }
-        $valBadges = $this -> getBadgesPerfil($modalidades, $id);
-        $melhoresBadges = $this -> getMelhoresBadges($id);
-        $badgesRecentes = $this -> getBadgesRecentes($id);
+        $valBadges = $this->getBadgesPerfil($modalidades, $id);
+        $melhoresBadges = $this->getMelhoresBadges($id);
+        $badgesRecentes = $this->getBadgesRecentes($id);
         $resp = json_encode(array(
             "fotoPerfil" => $fotoPerfil,
             "fotoCapa" => $fotoCapa,
@@ -718,7 +718,7 @@ class User
         $result = $conn->query($sql);
         $msg = "";
         $modalidade = "";
-        
+
 
         if ($result->num_rows > 0) {
 
@@ -733,17 +733,17 @@ class User
                 user
                 INNER JOIN 
                 listagem_atletas_marcacao ON user.id = listagem_atletas_marcacao.id_atleta
-                WHERE listagem_atletas_marcacao.id_atleta != ".$_SESSION['id']."
-                AND listagem_atletas_marcacao.id_marcacao = ".$id."
+                WHERE listagem_atletas_marcacao.id_atleta != " . $_SESSION['id'] . "
+                AND listagem_atletas_marcacao.id_marcacao = " . $id . "
                 ";
                 $result1 = $conn->query($sql1);
                 $mvp .= "<div class='row gap-4 d-flex justify-content-center align-items-center'>";
                 if ($result1->num_rows > 0) {
                     while ($row1 = $result1->fetch_assoc()) {
                         $mvp .= "<div class='col-2 me-4'>
-                                        <img id='".$row1['id']."' src='../../dist/".$row1['foto']."' alt='".$row1['nome']."'
+                                        <img id='" . $row1['id'] . "' src='../../dist/" . $row1['foto'] . "' alt='" . $row1['nome'] . "'
                                             class='rounded-circle object-fit-cover' width='80' height='80' onclick='toggleImageSelection(this)' data-toggle='tooltip'
-                                                data-placement='top' title='".$row1['nome']."'>
+                                                data-placement='top' title='" . $row1['nome'] . "'>
                                 </div>";
                     }
                 }
@@ -928,7 +928,7 @@ class User
                 INNER JOIN clube ON campo_clube.id_clube = clube.id_clube 
                 INNER JOIN user ON clube.id_clube = user.id
                 INNER JOIN campo ON campo_clube.id_campo = campo.id
-                WHERE listagem_atletas_marcacao.id_atleta = ".$_SESSION['id']."
+                WHERE listagem_atletas_marcacao.id_atleta = " . $_SESSION['id'] . "
                 AND listagem_atletas_marcacao.votacao = 2 
                 AND listagem_atletas_marcacao.estado = 1
                 AND marcacao.data_inicio >= CURRENT_DATE()
@@ -956,7 +956,7 @@ class User
                 INNER JOIN modalidade ON torneio.modalidade = modalidade.id
                 INNER JOIN user ON torneio.id_clube = user.id
                 INNER JOIN torneio_atleta ON torneio.id = torneio_atleta.id_torneio
-                WHERE torneio_atleta.id_atleta = ".$_SESSION['id']."
+                WHERE torneio_atleta.id_atleta = " . $_SESSION['id'] . "
                 ORDER BY dataMarc ASC, horaMarcInicio ASC
             LIMIT 2 ";
 
@@ -990,46 +990,58 @@ class User
                                 </div>
                                 <a href='./clube.php?id=" . $row['idClube'] . "'>
                                         <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
-                                </a>
-                                <div class='mt-1 mb-1'>
-                                    <span class='fs-3'>Participantes</span>
-                                </div>
-                                <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
+                                </a>";
 
-                        $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
-                        listagem_atletas_marcacao.id_atleta AS idAtleta, 
-                        user.nome AS nomeAmigo,
-                        user.foto AS fotoAmigo
-                        FROM
-                        listagem_atletas_marcacao
-                        INNER JOIN
-                        user ON listagem_atletas_marcacao.id_atleta = user.id
-                        WHERE id_marcacao = " . $row['idMarcacao'] ."
-                        AND listagem_atletas_marcacao.estado = 1";
 
-                        $result2 = $conn->query($sql2);
-                        
-                        if ($result2->num_rows > 0) {
-                            while ($row2 = $result2->fetch_assoc()) {
-                                    if($row2['idAtleta'] == $_SESSION['id']) {
+                        if ($row['tipo'] == "Marcação") {
+
+                            $msgA .= "<div class='mt-1 mb-1'>
+                                        <span class='fs-3'>Participantes</span>
+                                    </div>                                    
+                                    <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
+
+                            $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                            listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                            user.nome AS nomeAmigo,
+                            user.foto AS fotoAmigo
+                            FROM
+                            listagem_atletas_marcacao
+                            INNER JOIN
+                            user ON listagem_atletas_marcacao.id_atleta = user.id
+                            WHERE id_marcacao = " . $row['idMarcacao'] . "
+                            AND listagem_atletas_marcacao.estado = 1";
+
+                            $result2 = $conn->query($sql2);
+
+                            if ($result2->num_rows > 0) {
+                                while ($row2 = $result2->fetch_assoc()) {
+                                    if ($row2['idAtleta'] == $_SESSION['id']) {
                                         $msgA .= "<div class='col-md-2 mb-2'>
-                                            <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
-                                        </div>";
+                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                            </div>";
                                     } else {
                                         $msgA .= "<div class='col-md-2 mb-2'>
-                                            <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
-                                        </div>";
+                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                            </div>";
                                     }
+                                }
                             }
+
+                            $msgA .= "</div>
+                                        <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                                        onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>";
+                        } else {
+                            $msgA .= "</div>
+                                        <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                                        onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacaoTorneio(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>";
                         }
-                        
-                        $msgA .= "</div>
-                            <button type='button' class='btn' style = 'background-color: #b80000; color: white;'
-                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(".$row['idMarcacao'].")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
-                            </div>
-                        </div>
-                    </div>";
-                    
+
                         $horaA = $row['horaMarcInicio'];
                         $diaA = $row['dataMarc'];
                     } else {
@@ -1056,42 +1068,61 @@ class User
                                     </div>
                                     <a href='./clube.php?id=" . $row['idClube'] . "'>
                                             <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
-                                    </a>
-                                    <div class='mt-1 mb-1'>
+                                    </a>";
+
+
+                            if ($row['tipo'] == "Marcação") {
+
+                                $msg .= "<div class='mt-1 mb-1'>
                                         <span class='fs-3'>Participantes</span>
                                     </div>                                    
                                     <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
-    
-                            $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
-                            listagem_atletas_marcacao.id_atleta AS idAtleta, 
-                            user.nome AS nomeAmigo,
-                            user.foto AS fotoAmigo
-                            FROM
-                            listagem_atletas_marcacao
-                            INNER JOIN
-                            user ON listagem_atletas_marcacao.id_atleta = user.id
-                            WHERE id_marcacao = " . $row['idMarcacao'] ."
-                            AND listagem_atletas_marcacao.estado = 1";
-    
-                            $result2 = $conn->query($sql2);
-                            
-                            if ($result2->num_rows > 0) {
-                                while ($row2 = $result2->fetch_assoc()) {
-                                        if($row2['idAtleta'] == $_SESSION['id']) {
+
+                                $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                                listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                                user.nome AS nomeAmigo,
+                                user.foto AS fotoAmigo
+                                FROM
+                                listagem_atletas_marcacao
+                                INNER JOIN
+                                user ON listagem_atletas_marcacao.id_atleta = user.id
+                                WHERE id_marcacao = " . $row['idMarcacao'] . "
+                                AND listagem_atletas_marcacao.estado = 1";
+
+                                $result2 = $conn->query($sql2);
+
+                                if ($result2->num_rows > 0) {
+                                    while ($row2 = $result2->fetch_assoc()) {
+                                        if ($row2['idAtleta'] == $_SESSION['id']) {
                                             $msg .= "<div class='col-md-2 mb-2'>
-                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
-                                            </div>";
+                                                    <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                                </div>";
                                         } else {
                                             $msg .= "<div class='col-md-2 mb-2'>
-                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
-                                            </div>";
+                                                    <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                                </div>";
                                         }
+                                    }
                                 }
+                                $msgA .= "</div>
+                                            <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>";
+                            } else {
+                                $msgA .= "</div>
+                                            <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacaoTorneio(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>";
                             }
-                            
+
+
                             $msg .= "</div>
-                            <button type='button' class='btn' style = 'background-color: #b80000; color: white;'
-                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(".$row['idMarcacao'].")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                            <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
                                 </div>
                             </div>
                         </div>";
@@ -1116,45 +1147,64 @@ class User
                                     </div>
                                     <a href='./clube.php?id=" . $row['idClube'] . "'>
                                             <p class='card-text fs-4'><i class='ti ti-building me-1 fs-5 mt-1'></i>" . $row['nomeClube'] . "</p>
-                                    </a>
-                                    <div class='mt-1 mb-1'>
-                                        <span class='fs-3'>Participantes</span>
-                                    </div>
-                                    <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
-    
-                            $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
-                            listagem_atletas_marcacao.id_atleta AS idAtleta, 
-                            user.nome AS nomeAmigo,
-                            user.foto AS fotoAmigo
-                            FROM
-                            listagem_atletas_marcacao
-                            INNER JOIN
-                            user ON listagem_atletas_marcacao.id_atleta = user.id
-                            WHERE id_marcacao = " . $row['idMarcacao'] ."
-                            AND listagem_atletas_marcacao.estado = 1";
-    
-                            $result2 = $conn->query($sql2);
-                            
-                            if ($result2->num_rows > 0) {
-                                while ($row2 = $result2->fetch_assoc()) {
-                                        if($row2['idAtleta'] == $_SESSION['id']) {
+                                    </a>";
+
+
+                            if ($row['tipo'] == "Marcação") {
+
+                                $msg .= "<div class='mt-1 mb-1'>
+                                                <span class='fs-3'>Participantes</span>
+                                            </div>                                    
+                                            <div class='mt-1 d-flex overflow-y-auto gap-2' style='min-height: 70px'>";
+
+                                $sql2 = "SELECT listagem_atletas_marcacao.id_marcacao AS idMarcacao, 
+                                        listagem_atletas_marcacao.id_atleta AS idAtleta, 
+                                        user.nome AS nomeAmigo,
+                                        user.foto AS fotoAmigo
+                                        FROM
+                                        listagem_atletas_marcacao
+                                        INNER JOIN
+                                        user ON listagem_atletas_marcacao.id_atleta = user.id
+                                        WHERE id_marcacao = " . $row['idMarcacao'] . "
+                                        AND listagem_atletas_marcacao.estado = 1";
+
+                                $result2 = $conn->query($sql2);
+
+                                if ($result2->num_rows > 0) {
+                                    while ($row2 = $result2->fetch_assoc()) {
+                                        if ($row2['idAtleta'] == $_SESSION['id']) {
                                             $msg .= "<div class='col-md-2 mb-2'>
-                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
-                                            </div>";
+                                                            <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . " (Tu)' class='rounded-circle border border-2 border-primary' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . " (Tu)' style='cursor: pointer;'></a>
+                                                        </div>";
                                         } else {
                                             $msg .= "<div class='col-md-2 mb-2'>
-                                                <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
-                                            </div>";
+                                                            <a href='./perfil.php?id=" . $row2['idAtleta'] . "'><img src='../../dist/" . $row2['fotoAmigo'] . "' alt='" . $row2['nomeAmigo'] . "' class='rounded-circle' style='height: 40px; width: 40px;' data-toggle='tooltip' data-placement='top' title='" . $row2['nomeAmigo'] . "' style='cursor: pointer;'></a>
+                                                        </div>";
                                         }
+                                    }
                                 }
+                                $msgA .= "</div>
+                                                    <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                                                    onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                                                    </div>
+                                                </div>
+                                            </div>";
+                            } else {
+                                $msgA .= "</div>
+                                                    <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                                                    onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacaoTorneio(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                                                    </div>
+                                                </div>
+                                            </div>";
                             }
-                            
+
+
                             $msg .= "</div>
-                            <button type='button' class='btn' style = 'background-color: #b80000; color: white;'
-                            onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(".$row['idMarcacao'].")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
-                                </div>
-                            </div>
-                        </div>";
+                                    <button type='button' class='btn mb-2' style = 'background-color: #b80000; color: white;'
+                                    onmouseover=\"this.style.backgroundColor = '#cf0202';\" onmouseout=\"this.style.backgroundColor = '#b80000';\" onclick='cancelarMarcacao(" . $row['idMarcacao'] . ")'><i class= 'ti ti-x me-1'></i>Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>";
                             $msg .= $msgA;
                         }
                     }
@@ -1193,26 +1243,26 @@ class User
         $sql5 = "";
         if ($modalidade == "Basquetebol") {
             $sql .= "SELECT * FROM info_basquetebol WHERE id_atleta = " . $_SESSION['id'];
-            $sql5 .= "UPDATE info_basquetebol SET n_mvp = n_mvp + 1 WHERE id_atleta = ".$idMvp;
+            $sql5 .= "UPDATE info_basquetebol SET n_mvp = n_mvp + 1 WHERE id_atleta = " . $idMvp;
         } else {
             $sql .= "SELECT * FROM info_futsal WHERE id_atleta = " . $_SESSION['id'];
-            $sql5 .= "UPDATE info_futsal SET n_mvp = n_mvp + 1 WHERE id_atleta = ".$idMvp;
+            $sql5 .= "UPDATE info_futsal SET n_mvp = n_mvp + 1 WHERE id_atleta = " . $idMvp;
         }
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 if ($row['n_jogos'] >= 30) {
                     $ranking = ($row['n_vitorias'] / $row['n_jogos']) * 0.45 +
-                               ($row['n_mvp'] / $row['n_jogos']) * 0.25;
+                        ($row['n_mvp'] / $row['n_jogos']) * 0.25;
                 } else {
                     $ranking = 0;
                 }
                 if ($resEquipa > $resAdver) {
                     if ($modalidade == "Basquetebol") {
-                        $sql2 .= "UPDATE info_basquetebol SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos = " . $row['n_pontos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_basquetebol SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos = " . $row['n_pontos'] . " + " . $numPontos . ", ranking = " . $ranking . " WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_basquetebol";
                     } else {
-                        $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . ", ranking = " . $ranking . " WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_futsal";
                     }
                     $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
@@ -1221,14 +1271,14 @@ class User
                     if ($row['n_jogos'] != 0) {
                         $percVitorias .= ($nVitorias / $row['n_jogos'] + 1) * 100;
                     } else {
-                        $percVitorias = 0; 
+                        $percVitorias = 0;
                     }
                 } else {
                     if ($modalidade == "Basquetebol") {
-                        $sql2 .= "UPDATE info_basquetebol SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos = " . $row['n_pontos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_basquetebol SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos = " . $row['n_pontos'] . " + " . $numPontos . ", ranking = " . $ranking . " WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_basquetebol";
                     } else {
-                        $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . ", ranking = ".$ranking." WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_futsal SET n_jogos = " . $row['n_jogos'] . " + 1, n_golos = " . $row['n_golos'] . " + " . $numPontos . ", ranking = " . $ranking . " WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_futsal";
                     }
                     $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
@@ -1237,10 +1287,9 @@ class User
                     if ($row['n_jogos'] != 0) {
                         $percVitorias .= ($nVitorias / $row['n_jogos'] + 1) * 100;
                     } else {
-                        $percVitorias = 0; 
+                        $percVitorias = 0;
                     }
                 }
-                
             }
         }
         $sql3 = "UPDATE listagem_atletas_marcacao SET votacao = 1 WHERE id_marcacao = " . $id . " AND id_atleta = " . $_SESSION['id'];
@@ -1253,7 +1302,7 @@ class User
         }
 
 
-        if($conn -> query($sql5) === TRUE) {
+        if ($conn->query($sql5) === TRUE) {
             $flag = true;
         } else {
             $flag = false;
@@ -1261,8 +1310,8 @@ class User
         }
 
         $resultadoBadges1 = $this->getBadgesPontos($modalidade,  $nPontos);
-        $resultadoBadges2 = $this-> getBadgesVitorias($modalidade, $nVitorias);
-        $resultadoBadges3 = $this-> getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
+        $resultadoBadges2 = $this->getBadgesVitorias($modalidade, $nVitorias);
+        $resultadoBadges3 = $this->getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
         $conn->close();
         $resp = json_encode(array(
             "msg" => $msg,
@@ -1312,26 +1361,26 @@ class User
                 }
                 if ($nVit >  $nDerr) {
                     if ($modalidade == "Padel") {
-                        $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = ".$ranking."  WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = " . $ranking . "  WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_padel";
                     } else {
-                        $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . " , n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = ".$ranking."  WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . " , n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = " . $ranking . "  WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_tenis";
                     }
-                    $nPontos = $row['n_pontos_set'] + $nPontosSet ;
+                    $nPontos = $row['n_pontos_set'] + $nPontosSet;
                     $nVitorias .= $row['n_vitorias'] + 1;
-                    $percVitorias .=  ($nVitorias / $row['n_jogos'] + 1)*100;
+                    $percVitorias .=  ($nVitorias / $row['n_jogos'] + 1) * 100;
                 } else {
                     if ($modalidade == "Padel") {
-                        $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = ".$ranking."  WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = " . $ranking . "  WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_padel";
                     } else {
-                        $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = ".$ranking."  WHERE id_atleta = " . $_SESSION['id'];
+                        $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = " . $ranking . "  WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_tenis";
                     }
-                    $nPontos = $row['n_pontos_set'] + $nPontosSet ;
+                    $nPontos = $row['n_pontos_set'] + $nPontosSet;
                     $nVitorias .= $row['n_vitorias'];
-                    $percVitorias .=  ($nVitorias / $row['n_jogos'])*100;
+                    $percVitorias .=  ($nVitorias / $row['n_jogos']) * 100;
                 }
             }
         }
@@ -1344,14 +1393,14 @@ class User
             $msg = "Error: " . $sql3 . "<br>" . $conn->error;
             $icon = "error";
         }
-        $resultadoBadges1 = $this-> getBadgesPontos($modalidade,  $nPontos);
-        $resultadoBadges2 = $this-> getBadgesVitorias($modalidade, $nVitorias);
-        $resultadoBadges3 = $this-> getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
+        $resultadoBadges1 = $this->getBadgesPontos($modalidade,  $nPontos);
+        $resultadoBadges2 = $this->getBadgesVitorias($modalidade, $nVitorias);
+        $resultadoBadges3 = $this->getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
         $conn->close();
         $resp = json_encode(array(
             "msg" => $msg,
             "respBadges" =>  $resultadoBadges1,
-            "respBadgesVitorias" =>  $resultadoBadges2, 
+            "respBadgesVitorias" =>  $resultadoBadges2,
             "respBadgesPercVitorias" =>  $resultadoBadges3
         ));
         return ($resp);
@@ -1422,9 +1471,9 @@ class User
             FROM info_padel
             ORDER BY ranking DESC
             )AS temp
-            WHERE temp.id_atleta = ".$id."
+            WHERE temp.id_atleta = " . $id . "
         )AS temp2
-        WHERE id_atleta = ".$id;
+        WHERE id_atleta = " . $id;
         $result = $conn->query($sql);
         $percVitorias1 = 0;
         $percVitorias = "";
@@ -1454,7 +1503,7 @@ class User
                 $ranking = $row['posicao'];
             }
         }
-        $resp = array("modalidade" => "Padel", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet, "ranking"=> $ranking);
+        $resp = array("modalidade" => "Padel", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet, "ranking" => $ranking);
         return ($resp);
     }
 
@@ -1470,9 +1519,9 @@ class User
             FROM info_tenis
             ORDER BY ranking DESC
             )AS temp
-            WHERE temp.id_atleta = ".$id."
+            WHERE temp.id_atleta = " . $id . "
         )AS temp2
-        WHERE id_atleta = ".$id;
+        WHERE id_atleta = " . $id;
         $result = $conn->query($sql);
         $percVitorias1 = 0;
         $percVitorias = "";
@@ -1502,7 +1551,7 @@ class User
                 $ranking = $row['posicao'];
             }
         }
-        $resp = array("modalidade" => "Ténis", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet, "ranking"=> $ranking);
+        $resp = array("modalidade" => "Ténis", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet, "ranking" => $ranking);
         return ($resp);
     }
 
@@ -1518,9 +1567,9 @@ class User
             FROM info_basquetebol
             ORDER BY ranking DESC
             )AS temp
-            WHERE temp.id_atleta = ".$id."
+            WHERE temp.id_atleta = " . $id . "
         )AS temp2
-        WHERE id_atleta = ".$id;
+        WHERE id_atleta = " . $id;
         $result = $conn->query($sql);
         $percVitorias1 = 0;
         $percVitorias = "";
@@ -1540,7 +1589,7 @@ class User
                 $ranking = $row['posicao'];
             }
         }
-        $resp = array("modalidade" => "Basquetebol", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nMvp" => $nMvp, "ranking"=> $ranking);
+        $resp = array("modalidade" => "Basquetebol", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nMvp" => $nMvp, "ranking" => $ranking);
         return ($resp);
     }
 
@@ -1556,9 +1605,9 @@ class User
             FROM info_futsal
             ORDER BY ranking DESC
             )AS temp
-            WHERE temp.id_atleta = ".$id."
+            WHERE temp.id_atleta = " . $id . "
         )AS temp2
-        WHERE id_atleta = ".$id;
+        WHERE id_atleta = " . $id;
         $result = $conn->query($sql);
         $percVitorias1 = 0;
         $percVitorias = "";
@@ -1578,7 +1627,7 @@ class User
                 $ranking = $row['posicao'];
             }
         }
-        $resp = array("modalidade" => "Futsal", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nGolos" => $nGolos, "nMvp" => $nMvp, "ranking"=> $ranking);
+        $resp = array("modalidade" => "Futsal", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nGolos" => $nGolos, "nMvp" => $nMvp, "ranking" => $ranking);
         return ($resp);
     }
 
@@ -1963,7 +2012,7 @@ class User
                 WHERE listagem_atletas_marcacao.id_atleta = " . $idUser . " 
                 AND listagem_atletas_marcacao.votacao = 1
                 ORDER BY marcacao.data_inicio DESC
-                LIMIT ".$offset.", ".$porPagina;
+                LIMIT " . $offset . ", " . $porPagina;
 
         $result = $conn->query($sql);
 
@@ -1989,32 +2038,32 @@ class User
                                         <button type='button' class='btn btn-success disabled btn-sm'><i class='ti ti-check me-1'></i>Concluída</button>
                                     </div>
                                     <div class='col-6 col-md-3 col-sm-6 mt-3 d-flex justify-content-between'>";
-                                    if($row['modalidadeMarcacao'] == "Basquetebol") {
-                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-warning'>
+                if ($row['modalidadeMarcacao'] == "Basquetebol") {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-warning'>
                                                     <i class='ti ti-ball-basketball me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
-                                    } else if($row['modalidadeMarcacao'] == "Futsal") {
-                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-danger mt-2'>
+                } else if ($row['modalidadeMarcacao'] == "Futsal") {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-danger mt-2'>
                                                     <i class='ti ti-ball-football me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
-                                    } else if($row['modalidadeMarcacao'] == "Ténis") {
-                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-success mt-2'>
+                } else if ($row['modalidadeMarcacao'] == "Ténis") {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-success mt-2'>
                                                     <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
-                                    } else {
-                                        $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-primary mt-2'>
+                } else {
+                    $msg .= "<span class='badge rounded-pill position-absolute ms-2 mt-2 top-0 start-0 text-bg-primary mt-2'>
                                                     <i class='ti ti-ball-tennis me-1'></i><small>" . $row['modalidadeMarcacao'] . "</small>
                                                 </span>";
-                                    }
-                                    $msg .= "<img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
+                }
+                $msg .= "<img src='" . $row['fotoCampoMarcacao'] . "' alt='" . $row['nomeCampoMarcacao'] . "'
                                                  class=' img-fluid object-fit-fill rounded-2 border border-1 border-primary' style='height: 100px; width: 150px;'>";
-                                    $msg .= "</div>
+                $msg .= "</div>
                                     <div class='col-6 col-md-3 col-sm-6 mt-3'>
-                                    <a href='./clube.php?id=" . $row['idClube'] . "'><small class='fs-4'><i class='ti ti-building me-1'></i>".$row['nomeClube']."</small><br></a>
+                                    <a href='./clube.php?id=" . $row['idClube'] . "'><small class='fs-4'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</small><br></a>
                                     <small><i class='ti ti-calendar me-1'></i>" . $stringData . "</small><br>
                                     <small><i class='ti ti-clock me-1'></i>" . $stringHora . "</small><br>
                                     <small><i class='ti ti-map-pin me-1'></i>" . $row['nomeCampoMarcacao'] . "</small><br>";
-                                    $msg .= "</div>
+                $msg .= "</div>
                                     <div class='col-12 col-md-6 col-sm-6'>
                                         <div class='row'>
                                             <small class='fs-3'>Participantes</small><br>";
@@ -2044,13 +2093,13 @@ class User
                 $result1 = $conn->query($sql1);
                 if ($result1->num_rows > 0) {
                     while ($row1 = $result1->fetch_assoc()) {
-                        if($row1['isHost'] == 1) {
+                        if ($row1['isHost'] == 1) {
                             $msg .= "<div class='col-2'>
                                         <div class='d-flex align-items-center mt-2'>
                                             <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='" . $row1['nomeAtleta'] . " (Host)' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . " (Host)' class='object-fit-cover rounded-circle border border-2 border-success' width='40' height='40'></a>
                                         </div>
                                     </div>";
-                        } else if($row1['idAtleta'] == $_SESSION['id']) {
+                        } else if ($row1['idAtleta'] == $_SESSION['id']) {
                             $msg .= "<div class='col-2'>
                                         <div class='d-flex align-items-center mt-2'>
                                             <a href='./perfil.php?id=" . $row1['idAtleta'] . "'><img alt='" . $row1['nomeAtleta'] . " (Host)' src='../../dist/" . $row1['fotoAtleta'] . "' data-toggle='tooltip' data-placement='top' title='" . $row1['nomeAtleta'] . " (Tu)' class='object-fit-cover rounded-circle border border-2 border-primary' width='40' height='40'></a>
@@ -2064,8 +2113,8 @@ class User
                                     </div>";
                         }
                     }
-                    
-                    
+
+
                     $msg .= "</div>";
                     $msg .= "</div></div></div></div>";
                 }
@@ -2089,7 +2138,8 @@ class User
         $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual);
         return json_encode($data);
     }
-    function getModalRemoverAmizade($id) {
+    function getModalRemoverAmizade($id)
+    {
         $msg = "<button type='button' class='btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3'
                     data-bs-dismiss='modal' onclick='removerAmizade(" . $id . ")'>
                     Sim
@@ -2098,10 +2148,11 @@ class User
                     data-bs-dismiss='modal'>
                     Não
                 </button>";
-        return ($msg);        
+        return ($msg);
     }
 
-    function removerAmizade($idAmigo) {
+    function removerAmizade($idAmigo)
+    {
         global $conn;
         $msg = "";
         $icon = "";
@@ -2134,9 +2185,10 @@ class User
         return ($resp);
     }
 
-    function getBadgesPontos($modalidade, $pontos){
+    function getBadgesPontos($modalidade, $pontos)
+    {
         global $conn;
-        $sql = "";        
+        $sql = "";
         $arrayRes = array();
         $sql .= " SELECT descricao, id, foto
         FROM badge 
@@ -2144,26 +2196,27 @@ class User
             SELECT atleta_badges.id_badge
             FROM atleta_badges INNER JOIN 
             badge ON atleta_badges.id_badge = badge.id 
-            WHERE atleta_badges.id_atleta = ".$_SESSION['id']." 
+            WHERE atleta_badges.id_atleta = " . $_SESSION['id'] . " 
         ) AND badge.id_modalidade = (
             SELECT id
             FROM modalidade 
-            WHERE descricao LIKE '".$modalidade."'
-        ) AND valorPatamar <= ".$pontos." AND categoria LIKE 'Pontos'";
-        $result = $conn -> query($sql);
+            WHERE descricao LIKE '" . $modalidade . "'
+        ) AND valorPatamar <= " . $pontos . " AND categoria LIKE 'Pontos'";
+        $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                array_push($arrayRes , array($row['descricao'], $row['id'], $row['foto']));
-                $sql2 = "INSERT INTO atleta_badges VALUES (".$row['id'].", ".$_SESSION['id'].", '". date("Y/m/d")."')";
+                array_push($arrayRes, array($row['descricao'], $row['id'], $row['foto']));
+                $sql2 = "INSERT INTO atleta_badges VALUES (" . $row['id'] . ", " . $_SESSION['id'] . ", '" . date("Y/m/d") . "')";
                 $result2 = $conn->query($sql2);
-                }
-            } 
-        return($arrayRes);
+            }
+        }
+        return ($arrayRes);
     }
 
-    function getBadgesVitorias($modalidade, $vitorias){
+    function getBadgesVitorias($modalidade, $vitorias)
+    {
         global $conn;
-        $sql = "";        
+        $sql = "";
         $arrayRes = array();
         $sql .= " SELECT descricao, id, foto
         FROM badge 
@@ -2171,83 +2224,86 @@ class User
             SELECT atleta_badges.id_badge
             FROM atleta_badges INNER JOIN 
             badge ON atleta_badges.id_badge = badge.id 
-            WHERE atleta_badges.id_atleta = ".$_SESSION['id']." 
+            WHERE atleta_badges.id_atleta = " . $_SESSION['id'] . " 
         ) AND badge.id_modalidade = (
             SELECT id
             FROM modalidade 
-            WHERE descricao LIKE '".$modalidade."'
-        ) AND valorPatamar <= ".$vitorias." AND categoria LIKE 'Vitórias'";
-        $result = $conn -> query($sql);
+            WHERE descricao LIKE '" . $modalidade . "'
+        ) AND valorPatamar <= " . $vitorias . " AND categoria LIKE 'Vitórias'";
+        $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                array_push($arrayRes , array($row['descricao'], $row['id'], $row['foto']));
-                $sql2 = "INSERT INTO atleta_badges VALUES (".$row['id'].", ".$_SESSION['id'].", '". date("Y/m/d")."')";
+                array_push($arrayRes, array($row['descricao'], $row['id'], $row['foto']));
+                $sql2 = "INSERT INTO atleta_badges VALUES (" . $row['id'] . ", " . $_SESSION['id'] . ", '" . date("Y/m/d") . "')";
                 $result2 = $conn->query($sql2);
-                }
-            } 
-        return($arrayRes);
+            }
+        }
+        return ($arrayRes);
     }
 
-    function getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela){
+    function getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela)
+    {
         global $conn;
-        $sql = "";        
+        $sql = "";
         $arrayRes = array();
         $sql .= " SELECT descricao, id, foto
-        FROM badge, ".$nomeTabela."
+        FROM badge, " . $nomeTabela . "
         WHERE badge.id NOT IN (
             SELECT atleta_badges.id_badge
             FROM atleta_badges INNER JOIN 
             badge ON atleta_badges.id_badge = badge.id 
-            WHERE atleta_badges.id_atleta = ".$_SESSION['id']."
+            WHERE atleta_badges.id_atleta = " . $_SESSION['id'] . "
         ) AND badge.id_modalidade = (
             SELECT id
             FROM modalidade 
-            WHERE descricao LIKE '".$modalidade."'
-        ) AND valorPatamar <= ".$percVitorias."
+            WHERE descricao LIKE '" . $modalidade . "'
+        ) AND valorPatamar <= " . $percVitorias . "
 		  AND categoria LIKE 'Percentagem Vitórias'
-		  AND ". $nomeTabela.".id_atleta = ".$_SESSION['id']." 
-		  AND ". $nomeTabela.".n_jogos >= 30";
-        $result = $conn -> query($sql);
+		  AND " . $nomeTabela . ".id_atleta = " . $_SESSION['id'] . " 
+		  AND " . $nomeTabela . ".n_jogos >= 30";
+        $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                array_push($arrayRes , array($row['descricao'], $row['id'], $row['foto']));
-                $sql2 = "INSERT INTO atleta_badges VALUES (".$row['id'].", ".$_SESSION['id'].", '". date("Y/m/d")."')";
+                array_push($arrayRes, array($row['descricao'], $row['id'], $row['foto']));
+                $sql2 = "INSERT INTO atleta_badges VALUES (" . $row['id'] . ", " . $_SESSION['id'] . ", '" . date("Y/m/d") . "')";
                 $result2 = $conn->query($sql2);
-                }
-            } 
-        return($arrayRes);
+            }
+        }
+        return ($arrayRes);
     }
 
-    function getBadgesPerfil($modalidades, $id) {
+    function getBadgesPerfil($modalidades, $id)
+    {
         global $conn;
         $valBadges =  array();
-        for($i = 0; $i < count($modalidades); $i++){
+        for ($i = 0; $i < count($modalidades); $i++) {
             $sql = "";
-            if($modalidades[$i] == "Basquetebol"){
-                $sql .= "SELECT n_jogos, n_vitorias, n_pontos as n_pontos FROM info_basquetebol WHERE id_atleta = ".$id;
-            }else if($modalidades[$i] == "Futsal"){
-                $sql .= "SELECT n_jogos, n_vitorias, n_golos as n_pontos FROM info_futsal WHERE id_atleta = ".$id;
-            }else if($modalidades[$i] == "Padel"){
-                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_padel WHERE id_atleta = ".$id;
-            }else{
-                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_tenis WHERE id_atleta = ".$id;
+            if ($modalidades[$i] == "Basquetebol") {
+                $sql .= "SELECT n_jogos, n_vitorias, n_pontos as n_pontos FROM info_basquetebol WHERE id_atleta = " . $id;
+            } else if ($modalidades[$i] == "Futsal") {
+                $sql .= "SELECT n_jogos, n_vitorias, n_golos as n_pontos FROM info_futsal WHERE id_atleta = " . $id;
+            } else if ($modalidades[$i] == "Padel") {
+                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_padel WHERE id_atleta = " . $id;
+            } else {
+                $sql .= "SELECT n_jogos, n_vitorias, n_pontos_set as n_pontos FROM info_tenis WHERE id_atleta = " . $id;
             }
             $result = $conn->query($sql);
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    if( $row['n_jogos'] == 0){
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    if ($row['n_jogos'] == 0) {
                         $pVit = 0;
-                    }else{
+                    } else {
                         $pVit = round(($row['n_vitorias'] / $row['n_jogos']) * 100, 0, PHP_ROUND_HALF_DOWN);
                     }
                     array_push($valBadges, array($modalidades[$i], $pVit, $row['n_vitorias'], $row['n_pontos']));
                 }
             }
         }
-        return($valBadges);
+        return ($valBadges);
     }
 
-    function getMelhoresBadges($id){
+    function getMelhoresBadges($id)
+    {
         global $conn;
         $melhoresBadges = array();
         $sql = "SELECT *
@@ -2255,23 +2311,23 @@ class User
         WHERE id IN (
         SELECT id_badge
         FROM atleta_badges
-        WHERE id_atleta = ".$id."
+        WHERE id_atleta = " . $id . "
         )
         ORDER BY valorPatamar DESC
         LIMIT 4";
-        $result = $conn -> query($sql);
+        $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                array_push($melhoresBadges , array($row['descricao'], $row['foto']));
+                array_push($melhoresBadges, array($row['descricao'], $row['foto']));
             }
         } else {
-            
         }
 
         return ($melhoresBadges);
     }
 
-    function getBadgesRecentes($id){
+    function getBadgesRecentes($id)
+    {
         global $conn;
         $badgesRecentes = array();
         $sql = "SELECT DISTINCT badge.*, atleta_badges.dataAq
@@ -2281,22 +2337,23 @@ class User
         id IN (
         SELECT id_badge
         FROM atleta_badges
-        WHERE id_atleta = ".$id. "
+        WHERE id_atleta = " . $id . "
         )
         ORDER BY atleta_badges.dataAq ASC
         LIMIT 6
         ";
-        $result = $conn -> query($sql);
+        $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                array_push($badgesRecentes , array($row['descricao'], $row['foto'], $row['dataAq']));
+                array_push($badgesRecentes, array($row['descricao'], $row['foto'], $row['dataAq']));
             }
         }
 
         return ($badgesRecentes);
     }
 
-    function getComunidades($idUser) {
+    function getComunidades($idUser)
+    {
         global $conn;
         $msg = "";
         $sql = "SELECT 
@@ -2313,20 +2370,20 @@ class User
                 modalidade ON comunidade.id_modalidade = modalidade.id
                 INNER JOIN 
                 tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id
-                WHERE comunidade_atletas.id_atleta = ".$idUser."
+                WHERE comunidade_atletas.id_atleta = " . $idUser . "
                 AND comunidade_atletas.estado = 1
                 LIMIT 2";
 
-        $result = $conn -> query($sql);
+        $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $msg .= "<div class='col-lg-12 col-md-6 col-sm-6'>
                             <div class='shadow rounded d-flex align-items-center mt-3 position-relative'>
-                                <a href='./grupo.php?id=".$row['idComunidade']."'>
-                                    <img src='../../dist/".$row['fotoComunidade']."' alt='".$row['nomeComunidade']."' class='img-fluid rounded-2 mt-3' width='100' height='100'>
+                                <a href='./grupo.php?id=" . $row['idComunidade'] . "'>
+                                    <img src='../../dist/" . $row['fotoComunidade'] . "' alt='" . $row['nomeComunidade'] . "' class='img-fluid rounded-2 mt-3' width='100' height='100'>
                                 </a>
                                 <div class='ms-3 mt-3'>
-                                    <p><span class='fw-bolder fs-5'>".$row['nomeComunidade']."</span></p>";
+                                    <p><span class='fw-bolder fs-5'>" . $row['nomeComunidade'] . "</span></p>";
 
                 if ($row['tipoModalidade'] == "Ténis") {
                     $msg .= "<span class='badge bg-success rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Ténis</span>";
@@ -2340,14 +2397,13 @@ class User
 
                 $msg .= "<span>";
                 if ($row['tipoComunidade'] == "Grupo") {
-                    $msg .= "<span class='fw-bolder'>Tipo:&nbsp</span><i class='ti ti-users me-1'></i>".$row['tipoComunidade']."</span>";
+                    $msg .= "<span class='fw-bolder'>Tipo:&nbsp</span><i class='ti ti-users me-1'></i>" . $row['tipoComunidade'] . "</span>";
                 } else {
-                    $msg .= "<span class='fw-bolder'>Tipo:&nbsp</span><i class='ti ti-trophy me-1'></i>".$row['tipoComunidade']."</span>";
+                    $msg .= "<span class='fw-bolder'>Tipo:&nbsp</span><i class='ti ti-trophy me-1'></i>" . $row['tipoComunidade'] . "</span>";
                 }
                 $msg .= "</div>
                             </div>
                         </div>";
-
             }
         } else {
             if ($idUser != $_SESSION['id']) {
@@ -2363,11 +2419,12 @@ class User
             }
         }
 
-        $conn -> close();
+        $conn->close();
         return ($msg);
     }
 
-    function getAtletasPesquisaNavbar() {
+    function getAtletasPesquisaNavbar()
+    {
         global $conn;
         $msg = "";
 
@@ -2382,14 +2439,14 @@ class User
                 LEFT JOIN (
                 SELECT id_atleta1 AS friend_id, 1 AS are_friends
                 FROM amigo
-                WHERE id_atleta2 = ".$_SESSION['id']." AND estado = 1
+                WHERE id_atleta2 = " . $_SESSION['id'] . " AND estado = 1
                 UNION
                 SELECT id_atleta2 AS friend_id, 1 AS are_friends
                 FROM amigo
-                WHERE id_atleta1 = ".$_SESSION['id']." AND estado = 1
+                WHERE id_atleta1 = " . $_SESSION['id'] . " AND estado = 1
                 ) AS amigo_status ON user.id = amigo_status.friend_id
                 INNER JOIN concelho ON user.localidade = concelho.id               
-                WHERE user.id != ".$_SESSION['id']."
+                WHERE user.id != " . $_SESSION['id'] . "
 
 
                 UNION
@@ -2406,16 +2463,16 @@ class User
                 INNER JOIN
                 modalidade ON comunidade.id_modalidade = modalidade.id";
 
-        $result = $conn -> query($sql);
+        $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
 
-                if($row['tipo_user'] == 1) {
+                if ($row['tipo_user'] == 1) {
                     $textoBotaoAmigo = ($row['are_friends'] == 1) ? "Amigo" : "Adicionar";
                     $classBotaoAmigo = ($row['are_friends'] == 1) ? "btn-primary" : "btn-primary";
                     $botaoAmigoDisabled = ($row['are_friends'] == 1) ? "disabled" : "";
-            
+
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                         <div class='d-flex justify-content-between align-items-center'>
                             <div class='d-flex align-items-center gap-3'>
@@ -2429,7 +2486,7 @@ class User
                             </div>
                         </div>   
                     </li>";
-                } else if($row['tipo_user'] == 2) {
+                } else if ($row['tipo_user'] == 2) {
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                         <div class='d-flex justify-content-between align-items-center'>
                             <div class='d-flex align-items-center gap-3'>
@@ -2450,20 +2507,20 @@ class User
                                 <i class='ti ti-users fs-5' data-toggle='tooltip' data-bs-placement='top' title='Grupo'></i>
                                 <a href='./grupo.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
                                 <a href='./grupo.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>";
-                                
-                                if ($row['descricao'] == "Basquetebol") {
-                                    $msg .= "<span class='badge rounded-pill text-bg-warning'><i
+
+                    if ($row['descricao'] == "Basquetebol") {
+                        $msg .= "<span class='badge rounded-pill text-bg-warning'><i
                                     class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>";
-                                } else if ($row['descricao'] == "Futsal") {
-                                    $msg .= "<span class='badge rounded-pill text-bg-danger'><i
+                    } else if ($row['descricao'] == "Futsal") {
+                        $msg .= "<span class='badge rounded-pill text-bg-danger'><i
                                     class='ti ti-ball-football me-1'></i><small>Futsal</small></span>";
-                                } else if ($row['descricao'] == "Padel") {
-                                    $msg .= "<span class='badge rounded-pill text-bg-primary mt-2 fs-5'><i
+                    } else if ($row['descricao'] == "Padel") {
+                        $msg .= "<span class='badge rounded-pill text-bg-primary mt-2 fs-5'><i
                                     class='ti ti-ball-tennis me-1'></i><small>Padel</small></span>";
-                                } else {
-                                    $msg .= "<span class='badge rounded-pill text-bg-success mt-2 fs-5'><i
+                    } else {
+                        $msg .= "<span class='badge rounded-pill text-bg-success mt-2 fs-5'><i
                                     class='ti ti-ball-tennis me-1'></i><small>Ténis</small></span>";
-                                }
+                    }
 
                     $msg .= "</div>
                             <div class='d-flex align-items-center'>
@@ -2472,31 +2529,31 @@ class User
                         </div>   
                     </li>";
                 }
-                
             }
         }
 
-        $conn -> close();
+        $conn->close();
         return ($msg);
-    }   
+    }
 
-    function getGraficos($id, $mod){
+    function getGraficos($id, $mod)
+    {
         global $conn;
         $msg = "";
         $vals = array();
         $modalid = json_decode($mod);
-        for($i = 0; $i < count($modalid); $i++){
-            if($modalid[$i] == "Basquetebol"){
-                $res = $this -> getGraficosBasquetebol($id);
+        for ($i = 0; $i < count($modalid); $i++) {
+            if ($modalid[$i] == "Basquetebol") {
+                $res = $this->getGraficosBasquetebol($id);
                 array_push($vals, $res);
-            }else if($modalid[$i] == "Futsal"){
-                $res = $this -> getGraficosFutsal($id);
+            } else if ($modalid[$i] == "Futsal") {
+                $res = $this->getGraficosFutsal($id);
                 array_push($vals, $res);
-            }else if ($modalid[$i] == "Padel"){
-                $res = $this -> getGraficosPadel($id);
+            } else if ($modalid[$i] == "Padel") {
+                $res = $this->getGraficosPadel($id);
                 array_push($vals, $res);
-            }else{
-                $res = $this -> getGraficosTenis($id);
+            } else {
+                $res = $this->getGraficosTenis($id);
                 array_push($vals, $res);
             }
         }
@@ -2507,24 +2564,25 @@ class User
     }
 
 
-    function getGraficosPadel($id){
+    function getGraficosPadel($id)
+    {
         global $conn;
-        $sql = "SELECT * FROM info_padel WHERE id_atleta =".$id;
-        $result = $conn -> query($sql);
+        $sql = "SELECT * FROM info_padel WHERE id_atleta =" . $id;
+        $result = $conn->query($sql);
         $sql2 = "SELECT * FROM estatisticas_padel";
-        $result2 = $conn -> query($sql2);
+        $result2 = $conn->query($sql2);
         $vals = array();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $percVit = $row['n_vitorias'] / $row['n_jogos'];
                 $percSetGanhos =  $row['n_set_ganhos'] / $row['n_sets'];
                 $percMVP = $row['n_mvp'] / $row['n_jogos'];
-                array_push($vals, array("Padel", round($percVit*100, 1), round($percSetGanhos*100,1), round($percMVP*100),1));
+                array_push($vals, array("Padel", round($percVit * 100, 1), round($percSetGanhos * 100, 1), round($percMVP * 100), 1));
             }
         }
         if ($result2->num_rows > 0) {
             while ($row2 = $result2->fetch_assoc()) {
-                array_push($vals, array("Padel", round($row2['percVitorias']*100,1), round($row2['percSetsGanhos']*100,1), round($row2['percMvp']*100,1)));
+                array_push($vals, array("Padel", round($row2['percVitorias'] * 100, 1), round($row2['percSetsGanhos'] * 100, 1), round($row2['percMvp'] * 100, 1)));
             }
         }
 
@@ -2584,36 +2642,37 @@ class User
         )AS temp3";
         $arrGraf1 = array();
         $arrGraf2 = array();
-        $result3 = $conn -> query($sql3);
+        $result3 = $conn->query($sql3);
         if ($result3->num_rows > 0) {
             while ($row3 = $result3->fetch_assoc()) {
-                array_push( $arrGraf1, $row3['percVit']);
-                array_push( $arrGraf2, $row3['percMvp']);
+                array_push($arrGraf1, $row3['percVit']);
+                array_push($arrGraf2, $row3['percMvp']);
             }
         }
         array_push($vals,  $arrGraf1);
         array_push($vals,  $arrGraf2);
-        return($vals);
+        return ($vals);
     }
 
-    function getGraficosTenis($id){
+    function getGraficosTenis($id)
+    {
         global $conn;
-        $sql3 = "SELECT * FROM info_tenis WHERE id_atleta =".$id;
-        $result3 = $conn -> query($sql3);
+        $sql3 = "SELECT * FROM info_tenis WHERE id_atleta =" . $id;
+        $result3 = $conn->query($sql3);
         $sql4 = "SELECT * FROM estatisticas_tenis";
-        $result4 = $conn -> query($sql4);
+        $result4 = $conn->query($sql4);
         $vals = array();
         if ($result3->num_rows > 0) {
             while ($row3 = $result3->fetch_assoc()) {
                 $percVit = $row3['n_vitorias'] / $row3['n_jogos'];
                 $percSetGanhos =  $row3['n_set_ganhos'] / $row3['n_sets'];
                 $percMVP = $row3['n_mvp'] / $row3['n_jogos'];
-                array_push($vals, array("Ténis", round($percVit*100, 1), round($percSetGanhos*100, 1), round($percMVP*100, 1)));
+                array_push($vals, array("Ténis", round($percVit * 100, 1), round($percSetGanhos * 100, 1), round($percMVP * 100, 1)));
             }
         }
         if ($result4->num_rows > 0) {
             while ($row4 = $result4->fetch_assoc()) {
-                array_push($vals, array("Ténis", round($row4['percVitorias']*100, 1), round($row4['percSetsGanhos']*100, 1), round($row4['percMvp']*100, 1)));
+                array_push($vals, array("Ténis", round($row4['percVitorias'] * 100, 1), round($row4['percSetsGanhos'] * 100, 1), round($row4['percMvp'] * 100, 1)));
             }
         }
         $sql5 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 0 AS res
@@ -2673,35 +2732,36 @@ class User
 
         $arrGraf1 = array();
         $arrGraf2 = array();
-        $result5 = $conn -> query($sql5);
+        $result5 = $conn->query($sql5);
         if ($result5->num_rows > 0) {
             while ($row5 = $result5->fetch_assoc()) {
-                array_push( $arrGraf1, $row5['percVit']);
-                array_push( $arrGraf2, $row5['percMvp']);
+                array_push($arrGraf1, $row5['percVit']);
+                array_push($arrGraf2, $row5['percMvp']);
             }
         }
         array_push($vals,  $arrGraf1);
         array_push($vals,  $arrGraf2);
-        return($vals);
+        return ($vals);
     }
 
-    function getGraficosBasquetebol($id){
+    function getGraficosBasquetebol($id)
+    {
         global $conn;
         $vals = array();
-        $sql5 = "SELECT * FROM info_basquetebol WHERE id_atleta =".$id;
-        $result5 = $conn -> query($sql5);
+        $sql5 = "SELECT * FROM info_basquetebol WHERE id_atleta =" . $id;
+        $result5 = $conn->query($sql5);
         $sql6 = "SELECT * FROM estatisticas_basquetebol";
-        $result6 = $conn -> query($sql6);
+        $result6 = $conn->query($sql6);
         if ($result5->num_rows > 0) {
             while ($row5 = $result5->fetch_assoc()) {
                 $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
                 $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
-                array_push($vals, array("Basquetebol",round($percVit*100, 1), round($percMVP*100, 1)));
+                array_push($vals, array("Basquetebol", round($percVit * 100, 1), round($percMVP * 100, 1)));
             }
         }
         if ($result6->num_rows > 0) {
             while ($row6 = $result6->fetch_assoc()) {
-                array_push($vals, array("Basquetebol", round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
+                array_push($vals, array("Basquetebol", round($row6['percVitorias'] * 100, 1), round($row6['percMvp'] * 100, 1)));
             }
         }
         $sql7 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 0 AS res
@@ -2761,35 +2821,36 @@ class User
 
         $arrGraf1 = array();
         $arrGraf2 = array();
-        $result7 = $conn -> query($sql7);
+        $result7 = $conn->query($sql7);
         if ($result7->num_rows > 0) {
             while ($row7 = $result7->fetch_assoc()) {
-                array_push( $arrGraf1, $row7['percVit']);
-                array_push( $arrGraf2, $row7['percMvp']);
+                array_push($arrGraf1, $row7['percVit']);
+                array_push($arrGraf2, $row7['percMvp']);
             }
         }
         array_push($vals,  $arrGraf1);
         array_push($vals,  $arrGraf2);
-        return($vals);
+        return ($vals);
     }
 
-    function getGraficosFutsal($id){
+    function getGraficosFutsal($id)
+    {
         global $conn;
         $vals = array();
-        $sql5 = "SELECT * FROM info_futsal WHERE id_atleta =".$id;
-        $result5 = $conn -> query($sql5);
+        $sql5 = "SELECT * FROM info_futsal WHERE id_atleta =" . $id;
+        $result5 = $conn->query($sql5);
         $sql6 = "SELECT * FROM estatisticas_futsal";
-        $result6 = $conn -> query($sql6);
+        $result6 = $conn->query($sql6);
         if ($result5->num_rows > 0) {
             while ($row5 = $result5->fetch_assoc()) {
                 $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
                 $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
-                array_push($vals, array("Futsal", round($percVit*100, 1), round($percMVP*100, 1)));
+                array_push($vals, array("Futsal", round($percVit * 100, 1), round($percMVP * 100, 1)));
             }
         }
         if ($result6->num_rows > 0) {
             while ($row6 = $result6->fetch_assoc()) {
-                array_push($vals, array("Futsal", round($row6['percVitorias']*100, 1), round($row6['percMvp']*100, 1)));
+                array_push($vals, array("Futsal", round($row6['percVitorias'] * 100, 1), round($row6['percMvp'] * 100, 1)));
             }
         }
         $sql7 = "SELECT temp.posicao AS percVit, temp3.posicao2 AS percMvp, 0 AS res
@@ -2849,33 +2910,34 @@ class User
 
         $arrGraf1 = array();
         $arrGraf2 = array();
-        $result7 = $conn -> query($sql7);
+        $result7 = $conn->query($sql7);
         if ($result7->num_rows > 0) {
             while ($row7 = $result7->fetch_assoc()) {
-                array_push( $arrGraf1, $row7['percVit']);
-                array_push( $arrGraf2, $row7['percMvp']);
+                array_push($arrGraf1, $row7['percVit']);
+                array_push($arrGraf2, $row7['percMvp']);
             }
         }
         array_push($vals,  $arrGraf1);
         array_push($vals,  $arrGraf2);
-        return($vals);
+        return ($vals);
     }
 
-    function cancelarMarcacao($idMarcacao){
+    function cancelarMarcacao($idMarcacao)
+    {
         global $conn;
-        $sql2 = "SELECT id_atleta FROM marcacao WHERE id = ".$idMarcacao;
+        $sql2 = "SELECT id_atleta FROM marcacao WHERE id = " . $idMarcacao;
         $sql = "";
         $sql3 = "";
         $flag = false;
-        $result2 = $conn -> query($sql2);
+        $result2 = $conn->query($sql2);
         if ($result2->num_rows > 0) {
             while ($row = $result2->fetch_assoc()) {
-                if($row['id_atleta'] == $_SESSION['id']){
+                if ($row['id_atleta'] == $_SESSION['id']) {
                     $flag = true;
-                    $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_marcacao = ".$idMarcacao;
-                    $sql3 = "DELETE FROM marcacao WHERE id = ".$idMarcacao;
-                }else{
-                    $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_atleta = ".$_SESSION['id']." AND id_marcacao = ".$idMarcacao;
+                    $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_marcacao = " . $idMarcacao;
+                    $sql3 = "DELETE FROM marcacao WHERE id = " . $idMarcacao;
+                } else {
+                    $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_atleta = " . $_SESSION['id'] . " AND id_marcacao = " . $idMarcacao;
                 }
             }
         }
@@ -2883,34 +2945,61 @@ class User
         $msg = "";
         $icon = "success";
         if ($conn->query($sql) === TRUE) {
-            if($flag === true){
+            if ($flag === true) {
                 if ($conn->query($sql3) === TRUE) {
                     $msg .= "Marcação cancelada com sucesso!";
-                }else{
+                } else {
                     $msg .= "Não foi possível cancelar a marcação!";
                     $icon = "error";
                 }
-            }else{
+            } else {
                 $msg .= "Marcação cancelada com sucesso!";
             }
-        }else{
+        } else {
             $msg .= "Não foi possível cancelar a marcação!";
             $icon = "error";
         }
 
         $resp = json_encode(array(
             "msg" => $msg,
-            "icon" => $icon));
+            "icon" => $icon
+        ));
 
         $conn->close();
         return ($resp);
     }
 
-    function getNotificacaoJuntarGrupo(){
+    function cancelarMarcacaoTorneio($idTorneio)
+    {
+        global $conn;
+        $sql = "DELETE FROM torneio_atleta WHERE id_atleta = " . $_SESSION['id'] . " AND id_torneio = " . $idTorneio;
+        
+        $msg = "";
+        $icon = "";
+
+        if ($conn->query($sql) === TRUE) {
+            $msg .= "Cancelou a sua participação neste torneio!";
+            $icon = "success";
+        } else {
+            $msg .= "Não foi possível cancelar o torneio!";
+            $icon = "error";
+        }
+
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "icon" => $icon
+        ));
+
+        $conn->close();
+        return ($resp);
+    }
+
+    function getNotificacaoJuntarGrupo()
+    {
         global $conn;
         $msg = "";
 
-        $sql="SELECT 
+        $sql = "SELECT 
                 user.nome, 
                 user.id, 
                 user.foto, 
@@ -2928,8 +3017,8 @@ class User
                 )
                 AND comunidade.id_atletaHost = " . $_SESSION['id'];
 
-               
-                $result = $conn->query($sql);
+
+        $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -2958,7 +3047,7 @@ class User
             }
         }
         $conn->close();
-        return ($msg);        
+        return ($msg);
     }
 
     function aceitarPedidoGrupo($id)
@@ -3027,20 +3116,21 @@ class User
         return ($resp);
     }
 
-    function guardaEditFotoPerfil($fotoPerfil){
+    function guardaEditFotoPerfil($fotoPerfil)
+    {
         global $conn;
         $respUpdate = $this->uploads($fotoPerfil, $_SESSION['id']);
         $respUpdate = json_decode($respUpdate, TRUE);
-        $sql = "UPDATE user SET foto = '".$respUpdate['target']."' WHERE id = ".$_SESSION['id'];
+        $sql = "UPDATE user SET foto = '" . $respUpdate['target'] . "' WHERE id = " . $_SESSION['id'];
         $msg = "";
         $icon = "success";
-        if($conn -> query($sql) === TRUE){
+        if ($conn->query($sql) === TRUE) {
             $msg = "Foto de perfil alterada com sucesso!";
-        }else{
-            $msg ="Não foi possível alterar a sua foto de perfil";
+        } else {
+            $msg = "Não foi possível alterar a sua foto de perfil";
             $icon = "error";
         }
-        $conn -> close();
+        $conn->close();
         return json_encode(array("msg" => $msg, "icon" => $icon));
     }
 }
