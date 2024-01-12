@@ -11,6 +11,7 @@ class TorneioUser {
         $arrayTorneioBasquetebol = array();
         $arrayTorneioPadel = array();
         $arrayTorneioTenis = array();
+        
 
         $sql = "SELECT 
                 torneio.id AS idTorneio,
@@ -25,21 +26,37 @@ class TorneioUser {
                 torneio.nivel AS nivelTorneio,
                 torneio.estado AS estadoTorneio,
                 torneio.obs AS observacoesTorneio,
-                modalidade.descricao AS modalidadeTorneio
+                torneio.genero as generoTorneio,
+                modalidade.descricao AS modalidadeTorneio,
+                temp.contagem AS contagemAtletasTorneio
             FROM 
                 torneio
             INNER JOIN
                 user AS user_clube ON torneio.id_clube = user_clube.id
             INNER JOIN
-                modalidade ON torneio.modalidade = modalidade.id
+                modalidade ON torneio.modalidade = modalidade.id,
+                (SELECT COUNT(*) AS contagem, 
+                        torneio_atleta.id_torneio AS torneioId 
+                        FROM torneio_atleta 
+                        INNER JOIN torneio ON torneio_atleta.id_torneio = torneio.id 
+                        
+                        UNION
+                        
+                        SELECT 0 AS contagem, 
+                        torneio.id AS torneioId 
+                        FROM torneio
+                        WHERE torneio.id NOT IN (
+                        SELECT DISTINCT torneio_atleta.id_torneio FROM torneio_atleta)) AS temp
             WHERE 
                 torneio.estado = 'nc'
                 AND torneio.`data` >= CURDATE()
                 AND NOT EXISTS (
                     SELECT 1 FROM torneio_atleta WHERE torneio_atleta.id_torneio = torneio.id AND torneio_atleta.id_atleta = ".$_SESSION['id']."
                 )
+                AND temp.torneioId = torneio.id
+                AND temp.contagem != torneio.num_entradas
             ORDER BY 
-                torneio.`data` DESC, torneio.hora DESC;";
+                torneio.`data` DESC, torneio.hora DESC;";      
 
         $result = $conn->query($sql);
 
@@ -63,6 +80,9 @@ class TorneioUser {
                     }
                 }
             }
+
+
+
         } else {
             $msg = "Nenhum torneio encontrado";
         }
@@ -75,6 +95,7 @@ class TorneioUser {
             "arrayTorneioPadel" => $arrayTorneioPadel,
             "arrayTorneioTenis" => $arrayTorneioTenis,
         ));
+
 
         return ($resp);
     }

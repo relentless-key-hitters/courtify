@@ -50,6 +50,9 @@ function getTorneiosAbertosUser() {
 
           const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
+          let generoTorneio = el.generoTorneio;
+          generoTorneio = generoTorneio.charAt(0).toUpperCase() + generoTorneio.slice(1);
+
           msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
                                         <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
@@ -58,11 +61,12 @@ function getTorneiosAbertosUser() {
                                             <div class="">
                                                 <a href="./clube.php?id=${el.idClube}"><span class="fs-4"><i class="ti ti-building me-1"></i>${el.nomeClube}</span></a>
                                             </div>
-                                            <div class="d-flex align-items-center mt-2">
-                                                <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <span class="fs-2">Preço: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="ms-2 badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
                                                     <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                                 </span>
-                                                <span class="fs-2">Preço p/ Atleta: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="fs-2">Género: <span class="fw-bolder fs-3">${generoTorneio}</span></span>
                                             </div>
 
                                             <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
@@ -70,7 +74,7 @@ function getTorneiosAbertosUser() {
                                             <small>${el.modalidadeTorneio}</small>
                                             </span>
                                             
-                                            <span class="fs-2 mt-3">Nº Inscrições: <span class="fw-bolder fs-4">0/${el.numEntradasTorneio}</span></span>
+                                            <span class="fs-2 mt-3">Nº Inscrições: <span class="fw-bolder fs-4">${el.contagemAtletasTorneio}/${el.numEntradasTorneio}</span></span>
 
                                             <div class="mt-2 fs-3">
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalInscreverTorneio" onclick="getModalInscricaoTorneio(${el.idTorneio})">Inscrever</button>
@@ -141,6 +145,9 @@ function getTorneiosAbertosUser() {
 
           const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
+          let generoTorneio = el.generoTorneio;
+          generoTorneio = generoTorneio.charAt(0).toUpperCase() + generoTorneio.slice(1);
+
           msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
                                         <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
@@ -149,11 +156,12 @@ function getTorneiosAbertosUser() {
                                             <div class="">
                                                 <a href="./clube.php?id=${el.idClube}"><span class="fs-4"><i class="ti ti-building me-1"></i>${el.nomeClube}</span></a>
                                             </div>
-                                            <div class="d-flex align-items-center mt-2">
-                                                <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <span class="fs-2">Preço: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="ms-2 badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
                                                     <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                                 </span>
-                                                <span class="fs-2">Preço p/ Atleta: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="fs-2">Género: <span class="fw-bolder fs-3">${generoTorneio}</span></span>
                                             </div>
 
                                             <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
@@ -164,12 +172,12 @@ function getTorneiosAbertosUser() {
                                             <span class="fs-2 mt-3">Nº Inscrições: <span class="fw-bolder fs-4">0/${el.numEntradasTorneio}</span></span>
 
                                             <div class="mt-2 fs-3">
-                                                <button type="button" class="btn btn-success">Inscrever</button>
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalInscreverTorneio" onclick="getModalInscricaoTorneio(${el.idTorneio})">Inscrever</button>
                                             </div>
                                         </div>
                                         </div>
                                     </li>`;
-        });
+          });
 
         $("#bodyTorneiosBasquetebolResultados").removeClass("d-none");
 
@@ -233,6 +241,9 @@ function getTorneiosAbertosUser() {
 
           const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
+          let generoTorneio = el.generoTorneio;
+          generoTorneio = generoTorneio.charAt(0).toUpperCase() + generoTorneio.slice(1);
+
           msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
                                         <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
@@ -241,11 +252,12 @@ function getTorneiosAbertosUser() {
                                             <div class="">
                                                 <a href="./clube.php?id=${el.idClube}"><span class="fs-4"><i class="ti ti-building me-1"></i>${el.nomeClube}</span></a>
                                             </div>
-                                            <div class="d-flex align-items-center mt-2">
-                                                <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <span class="fs-2">Preço: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="ms-2 badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
                                                     <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                                 </span>
-                                                <span class="fs-2">Preço p/ Atleta: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="fs-2">Género: <span class="fw-bolder fs-3">${generoTorneio}</span></span>
                                             </div>
 
                                             <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
@@ -256,12 +268,12 @@ function getTorneiosAbertosUser() {
                                             <span class="fs-2 mt-3">Nº Inscrições: <span class="fw-bolder fs-4">0/${el.numEntradasTorneio}</span></span>
 
                                             <div class="mt-2 fs-3">
-                                                <button type="button" class="btn btn-success">Inscrever</button>
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalInscreverTorneio" onclick="getModalInscricaoTorneio(${el.idTorneio})">Inscrever</button>
                                             </div>
                                         </div>
                                         </div>
                                     </li>`;
-        });
+          });
 
         $("#bodyTorneiosPadelResultados").removeClass("d-none");
 
@@ -323,6 +335,9 @@ function getTorneiosAbertosUser() {
 
           const finaldataFormatada = `${dataFormatada} ${dataForm}`;
 
+          let generoTorneio = el.generoTorneio;
+          generoTorneio = generoTorneio.charAt(0).toUpperCase() + generoTorneio.slice(1);
+
           msg += `<li class="list-group-item">
                                         <div class="card hover-img shadow position-relative">
                                         <div class="p-3 d-flex flex-column align-items-center justify-content-between mt-1">
@@ -331,11 +346,12 @@ function getTorneiosAbertosUser() {
                                             <div class="">
                                                 <a href="./clube.php?id=${el.idClube}"><span class="fs-4"><i class="ti ti-building me-1"></i>${el.nomeClube}</span></a>
                                             </div>
-                                            <div class="d-flex align-items-center mt-2">
-                                                <span class="badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <span class="fs-2">Preço: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="ms-2 badge text-dark fs-2 rounded-4 lh-sm py-1 px-2 fw-semibold me-2 fs-3" style="background-color: #f0f0f0">
                                                     <i class="ti ti-clock-hour-3 me-1"></i>${dataFormatada} (${dataForm})
                                                 </span>
-                                                <span class="fs-2">Preço p/ Atleta: <span class="fw-bolder fs-3">${precoAtletaFormatado}€</span></span>
+                                                <span class="fs-2">Género: <span class="fw-bolder fs-3">${generoTorneio}</span></span>
                                             </div>
 
                                             <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
@@ -346,12 +362,12 @@ function getTorneiosAbertosUser() {
                                             <span class="fs-2 mt-3">Nº Inscrições: <span class="fw-bolder fs-4">0/${el.numEntradasTorneio}</span></span>
 
                                             <div class="mt-2 fs-3">
-                                                <button type="button" class="btn btn-success">Inscrever</button>
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalInscreverTorneio" onclick="getModalInscricaoTorneio(${el.idTorneio})">Inscrever</button>
                                             </div>
                                         </div>
                                         </div>
                                     </li>`;
-        });
+          });
 
         $("#bodyTorneiosTenisResultados").removeClass("d-none");
 
