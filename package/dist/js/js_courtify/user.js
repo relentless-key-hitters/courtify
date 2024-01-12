@@ -308,9 +308,21 @@ function contRegisto(){
         }
         let arrMod = JSON.stringify(arr);
         dados.append("modalidades", arrMod);
-        dados.append("posFutsal", $("#posFutsal").val());
-        dados.append("nivelPadel", $("#nivelPadel").val());
-        dados.append("ladoPadel", $("#ladoPadel").val());
+        if($("#posFutsal").val() != 1 && $("#posFutsal").val() != 2 && $("#posFutsal").val() != 3 && $("#posFutsal").val() != 4 && $("#posFutsal").val() != 5){
+            dados.append("posFutsal", 5);
+        }else{
+            dados.append("posFutsal", $("#posFutsal").val());
+        }
+        if($("#nivelPadel").val() != 1 && $("#nivelPadel").val() != 2 && $("#nivelPadel").val() != 3 && $("#nivelPadel").val() != 4 && $("#nivelPadel").val() != 5){
+            dados.append("nivelPadel", 1);
+        }else{
+            dados.append("nivelPadel", $("#nivelPadel").val());
+        }
+        if($("#ladoPadel").val() != 1 && $("#ladoPadel").val() != 2){
+            dados.append("ladoPadel", 1);
+        }else{
+            dados.append("ladoPadel", $("#ladoPadel").val());
+        }
     
         $.ajax({
             url: "../../dist/php/controllerUser.php",
@@ -463,6 +475,7 @@ function verifGenero() {
 
     return flag;
 }
+
 
 function verifMembrosSup() {
     let flag = false;
