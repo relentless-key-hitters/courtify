@@ -38,8 +38,8 @@ class Equipa
                         <div class='card hover-img shadow'>
                         <div class='d-flex flex-column p-3 align-items-center mt-3'>
                             <a href='./equipa.php?id=" . $row['idComunidade'] . "'><img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid' style='max-width: 100px;'></a>
-                            <span class='fs-4 fw-bold'>" . $row['nomeComunidade'] . "</span>
-                            <a href='./clube.php?id=".$row['idAtletaHost']."'><span class='fs-3'>" . $row['nomeClube'] . "</span></a>
+                            <span class='fs-5 fw-bold'>" . $row['nomeComunidade'] . "</span>
+                            <a href='./clube.php?id=".$row['idAtletaHost']."'><span class='fs-3'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</span></a>
                             ";
             $msg .= "<a href='./equipa.php?id=" . $row['idComunidade'] . "'>
                                 <button class='btn btn-primary btn-sm mt-3'>Ver</button>
@@ -118,20 +118,20 @@ class Equipa
                                 <div class='col-md-8 mt-3'>
                                     <div class= 'row'>
                                         <div class= 'text-center text-sm-center text-md-start text-lg-start col-sm-12 col-md-12'>
-                                            <span class='fs-4 fw-bold'>" . $row['nomeComunidade'] . "</span>
+                                            <span class='fs-5 fw-bold'>" . $row['nomeComunidade'] . "</span>
                                         </div>
                                         <div class= 'text-center text-sm-center text-md-start text-lg-start col-sm-12 col-md-12'>
-                                            <a href='./clube.php?id=".$row['idAtletaHost']."'><span class='fs-3'>" . $row['nomeClube'] . "</span></a>
+                                            <a href='./clube.php?id=".$row['idAtletaHost']."'><span class='fs-3'><span class='fs-3'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</span></a>
                                         </div>
                                     </div>
-                                    <div class = 'row mt-2'>
-                                        <div class='text-center text-sm-center text-md-start text-lg-start col-md-7 col-lg-7'>
+                                    <div class = 'row mt-2 text-center text-sm-center text-md-start text-lg-start'>
+                                        <div class='col-md-7 col-lg-7'>
                                             <span class='fs-2'>" . $row['descricaoEquipa'] . "</span>
                                         </div>
-                                        <div class='mt-3 mt-md-0 text-center text-sm-center text-md-start text-lg-start col-md-5 col-lg-4 pe-0'>
-                                            <span class='fs-2'>Ranking</span><br>
-                                            <div class= 'mt-2 text-center'>
-                                                <span class='fs-3'>12</span>
+                                        <div class='mt-md-0 col-md-5 col-lg-4 pe-0'>
+                                            <div class= ' text-center'>
+                                                <span class='fs-2'>Ranking</span><br>
+                                                <span class='fs-3 fw-bolder'>12º</span>
                                             </div>
                                         </div>
                                     </div>
