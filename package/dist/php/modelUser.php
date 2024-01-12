@@ -3023,4 +3023,20 @@ class User
         return ($resp);
     }
 
+    function guardaEditFotoPerfil($fotoPerfil){
+        global $conn;
+        $respUpdate = $this->uploads($fotoPerfil, $_SESSION['id']);
+        $respUpdate = json_decode($respUpdate, TRUE);
+        $sql = "UPDATE user SET foto = '".$respUpdate['target']."' WHERE id = ".$_SESSION['id'];
+        $msg = "";
+        $icon = "success";
+        if($conn -> query($sql) === TRUE){
+            $msg = "Foto de perfil alterada com sucesso!";
+        }else{
+            $msg ="Não foi possível alterar a sua foto de perfil";
+            $icon = "error";
+        }
+        $conn -> close();
+        return json_encode(array("msg" => $msg, "icon" => $icon));
+    }
 }

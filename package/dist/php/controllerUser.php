@@ -123,6 +123,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 38){
     $res = $user -> aceitarPedidoGrupo($_POST['id']);
     echo($res);
+}else if($_POST['op'] == 39){
+    $res = $user ->  guardaEditFotoPerfil($_FILES);
+    echo($res);
 }
 
 
