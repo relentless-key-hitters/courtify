@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,11 +19,90 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
-  <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/Portuguese.json"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
+
+
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    #tabela2.dataTables_wrapper,
+    #tabela.dataTables_wrapper {
+      padding: 10px;
+    }
+
+    #tabela2_wrapper .dataTables_filter input,
+    #tabela_wrapper .dataTables_filter input {
+      width: 250px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    #tabela2_length select,
+    #tabela_length select {
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+
+    #tabela2.dataTable thead th,
+    #tabela.dataTable thead th {
+      text-align: center;
+      font-weight: 600;
+    }
+
+
+    #tabela2.dataTable tbody tr:nth-child(odd),
+    #tabela.dataTables tbody tr:nth-child(odd) {
+      background-color: #e6e6e6;
+      text-align: center;
+    }
+
+
+    #tabela2.dataTable tbody tr.selected,
+    #tabela.dataTables tbody tr.selected {
+      background-color: #c7d4e8;
+      text-align: center;
+    }
+
+    #tabela2_paginate .paginate_button.current,
+    #tabela_paginate .paginate_button.current {
+      background-color: #e6e6e6;
+      color: white;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
+
+    #tabela2_paginate .paginate_button.hover,
+    #tabela_paginate .paginate_button:hover {
+      background-color: #e6e6e6;
+      color: white;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
+
+
+    #tabela2_paginate .paginate_button.next:hover,
+    #tabela2_paginate .paginate_button.previous.hover,
+    #tabela_paginate .paginate_button.previous.hover,
+    #tabela_paginate .paginate_button.next:hover,
+    #tabela_paginate .paginate_button:hover {
+      background-color: #e6e6e6;
+      color: white;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
+  </style>
 
   <style>
     body {
@@ -68,7 +151,7 @@
               <span class="hide-menu fs-6">Dashboard</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4 link-active" href="./visao_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./visao_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
@@ -76,7 +159,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./calendario_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./calendario_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-calendar"></i>
                 </span>
@@ -84,7 +167,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./reserva_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./reserva_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-invoice"></i>
                 </span>
@@ -92,7 +175,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./campos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4 link-active" href="#" aria-expanded="false">
                 <span>
                   <i class="ti ti-soccer-field"></i>
                 </span>
@@ -100,7 +183,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./membros_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./membros_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -108,7 +191,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./equipas_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./equipas_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-shirt-sport"></i>
                 </span>
@@ -116,7 +199,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./torneios_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./torneios_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-tournament"></i>
                 </span>
@@ -124,7 +207,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./pagamentos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./pagamentos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-report-money"></i>
                 </span>
@@ -132,11 +215,19 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./historico_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./historico_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-book"></i>
                 </span>
                 <span class="hide-menu">Histórico</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link fs-4" href="./definicoes_dash.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-settings"></i>
+                </span>
+                <span class="hide-menu">Definições</span>
               </a>
             </li>
         </nav>
@@ -165,17 +256,6 @@
 
   <div class="body-wrapper">
     <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-7" style="position: relative;">
-        <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 30px">
-            Bem-Vindo,</h1>
-        </div>
-      </div>
-      <div class="col-lg-2"></div>
-    </div>
-
-    <div class="row">
       <div class="col-lg-4"></div>
       <div class="col-lg-6" style="position: relative;">
         <div>
@@ -197,564 +277,101 @@
     </div>
 
     <div class="col-lg-7">
-      <div class="container-fluid pt-5">
-        <div class="row">
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="card w-100 bg-light overflow-hidden shadow">
-              <div class="card-body position-relative">
-                <div class="row pe-5">
-                  <div class="col-sm-7">
-                    <div class="d-flex align-items-center">
-                      <h2 class="fw-semibold fs-3">
-                        Mês Atual (Data Atual)
-                      </h2>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="d-flex align-items-center">
-                      <h2 class="fw-semibold fs-3">
-                        Mês Passado (Data Atual)
-                      </h2>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row pe-5">
-                  <div class="col-sm-7">
-                    <div class="d-flex align-items-center">
-                      <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">5460€<i
-                            class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h3>
-                        <p class="mb-0 text-dark">Ganhos</p>
-                      </div>
-                      <div class="ps-4">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">600€<i
-                            class="ti ti-arrow-up-right fs-5 lh-base text-danger"></i></h3>
-                        <p class="mb-0 text-dark">Despesas</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="d-flex align-items-center">
-                      <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">5120€</h3>
-                        <p class="mb-0 text-dark">Ganhos</p>
-                      </div>
-                      <div class="ps-4">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">480€</h3>
-                        <p class="mb-0 text-dark">Despesas</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="badge-container2">
+        <div class="row mb-0 mt-5">
+          <div class="col-12 text-center">
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Campos</h1>
           </div>
+        </div>
 
-          <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body p-4">
-                <a href="./reserva_dash.html">
-                  <p class="mb-1 fs-4">Reservas <i class="fs-5 ti ti-clipboard"></i></p>
-                </a>
-                <h4 class="fw-semibold">209<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
-                <div id="sales" class="sales-chart"></div>
-                <div class="container pt-3">
-                  <a href="./reserva_dash.html"><button type="button"
-                      class="btn btn-sm btn-light">Consultar</button></a>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body p-4">
-                <p class="mb-2 fs-4">Torneios <i class="fs-5 ti ti-tournament"></i></p>
-                <h4 class="fw-semibold">18<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
-                <div id="expense"></div>
-                <div class="container pt-3">
-                  <a href="./torneios_dash.html"><button type="button"
-                      class="btn btn-sm btn-light">Consultar</button></a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="row mb-5">
+          <div class="container mt-5">
+            <table class="table" id="tabela">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">ID (Campo)</th>
+                  <th scope="col">Última Manutenção</th>
+                  <th scope="col">Próxima Manutenção</th>
+                  <th scope="col">Reservas</th>
+                </tr>
+              </thead>
+              <tbody>
 
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <h5 class="card-title fw-semibold">Ganhos Mensais<i class="fs-5 ti ti-calendar-due"></i></h5>
-                <p class="card-subtitle mb-4">Padel</p>
-                <div id="barDash"></div>
-                <div class="d-flex align-items-end justify-content-between mt-7">
-                </div>
-                <div class="d-flex">
-                  <div class="p-8 bg-light fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                    <i class="ti ti-calendar-due"></i>
-                  </div>
-                  <div>
-                    <h6 class="mb-1 fs-4 fw-semibold">2022</h6>
-                    <p class="fs-3 mb-0">Época Alta</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                <tr class="text-center">
+                  <td>P1</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
 
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <h5 class="card-title fw-semibold">Ganhos Mensais <i class="fs-5 ti ti-calendar-due"></i></h5>
-                <p class="card-subtitle mb-4">Padel</p>
-                <div id="barDash2"></div>
-                <div class="d-flex align-items-end justify-content-between mt-7">
-                </div>
-                <div class="d-flex">
-                  <div
-                    class="p-8 bg-light-warning fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                    <i class="ti ti-calendar-due"></i>
-                  </div>
-                  <div>
-                    <h6 class="mb-1 fs-4 fw-semibold">2023</h6>
-                    <p class="fs-3 mb-0">Época Alta</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-4">
-            <div class="card shadow">
-              <div class="card-body">
-                <div class="row alig n-items-start">
-                  <div class="col-8">
-                    <h5 class="card-title mb-9 fw-semibold"> Cancelamentos <i class="fs-5 ti ti-file-x"></i> (Data
-                      Atual)</h5>
-                    <div class="d-flex align-items-center">
-                      <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">32<i
-                            class="ti ti-arrow-up-right fs-5 lh-base text-danger"></i></h3>
-                      </div>
-                      <div class="ps-4">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">30</h3>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="pe-5">
-                        <p class="mb-0 text-dark">Mês Atual</p>
-                      </div>
-                      <div class="ps-4">
-                        <p class="mb-0 text-dark">Mês Passado</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                  </div>
-                </div>
-              </div>
-            </div>
+                <tr class="text-center">
+                  <td>P2</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
 
-            <div class="card shadow">
-              <div class="card-body">
-                <div class="row alig n-items-start">
-                  <div class="col-12">
-                    <h5 class="card-title mb-9 fw-semibold"> Pagamentos Pendentes <i
-                        class="fs-5 ti ti-credit-card-off"></i>
-                    </h5>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8">18</h4>
-                      <a href="./pagamentos_dash.html"><button type="button"
-                          class="btn btn-light">Consultar</button></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="card shadow">
-              <div class="card-body">
-                <div class="row alig n-items-start">
-                  <div class="col-12">
-                    <h5 class="card-title mb-9 fw-semibold"> Pagamentos Efetuados <i class="fs-5 ti ti-credit-card"></i>
-                    </h5>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8">192</h4>
-                      <a href="./pagamentos_dash.html"><button type="button"
-                          class="btn btn-light">Consultar</button></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                <tr class="text-center">
+                  <td>P3</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
 
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <h5 class="card-title fw-semibold">Estatísticas Semanais <i class="ti ti-chart-dots"></i></h5>
-                <p class="card-subtitle mb-0">Média de Reservas</p>
-                <div id="weekly-stats" class="mb-4 mt-7"></div>
-                <div class="position-relative">
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div class="p-6 bg-light-primary rounded-2 me-6 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-calendar text-primary fs-6"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Melhor Dia</h6>
-                        <p class="fs-3 mb-0">Quinta-feira</p>
-                      </div>
-                    </div>
-                    <div class="bg-light-primary badge">
-                      <p class="fs-3 text-primary fw-semibold mb-0">+9<i
-                          class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div class="p-6 bg-light-warning rounded-2 me-6 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-clock text-success fs-6"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Melhor Horário</h6>
-                        <p class="fs-3 mb-0">18:00 - 19:30</p>
-                      </div>
-                    </div>
-                    <div class="bg-light-warning badge">
-                      <p class="fs-3 text-primary fw-semibold mb-0">+8<i
-                          class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex">
-                      <div class="p-6 bg-light rounded-2 me-6 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-user-circle text-success fs-6"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Melhor Cliente</h6>
-                        <p class="fs-3 mb-0">João Figueira</p>
-                      </div>
-                    </div>
-                    <div class="bg-light badge">
-                      <p class="fs-3 text-primary fw-semibold mb-0">+6<i
-                          class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></p>
-                    </div>
-                  </div>
-                  <div class="d-flex pt-7 mt-7">
-                    <div
-                      class="p-8 bg-light-success fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                      <i class="ti ti-calendar-due"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-1 fs-4 fw-semibold">2023</h6>
-                      <p class="fs-3 mb-0">Dezembro</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <div>
-                  <h5 class="card-title fw-semibold">Ganhos Anuais <i class="fs-5 ti ti-receipt-tax"></i></h5>
-                  <p class="card-subtitle fs-4 mb-0">Melhor Mês (Novembro)</p>
-                  <div id="salary" class="mb-7 pb-8"></div>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center">
-                      <div class="bg-light-success rounded-2 me-8 p-8 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-report-money text-muted fs-6"></i>
-                      </div>
-                      <div>
-                        <p class="fs-3 mb-0 fw-normal">Total Ganhos</p>
-                        <h6 class="fw-semibold text-dark fs-4 mb-0">8220€</h6>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="bg-light-danger rounded-2 me-8 p-8 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-report-money text-muted fs-6"></i>
-                      </div>
-                      <div>
-                        <p class="fs-3 mb-0 fw-normal">Despesas</p>
-                        <h6 class="fw-semibold text-dark fs-4 mb-0">220€</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                <tr class="text-center">
+                  <td>P4</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
 
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <h5 class="card-title fw-semibold">Formas de Pagamento <i class=" fs-5 ti ti-wallet"></i></h5>
-                <p class="card-subtitle mb-7">Mês Atual</p>
-                <div class="position-relative">
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-primary fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-cash"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Dinheiro</h6>
-                        <p class="fs-3 mb-0">48 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold">1280€</h6>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-success fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-credit-card"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Crédito</h6>
-                        <p class="fs-3 mb-0">124 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold">3820€</h6>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-warning fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-send"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Tranferência</h6>
-                        <p class="fs-3 mb-0">12 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold">360€</h6>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-7 pb-1">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-danger fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-gift-card"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Gift Card</h6>
-                        <p class="fs-3 mb-0">32 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold text-muted">0€</h6>
-                  </div>
-                </div>
-                <a href="./pagamentos_dash.html"><button class="btn btn-outline-primary w-100">Todas as
-                    Transações</button></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <div class="mb-4">
-                  <h5 class="card-title fw-semibold">Transações Recentes <i class="fs-5 ti ti-pig-money"></i></h5>
-                  <p class="card-subtitle">Crédito</p>
-                </div>
-                <ul class="timeline-widget mb-0 position-relative mb-n5">
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">17:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-secondary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">26€ Ana Torres <span class="text-muted">12/12/2023
-                        16:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">19:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ João Santos <span class="text-muted">12/12/2023
-                        18:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">19:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ Pedro André <span class="text-muted">11/12/2023
-                        18:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">19:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-secondary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ Afonso Lima <span class="text-muted">10/11/2023
-                        18:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">20:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ João Santos <span class="text-muted">11/11/2023
-                        19:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">20:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ Rui Alves <span class="text-muted">1/11/2023
-                        18:00</span></div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-8 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <div class="d-sm-flex d-block align-items-center justify-content-between mb-3">
-                  <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Classificação <i class="fs-5 ti ti-award"></i></h5>
-                    <p class="card-subtitle">Melhores Atletas</p>
-                  </div>
-                  <div>
-                    <select class="form-select fw-semibold">
-                      <option value="1">March 2023</option>
-                      <option value="2">April 2023</option>
-                      <option value="3">May 2023</option>
-                      <option value="4">June 2023</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="table-responsive">
-                  <table class="table align-middle text-nowrap mb-0">
-                    <thead>
-                      <tr class="text-muted fw-semibold text-center">
-                        <th scope="col" class="ps-0">Atleta</th>
-                        <th scope="col">Idade</th>
-                        <th scope="col">Nº Vitórias</th>
-                        <th scope="col">Nº Jogos Realizados</th>
-                      </tr>
-                    </thead>
-                    <tbody class="border-top">
-                      <tr class="text-center">
-                        <td class="ps-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/boy11.jpg" alt="Thumbnail 1"
-                                class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Pedro Barros</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">29</p>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">67</p>
-                        </td>
-                        <td>
-                          <p class="fs-5 fw-semibold text-dark mb-0">82</p>
-                        </td>
-                        <td>
-                          <div id="table-chart"></div>
-                        </td>
-                      </tr>
-                      <tr class="text-center">
-                        <td class="ps-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/boy10.jpg" alt="Thumbnail 1"
-                                class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Rui Fontes</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">22</p>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">58</p>
-                        </td>
-                        <td>
-                          <p class="fs-5 fw-semibold text-dark mb-0">64</p>
-                        </td>
-                        <td>
-                          <div id="table-chart-1"></div>
-                        </td>
-                      </tr>
-                      <tr class="text-center">
-                        <td class="ps-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/girl3.jpg" alt="Thumbnail 1"
-                                class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Sara Potes</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">32</p>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">89</p>
-                        </td>
-                        <td>
-                          <p class="fs-5 fw-semibold text-dark mb-0">132</p>
-                        </td>
-                        <td>
-                          <div id="table-chart-2"></div>
-                        </td>
-                      </tr>
-                      <tr class="text-center">
-                        <td class="ps-0 border-bottom-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/boy5.jpg" alt="Thumbnail 1"
-                              class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Eduardo Abreu</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fs-5 fw-semibold text-dark">19</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fs-5 fw-semibold text-dark">44</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="fs-5 fw-semibold text-dark mb-0">46</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <div id="table-chart-3"></div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+
+                <tr class="text-center">
+                  <td>P5</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td>P6</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td>P7</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
+
+
+                <tr class="text-center">
+                  <td>P8</td>
+                  <td>2023-03-09</td>
+                  <td>2024-03-09</td>
+                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
+                      data-target="#campoResModal">Ver</button></td>
+                </tr>
+
+
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -762,6 +379,55 @@
     <div class="col-lg-2"></div>
   </div>
 
+
+  <div class="modal modal-lg fade" id="campoResModal" tabindex="-1" role="dialog" aria-labelledby="campoResModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-7" id="campoResModalLabel">Próximas Reservas</h5>
+          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
+            aria-label="Close">
+            <span> <i class="ti ti-x text-white"></i></span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <table class="table" id="tabela2">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">ID (Reserva)</th>
+                <th scope="col">Data</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Membro</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="text-center">
+                <td>000923</td>
+                <td>2024-02-18</td>
+                <td>19:00</td>
+                <td>João Fonseca</td>
+              </tr>
+
+              <tr class="text-center">
+                <td>000926</td>
+                <td>2024-02-18</td>
+                <td>21:00</td>
+                <td>Sandra Torres</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-lg-2"></div>
@@ -1288,7 +954,6 @@
     </div>
   </div>
   <!--  Import Js Files -->
-  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
   <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--  core files -->
@@ -1298,49 +963,95 @@
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
   <!--  current page js files -->
-  <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="../../dist/js/dashboard.js"></script>
 
 
-  <script src="../../dist/js/widgets-charts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <script>
     $(document).ready(function () {
-
-      $(".owl-carousel").each(function () {
-        var carouselId = $(this).closest(".carousel-container").attr("id");
-        $(this).owlCarousel({
-          items: 3,
-          margin: 20,
-          loop: false,
-          nav: false,
-          autoplay: false,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 2
-            },
-            992: {
-              items: 3
+      $('#tabela').DataTable({
+        responsive: true,
+        ordering: false,
+        "language": {
+          "sEmptyTable": "Nenhum registo encontrado",
+          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
+          "sInfoEmpty": "Mostrando 0 de 0 registros",
+          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+          "sInfoPostFix": "",
+          "sInfoThousands": ".",
+          "sLengthMenu": "_MENU_ resultados por página",
+          "sLoadingRecords": "Carregando...",
+          "sProcessing": "Processando...",
+          "sZeroRecords": "Nenhum registo encontrado",
+          "sSearch": "Pesquisar (id, data, etc...)",
+          "oPaginate": {
+            "sNext": ">",
+            "sPrevious": "<",
+            "sFirst": "Primeiro",
+            "sLast": "Último"
+          },
+          "oAria": {
+            "sSortAscending": ": Ordenar colunas de forma ascendente",
+            "sSortDescending": ": Ordenar colunas de forma descendente"
+          },
+          "select": {
+            "rows": {
+              "_": "Selecionado %d linhas",
+              "0": "Nenhuma linha selecionada",
+              "1": "Selecionado 1 linha"
             }
           }
-        });
+        }
+      });
+    });
 
 
-        $("#" + carouselId + " .owl-prev").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("prev.owl.carousel");
-        });
-
-        $("#" + carouselId + " .owl-next").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("next.owl.carousel");
-        });
+    $(document).ready(function () {
+      $('#tabela2').DataTable({
+        responsive: true,
+        ordering: false,
+        "language": {
+          "sEmptyTable": "Nenhum registo encontrado",
+          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
+          "sInfoEmpty": "Mostrando 0 de 0 registros",
+          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+          "sInfoPostFix": "",
+          "sInfoThousands": ".",
+          "sLengthMenu": "_MENU_ resultados por página",
+          "sLoadingRecords": "Carregando...",
+          "sProcessing": "Processando...",
+          "sZeroRecords": "Nenhum registo encontrado",
+          "sSearch": "Pesquisar (data, hora, etc...)",
+          "oPaginate": {
+            "sNext": ">",
+            "sPrevious": "<",
+            "sFirst": "Primeiro",
+            "sLast": "Último"
+          },
+          "oAria": {
+            "sSortAscending": ": Ordenar colunas de forma ascendente",
+            "sSortDescending": ": Ordenar colunas de forma descendente"
+          },
+          "select": {
+            "rows": {
+              "_": "Selecionado %d linhas",
+              "0": "Nenhuma linha selecionada",
+              "1": "Selecionado 1 linha"
+            }
+          }
+        }
       });
     });
   </script>
 </body>
 
 </html>
+<?php
+} else {
+  header("Location: authentication-error.html");
+  exit();
+}
+
+
+?>

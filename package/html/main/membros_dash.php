@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -134,7 +138,7 @@
               <span class="hide-menu fs-6">Dashboard</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./visao_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./visao_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
@@ -142,7 +146,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./calendario_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./calendario_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-calendar"></i>
                 </span>
@@ -150,7 +154,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./reserva_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./reserva_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-invoice"></i>
                 </span>
@@ -158,7 +162,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./campos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./campos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-soccer-field"></i>
                 </span>
@@ -166,7 +170,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4 link-active" href="./membros_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4 link-active" href="#" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -174,7 +178,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./equipas_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./equipas_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-shirt-sport"></i>
                 </span>
@@ -182,7 +186,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./torneios_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./torneios_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-tournament"></i>
                 </span>
@@ -190,7 +194,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./pagamentos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./pagamentos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-report-money"></i>
                 </span>
@@ -198,11 +202,19 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./historico_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./historico_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-book"></i>
                 </span>
                 <span class="hide-menu">Histórico</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link fs-4" href="./definicoes_dash.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-settings"></i>
+                </span>
+                <span class="hide-menu">Definições</span>
               </a>
             </li>
         </nav>
@@ -1095,3 +1107,11 @@
 </body>
 
 </html>
+<?php
+} else {
+  header("Location: authentication-error.html");
+  exit();
+}
+
+
+?>

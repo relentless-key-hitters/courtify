@@ -174,14 +174,27 @@ function login(){
             if(obj.flag){
                 if(obj.flagFirstLogin){
                     alerta2(obj.title, obj.msg, obj.icon); 
-                    setTimeout(function(){ 
-                        window.location.href = "../../html/main/continuacao-registo.html";
-                    }, 2000);
+                    if(obj.tipo == 1){
+                        setTimeout(function(){ 
+                            window.location.href = "../../html/main/continuacao-registo.html";
+                        }, 2000);
+                    }else{
+                        setTimeout(function(){ 
+                            window.location.href = "../../html/main/visao_dash.php";
+                        }, 2000);
+                    }
                 }else{
+                    if(obj.tipo == 1){
                     alerta2(obj.title, obj.msg, obj.icon); 
                     setTimeout(function(){ 
                         window.location.href = "../horizontal/index.php";
                     }, 2000);
+                }else{
+                    alerta2(obj.title, obj.msg, obj.icon); 
+                    setTimeout(function(){ 
+                        window.location.href = "../../html/main/visao_dash.php";
+                    }, 2000);
+                }
                 }
 
             } else {

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,17 +19,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
-  <!-- Owl Carousel  -->
 
-  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../../dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/Portuguese.json"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
 
 
   <style>
@@ -42,6 +42,7 @@
       margin-bottom: 10px;
       border-radius: 5px;
     }
+
 
     #tabela_length select {
       margin-bottom: 10px;
@@ -93,6 +94,12 @@
     }
   </style>
 
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -134,7 +141,7 @@
               <span class="hide-menu fs-6">Dashboard</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./visao_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./visao_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
@@ -142,7 +149,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./calendario_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./calendario_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-calendar"></i>
                 </span>
@@ -150,7 +157,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4 link-active" href="./reserva_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./reserva_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-invoice"></i>
                 </span>
@@ -158,7 +165,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./campos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./campos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-soccer-field"></i>
                 </span>
@@ -166,7 +173,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./membros_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./membros_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -174,7 +181,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./equipas_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./equipas_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-shirt-sport"></i>
                 </span>
@@ -182,7 +189,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./torneios_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4 link-active" href="#" aria-expanded="false">
                 <span>
                   <i class="ti ti-tournament"></i>
                 </span>
@@ -190,7 +197,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./pagamentos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./pagamentos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-report-money"></i>
                 </span>
@@ -198,11 +205,19 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./historico_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./historico_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-book"></i>
                 </span>
                 <span class="hide-menu">Histórico</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link fs-4" href="./definicoes_dash.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-settings"></i>
+                </span>
+                <span class="hide-menu">Definições</span>
               </a>
             </li>
         </nav>
@@ -255,218 +270,34 @@
       <div class="badge-container2">
         <div class="row mb-0 mt-5">
           <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Reservas</h1>
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Torneios</h1>
           </div>
         </div>
 
-      </div>
-    </div>
-    <div class="col-lg-2"></div>
+        <div class="row mb-5">
+          <div class="container mt-5">
+            <table class="table" id="tabelaTorneio">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">ID</th>
+                  <th scope="col">Foto</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Nível</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Hora</th>
+                  <th scope="col">Entradas</th>
+                  <th scope="col">Preço € (por pax)</th>
+                  <th scope="col">Editar</th>
+                  <th scope="col">Cancelar</th>
+                </tr>
+              </thead>
 
-    <div class="col-lg-3"></div>
-    <div class="col-lg-7">
-      <div class="row mb-5">
-        <div class="container mt-5">
-          <table class="table text-center" id="tabela">
-            <thead>
-              <tr class="text-center">
-                <th scope="col">ID</th>
-                <th scope="col">Membro</th>
-                <th scope="col">Dia</th>
-                <th scope="col">Hora</th>
-                <th scope="col">Campo</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Pagamento</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Cancelar</th>
-              </tr>
-            </thead>
-            <tbody>
 
-              <tr class="text-center">
-                <td>000919</td>
-                <td>Pedro Barros</td>
-                <td>2024-02-18</td>
-                <td>10:30</td>
-                <td>P2</td>
-                <td>20.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
 
-              <tr class="text-center">
-                <td>000920</td>
-                <td>Rui Silva</td>
-                <td>2024-02-18</td>
-                <td>16:30</td>
-                <td>P7</td>
-                <td>25.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000921</td>
-                <td>António Silva</td>
-                <td>2024-02-18</td>
-                <td>19:30</td>
-                <td>P4</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000922</td>
-                <td>Ana Teixeira</td>
-                <td>2024-02-18</td>
-                <td>19:30</td>
-                <td>P2</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000923</td>
-                <td>João Fonseca</td>
-                <td>2024-02-19</td>
-                <td>19:30</td>
-                <td>P1</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000924</td>
-                <td>Clara Silva</td>
-                <td>2024-02-19</td>
-                <td>19:30</td>
-                <td>P3</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000925</td>
-                <td>Félix Cunha</td>
-                <td>2024-02-19</td>
-                <td>21:30</td>
-                <td>P8</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000926</td>
-                <td>Sandra Torres</td>
-                <td>2024-02-19</td>
-                <td>21:30</td>
-                <td>P1</td>
-                <td>30.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000927</td>
-                <td>Fábio Costello</td>
-                <td>2024-02-20</td>
-                <td>09:30</td>
-                <td>P6</td>
-                <td>20.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000928</td>
-                <td>Tiago André</td>
-                <td>2024-02-20</td>
-                <td>17:30</td>
-                <td>P5</td>
-                <td>20.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000929</td>
-                <td>Liliana Barros</td>
-                <td>2024-02-20</td>
-                <td>18:30</td>
-                <td>P8</td>
-                <td>20.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000930</td>
-                <td>Filipe Serra</td>
-                <td>2024-02-20</td>
-                <td>19:30</td>
-                <td>P4</td>
-                <td>25.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000931</td>
-                <td>Joaquim Pereira</td>
-                <td>2024-02-20</td>
-                <td>19:30</td>
-                <td>P7</td>
-                <td>25.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-            </tbody>
-          </table>
+              <tbody id="listaTorneio">
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -474,12 +305,131 @@
   </div>
 
 
-  <div class="modal modal-lg fade" id="editReservaModal" tabindex="-1" role="dialog"
-    aria-labelledby="editReservaModalLabel" aria-hidden="true">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6"></div>
+    <div class="col-lg-3">
+      <h2 class="text-muted fs-5">Criar Torneio <button data-toggle="modal" data-target="#tournamentModal" type="button"
+          class="btn btn-sm fs-4 btn-success"><i class="ti ti-circle-plus text-white"></i></button></h2>
+    </div>
+  </div>
+
+
+  <div class="modal modal-lg fade" id="tournamentModal" tabindex="-1" role="dialog"
+    aria-labelledby="tournamentModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-7" id="editReservaModalLabel">Editar Reserva</h5>
+          <h5 class="modal-title fs-7" id="tournamentModalLabel">Criar Torneio</h5>
+          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
+            aria-label="Close">
+            <span> <i class="ti ti-x text-white"></i></span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-7 pt-4">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="trDesc" placeholder="Digite o nome do torneio">
+              </div>
+            </div>
+
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="imagem">Imagem</label>
+                <input type="file" class="form-control" id="trImagem" accept="image/*">
+                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="nome">Nº Máx de Participantes</label>
+                <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx de participantes">
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="nivel">Nível</label>
+                <select name="nivel" class="form-select" id="trNivel">
+                  <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
+                  <option value="sc">Sem Classificação</option>
+                  <option value="n5">N5</option>
+                  <option value="n4">N4</option>
+                  <option value="n3">N3</option>
+                  <option value="n2">N2</option>
+                  <option value="n1">N1</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="data">Data:</label>
+                <input type="date" class="form-control" id="trData">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="hora">Hora:</label>
+                <input type="time" class="form-control" id="trHora">
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="preco">Preço:</label>
+                <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço do torneio">
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="nivel">Estado</label>
+                <select name="nivel" class="form-select" id="trEstado">
+                  <option class="text-muted" value="" disabled>Escolha o estado do Torneio</option>
+                  <option selected value="trAtivo">Ativo</option>
+                  <option disabled value="trCancelado">Cancelado</option>
+                  <option disabled value="trTerminado">Terminado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 pt-4">
+                <label for="trObs">Observações</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog"
+    aria-labelledby="trEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-7" id="trEditModalLabel">Editar Torneio</h5>
           <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
             aria-label="Close">
             <span> <i class="ti ti-x text-white"></i></span>
@@ -490,66 +440,85 @@
           <div class="row">
             <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="idEditRes">ID</label>
-                <input type="number" disabled class="form-control" id="idEditRes">
+                <label for="idEditTour">ID</label>
+                <input type="number" disabled class="form-control" id="idEditTour">
               </div>
             </div>
 
-            <div class="col-md-3 pt-4">
+            <div class="col-md-8 pt-4">
               <div class="form-group">
-                <label for="dataEditRes">Data</label>
-                <input type="date" class="form-control" id="dataEditRes">
+                <label for="nomeEditTour">Nome</label>
+                <input type="text" class="form-control" id="descEditTour">
               </div>
             </div>
 
-            <div class="col-md-3 pt-4">
+            <div class="row">
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="nivelEditTour">Nível</label>
+                  <select name="nivel" class="form-select" id="nivelEditTour">
+                    <option class="text-muted" value="" selected disabled>Escolha o nível</option>
+                    <option value="editSC">Sem Classificação</option>
+                    <option value="editN5">N5</option>
+                    <option value="editN4">N4</option>
+                    <option value="editN3">N3</option>
+                    <option value="editN2">N2</option>
+                    <option value="editN1">N1</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="dataEditTour">Data</label>
+                  <input type="date" class="form-control" id="dataEditTour">
+                </div>
+              </div>
+
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="timeEditTour">Hora</label>
+                  <input type="time" class="form-control" id="horaEditTour">
+                </div>
+              </div>
+
+              <div class="col-md-3 pt-4">
+                <div class="form-group">
+                  <label for="precoEditTour">Preço</label>
+                  <input type="number" class="form-control" id="precoEditTour">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 pt-4">
               <div class="form-group">
-                <label for="HoraEditRes">Hora</label>
-                <input type="time" class="form-control" id="HoraEditRes">
+                <label for="imagem">Imagem</label>
+                <input type="file" class="form-control" id="imagemEditTour" accept="image/*">
+                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="campoEditRes">Campo</label>
-                <select name="nivel" class="form-select" id="campoEditRes">
-                  <option class="text-muted" value="" selected disabled>Escolha o campo</option>
-                  <option value="editP1">P1</option>
-                  <option value="editP2">P2</option>
-                  <option value="editP3">P3</option>
-                  <option value="editP4">P4</option>
-                  <option value="editP5">P5</option>
-                  <option value="editP6">P6</option>
-                  <option value="editP7">P7</option>
-                  <option value="editP8">P8</option>
-                </select>
+            <div class="row">
+              <div class="col-md-2 pt-4">
+                <label for="obsEditTour">Observações</label>
               </div>
             </div>
-          </div>
 
-
-          <div class="row">
-            <div class="col-md-2 pt-4">
-              <label for="obsEditRes">Observações</label>
+            <div class="row">
+              <div class="col-md-12">
+                <textarea id="obsEditTour" cols="6" rows="3" class="form-control"></textarea>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <textarea id="obsEditRes" cols="6" rows="3" class="form-control"></textarea>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success">Guardar</button>
             </div>
-          </div>
-
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success">Guardar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <div class="row">
     <div class="col-lg-2"></div>
@@ -1084,11 +1053,13 @@
   <script src="../../dist/js/app-style-switcher.js"></script>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
+  <script src="../../dist/js/js_courtify/torneio.js"></script>
   <!--  current page js files -->
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
   <script>
     $(document).ready(function () {
@@ -1106,11 +1077,11 @@
           "sLoadingRecords": "Carregando...",
           "sProcessing": "Processando...",
           "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, dia, hora, etc...)",
+          "sSearch": "Pesquisar (nome, nível, etc...)",
           "oPaginate": {
+            "sNext": "Próximo",
             "sNext": ">",
             "sPrevious": "<",
-            "sFirst": "Primeiro",
             "sLast": "Último"
           },
           "oAria": {
@@ -1128,8 +1099,15 @@
       });
     });
   </script>
-
-
 </body>
 
 </html>
+
+<?php
+} else {
+  header("Location: authentication-error.html");
+  exit();
+}
+
+
+?>

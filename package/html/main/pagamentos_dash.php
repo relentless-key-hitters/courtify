@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,46 +36,41 @@
       overflow-x: hidden;
     }
 
-    #tabela2.dataTables_wrapper,
     #tabela.dataTables_wrapper {
       padding: 10px;
     }
 
-    #tabela2_wrapper .dataTables_filter input,
     #tabela_wrapper .dataTables_filter input {
       width: 250px;
       margin-bottom: 10px;
       border-radius: 5px;
     }
 
-    #tabela2_length select,
     #tabela_length select {
       margin-bottom: 10px;
       border-radius: 5px;
     }
 
 
-    #tabela2.dataTable thead th,
     #tabela.dataTable thead th {
       text-align: center;
       font-weight: 600;
     }
 
 
-    #tabela2.dataTable tbody tr:nth-child(odd),
     #tabela.dataTables tbody tr:nth-child(odd) {
       background-color: #e6e6e6;
       text-align: center;
     }
 
 
-    #tabela2.dataTable tbody tr.selected,
     #tabela.dataTables tbody tr.selected {
       background-color: #c7d4e8;
       text-align: center;
     }
 
-    #tabela2_paginate .paginate_button.current,
+
+
     #tabela_paginate .paginate_button.current {
       background-color: #e6e6e6;
       color: white;
@@ -79,7 +78,6 @@
       border-radius: 6px;
     }
 
-    #tabela2_paginate .paginate_button.hover,
     #tabela_paginate .paginate_button:hover {
       background-color: #e6e6e6;
       color: white;
@@ -88,8 +86,6 @@
     }
 
 
-    #tabela2_paginate .paginate_button.next:hover,
-    #tabela2_paginate .paginate_button.previous.hover,
     #tabela_paginate .paginate_button.previous.hover,
     #tabela_paginate .paginate_button.next:hover,
     #tabela_paginate .paginate_button:hover {
@@ -147,7 +143,7 @@
               <span class="hide-menu fs-6">Dashboard</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./visao_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./visao_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
@@ -155,7 +151,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./calendario_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./calendario_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-calendar"></i>
                 </span>
@@ -163,7 +159,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./reserva_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./reserva_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-invoice"></i>
                 </span>
@@ -171,7 +167,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4 link-active" href="./campos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./campos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-soccer-field"></i>
                 </span>
@@ -179,7 +175,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./membros_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./membros_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -187,7 +183,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./equipas_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./equipas_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-shirt-sport"></i>
                 </span>
@@ -195,7 +191,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./torneios_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./torneios_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-tournament"></i>
                 </span>
@@ -203,7 +199,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./pagamentos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4 link-active" href="#" aria-expanded="false">
                 <span>
                   <i class="ti ti-report-money"></i>
                 </span>
@@ -211,11 +207,19 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./historico_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./historico_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-book"></i>
                 </span>
                 <span class="hide-menu">Histórico</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link fs-4" href="./definicoes_dash.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-settings"></i>
+                </span>
+                <span class="hide-menu">Definições</span>
               </a>
             </li>
         </nav>
@@ -268,154 +272,210 @@
       <div class="badge-container2">
         <div class="row mb-0 mt-5">
           <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Campos</h1>
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Pagamentos</h1>
           </div>
         </div>
 
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
 
-        <div class="row mb-5">
-          <div class="container mt-5">
-            <table class="table" id="tabela">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">ID (Campo)</th>
-                  <th scope="col">Última Manutenção</th>
-                  <th scope="col">Próxima Manutenção</th>
-                  <th scope="col">Reservas</th>
-                </tr>
-              </thead>
-              <tbody>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-7">
+      <div class="row mb-5">
+        <div class="container mt-5">
+          <table class="table" id="tabela">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">ID</th>
+                <th scope="col">Membro</th>
+                <th scope="col">Dia</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Campo</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Pagamento</th>
+                <th scope="col">Validar</th>
+              </tr>
+            </thead>
 
-                <tr class="text-center">
-                  <td>P1</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
+            <tbody>
 
+              <tr class="text-center">
+                <td>000919</td>
+                <td>Pedro Barros</td>
+                <td>2024-02-18</td>
+                <td>10:00</td>
+                <td>P2</td>
+                <td>20.00</td>
+                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
+                <td><button type="button" class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td>P2</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
+              <tr class="text-center">
+                <td>000920</td>
+                <td>Rui Silva</td>
+                <td>2024-02-18</td>
+                <td>16:30</td>
+                <td>P7</td>
+                <td>25.00</td>
+                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
+                <td><button type="button" class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
+              <tr class="text-center">
+                <td>000921</td>
+                <td>António Silva</td>
+                <td>2024-02-18</td>
+                <td>19:00</td>
+                <td>P4</td>
+                <td>30.00</td>
+                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
+                <td><button type="button" class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="text-center">
+                <td>000922</td>
+                <td>Ana Teixeira</td>
+                <td>2024-02-18</td>
+                <td>19:00</td>
+                <td>P2</td>
+                <td>30.00</td>
+                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
+                <td><button type="button" class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td>P3</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
+              <tr class="text-center">
+                <td>000923</td>
+                <td>João Fonseca</td>
+                <td>2024-02-12</td>
+                <td>19:00</td>
+                <td>P1</td>
+                <td>30.00</td>
+                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
+                <td><button type="button" class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="text-center">
+                <td>000924</td>
+                <td>Clara Silva</td>
+                <td>2024-02-18</td>
+                <td>19:00</td>
+                <td>P3</td>
+                <td>30.00</td>
+                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
+                <td><button type="button" class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
+              <tr class="text-center">
+                <td>000925</td>
+                <td>Félix Cunha</td>
+                <td>2024-02-18</td>
+                <td>21:00</td>
+                <td>P8</td>
+                <td>30.00</td>
+                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
+                <td><button type="button" class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="text-center">
+                <td>000926</td>
+                <td>Sandra Torres</td>
+                <td>2024-02-18</td>
+                <td>21:00</td>
+                <td>P1</td>
+                <td>30.00</td>
+                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
+                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td>P4</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
+              <tr class="text-center">
+                <td>000927</td>
+                <td>Fábio Costello</td>
+                <td>2024-02-19</td>
+                <td>09:00</td>
+                <td>P6</td>
+                <td>20.00</td>
+                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
+                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="text-center">
+                <td>000928</td>
+                <td>Tiago André</td>
+                <td>2024-02-19</td>
+                <td>10:30</td>
+                <td>P5</td>
+                <td>20.00</td>
+                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
+                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
+              <tr class="text-center">
+                <td>000929</td>
+                <td>Liliana Barros</td>
+                <td>2024-02-19</td>
+                <td>10:30</td>
+                <td>P8</td>
+                <td>20.00</td>
+                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
+                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="text-center">
+                <td>000930</td>
+                <td>Filipe Serra</td>
+                <td>2024-02-19</td>
+                <td>15:30</td>
+                <td>P4</td>
+                <td>25.00</td>
+                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
+                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
-                <tr class="text-center">
-                  <td>P5</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
+              <tr class="text-center">
+                <td>000931</td>
+                <td>Joaquim Pereira</td>
+                <td>2024-02-19</td>
+                <td>16:00</td>
+                <td>P7</td>
+                <td>25.00</td>
+                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
+                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="text-center">
+                <td>000932</td>
+                <td>Gonçalo Ricardo</td>
+                <td>2024-02-19</td>
+                <td>16:30</td>
+                <td>P6</td>
+                <td>25.00</td>
+                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
+                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
+                  style="background-color: forestgreen;"></button></td>
+              </tr>
 
-
-                <tr class="text-center">
-                  <td>P6</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td>P7</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
-
-
-                <tr class="text-center">
-                  <td>P8</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
-
-
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
     <div class="col-lg-2"></div>
   </div>
 
-
-  <div class="modal modal-lg fade" id="campoResModal" tabindex="-1" role="dialog" aria-labelledby="campoResModal"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-7" id="campoResModalLabel">Próximas Reservas</h5>
-          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
-            aria-label="Close">
-            <span> <i class="ti ti-x text-white"></i></span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <table class="table" id="tabela2">
-            <thead>
-              <tr class="text-center">
-                <th scope="col">ID (Reserva)</th>
-                <th scope="col">Data</th>
-                <th scope="col">Hora</th>
-                <th scope="col">Membro</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr class="text-center">
-                <td>000923</td>
-                <td>2024-02-18</td>
-                <td>19:00</td>
-                <td>João Fonseca</td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000926</td>
-                <td>2024-02-18</td>
-                <td>21:00</td>
-                <td>Sandra Torres</td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-lg-2"></div>
@@ -950,11 +1010,8 @@
   <script src="../../dist/js/app-style-switcher.js"></script>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
-  <!--  current page js files -->
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <script>
     $(document).ready(function () {
@@ -972,45 +1029,7 @@
           "sLoadingRecords": "Carregando...",
           "sProcessing": "Processando...",
           "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (id, data, etc...)",
-          "oPaginate": {
-            "sNext": ">",
-            "sPrevious": "<",
-            "sFirst": "Primeiro",
-            "sLast": "Último"
-          },
-          "oAria": {
-            "sSortAscending": ": Ordenar colunas de forma ascendente",
-            "sSortDescending": ": Ordenar colunas de forma descendente"
-          },
-          "select": {
-            "rows": {
-              "_": "Selecionado %d linhas",
-              "0": "Nenhuma linha selecionada",
-              "1": "Selecionado 1 linha"
-            }
-          }
-        }
-      });
-    });
-
-
-    $(document).ready(function () {
-      $('#tabela2').DataTable({
-        responsive: true,
-        ordering: false,
-        "language": {
-          "sEmptyTable": "Nenhum registo encontrado",
-          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
-          "sInfoEmpty": "Mostrando 0 de 0 registros",
-          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-          "sInfoPostFix": "",
-          "sInfoThousands": ".",
-          "sLengthMenu": "_MENU_ resultados por página",
-          "sLoadingRecords": "Carregando...",
-          "sProcessing": "Processando...",
-          "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (data, hora, etc...)",
+          "sSearch": "Pesquisar (nome, dia, hora, etc...)",
           "oPaginate": {
             "sNext": ">",
             "sPrevious": "<",
@@ -1032,6 +1051,16 @@
       });
     });
   </script>
+
 </body>
 
 </html>
+
+<?php
+} else {
+  header("Location: authentication-error.html");
+  exit();
+}
+
+
+?>

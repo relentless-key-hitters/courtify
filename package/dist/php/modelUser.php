@@ -67,7 +67,11 @@ class User
             if ($conn->query($sql) === TRUE) {
                 $id = mysqli_insert_id($conn);
                 $sql2 = "INSERT INTO login(id_user, password) VALUES ('" . $id . "', '" . $pass . "')";
-                $sql3 = "INSERT INTO atleta (id_atleta) VALUES ('" . $id . "')";
+                if($tipo == 1){
+                    $sql3 = "INSERT INTO atleta (id_atleta) VALUES ('" . $id . "')";
+                }else{
+                    $sql3 = "INSERT INTO clube (id_clube) VALUES ('" . $id . "')";
+                }
                 if ($conn->query($sql2) === TRUE) {
                     $msg .= "Registado com sucesso!";
                 } else {
@@ -138,7 +142,8 @@ class User
                 "msg" => $msg,
                 "icon" => $icon,
                 "title" => $title,
-                "id" => $_SESSION['id']
+                "id" => $_SESSION['id'],
+                "tipoUser" => $_SESSION['tipo']
 
             ));
         } else {

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id'])) {?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +19,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
+  <!-- Owl Carousel  -->
 
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
@@ -92,12 +97,6 @@
     }
   </style>
 
-  <style>
-    body {
-      overflow-x: hidden;
-    }
-  </style>
-
 </head>
 
 <body>
@@ -139,7 +138,7 @@
               <span class="hide-menu fs-6">Dashboard</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./visao_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./visao_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
@@ -147,7 +146,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./calendario_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./calendario_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-calendar"></i>
                 </span>
@@ -155,7 +154,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./reserva_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4 link-active" href="#" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-invoice"></i>
                 </span>
@@ -163,7 +162,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./campos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./campos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-soccer-field"></i>
                 </span>
@@ -171,7 +170,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./membros_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./membros_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -179,7 +178,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./equipas_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./equipas_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-shirt-sport"></i>
                 </span>
@@ -187,7 +186,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./torneios_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./torneios_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-tournament"></i>
                 </span>
@@ -195,7 +194,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4 link-active" href="./pagamentos_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./pagamentos_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-report-money"></i>
                 </span>
@@ -203,11 +202,19 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./historico_dash.html" aria-expanded="false">
+              <a class="sidebar-link fs-4" href="./historico_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-book"></i>
                 </span>
                 <span class="hide-menu">Histórico</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link fs-4" href="./definicoes_dash.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-settings"></i>
+                </span>
+                <span class="hide-menu">Definições</span>
               </a>
             </li>
         </nav>
@@ -260,7 +267,7 @@
       <div class="badge-container2">
         <div class="row mb-0 mt-5">
           <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Pagamentos</h1>
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Reservas</h1>
           </div>
         </div>
 
@@ -272,7 +279,7 @@
     <div class="col-lg-7">
       <div class="row mb-5">
         <div class="container mt-5">
-          <table class="table" id="tabela">
+          <table class="table text-center" id="tabela">
             <thead>
               <tr class="text-center">
                 <th scope="col">ID</th>
@@ -282,22 +289,24 @@
                 <th scope="col">Campo</th>
                 <th scope="col">Preço</th>
                 <th scope="col">Pagamento</th>
-                <th scope="col">Validar</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Cancelar</th>
               </tr>
             </thead>
-
             <tbody>
 
               <tr class="text-center">
                 <td>000919</td>
                 <td>Pedro Barros</td>
                 <td>2024-02-18</td>
-                <td>10:00</td>
+                <td>10:30</td>
                 <td>P2</td>
                 <td>20.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
@@ -308,152 +317,164 @@
                 <td>P7</td>
                 <td>25.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
                 <td>000921</td>
                 <td>António Silva</td>
                 <td>2024-02-18</td>
-                <td>19:00</td>
+                <td>19:30</td>
                 <td>P4</td>
                 <td>30.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
                 <td>000922</td>
                 <td>Ana Teixeira</td>
                 <td>2024-02-18</td>
-                <td>19:00</td>
+                <td>19:30</td>
                 <td>P2</td>
                 <td>30.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
                 <td>000923</td>
                 <td>João Fonseca</td>
-                <td>2024-02-12</td>
-                <td>19:00</td>
+                <td>2024-02-19</td>
+                <td>19:30</td>
                 <td>P1</td>
                 <td>30.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
                 <td>000924</td>
                 <td>Clara Silva</td>
-                <td>2024-02-18</td>
-                <td>19:00</td>
+                <td>2024-02-19</td>
+                <td>19:30</td>
                 <td>P3</td>
                 <td>30.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
                 <td>000925</td>
                 <td>Félix Cunha</td>
-                <td>2024-02-18</td>
-                <td>21:00</td>
+                <td>2024-02-19</td>
+                <td>21:30</td>
                 <td>P8</td>
                 <td>30.00</td>
                 <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
                 <td>000926</td>
                 <td>Sandra Torres</td>
-                <td>2024-02-18</td>
-                <td>21:00</td>
+                <td>2024-02-19</td>
+                <td>21:30</td>
                 <td>P1</td>
                 <td>30.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
                 <td>000927</td>
                 <td>Fábio Costello</td>
-                <td>2024-02-19</td>
-                <td>09:00</td>
+                <td>2024-02-20</td>
+                <td>09:30</td>
                 <td>P6</td>
                 <td>20.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
                 <td>000928</td>
                 <td>Tiago André</td>
-                <td>2024-02-19</td>
-                <td>10:30</td>
+                <td>2024-02-20</td>
+                <td>17:30</td>
                 <td>P5</td>
                 <td>20.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
                 <td>000929</td>
                 <td>Liliana Barros</td>
-                <td>2024-02-19</td>
-                <td>10:30</td>
+                <td>2024-02-20</td>
+                <td>18:30</td>
                 <td>P8</td>
                 <td>20.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
               <!-- Row 2 -->
               <tr class="text-center">
                 <td>000930</td>
                 <td>Filipe Serra</td>
-                <td>2024-02-19</td>
-                <td>15:30</td>
+                <td>2024-02-20</td>
+                <td>19:30</td>
                 <td>P4</td>
                 <td>25.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
               <tr class="text-center">
                 <td>000931</td>
                 <td>Joaquim Pereira</td>
-                <td>2024-02-19</td>
-                <td>16:00</td>
+                <td>2024-02-20</td>
+                <td>19:30</td>
                 <td>P7</td>
                 <td>25.00</td>
                 <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000932</td>
-                <td>Gonçalo Ricardo</td>
-                <td>2024-02-19</td>
-                <td>16:30</td>
-                <td>P6</td>
-                <td>25.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
+                    data-target="#editReservaModal" style="background-color: gold;"></button></td>
+                <td><button type="button" class="btn btn-sm ti ti-x text-white"
+                    style="background-color: firebrick;"></button></td>
               </tr>
 
             </tbody>
@@ -464,6 +485,83 @@
     <div class="col-lg-2"></div>
   </div>
 
+
+  <div class="modal modal-lg fade" id="editReservaModal" tabindex="-1" role="dialog"
+    aria-labelledby="editReservaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-7" id="editReservaModalLabel">Editar Reserva</h5>
+          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
+            aria-label="Close">
+            <span> <i class="ti ti-x text-white"></i></span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="idEditRes">ID</label>
+                <input type="number" disabled class="form-control" id="idEditRes">
+              </div>
+            </div>
+
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="dataEditRes">Data</label>
+                <input type="date" class="form-control" id="dataEditRes">
+              </div>
+            </div>
+
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="HoraEditRes">Hora</label>
+                <input type="time" class="form-control" id="HoraEditRes">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="campoEditRes">Campo</label>
+                <select name="nivel" class="form-select" id="campoEditRes">
+                  <option class="text-muted" value="" selected disabled>Escolha o campo</option>
+                  <option value="editP1">P1</option>
+                  <option value="editP2">P2</option>
+                  <option value="editP3">P3</option>
+                  <option value="editP4">P4</option>
+                  <option value="editP5">P5</option>
+                  <option value="editP6">P6</option>
+                  <option value="editP7">P7</option>
+                  <option value="editP8">P8</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-2 pt-4">
+              <label for="obsEditRes">Observações</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="obsEditRes" cols="6" rows="3" class="form-control"></textarea>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-lg-2"></div>
@@ -998,8 +1096,11 @@
   <script src="../../dist/js/app-style-switcher.js"></script>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
+  <!--  current page js files -->
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <script>
     $(document).ready(function () {
@@ -1040,6 +1141,15 @@
     });
   </script>
 
+
 </body>
 
 </html>
+<?php
+} else {
+  header("Location: authentication-error.html");
+  exit();
+}
+
+
+?>
