@@ -126,6 +126,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 39){
     $res = $user ->  guardaEditFotoPerfil($_FILES);
     echo($res);
+}else if($_POST['op'] == 40){
+    $res = $user ->  cancelarMarcacaoTorneio($_POST['idTorneio']);
+    echo($res);
 }
 
 
