@@ -266,13 +266,13 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body p-4">
-                <a href="./reserva_dash.html">
+                <a href="./reserva_dash.php">
                   <p class="mb-1 fs-4">Reservas <i class="fs-5 ti ti-clipboard"></i></p>
                 </a>
                 <h4 class="fw-semibold">209<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="sales" class="sales-chart"></div>
                 <div class="container pt-3">
-                  <a href="./reserva_dash.html"><button type="button"
+                  <a href="./reserva_dash.php"><button type="button"
                       class="btn btn-sm btn-light">Consultar</button></a>
                 </div>
               </div>
