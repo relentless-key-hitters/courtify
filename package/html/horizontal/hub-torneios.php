@@ -217,9 +217,8 @@ if (isset($_SESSION['id'])) { ?>
               <div class=" mt-5">
                 <div class="card shadow bg-light px-3 py-3">
                   <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
-                    <h3 class="">Confere aqui os próximos <span class="text-success fw-bold">Torneios</span> deste mês
-                    </h3>
-                    <h3 class="text-primary text-end">01/11 a 30/11</h3>
+                    <h3 class="">Confere aqui os próximos <span class="text-success fw-bold">Torneios</span> deste mês</h3>
+                    <h3 class="text-primary text-end"><?php echo date('d/m') . " a " . date('d/m', strtotime("+1 month")); ?></h3>
                   </div>
                   <div class="card shadow">
                     <div class="card-body">
@@ -704,15 +703,15 @@ if (isset($_SESSION['id'])) { ?>
 
       <div class="modal fade" id="modalInscreverTorneio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scroll-long-inner-modalInscreverTorneio" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-          <div class="modal-content" >
+          <div class="modal-content">
             <div class="modal-header d-flex align-items-center">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-            <span>Estás prestes a a juntar-te a este Torneio.<br></span>
-            <small>Caso o faças, poderás sempre cancelar antes de o mesmo coemçar.</small>
-            <h5 class='mt-3'>Juntar?</h5>
-          </div>
+              <span>Estás prestes a a juntar-te a este Torneio.<br></span>
+              <small>Caso o faças, poderás sempre cancelar antes de o mesmo coemçar.</small>
+              <h5 class='mt-3'>Juntar?</h5>
+            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary text-white font-medium waves-effect text-start" data-bs-dismiss="modal" onclick="juntarTorneio()">
                 Sim

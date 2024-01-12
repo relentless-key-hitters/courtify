@@ -41,7 +41,7 @@ function getTorneiosAbertosUser() {
           }
 
           const dateParts = el.dataTorneio.split("-");
-          const dataFormatada = `${dateParts[1]}/${dateParts[2]}`;
+          const dataFormatada = `${dateParts[2]}/${dateParts[1]}`;
 
           const parteTempo = el.horaTorneio.split(":");
           const dataForm = `${parteTempo[0]}h:${parteTempo[1]}m`;
@@ -136,7 +136,7 @@ function getTorneiosAbertosUser() {
           }
 
           const dateParts = el.dataTorneio.split("-");
-          const dataFormatada = `${dateParts[1]}/${dateParts[2]}`;
+          const dataFormatada = `${dateParts[2]}/${dateParts[1]}`;
 
           const parteTempo = el.horaTorneio.split(":");
           const dataForm = `${parteTempo[0]}h:${parteTempo[1]}m`;
@@ -232,7 +232,7 @@ function getTorneiosAbertosUser() {
           }
 
           const dateParts = el.dataTorneio.split("-");
-          const dataFormatada = `${dateParts[1]}/${dateParts[2]}`;
+          const dataFormatada = `${dateParts[2]}/${dateParts[1]}`;
 
           const parteTempo = el.horaTorneio.split(":");
           const dataForm = `${parteTempo[0]}h:${parteTempo[1]}m`;
@@ -326,7 +326,7 @@ function getTorneiosAbertosUser() {
           }
 
           const dateParts = el.dataTorneio.split("-");
-          const dataFormatada = `${dateParts[1]}/${dateParts[2]}`;
+          const dataFormatada = `${dateParts[2]}/${dateParts[1]}`;
 
           const parteTempo = el.horaTorneio.split(":");
           const dataForm = `${parteTempo[0]}h:${parteTempo[1]}m`;
