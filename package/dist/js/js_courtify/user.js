@@ -584,6 +584,34 @@ function guardaEditInfo(){
 
 }
 
+function guardaEditFotoPerfil(){
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get("id");
+    let dados = new FormData();
+    dados.append('op' , 39);
+    dados.append("fotoPerfil", $('#fotoPerfilEditNova').prop('files')[0]);
+    
+    $.ajax({
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            let obj = JSON.parse(msg);
+            alerta2("Utilizador", obj.msg, obj.icon);
+            setTimeout(function () { location.reload(); }, 3000);
+        })
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
+
+}
+
 function adicionarAmigo(id) {
 
     let dados = new FormData();
