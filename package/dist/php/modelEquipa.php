@@ -71,6 +71,7 @@ class Equipa
     function getEquipasLocalidadeUser(){
         global $conn;
         $msg = "";
+        $local = "";
         $sql = "SELECT DISTINCT
         comunidade.id AS idComunidade,
         comunidade.nome AS nomeComunidade,
@@ -80,7 +81,8 @@ class Equipa
         tipo_comunidade.descricao AS tipoComunidade,
         modalidade.descricao AS tipoModalidade,
         comunidade.ranking as ranking,
-        user.nome as nomeClube
+        user.nome as nomeClube,
+        concelho.descricao as localidade
         FROM 
         comunidade
         INNER JOIN
@@ -89,6 +91,7 @@ class Equipa
         tipo_comunidade ON comunidade.tipo_comunidade = tipo_comunidade.id
         INNER JOIN 
         user ON comunidade.id_atletaHost = user.id
+        INNER JOIN concelho ON user.localidade = concelho.id
         WHERE comunidade.tipo_comunidade = 2
         AND user.localidade = (
 		  	SELECT localidade 
@@ -98,6 +101,7 @@ class Equipa
         $result= $conn -> query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $local = $row['localidade'];
                 $msg .= "<div class='col-12 col-sm-6 col-md-6 col-lg-4'>
                             <div class='card hover-img shadow'>
                                 <div class='row mt-3'>
@@ -154,7 +158,7 @@ class Equipa
 
         $conn->close();
 
-        return ($msg);
+        return json_encode(array("msg" => $msg , "localidade" => $local));
 
     }
 
@@ -465,10 +469,10 @@ class Equipa
                         <span class='fs-2'><i class='ti ti-map-pin me-1'></i>".$row['localidade']."</span><br>";
 
                 if($modalidade == "Padel"){
-                    $msg .= "<span class='fs-2'>Nível: ".$row['nivel']."</span><br>";
-                    $msg .= "<span class='fs-2'>Lado: ".$row['lado']."</span>";
+                    $msg .= "<span class='fs-2'>Nível:  <span class= 'fw-bolder'>".$row['nivel']."</span></span><br>";
+                    $msg .= "<span class='fs-2'>Lado:<span class= 'fw-bolder'>".$row['lado']."</span></span>";
                 }else if($modalidade == "Futsal"){
-                    $msg .= "<span class='fs-2'>Posição: ".$row['posicao']."</span>";
+                    $msg .= "<span class='fs-2'>Posição: <span class= 'fw-bolder'>".$row['posicao']."</span></span>";
                 }
                     $msg .="</div>
                     </div>

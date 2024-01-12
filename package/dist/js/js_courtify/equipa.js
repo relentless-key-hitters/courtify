@@ -36,7 +36,9 @@ function getEquipasLocalidadeUser(){
   })
 
     .done(function (msg) {
-      $("#equipasLocalidade").html(msg);
+      let obj = JSON.parse(msg)
+      $("#equipasLocalidade").html(obj.msg);
+      $("#localidadeUserEquipa").html(obj.localidade)
     })
 
     .fail(function (jqXHR, textStatus) {
