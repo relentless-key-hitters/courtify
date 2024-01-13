@@ -174,7 +174,7 @@ function login(){
             if(obj.flag){
                 if(obj.flagFirstLogin){
                     alerta2(obj.title, obj.msg, obj.icon); 
-                    if(obj.tipo == 1){
+                    if(obj.tipoUser == 1){
                         setTimeout(function(){ 
                             window.location.href = "../../html/main/continuacao-registo.html";
                         }, 2000);
@@ -184,17 +184,17 @@ function login(){
                         }, 2000);
                     }
                 }else{
-                    if(obj.tipo == 1){
+                    if(obj.tipoUser == 1){
                     alerta2(obj.title, obj.msg, obj.icon); 
                     setTimeout(function(){ 
                         window.location.href = "../horizontal/index.php";
                     }, 2000);
-                }else{
+                    }else{
                     alerta2(obj.title, obj.msg, obj.icon); 
                     setTimeout(function(){ 
                         window.location.href = "../../html/main/visao_dash.php";
                     }, 2000);
-                }
+                    }
                 }
 
             } else {
