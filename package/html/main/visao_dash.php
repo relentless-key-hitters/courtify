@@ -235,7 +235,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-sm-7">
                     <div class="d-flex align-items-center">
                       <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">5460€<i
+                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id="ganhosMesAtual"><i
                             class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h3>
                         <p class="mb-0 text-dark">Ganhos</p>
                       </div>
@@ -269,7 +269,7 @@ if (isset($_SESSION['id'])) {?>
                 <a href="./reserva_dash.php">
                   <p class="mb-1 fs-4">Reservas <i class="fs-5 ti ti-clipboard"></i></p>
                 </a>
-                <h4 class="fw-semibold">209<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
+                <h4 class="fw-semibold" id="nReservas"><i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="sales" class="sales-chart"></div>
                 <div class="container pt-3">
                   <a href="./reserva_dash.php"><button type="button"
@@ -283,7 +283,7 @@ if (isset($_SESSION['id'])) {?>
             <div class="card w-100 shadow">
               <div class="card-body p-4">
                 <p class="mb-2 fs-4">Torneios <i class="fs-5 ti ti-tournament"></i></p>
-                <h4 class="fw-semibold">18<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
+                <h4 class="fw-semibold" id="nTorneios"><i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="expense"></div>
                 <div class="container pt-3">
                   <a href="./torneios_dash.html"><button type="button"
@@ -375,7 +375,7 @@ if (isset($_SESSION['id'])) {?>
                         class="fs-5 ti ti-credit-card-off"></i>
                     </h5>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8">18</h4>
+                      <h4 class="fw-semibold mb-0 me-8" id="nPend"></h4>
                       <a href="./pagamentos_dash.html"><button type="button"
                           class="btn btn-light">Consultar</button></a>
                     </div>
@@ -391,7 +391,7 @@ if (isset($_SESSION['id'])) {?>
                     <h5 class="card-title mb-9 fw-semibold"> Pagamentos Efetuados <i class="fs-5 ti ti-credit-card"></i>
                     </h5>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8">192</h4>
+                      <h4 class="fw-semibold mb-0 me-8" id="nFeitos"></h4>
                       <a href="./pagamentos_dash.html"><button type="button"
                           class="btn btn-light">Consultar</button></a>
                     </div>
@@ -1313,6 +1313,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../../dist/js/dashboard.js"></script>
+  <script src="../../dist/js/js_courtify/dashboardClube.js"></script>
 
 
   <script src="../../dist/js/widgets-charts.js"></script>
