@@ -1,53 +1,79 @@
 let link = window.location.pathname;
 console.log(link)
-function registaUser(){
 
+async function constroiMapa(morada, cp) {
+    let array = [];
+  
+    let localidadeUser = "" + morada + ", " + cp + "";
+    var nominatimUrlUser = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(localidadeUser);
+  
+    try {
+      const response = await fetch(nominatimUrlUser);
+      const data = await response.json();
+  
+      if (data.length > 0) {
+        array.push(parseFloat(data[0].lat));
+        array.push(parseFloat(data[0].lon));
+      }
+      return array;
+    } catch (error) {
+      console.error('Error geocoding:', error);
+      return array;
+    }
+  }
+  
+  async function registaUser() {
+    let coords = await constroiMapa($("#moradaUser").val(), $("#codPUser").val())
     var password = $("#passUser").val();
     var hashedPassword = CryptoJS.MD5(password).toString();
-
+  
     limparCampos();
+  
+    if (verifTipoUser() && verifPP($("#passUser").val(), $("#passCUser").val()) && verifNIF($("#nifUser").val()) && verifEmail($("#emailUser").val()) && verifCodPostal($("#codPUser").val()) && verifEmpty($("#nomeUser").val()) && verifEmpty($("#nifUser").val()) && verifEmpty($("#emailUser").val()) && verifEmpty($("#passUser").val())) {
+  
+      let dados = new FormData();
+      dados.append("op", 1);
+      dados.append("nome", $("#nomeUser").val());
+      if ($("#tipoUser1").is(":checked")) {
+        dados.append("tipo", $("#tipoUser1").val());
+      } else {
+        dados.append("tipo", $("#tipoUser2").val());
+      }
+      dados.append("telemovel", $("#telUser").val());
+      dados.append("nif", $("#nifUser").val());
+      dados.append("morada", $("#moradaUser").val());
+      dados.append("codP", $("#codPUser").val());
+      dados.append("local", $("#concelhoUser").val());
+      dados.append("email", $("#emailUser").val());
+      dados.append("pass", hashedPassword);
+      dados.append("coords", JSON.stringify(coords));
 
-    if(verifTipoUser() && verifPP($("#passUser").val(),$("#passCUser").val()) && verifNIF($("#nifUser").val()) && verifEmail($("#emailUser").val()) && verifCodPostal($("#codPUser").val()) && verifEmpty($("#nomeUser").val()) && verifEmpty($("#nifUser").val()) && verifEmpty($("#emailUser").val()) && verifEmpty($("#passUser").val())){
         
-        let dados = new FormData();
-        dados.append("op", 1);
-        dados.append("nome", $("#nomeUser").val());
-        if($("#tipoUser1").is(":checked")){
-            dados.append("tipo", $("#tipoUser1").val());
-        }else{
-            dados.append("tipo", $("#tipoUser2").val());
-        }
-        dados.append("telemovel", $("#telUser").val());
-        dados.append("nif", $("#nifUser").val());
-        dados.append("morada", $("#moradaUser").val());
-        dados.append("codP", $("#codPUser").val());
-        dados.append("local", $("#concelhoUser").val());
-        dados.append("email", $("#emailUser").val());
-        dados.append("pass", hashedPassword);
-        
+
         $.ajax({
-            url: "../../dist/php/controllerUser.php",
-            method: "POST",
-            data: dados,
-            dataType: "html",
-            cache: false,
-            contentType: false,
-            processData: false
-            })
-            
-            .done(function(msg) {
-                let resp = JSON.parse(msg);
-                alerta2("Utilizador", resp.msg, resp.icon)
-                if( resp.icon == "success"){
-                    setTimeout(function(){ 
-                        window.location.href = "../../html/main/authentication-login2.html";
-                    }, 2000);
-                }
-            })
-            
-            .fail(function( jqXHR, textStatus ) {
-            alert( "Request failed: " + textStatus );
-            });
+        url: "../../dist/php/controllerUser.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+        })
+        
+        .done(function(msg) {
+            let resp = JSON.parse(msg);
+            console.log(resp);
+            alerta2("Utilizador", resp.msg, resp.icon)
+            if( resp.icon == "success"){
+                setTimeout(function(){ 
+                    window.location.href = "../../html/main/authentication-login2.html";
+                }, 2000);
+            }
+        })
+        
+        .fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+        });
 
 
     }else{
@@ -89,6 +115,8 @@ function registaUser(){
     } 
 
 }
+
+
 
 function getDistritos(){
 
@@ -466,14 +494,13 @@ function verifTipoUser(){
 
 function guardaAlteracoesPerfil() {
     
-var myDropzone = Dropzone.forElement("#fotoPerflEditNova");
+    var myDropzone = Dropzone.forElement("#fotoPerflEditNova");
 
-if (myDropzone.getQueuedFiles().length > 0) {
-  
-  dados.append("fotoPerfilNova", myDropzone.getQueuedFiles()[0]);
+    if (myDropzone.getQueuedFiles().length > 0) {
+    
+    dados.append("fotoPerfilNova", myDropzone.getQueuedFiles()[0]);
+    }
 }
-}
-
 
 
 function verifGenero() {

@@ -487,7 +487,9 @@ if (isset($_SESSION['id'])) {?>
         </div>
       </div>
     </div>
-    <div class="col-lg-2"></div>
+    <div class="col-lg-2">
+      
+    </div>
   </div>
 
 

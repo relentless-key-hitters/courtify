@@ -181,8 +181,8 @@ if (isset($_SESSION['id'])) {?>
       <div class="col-lg-4"></div>
       <div class="col-lg-6" style="position: relative;">
         <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px">
-            Clube de Padel de Évora</h1>
+          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube">
+            </h1>
         </div>
       </div>
       <div class="col-lg-2"></div>
@@ -192,6 +192,11 @@ if (isset($_SESSION['id'])) {?>
   <div class="dark-transparent sidebartoggler"></div>
 
 
+  <div class="container">
+    <div class="row">
+      
+    </div>
+  </div>
 
 
   <div class="row">
@@ -232,6 +237,7 @@ if (isset($_SESSION['id'])) {?>
 
 
   <script src="../../dist/js/widgets-charts.js"></script>
+  <script src="../../dist/js/js_courtify/definicoesClube.js"></script>
 
   <script>
     $(document).ready(function () {

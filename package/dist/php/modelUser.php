@@ -41,16 +41,19 @@ class User
         return ($msg);
     }
 
-    function registarUser($nome, $tipo, $telemovel, $nif, $morada, $codP, $local, $email, $pass)
+    function registarUser($nome, $tipo, $telemovel, $nif, $morada, $codP, $local, $email, $pass, $coords)
     {
         global $conn;
         $flag = true;
+
+        $coordsDecode = json_decode($coords);
+
         $msg = "";
         $icon = "success";
         if ($local == 'null') {
-            $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "')";
+            $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, lat, lon) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', " . $coordsDecode[0] . ", " . $coordsDecode[1] . ")";
         } else {
-            $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, localidade) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', '" . $local . "')";
+            $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, localidade, lat, lon) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', '" . $local . "', " . $coordsDecode[0] . ", " . $coordsDecode[1] . ")";
         }
         $sql2 = "SELECT user.id FROM user WHERE user.email = '" . $email . "'";
         $sql3 = "SELECT user.id FROM user WHERE user.nif = '" . $nif . "'";

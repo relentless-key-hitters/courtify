@@ -89,11 +89,11 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
     if($result2 -> num_rows > 0){
         while($row2 = $result2 -> fetch_assoc()){
             if($row2['pago'] == 1){
-                if($row['atual'] == 1){
+                if($row2['atual'] == 1){
                     $contPagos ++;
                     $pag += $row2['preco_total'];
                 }else{
-                    $pagAnt += $row['preco_total'];
+                    $pagAnt += $row2['preco_total'];
                 }
             }else{
                 $contNaoPagos ++;
@@ -230,6 +230,23 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
         $conn -> close();
         return(json_encode($res));
 
+    }
+
+
+    function getNomeClube() {
+        global $conn;
+        $nome = "";
+        $sql = "SELECT user.nome FROM user INNER JOIN clube ON user.id = clube.id_clube WHERE clube.id_clube = ".$_SESSION['id'];
+
+        $result = $conn -> query($sql);
+        if($result -> num_rows > 0 ){
+            while($row = $result -> fetch_assoc()){
+                $nome .= $row['nome'];
+            }
+        }
+        
+        $conn -> close();
+        return $nome;
     }
 
 

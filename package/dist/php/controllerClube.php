@@ -13,6 +13,8 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 3){
     $res = $clube ->  getCampoMaisUsadoAno();
     echo($res);
+} else if($_POST['op'] == 4){
+    $res = $clube ->  getNomeClube();
+    echo($res);
 }
-
 ?>
