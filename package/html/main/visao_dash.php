@@ -191,8 +191,8 @@ if (isset($_SESSION['id'])) {?>
       <div class="col-lg-4"></div>
       <div class="col-lg-6" style="position: relative;">
         <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px">
-            Clube de Padel de Évora</h1>
+          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube">
+            </h1>
         </div>
       </div>
       <div class="col-lg-2"></div>
@@ -234,27 +234,18 @@ if (isset($_SESSION['id'])) {?>
                 <div class="row pe-5">
                   <div class="col-sm-7">
                     <div class="d-flex align-items-center">
-                      <div class="border-end pe-4 border-muted border-opacity-10">
+                      <div class="pe-4 border-muted border-opacity-10">
                         <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id="ganhosMesAtual"><i
                             class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h3>
                         <p class="mb-0 text-dark">Ganhos</p>
-                      </div>
-                      <div class="ps-4">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">600€<i
-                            class="ti ti-arrow-up-right fs-5 lh-base text-danger"></i></h3>
-                        <p class="mb-0 text-dark">Despesas</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="d-flex align-items-center">
-                      <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">5120€</h3>
+                      <div class=" pe-4 border-muted border-opacity-10">
+                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id= "ganhosMesAnterior"></h3>
                         <p class="mb-0 text-dark">Ganhos</p>
-                      </div>
-                      <div class="ps-4">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">480€</h3>
-                        <p class="mb-0 text-dark">Despesas</p>
                       </div>
                     </div>
                   </div>
@@ -404,169 +395,6 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
-                <h5 class="card-title fw-semibold">Estatísticas Semanais <i class="ti ti-chart-dots"></i></h5>
-                <p class="card-subtitle mb-0">Média de Reservas</p>
-                <div id="weekly-stats" class="mb-4 mt-7"></div>
-                <div class="position-relative">
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div class="p-6 bg-light-primary rounded-2 me-6 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-calendar text-primary fs-6"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Melhor Dia</h6>
-                        <p class="fs-3 mb-0">Quinta-feira</p>
-                      </div>
-                    </div>
-                    <div class="bg-light-primary badge">
-                      <p class="fs-3 text-primary fw-semibold mb-0">+9<i
-                          class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div class="p-6 bg-light-warning rounded-2 me-6 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-clock text-success fs-6"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Melhor Horário</h6>
-                        <p class="fs-3 mb-0">18:00 - 19:30</p>
-                      </div>
-                    </div>
-                    <div class="bg-light-warning badge">
-                      <p class="fs-3 text-primary fw-semibold mb-0">+8<i
-                          class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex">
-                      <div class="p-6 bg-light rounded-2 me-6 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-user-circle text-success fs-6"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Melhor Cliente</h6>
-                        <p class="fs-3 mb-0">João Figueira</p>
-                      </div>
-                    </div>
-                    <div class="bg-light badge">
-                      <p class="fs-3 text-primary fw-semibold mb-0">+6<i
-                          class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></p>
-                    </div>
-                  </div>
-                  <div class="d-flex pt-7 mt-7">
-                    <div
-                      class="p-8 bg-light-success fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                      <i class="ti ti-calendar-due"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-1 fs-4 fw-semibold">2023</h6>
-                      <p class="fs-3 mb-0">Dezembro</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <div>
-                  <h5 class="card-title fw-semibold">Ganhos Anuais <i class="fs-5 ti ti-receipt-tax"></i></h5>
-                  <p class="card-subtitle fs-4 mb-0">Melhor Mês (Novembro)</p>
-                  <div id="salary" class="mb-7 pb-8"></div>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center">
-                      <div class="bg-light-success rounded-2 me-8 p-8 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-report-money text-muted fs-6"></i>
-                      </div>
-                      <div>
-                        <p class="fs-3 mb-0 fw-normal">Total Ganhos</p>
-                        <h6 class="fw-semibold text-dark fs-4 mb-0">8220€</h6>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="bg-light-danger rounded-2 me-8 p-8 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-report-money text-muted fs-6"></i>
-                      </div>
-                      <div>
-                        <p class="fs-3 mb-0 fw-normal">Despesas</p>
-                        <h6 class="fw-semibold text-dark fs-4 mb-0">220€</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
-                <h5 class="card-title fw-semibold">Formas de Pagamento <i class=" fs-5 ti ti-wallet"></i></h5>
-                <p class="card-subtitle mb-7">Mês Atual</p>
-                <div class="position-relative">
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-primary fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-cash"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Dinheiro</h6>
-                        <p class="fs-3 mb-0">48 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold">1280€</h6>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-success fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-credit-card"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Crédito</h6>
-                        <p class="fs-3 mb-0">124 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold">3820€</h6>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-warning fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-send"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Tranferência</h6>
-                        <p class="fs-3 mb-0">12 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold">360€</h6>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-7 pb-1">
-                    <div class="d-flex">
-                      <div
-                        class="p-8 bg-light-danger fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                        <i class="ti ti-gift-card"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-1 fs-4 fw-semibold">Gift Card</h6>
-                        <p class="fs-3 mb-0">32 Pagamentos</p>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 fw-semibold text-muted">0€</h6>
-                  </div>
-                </div>
-                <a href="./pagamentos_dash.html"><button class="btn btn-outline-primary w-100">Todas as
-                    Transações</button></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
-              <div class="card-body">
                 <div class="mb-4">
                   <h5 class="card-title fw-semibold">Transações Recentes <i class="fs-5 ti ti-pig-money"></i></h5>
                   <p class="card-subtitle">Crédito</p>
@@ -638,130 +466,18 @@ if (isset($_SESSION['id'])) {?>
                     <h5 class="card-title fw-semibold">Classificação <i class="fs-5 ti ti-award"></i></h5>
                     <p class="card-subtitle">Melhores Atletas</p>
                   </div>
-                  <div>
-                    <select class="form-select fw-semibold">
-                      <option value="1">March 2023</option>
-                      <option value="2">April 2023</option>
-                      <option value="3">May 2023</option>
-                      <option value="4">June 2023</option>
-                    </select>
-                  </div>
                 </div>
                 <div class="table-responsive">
                   <table class="table align-middle text-nowrap mb-0">
                     <thead>
                       <tr class="text-muted fw-semibold text-center">
                         <th scope="col" class="ps-0">Atleta</th>
-                        <th scope="col">Idade</th>
+                        <th scope="col">Data Nascimento</th>
                         <th scope="col">Nº Vitórias</th>
                         <th scope="col">Nº Jogos Realizados</th>
                       </tr>
                     </thead>
-                    <tbody class="border-top">
-                      <tr class="text-center">
-                        <td class="ps-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/boy11.jpg" alt="Thumbnail 1"
-                                class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Pedro Barros</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">29</p>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">67</p>
-                        </td>
-                        <td>
-                          <p class="fs-5 fw-semibold text-dark mb-0">82</p>
-                        </td>
-                        <td>
-                          <div id="table-chart"></div>
-                        </td>
-                      </tr>
-                      <tr class="text-center">
-                        <td class="ps-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/boy10.jpg" alt="Thumbnail 1"
-                                class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Rui Fontes</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">22</p>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">58</p>
-                        </td>
-                        <td>
-                          <p class="fs-5 fw-semibold text-dark mb-0">64</p>
-                        </td>
-                        <td>
-                          <div id="table-chart-1"></div>
-                        </td>
-                      </tr>
-                      <tr class="text-center">
-                        <td class="ps-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/girl3.jpg" alt="Thumbnail 1"
-                                class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Sara Potes</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">32</p>
-                        </td>
-                        <td>
-                          <p class="mb-0 fs-5 fw-semibold text-dark">89</p>
-                        </td>
-                        <td>
-                          <p class="fs-5 fw-semibold text-dark mb-0">132</p>
-                        </td>
-                        <td>
-                          <div id="table-chart-2"></div>
-                        </td>
-                      </tr>
-                      <tr class="text-center">
-                        <td class="ps-0 border-bottom-0">
-                          <div class="d-flex align-items-center">
-                            <div class="me-2 pe-1">
-                              <img src="./../../dist/images/profile/boy5.jpg" alt="Thumbnail 1"
-                              class="rounded-circle object-fit-cover" width="50" height="50">
-                            </div>
-                            <div>
-                              <h6 class="fw-semibold mb-1">Eduardo Abreu</h6>
-                              <p class="fs-2 mb-0 text-muted text-start">Nível N2</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fs-5 fw-semibold text-dark">19</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fs-5 fw-semibold text-dark">44</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="fs-5 fw-semibold text-dark mb-0">46</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <div id="table-chart-3"></div>
-                        </td>
-                      </tr>
+                    <tbody class="border-top" id= "bodyMelhoresAtletas">
                     </tbody>
                   </table>
                 </div>
