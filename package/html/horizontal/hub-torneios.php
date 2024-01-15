@@ -29,6 +29,8 @@ if (isset($_SESSION['id'])) { ?>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+    <link rel="stylesheet" href="../../../landingpage/dist/libs/aos/dist/aos.css">
+
     <style>
       body {
         overflow-x: hidden;
@@ -214,6 +216,20 @@ if (isset($_SESSION['id'])) { ?>
           <div class="body-wrapper">
             <div class="container">
 
+              <div class="card mt-5 shadow">
+                <div class="card-body">
+                  <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
+                    <div class="col-10 col-sm-8 col-lg-6" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                      <img src="../../dist/images/backgrounds/banner_hub_torneios.jpg" class="img-fluid rounded" alt="Imagem Torneios" width="700" height="500">
+                    </div>
+                    <div class="col-lg-6">
+                      <h1 class="display-5 fw-bold lh-1 mb-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">O ponto de encontro para Atletas mais competitivos</h1>
+                      <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Queres participar num evento diferente de uma marcação? Apresentamos-te os nossos torneios. Os torneios são eventos criados pelos Clubes, nas diferentes modalidades que os mesmos abrangem. Inscreve-te, conhece atletas, e vence! </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div class=" mt-5">
                 <div class="card shadow bg-light px-3 py-3">
                   <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
@@ -395,78 +411,6 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                   </div>
                 </div>
-
-                <div class=" mt-5">
-                  <h2 class="mb-4">Torneios existentes em #LOCALIDADE USER#</h2>
-                  <div class="card shadow px-3 py-3">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-2 col-lg-3 col-xl-4">
-                        <div class="card hover-img shadow">
-                          <div class="card-body">
-                            sdfsd
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
 
 
@@ -646,12 +590,14 @@ if (isset($_SESSION['id'])) { ?>
       <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
       <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
       <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../../../landingpage/dist/libs/aos/dist/aos.js"></script>
       <!-- core files -->
       <script src="../../dist/js/app.min.js"></script>
       <script src="../../dist/js/app.horizontal.init.js"></script>
       <script src="../../dist/js/app-style-switcher.js"></script>
       <script src="../../dist/js/sidebarmenu.js"></script>
 
+      <script src="../../../landingpage/dist/js/custom.js"></script>
       <script src="../../dist/js/custom.js"></script>
       <!-- current page js files -->
       <script src="../../dist/js/js_courtify/sweatalert.js"></script>
