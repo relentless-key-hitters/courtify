@@ -219,37 +219,37 @@ if (isset($_SESSION['id'])) { ?>
             <div class="mt-5">
               <div class="row arrow-container">
                   <div class="col-lg-4">
-                    <div class="card shadow" style="height: 260px" data-aos="fade-right" data-aos-delay="1000" data-aos-duration="2000">
+                    <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">1</span>Descobrir</h4>
                       </div>
                       <div class="card-body">
-                        <p class="fs-4 card-text">Nesta página, tens acesso a todas a Marcações abertas que consideramos ser as que mais
-                          se identificam contigo. Todos os resultados foram cuidadosamente selecionados para o teu perfil.
+                        <p class="fs-4 card-text">Nesta página tens acesso a todas as marcações abertas que consideramos ser as que mais
+                          se identificam contigo. Todos os resultados foram cuidadosamente selecionados para o teu perfil!
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4" data-aos="fade-right" data-aos-delay="2000" data-aos-duration="2000">
+                  <div class="col-lg-4">
                     <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">2</span>Juntar</h4>
                       </div>
                       <div class="card-body">
-                        <p class="fs-4 card-text">Agora que encontras-te a marcação perfeita para ti, é altura de te juntares a ela.
-                          No fim de cada resultado, encontras um botão verde com o nome "Juntar". Clica, confirma a seleção, e já está!
+                        <p class="fs-4 card-text">Agora que encontraste a marcação perfeita para ti é altura de te juntares a ela.
+                          Clica no botão 'Juntar', confirma a seleção e já está!
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4" data-aos="fade-right" data-aos-delay="3000" data-aos-duration="2000">
+                  <div class="col-lg-4">
                     <div class="card shadow" style="height: 260px">
                       <div class="card-header">
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">3</span>Jogar</h4>
                       </div>
                       <div class="card-body">
-                        <p class="fs-4 card-text">Agora que estás inscrito nesta Marcação, o último passo é jogar! 
-                        Confirma as horas, a morada do clube (clica no seu nome!), e não te esqueças de levar o teu equipamento</p>
+                        <p class="fs-4 card-text">Agora que estás inscrito, o último passo é jogar! 
+                        Confirma as horas, a morada do clube e não te esqueças de levar o equipamento!</p>
                       </div>
                     </div>
                   </div>

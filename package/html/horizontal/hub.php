@@ -222,7 +222,7 @@ if (isset($_SESSION['id'])) {?>
 
 
       <div class="row p-3 p-md-5">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center mt-5 mt-md-0" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center mt-5 mt-md-0">
             <div class="card shadow mt-5 mt-md-0">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Grupos</h1>
@@ -246,7 +246,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
         </div>
     
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center" data-aos="fade-down" data-aos-delay="400" data-aos-duration="1000">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center">
             <div class="card shadow">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas</h1>
@@ -258,7 +258,7 @@ if (isset($_SESSION['id'])) {?>
                         <div class="card-body">
                             <div class="col-lg-12">
                                 <h1 class="fw-semibold fs-7">
-                                    Junta-te a uma equipa de atletas de um clube!
+                                    Junta-te a uma equipa que pratique a tua modalidade!
                                 </h1>
                             </div>
                         </div>
@@ -270,7 +270,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
         </div>
     
-        <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
             <div class="card shadow">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios</h1>

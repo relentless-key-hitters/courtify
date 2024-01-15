@@ -219,12 +219,12 @@ if (isset($_SESSION['id'])) { ?>
               <div class="card mt-5 shadow">
                 <div class="card-body">
                   <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
-                    <div class="col-10 col-sm-8 col-lg-6" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    <div class="col-10 col-sm-8 col-lg-6">
                       <img src="../../dist/images/backgrounds/banner_hub_torneios.jpg" class="img-fluid rounded" alt="Imagem Torneios" width="700" height="500">
                     </div>
                     <div class="col-lg-6">
-                      <h1 class="display-5 fw-bold lh-1 mb-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">O ponto de encontro para Atletas mais competitivos</h1>
-                      <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Queres participar num evento diferente de uma marcação? Apresentamos-te os nossos torneios. Os torneios são eventos criados pelos Clubes, nas diferentes modalidades que os mesmos abrangem. Inscreve-te, conhece atletas, e vence! </p>
+                      <h1 class="display-5 fw-bold lh-1 mb-2">O ponto de encontro para Atletas</h1>
+                      <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Apresentamos-te os nossos torneios. Os torneios são eventos criados pelos Clubes nas diferentes modalidades que os mesmos abrangem. Inscreve-te, conhece atletas e vence! </p>
                     </div>
                   </div>
                 </div>
