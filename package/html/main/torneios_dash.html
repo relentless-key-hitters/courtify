@@ -347,10 +347,10 @@ if (isset($_SESSION['id'])) {?>
           </div>
 
           <div class="row">
-            <div class="col-md-5 pt-4">
+            <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="trNmr">Nº Máx de Participantes</label>
-                <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx de participantes">
+                <label for="trNmr">Nº Máx participantes</label>
+                <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx participantes">
               </div>
             </div>
 
@@ -358,7 +358,7 @@ if (isset($_SESSION['id'])) {?>
               <div class="form-group">
                 <label for="trNivel">Nível</label>
                 <select name="nivel" class="form-select" id="trNivel">
-                  <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
+                  <option class="text-muted" value="" selected disabled>Escolha o nível</option>
                   <option value="sc">Sem Classificação</option>
                   <option value="n5">N5</option>
                   <option value="n4">N4</option>
@@ -369,18 +369,20 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
 
-            <div class="col-md-5 pt-4">
+            <div class="col-md-4 pt-4">
               <div class="form-group">
                 <label for="trGen">Gênero</label>
                 <select name="nivel" class="form-select" id="trGen">
-                  <option class="text-muted" value="" selected disabled>Escolha o gênero do Torneio</option>
+                  <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
                   <option value="genM;">Masculino</option>
                   <option value="genF">Feminino</option>
                   <option value="genMisto">Misto</option>
                 </select>
               </div>
             </div>
+          </div>
 
+          <div class="row">
             <div class="col-md-3 pt-4">
               <div class="form-group">
                 <label for="data">Data:</label>
@@ -388,58 +390,56 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
 
-          
+
             <div class="col-md-3 pt-4">
               <div class="form-group">
                 <label for="trHora">Hora:</label>
                 <input type="time" class="form-control" id="trHora">
               </div>
             </div>
-          </div>
 
-
-          <div class="row">
-            <div class="col-md-4 pt-4">
+            <div class="col-md-3 pt-4">
               <div class="form-group">
                 <label for="trPreco">Preço:</label>
-                <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço do torneio">
+                <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço">
               </div>
             </div>
 
-            <div class="col-md-4 pt-4">
+            <div class="col-md-3 pt-4">
               <div class="form-group">
                 <label for="trEstado">Estado</label>
                 <select name="nivel" class="form-select" id="trEstado">
                   <option class="text-muted" value="" disabled>Escolha o estado do Torneio</option>
                   <option disabled value="trC">Concluído</option>
-                  <option selected value="trNc">Não Concluído</option>
+                  <option selected value="trNc">Não concluído</option>
                 </select>
               </div>
             </div>
+          </div>
 
-            <div class="row">
-              <div class="col-md-2 pt-4">
-                <label for="trObs">Observações</label>
-              </div>
+          <div class="row">
+            <div class="col-md-2 pt-4">
+              <label for="trObs">Observações</label>
             </div>
+          </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
-              </div>
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
       </div>
     </div>
   </div>
+  </div>
 
-  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog"
-    aria-labelledby="trEditModalLabel" aria-hidden="true">
+  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog" aria-labelledby="trEditModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
