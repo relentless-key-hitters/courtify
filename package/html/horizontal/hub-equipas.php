@@ -222,7 +222,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                     <div class="col-lg-6">
                       <h1 class="display-5 fw-bold lh-1 mb-2">Descobre as diferentes Equipas que escolhem a Courtify</h1>
-                      <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Esta página é o teu ponto de partida para ficares a conhecer Atletas com quem te possas identificar. Junta-te a Equipas e começa a partilhar momentos e experiências.</p>
+                      <p class="lead">Esta página é o teu ponto de partida para ficares a conhecer Atletas com quem te possas identificar. Junta-te a Equipas e começa a partilhar momentos e experiências.</p>
                     </div>
                   </div>
                 </div>

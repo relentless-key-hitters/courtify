@@ -224,7 +224,7 @@ if (isset($_SESSION['id'])) { ?>
                     </div>
                     <div class="col-lg-6">
                       <h1 class="display-5 fw-bold lh-1 mb-2">O ponto de encontro para Atletas</h1>
-                      <p class="lead" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Apresentamos-te os nossos torneios. Os torneios são eventos criados pelos Clubes nas diferentes modalidades que os mesmos abrangem. Inscreve-te, conhece atletas e vence! </p>
+                      <p class="lead">Apresentamos-te os nossos torneios. Os torneios são eventos criados pelos Clubes nas diferentes modalidades que os mesmos abrangem. Inscreve-te, conhece atletas e vence! </p>
                     </div>
                   </div>
                 </div>
