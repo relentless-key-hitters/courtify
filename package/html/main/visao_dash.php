@@ -50,9 +50,10 @@ if (isset($_SESSION['id'])) {?>
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo" width="180" alt="" />
+          <a href="./visao_dash.php" class="text-nowrap logo-img">
+            <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo d-block d-sm-none" width="180" alt="" />
             <img src="../../dist/images/logos/logo_courtify.png" class="light-logo" width="180" alt="" />
+            <img src="../../dist/images/logos/favicon_svg.svg" class="dark-logo d-none d-sm-block" width="40" alt="" />
           </a>
           <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8 text-muted"></i>
@@ -71,7 +72,7 @@ if (isset($_SESSION['id'])) {?>
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu fs-6">Dashboard</span>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item selected">
               <a class="sidebar-link fs-4 link-active" href="#" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
@@ -177,25 +178,33 @@ if (isset($_SESSION['id'])) {?>
 
   <div class="body-wrapper">
     <div class="row">
-      <div class="col-lg-3"></div>
+      <div class="col-lg-3">
+
+      </div>
       <div class="col-lg-7" style="position: relative;">
         <div>
           <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 30px">
             Bem-Vindo,</h1>
         </div>
       </div>
-      <div class="col-lg-2"></div>
+      <div class="col-lg-2">
+
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+
+      </div>
       <div class="col-lg-6" style="position: relative;">
         <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube">
+          <h1 class="text-dark fw-bolder" style="letter-spacing: 1px; font-size: 65px" id="nomeClube">
             </h1>
         </div>
       </div>
-      <div class="col-lg-2"></div>
+      <div class="col-lg-2">
+
+      </div>
     </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>

@@ -182,7 +182,7 @@ if (isset($_SESSION['id'])) {?>
                 <span class="hide-menu">Membros</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item selected">
               <a class="sidebar-link fs-4 link-active" href="#" aria-expanded="false">
                 <span>
                   <i class="ti ti-shirt-sport"></i>
