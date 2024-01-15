@@ -352,54 +352,22 @@ class Campo
                             </div>   
                             ';
 
-                $horario = '
-                                <ul class="">
-                                <li class="">
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
-                                        <span class="fs-3 fw-bold">Segunda-feira</span>
-                                        <span class="fs-3">08:00 - 23:30</span>
-                                    </div>
-                                </li>
-                                <li class="">
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
-                                        <span class="fs-3 fw-bold">Terça-feira</span>
-                                        <span class="fs-3">08:00 - 23:30</span>
-                                    </div>
-                                </li>
-                                <li class="">
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
-                                        <span class="fs-3 fw-bold">Quarta-feira</span>
-                                        <span class="fs-3">08:00 - 23:30</span>
-                                    </div>
-                                </li>
-                                <li class="">
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
-                                        <span class="fs-3 fw-bold">Quinta-feira</span>
-                                        <span class="fs-3">08:00 - 23:30</span>
-                                    </div>
-                                </li>
-                                <li class="">
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
-                                        <span class="fs-3 fw-bold">Sexta-feira</span>
-                                        <span class="fs-3">08:00 - 23:30</span>
-                                    </div>
-                                </li>
-                                <li class="">
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
-                                        <span class="fs-3 fw-bold">Sábado</span>
-                                        <span class="fs-3">08:00 - 23:30</span>
-                                    </div>
-                                </li>
-                                <li class="">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="fs-3 fw-bold">Domingo</span>
-                                        <span class="fs-3">08:00 - 23:30</span>
-                                    </div>
-                                </li>
-                                
-                            </ul>
-                            ';
+                $sql3 = "SELECT horario_clube.*, dias.descricao as dia FROM horario_clube INNER JOIN dias on horario_clube.id_dia = dias.id WHERE id_clube = " . $row['idClube'] . " ORDER BY horario_clube.id_dia;";
+                $result3 = $conn->query($sql3);
+                $horario = "<ul class=''>";
+                
+                if($result3->num_rows > 0){
+                    while($row3 = $result3->fetch_assoc()){
+                        $horario .= '<li class="">
+                                        <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
+                                            <span class="fs-3 fw-bold">' . $row3['dia'] . '</span>
+                                            <span class="fs-3">' . date('H:i', strtotime($row3['hora_abertura'])) . ' - ' . date('H:i', strtotime($row3['hora_fecho'])) . '</span>
+                                        </div>
+                                    </li>';
+                    }
+                }
 
+                $horario .= "</ul>";
 
                 $clubeInfo = array(
                     'idClube' => $row['idClube'],
