@@ -1,6 +1,6 @@
 <?php
 
-require_once 'modelTorneio.php';
+require_once 'clube/modelTorneio.php';
 
 $torneio = new Torneio();
 
@@ -54,7 +54,7 @@ if($_POST['op'] == 1){
 
 } else if($_POST['op'] == 5){
 
-    $resp = $torneio -> removeTorneioModel($_POST['id']);
+    $resp = $torneio -> removeTorneioModel($_POST['id']); 
     echo($resp);
 
 }
