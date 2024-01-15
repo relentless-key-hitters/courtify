@@ -214,6 +214,6 @@ function alerta(titulo, msg, icon) {
 
 
 $(function () {
-
+    getListaTorneio();
 });
 
