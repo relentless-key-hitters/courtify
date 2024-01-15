@@ -6,7 +6,7 @@ require_once 'connection.php';
 class Torneio
 {
 
-    function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $estado, $imagem, $obs){
+    function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $gen, $estado, $imagem, $obs){
 
 
         global $conn;
@@ -18,12 +18,14 @@ class Torneio
         $resp = $this -> uploads($logo, $id);
         $resp = json_decode($resp, TRUE);
 
+        $m = 3;
+
 
 
         if($resp['flag']){
-            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', ,'".$nivel."'  '".$estado."' ,'".$reps['target']."', '".$obs."')";
+            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, foto, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."',  '".$estado."' , '".$m."' , '".$gen."' , '".$reps['target']."', '".$obs."')";
         }else{
-            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', ,'".$nivel."'  '".$estado."' , '".$obs."')";
+            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', ,'".$nivel."',  '".$estado."' , '".$m."' , '".$gen."' , '".$obs."')";
         }
 
 
@@ -67,6 +69,7 @@ class Torneio
                 $msg .= "<th scope='row'><img class='img-thumbnail' src='".$row['foto']."'></th>";
                 $msg .= "<th scope='row'>".$row['desc']."</th>";
                 $msg .= "<td>".$row['nivel']."</td>";
+                $msg .= "<td>".$row['genero']."</td>";
                 $msg .= "<td>".$row['data']."</td>";
                 $msg .= "<td>".$row['hora']."</td>";
                 $msg .= "<td>".$row['num_entradas']."</td>";
@@ -84,6 +87,7 @@ class Torneio
             $msg .= "<tr>";
             $msg .= "<td>Sem Registos</td>";
             $msg .= "<th scope='row'></th>";
+            $msg .= "<td></td>";
             $msg .= "<td></td>";
             $msg .= "<td></td>";
             $msg .= "<td></td>";
@@ -126,7 +130,7 @@ class Torneio
 
     }
 
-    function guardaEditTorneioModel($id, $desc, $data, $hora, $nmr, $preco, $nivel, $estado, $imagem, $obs){
+    function guardaEditTorneioModel($id, $desc, $data, $hora, $nmr, $preco, $nivel, $gen, $estado, $imagem, $obs){
             
         global $conn;
         $msg = "";
@@ -137,9 +141,9 @@ class Torneio
         $resp = json_decode($resp, TRUE);
 
         if($resp['flag']){
-            $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", obs = '".$obs."', foto = '".$resp['target']."' WHERE id =".$id;
+            $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", genero = '".$gen."', obs = '".$obs."', foto = '".$resp['target']."' WHERE id =".$id;
         }else{
-            $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , tel = '".$telefone."',email = '".$email."',morada = '".$morada."' WHERE num =".$numOld;        $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", obs = '".$obs."' WHERE id =".$id;
+            $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", genero = '".$gen."', obs = '".$obs."' WHERE id =".$id;      
         }
 
 

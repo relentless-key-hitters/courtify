@@ -283,6 +283,7 @@ if (isset($_SESSION['id'])) {?>
                   <th scope="col">Foto</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Nível</th>
+                  <th scope="col">Gênero</th>
                   <th scope="col">Data</th>
                   <th scope="col">Hora</th>
                   <th scope="col">Entradas</th>
@@ -331,14 +332,14 @@ if (isset($_SESSION['id'])) {?>
           <div class="row">
             <div class="col-md-7 pt-4">
               <div class="form-group">
-                <label for="nome">Nome</label>
+                <label for="trDesc">Nome</label>
                 <input type="text" class="form-control" id="trDesc" placeholder="Digite o nome do torneio">
               </div>
             </div>
 
             <div class="col-md-5 pt-4">
               <div class="form-group">
-                <label for="imagem">Imagem</label>
+                <label for="trImagem">Imagem</label>
                 <input type="file" class="form-control" id="trImagem" accept="image/*">
                 <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
               </div>
@@ -348,14 +349,14 @@ if (isset($_SESSION['id'])) {?>
           <div class="row">
             <div class="col-md-5 pt-4">
               <div class="form-group">
-                <label for="nome">Nº Máx de Participantes</label>
+                <label for="trNmr">Nº Máx de Participantes</label>
                 <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx de participantes">
               </div>
             </div>
 
             <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="nivel">Nível</label>
+                <label for="trNivel">Nível</label>
                 <select name="nivel" class="form-select" id="trNivel">
                   <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
                   <option value="sc">Sem Classificação</option>
@@ -368,37 +369,50 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
 
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="trGen">Gênero</label>
+                <select name="nivel" class="form-select" id="trGen">
+                  <option class="text-muted" value="" selected disabled>Escolha o gênero do Torneio</option>
+                  <option value="genM;">Masculino</option>
+                  <option value="genF">Feminino</option>
+                  <option value="genMisto">Misto</option>
+                </select>
+              </div>
+            </div>
+
             <div class="col-md-3 pt-4">
               <div class="form-group">
                 <label for="data">Data:</label>
                 <input type="date" class="form-control" id="trData">
               </div>
             </div>
-          </div>
 
-          <div class="row">
+          
             <div class="col-md-3 pt-4">
               <div class="form-group">
-                <label for="hora">Hora:</label>
+                <label for="trHora">Hora:</label>
                 <input type="time" class="form-control" id="trHora">
               </div>
             </div>
+          </div>
 
+
+          <div class="row">
             <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="preco">Preço:</label>
+                <label for="trPreco">Preço:</label>
                 <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço do torneio">
               </div>
             </div>
 
             <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="nivel">Estado</label>
+                <label for="trEstado">Estado</label>
                 <select name="nivel" class="form-select" id="trEstado">
                   <option class="text-muted" value="" disabled>Escolha o estado do Torneio</option>
-                  <option selected value="trAtivo">Ativo</option>
-                  <option disabled value="trCancelado">Cancelado</option>
-                  <option disabled value="trTerminado">Terminado</option>
+                  <option disabled value="trC">Concluído</option>
+                  <option selected value="trNc">Não Concluído</option>
                 </select>
               </div>
             </div>

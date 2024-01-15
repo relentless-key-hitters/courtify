@@ -14,6 +14,7 @@ if($_POST['op'] == 1){
         $_POST['trNmr'],
         $_POST['trPreco'],
         $_POST['trNivel'],
+        $_POST['trGen'],
         $_POST['trEstado'],
         $_FILES,
         $_POST['trObs']
@@ -44,6 +45,7 @@ if($_POST['op'] == 1){
         $_POST['trNmr'],
         $_POST['trPreco'],
         $_POST['trNivel'],
+        $_POST['trGen'],
         $_POST['trEstado'],
         $_FILES,
         $_POST['trObs']

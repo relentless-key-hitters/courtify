@@ -8,6 +8,7 @@ function regTorneio() {
     dados.append("trNmr", $('#trNmr').val());
     dados.append("trPreco", $('#trPreco').val());
     dados.append("trNivel", $('#trNivel').val());
+    dados.append("trGen", $('#trGen').val());
     dados.append("trEstado", $('#trEstado').val());
     dados.append("trImagem", $('#trImagem').prop('files')[0]);
     dados.append("trObs", $('#trObs').val());
@@ -100,6 +101,7 @@ function getDadosTorneio(id) {
             $('#nmrEditTour').val(obj.num_entradas);
             $('#precoEditTour').val(obj.preco);
             $('#nivelEditTour').val(obj.nivel);
+            $('#genEditTour').val(obj.genero);
             $('#estadoEditTour').val(obj.estado);
             $('#imagemEditTour').attr('src', obj.foto);
             $('#obsEditTour').val(obj.obs);
@@ -128,6 +130,7 @@ function guardaEditTorneio(id) {
     dados.append("trHora", $('#horaEditTour').val());
     dados.append("trNmr", $('#nmrEditTour').val());
     dados.append("trPreco", $('#precoEditTour').val());
+    dados.append("trGen", $('#genEditTour').val());
     dados.append("trNivel", $('#nivelEditTour').val());
     dados.append("trEstado", $('#estadoEditTour').prop('files')[0]);
     dados.append("trImagem", $('#imagemEditTour').val());
