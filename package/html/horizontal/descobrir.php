@@ -236,7 +236,7 @@ if (isset($_SESSION['id'])) { ?>
                       <h4 class="m-0 p-0"><span class="badge rounded-circle text-bg-success me-2">2</span>Juntar</h4>
                       </div>
                       <div class="card-body">
-                        <p class="fs-4 card-text">Agora que encontraste a marcação perfeita para ti é altura de te juntares a ela.
+                        <p class="fs-4 card-text">Encontraste a marcação perfeita portanto é altura de te juntares a ela.
                           Clica no botão 'Juntar', confirma a seleção e já está!
                         </p>
                       </div>
