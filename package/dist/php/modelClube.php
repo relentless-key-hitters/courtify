@@ -216,7 +216,7 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
                INNER JOIN clube ON 
                campo_clube.id_clube = clube.id_clube
                WHERE clube.id_clube = ".$_SESSION['id']."
-            ) AND YEAR(marcacao.data_inicio) =  '2023'
+            ) AND YEAR(marcacao.data_inicio) =  YEAR(CURRENT_DATE()) 
         )AS temp
         GROUP BY temp.nome
         ORDER BY totalHoras DESC
