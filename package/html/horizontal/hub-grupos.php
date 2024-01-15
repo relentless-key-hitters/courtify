@@ -633,7 +633,7 @@ if (isset($_SESSION['id'])) { ?>
                       </div>
                       <div class="col-lg-6">
                         <h1 class="display-5 fw-bold lh-1 mb-2">É aqui que a Comunidade entra em ação</h1>
-                        <p class="lead mt-4">Esta página é o teu ponto de partida para te tornares parte da comunidade Courtify. Cria ou junta-te a grupos e começa a partilhar momentos e experiências.</p>
+                        <p class="lead mt-5">Esta página é o teu ponto de partida para te tornares parte da comunidade Courtify. Cria ou junta-te a grupos e começa a partilhar momentos e experiências.</p>
                       </div>
                     </div>
                   </div>
