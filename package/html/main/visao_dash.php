@@ -332,23 +332,23 @@ if (isset($_SESSION['id'])) {?>
               <div class="card-body">
                 <div class="row alig n-items-start">
                   <div class="col-8">
-                    <h5 class="card-title mb-9 fw-semibold"> Cancelamentos <i class="fs-5 ti ti-file-x"></i> (Data
+                    <h5 class="card-title mb-9 fw-semibold"> Campo mais usado <i class="fs-5 ti ti-file-x"></i> (Ano
                       Atual)</h5>
                     <div class="d-flex align-items-center">
                       <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">32<i
+                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id = "nomeCampo"><i
                             class="ti ti-arrow-up-right fs-5 lh-base text-danger"></i></h3>
                       </div>
                       <div class="ps-4">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">30</h3>
+                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id = "horasCampo"></h3>
                       </div>
                     </div>
                     <div class="d-flex align-items-center">
                       <div class="pe-5">
-                        <p class="mb-0 text-dark">Mês Atual</p>
+                        <p class="mb-0 text-dark">Nome</p>
                       </div>
                       <div class="ps-4">
-                        <p class="mb-0 text-dark">Mês Passado</p>
+                        <p class="mb-0 text-dark">Nº horas</p>
                       </div>
                     </div>
                   </div>

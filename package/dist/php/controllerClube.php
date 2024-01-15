@@ -10,6 +10,9 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 2){
     $res = $clube -> getMelhoresAtletas();
     echo($res);
+}else if ($_POST['op'] == 3){
+    $res = $clube ->  getCampoMaisUsadoAno();
+    echo($res);
 }
 
 ?>

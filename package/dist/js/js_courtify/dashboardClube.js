@@ -54,7 +54,34 @@ function getMelhoresAtletas(){
 
 }
 
+function getCampoHoras(){
+    let dados = new FormData();
+    dados.append("op", 3);
+
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        let obj = JSON.parse(msg)
+        $("#nomeCampo").html(obj[1])
+        $("#horasCampo").html(obj[0])
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+
+}
+
 $(function() {
     getInfoClubePerfil()
     getMelhoresAtletas()
+    getCampoHoras()
 });
