@@ -283,6 +283,7 @@ if (isset($_SESSION['id'])) {?>
                   <th scope="col">Foto</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Nível</th>
+                  <th scope="col">Gênero</th>
                   <th scope="col">Data</th>
                   <th scope="col">Hora</th>
                   <th scope="col">Entradas</th>
@@ -331,14 +332,14 @@ if (isset($_SESSION['id'])) {?>
           <div class="row">
             <div class="col-md-7 pt-4">
               <div class="form-group">
-                <label for="nome">Nome</label>
+                <label for="trDesc">Nome</label>
                 <input type="text" class="form-control" id="trDesc" placeholder="Digite o nome do torneio">
               </div>
             </div>
 
             <div class="col-md-5 pt-4">
               <div class="form-group">
-                <label for="imagem">Imagem</label>
+                <label for="trImagem">Imagem</label>
                 <input type="file" class="form-control" id="trImagem" accept="image/*">
                 <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
               </div>
@@ -346,18 +347,18 @@ if (isset($_SESSION['id'])) {?>
           </div>
 
           <div class="row">
-            <div class="col-md-5 pt-4">
+            <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="nome">Nº Máx de Participantes</label>
-                <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx de participantes">
+                <label for="trNmr">Nº Máx participantes</label>
+                <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx participantes">
               </div>
             </div>
 
             <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="nivel">Nível</label>
+                <label for="trNivel">Nível</label>
                 <select name="nivel" class="form-select" id="trNivel">
-                  <option class="text-muted" value="" selected disabled>Escolha o nível da equipa</option>
+                  <option class="text-muted" value="" selected disabled>Escolha o nível</option>
                   <option value="sc">Sem Classificação</option>
                   <option value="n5">N5</option>
                   <option value="n4">N4</option>
@@ -368,10 +369,15 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
 
-            <div class="col-md-3 pt-4">
+            <div class="col-md-4 pt-4">
               <div class="form-group">
-                <label for="data">Data:</label>
-                <input type="date" class="form-control" id="trData">
+                <label for="trGen">Gênero</label>
+                <select name="nivel" class="form-select" id="trGen">
+                  <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
+                  <option value="genM;">Masculino</option>
+                  <option value="genF">Feminino</option>
+                  <option value="genMisto">Misto</option>
+                </select>
               </div>
             </div>
           </div>
@@ -379,53 +385,50 @@ if (isset($_SESSION['id'])) {?>
           <div class="row">
             <div class="col-md-3 pt-4">
               <div class="form-group">
-                <label for="hora">Hora:</label>
+                <label for="data">Data:</label>
+                <input type="date" class="form-control" id="trData">
+              </div>
+            </div>
+
+
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trHora">Hora:</label>
                 <input type="time" class="form-control" id="trHora">
               </div>
             </div>
 
-            <div class="col-md-4 pt-4">
+            <div class="col-md-3 pt-4">
               <div class="form-group">
-                <label for="preco">Preço:</label>
-                <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço do torneio">
-              </div>
-            </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="nivel">Estado</label>
-                <select name="nivel" class="form-select" id="trEstado">
-                  <option class="text-muted" value="" disabled>Escolha o estado do Torneio</option>
-                  <option selected value="trAtivo">Ativo</option>
-                  <option disabled value="trCancelado">Cancelado</option>
-                  <option disabled value="trTerminado">Terminado</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2 pt-4">
-                <label for="trObs">Observações</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12">
-                <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
+                <label for="trPreco">Preço:</label>
+                <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço">
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
+          <div class="row">
+            <div class="col-md-2 pt-4">
+              <label for="trObs">Observações</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
       </div>
     </div>
   </div>
+  </div>
 
-  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog"
-    aria-labelledby="trEditModalLabel" aria-hidden="true">
+  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog" aria-labelledby="trEditModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -468,6 +471,18 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
+              <div class="col-md-4 pt-4">
+                <div class="form-group">
+                  <label for="genEditTour">Gênero</label>
+                  <select name="genEditTour" class="form-select" id="genEditTour">
+                    <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
+                    <option value="genM;">Masculino</option>
+                    <option value="genF">Feminino</option>
+                    <option value="genMisto">Misto</option>
+                  </select>
+                </div>
+              </div>
+
               <div class="col-md-3 pt-4">
                 <div class="form-group">
                   <label for="dataEditTour">Data</label>
@@ -487,6 +502,17 @@ if (isset($_SESSION['id'])) {?>
                   <label for="precoEditTour">Preço</label>
                   <input type="number" class="form-control" id="precoEditTour">
                 </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="estadoEditTour">Estado</label>
+                <select name="genEditTour" class="form-select" id="estadoEditTour">
+                  <option class="text-muted" value="" selected disabled>Escolha o estado do Torneio</option>
+                  <option value="c">Concluído</option>
+                  <option value="nc">Não concluído</option>
+                </select>
               </div>
             </div>
 

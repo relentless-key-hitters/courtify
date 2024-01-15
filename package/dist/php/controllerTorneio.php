@@ -1,6 +1,6 @@
 <?php
 
-require_once 'modelTorneio.php';
+require_once 'clube/modelTorneio.php';
 
 $torneio = new Torneio();
 
@@ -14,7 +14,7 @@ if($_POST['op'] == 1){
         $_POST['trNmr'],
         $_POST['trPreco'],
         $_POST['trNivel'],
-        $_POST['trEstado'],
+        $_POST['trGen'],
         $_FILES,
         $_POST['trObs']
     );
@@ -44,6 +44,7 @@ if($_POST['op'] == 1){
         $_POST['trNmr'],
         $_POST['trPreco'],
         $_POST['trNivel'],
+        $_POST['trGen'],
         $_POST['trEstado'],
         $_FILES,
         $_POST['trObs']
@@ -53,7 +54,7 @@ if($_POST['op'] == 1){
 
 } else if($_POST['op'] == 5){
 
-    $resp = $torneio -> removeTorneioModel($_POST['id']);
+    $resp = $torneio -> removeTorneioModel($_POST['id']); 
     echo($resp);
 
 }
