@@ -200,6 +200,32 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
         return($msg);
     }
 
+    function getCampoMaisUsadoAno(){
+        global $conn;
+        $sql = "SELECT SUM(temp.horas) AS totalHoras, temp.nome
+        FROM (
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600) AS horas, campo.nome 
+            FROM marcacao  
+            INNER JOIN campo
+            ON campo.id = marcacao.id_campo
+            WHERE marcacao.id_campo IN(
+               SELECT campo.id 
+               FROM campo INNER JOIN campo_clube 
+               ON campo.id = campo_clube.id_campo
+               INNER JOIN clube ON 
+               campo_clube.id_clube = clube.id_clube
+               WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND YEAR(marcacao.data_inicio) =  YEAR(CURRENT_DATE()) 
+        )AS temp
+        GROUP BY temp.nome
+        ORDER BY totalHoras DESC
+        LIMIT 1";
+        $result = $conn -> query($sql);
+        
+
+    }
+
+
 }
 
 ?>
