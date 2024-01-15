@@ -404,17 +404,6 @@ if (isset($_SESSION['id'])) {?>
                 <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço">
               </div>
             </div>
-
-            <div class="col-md-3 pt-4">
-              <div class="form-group">
-                <label for="trEstado">Estado</label>
-                <select name="nivel" class="form-select" id="trEstado">
-                  <option class="text-muted" value="" disabled>Escolha o estado do Torneio</option>
-                  <option disabled value="trC">Concluído</option>
-                  <option selected value="trNc">Não concluído</option>
-                </select>
-              </div>
-            </div>
           </div>
 
           <div class="row">
@@ -482,6 +471,18 @@ if (isset($_SESSION['id'])) {?>
                 </div>
               </div>
 
+              <div class="col-md-4 pt-4">
+                <div class="form-group">
+                  <label for="genEditTour">Gênero</label>
+                  <select name="genEditTour" class="form-select" id="genEditTour">
+                    <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
+                    <option value="genM;">Masculino</option>
+                    <option value="genF">Feminino</option>
+                    <option value="genMisto">Misto</option>
+                  </select>
+                </div>
+              </div>
+
               <div class="col-md-3 pt-4">
                 <div class="form-group">
                   <label for="dataEditTour">Data</label>
@@ -501,6 +502,17 @@ if (isset($_SESSION['id'])) {?>
                   <label for="precoEditTour">Preço</label>
                   <input type="number" class="form-control" id="precoEditTour">
                 </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="estadoEditTour">Estado</label>
+                <select name="genEditTour" class="form-select" id="estadoEditTour">
+                  <option class="text-muted" value="" selected disabled>Escolha o estado do Torneio</option>
+                  <option value="c">Concluído</option>
+                  <option value="nc">Não concluído</option>
+                </select>
               </div>
             </div>
 

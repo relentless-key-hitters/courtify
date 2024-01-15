@@ -18,14 +18,15 @@ class Torneio
         $resp = $this -> uploads($logo, $id);
         $resp = json_decode($resp, TRUE);
 
-        $m = 3;
+        $mod = 3;
+        $estado = 'nc';
 
 
 
         if($resp['flag']){
-            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, foto, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."',  '".$estado."' , '".$m."' , '".$gen."' , '".$reps['target']."', '".$obs."')";
+            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, foto, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."',  '".$estado."' , '".$mod."' , '".$gen."' , '".$reps['target']."', '".$obs."')";
         }else{
-            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', ,'".$nivel."',  '".$estado."' , '".$m."' , '".$gen."' , '".$obs."')";
+            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', ,'".$nivel."',  '".$estado."' , '".$mod."' , '".$gen."' , '".$obs."')";
         }
 
 

@@ -9,7 +9,6 @@ function regTorneio() {
     dados.append("trPreco", $('#trPreco').val());
     dados.append("trNivel", $('#trNivel').val());
     dados.append("trGen", $('#trGen').val());
-    dados.append("trEstado", $('#trEstado').val());
     dados.append("trImagem", $('#trImagem').prop('files')[0]);
     dados.append("trObs", $('#trObs').val());
 
@@ -132,8 +131,8 @@ function guardaEditTorneio(id) {
     dados.append("trPreco", $('#precoEditTour').val());
     dados.append("trGen", $('#genEditTour').val());
     dados.append("trNivel", $('#nivelEditTour').val());
-    dados.append("trEstado", $('#estadoEditTour').prop('files')[0]);
-    dados.append("trImagem", $('#imagemEditTour').val());
+    dados.append("trEstado", $('#estadoEditTour').val());
+    dados.append("trImagem", $('#imagemEditTour').prop('files')[0]);
     dados.append("trObs", $('#obsEditTour').val());
 
     $.ajax({
