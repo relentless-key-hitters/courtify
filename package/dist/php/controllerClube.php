@@ -26,7 +26,10 @@ if ($_POST['op'] == 1){
     $res = $clube -> getHorariosDefinicoesClube();
     echo($res);
 }else if ($_POST['op'] == 8){
-    $res = $clube -> getGraficos();
+    $res = $clube -> getGraficoMarcacao();
+    echo($res);
+}else if ($_POST['op'] == 9){
+    $res = $clube -> getGraficoGanhos();
     echo($res);
 }
 

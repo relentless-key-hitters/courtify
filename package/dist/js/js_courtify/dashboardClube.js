@@ -108,7 +108,7 @@ function getDadosHoje(){
 
 }
 
-function getGraficos(){
+function getGraficoMarcacao(){
     let dados = new FormData();
     dados.append("op", 8);
 
@@ -123,18 +123,103 @@ function getGraficos(){
     })
 
     .done(function (msg) {
-
+        let obj = JSON.parse(msg)
+        var options = {
+            color: "#044967",
+            series: [{
+              name: "histogram",
+              data: [
+                { x: "Ago", y: obj[0][0] },
+                { x: "Set", y: obj[1][0] },
+                { x: "Out", y: obj[2][0] },
+                { x: "Nov", y: obj[3][0] },
+                { x: "Dez", y: obj[4][0] },
+              ],
+            }],
+            chart: {
+              height: 300,
+              width: '100%',
+              type: "bar",
+              fontFamily: "Plus Jakarta Sans', sans-serif",
+              foreColor: "#adb0bb",
+              toolbar: {
+                tools: {
+                  download: false
+                }
+              }
+            },
+            plotOptions: {
+              bar: {
+                columnWidth: "95%",
+                borderRadius: 5,
+                borderRadiusApplication: "end",
+              }
+            },
+            fill: {
+              colors: '#044967',
+              opacity: 0.3,
+            },
+            stroke: {
+              width: 2,
+              colors: ['#044967']
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            grid: {
+              xaxis: {
+                lines: {
+                  show: true
+                }
+              },
+              yaxis: {
+                lines: {
+                  show: true
+                }
+              }
+            },
+            xaxis: {
+              type: "category",
+              categories: ["Ago", "Set", "Out", "Nov", "Dez"],
+              title: {text: "Sports", offsetY: 70},
+              axisBorder: {
+                color: "#000000"
+              }
+            },
+            yaxis: {
+              title: {text: "Ganhos"},
+              axisBorder: {
+                show: true,
+                color: "#000000"
+              }
+            },
+            tooltip:{
+              onDatasetHover: {
+                highlightDataSeries: true,
+              },
+            }
+           };
+           
+           var chart = new ApexCharts(document.querySelector("#grafico1"), options);
+           chart.render();
     })
-
     .fail(function (jqXHR, textStatus) {
         alert("Request failed: " + textStatus);
     })
 
 }
 
+function getGraficoGanhos(){
+
+
+    
+}
+
+
 $(function() {
     getInfoClubePerfil()
     getMelhoresAtletas()
     getCampoHoras()
     getDadosHoje()
+    getGraficoMarcacao()
 });

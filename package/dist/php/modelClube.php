@@ -350,7 +350,90 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
         return json_encode($resp);
     }
 
-    function getGraficos(){
+    function getGraficoMarcacao(){
+        global $conn;
+        $sql = "SELECT temp.cont_marcacao AS n_marcacoes, MONTH(CURRENT_DATE()) AS mes
+        FROM 
+        (SELECT COUNT(*) AS cont_marcacao
+            FROM marcacao 
+            WHERE marcacao.id_campo IN(
+                SELECT campo.id 
+                FROM campo INNER JOIN campo_clube 
+                ON campo.id = campo_clube.id_campo
+                INNER JOIN clube ON 
+                campo_clube.id_clube = clube.id_clube
+                WHERE clube.id_clube = ".$_SESSION['id']."
+           ) AND MONTH(marcacao.data_inicio) = MONTH(CURRENT_DATE()) 
+        ) AS temp
+        UNION
+        SELECT temp.cont_marcacao AS n_marcacoes, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH)) AS mes
+            FROM 
+            (SELECT COUNT(*) AS cont_marcacao
+                FROM marcacao 
+                WHERE marcacao.id_campo IN(
+                    SELECT campo.id 
+                    FROM campo INNER JOIN campo_clube 
+                    ON campo.id = campo_clube.id_campo
+                    INNER JOIN clube ON 
+                    campo_clube.id_clube = clube.id_clube
+                    WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) = MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH))
+        ) AS temp
+        UNION
+        SELECT temp.cont_marcacao AS n_marcacoes, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 2 MONTH)) AS mes
+            FROM 
+            (SELECT COUNT(*) AS cont_marcacao
+                FROM marcacao 
+                WHERE marcacao.id_campo IN(
+                    SELECT campo.id 
+                    FROM campo INNER JOIN campo_clube 
+                    ON campo.id = campo_clube.id_campo
+                    INNER JOIN clube ON 
+                    campo_clube.id_clube = clube.id_clube
+                    WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) = MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 2 MONTH))
+        ) AS temp
+        UNION
+        SELECT temp.cont_marcacao AS n_marcacoes, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH)) AS mes
+            FROM 
+            (SELECT COUNT(*) AS cont_marcacao
+                FROM marcacao 
+                WHERE marcacao.id_campo IN(
+                    SELECT campo.id 
+                    FROM campo INNER JOIN campo_clube 
+                    ON campo.id = campo_clube.id_campo
+                    INNER JOIN clube ON 
+                    campo_clube.id_clube = clube.id_clube
+                    WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) = MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH))
+        ) AS temp
+        UNION
+        SELECT temp.cont_marcacao AS n_marcacoes, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 4 MONTH)) AS mes
+            FROM 
+            (SELECT COUNT(*) AS cont_marcacao
+                FROM marcacao 
+                WHERE marcacao.id_campo IN(
+                    SELECT campo.id 
+                    FROM campo INNER JOIN campo_clube 
+                    ON campo.id = campo_clube.id_campo
+                    INNER JOIN clube ON 
+                    campo_clube.id_clube = clube.id_clube
+                    WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) = MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 4 MONTH))
+        ) AS temp";
+        $result = $conn->query($sql);
+        $arrGraficoMarc = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                array_push($arrGraficoMarc, array($row['n_marcacoes'], $row['mes']));
+            }
+        }
+
+        $conn -> close();
+        return(json_encode($arrGraficoMarc));
+    }
+
+    function getGraficoGanhos(){
 
 
         

@@ -301,23 +301,16 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
-                <h5 class="card-title fw-semibold">Ganhos Mensais<i class="fs-5 ti ti-calendar-due"></i></h5>
-                <p class="card-subtitle mb-4">Padel</p>
-                <div id="barDash"></div>
-                <div class="d-flex align-items-end justify-content-between mt-7">
-                </div>
-                <div class="d-flex">
-                  <div class="p-8 bg-light fs-7 rounded-2 d-flex align-items-center justify-content-center me-6">
-                    <i class="ti ti-calendar-due"></i>
-                  </div>
-                  <div>
-                    <h6 class="mb-1 fs-4 fw-semibold">2022</h6>
-                    <p class="fs-3 mb-0">Época Alta</p>
-                  </div>
-                </div>
+              <div id="grafico1"></div>
+                            <div class="d-flex align-items-end justify-content-between mt-7">
+                              <div>
+                                <h4 class="mb-0 fw-semibold">Marcações dos últimos 5 meses</h4>
+                              </div>
+                            </div>
               </div>
             </div>
           </div>
+
 
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
             <div class="card w-100 shadow">
