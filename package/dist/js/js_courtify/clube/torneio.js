@@ -48,10 +48,6 @@ function regTorneio() {
 
 function getListaTorneio() {
 
-    if ($.fn.DataTable.isDataTable('#tabelaTorneio')) {
-        $('#tabelaTorneio').DataTable().destroy();
-    }
-
     let dados = new FormData();
     dados.append("op", 2);
 
@@ -69,7 +65,6 @@ function getListaTorneio() {
         .done(function (msg) {
 
             $('#listaTorneio').html(msg);
-            $('#tabelaTorneio').DataTable();
 
         })
 
