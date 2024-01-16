@@ -320,7 +320,7 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
                 "moradaClube" => $row['morada'],
                 "codigoPostalClube" => $row['codigo_postal'],
                 "anoFundacaoClube" => $row['ano_fundacao'],
-                "telefoneClube" => $row['telemovel'],
+                "telefoneClube" => $row['telefone'],
                 "descricaoClube" => $row['descricao'],
             );
         }
