@@ -50,11 +50,17 @@ if (isset($_SESSION['id'])) {?>
     <aside class="left-sidebar">
       <!-- Sidebar scroll-->
       <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo" width="180" alt="" />
-            <img src="../../dist/images/logos/logo_courtify.png" class="light-logo" width="180" alt="" />
+        <div class="mt-2 d-flex align-items-center justify-content-center">
+          <!-- Show first image on col-md and up -->
+          <a href="./visao_dash.php" class="text-nowrap d-none d-xl-block">
+            <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo img-fluid" width="180" alt="" />
           </a>
+
+          <!-- Show second image on col-md down -->
+          <a href="./visao_dash.php" class="text-nowrap d-block d-xl-none">
+            <img src="../../dist/images/logos/favicon_svg.svg" class="dark-logo img-fluid" width="60" alt="" />
+          </a>
+
           <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8 text-muted"></i>
           </div>
@@ -177,23 +183,46 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
   <div class="body-wrapper">
-    <div class="row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-6" style="position: relative;">
-        <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube">
-            </h1>
+    <div class="row pe-5">
+        <div class="col-lg-2">
+
         </div>
-      </div>
-      <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+          <div class="container">
+            <div>
+              <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube"></h1>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
   <div class="dark-transparent sidebartoggler"></div>
 
 
-  <div class="container">
+  <!--<div class="container">
+    
     <div class="row mt-3">
+      <div class="col-lg-12">
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+          <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <h3 class="fw-semibold mb-8"><i class="ti ti-settings me-2"></i>Definições</h3>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
+                    <li class="breadcrumb-item" aria-current="page">Definições</li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-3">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col-lg-6 d-flex align-items-stretch">
         <div class="card w-100 position-relative overflow-hidden">
           <div class="card-body p-4">
@@ -214,8 +243,8 @@ if (isset($_SESSION['id'])) {?>
         <div class="card w-100 position-relative overflow-hidden">
           <div class="card-body p-4">
             <h5 class="card-title fw-semibold">Password</h5>
-            <p class="card-subtitle mb-4">Altera aqui a tua password. Se não quiseres alterar, deixa em
-              branco</p>
+            <p class="card-subtitle mb-4">Altere aqui a sua password. Se não quiser alterar, deixe em
+              branco.</p>
             <form>
               <div class="mb-4 mb-md-5">
                 <label for="passwordAtualClubeEdit" class="form-label fw-semibold">Password Atual</label>
@@ -317,29 +346,189 @@ if (isset($_SESSION['id'])) {?>
         </div>
       </div>
     </div>
+    
+  </div>-->
+
+  <div class="row pe-5">
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-10">
+      <div class="container">
+      <div class="row mt-3">
+        <div class="col-lg-12">
+          <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+            <div class="card-body px-4 py-3">
+              <div class="row align-items-center">
+                <div class="col-9">
+                  <h3 class="fw-semibold mb-8"><i class="ti ti-settings me-2"></i>Definições</h3>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
+                      <li class="breadcrumb-item" aria-current="page">Definições</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div class="col-3">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex align-items-stretch">
+          <div class="card w-100 position-relative overflow-hidden">
+            <div class="card-body p-4">
+              <h5 class="card-title fw-semibold">Fotografia</h5>
+              <p class="card-subtitle mb-4">Altere aqui a sua fotografia identificativa.</p>
+              <div class="text-center">
+                <img id="fotoClubeEditCurrent" alt="" class="img-fluid rounded" width="420"
+                  height="220">
+              </div>
+              <input class="form-control mt-5" type="file" id="fotoClubeEditNova" name="fotoClubeEditNova">
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-4 gap-3">
+              <button type="button" class="btn btn-primary" onclick="">Guardar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex align-items-stretch">
+          <div class="card w-100 position-relative overflow-hidden">
+            <div class="card-body p-4">
+              <h5 class="card-title fw-semibold">Password</h5>
+              <p class="card-subtitle mb-4">Altere aqui a sua password. Se não quiser alterar, deixe em
+                branco.</p>
+              <form>
+                <div class="mb-4 mb-md-5">
+                  <label for="passwordAtualClubeEdit" class="form-label fw-semibold">Password Atual</label>
+                  <input type="password" class="form-control" id="passwordAtualClubeEdit" value="">
+                </div>
+                <div class="mb-4 mb-md-5">
+                  <label for="passwordNovaClubeEdit" class="form-label fw-semibold">Nova Password</label>
+                  <input type="password" class="form-control" id="passwordNovaClubeEdit" value="">
+                </div>
+                <div class="">
+                  <label for="passwordNovaClubeEdit2" class="form-label fw-semibold">Confirmar Password</label>
+                  <input type="password" class="form-control" id="passwordNovaClubeEdit2" value="">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card w-100 position-relative overflow-hidden mb-0">
+          <div class="card-body p-4">
+            <h5 class="card-title fw-semibold">Detalhes Pessoais</h5>
+            <p class="card-subtitle mb-4">Altere aqui a sua informação pessoal</p>
+            <form>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-4">
+                    <label for="nomeClubeEdit" class="form-label fw-semibold">Nome Completo</label>
+                    <input type="text" class="form-control" id="nomeClubeEdit" >
+                  </div>
+                  <div class="mb-4">
+                    <label for="distritoEdit" class="form-label fw-semibold">Distrito</label>
+                    <select class="form-select" aria-label="Default select example"
+                      onchange="getConcelhos(this.value)" id="distritoClubeEdit">
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label for="emailClubeEdit" class="form-label fw-semibold">Email</label>
+                    <input type="email" class="form-control" id="emailClubeEdit">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-4">
+                    <div class="row">
+                      <div class="col-4">
+                        <label for="nifClubeEdit" class="form-label fw-semibold">NIF</label>
+                        <input type="number" class="form-control" id="nifClubeEdit">
+                      </div>
+                      <div class="col-4">
+                        <label for="cpClubeEdit" class="form-label fw-semibold">Código-Postal</label>
+                        <input type="text" class="form-control" id="cpClubeEdit">
+                      </div>
+                      <div class="col-4">
+                        <label for="anoFundacaoClubeEdit" class="form-label fw-semibold">Ano Fundação</label>
+                        <input type="number" class="form-control" id="anoFundacaoClubeEdit">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label for="concelhoClubeEdit" class="form-label fw-semibold">Concelho</label>
+                    <select class="form-select" aria-label="Default select example" id="concelhoClubeEdit">
+                    </select>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="mb-4">
+                        <label for="telemovelClubeEdit" class="form-label fw-semibold">Telemóvel</label>
+                        <input type="text" class="form-control" id="telemovelClubeEdit">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-4">
+                        <label for="telefoneClubeEdit" class="form-label fw-semibold">Telefone</label>
+                          <input type="text" class="form-control" id="telefoneClubeEdit">
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-4">
+                    <label for="moradaClubeEdit" class="form-label fw-semibold">Morada</label>
+                    <input type="text" class="form-control" id="moradaClubeEdit">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="">
+                    <label for="descricaoClubeEdit" class="form-label fw-semibold">Descrição</label>
+                    <textarea class="form-control" id="descricaoClubeEdit" rows ='5'></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="d-flex align-items-center justify-content-end mt-4 gap-3">
+                    <button type="button" class="btn btn-primary"
+                      onclick="guardaEditInfo()">Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+    </div>
   </div>
 
 
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-9">
-      <div style="margin-left: 60px; margin-right: 60px;">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-10">
+        <div style="margin-left: 60px; margin-right: 60px;">
+          <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
-          <a href="#"
-            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-          </a>
-          <div>
-            <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-          </div>
+            <a href="#"
+              class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+              <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+            </a>
+            <div>
+              <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+            </div>
 
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
-    <div class="col-lg-1"></div>
-  </div>
+
+
+
+
 
   <!--  Import Js Files -->
   <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>

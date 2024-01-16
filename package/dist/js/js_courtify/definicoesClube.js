@@ -13,7 +13,7 @@ function getNomeClube() {
     })
 
     .done(function (msg) {
-        $("#nomeClube").html(msg)
+        $("#nomeClube").html("<i class='ti ti-building me-2'></i>" + msg)
     })
 
     .fail(function (jqXHR, textStatus) {

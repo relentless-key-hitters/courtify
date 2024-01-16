@@ -14,7 +14,7 @@ function getInfoClubePerfil(){
 
     .done(function (msg) {
         let obj = JSON.parse(msg)
-        $("#nomeClube").html(obj.nome)
+        $("#nomeClube").html("<i class='ti ti-building me-2'></i>" + obj.nome)
         $("#nReservas").html(obj.numMarc)
         $("#nTorneios").html(obj.numTorn)
         $("#nPend").html(obj.naoPago)
