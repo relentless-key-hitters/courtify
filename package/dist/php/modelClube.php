@@ -434,9 +434,102 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
     }
 
     function getGraficoGanhos(){
+        global $conn;
+        $sql = "SELECT SUM(temp.preco_total) AS total, MONTH(CURRENT_DATE()) AS mes
+        FROM(
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total
+            FROM marcacao  
+            INNER JOIN campo
+            ON campo.id = marcacao.id_campo
+            WHERE marcacao.id_campo IN(
+               SELECT campo.id 
+               FROM campo INNER JOIN campo_clube 
+               ON campo.id = campo_clube.id_campo
+               INNER JOIN clube ON 
+               campo_clube.id_clube = clube.id_clube
+               WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) =  MONTH(CURRENT_DATE())
+            AND marcacao.pagamento = 1
+        )AS temp
+        UNION 
+        SELECT SUM(temp.preco_total) AS total, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH)) AS mes
+        FROM(
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total
+            FROM marcacao  
+            INNER JOIN campo
+            ON campo.id = marcacao.id_campo
+            WHERE marcacao.id_campo IN(
+               SELECT campo.id 
+               FROM campo INNER JOIN campo_clube 
+               ON campo.id = campo_clube.id_campo
+               INNER JOIN clube ON 
+               campo_clube.id_clube = clube.id_clube
+               WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) =  MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH))
+            AND marcacao.pagamento = 1
+        )AS temp
+        UNION 
+        SELECT SUM(temp.preco_total) AS total, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 2 MONTH)) AS mes
+        FROM(
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total
+            FROM marcacao  
+            INNER JOIN campo
+            ON campo.id = marcacao.id_campo
+            WHERE marcacao.id_campo IN(
+               SELECT campo.id 
+               FROM campo INNER JOIN campo_clube 
+               ON campo.id = campo_clube.id_campo
+               INNER JOIN clube ON 
+               campo_clube.id_clube = clube.id_clube
+               WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) =  MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 2 MONTH))
+            AND marcacao.pagamento = 1
+        )AS temp
+        UNION 
+        SELECT SUM(temp.preco_total) AS total, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH)) AS mes
+        FROM(
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total
+            FROM marcacao  
+            INNER JOIN campo
+            ON campo.id = marcacao.id_campo
+            WHERE marcacao.id_campo IN(
+               SELECT campo.id 
+               FROM campo INNER JOIN campo_clube 
+               ON campo.id = campo_clube.id_campo
+               INNER JOIN clube ON 
+               campo_clube.id_clube = clube.id_clube
+               WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) =  MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH))
+            AND marcacao.pagamento = 1
+        )AS temp
+        UNION 
+        SELECT SUM(temp.preco_total) AS total, MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 4 MONTH)) AS mes
+        FROM(
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total
+            FROM marcacao  
+            INNER JOIN campo
+            ON campo.id = marcacao.id_campo
+            WHERE marcacao.id_campo IN(
+               SELECT campo.id 
+               FROM campo INNER JOIN campo_clube 
+               ON campo.id = campo_clube.id_campo
+               INNER JOIN clube ON 
+               campo_clube.id_clube = clube.id_clube
+               WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND MONTH(marcacao.data_inicio) =  MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 4 MONTH))
+            AND marcacao.pagamento = 1
+        )AS temp";
+        $result = $conn->query($sql);
+        $arrGraficoGanhos = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                array_push($arrGraficoGanhos, array($row['total'], $row['mes']));
+            }
+        }
 
+        $conn -> close();
+        return(json_encode($arrGraficoGanhos));
 
-        
     }
 
 }
