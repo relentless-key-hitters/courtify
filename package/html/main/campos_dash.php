@@ -292,19 +292,11 @@ if (isset($_SESSION['id'])) {?>
                 <tr class="text-center">
                   <th scope="col">Nome Campo</th>
                   <th scope="col">Última Manutenção</th>
-                  <th scope="col">Uso/Horas (após ultima manutenção)</th>
+                  <th scope="col">Horas de Uso (após ultima manutenção)</th>
                   <th scope="col">Reservas</th>
                 </tr>
               </thead>
               <tbody id="tableCampos">
-
-                <tr class="text-center">
-                  <td>P1</td>
-                  <td>2023-03-09</td>
-                  <td>2024-03-09</td>
-                  <td><button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                      data-target="#campoResModal">Ver</button></td>
-                </tr>
 
               </tbody>
             </table>
@@ -898,7 +890,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/app-style-switcher.js"></script>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
-  <script src="../../dist/js/clube/campos.js"></script>
+  <script src="../../dist/js/js_courtify/clube/campos.js"></script>
   <!--  current page js files -->
 
 

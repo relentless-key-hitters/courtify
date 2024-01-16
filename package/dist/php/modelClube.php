@@ -607,9 +607,40 @@ class Clube{
     }
 
     function getCamposClube(){
+        global $conn;
+        $sql = "SELECT SUM(temp.horas) AS total_horas, temp.nome, temp.ultima_manutencao, temp.id
+        FROM (
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600) AS horas, campo.nome, campo.ultima_manutencao, campo.id
+            FROM marcacao  
+            INNER JOIN campo
+            ON campo.id = marcacao.id_campo
+            WHERE marcacao.id_campo IN(
+               SELECT campo.id 
+               FROM campo INNER JOIN campo_clube 
+               ON campo.id = campo_clube.id_campo
+               INNER JOIN clube ON 
+               campo_clube.id_clube = clube.id_clube
+               WHERE clube.id_clube = ".$_SESSION['id']."
+            ) AND marcacao.data_inicio > campo.ultima_manutencao
+        )AS temp
+        GROUP BY temp.nome
+        ORDER BY total_horas DESC";
+        $msg = "";
+        $result = $conn -> query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $msg .= "<tr class='text-center'>
+                <td>".$row['nome']."</td>
+                <td>".$row['ultima_manutencao']."</td>
+                <td>".ROUND($row['total_horas'], 1)."</td>
+                <td><button type='button' class='btn btn-sm btn-light' data-toggle='modal'
+                    onclick= 'getInfoMarcCampo(".$row['id'].")'>Ver</button></td>
+                </tr>";
+            }
+        }
+        $conn -> close(); 
+        return($msg);
 
-
-        
     }
 
 }

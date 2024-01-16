@@ -26,5 +26,5 @@ function getCamposClube(){
 
 
 $(function() {
-
+    getCamposClube()
 });
