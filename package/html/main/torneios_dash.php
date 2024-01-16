@@ -20,11 +20,13 @@ if (isset($_SESSION['id'])) {?>
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
 
-  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../../dist/libs/jquery/dist/jquery.js"></script>
   <script src="../../dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="../../dist/js/js_courtify/clube/torneio.js"></script>
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
+
 
 
 
@@ -418,10 +420,11 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1079,7 +1082,6 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/app-style-switcher.js"></script>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
-  <script src="../../dist/js/js_courtify/torneio.js"></script>
   <!--  current page js files -->
 
 

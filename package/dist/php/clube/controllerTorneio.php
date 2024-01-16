@@ -1,6 +1,6 @@
 <?php
 
-require_once 'clube/modelTorneio.php';
+require_once 'modelTorneio.php';
 
 $torneio = new Torneio();
 

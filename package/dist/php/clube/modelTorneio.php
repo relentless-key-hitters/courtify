@@ -1,197 +1,165 @@
 <?php
 
 session_start();
-require_once '../connection.php';
+
+require_once 'connection.php';
 
 class Torneio
 {
 
-    function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $gen, $estado, $imagem, $obs){
+function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $estado, $imagem, $obs){
 
+    global $conn;
+    $msg = "";
+    $flag = true;
 
-        global $conn;
-        $msg = "";
-        $flag = true;
+    $resp = $this -> uploads($logo, $id);
+    $resp = json_decode($resp, TRUE);
 
-
-
-        $resp = $this -> uploads($logo, $id);
-        $resp = json_decode($resp, TRUE);
-
-        $mod = 3;
-        $estado = 'nc';
-
-
-
-        if($resp['flag']){
-            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, foto, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."',  '".$estado."' , '".$mod."' , '".$gen."' , '".$reps['target']."', '".$obs."')";
-        }else{
-            $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, modalidade, genero, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', ,'".$nivel."',  '".$estado."' , '".$mod."' , '".$gen."' , '".$obs."')";
-        }
-
-
-        if ($conn->query($sql) === TRUE) {
-            $msg = "Registado com sucesso!";
-        } else {
-            $flag = false;
-            $msg = "Error: " . $sql . "<br>" . $conn->error;
-        }
-    
-
-   
-
-        $resp = json_encode(array(
-            "flag" => $flag,
-            "msg" => $msg
-        ));
-        
-
-        return($resp);
-
-        
+    if($resp['flag']){
+        $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', '".$estado."', '".$resp['target']."', '".$obs."')";
+    }else{
+        $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', '".$estado."', '".$obs."')";
     }
+
+    if ($conn->query($sql) === TRUE) {
+        $msg = "Registado com sucesso!";
+    } else {
+        $flag = false;
+        $msg = "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $resp = json_encode(array(
+        "flag" => $flag,
+        "msg" => $msg
+    ));
+      
+    $conn->close();
+
+    return($resp);
+}
     
 
+function getListaTorneioModel(){
 
-    function getListaTorneioModel(){
+    global $conn;
+    $msg = "";
 
+    $sql = "SELECT * FROM torneio";
+    $result = $conn->query($sql);
 
-        global $conn;
-        $msg = "";
-
-        $sql = "SELECT * FROM torneio";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-        // output data of each row
-            while($row = $result->fetch_assoc()) {
-                $msg .= "<tr>";
-                $msg .= "<th scope='row'>".$row['id']."</th>";
-                $msg .= "<th scope='row'><img class='img-thumbnail' src='".$row['foto']."'></th>";
-                $msg .= "<th scope='row'>".$row['desc']."</th>";
-                $msg .= "<td>".$row['nivel']."</td>";
-                $msg .= "<td>".$row['genero']."</td>";
-                $msg .= "<td>".$row['data']."</td>";
-                $msg .= "<td>".$row['hora']."</td>";
-                $msg .= "<td>".$row['num_entradas']."</td>";
-                $msg .= "<td>".$row['preco']."</td>";
-                $msg .= "<td><button type='button' class='btn btn-sm' onclick ='getDadosTorneio(".$row['id'].")' style='background-color: gold;'> <i class='text-white ti ti-pencil'></i></button></td>";
-                $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeTorneio(".$row['id'].")' style='background-color: firebrick;'> <i
-                class='text-white ti ti-x'></i></button></td>";
-                $msg .= "</tr>";
-            }
-        } else {
-
-
-   
-        } else {
+    if ($result->num_rows > 0) {
+    // output data of each row
+        while($row = $result->fetch_assoc()) {
             $msg .= "<tr>";
-            $msg .= "<td>Sem Registos</td>";
-            $msg .= "<th scope='row'></th>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
-            $msg .= "<td></td>";
+            $msg .= "<th scope='row'>".$row['id']."</th>";
+            $msg .= "<th scope='row'><img class='img-thumbnail' src='".$row['foto']."'></th>";
+            $msg .= "<th scope='row'>".$row['desc']."</th>";
+            $msg .= "<td>".$row['nivel']."</td>";
+            $msg .= "<td>".$row['data']."</td>";
+            $msg .= "<td>".$row['hora']."</td>";
+            $msg .= "<td>".$row['num_entradas']."</td>";
+            $msg .= "<td>".$row['preco']."</td>";
+            $msg .= "<td><button type='button' class='btn btn-sm' onclick ='getDadosTorneio(".$row['id'].")' style='background-color: gold;'> <i class='text-white ti ti-pencil'></i></button></td>";
+            $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeTorneio(".$row['id'].")' style='background-color: firebrick;'> <i
+            class='text-white ti ti-x'></i></button></td>";
             $msg .= "</tr>";
         }
-        $conn->close();
-        return ($msg);
+    } else {
+        $msg .= "<tr>";
+        $msg .= "<td>Sem Registos</td>";
+        $msg .= "<th scope='row'></th>";
+        $msg .= "<td></td>";
+        $msg .= "<td></td>";
+        $msg .= "<td></td>";
+        $msg .= "<td></td>";
+        $msg .= "<td></td>";
+        $msg .= "<td></td>";
+        $msg .= "<td></td>";
+        $msg .= "<td></td>";
+        $msg .= "</tr>";
+    }
+    $conn->close();
 
+    return ($msg);
+}
+
+function getDadosTorneioModel($id){
+    global $conn;
+    $msg = "";
+    $row = "";
+
+    $sql = "SELECT * FROM torneio WHERE id =".$id;
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+        $row = $result->fetch_assoc();
     }
 
+    $conn->close();
 
+    return (json_encode($row));
 
-    function getDadosTorneioModel($id){
-        global $conn;
-        $msg = "";
-        $row = "";
-    
+}
 
-
-        $sql = "SELECT * FROM torneio WHERE id =".$id;
-        $result = $conn->query($sql);
-
-
-        if ($result->num_rows > 0) {
-        // output data of each row
-            $row = $result->fetch_assoc();
-        }
-
-
-
+function guardaEditTorneioModel($id, $desc, $data, $hora, $nmr, $preco, $nivel, $estado, $imagem, $obs){
         
-        $conn->close();
+    global $conn;
+    $msg = "";
+    $flag = true;
+    $sql = "";
 
-        return (json_encode($row));
+    $resp = $this -> uploads($foto);
+    $resp = json_decode($resp, TRUE);
 
+    if($resp['flag']){
+        $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", obs = '".$obs."', foto = '".$resp['target']."' WHERE id =".$id;
+    }else{
+        $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , tel = '".$telefone."',email = '".$email."',morada = '".$morada."' WHERE num =".$numOld;        $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", obs = '".$obs."' WHERE id =".$id;
     }
 
-    function guardaEditTorneioModel($id, $desc, $data, $hora, $nmr, $preco, $nivel, $gen, $estado, $imagem, $obs){
-            
-        global $conn;
-        $msg = "";
-        $flag = true;
-        $sql = "";
-
-        $resp = $this -> uploads($foto);
-        $resp = json_decode($resp, TRUE);
-
-        if($resp['flag']){
-            $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", genero = '".$gen."', obs = '".$obs."', foto = '".$resp['target']."' WHERE id =".$id;
-        }else{
-            $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", genero = '".$gen."', obs = '".$obs."' WHERE id =".$id;      
-        }
-
-
-        if ($conn->query($sql) === TRUE) {
-            $msg = "Editado com Sucesso";
-        } else {
-            $flag = false;
-            $msg = "Error: " . $sql . "<br>" . $conn->error;
-        }
-
-        $resp = json_encode(array(
-            "flag" => $flag,
-            "msg" => $msg
-        ));
-          
-        $conn->close();
-
-        return($resp);
-
+    if ($conn->query($sql) === TRUE) {
+        $msg = "Editado com Sucesso";
+    } else {
+        $flag = false;
+        $msg = "Error: " . $sql . "<br>" . $conn->error;
     }
 
+    $resp = json_encode(array(
+        "flag" => $flag,
+        "msg" => $msg
+    ));
+      
+    $conn->close();
 
-    function removeTorneioModel($id){
-        global $conn;
-        $msg = "";
-        $flag = true;
+    return($resp);
 
-        $sql = "DELETE FROM torneio WHERE id = ".$id;
+}
 
-        if ($conn->query($sql) === TRUE) {
-            $msg = "Removido com Sucesso";
-        } else {
-            $flag = false;
-            $msg = "Error: " . $sql . "<br>" . $conn->error;
-        }
+function removeTorneioModel($id){
+    global $conn;
+    $msg = "";
+    $flag = true;
 
-        $resp = json_encode(array(
-            "flag" => $flag,
-            "msg" => $msg
-        ));
-          
-        $conn->close();
+    $sql = "DELETE FROM torneio WHERE id = ".$id;
 
-        return($resp);
+    if ($conn->query($sql) === TRUE) {
+        $msg = "Removido com Sucesso";
+    } else {
+        $flag = false;
+        $msg = "Error: " . $sql . "<br>" . $conn->error;
     }
 
+    $resp = json_encode(array(
+        "flag" => $flag,
+        "msg" => $msg
+    ));
+      
+    $conn->close();
 
+    return($resp);
+}
 
     function updateLogo($diretorio, $id){
         global $conn;
@@ -207,42 +175,18 @@ class Torneio
             $msg = "Error: " . $sql . "<br>" . $conn->error;
         }
 
-            $resp = json_encode(array(
-                "flag" => $flag,
-                "msg" => $msg
-            ));
-        
-        $conn->close();
+        $resp = json_encode(array(
+            "flag" => $flag,
+            "msg" => $msg
+        ));
 
         return($resp);
     }
 
-
-
-    function updateLogo($diretorio, $id){
-            global $conn;
-            $msg = "";
-            $flag = true;
-
-            $sql = "UPDATE torneio SET foto = '".$diretorio."' WHERE id = ".$id;
-
-            if ($conn->query($sql) === TRUE) {
-                $msg = "Registado com Sucesso";
-            } else {
-                $flag = false;
-                $msg = "Error: " . $sql . "<br>" . $conn->error;
-            }
-
-            
-
-            return($resp);
-    }
-
-
     function uploads($img, $id){
 
-        $dir = "../../imagens/torneio".$id."/";
-        $dir1 = "../../imagens/torneio".$id."/";
+        $dir = "../images/torneio/".$id."/";
+        $dir1 = "images/torneio/".$id."/";
         $flag = false;
         $targetBD = "";
     
@@ -276,7 +220,6 @@ class Torneio
     
     
     }
-
 
 }
 

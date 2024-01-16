@@ -1,5 +1,6 @@
 function regTorneio() {
 
+
     let dados = new FormData();
     dados.append("op", 1);
     dados.append("trDesc", $('#trDesc').val());
@@ -14,7 +15,7 @@ function regTorneio() {
 
 
     $.ajax({
-        url: "../../dist/php/controllerTorneio.php",
+        url: "../../dist/php/clube/controllerTorneio.php",
         method: "POST",
         data: dados,
         dataType: "html",
@@ -22,6 +23,9 @@ function regTorneio() {
         contentType: false,
         processData: false
     })
+
+
+
 
         .done(function (msg) {
 
@@ -40,6 +44,8 @@ function regTorneio() {
         });
 }
 
+
+
 function getListaTorneio() {
 
     if ($.fn.DataTable.isDataTable('#tabelaTorneio')) {
@@ -51,7 +57,7 @@ function getListaTorneio() {
 
 
     $.ajax({
-        url: "../../dist/php/controllerTorneio.php",
+        url: "../../dist/php/clube/controllerTorneio.php",
         method: "POST",
         data: dados,
         dataType: "html",
@@ -72,6 +78,8 @@ function getListaTorneio() {
         });
 }
 
+
+
 function getDadosTorneio(id) {
 
 
@@ -80,7 +88,7 @@ function getDadosTorneio(id) {
     dados.append("id", id);
 
     $.ajax({
-        url: "../../dist/php/controllerTorneio.php",
+        url: "../../dist/php/clube/controllerTorneio.php",
         method: "POST",
         data: dados,
         dataType: "html",
@@ -119,6 +127,8 @@ function getDadosTorneio(id) {
 
 }
 
+
+
 function guardaEditTorneio(id) {
 
     let dados = new FormData();
@@ -136,7 +146,7 @@ function guardaEditTorneio(id) {
     dados.append("trObs", $('#obsEditTour').val());
 
     $.ajax({
-        url: "../../dist/php/controllerTorneio.php",
+        url: "../../dist/php/clube/controllerTorneio.php",
         method: "POST",
         data: dados,
         dataType: "html",
@@ -165,6 +175,8 @@ function guardaEditTorneio(id) {
 
 }
 
+
+
 function removeTorneio(id) {
 
     let dados = new FormData();
@@ -172,7 +184,7 @@ function removeTorneio(id) {
     dados.append("id", id);
 
     $.ajax({
-        url: "../../dist/php/controllerTorneio.php",
+        url: "../../dist/php/clube/controllerTorneio.php",
         method: "POST",
         data: dados,
         dataType: "html",
@@ -211,6 +223,8 @@ function alerta(titulo, msg, icon) {
 
     })
 }
+
+
 
 
 $(function () {
