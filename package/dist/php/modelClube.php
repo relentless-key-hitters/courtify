@@ -350,6 +350,11 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
         return json_encode($resp);
     }
 
+    function getGraficos(){
+
+
+        
+    }
 
 }
 

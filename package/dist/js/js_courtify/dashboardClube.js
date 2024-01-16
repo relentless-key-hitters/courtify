@@ -108,6 +108,30 @@ function getDadosHoje(){
 
 }
 
+function getGraficos(){
+    let dados = new FormData();
+    dados.append("op", 8);
+
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+
+}
+
 $(function() {
     getInfoClubePerfil()
     getMelhoresAtletas()
