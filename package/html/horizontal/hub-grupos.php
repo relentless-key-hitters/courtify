@@ -206,7 +206,7 @@ if (isset($_SESSION['id'])) { ?>
                 <div style="position: absolute; bottom: 5px; right: 16px; z-index: 1;">
                   <img src="../../dist/images/logos/logo_icone.png" style="max-width: 70px;">
                 </div>
-                <img class="img-fluid" src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(50%);">
+                <img class="img-fluid" src="../../dist/images/backgrounds/tomasz-krawczyk-M2x3A8Q4JbY-unsplash.jpg" data-aos style="width: 100%; max-width: 100%; height: 600px; object-fit: cover; filter: brightness(50%);">
                 <div style="position: absolute; top: 40%; transform: translateY(-50%); left: 50%; text-align: center; color: white;">
                   <h1 class="text-white fw-bolder" style="letter-spacing: 1px; font-size: 90px">
                     Grupos</h1>
@@ -629,11 +629,11 @@ if (isset($_SESSION['id'])) { ?>
                   <div class="card-body">
                     <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
                       <div class="col-10 col-sm-8 col-lg-6">
-                        <img src="../../dist/images/backgrounds/banner_hub_grupos.jpg" class="img-fluid rounded" alt="Imagem Grupos" width="700" height="500">
+                        <img src="../../dist/images/backgrounds/banner_hub_grupos.jpg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="img-fluid rounded" alt="Imagem Grupos" width="700" height="500">
                       </div>
                       <div class="col-lg-6">
-                        <h1 class="display-5 fw-bold lh-1 mb-2">É aqui que a Comunidade entra em ação</h1>
-                        <p class="lead mt-5">Esta página é o teu ponto de partida para te tornares parte da comunidade Courtify. Cria ou junta-te a grupos e começa a partilhar momentos e experiências.</p>
+                        <h1 class="display-5 fw-bold lh-1 mb-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">É aqui que a Comunidade entra em ação</h1>
+                        <p class="lead mt-5" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">Esta página é o teu ponto de partida para te tornares parte da comunidade Courtify. Cria ou junta-te a grupos e começa a partilhar momentos e experiências.</p>
                       </div>
                     </div>
                   </div>
