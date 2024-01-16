@@ -38,9 +38,12 @@ function getInfoDefinicoesClube() {
 
     .done(function (msg) {
         let obj = JSON.parse(msg);
+        let obj2 = JSON.parse(obj.arraySelects)
         console.log(obj)
         $("#fotoClubeEditCurrent").attr("src", obj.fotoClube);
         $("#nomeClubeEdit").val(obj.nomeClube)
+        $("#distritoClubeEdit").html(obj2.msg)
+        $("#concelhoClubeEdit").html(obj2.msg2)
         $("#nifClubeEdit").val(obj.nifClube)
         $("#cpClubeEdit").val(obj.codigoPostalClube)
         $("#anoFundacaoClubeEdit").val(obj.anoFundacaoClube)
@@ -130,9 +133,11 @@ function eventListenerDiaFechado() {
 
 
 
+
+
 $(function () {
-    getNomeClube();
     getInfoDefinicoesClube();
+    getNomeClube();
     getHorariosDefinicoesClube();
     setTimeout(function () {eventListenerDiaFechado();}, 1000);
 });

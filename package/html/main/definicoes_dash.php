@@ -429,8 +429,8 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                       <div class="mb-4">
                         <label for="distritoEdit" class="form-label fw-semibold">Distrito</label>
-                        <select class="form-select" aria-label="Default select example"
-                          onchange="getConcelhos(this.value)" id="distritoClubeEdit">
+                        <select class="form-select" aria-label=""
+                           id="distritoClubeEdit">
                         </select>
                       </div>
                       <div class="mb-4">

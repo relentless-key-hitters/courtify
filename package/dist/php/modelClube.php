@@ -4,7 +4,76 @@ require_once 'connection.php';
 
 class Clube{
 
-function getInfoClube(){
+
+    function getDistritos($concelhoClube)
+    {
+
+        global $conn;
+        $msg = "<option value = '-1' selected disabled >Distrito</option><option disabled>---------------</option>";
+        $msg2 = "";
+        $idDistrito = 0;
+        $sql = "SELECT 
+                distrito.id AS idDistrito
+                FROM
+                distrito
+                INNER JOIN distrito_concelho ON distrito.id = distrito_concelho.id_distrito
+                INNER JOIN concelho ON distrito_concelho.id_concelho = concelho.id
+                WHERE concelho.id = ".$concelhoClube;
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            $row = $result->fetch_assoc();
+            
+            $idDistrito = $row['idDistrito'];
+
+            $msg2 = $this -> getConcelhos($idDistrito, $concelhoClube);
+
+            $sql2 = "SELECT
+            distrito.id as idDistrito, 
+            distrito.descricao as descricaoDistrito 
+            FROM distrito";
+
+            $result2 = $conn->query($sql2);
+
+            if ($result2->num_rows > 0) {
+                while ($row2 = $result2->fetch_assoc()) {
+                    if($row2['idDistrito'] == $idDistrito){
+                        $msg .= "<option selected value = '" . $row2['idDistrito'] . "'>" . $row2['descricaoDistrito'] . "</option>";
+                    }else{
+                        $msg .= "<option value = '" . $row2['idDistrito'] . "'>" . $row2['descricaoDistrito'] . "</option>";
+                    }
+                }
+            }
+        }
+
+        return json_encode(array('msg' => $msg, 'msg2' => $msg2));
+    }
+
+    function getConcelhos($distrito, $concelho)
+    {
+        global $conn;
+        $msg = "<option value = '-1' selected disabled>Escolha um concelho</option><option disabled>---------------</option>";
+        
+        $sql = "SELECT concelho.id , concelho.descricao FROM concelho INNER JOIN distrito_concelho ON concelho.id = distrito_concelho.id_concelho WHERE distrito_concelho.id_distrito = '" . $distrito . "'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_assoc()) {
+                if($row['id'] == $concelho){
+                    $msg .= "<option selected value = '" . $row['id'] . "'>" . $row['descricao'] . "</option>";
+                }else{
+                    $msg .= "<option value = '" . $row['id'] . "'>" . $row['descricao'] . "</option>";
+                }
+            }
+        }
+
+        return ($msg);
+    }
+
+    function getInfoClube(){
 
     global $conn;
     $sql = "SELECT user.nome, temp.cont_marcacao AS n_marcacoes, temp2.cont_torneios AS n_torneios
@@ -39,47 +108,47 @@ function getInfoClube(){
     }
 
     $sql2 = "SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total, 1 AS pago, 1 AS atual
-    FROM marcacao  
-    INNER JOIN campo
-    ON campo.id = marcacao.id_campo
-    WHERE marcacao.id_campo IN(
-       SELECT campo.id 
-       FROM campo INNER JOIN campo_clube 
-       ON campo.id = campo_clube.id_campo
-       INNER JOIN clube ON 
-       campo_clube.id_clube = clube.id_clube
-       WHERE clube.id_clube = ".$_SESSION['id']."
-    ) AND MONTH(marcacao.data_inicio) =  MONTH(CURRENT_DATE())
-    AND marcacao.pagamento = 1
+        FROM marcacao  
+        INNER JOIN campo
+        ON campo.id = marcacao.id_campo
+        WHERE marcacao.id_campo IN(
+        SELECT campo.id 
+        FROM campo INNER JOIN campo_clube 
+        ON campo.id = campo_clube.id_campo
+        INNER JOIN clube ON 
+        campo_clube.id_clube = clube.id_clube
+        WHERE clube.id_clube = ".$_SESSION['id']."
+        ) AND MONTH(marcacao.data_inicio) =  MONTH(CURRENT_DATE())
+        AND marcacao.pagamento = 1
+        UNION 
+        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total, 0 AS pago, 1 AS atual
+        FROM marcacao  
+        INNER JOIN campo
+        ON campo.id = marcacao.id_campo
+        WHERE marcacao.id_campo IN(
+        SELECT campo.id 
+        FROM campo INNER JOIN campo_clube 
+        ON campo.id = campo_clube.id_campo
+        INNER JOIN clube ON 
+        campo_clube.id_clube = clube.id_clube
+        WHERE clube.id_clube = ".$_SESSION['id']."
+        ) AND MONTH(marcacao.data_inicio) =  MONTH(CURRENT_DATE()) 
+        AND marcacao.pagamento = 0
     UNION 
-    SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total, 0 AS pago, 1 AS atual
-    FROM marcacao  
-    INNER JOIN campo
-    ON campo.id = marcacao.id_campo
-    WHERE marcacao.id_campo IN(
-       SELECT campo.id 
-       FROM campo INNER JOIN campo_clube 
-       ON campo.id = campo_clube.id_campo
-       INNER JOIN clube ON 
-       campo_clube.id_clube = clube.id_clube
-       WHERE clube.id_clube = ".$_SESSION['id']."
-    ) AND MONTH(marcacao.data_inicio) =  MONTH(CURRENT_DATE()) 
-    AND marcacao.pagamento = 0
-UNION 
 
-SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total, 1 AS pago, 0 AS atual
-    FROM marcacao  
-    INNER JOIN campo
-    ON campo.id = marcacao.id_campo
-    WHERE marcacao.id_campo IN(
-       SELECT campo.id 
-       FROM campo INNER JOIN campo_clube 
-       ON campo.id = campo_clube.id_campo
-       INNER JOIN clube ON 
-       campo_clube.id_clube = clube.id_clube
-       WHERE clube.id_clube = ".$_SESSION['id']."
-    ) AND MONTH(marcacao.data_inicio) =  MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH))
-    AND marcacao.pagamento = 1";
+    SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total, 1 AS pago, 0 AS atual
+        FROM marcacao  
+        INNER JOIN campo
+        ON campo.id = marcacao.id_campo
+        WHERE marcacao.id_campo IN(
+        SELECT campo.id 
+        FROM campo INNER JOIN campo_clube 
+        ON campo.id = campo_clube.id_campo
+        INNER JOIN clube ON 
+        campo_clube.id_clube = clube.id_clube
+        WHERE clube.id_clube = ".$_SESSION['id']."
+        ) AND MONTH(marcacao.data_inicio) =  MONTH(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH))
+        AND marcacao.pagamento = 1";
 
     $contPagos = 0;
     $pag = 0;
@@ -232,7 +301,6 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
 
     }
 
-
     function getNomeClube() {
         global $conn;
         $nome = "";
@@ -301,14 +369,19 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
     function getInfoDefinicoesClube() {
         global $conn;
         $resp = null;
+        $arraySelects = array();
 
         $sql = "SELECT user.*, clube.* FROM user INNER JOIN clube ON user.id = clube.id_clube WHERE clube.id_clube = ".$_SESSION['id'];
 
+        
+
         $result = $conn->query($sql);
+
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-        
+            $arraySelects = $this -> getDistritos($row['localidade']);
+
             $resp = array(
                 "idClube" => $_SESSION['id'],
                 "fotoClube" => $row['foto'],
@@ -322,6 +395,7 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
                 "anoFundacaoClube" => $row['ano_fundacao'],
                 "telefoneClube" => $row['telefone'],
                 "descricaoClube" => $row['descricao'],
+                "arraySelects" => $arraySelects
             );
         }
 
