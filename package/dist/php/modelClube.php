@@ -606,6 +606,12 @@ class Clube{
 
     }
 
+    function getCamposClube(){
+
+
+        
+    }
+
 }
 
 ?>

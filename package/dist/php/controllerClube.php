@@ -34,6 +34,9 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 10){
     $res = $clube -> getGraficoGanhos();
     echo($res);
+}else if ($_POST['op'] == 11){
+    $res = $clube -> getCamposClube();
+    echo($res);
 }
 
 ?>
