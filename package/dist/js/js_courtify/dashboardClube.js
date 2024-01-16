@@ -124,16 +124,18 @@ function getGraficoMarcacao(){
 
     .done(function (msg) {
         let obj = JSON.parse(msg)
+        console.log(obj)
+        let meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
         var options = {
             color: "#044967",
             series: [{
               name: "histogram",
               data: [
-                { x: "Ago", y: obj[0][0] },
-                { x: "Set", y: obj[1][0] },
-                { x: "Out", y: obj[2][0] },
-                { x: "Nov", y: obj[3][0] },
                 { x: "Dez", y: obj[4][0] },
+                { x: "Nov", y: obj[3][0] },
+                { x: "Out", y: obj[2][0] },
+                { x: "Set", y: obj[1][0] },
+                { x: "Ago", y: obj[0][0] },
               ],
             }],
             chart: {
@@ -180,14 +182,14 @@ function getGraficoMarcacao(){
             },
             xaxis: {
               type: "category",
-              categories: ["Ago", "Set", "Out", "Nov", "Dez"],
-              title: {text: "Sports", offsetY: 70},
+              categories: [meses[obj[4][1]-1], meses[obj[3][1]-1], meses[obj[2][1]-1], meses[obj[1][1]-1], meses[obj[0][1]-1]],
+              title: {text: "Meses", offsetY: 70},
               axisBorder: {
                 color: "#000000"
               }
             },
             yaxis: {
-              title: {text: "Ganhos"},
+              title: {text: "Nº marcações"},
               axisBorder: {
                 show: true,
                 color: "#000000"
@@ -212,7 +214,7 @@ function getGraficoMarcacao(){
 function getGraficoGanhos(){
 
 
-    
+
 }
 
 
