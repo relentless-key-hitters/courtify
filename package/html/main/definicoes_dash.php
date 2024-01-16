@@ -183,7 +183,7 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
   <div class="body-wrapper">
-    <div class="row pe-5">
+    <div class="row pe-5 mb-3">
         <div class="col-lg-2">
 
         </div>
