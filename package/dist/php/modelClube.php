@@ -249,6 +249,55 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
         return $nome;
     }
 
+    function getDadosHoje(){
+        global $conn;
+        $sql = "SELECT COUNT(*) AS contagemHorario, DATE_FORMAT(temp.hora_inicio,'%H:%i') AS hora_inicio, DATE_FORMAT(temp.hora_fim,'%H:%i') AS hora_fim
+        FROM (
+            SELECT marcacao.hora_inicio, marcacao.hora_fim 
+            FROM campo INNER JOIN marcacao 
+            ON campo.id = marcacao.id_campo 
+            WHERE MONTH(marcacao.data_inicio) =  MONTH(CURRENT_DATE())
+            AND marcacao.id_campo IN (
+                       SELECT campo.id 
+                       FROM campo INNER JOIN campo_clube 
+                       ON campo.id = campo_clube.id_campo
+                       INNER JOIN clube ON 
+                       campo_clube.id_clube = clube.id_clube
+                       WHERE clube.id_clube = ".$_SESSION['id']."
+                    ) 
+        ) AS temp
+        GROUP BY temp.hora_inicio
+        ORDER BY contagemHorario DESC
+        LIMIT 3";
+        $res = array(); 
+        $result = $conn -> query($sql);
+        if($result -> num_rows>0){
+            while($row = $result -> fetch_assoc()){
+                array_push($res, array($row['hora_inicio'], $row['hora_fim']));
+            }
+        }
+        $nMarcacoesHoje = 0;
+        $sql2 = "	SELECT COUNT(*) AS numMarcacoesHoje
+        FROM campo INNER JOIN marcacao 
+        ON campo.id = marcacao.id_campo 
+        WHERE marcacao.data_inicio =  CURRENT_DATE()
+        AND marcacao.id_campo IN (
+          SELECT campo.id 
+          FROM campo INNER JOIN campo_clube 
+          ON campo.id = campo_clube.id_campo
+          INNER JOIN clube ON 
+          campo_clube.id_clube = clube.id_clube
+          WHERE clube.id_clube = ".$_SESSION['id'].")";
+        $result2 = $conn -> query($sql2);
+        if($result2 -> num_rows>0){
+            while($row = $result2 -> fetch_assoc()){
+                $nMarcacoesHoje = $row['numMarcacoesHoje'];
+            }
+        }
+        $conn -> close();
+        return(json_encode(array("HorariosMaisFrequentes" => $res, "numMarcacoesHoje" => $nMarcacoesHoje)));
+    }
+
 
 }
 

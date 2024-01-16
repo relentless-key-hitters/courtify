@@ -80,8 +80,37 @@ function getCampoHoras(){
 
 }
 
+function getDadosHoje(){
+    let dados = new FormData();
+    dados.append("op", 5);
+
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        let obj = JSON.parse(msg);
+        $("#horario1").html(obj.HorariosMaisFrequentes[0][0] + "h - " + obj.HorariosMaisFrequentes[0][1] + "h")
+        $("#horario2").html(obj.HorariosMaisFrequentes[1][0] + "h - " + obj.HorariosMaisFrequentes[1][1] + "h")
+        $("#horario3").html(obj.HorariosMaisFrequentes[2][0] + "h - " + obj.HorariosMaisFrequentes[2][1] + "h")
+        $("#nMarcacoesHoje").html(obj.numMarcacoesHoje)
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+
+}
+
 $(function() {
     getInfoClubePerfil()
     getMelhoresAtletas()
     getCampoHoras()
+    getDadosHoje()
 });

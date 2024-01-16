@@ -16,5 +16,9 @@ if ($_POST['op'] == 1){
 } else if($_POST['op'] == 4){
     $res = $clube ->  getNomeClube();
     echo($res);
+}else if($_POST['op'] == 5){
+    $res = $clube ->  getDadosHoje();
+    echo($res);
 }
+
 ?>

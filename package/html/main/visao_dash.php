@@ -410,65 +410,28 @@ if (isset($_SESSION['id'])) {?>
             <div class="card w-100 shadow">
               <div class="card-body">
                 <div class="mb-4">
-                  <h5 class="card-title fw-semibold">Transações Recentes <i class="fs-5 ti ti-pig-money"></i></h5>
-                  <p class="card-subtitle">Crédito</p>
+                  <h5 class="card-title fw-semibold">Painel de Informação <i class="fs-5 ti ti-pig-money"></i></h5>
+                  <div class="col-12">
+                    <h5 class="mb-8 mt-4 fw-semibold"> Horários mais procurados
+                    </h5>
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                      <h4 class="fw-semibold mb-0 me-8" id="horario1"></h4>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                      <h4 class="fw-semibold mb-0 me-8" id="horario2"></h4>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                      <h4 class="fw-semibold mb-0 me-8" id="horario3"></h4>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <h5 class="mb-8 mt-4 fw-semibold"> Nº de marcações hoje
+                    </h5>
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                      <h4 class="fw-semibold mb-0 me-8" id="nMarcacoesHoje"></h4>
+                    </div>
+                  </div>
                 </div>
-                <ul class="timeline-widget mb-0 position-relative mb-n5">
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">17:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-secondary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">26€ Ana Torres <span class="text-muted">12/12/2023
-                        16:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">19:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ João Santos <span class="text-muted">12/12/2023
-                        18:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">19:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ Pedro André <span class="text-muted">11/12/2023
-                        18:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">19:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-secondary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ Afonso Lima <span class="text-muted">10/11/2023
-                        18:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">20:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ João Santos <span class="text-muted">11/11/2023
-                        19:00</span></div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">20:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">30€ Rui Alves <span class="text-muted">1/11/2023
-                        18:00</span></div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
