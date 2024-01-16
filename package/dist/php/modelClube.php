@@ -298,6 +298,58 @@ SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*cam
         return(json_encode(array("HorariosMaisFrequentes" => $res, "numMarcacoesHoje" => $nMarcacoesHoje)));
     }
 
+    function getInfoDefinicoesClube() {
+        global $conn;
+        $resp = null;
+
+        $sql = "SELECT user.*, clube.* FROM user INNER JOIN clube ON user.id = clube.id_clube WHERE clube.id_clube = ".$_SESSION['id'];
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+        
+            $resp = array(
+                "idClube" => $_SESSION['id'],
+                "fotoClube" => $row['foto'],
+                "localidadeClube" => $row['localidade'],
+                "nomeClube" => $row['nome'],
+                "telemovelClube" => $row['telemovel'],
+                "emailClube" => $row['email'],
+                "nifClube" => $row['nif'],
+                "moradaClube" => $row['morada'],
+                "codigoPostalClube" => $row['codigo_postal'],
+                "anoFundacaoClube" => $row['ano_fundacao'],
+                "telefoneClube" => $row['telemovel'],
+                "descricaoClube" => $row['descricao'],
+            );
+        }
+
+
+        return json_encode($resp); 
+    }
+
+    function getHorariosDefinicoesClube() {
+        global $conn;
+        $resp = array();
+    
+        $sql = "SELECT * FROM horario_clube WHERE id_clube = ".$_SESSION['id']." ORDER BY id_dia ASC";
+    
+        $result = $conn->query($sql);
+    
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $resp[] = array(
+                    "diaSemana" => $row['id_dia'],
+                    "horaAbertura" => $row['hora_abertura'],
+                    "horaFecho" => $row['hora_fecho']
+                );
+            }
+        }
+    
+        return json_encode($resp);
+    }
+
 
 }
 

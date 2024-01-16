@@ -19,6 +19,12 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 5){
     $res = $clube ->  getDadosHoje();
     echo($res);
+}else if ($_POST['op'] == 6){
+    $res = $clube -> getInfoDefinicoesClube();
+    echo($res);
+}else if ($_POST['op'] == 7){
+    $res = $clube -> getHorariosDefinicoesClube();
+    echo($res);
 }
 
 ?>

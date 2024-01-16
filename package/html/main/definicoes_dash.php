@@ -415,7 +415,7 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-lg-12">
             <div class="card w-100 position-relative overflow-hidden ">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold">Detalhes Pessoais</h5>
@@ -484,7 +484,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="col-12">
                       <div class="">
                         <label for="descricaoClubeEdit" class="form-label fw-semibold">Descrição</label>
-                        <textarea class="form-control" id="descricaoClubeEdit" rows ='5'></textarea>
+                        <textarea class="form-control" id="descricaoClubeEdit" rows ='7'></textarea>
                       </div>
                     </div>
                   </div>
@@ -497,7 +497,281 @@ if (isset($_SESSION['id'])) {?>
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold">Horários</h5>
                 <p class="card-subtitle mb-4">Configure aqui o seu horário semanal.</p>
-                
+                <div class="container">
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3">
+
+                          </div>
+                          <div class="col-3 text-center">
+                            <span class="fw-bold fs-3">Abertura</span>
+                          </div>
+                          <div class="col-3 text-center">
+                          <span class="fw-bold fs-3">Fecho</span>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3 mt-2">
+                            <div class="d-flex justify-content-center align-items-end">
+                              <span class="fw-bolder fs-4">Segunda-Feira:</span>
+                            </div>
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="aberturaSegunda">
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="fechoSegunda">
+                          </div>
+                          <div class="col-3 mt-2">
+                            <input type="checkbox" class="form-check-input me-2">
+                            <span class="fs-3">Fechado</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3">
+
+                          </div>
+                          <div class="col-3 text-center">
+                            <span class="fw-bold fs-3">Abertura</span>
+                          </div>
+                          <div class="col-3 text-center">
+                          <span class="fw-bold fs-3">Fecho</span>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3 mt-2">
+                            <div class="d-flex justify-content-center align-items-end">
+                              <span class="fw-bolder fs-4">Terça-Feira:</span>
+                            </div>
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="aberturaTerca">
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="fechoTerca">
+                          </div>
+                          <div class="col-3 mt-2">
+                            <input type="checkbox" class="form-check-input me-2">
+                            <span class="fs-3">Fechado</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3">
+
+                          </div>
+                          <div class="col-3 text-center">
+                            <span class="fw-bold fs-3">Abertura</span>
+                          </div>
+                          <div class="col-3 text-center">
+                          <span class="fw-bold fs-3">Fecho</span>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3 mt-2">
+                            <div class="d-flex justify-content-center align-items-end">
+                              <span class="fw-bolder fs-4">Quarta-Feira:</span>
+                            </div>
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="aberturaQuarta">
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="fechoQuarta">
+                          </div>
+                          <div class="col-3 mt-2">
+                            <input type="checkbox" class="form-check-input me-2">
+                            <span class="fs-3">Fechado</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3">
+
+                          </div>
+                          <div class="col-3 text-center">
+                            <span class="fw-bold fs-3">Abertura</span>
+                          </div>
+                          <div class="col-3 text-center">
+                          <span class="fw-bold fs-3">Fecho</span>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3 mt-2">
+                            <div class="d-flex justify-content-center align-items-end">
+                              <span class="fw-bolder fs-4">Quinta-Feira:</span>
+                            </div>
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="aberturaQuinta">
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="fechoQuinta">
+                          </div>
+                          <div class="col-3 mt-2">
+                            <input type="checkbox" class="form-check-input me-2">
+                            <span class="fs-3">Fechado</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3">
+
+                          </div>
+                          <div class="col-3 text-center">
+                            <span class="fw-bold fs-3">Abertura</span>
+                          </div>
+                          <div class="col-3 text-center">
+                          <span class="fw-bold fs-3">Fecho</span>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3 mt-2">
+                            <div class="d-flex justify-content-center align-items-end">
+                              <span class="fw-bolder fs-4">Sexta-Feira:</span>
+                            </div>
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="aberturaSexta">
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="fechoSexta">
+                          </div>
+                          <div class="col-3 mt-2">
+                            <input type="checkbox" class="form-check-input me-2">
+                            <span class="fs-3">Fechado</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3">
+
+                          </div>
+                          <div class="col-3 text-center">
+                            <span class="fw-bold fs-3">Abertura</span>
+                          </div>
+                          <div class="col-3 text-center">
+                          <span class="fw-bold fs-3">Fecho</span>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3 mt-2">
+                            <div class="d-flex justify-content-center align-items-end">
+                              <span class="fw-bolder fs-4">Sábado:</span>
+                            </div>
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="aberturaSabado">
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="fechoSabado">
+                          </div>
+                          <div class="col-3 mt-2">
+                            <input type="checkbox" class="form-check-input me-2">
+                            <span class="fs-3">Fechado</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3">
+
+                          </div>
+                          <div class="col-3 text-center">
+                            <span class="fw-bold fs-3">Abertura</span>
+                          </div>
+                          <div class="col-3 text-center">
+                          <span class="fw-bold fs-3">Fecho</span>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>  
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-3 mt-2">
+                            <div class="d-flex justify-content-center align-items-end">
+                              <span class="fw-bolder fs-4">Domingo:</span>
+                            </div>
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="aberturaDomingo">
+                          </div>
+                          <div class="col-3 text-center">
+                            <input type="time" class="form-control" id="fechoDomingo">
+                          </div>
+                          <div class="col-3 mt-2">
+                            <input type="checkbox" class="form-check-input me-2">
+                            <span class="fs-3">Fechado</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-12">
@@ -512,20 +786,6 @@ if (isset($_SESSION['id'])) {?>
       </div>
 
 
-    </div>
-  </div>
-
-  <div class="row pe-5">
-    <div class="col-lg-2">
-
-    </div>
-    <div class="col-lg-10">
-      <div class="container">
-        <div class="row mt-3">
-          
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
