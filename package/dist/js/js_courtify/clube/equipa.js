@@ -33,11 +33,12 @@ function regEquipa() {
 
     let dados = new FormData();
     dados.append("op", 2);
-    dados.append("nomeEquipa", $('#nomeEquipa').val());
-    dados.append("imgEquipa", $('#imgEquipa').prop('files')[0]);
-    dados.append("nmrEquipa", $('#nmrEquipa').val());
-    dados.append("nivelEquipa", $('#nivelEquipa').val());
-    dados.append("obsEquipa", $('#obsEquipa').val());
+    dados.append("nomeEq", $('#nomeEq').val());
+    dados.append("modEq", $('#modEq').val());
+    dados.append("descEq", $('#descEq').val());
+    dados.append("rankEq", $('#rankEq').val());
+    dados.append("estadoEq", $('#estadoEq').val());
+    dados.append("imagemEq", $('#imagemEq').prop('files')[0]);
 
 
     $.ajax({
@@ -122,12 +123,13 @@ function getDadosEquipa(id) {
 
             let obj = JSON.parse(msg);
 
-            $('#idEditEquipa').val(obj.id);
-            $('#nomeEditEquipa').val(obj.descricao);
-            $('#imgEditEquipa').val(obj.data);
-            $('#nmrEditEquipa').val(obj.hora);
-            $('#nivelEditEquipa').val(obj.num_entradas);
-            $('#obsEditEquipa').val(obj.preco);
+            $('#idEq').val(obj.id);
+            $('#nomeEditEquipa').val(obj.nome);
+            $('#modEditEquipa').val(obj.modalidade);
+            $('#descEditEquipa').val(obj.descricao);
+            $('#rankEditEquipa').val(obj.ranking);
+            $('#estadoEditEquipa').val(obj.estado);
+            $('#imagemEditEquipa').val(obj.foto);
 
             $('#btnGuardar').attr("onclick", "guardaEditEquipa(" + id + ")")
 
@@ -145,12 +147,13 @@ function guardaEditEquipa(id) {
 
     let dados = new FormData();
     dados.append("op", 5);
-    dados.append("idEquipa", id);
-    dados.append("nomeQuipa", $('#nomeEditEquipa').val());
-    dados.append("imgEquipa", $('#imgEditEquipa').prop('files')[0]);
-    dados.append("nmrEquipa", $('#nmrEditEquipa').val());
-    dados.append("nivelEquipa", $('#nivelEditEquipa').val());
-    dados.append("obsEquipa", $('#obsEditEquipa').val());
+    dados.append("idEq", id);
+    dados.append("nomeEq", $('#nomeEditEquipa').val());
+    dados.append("modEq", $('#modEditEquipa').val());
+    dados.append("descEq", $('#descEditEquipa').val());
+    dados.append("rankEq", $('#rankEditEquipa').val());
+    dados.append("estadoEq", $('#estadoEditEquipa').val());
+    dados.append("imagemEq", $('#imagemEditEquipa').prop('files')[0]);
 
 
     $.ajax({
@@ -232,7 +235,7 @@ function alerta(titulo, msg, icon) {
 
 
 $(function () {
-
+getListaEquipa();
 });
 
 

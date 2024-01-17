@@ -10,13 +10,13 @@ if($_POST['op'] == 1){
 
 } else if($_POST['op'] == 2){
 
-
     $resp = $equipa -> regEquipaModel(
-        $_POST['nomeEquipa'],
-        $_FILES,
-        $_POST['nmrEquipa'],
-        $_POST['nivelEquipa'],
-        $_POST['obsEquipa']
+        $_POST['nomeEq'],
+        $_POST['modEq'],
+        $_POST['descEq'],
+        $_POST['rankEq'],
+        $_POST['estadoEq'],
+        $_FILES
     );
    
 
@@ -29,7 +29,6 @@ if($_POST['op'] == 1){
 
 } else if($_POST['op'] == 4){
 
-
     $resp = $equipa -> getDadosEquipaModel($_POST['id']);
     echo($resp);
 
@@ -37,11 +36,11 @@ if($_POST['op'] == 1){
 
 
     $resp = $equipa -> guardaEditEquipaModel(
-        $_POST['nomeEquipa'],
-        $_FILES,
-        $_POST['nmrEquipa'],
-        $_POST['nivelEquipa'],
-        $_POST['obsEquipa']
+        $_POST['nomeEq'],
+        $_POST['descEq'],
+        $_POST['rankEq'],
+        $_POST['estadoEq'],
+        $_FILES
 
     );
     echo ($resp);
