@@ -38,7 +38,7 @@ function getCamposManutencao(){
     })
 
     .done(function (msg) {
-
+        $("#tableCampos2").html(msg)
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -47,5 +47,6 @@ function getCamposManutencao(){
 }
 
 $(function() {
+    getCamposManutencao()
     getCamposClube()
 });
