@@ -58,6 +58,9 @@ if ($_POST['op'] == 1){
         $_POST['objHorarios']
     );
     echo($res);
+}else if($_POST['op'] == 14){
+    $res = $clube -> getCamposManutencao();
+    echo($res);
 }
 
 ?>

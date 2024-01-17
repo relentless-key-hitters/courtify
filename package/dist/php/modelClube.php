@@ -776,6 +776,10 @@ class Clube{
         return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
     }
 
+    function getCamposManutencao(){
+        
+    }
+
 }
 
 ?>

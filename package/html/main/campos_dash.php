@@ -291,8 +291,8 @@ if (isset($_SESSION['id'])) {?>
               <thead>
                 <tr class="text-center">
                   <th scope="col">Nome Campo</th>
-                  <th scope="col">Última Manutenção</th>
-                  <th scope="col">Horas de Uso (após ultima manutenção)</th>
+                  <th scope="col">Modalidade</th>
+                  <th scope="col">Preço/Hora</th>
                   <th scope="col">Reservas</th>
                 </tr>
               </thead>
@@ -306,6 +306,43 @@ if (isset($_SESSION['id'])) {?>
     </div>
     <div class="col-lg-2"></div>
   </div>
+
+  <div class="row">
+    <div class="col-lg-3">
+
+    </div>
+
+    <div class="col-lg-7">
+      <div class="badge-container2">
+        <div class="row mb-0 mt-5">
+          <div class="col-12 text-center">
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Manutenção de campos</h1>
+          </div>
+        </div>
+
+
+        <div class="row mb-5">
+          <div class="container mt-5">
+            <table class="table" id="tabela">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Nome Campo</th>
+                  <th scope="col">Última Manutenção</th>
+                  <th scope="col">Horas de Uso (após ultima manutenção)</th>
+                  <th scope="col">Reservas</th>
+                </tr>
+              </thead>
+              <tbody id="tableCampos2">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
 
 
   <div class="modal modal-lg fade" id="campoResModal" tabindex="-1" role="dialog" aria-labelledby="campoResModal"
