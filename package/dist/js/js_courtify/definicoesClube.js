@@ -84,7 +84,7 @@ function getHorariosDefinicoesClube() {
         const aberturaId = "#abertura" + diasSemana[i];
         const fechoId = "#fecho" + diasSemana[i];
 
-        if (elemento.horaAbertura && elemento.horaFecho != null && elemento.horaAbertura != '00:00:00' && elemento.horaFecho != '00:00:00') {
+        if (elemento.horaAbertura != '00:00:00' && elemento.horaFecho != '00:00:00') {
             $(aberturaId).val(elemento.horaAbertura);
             $(fechoId).val(elemento.horaFecho);
         } else {
@@ -260,7 +260,7 @@ async function guardarEditClube() {
     .done(function (msg) {
         let obj = JSON.parse(msg);
         alerta(obj.title, obj.msg, obj.icon);
-        //setTimeout(function () {location.reload();}, 3000);
+        setTimeout(function () {location.reload();}, 3000);
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -306,7 +306,7 @@ $(function () {
     getInfoDefinicoesClube();
     getNomeClube();
     getHorariosDefinicoesClube();
-    setTimeout(function () {eventListenerDiaFechado();}, 1000);
+    setTimeout(function () {eventListenerDiaFechado();}, 500);
 
     
 });
