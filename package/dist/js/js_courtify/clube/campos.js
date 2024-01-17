@@ -14,7 +14,11 @@ function getCamposClube(){
     })
 
     .done(function (msg) {
+        if($.fn.DataTable.isDataTable('#tabela')){
+            $('#tabela').DataTable().destroy()
+        }
         $("#tableCampos").html(msg)
+        $('#tabela').DataTable();
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -38,7 +42,11 @@ function getCamposManutencao(){
     })
 
     .done(function (msg) {
+        if($.fn.DataTable.isDataTable('#tabela1')){
+            $('#tabela1').DataTable().destroy()
+        }
         $("#tableCampos2").html(msg)
+        $('#tabela1').DataTable();
     })
 
     .fail(function (jqXHR, textStatus) {
@@ -49,4 +57,6 @@ function getCamposManutencao(){
 $(function() {
     getCamposManutencao()
     getCamposClube()
+    $('#tabela').DataTable();
+    $('#tabela1').DataTable();
 });
