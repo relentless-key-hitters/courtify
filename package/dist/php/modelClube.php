@@ -767,7 +767,7 @@ class Clube{
                 }
             }
         
-            if (password_verify($passwordAtual, $passwordAtualClube)) {
+            if (md5($passwordAtual) !== $passwordAtualClube) {
                 $msg = "Password atual inválida";
                 $icon = "error";
                 $title = "Erro";
