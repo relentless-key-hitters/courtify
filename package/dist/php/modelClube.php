@@ -5,6 +5,39 @@ require_once 'connection.php';
 class Clube{
 
 
+    function uploads($img, $id)
+    {
+
+        $dir = "../images/utilizadores/" . $id . "/";
+        $dir1 = "../../dist/images/utilizadores/" . $id . "/";
+        $flag = false;
+        $targetBD = "";
+
+        if (!is_dir($dir)) {
+            if (!mkdir($dir, 0777, TRUE)) {
+                die("Erro não é possivel criar o diretório");
+            }
+        }
+        if (array_key_exists('fotoClubeEditNova', $img)) {
+            if (is_array($img)) {
+                if (is_uploaded_file($img['fotoClubeEditNova']['tmp_name'])) {
+                    $fonte = $img['fotoClubeEditNova']['tmp_name'];
+                    $ficheiro = $img['fotoClubeEditNova']['name'];
+                    $end = explode(".", $ficheiro);
+                    $extensao = end($end);
+                    $newName = "clube" . date("YmdHis") . "." . $extensao;
+                    $target = $dir . $newName;
+                    $targetBD = $dir1 . $newName;
+                    $flag = move_uploaded_file($fonte, $target);
+                }
+            }
+        }
+        return (json_encode(array(
+            "flag" => $flag,
+            "target" => $targetBD
+        )));
+    }
+
     function getDistritos($concelhoClube)
     {
 
@@ -641,6 +674,106 @@ class Clube{
         $conn -> close(); 
         return($msg);
 
+    }
+
+    function alterarFotoClube($fotoClubeEditNova) {
+        global $conn;
+        $respUpdate = $this->uploads($fotoClubeEditNova, $_SESSION['id']);
+        $respUpdate = json_decode($respUpdate, TRUE);
+        $sql = "UPDATE user SET foto = '" . $respUpdate['target'] . "' WHERE id = " . $_SESSION['id'];
+        $msg = "";
+        $icon = "success";
+        $title = "Sucesso";
+        if ($conn->query($sql) === TRUE) {
+            $msg = "Foto de perfil alterada com sucesso!";
+        } else {
+            $msg = "Não foi possível alterar a sua foto de perfil";
+            $icon = "error";
+            $title = "Erro";
+        }
+        $conn->close();
+        return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
+        
+    }
+
+    function guardarEditClube(
+        $nome, 
+        $anoFundacaoClubeEdit, 
+        $telemovelClubeEdit, 
+        $telefoneClubeEdit, 
+        $moradaClubeEdit, 
+        $descricaoClubeEdit, 
+        $emailClubeEdit, 
+        $nifClubeEdit, 
+        $cpClubeEdit, 
+        $distritoClubeEdit, 
+        $concelhoClubeEdit,
+        $lat,
+        $lon,
+        $objHorarios
+    ) {
+        global $conn;
+        $msg = "";
+        $icon = "success";
+        $title = "Sucesso";
+
+        $objHorarios = json_decode($objHorarios);
+
+        $sql = "UPDATE 
+                user 
+                SET 
+                localidade = '".$concelhoClubeEdit."', 
+                nome = '".$nome."', 
+                telemovel = ".$telemovelClubeEdit.", 
+                email = '".$emailClubeEdit."',
+                nif = ".$nifClubeEdit.",
+                morada = '".$moradaClubeEdit."', 
+                codigo_postal = '".$cpClubeEdit."',
+                lat = ".$lat.",
+                lon = ".$lon." 
+                WHERE id = " . $_SESSION['id'];
+
+        $sql2 = "UPDATE 
+                clube 
+                SET 
+                ano_fundacao = '".$anoFundacaoClubeEdit."', 
+                telefone = '".$telefoneClubeEdit."', 
+                descricao = '".$descricaoClubeEdit."'
+                WHERE id_clube = " . $_SESSION['id'];
+
+        foreach ($objHorarios as $dia => $horario) {
+            $id = $horario->id;
+            $abertura = $horario->abertura;
+            $fecho = $horario->fecho;
+        
+            $sql3 = "UPDATE 
+                horario_clube 
+                SET 
+                hora_abertura = '".$abertura."', 
+                hora_fecho = '".$fecho."' 
+                WHERE id_dia = ".$id."
+                AND id_clube = " . $_SESSION['id'];
+                
+            if($conn->query($sql3) !== TRUE) {
+                $msg = "Não foi possível alterar as informações";
+                $icon = "error";
+                $title = "Error";
+            }
+        }
+               
+                
+
+        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
+            $msg = "Informações alteradas com sucesso!";
+        } else {
+            $msg = "Não foi possível alterar as informações";
+            $icon = "error";
+            $title = "Erro";
+        }
+
+        $conn->close();
+
+        return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
     }
 
 }

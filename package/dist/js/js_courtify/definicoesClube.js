@@ -84,12 +84,12 @@ function getHorariosDefinicoesClube() {
         const aberturaId = "#abertura" + diasSemana[i];
         const fechoId = "#fecho" + diasSemana[i];
 
-        if (elemento.horaAbertura && elemento.horaFecho != null) {
+        if (elemento.horaAbertura && elemento.horaFecho != null && elemento.horaAbertura != '00:00:00' && elemento.horaFecho != '00:00:00') {
             $(aberturaId).val(elemento.horaAbertura);
             $(fechoId).val(elemento.horaFecho);
         } else {
-            $(aberturaId).prop("disabled", true);
-            $(fechoId).prop("disabled", true);
+            $(aberturaId).val(null).prop("disabled", true);
+            $(fechoId).val(null).prop("disabled", true);
         }
         }
 
@@ -101,7 +101,6 @@ function getHorariosDefinicoesClube() {
 }
 
 function eventListenerDiaFechado() {
-
     const checkboxes = $('.form-check-input');
     const aberturaInputs = $('input[id^="abertura"]');
     const fechoInputs = $('input[id^="fecho"]');
@@ -110,8 +109,14 @@ function eventListenerDiaFechado() {
     aberturaInputs.each(function (index) {
         valoresIniciais.push({
             abertura: $(this).val(),
-            fecho: fechoInputs.eq(index).val()
+            fecho: fechoInputs.eq(index).val(),
+            isDisabled: $(this).is(':disabled')
         });
+
+        // Se os inputs já tiverem desativados no carregamento da página, dar check na caixa
+        if ($(this).is(':disabled')) {
+            checkboxes.eq(index).prop('checked', true);
+        }
     });
 
     checkboxes.on('change', function () {
@@ -124,20 +129,184 @@ function eventListenerDiaFechado() {
             aberturaInputs.eq(index).prop('disabled', false);
             fechoInputs.eq(index).prop('disabled', false);
 
-            aberturaInputs.eq(index).val(valoresIniciais[index].abertura);
-            fechoInputs.eq(index).val(valoresIniciais[index].fecho);
+            // Se os inputs não estavam originalmente desativados, repor os valores
+            if (!valoresIniciais[index].isDisabled) {
+                aberturaInputs.eq(index).val(valoresIniciais[index].abertura);
+                fechoInputs.eq(index).val(valoresIniciais[index].fecho);
+            }
         }
     });
 }
 
+//preview foto definicoes clube
+$('#fotoClubeEditNova').on('change', function(event) {
+    if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#fotoClubeEditCurrent').attr('src', e.target.result).width(420).height(220);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+});
+
+function alterarFotoClube() {
+    let dados = new FormData();
+    dados.append("op", 12);
+    dados.append("fotoClubeEditNova", $('#fotoClubeEditNova').prop('files')[0]);
+
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        let obj = JSON.parse(msg);
+        alerta(obj.title, obj.msg, obj.icon);
+        setTimeout(function () {location.reload();}, 3000);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        
+    })
+}
+
+async function guardarEditClube() {
+    let dados = new FormData();
+    dados.append("op", 13);
+    dados.append("nomeClubeEdit", $('#nomeClubeEdit').val());
+    dados.append("anoFundacaoClubeEdit", $('#anoFundacaoClubeEdit').val());
+    dados.append("telemovelClubeEdit", $('#telemovelClubeEdit').val());
+    dados.append("telefoneClubeEdit", $('#telefoneClubeEdit').val());
+    dados.append("moradaClubeEdit", $('#moradaClubeEdit').val());
+    dados.append("descricaoClubeEdit", $('#descricaoClubeEdit').val());
+    dados.append("emailClubeEdit", $('#emailClubeEdit').val());
+    dados.append("nifClubeEdit", $('#nifClubeEdit').val());
+    dados.append("cpClubeEdit", $('#cpClubeEdit').val());
+    dados.append("distritoClubeEdit", $('#distritoClubeEdit').val());
+    dados.append("concelhoClubeEdit", $('#concelhoClubeEdit').val());
+
+    await constroiMapa($('#moradaClubeEdit').val(), $('#cpClubeEdit').val()).then((array) => {
+        dados.append("latitudeClubeEdit", array[0]);
+        dados.append("longitudeClubeEdit", array[1]);
+    })
+
+    
+
+    
+    let objHorarios = {
+        'segunda': {
+                    'id': 1, 
+                    'abertura': $('#aberturaSegunda').val() !== '' ? $('#aberturaSegunda').val() : "00:00:00", 
+                    'fecho': $('#fechoSegunda').val() !== '' ? $('#fechoSegunda').val() : "00:00:00"
+                },
+        'terca': {
+                    'id': 2, 
+                    'abertura': $('#aberturaTerca').val() !== '' ? $('#aberturaTerca').val() : "00:00:00", 
+                    'fecho': $('#fechoTerca').val() !== '' ? $('#fechoTerca').val() : "00:00:00"
+                },
+        'quarta': {
+                    'id': 3, 
+                    'abertura': $('#aberturaQuarta').val() !== '' ? $('#aberturaQuarta').val() : "00:00:00", 
+                    'fecho': $('#fechoQuarta').val() !== '' ? $('#fechoQuarta').val() : "00:00:00"
+                },
+        'quinta': {
+                    'id': 4, 
+                    'abertura': $('#aberturaQuinta').val() !== '' ? $('#aberturaQuinta').val() : "00:00:00", 
+                    'fecho': $('#fechoQuinta').val() !== '' ? $('#fechoQuinta').val() : "00:00:00"
+                },
+        'sexta': {
+                    'id': 5, 
+                    'abertura': $('#aberturaSexta').val() !== '' ? $('#aberturaSexta').val() : "00:00:00", 
+                    'fecho': $('#fechoSexta').val() !== '' ? $('#fechoSexta').val() : "00:00:00"
+                },
+        'sabado': {
+                    'id': 6, 
+                    'abertura': $('#aberturaSabado').val() !== '' ? $('#aberturaSabado').val() : "00:00:00", 
+                    'fecho': $('#fechoSabado').val() !== '' ? $('#fechoSabado').val() : "00:00:00"
+                },
+        'domingo': {
+                    'id': 7, 
+                    'abertura': $('#aberturaDomingo').val() !== '' ? $('#aberturaDomingo').val() : "00:00:00", 
+                    'fecho': $('#fechoDomingo').val() !== '' ? $('#fechoDomingo').val() : "00:00:00"
+                }
+    };
+
+    dados.append("objHorarios", JSON.stringify(objHorarios));
+
+    // VER CASO DA PASSWORD, TEM DE IR PRO CONTROLLER DINAMICO
+    /*if ($("#passwordAtualClubeEdit").val() !== "" && $("#passwordNovaClubeEdit").val() !== "" && $("#passwordNovaClubeEdit2").val() !== "") {
+        dados.append("passwordAtualClubeEdit", $("#passwordAtualClubeEdit").val());
+        dados.append("passwordNovaClubeEdit", $("#passwordNovaClubeEdit").val());
+        dados.append("passwordNovaClubeEdit2", $("#passwordNovaClubeEdit2").val());
+    } else {
+
+    }*/
+
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        let obj = JSON.parse(msg);
+        alerta(obj.title, obj.msg, obj.icon);
+        //setTimeout(function () {location.reload();}, 3000);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+}
+
+async function constroiMapa(morada, cp) {
+    let array = [];
+  
+    let localidadeUser = "" + morada + ", " + cp + "";
+    var nominatimUrlUser = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(localidadeUser);
+  
+    try {
+      const response = await fetch(nominatimUrlUser);
+      const data = await response.json();
+  
+      if (data.length > 0) {
+        array.push(parseFloat(data[0].lat));
+        array.push(parseFloat(data[0].lon));
+      }
+      return array;
+    } catch (error) {
+        console.error('Error geocoding:', error);
+        return array;
+    }
+}
 
 
-
-
+function alerta(titulo,msg,icon){
+    Swal.fire({
+        position: 'center',
+        icon: icon,
+        title: titulo,
+        text: msg,
+        showConfirmButton: false,
+        confirmButtonColor: '#45702d',
+        timer: 3000
+      })
+}
 
 $(function () {
     getInfoDefinicoesClube();
     getNomeClube();
     getHorariosDefinicoesClube();
     setTimeout(function () {eventListenerDiaFechado();}, 1000);
+
+    
 });

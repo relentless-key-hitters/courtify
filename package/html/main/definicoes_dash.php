@@ -20,8 +20,8 @@ if (isset($_SESSION['id'])) {?>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
-  <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
@@ -377,7 +377,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
           <div class="col-lg-6 d-flex align-items-stretch">
-            <div class="card w-100 position-relative overflow-hidden">
+            <div class="card shadow w-100 position-relative overflow-hidden">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold">Fotografia</h5>
                 <p class="card-subtitle mb-4">Altere aqui a sua fotografia identificativa.</p>
@@ -388,12 +388,12 @@ if (isset($_SESSION['id'])) {?>
                 <input class="form-control mt-5" type="file" id="fotoClubeEditNova" name="fotoClubeEditNova">
               </div>
               <div class="d-flex align-items-center justify-content-center mb-4 gap-3">
-                <button type="button" class="btn btn-primary" onclick="">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="alterarFotoClube()">Guardar</button>
               </div>
             </div>
           </div>
           <div class="col-lg-6 d-flex align-items-stretch">
-            <div class="card w-100 position-relative overflow-hidden">
+            <div class="card shadow w-100 position-relative overflow-hidden">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold">Password</h5>
                 <p class="card-subtitle mb-4">Altere aqui a sua password. Se não quiser alterar, deixe em
@@ -416,7 +416,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
           <div class="col-lg-12">
-            <div class="card w-100 position-relative overflow-hidden ">
+            <div class="card shadow w-100 position-relative overflow-hidden ">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold">Detalhes Pessoais</h5>
                 <p class="card-subtitle mb-4">Altere aqui a sua informação pessoal</p>
@@ -493,7 +493,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
           <div class="col-lg-12">
-            <div class="card w-100 position-relative overflow-hidden ">
+            <div class="card shadow w-100 position-relative overflow-hidden ">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold">Horários</h5>
                 <p class="card-subtitle mb-4">Configure aqui o seu horário semanal.</p>
@@ -777,9 +777,7 @@ if (isset($_SESSION['id'])) {?>
             <div class="col-12">
               <div class="d-flex align-items-center justify-content-end mt-4 gap-3">
                 <button type="button" class="btn btn-primary"
-                  onclick="guardaEditInfo()">Salvar</button>
-                <button type="button" class="btn btn-light"
-                onclick="guardaEditInfo()">Limpar</button>
+                  onclick="guardarEditClube()">Salvar</button>
               </div>
             </div>
         </div>
@@ -824,12 +822,7 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
   <!--  current page js files -->
-  <script src="../../dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../../dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="../../dist/js/dashboard.js"></script>
-
-
-  <script src="../../dist/js/widgets-charts.js"></script>
+  <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
   <script src="../../dist/js/js_courtify/definicoesClube.js"></script>
 
   <script>

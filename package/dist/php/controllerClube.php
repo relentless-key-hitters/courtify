@@ -37,6 +37,27 @@ if ($_POST['op'] == 1){
 }else if ($_POST['op'] == 11){
     $res = $clube -> getCamposClube();
     echo($res);
+}else if ($_POST['op'] == 12){
+    $res = $clube -> alterarFotoClube($_FILES);
+    echo($res);
+} else if($_POST['op'] == 13){
+    $res = $clube -> guardarEditClube(
+        $_POST['nomeClubeEdit'], 
+        $_POST['anoFundacaoClubeEdit'], 
+        $_POST['telemovelClubeEdit'], 
+        $_POST['telefoneClubeEdit'], 
+        $_POST['moradaClubeEdit'], 
+        $_POST['descricaoClubeEdit'], 
+        $_POST['emailClubeEdit'], 
+        $_POST['nifClubeEdit'], 
+        $_POST['cpClubeEdit'], 
+        $_POST['distritoClubeEdit'],
+        $_POST['concelhoClubeEdit'],
+        $_POST['latitudeClubeEdit'],
+        $_POST['longitudeClubeEdit'],
+        $_POST['objHorarios']
+    );
+    echo($res);
 }
 
 ?>
