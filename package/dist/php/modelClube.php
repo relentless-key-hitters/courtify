@@ -711,6 +711,7 @@ class Clube{
         $msg = "";
         $icon = "success";
         $title = "Sucesso";
+        
 
         $objHorarios = json_decode($objHorarios);
 
@@ -786,11 +787,18 @@ class Clube{
                 SET 
                 `password` = '".md5($passwordNova)."' 
                 WHERE id_user = " . $_SESSION['id'];
+
+            if (!$conn->query($sql5) === TRUE) {
+                $msg = "As novas passwords não coincidem";
+                $icon = "error";
+                $title = "Erro";
+                return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
+            }
         }
                
                 
 
-        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE && $conn->query($sql3) && $conn->query($sql5) === TRUE) {
+        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE && $conn->query($sql3)) {
             $msg = "Informações alteradas com sucesso!";
         } else {
             $msg = "Não foi possível alterar as informações";
