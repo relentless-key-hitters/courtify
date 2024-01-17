@@ -223,7 +223,7 @@ if (isset($_SESSION['id'])) {?>
 
       <div class="row p-3 p-md-5">
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center mt-5 mt-md-0">
-            <div class="card shadow mt-5 mt-md-0">
+            <div class="card shadow mt-5 mt-md-0" data-aos="fade-down-right" data-aos-delay="400" data-aos-duration="1000">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Grupos</h1>
                 </div>
@@ -247,7 +247,7 @@ if (isset($_SESSION['id'])) {?>
         </div>
     
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center">
-            <div class="card shadow">
+            <div class="card shadow" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Equipas</h1>
                 </div>
@@ -271,7 +271,7 @@ if (isset($_SESSION['id'])) {?>
         </div>
     
         <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
-            <div class="card shadow">
+            <div class="card shadow" data-aos="fade-down-left" data-aos-delay="400" data-aos-duration="1000">
                 <div class="container text-center pt-2">
                     <h1 class="fs-11 fw-semibold pb-1 border-2 border-bottom border-light" style="letter-spacing: 1px;">Torneios</h1>
                 </div>
