@@ -450,10 +450,45 @@ class Campo
                         array_push($horas, array($row2['hora_inicio'], $row2['n_blocos']));
                     }
                 }
-                $horainicio = 8;
-                $minuto = 0;
-                $texto = "08:00";
-                $texto2 = "08:00:00";
+
+
+                $sql3 = "SELECT
+                            horario_clube.hora_abertura AS horaAbertura,
+                            horario_clube.hora_fecho AS horaFecho
+                        FROM
+                        dias
+                        INNER JOIN horario_clube ON dias.id = horario_clube.id_dia
+                        WHERE horario_clube.id_clube = ".$clube."
+                        AND dias.descricao = 
+                        (
+                            SELECT
+                            CASE 
+                                    WHEN DAYOFWEEK(CURDATE()) IN (1, 7) THEN DATE_FORMAT(CURDATE(), '%W', 'pt_PT')
+                                    ELSE CONCAT(DATE_FORMAT(CURDATE(), '%W', 'pt_PT'), '-feira')
+                            END AS dia_semana
+                        );"; 
+                
+                $result3 = $conn->query($sql3);
+
+                $texto2 = "";
+                $horaFecho = "";
+
+                if ($result3->num_rows > 0) {
+                    while ($row3 = $result3->fetch_assoc()) {
+                        $texto2 .= $row3['horaAbertura'];
+                        $horaFecho .= $row3['horaFecho'];
+                    }
+                }
+
+                $horainicio = date('H', strtotime($texto2));
+                $horainicio = intval($horainicio);
+
+                $minuto = date('i', strtotime($texto2));
+                $minuto = intval($minuto);
+
+                $texto = date('H:i', strtotime($texto2));
+
+
                 $horaActual = "";
                 $horaActual .= date('H:i:s');
                 $dataActual = "";
@@ -487,7 +522,7 @@ class Campo
                     }    
                 }
                 for ($i = 0; $i < 32; $i++) {
-                    if ($texto2 == '24:00:00'){
+                    if ($texto2 == $horaFecho){
                         break;
                     }
                     $flag = true;
