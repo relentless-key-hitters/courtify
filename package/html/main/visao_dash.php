@@ -412,10 +412,10 @@ if (isset($_SESSION['id'])) {?>
               <div class="card-body">
                 <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-device-desktop-analytics"></i> Painel de Informação</span>
                 <div class="row">
-                  <div class="col-12 mt-1 mb-2">
+                  <div class="col-12 mt-1 mb-3">
                     <span class="fs-3 fw-bold"><i class="ti ti-clock"></i> Horários mais procurados:</span>
                   </div>
-                  <div class="col-12 mb-2">
+                  <div class="col-12 mb-3">
                     <div class="d-flex flex-column align-items-start gap-2">
                       <div class="d-flex gap-2">
                         <span class="fw-bolder">1º:</span>
