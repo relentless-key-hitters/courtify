@@ -228,10 +228,11 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="card w-100 bg-light overflow-hidden shadow">
               <div class="card-body position-relative">
+                <p class="mb-2 fs-4 fw-semibold"><i class="fs-5 ti ti-currency-euro"></i> Ganhos</p>
                 <div class="row pe-5">
                   <div class="col-sm-6">
                     <div class="d-flex align-items-center">
-                      <span class="fw-semibold fs-4">
+                      <span class="fw-semibold fs-3">
                         <i class="ti ti-report-money me-1"></i>
                         Mês Atual (<?php
                           setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'Portuguese_Portugal.1252');
@@ -243,7 +244,7 @@ if (isset($_SESSION['id'])) {?>
                   </div>
                   <div class="col-sm-6">
                     <div class="d-flex align-items-center">
-                      <span class="fw-semibold fs-4">
+                      <span class="fw-semibold fs-3">
                       <i class="ti ti-report-money me-1"></i>
                       Mês Anterior (<?php
                       setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'Portuguese_Portugal.1252');
@@ -265,7 +266,7 @@ if (isset($_SESSION['id'])) {?>
                       <div class="pe-4 border-muted border-opacity-10">
                         <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id="ganhosMesAtual"><i
                             class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h3>
-                        <p class="mb-0 text-dark">Ganhos</p>
+                        
                       </div>
                     </div>
                   </div>
@@ -273,7 +274,7 @@ if (isset($_SESSION['id'])) {?>
                     <div class="d-flex align-items-center">
                       <div class=" pe-4 border-muted border-opacity-10">
                         <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id= "ganhosMesAnterior"></h3>
-                        <p class="mb-0 text-dark">Ganhos</p>
+                        
                       </div>
                     </div>
                   </div>
@@ -285,7 +286,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body p-4">
-                <p class="mb-1 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-clipboard"></i> Reservas</p>
+                <p class="mb-1 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-clipboard"></i> Marcações</p>
                 <h4 class="fw-semibold" id="nReservas"><i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="sales" class="sales-chart"></div>
                 <div class="container pt-3">
@@ -299,7 +300,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body p-4">
-                <p class="mb-2 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-tournament"></i> Torneios </p>
+                <p class="mb-1 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-tournament"></i> Torneios </p>
                 <h4 class="fw-semibold" id="nTorneios"><i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="expense"></div>
                 <div class="container pt-3">
@@ -380,7 +381,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-12">
                     <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card-off"></i> Pagamentos Pendentes
                     </span>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
                       <h4 class="fw-semibold mb-0 me-8 mt-2" id="nPend"></h4>
                       <a href="./pagamentos_dash.html"><button type="button"
                           class="btn btn-light mt-2">Consultar</button></a>
@@ -396,7 +397,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-12">
                     <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card"></i> Pagamentos Efetuados 
                     </span>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
                       <h4 class="fw-semibold mb-0 mt-2 me-8" id="nFeitos"></h4>
                       <a href="./pagamentos_dash.html"><button type="button"
                           class=" btn btn-light mt-2">Consultar</button></a>
