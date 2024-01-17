@@ -360,9 +360,17 @@ class Campo
                     while($row3 = $result3->fetch_assoc()){
                         $horario .= '<li class="">
                                         <div class="d-flex justify-content-between align-items-center border-bottom pb-1 mb-1">
-                                            <span class="fs-3 fw-bold">' . $row3['dia'] . '</span>
-                                            <span class="fs-3">' . date('H:i', strtotime($row3['hora_abertura'])) . ' - ' . date('H:i', strtotime($row3['hora_fecho'])) . '</span>
-                                        </div>
+                                            <span class="fs-3 fw-bold">' . $row3['dia'] . '</span>';
+
+                                            $hora_abertura = date('H:i', strtotime($row3['hora_abertura']));
+                                            $hora_fecho = date('H:i', strtotime($row3['hora_fecho']));
+                                    
+                                            if ($hora_abertura == '00:00' && $hora_fecho == '00:00') {
+                                                $horario .= '<span class="fs-3 fw-bold">Fechado</span>';
+                                            } else {
+                                                $horario .= '<span class="fs-3">' . $hora_abertura . ' - ' . $hora_fecho . '</span>';
+                                            }
+                        $horario .= '   </div>
                                     </li>';
                     }
                 }
