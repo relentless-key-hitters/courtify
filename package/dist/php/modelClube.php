@@ -653,6 +653,7 @@ class Clube{
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $msg .= "<tr class='text-center'>
+                <td><img class='img-fluid rounded' style='height: 70px; max-width: 100px;' src='".$row['foto']."'></td>
                 <td>".$row['nome']."</td>
                 <td>".$row['descricao']."</td>
                 <td>".ROUND($row['preco_hora'], 2)."€</td>
@@ -661,7 +662,8 @@ class Clube{
                 </tr>";
             }
         }
-        $conn -> close(); 
+        $conn -> close();
+         
         return($msg);
 
     }
