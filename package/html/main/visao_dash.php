@@ -317,7 +317,10 @@ if (isset($_SESSION['id'])) {?>
               <div id="grafico1"></div>
               <div class="d-flex align-items-end justify-content-between mt-7">
                 <div>
-                  <h4 class="mb-0 fw-semibold">Marcações dos últimos 5 meses</h4>
+                  <h4 class="mb-0 fw-semibold"><i class="ti ti-clipboard"></i> Marcações</h4>
+                  <div class="mt-2">
+                    <span class="fs-4 fw-bold">Últimos 5 meses</span>
+                  </div>
                 </div>
               </div>
               </div>
@@ -331,7 +334,10 @@ if (isset($_SESSION['id'])) {?>
               <div id="grafico2"></div>
               <div class="d-flex align-items-end justify-content-between mt-7">
                 <div>
-                  <h4 class="mb-0 fw-semibold">Ganhos dos últimos 5 meses</h4>
+                  <h4 class="mb-0 fw-semibold"><i class="ti ti-currency-euro"></i> Ganhos</h4>
+                  <div class="mt-2">
+                    <span class="fs-4 fw-bold">Últimos 5 meses</span>
+                  </div>
                 </div>
               </div>
               </div>
@@ -433,7 +439,7 @@ if (isset($_SESSION['id'])) {?>
                     </div>
                   </div>
                   <div class="col-12 mt-1 mb-2">
-                    <span class="fs-3 fw-bold"><i class="ti ti-calendar-due"></i> Nº Marcações Hoje:</span>
+                    <span class="fs-3 fw-bold"><i class="ti ti-clipboard"></i> Nº Marcações Hoje:</span>
                   </div>
                   <div class="col-12 mt-1 mb-2">
                     <h4 class="fw-semibold mb-0 me-8" id="nMarcacoesHoje"></h4>
