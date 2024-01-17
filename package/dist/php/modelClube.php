@@ -839,8 +839,33 @@ class Clube{
                 <td>".$row['ultima_manutencao']."</td>
                 <td>".ROUND($row['total_horas'], 1)."</td>
                 <td><button type='button' class='btn btn-sm btn-light' data-toggle='modal'
-                  >Alterar</button></td>
-                </tr>";
+                  >Alterar</button></td>";
+                $patamar = ROUND(($row['total_horas'] / 200)*100, 0);
+                if($patamar < 35){
+                    $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
+                    <div class='progress-bar bg-success' style='width: ".$patamar."%'></div>
+                  </div></td>
+                    </tr>";
+                }else if($patamar < 70){
+                    $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
+                    <div class='progress-bar bg-warning' style='width: ".$patamar."%'></div>
+                  </div></td>
+                    </tr>";
+                }else{
+                    if($patamar == 100){
+                        $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
+                        <div class='progress-bar bg-danger' style='width: 100%'></div>
+                      </div></td>
+                        </tr>";
+                    }
+                    else{
+                        $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
+                        <div class='progress-bar bg-danger' style='width: ".$patamar."%'></div>
+                      </div></td>
+                        </tr>";
+                    }
+                }
+
             }
         }
         $conn -> close(); 

@@ -329,8 +329,9 @@ if (isset($_SESSION['id'])) {?>
                 <tr class="text-center">
                   <th scope="col">Nome Campo</th>
                   <th scope="col">Última Manutenção</th>
-                  <th scope="col">Horas de Uso (após ultima manutenção)</th>
+                  <th scope="col">Horas de Uso<br>(após ultima manutenção)</th>
                   <th scope="col">Estado Manutenção</th>
+                  <th scope="col">Patamar<br>(limite: 200h)</th>
                 </tr>
               </thead>
               <tbody id="tableCampos2">
