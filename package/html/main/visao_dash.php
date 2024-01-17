@@ -233,7 +233,6 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-sm-6">
                     <div class="d-flex align-items-center">
                       <span class="fw-semibold fs-3">
-                        <i class="ti ti-report-money me-1"></i>
                         Mês Atual (<?php
                           setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'Portuguese_Portugal.1252');
                           $month = strftime("%B");
@@ -245,7 +244,6 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-sm-6">
                     <div class="d-flex align-items-center">
                       <span class="fw-semibold fs-3">
-                      <i class="ti ti-report-money me-1"></i>
                       Mês Anterior (<?php
                       setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'Portuguese_Portugal.1252');
 
@@ -422,7 +420,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-12 mt-1 mb-3">
                     <span class="fs-3 fw-bold"><i class="ti ti-clock"></i> Horários mais procurados:</span>
                   </div>
-                  <div class="col-12 mb-3">
+                  <div class="col-12 mb-4">
                     <div class="d-flex flex-column align-items-start gap-2">
                       <div class="d-flex gap-2">
                         <span class="fw-bolder">1º:</span>
@@ -441,7 +439,7 @@ if (isset($_SESSION['id'])) {?>
                   <div class="col-12 mt-1 mb-2">
                     <span class="fs-3 fw-bold"><i class="ti ti-clipboard"></i> Nº Marcações Hoje:</span>
                   </div>
-                  <div class="col-12 mt-1 mb-2">
+                  <div class="col-12 mt-2 mb-2">
                     <h4 class="fw-semibold mb-0 me-8" id="nMarcacoesHoje"></h4>
                   </div>
                 </div>
