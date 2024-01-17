@@ -225,7 +225,7 @@ if (isset($_SESSION['id'])) {?>
     <div class="col-lg-7">
       <div class="container-fluid pt-5">
         <div class="row">
-          <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-8">
             <div class="card w-100 bg-light overflow-hidden shadow">
               <div class="card-body position-relative">
                 <p class="mb-2 fs-4 fw-semibold"><i class="fs-5 ti ti-currency-euro"></i> Ganhos</p>
@@ -281,7 +281,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-2">
             <div class="card w-100 shadow">
               <div class="card-body p-4">
                 <p class="mb-1 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-clipboard"></i> Marcações</p>
@@ -295,7 +295,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-2">
             <div class="card w-100 shadow">
               <div class="card-body p-4">
                 <p class="mb-1 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-tournament"></i> Torneios </p>
@@ -309,7 +309,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
               <div id="grafico1"></div>
@@ -325,8 +325,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
 
-
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
               <div id="grafico2"></div>
@@ -342,69 +341,77 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
 
-          <div class="col-lg-4">
-            <div class="card shadow">
-              <div class="card-body">
-                <div class="row alig n-items-start">
-                  <div class="col-12">
-                    <div class="d-flex justify-content-between">
-                      <div class="div">
-                        <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-soccer-field"></i> Campo mais usado</span>
-                      </div>
-                      <div class="div">
-                        <?php echo date("Y"); ?>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id = "nomeCampo"><i
-                            class="ti ti-arrow-up-right fs-5 lh-base text-danger"></i></h3>
-                      </div>
-                      <div class="ps-4">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id = "horasCampo"></h3>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="pe-5">
-                        <p class="mb-0 text-dark">Nome</p>
-                      </div>
-                      <div class="ps-5">
-                        <p class="mb-0 text-dark">Nº horas</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 d-flex align-items-stretch">
+            <div class="row">
 
-            <div class="card shadow">
-              <div class="card-body">
-                <div class="row align-items-start">
-                  <div class="col-12">
-                    <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card-off"></i> Pagamentos Pendentes
-                    </span>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <h4 class="fw-semibold mb-0 me-8 mt-2" id="nPend"></h4>
-                      <a href="./pagamentos_dash.html"><button type="button"
-                          class="btn btn-light mt-2">Consultar</button></a>
+              <div class="col-sm-12 col-md-4 col-md-12">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <div class="row alig n-items-start">
+                      <div class="col-12">
+                        <div class="d-flex justify-content-between">
+                          <div class="div">
+                            <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-soccer-field"></i> Top Campo</span>
+                          </div>
+                          <div class="div">
+                            <?php echo date("Y"); ?>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="border-end pe-4 border-muted border-opacity-10">
+                            <h4 class="mb-1 fw-semibold fs-7 d-flex align-content-center" id = "nomeCampo"><i
+                                class="ti ti-arrow-up-right fs-5 lh-base text-danger"></i></h4>
+                          </div>
+                          <div class="ps-4">
+                            <h4 class="mb-1 fw-semibold fs-7 d-flex align-content-center" id = "horasCampo"></h4>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="pe-4">
+                            <p class="mb-0 text-dark">Nome</p>
+                          </div>
+                          <div class="ps-5">
+                            <p class="mb-0 text-dark">Nº horas</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="card shadow">
-              <div class="card-body">
-                <div class="row alig n-items-start">
-                  <div class="col-12">
-                    <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card"></i> Pagamentos Efetuados 
-                    </span>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <h4 class="fw-semibold mb-0 mt-2 me-8" id="nFeitos"></h4>
-                      <a href="./pagamentos_dash.html"><button type="button"
-                          class=" btn btn-light mt-2">Consultar</button></a>
+              <div class="col-sm-6 col-md-4 col-md-12">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <div class="row align-items-start">
+                      <div class="col-12">
+                        <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card-off"></i> Pagamentos Pendentes
+                        </span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                          <h4 class="fw-semibold mb-0 me-8 mt-2" id="nPend"></h4>
+                          <a href="./pagamentos_dash.html"><button type="button"
+                              class="btn btn-light mt-2">Consultar</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-md-12">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <div class="row alig n-items-start">
+                      <div class="col-12">
+                        <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card"></i> Pagamentos Efetuados 
+                        </span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                          <h4 class="fw-semibold mb-0 mt-2 me-8" id="nFeitos"></h4>
+                          <a href="./pagamentos_dash.html"><button type="button"
+                              class=" btn btn-light mt-2">Consultar</button></a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -412,7 +419,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
                 <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-device-desktop-analytics"></i> Painel de Informação</span>
@@ -447,7 +454,7 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
 
-          <div class="col-md-12 col-lg-8 d-flex align-items-stretch">
+          <div class="col-sm-6 col-md-6 col-lg-12 col-xl-8 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-3">
