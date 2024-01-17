@@ -229,24 +229,38 @@ if (isset($_SESSION['id'])) {?>
             <div class="card w-100 bg-light overflow-hidden shadow">
               <div class="card-body position-relative">
                 <div class="row pe-5">
-                  <div class="col-sm-7">
+                  <div class="col-sm-6">
                     <div class="d-flex align-items-center">
-                      <h2 class="fw-semibold fs-3">
-                        Mês Atual (Data Atual)
-                      </h2>
+                      <span class="fw-semibold fs-4">
+                        <i class="ti ti-report-money me-1"></i>
+                        Mês Atual (<?php
+                          setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'Portuguese_Portugal.1252');
+                          $month = strftime("%B");
+                          echo mb_convert_case($month, MB_CASE_TITLE, "UTF-8");
+                          ?>)
+                      </span>
                     </div>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-6">
                     <div class="d-flex align-items-center">
-                      <h2 class="fw-semibold fs-3">
-                        Mês Passado (Data Atual)
-                      </h2>
+                      <span class="fw-semibold fs-4">
+                      <i class="ti ti-report-money me-1"></i>
+                      Mês Anterior (<?php
+                      setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'Portuguese_Portugal.1252');
+
+                      $primDiaUltimoMes = strtotime("first day of last month");
+                      $ultimoMesNome = strftime("%B", $primDiaUltimoMes);
+
+                      // Capitalize the first letter
+                      echo mb_convert_case($ultimoMesNome, MB_CASE_TITLE, "UTF-8");
+                      ?>)
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <div class="row pe-5">
-                  <div class="col-sm-7">
+                  <div class="col-sm-6">
                     <div class="d-flex align-items-center">
                       <div class="pe-4 border-muted border-opacity-10">
                         <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id="ganhosMesAtual"><i
@@ -255,7 +269,7 @@ if (isset($_SESSION['id'])) {?>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-6">
                     <div class="d-flex align-items-center">
                       <div class=" pe-4 border-muted border-opacity-10">
                         <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id= "ganhosMesAnterior"></h3>
@@ -271,9 +285,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body p-4">
-                <a href="./reserva_dash.php">
-                  <p class="mb-1 fs-4">Reservas <i class="fs-5 ti ti-clipboard"></i></p>
-                </a>
+                <p class="mb-1 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-clipboard"></i> Reservas</p>
                 <h4 class="fw-semibold" id="nReservas"><i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="sales" class="sales-chart"></div>
                 <div class="container pt-3">
@@ -287,7 +299,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body p-4">
-                <p class="mb-2 fs-4">Torneios <i class="fs-5 ti ti-tournament"></i></p>
+                <p class="mb-2 fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-tournament"></i> Torneios </p>
                 <h4 class="fw-semibold" id="nTorneios"><i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="expense"></div>
                 <div class="container pt-3">
@@ -329,9 +341,15 @@ if (isset($_SESSION['id'])) {?>
             <div class="card shadow">
               <div class="card-body">
                 <div class="row alig n-items-start">
-                  <div class="col-8">
-                    <h5 class="card-title mb-9 fw-semibold"> Campo mais usado <i class="fs-5 ti ti-file-x"></i> (Ano
-                      Atual)</h5>
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between">
+                      <div class="div">
+                        <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-soccer-field"></i> Campo mais usado</span>
+                      </div>
+                      <div class="div">
+                        <?php echo date("Y"); ?>
+                      </div>
+                    </div>
                     <div class="d-flex align-items-center">
                       <div class="border-end pe-4 border-muted border-opacity-10">
                         <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center" id = "nomeCampo"><i
@@ -345,7 +363,7 @@ if (isset($_SESSION['id'])) {?>
                       <div class="pe-5">
                         <p class="mb-0 text-dark">Nome</p>
                       </div>
-                      <div class="ps-4">
+                      <div class="ps-5">
                         <p class="mb-0 text-dark">Nº horas</p>
                       </div>
                     </div>
@@ -358,15 +376,14 @@ if (isset($_SESSION['id'])) {?>
 
             <div class="card shadow">
               <div class="card-body">
-                <div class="row alig n-items-start">
+                <div class="row align-items-start">
                   <div class="col-12">
-                    <h5 class="card-title mb-9 fw-semibold"> Pagamentos Pendentes <i
-                        class="fs-5 ti ti-credit-card-off"></i>
-                    </h5>
+                    <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card-off"></i> Pagamentos Pendentes
+                    </span>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8" id="nPend"></h4>
+                      <h4 class="fw-semibold mb-0 me-8 mt-2" id="nPend"></h4>
                       <a href="./pagamentos_dash.html"><button type="button"
-                          class="btn btn-light">Consultar</button></a>
+                          class="btn btn-light mt-2">Consultar</button></a>
                     </div>
                   </div>
                 </div>
@@ -377,12 +394,12 @@ if (isset($_SESSION['id'])) {?>
               <div class="card-body">
                 <div class="row alig n-items-start">
                   <div class="col-12">
-                    <h5 class="card-title mb-9 fw-semibold"> Pagamentos Efetuados <i class="fs-5 ti ti-credit-card"></i>
-                    </h5>
+                    <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-credit-card"></i> Pagamentos Efetuados 
+                    </span>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8" id="nFeitos"></h4>
+                      <h4 class="fw-semibold mb-0 mt-2 me-8" id="nFeitos"></h4>
                       <a href="./pagamentos_dash.html"><button type="button"
-                          class="btn btn-light">Consultar</button></a>
+                          class=" btn btn-light mt-2">Consultar</button></a>
                     </div>
                   </div>
                 </div>
@@ -393,39 +410,45 @@ if (isset($_SESSION['id'])) {?>
           <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
-                <div class="mb-4">
-                  <h5 class="card-title fw-semibold">Painel de Informação <i class="fs-5 ti ti-pig-money"></i></h5>
-                  <div class="col-12">
-                    <h5 class="mb-8 mt-4 fw-semibold"> Horários mais procurados
-                    </h5>
-                    <div class="d-flex justify-content-center align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8" id="horario1"></h4>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8" id="horario2"></h4>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8" id="horario3"></h4>
+                <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-device-desktop-analytics"></i> Painel de Informação</span>
+                <div class="row">
+                  <div class="col-12 mt-1 mb-2">
+                    <span class="fs-3 fw-bold"><i class="ti ti-clock"></i> Horários mais procurados:</span>
+                  </div>
+                  <div class="col-12 mb-2">
+                    <div class="d-flex flex-column align-items-start gap-2">
+                      <div class="d-flex gap-2">
+                        <span class="fw-bolder">1º:</span>
+                        <h5 class="fw-semibold mb-0 me-8" id="horario1"></h5>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <span class="fw-bolder">2º:</span>
+                        <h5 class="fw-semibold mb-0 me-8" id="horario2"></h5>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <span class="fw-bolder">3º:</span>
+                        <h5 class="fw-semibold mb-0 me-8" id="horario3"></h5>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-12">
-                    <h5 class="mb-8 mt-4 fw-semibold"> Nº de marcações hoje
-                    </h5>
-                    <div class="d-flex justify-content-center align-items-center mb-3">
-                      <h4 class="fw-semibold mb-0 me-8" id="nMarcacoesHoje"></h4>
-                    </div>
+                  <div class="col-12 mt-1 mb-2">
+                    <span class="fs-3 fw-bold"><i class="ti ti-calendar-due"></i> Nº Marcações Hoje:</span>
+                  </div>
+                  <div class="col-12 mt-1 mb-2">
+                    <h4 class="fw-semibold mb-0 me-8" id="nMarcacoesHoje"></h4>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="col-md-12 col-lg-8 d-flex align-items-stretch">
             <div class="card w-100 shadow">
               <div class="card-body">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-3">
                   <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Classificação <i class="fs-5 ti ti-award"></i></h5>
-                    <p class="card-subtitle">Melhores Atletas</p>
+                    <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-award"></i> Classificação </span>
+                    <p class="card-subtitle mt-1">Melhores Atletas nas suas Equipas</p>
                   </div>
                 </div>
                 <div class="table-responsive">
@@ -446,6 +469,8 @@ if (isset($_SESSION['id'])) {?>
             </div>
           </div>
         </div>
+
+        
       </div>
     </div>
     <div class="col-lg-2">

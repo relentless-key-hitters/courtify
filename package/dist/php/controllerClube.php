@@ -55,7 +55,10 @@ if ($_POST['op'] == 1){
         $_POST['concelhoClubeEdit'],
         $_POST['latitudeClubeEdit'],
         $_POST['longitudeClubeEdit'],
-        $_POST['objHorarios']
+        $_POST['objHorarios'],
+        isset($_POST['passwordAtualClubeEdit']) ? $_POST['passwordAtualClubeEdit'] : null,
+        isset($_POST['passwordNovaClubeEdit']) ? $_POST['passwordNovaClubeEdit'] : null,
+        isset($_POST['passwordNovaClubeEdit2']) ? $_POST['passwordNovaClubeEdit2'] : null
     );
     echo($res);
 }else if($_POST['op'] == 14){

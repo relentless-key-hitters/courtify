@@ -824,6 +824,7 @@ if (isset($_SESSION['id'])) {?>
   <!--  current page js files -->
   <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
   <script src="../../dist/js/js_courtify/definicoesClube.js"></script>
+  
 
   <script>
     $(document).ready(function () {

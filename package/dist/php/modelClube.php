@@ -702,7 +702,10 @@ class Clube{
         $concelhoClubeEdit,
         $lat,
         $lon,
-        $objHorarios
+        $objHorarios,
+        $passwordAtual,
+        $passwordNova,
+        $passwordNova2
     ) {
         global $conn;
         $msg = "";
@@ -746,16 +749,48 @@ class Clube{
                 WHERE id_dia = ".$id."
                 AND id_clube = " . $_SESSION['id'];
                 
-            if($conn->query($sql3) !== TRUE) {
-                $msg = "Não foi possível alterar as informações";
-                $icon = "error";
-                $title = "Error";
+        }
+
+        if ($passwordAtual !== null && $passwordNova !== null && $passwordNova2 !== null) {
+            $passwordAtualClube = "";
+        
+            $sql4 = "SELECT `password`  
+                FROM `login` 
+                WHERE id_user = " . $_SESSION['id'];
+        
+            $result4 = $conn->query($sql4);
+        
+            if ($result4->num_rows > 0) {
+                while ($row4 = $result4->fetch_assoc()) {
+                    $passwordAtualClube = $row4['password'];
+                }
             }
+        
+            if (password_verify($passwordAtual, $passwordAtualClube)) {
+                $msg = "Password atual inválida";
+                $icon = "error";
+                $title = "Erro";
+                return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
+            }
+        
+            
+            if ($passwordNova !== $passwordNova2) {
+                $msg = "As novas passwords não coincidem";
+                $icon = "error";
+                $title = "Erro";
+                return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
+            }
+        
+            $sql5 = "UPDATE 
+                `login` 
+                SET 
+                `password` = '".md5($passwordNova)."' 
+                WHERE id_user = " . $_SESSION['id'];
         }
                
                 
 
-        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
+        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE && $conn->query($sql3) && $conn->query($sql5) === TRUE) {
             $msg = "Informações alteradas com sucesso!";
         } else {
             $msg = "Não foi possível alterar as informações";

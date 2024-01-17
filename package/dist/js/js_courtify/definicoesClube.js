@@ -238,14 +238,12 @@ async function guardarEditClube() {
 
     dados.append("objHorarios", JSON.stringify(objHorarios));
 
-    // VER CASO DA PASSWORD, TEM DE IR PRO CONTROLLER DINAMICO
-    /*if ($("#passwordAtualClubeEdit").val() !== "" && $("#passwordNovaClubeEdit").val() !== "" && $("#passwordNovaClubeEdit2").val() !== "") {
+    if ($("#passwordAtualClubeEdit").val() !== "" && $("#passwordNovaClubeEdit").val() !== "" && $("#passwordNovaClubeEdit2").val() !== "") {
+
         dados.append("passwordAtualClubeEdit", $("#passwordAtualClubeEdit").val());
         dados.append("passwordNovaClubeEdit", $("#passwordNovaClubeEdit").val());
         dados.append("passwordNovaClubeEdit2", $("#passwordNovaClubeEdit2").val());
-    } else {
-
-    }*/
+    }
 
     $.ajax({
         url: "../../dist/php/controllerClube.php",
