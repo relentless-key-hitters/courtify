@@ -77,6 +77,12 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 18){
     $res = $clube -> guardarEditDataManutencaoCampo($_POST['dataNovaManutencaoCampo'], $_POST['idCampo']);
     echo($res);
+}else if($_POST['op'] == 19){
+    $res = $clube -> alterarFotoCampoClube($_POST['idCampo']);
+    echo($res);
+}else if($_POST['op'] == 20){
+    $res = $clube -> guardaFotoCampo($_POST['idCampo'], $_FILES);
+    echo($res);
 }
 
 ?>

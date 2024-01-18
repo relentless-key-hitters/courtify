@@ -466,6 +466,36 @@ if (isset($_SESSION['id'])) {?>
   </div>
 </div>
 
+<div class="modal fade" id="modalAlterarFotoCampo" tabindex="-1" aria-labelledby="modalAlterarFotoCampo" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class='d-flex'>
+          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+          <h4 class="mb-0 mt-2 ms-2 fs-6 p-1">Edição de fotografia de Campo</h4>
+        </div>
+        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+      </div>
+      <div class="modal-body">
+      <div class="row">
+              <div class="col-lg-12">
+                <p>Altere aqui a sua fotografia identificativa.</p>
+                <div class="text-center">
+                  <img id="fotoCampoEditCurrent" alt="" class="img-fluid rounded" width="420"
+                    height="220">
+                </div>
+                <input class="form-control mt-5" type="file" id="fotoCampoEditNova" name="fotoCampoEditNova">
+              </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="botaoGuardarFotoCampo" aria-label="Close">Salvar</button>
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal" aria-label="Fechar">Fechar</button>
+        </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="modalAlterarDataManutencao" tabindex="-1" aria-labelledby="modalAlterarDataManutencaoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">

@@ -174,6 +174,70 @@ function guardarEditDataManutencaoCampo($idCampo) {
     })
 }
 
+function alterarFotoCampoClube($id){
+    let dados = new FormData();
+    dados.append("op", 19);
+    dados.append("idCampo", $id);
+    
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        $("#fotoCampoEditCurrent").attr("src", msg);
+        $("#modalAlterarFotoCampo").modal("show");
+        $('#botaoGuardarFotoCampo').attr('onclick', "guardaFotoCampo("+$id+")");
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+}
+
+function guardaFotoCampo($id){
+    let dados = new FormData();
+    dados.append("op", 20);
+    dados.append("idCampo", $id);
+    dados.append("fotoCampoEditNova", $('#fotoCampoEditNova').prop('files')[0]);
+    
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        let obj = JSON.parse(msg);
+        alerta2(obj.title, obj.msg, obj.icon);
+        setTimeout(function () { location.reload() }, 3000);
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+
+}
+
+
+$('#fotoCampoEditNova').on('change', function(event) {
+    if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#fotoCampoEditCurrent').attr('src', e.target.result).width(420).height(220);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+});
 
 function alerta2(titulo,msg,icon){
     Swal.fire({

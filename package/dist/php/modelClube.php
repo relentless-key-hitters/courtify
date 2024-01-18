@@ -38,11 +38,11 @@ class Clube{
         )));
     }
 
-    function uploads2($img, $id)
+    function uploads2($img, $id, $nomeClube)
     {
 
-        $dir = "../images/clubes/nome_clube/";
-        $dir1 = "../../dist/images/clubes/nome_clube/";
+        $dir = "../images/clubes/".$nomeClube."/";
+        $dir1 = "../../dist/images/clubes/".$nomeClube."/";
         $flag = false;
         $targetBD = "";
 
@@ -1044,6 +1044,52 @@ class Clube{
         $conn->close();
         return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
         
+    }
+
+    function alterarFotoCampoClube($id){
+
+        global $conn;
+        $sql = "SELECT campo.foto FROM campo WHERE id = ".$id;
+        $result = $conn-> query($sql);
+        $img = "";
+        if($result -> num_rows>0){
+            while ($row = $result -> fetch_assoc()){
+                $img .= $row['foto'];
+            }
+        }
+        return($img);
+    }
+
+
+    function guardaFotoCampo($id, $foto){
+        
+        global $conn;
+
+        $sql2 = "SELECT user.nome FROM clube INNER JOIN campo_clube ON clube.id_clube = campo_clube.id_clube 
+        INNER JOIN user ON user.id = clube.id_clube WHERE campo_clube.id_campo = ".$id;
+        $result= $conn -> query($sql2);
+        $nomeClube = "";
+        if($result -> num_rows > 0){
+            while($row = $result -> fetch_assoc()){
+                $nomeClube.= $row['nome'];
+            }
+        }
+        $respUpdate = $this->uploads2($foto, $id, $nomeClube);
+        $respUpdate = json_decode($respUpdate, TRUE);
+        $sql = "UPDATE campo SET foto = '" . $respUpdate['target'] . "' WHERE id = " .$id;
+        $msg = "";
+        $icon = "success";
+        $title = "Sucesso";
+        if ($conn->query($sql) === TRUE) {
+            $msg = "Foto de campo alterada com sucesso!";
+        } else {
+            $msg = "Não foi possível alterar a foto do campo";
+            $icon = "error";
+            $title = "Erro";
+        }
+        $conn->close();
+        return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
+
     }
 
 }
