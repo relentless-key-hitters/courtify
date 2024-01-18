@@ -150,7 +150,7 @@ function guardarEditDataManutencaoCampo($idCampo) {
 
     let dados = new FormData();
     dados.append("op", 18);
-    dados.append("dataNovaManutencaoCampo", $("#dataNovaManutencaoCampo").val());
+    dados.append("dataNovaManutencaoCampo", parseFloat($("#dataNovaManutencaoCampo").val()));
     dados.append("idCampo", $idCampo);
 
     $.ajax({

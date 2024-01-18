@@ -948,11 +948,11 @@ class Clube{
                     </div>
                     <div class='modal-body' >
                         <div class='row'>
-                        <div class='col-lg-6'>
+                        <div class='col-lg-4'>
                             <label for='precoCampoClubeAtual' class='form-label'>Preço Atual</label>
-                            <input type='text' class='form-control' disabled value='".$row['preco_hora']."'>
+                            <input type='text' class='form-control' disabled value='".$row['preco_hora']."€'>
                         </div>
-                        <div class='col-lg-6'>
+                        <div class='col-lg-8'>
                             <label for='precoCampoClubeAtual' class='form-label'>Novo Preço</label>
                             <input type='text' class='form-control' id='precoCampoClubeNovo'>
                         </div>
