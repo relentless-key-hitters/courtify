@@ -489,8 +489,6 @@ class Campo
                 }
                 $arrayHoras = array(); 
                 $blocoData = $horaAbertura;
-                error_log("blocoData: " . print_r($blocoData, true));
-                error_log("horaFecho: " . print_r($horaFecho, true));
                 $horaActual = "";
                 $horaActual .= date('H:i:s');
                 $dataActual = "";
@@ -583,6 +581,7 @@ class Campo
         $split = explode(".", $id, 2);
         $id = $split[0];
         $hora = $split[1];
+        $hora .= ":00"; 
         $sql = "SELECT campo.nome as nome_campo, campo.foto as foto, modalidade.n_participantes_max as numParticipantesMax, campo.preco_hora as preco
         FROM campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id WHERE campo.id = '" .$id."'";
         $hora2 = "";
@@ -621,30 +620,78 @@ class Campo
                     <div class='col-md-7'>
                     <h5 class='fw-semibold mt-3'>Duração</h5>
                     <select id ='selecthora' class='form-select w-75' onchange = 'getPreco(this.value)' >
-                    <option value= '-1'>Selecione a duração</option>
-                "
-                ;
-            $preco =  $row['preco'];
-            $sql2 = "SELECT if(marcacao.hora_inicio = ADDTIME('".$hora2."', '00:30:00'), TRUE, FALSE) AS resposta1, 
-            if(marcacao.hora_inicio = ADDTIME('".$hora2."', '01:00:00'), TRUE, FALSE) AS resposta2
-            FROM campo INNER JOIN marcacao ON marcacao.id_campo = campo.id WHERE campo.id = '".$id."' AND marcacao.data_inicio = '".$_SESSION['data']."'";    
+                    <option value= '-1'>Selecione a duração</option>";
+                $preco =  $row['preco'];
+                }
+            }
+            $sql2 = "SELECT
+            horario_clube.hora_fecho AS horaFecho
+            FROM
+            dias
+            INNER JOIN horario_clube ON dias.id = horario_clube.id_dia
+            WHERE horario_clube.id_clube = (
+                    SELECT clube.id_clube
+                    FROM clube INNER JOIN
+                    campo_clube ON clube.id_clube = campo_clube.id_clube
+                    WHERE campo_clube.id_campo = ".$id."
+                )
+            AND dias.descricao = 
+            (
+                SELECT
+                CASE 
+                    WHEN DAYOFWEEK('".$_SESSION['data']."') IN (1, 7) THEN DATE_FORMAT('".$_SESSION['data']."', '%W', 'pt_PT')
+                    ELSE CONCAT(DATE_FORMAT('".$_SESSION['data']."', '%W', 'pt_PT'), '-feira')
+                END AS dia_semana)";    
             $result2 = $conn->query($sql2);
-            $textoModal .= "<option value='30'>30 minutos</option>";
+            $horaFecho = "";
             if ($result2->num_rows > 0) {
-
                 while ($row2 = $result2->fetch_assoc()) {
-                    if($row2['resposta1'] == 0 && $hora2 < "23:30:00"){
-                        $textoModal .= "<option value ='60'>60 minutos</option>";
-                        if($row2['resposta2'] == 0 && $hora2 < "23:00:00"){
-                            $textoModal .= "<option value ='90'>90 minutos</option>";
-                        }
-                        break;
+                   $horaFecho = $row2['horaFecho'];
+                }
+            }
+            $sql3 = "SELECT temp.hora_inicio,
+            CEIL(TIME_TO_SEC(temp.dif_horas)/1800) AS n_blocos        
+            FROM (
+            SELECT marcacao.hora_inicio AS hora_inicio, TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio) AS dif_horas
+            FROM marcacao INNER JOIN campo ON marcacao.id_campo = campo.id
+                 WHERE marcacao.data_inicio = '".$_SESSION['data']."'  AND campo.id = ".$id."     
+            ) AS temp";
+            $horas = array();
+            $result3 = $conn->query($sql3);
+            if ($result3->num_rows > 0) {
+                while ($row3 = $result3->fetch_assoc()) {
+                    array_push($horas, $row3['hora_inicio']);
+                    $blocoData = $row3['hora_inicio'];
+                    for($i = 0; $i <  $row3['n_blocos'] - 1; $i ++){
+                        $blocoData = date_create($blocoData);
+                        $blocoData = date_add($blocoData,date_interval_create_from_date_string("30 minutes"));
+                        $blocoData = date_format($blocoData,"H:i:s");
+                        array_push($horas,  $blocoData);
                     }
                 }
             }
-            else if ($result2->num_rows == 0) {
-                $textoModal .= "<option value ='60'>60 minutos</option>";     
-                $textoModal .= "<option value ='90'>90 minutos</option>"; 
+            error_log("horas: " . print_r($horas, true));
+            $flag30 = true;
+            $flag60 = true;
+            $hora30 = date_create($hora);
+            $hora30 = date_add($hora30,date_interval_create_from_date_string("30 minutes"));
+            $hora30 = date_format($hora30,"H:i:s");
+            $hora60 = date_create($hora);
+            $hora60 = date_add($hora60,date_interval_create_from_date_string("60 minutes"));
+            $hora60 = date_format($hora60,"H:i:s");
+            for($i = 0; $i < count($horas); $i++){
+                if($hora30 == $horas[$i]){
+                    $flag30 = false;
+                }else if($hora60 == $horas[$i]){
+                    $flag60 = false;
+                }
+            }
+            $textoModal .= "<option value='30'>30 minutos</option>";
+            if ($flag30 &&  !$flag60) {
+                $textoModal .= "<option value='60'>60 minutos</option>";
+            }else if($flag30 &&  $flag60){
+                $textoModal .= "<option value='60'>60 minutos</option>";
+                $textoModal .= "<option value='90'>90 minutos</option>";
             }
             $textoModal .= "</select>
                         </div>
@@ -666,8 +713,7 @@ class Campo
                         </div>
                     </div>
             ";
-            }
-        }
+
         
         $conn->close();
         $data = array('modal' => $textoModal, 'hora' => $hora, 'idCampo' => $id, 'preco' => $preco);
