@@ -32878,6 +32878,16 @@ fieldset:disabled .btn {
     > .sidebar-item
     .first-level
     .sidebar-item
+    .sidebar-link:hover {
+    background-color: rgba(4, 73, 103, 0.1);
+    color: #044967;
+  }
+  #main-wrapper[data-layout="horizontal"]
+    .sidebar-nav
+    #sidebarnav
+    > .sidebar-item
+    .first-level
+    .sidebar-item
     .sidebar-link
     .ti {
     font-size: 16px;

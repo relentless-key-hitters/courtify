@@ -51,12 +51,11 @@ if (isset($_SESSION['id'])) {?>
       <!-- Sidebar scroll-->
       <div>
         <div class="mt-2 d-flex align-items-center justify-content-center">
-          <!-- Show first image on col-md and up -->
           <a href="./visao_dash.php" class="text-nowrap d-none d-xl-block">
             <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo img-fluid" width="180" alt="" />
           </a>
 
-          <!-- Show second image on col-md down -->
+          
           <a href="./visao_dash.php" class="text-nowrap d-block d-xl-none">
             <img src="../../dist/images/logos/favicon_svg.svg" class="dark-logo img-fluid" width="60" alt="" />
           </a>
@@ -158,22 +157,15 @@ if (isset($_SESSION['id'])) {?>
                 <span class="hide-menu">Definições</span>
               </a>
             </li>
+            <li class="sidebar-item mt-4">
+              <a class="sidebar-link fs-4" style="background-color: #45702d; color: white; cursor: pointer;" onclick="logout()" aria-expanded="false">
+                <span>
+                  <i class="ti ti-logout"></i>
+                </span>
+                <span class="hide-menu">Logout</span>
+              </a>
+            </li>
         </nav>
-        <div class="fixed-profile p-3 bg-light-secondary rounded sidebar-ad mt-3">
-          <div class="hstack gap-3">
-            <div class="john-img">
-              <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="">
-            </div>
-            <div class="john-title">
-              <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
-              <span class="fs-2 text-dark">Designer</span>
-            </div>
-            <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout"
-              data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
-              <i class="ti ti-power fs-6"></i>
-            </button>
-          </div>
-        </div>
         <!-- End Sidebar navigation -->
       </div>
       <!-- End Sidebar scroll-->
@@ -200,154 +192,6 @@ if (isset($_SESSION['id'])) {?>
   <div class="dark-transparent sidebartoggler"></div>
 
 
-  <!--<div class="container">
-    
-    <div class="row mt-3">
-      <div class="col-lg-12">
-        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
-          <div class="card-body px-4 py-3">
-            <div class="row align-items-center">
-              <div class="col-9">
-                <h3 class="fw-semibold mb-8"><i class="ti ti-settings me-2"></i>Definições</h3>
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
-                    <li class="breadcrumb-item" aria-current="page">Definições</li>
-                  </ol>
-                </nav>
-              </div>
-              <div class="col-3">
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 d-flex align-items-stretch">
-        <div class="card w-100 position-relative overflow-hidden">
-          <div class="card-body p-4">
-            <h5 class="card-title fw-semibold">Fotografia</h5>
-            <p class="card-subtitle mb-4">Altere aqui a sua fotografia identificativa.</p>
-            <div class="text-center">
-              <img id="fotoClubeEditCurrent" alt="" class="img-fluid rounded" width="420"
-                height="220">
-            </div>
-            <input class="form-control mt-5" type="file" id="fotoClubeEditNova" name="fotoClubeEditNova">
-          </div>
-          <div class="d-flex align-items-center justify-content-center mb-4 gap-3">
-            <button type="button" class="btn btn-primary" onclick="">Guardar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 d-flex align-items-stretch">
-        <div class="card w-100 position-relative overflow-hidden">
-          <div class="card-body p-4">
-            <h5 class="card-title fw-semibold">Password</h5>
-            <p class="card-subtitle mb-4">Altere aqui a sua password. Se não quiser alterar, deixe em
-              branco.</p>
-            <form>
-              <div class="mb-4 mb-md-5">
-                <label for="passwordAtualClubeEdit" class="form-label fw-semibold">Password Atual</label>
-                <input type="password" class="form-control" id="passwordAtualClubeEdit" value="">
-              </div>
-              <div class="mb-4 mb-md-5">
-                <label for="passwordNovaClubeEdit" class="form-label fw-semibold">Nova Password</label>
-                <input type="password" class="form-control" id="passwordNovaClubeEdit" value="">
-              </div>
-              <div class="">
-                <label for="passwordNovaClubeEdit2" class="form-label fw-semibold">Confirmar Password</label>
-                <input type="password" class="form-control" id="passwordNovaClubeEdit2" value="">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="card w-100 position-relative overflow-hidden mb-0">
-        <div class="card-body p-4">
-          <h5 class="card-title fw-semibold">Detalhes Pessoais</h5>
-          <p class="card-subtitle mb-4">Altere aqui a sua informação pessoal</p>
-          <form>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-4">
-                  <label for="nomeClubeEdit" class="form-label fw-semibold">Nome Completo</label>
-                  <input type="text" class="form-control" id="nomeClubeEdit" >
-                </div>
-                <div class="mb-4">
-                  <label for="distritoEdit" class="form-label fw-semibold">Distrito</label>
-                  <select class="form-select" aria-label="Default select example"
-                    onchange="getConcelhos(this.value)" id="distritoClubeEdit">
-                  </select>
-                </div>
-                <div class="mb-4">
-                  <label for="emailClubeEdit" class="form-label fw-semibold">Email</label>
-                  <input type="email" class="form-control" id="emailClubeEdit">
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-4">
-                  <div class="row">
-                    <div class="col-4">
-                      <label for="nifClubeEdit" class="form-label fw-semibold">NIF</label>
-                      <input type="number" class="form-control" id="nifClubeEdit">
-                    </div>
-                    <div class="col-4">
-                      <label for="cpClubeEdit" class="form-label fw-semibold">Código-Postal</label>
-                      <input type="text" class="form-control" id="cpClubeEdit">
-                    </div>
-                    <div class="col-4">
-                      <label for="anoFundacaoClubeEdit" class="form-label fw-semibold">Ano Fundação</label>
-                      <input type="number" class="form-control" id="anoFundacaoClubeEdit">
-                    </div>
-                  </div>
-                </div>
-                <div class="mb-4">
-                  <label for="concelhoClubeEdit" class="form-label fw-semibold">Concelho</label>
-                  <select class="form-select" aria-label="Default select example" id="concelhoClubeEdit">
-                  </select>
-                </div>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="mb-4">
-                      <label for="telemovelClubeEdit" class="form-label fw-semibold">Telemóvel</label>
-                      <input type="text" class="form-control" id="telemovelClubeEdit">
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="mb-4">
-                      <label for="telefoneClubeEdit" class="form-label fw-semibold">Telefone</label>
-                        <input type="text" class="form-control" id="telefoneClubeEdit">
-                      </div>
-                    </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="mb-4">
-                  <label for="moradaClubeEdit" class="form-label fw-semibold">Morada</label>
-                  <input type="text" class="form-control" id="moradaClubeEdit">
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="">
-                  <label for="descricaoClubeEdit" class="form-label fw-semibold">Descrição</label>
-                  <textarea class="form-control" id="descricaoClubeEdit" rows ='5'></textarea>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="d-flex align-items-center justify-content-end mt-4 gap-3">
-                  <button type="button" class="btn btn-primary"
-                    onclick="guardaEditInfo()">Guardar</button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        </div>
-      </div>
-    </div>
-    
-  </div>-->
 
   <div class="row pe-5">
     <div class="col-lg-2">
@@ -824,51 +668,16 @@ if (isset($_SESSION['id'])) {?>
   <!--  current page js files -->
   <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
   <script src="../../dist/js/js_courtify/definicoesClube.js"></script>
-  
+  <script src="../../dist/js/js_courtify/clube/clubeLogout.js"></script>
+  <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-  <script>
-    $(document).ready(function () {
-
-      $(".owl-carousel").each(function () {
-        var carouselId = $(this).closest(".carousel-container").attr("id");
-        $(this).owlCarousel({
-          items: 3,
-          margin: 20,
-          loop: false,
-          nav: false,
-          autoplay: false,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 2
-            },
-            992: {
-              items: 3
-            }
-          }
-        });
-
-
-        $("#" + carouselId + " .owl-prev").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("prev.owl.carousel");
-        });
-
-        $("#" + carouselId + " .owl-next").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("next.owl.carousel");
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>
 
 <?php
 } else {
-  header("Location: authentication-error.html");
+  header("Location: ../horizontal/authentication-error.html");
   exit();
 }
 
