@@ -38,6 +38,39 @@ class Clube{
         )));
     }
 
+    function uploads2($img, $id)
+    {
+
+        $dir = "../images/clubes/nome_clube/";
+        $dir1 = "../../dist/images/clubes/nome_clube/";
+        $flag = false;
+        $targetBD = "";
+
+        if (!is_dir($dir)) {
+            if (!mkdir($dir, 0777, TRUE)) {
+                die("Erro não é possivel criar o diretório");
+            }
+        }
+        if (array_key_exists('fotoCampoEditNova', $img)) {
+            if (is_array($img)) {
+                if (is_uploaded_file($img['fotoCampoEditNova']['tmp_name'])) {
+                    $fonte = $img['fotoCampoEditNova']['tmp_name'];
+                    $ficheiro = $img['fotoCampoEditNova']['name'];
+                    $end = explode(".", $ficheiro);
+                    $extensao = end($end);
+                    $newName = "campo" . $id . "." . $extensao;
+                    $target = $dir . $newName;
+                    $targetBD = $dir1 . $newName;
+                    $flag = move_uploaded_file($fonte, $target);
+                }
+            }
+        }
+        return (json_encode(array(
+            "flag" => $flag,
+            "target" => $targetBD
+        )));
+    }
+
     function getDistritos($concelhoClube)
     {
 
@@ -986,6 +1019,26 @@ class Clube{
         ));
 
         return($resp);
+    }
+
+    function alterarFotoCampo($fotoClubeCampoNova) {
+        global $conn;
+        $respUpdate = $this->uploads2($fotoClubeCampoNova, $_SESSION['id']);
+        $respUpdate = json_decode($respUpdate, TRUE);
+        $sql = "UPDATE user SET foto = '" . $respUpdate['target'] . "' WHERE id = " . $_SESSION['id'];
+        $msg = "";
+        $icon = "success";
+        $title = "Sucesso";
+        if ($conn->query($sql) === TRUE) {
+            $msg = "Foto de perfil alterada com sucesso!";
+        } else {
+            $msg = "Não foi possível alterar a sua foto de perfil";
+            $icon = "error";
+            $title = "Erro";
+        }
+        $conn->close();
+        return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
+        
     }
 
 }
