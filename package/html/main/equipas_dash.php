@@ -302,7 +302,6 @@ if (isset($_SESSION['id'])) {?>
                   <th scope="col">Ranking</th>
                   <th scope="col">Editar</th>
                   <th scope="col">Eliminar</th>
-
                 </tr>
               </thead>
               <tbody id="listaEquipa">
@@ -543,88 +542,13 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/app-style-switcher.js"></script>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
-  <script src="../../dist/js/js_courtify/equipa.js"></script>
+  <script src="../../dist/js/js_courtify/clube/equipa.js"></script>
 
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <script>
-    $(document).ready(function () {
-      $('#tabela').DataTable({
-        responsive: true,
-        ordering: false,
-        "language": {
-          "sEmptyTable": "Nenhum registo encontrado",
-          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
-          "sInfoEmpty": "Mostrando 0 de 0 registros",
-          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-          "sInfoPostFix": "",
-          "sInfoThousands": ".",
-          "sLengthMenu": "_MENU_ resultados por página",
-          "sLoadingRecords": "Carregando...",
-          "sProcessing": "Processando...",
-          "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, nível, etc...)",
-          "oPaginate": {
-            "sNext": ">",
-            "sPrevious": "<",
-            "sFirst": "Primeiro",
-            "sLast": "Último"
-          },
-          "oAria": {
-            "sSortAscending": ": Ordenar colunas de forma ascendente",
-            "sSortDescending": ": Ordenar colunas de forma descendente"
-          },
-          "select": {
-            "rows": {
-              "_": "Selecionado %d linhas",
-              "0": "Nenhuma linha selecionada",
-              "1": "Selecionado 1 linha"
-            }
-          }
-        }
-      });
-    });
-
-    $(document).ready(function () {
-      $('#tabela2').DataTable({
-        responsive: true,
-        ordering: false,
-        "language": {
-          "sEmptyTable": "Nenhum registo encontrado",
-          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
-          "sInfoEmpty": "Mostrando 0 de 0 registros",
-          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-          "sInfoPostFix": "",
-          "sInfoThousands": ".",
-          "sLengthMenu": "_MENU_ resultados por página",
-          "sLoadingRecords": "Carregando...",
-          "sProcessing": "Processando...",
-          "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (data, hora, etc...)",
-          "oPaginate": {
-            "sNext": ">",
-            "sPrevious": "<",
-            "sFirst": "Primeiro",
-            "sLast": "Último"
-          },
-          "oAria": {
-            "sSortAscending": ": Ordenar colunas de forma ascendente",
-            "sSortDescending": ": Ordenar colunas de forma descendente"
-          },
-          "select": {
-            "rows": {
-              "_": "Selecionado %d linhas",
-              "0": "Nenhuma linha selecionada",
-              "1": "Selecionado 1 linha"
-            }
-          }
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>

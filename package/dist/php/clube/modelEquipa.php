@@ -47,7 +47,7 @@ function getListaEquipaModel(){
     global $conn;
     $msg = "";
 
-    $sql = "SELECT * FROM comunidade WHERE tipo_comunidade = 2";
+    $sql = "SELECT * FROM comunidade WHERE tipo_comunidade = 2 AND id_atletaHost =".$_SESSION['id'];
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -55,13 +55,13 @@ function getListaEquipaModel(){
         while($row = $result->fetch_assoc()) {
             $msg .= "<tr>";
             $msg .= "<th scope='row'>".$row['id']."</th>";
-            $msg .= "<th scope='row'><img class='img-thumbnail' src='".$row['foto']."'></th>";
+            $msg .= "<th scope='row'><img class='img-thumbnail' src='../../dist/".$row['foto']."'></th>";
             $msg .= "<th scope='row'>".$row['nome']."</th>";
-            $msg .= "<td>".$row['desc']."</td>";
+            $msg .= "<td>".$row['descricao']."</td>";
             $msg .= "<td>".$row['estado']."</td>";
             $msg .= "<td>".$row['ranking']."</td>";
             $msg .= "<td><button type='button' class='btn btn-sm' onclick ='getDadosEquipa(".$row['id'].")' style='background-color: gold;'> <i class='text-white ti ti-pencil'></i></button></td>";
-            $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeEquipa(".$row['id'].")' style='background-color: firebrick;'> <i
+            $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removerEquipa(".$row['id'].")' style='background-color: firebrick;'> <i
             class='text-white ti ti-x'></i></button></td>";
             $msg .= "</tr>";
         }

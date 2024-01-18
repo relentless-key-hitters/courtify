@@ -122,18 +122,18 @@ function getDadosEquipa(id) {
         .done(function (msg) {
 
             let obj = JSON.parse(msg);
-
+            console.log(obj)
             $('#idEq').val(obj.id);
-            $('#nomeEditEquipa').val(obj.nome);
-            $('#modEditEquipa').val(obj.modalidade);
-            $('#descEditEquipa').val(obj.descricao);
-            $('#rankEditEquipa').val(obj.ranking);
-            $('#estadoEditEquipa').val(obj.estado);
-            $('#imagemEditEquipa').val(obj.foto);
+            $('#nomeEq').val(obj.nome);
+            /*$('#modEq').val(obj.modalidade);*/
+            /*$('#descEq').val(obj.descricao);*/
+            /*$('#rankEditEquipa').val(obj.ranking);*/
+            /*$('#estadoEq').val(obj.estado);*/
+            /*$('#imagemEq').val(obj.foto);*/
 
             $('#btnGuardar').attr("onclick", "guardaEditEquipa(" + id + ")")
 
-            $('#editarEquipaModal').modal('show')
+            $('#teamEditModal').modal('show')
         })
 
         .fail(function (jqXHR, textStatus) {
@@ -235,7 +235,9 @@ function alerta(titulo, msg, icon) {
 
 
 $(function () {
-getListaEquipa();
+    $('#tabelaEquipa').DataTable();
+    getListaEquipa();
+
 });
 
 
