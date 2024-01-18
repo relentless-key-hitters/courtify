@@ -432,7 +432,7 @@ class Campo
                 $marcacao .= "</div>
                         <div class='d-flex justify-content-start align-items-center mt-2'>
                             <div class='d-flex flex-column'>
-                                <img src='".$row['foto']."' class='img-fluid rounded border border-1 border-primary' style='width: 200px'>
+                                <img src='".$row['foto']."' class='img-fluid rounded border border-1 border-primary' style='max-width: 150px; min-width: 100px;'>
                                 <h6 class='mt-2 mb-0 text-center fw-bolder'>" . $row['nome_campo'] . "</h6>
                             </div>
                         <div class='ms-4 d-flex overflow-y-auto scrollbar'>";
