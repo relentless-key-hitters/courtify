@@ -19,8 +19,8 @@ if (isset($_SESSION['id'])) {?>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
-  <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="../../dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
@@ -50,12 +50,11 @@ if (isset($_SESSION['id'])) {?>
       <!-- Sidebar scroll-->
       <div>
         <div class="mt-2 d-flex align-items-center justify-content-center">
-          <!-- Show first image on col-md and up -->
           <a href="./visao_dash.php" class="text-nowrap d-none d-xl-block">
             <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo img-fluid" width="180" alt="" />
           </a>
 
-          <!-- Show second image on col-md down -->
+          
           <a href="./visao_dash.php" class="text-nowrap d-block d-xl-none">
             <img src="../../dist/images/logos/favicon_svg.svg" class="dark-logo img-fluid" width="60" alt="" />
           </a>
@@ -157,22 +156,15 @@ if (isset($_SESSION['id'])) {?>
                 <span class="hide-menu">Definições</span>
               </a>
             </li>
+            <li class="sidebar-item mt-4">
+              <a class="sidebar-link fs-4" style="background-color: #45702d; color: white; cursor: pointer;" onclick="logout()" aria-expanded="false">
+                <span>
+                  <i class="ti ti-logout"></i>
+                </span>
+                <span class="hide-menu">Logout</span>
+              </a>
+            </li>
         </nav>
-        <div class="fixed-profile p-3 bg-light-secondary rounded sidebar-ad mt-3">
-          <div class="hstack gap-3">
-            <div class="john-img">
-              <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="">
-            </div>
-            <div class="john-title">
-              <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
-              <span class="fs-2 text-dark">Designer</span>
-            </div>
-            <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout"
-              data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
-              <i class="ti ti-power fs-6"></i>
-            </button>
-          </div>
-        </div>
         <!-- End Sidebar navigation -->
       </div>
       <!-- End Sidebar scroll-->
@@ -1033,49 +1025,16 @@ if (isset($_SESSION['id'])) {?>
 
 
   <script src="../../dist/js/widgets-charts.js"></script>
+  
+  <script src="../../dist/js/js_courtify/clube/clubeLogout.js"></script>
+  <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-  <script>
-    $(document).ready(function () {
-
-      $(".owl-carousel").each(function () {
-        var carouselId = $(this).closest(".carousel-container").attr("id");
-        $(this).owlCarousel({
-          items: 3,
-          margin: 20,
-          loop: false,
-          nav: false,
-          autoplay: false,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 2
-            },
-            992: {
-              items: 3
-            }
-          }
-        });
-
-
-        $("#" + carouselId + " .owl-prev").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("prev.owl.carousel");
-        });
-
-        $("#" + carouselId + " .owl-next").click(function () {
-          $("#" + carouselId + " .owl-carousel").trigger("next.owl.carousel");
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>
 <?php
 } else {
-  header("Location: authentication-error.html");
+  header("Location: ../horizontal/authentication-error.html");
   exit();
 }
 

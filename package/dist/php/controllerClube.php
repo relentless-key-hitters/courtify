@@ -64,6 +64,10 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 14){
     $res = $clube -> getCamposManutencao();
     echo($res);
+}else if($_POST['op'] == 15){
+    session_destroy();
+    $res = "Sessão terminada com sucesso!";
+    echo($res);
 }
 
 ?>

@@ -21,6 +21,7 @@ if (isset($_SESSION['id'])) {?>
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
 
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="../../dist/libs/sweetalert/dist/sweetalert2.min.css">
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
@@ -128,11 +129,16 @@ if (isset($_SESSION['id'])) {?>
     <aside class="left-sidebar">
       <!-- Sidebar scroll-->
       <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo" width="180" alt="" />
-            <img src="../../dist/images/logos/logo_courtify.png" class="light-logo" width="180" alt="" />
+        <div class="mt-2 d-flex align-items-center justify-content-center">
+          <a href="./visao_dash.php" class="text-nowrap d-none d-xl-block">
+            <img src="../../dist/images/logos/logo_courtify.png" class="dark-logo img-fluid" width="180" alt="" />
           </a>
+
+          
+          <a href="./visao_dash.php" class="text-nowrap d-block d-xl-none">
+            <img src="../../dist/images/logos/favicon_svg.svg" class="dark-logo img-fluid" width="60" alt="" />
+          </a>
+
           <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8 text-muted"></i>
           </div>
@@ -230,22 +236,15 @@ if (isset($_SESSION['id'])) {?>
                 <span class="hide-menu">Definições</span>
               </a>
             </li>
+            <li class="sidebar-item mt-4">
+              <a class="sidebar-link fs-4" style="background-color: #45702d; color: white; cursor: pointer;" onclick="logout()" aria-expanded="false">
+                <span>
+                  <i class="ti ti-logout"></i>
+                </span>
+                <span class="hide-menu">Logout</span>
+              </a>
+            </li>
         </nav>
-        <div class="fixed-profile p-3 bg-light-secondary rounded sidebar-ad mt-3">
-          <div class="hstack gap-3">
-            <div class="john-img">
-              <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="">
-            </div>
-            <div class="john-title">
-              <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
-              <span class="fs-2 text-dark">Designer</span>
-            </div>
-            <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout"
-              data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
-              <i class="ti ti-power fs-6"></i>
-            </button>
-          </div>
-        </div>
         <!-- End Sidebar navigation -->
       </div>
       <!-- End Sidebar scroll-->
@@ -255,15 +254,17 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
   <div class="body-wrapper">
-    <div class="row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-6" style="position: relative;">
-        <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px">
-            Clube de Padel de Évora</h1>
+    <div class="row pe-5 mb-3">
+        <div class="col-lg-2">
+
         </div>
-      </div>
-      <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+          <div class="container">
+            <div>
+              <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube"></h1>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
@@ -279,8 +280,28 @@ if (isset($_SESSION['id'])) {?>
     <div class="col-lg-7">
       <div class="badge-container2">
         <div class="row mb-0 mt-5">
-          <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Campos</h1>
+          <div class="col-lg-12">
+            <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+              <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                  <div class="col-9">
+                    <h3 class="fw-semibold mb-8"><i class="ti ti-soccer-field me-2"></i>Campos</h3>
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Campos</li>
+                      </ol>
+                    </nav>
+                  </div>
+                  <div class="col-3">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 text-start">
+            <h1 class="mb-0 mb-sm-0 fw-semibold fs-9">Os seus Campos</h1>
           </div>
         </div>
 
@@ -316,8 +337,8 @@ if (isset($_SESSION['id'])) {?>
     <div class="col-lg-7">
       <div class="badge-container2">
         <div class="row mb-0 mt-5">
-          <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Manutenção de campos</h1>
+          <div class="col-12 text-start">
+            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Manutenção</h1>
           </div>
         </div>
 
@@ -434,18 +455,24 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
   <script src="../../dist/js/js_courtify/clube/campos.js"></script>
+
   <!--  current page js files -->
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="../../dist/js/js_courtify/clube/clubeLogout.js"></script>
+  <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+  
+
 
 </body>
 
 </html>
 <?php
 } else {
-  header("Location: authentication-error.html");
+  header("Location: ../horizontal/authentication-error.html");
   exit();
 }
 
