@@ -685,8 +685,9 @@ class Clube{
         $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                $msg .= "<tr class='text-center'>
-                <td><img class='img-fluid rounded' data-toggle='tooltip' data-placement='top' title='Alterar' style='cursor: pointer; height: 70px; max-width: 100px;' onclick='alterarFotoCampoClube(".$row['id'].")' src='".$row['foto']."'></td>
+                $msg .= "<tr class=''>
+                <td><img class='img-fluid rounded border' data-toggle='tooltip' data-placement='top' title='Alterar' style='cursor: pointer; height: 70px; max-width: 100px;' onclick='alterarFotoCampoClube(".$row['id'].")' src='".$row['foto']."' onmouseover='this.classList.add(\"border-primary\"), this.classList.add(\"border-2\")' onmouseout='this.classList.remove(\"border-primary\"), this.classList.remove(\"border-2\")'>
+                </td>
                 <td>".$row['nome']."</td>
                 <td>".$row['descricao']."</td>
                 <td>".str_replace('.', ',', ROUND($row['preco_hora'], 2))."€ <button type='button' class='ms-2 btn btn-warning btn-sm' data-toggle='tooltip' data-placement='top' title='Alterar' onclick='editarPrecoHoraCampo(".$row['id'].")'><i class='ti ti-pencil'></i></button></td>
@@ -893,7 +894,7 @@ class Clube{
         $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                $msg .= "<tr class='text-center'>
+                $msg .= "<tr class=''>
                 <td>".$row['nome']."</td>
                 <td>".str_replace('.', ',', ROUND($row['total_horas'], 1))."h</td>
                 <td>".date("d/m/Y", strtotime($row['ultima_manutencao']))."</td>";
@@ -924,7 +925,7 @@ class Clube{
                     }
                 }
 
-                $msg .= "<td><button type='button' class='ms-2 btn btn-warning btn-sm' onclick='editarDataManutencaoCampo(".$row['id'].")'>Alterar</td></tr>";
+                $msg .= "<td><button type='button' class=' btn btn-warning btn-sm' onclick='editarDataManutencaoCampo(".$row['id'].")'>Alterar</td></tr>";
 
             }
         }

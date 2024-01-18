@@ -309,7 +309,7 @@ if (isset($_SESSION['id'])) {?>
             <table class="table" id="tabela">
               <thead>
                 <tr class="text-center">
-                  <th scope="col"></th>
+                  <th scope="col">Foto</th>
                   <th scope="col">Nome Campo</th>
                   <th scope="col">Modalidade</th>
                   <th scope="col">Preço/Hora</th>
@@ -349,7 +349,7 @@ if (isset($_SESSION['id'])) {?>
                   <th scope="col">Nome Campo</th>
                   <th scope="col">Horas de Uso<br>(após ultima manutenção)</th>
                   <th scope="col">Última Manutenção</th>
-                  <th scope="col">Patamar<br>(limite: 200h)</th>
+                  <th scope="col">Patamar<br>(200h)</th>
                   <th scope="col">Data última Manutenção</th>
                 </tr>
               </thead>
