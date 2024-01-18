@@ -306,7 +306,7 @@ if (isset($_SESSION['id'])) {?>
                         <th scope="col">Nome Campo</th>
                         <th scope="col">Modalidade</th>
                         <th scope="col">Preço/Hora</th>
-                        <th scope="col">Reservas</th>
+                        <th scope="col">Tipo Campo</th>
                       </tr>
                     </thead>
                     <tbody id="tableCampos">

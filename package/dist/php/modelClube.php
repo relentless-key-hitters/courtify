@@ -674,12 +674,13 @@ class Clube{
 
     function getCamposClube(){
         global $conn;
-        $sql = " SELECT campo.id, campo.nome, campo.foto, campo.preco_hora, modalidade.descricao
+        $sql = " SELECT tipo_campo.descricao as descricaoTipoCampo, campo.id, campo.nome, campo.foto, campo.preco_hora, modalidade.descricao
         FROM campo INNER JOIN campo_clube 
         ON campo.id = campo_clube.id_campo
         INNER JOIN clube ON 
         campo_clube.id_clube = clube.id_clube
         INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
+        INNER JOIN tipo_campo ON campo.tipo_campo = tipo_campo.id
         WHERE clube.id_clube = ".$_SESSION['id']."";
         $msg = "";
         $result = $conn -> query($sql);
@@ -691,8 +692,7 @@ class Clube{
                 <td>".$row['nome']."</td>
                 <td>".$row['descricao']."</td>
                 <td>".str_replace('.', ',', ROUND($row['preco_hora'], 2))."€ <button type='button' class='ms-2 btn btn-warning btn-sm' data-toggle='tooltip' data-placement='top' title='Alterar' onclick='editarPrecoHoraCampo(".$row['id'].")'><i class='ti ti-pencil'></i></button></td>
-                <td><button type='button' class='btn btn-sm btn-light' data-toggle='modal'
-                    >Ver</button></td>
+                <td>".$row['descricaoTipoCampo']."</td>
                 </tr>";
             }
         }
