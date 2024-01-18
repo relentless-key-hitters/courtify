@@ -443,6 +443,7 @@ if (isset($_SESSION['id'])) {?>
   <div class="modal fade" id="modalAlterarPreco" tabindex="-1" aria-labelledby="modalAlterarPrecoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" id="corpoModalAlterarPreco">
+      
 
     </div>
   </div>

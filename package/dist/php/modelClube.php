@@ -943,7 +943,11 @@ class Clube{
         if ($result) {
             while($row = $result->fetch_assoc()) {
                 $msg = "<div class='modal-header'>
-                        <h1 class='modal-title fs-6' id='modalAlterarPrecoLabel'>Edição de Preço</h1>
+                        <div class='d-flex'>
+                            <img src='../../dist/images/logos/favicon.ico' alt='' height='40' width='40' class='mt-2 ms-2'>
+                            <h1 class='mb-0 mt-2 ms-2 fs-6 p-1' id='modalAlterarPrecoLabel'>Edição de Preço</h1>
+                        </div>
+                        
                         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
                     </div>
                     <div class='modal-body' >
