@@ -680,9 +680,9 @@ class Campo
             $hora60 = date_add($hora60,date_interval_create_from_date_string("60 minutes"));
             $hora60 = date_format($hora60,"H:i:s");
             for($i = 0; $i < count($horas); $i++){
-                if($hora30 == $horas[$i]){
+                if($hora30 == $horas[$i] || $horaFecho == $hora30){
                     $flag30 = false;
-                }else if($hora60 == $horas[$i]){
+                }else if($hora60 == $horas[$i] || $horaFecho == $hora60){
                     $flag60 = false;
                 }
             }
