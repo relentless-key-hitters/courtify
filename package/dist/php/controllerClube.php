@@ -68,6 +68,15 @@ if ($_POST['op'] == 1){
     session_destroy();
     $res = "Sessão terminada com sucesso!";
     echo($res);
+}else if($_POST['op'] == 16){
+    $res = $clube -> editarPrecoHoraCampo($_POST['idCampo']);
+    echo($res);
+}else if($_POST['op'] == 17){
+    $res = $clube -> guardarEditPrecoClube($_POST['precoNovo'], $_POST['idCampo']);
+    echo($res);
+}else if($_POST['op'] == 18){
+    $res = $clube -> guardarEditDataManutencaoCampo($_POST['dataNovaManutencaoCampo'], $_POST['idCampo']);
+    echo($res);
 }
 
 ?>

@@ -647,18 +647,18 @@ class Clube{
         INNER JOIN clube ON 
         campo_clube.id_clube = clube.id_clube
         INNER JOIN modalidade ON campo_clube.id_modalidade = modalidade.id
-        WHERE clube.id_clube = 7";
+        WHERE clube.id_clube = ".$_SESSION['id']."";
         $msg = "";
         $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $msg .= "<tr class='text-center'>
-                <td><img class='img-fluid rounded' style='height: 70px; max-width: 100px;' src='".$row['foto']."'></td>
+                <td><img class='img-fluid rounded' data-toggle='tooltip' data-placement='top' title='Alterar' style='cursor: pointer; height: 70px; max-width: 100px;' onclick='alterarFotoCampoClube(".$row['id'].")' src='".$row['foto']."'></td>
                 <td>".$row['nome']."</td>
                 <td>".$row['descricao']."</td>
-                <td>".ROUND($row['preco_hora'], 2)."€</td>
+                <td>".str_replace('.', ',', ROUND($row['preco_hora'], 2))."€ <button type='button' class='ms-2 btn btn-warning btn-sm' data-toggle='tooltip' data-placement='top' title='Alterar' onclick='editarPrecoHoraCampo(".$row['id'].")'><i class='ti ti-pencil'></i></button></td>
                 <td><button type='button' class='btn btn-sm btn-light' data-toggle='modal'
-                    onclick= 'getInfoMarcCampo(".$row['id'].")'>Ver</button></td>
+                    >Ver</button></td>
                 </tr>";
             }
         }
@@ -706,7 +706,8 @@ class Clube{
         $passwordAtual,
         $passwordNova,
         $passwordNova2
-    ) {
+    ) 
+    {
         global $conn;
         $msg = "";
         $icon = "success";
@@ -813,64 +814,178 @@ class Clube{
 
     function getCamposManutencao(){
         global $conn;
-        $sql = "SELECT SUM(temp.horas) AS total_horas, temp.nome, temp.ultima_manutencao, temp.id
-        FROM (
-        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600) AS horas, campo.nome, campo.ultima_manutencao, campo.id
-            FROM marcacao  
-            INNER JOIN campo
-            ON campo.id = marcacao.id_campo
-            WHERE marcacao.id_campo IN(
-               SELECT campo.id 
-               FROM campo INNER JOIN campo_clube 
-               ON campo.id = campo_clube.id_campo
-               INNER JOIN clube ON 
-               campo_clube.id_clube = clube.id_clube
-               WHERE clube.id_clube = 7
-            ) AND marcacao.data_inicio > campo.ultima_manutencao
-        )AS temp
-        GROUP BY temp.nome
-        ORDER BY total_horas DESC";
+        $sql = "SELECT SUM(temp.horas) AS total_horas, temp.nome AS nome, temp.ultima_manutencao AS ultima_manutencao, temp.id AS id 
+                        FROM (
+                        SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600) AS horas, campo.nome, campo.ultima_manutencao, campo.id
+                            FROM marcacao
+                            INNER JOIN campo
+                            ON campo.id = marcacao.id_campo
+                            WHERE marcacao.id_campo IN (
+                            SELECT campo.id 
+                            FROM campo INNER JOIN campo_clube 
+                            ON campo.id = campo_clube.id_campo
+                            INNER JOIN clube ON 
+                            campo_clube.id_clube = clube.id_clube
+                            INNER JOIN marcacao ON 
+                            campo.id = marcacao.id_campo
+                            INNER JOIN listagem_atletas_marcacao ON
+                            marcacao.id = listagem_atletas_marcacao.id_marcacao
+                            WHERE clube.id_clube = ".$_SESSION['id']."
+                            AND listagem_atletas_marcacao.votacao != 2
+                            AND marcacao.data_inicio > campo.ultima_manutencao
+                            ) 
+                                AND marcacao.data_inicio > campo.ultima_manutencao
+                        )AS temp
+                        GROUP BY temp.nome
+
+                UNION
+                SELECT 0 AS total_horas, campo.nome AS nome, campo.ultima_manutencao AS ultima_manutencao,  campo.id AS id 
+                FROM
+                campo INNER JOIN campo_clube ON campo.id = campo_clube.id_campo
+                WHERE campo.id NOT IN(
+                SELECT campo.id 
+                            FROM campo INNER JOIN campo_clube 
+                            ON campo.id = campo_clube.id_campo
+                            INNER JOIN clube ON 
+                            campo_clube.id_clube = clube.id_clube
+                            INNER JOIN marcacao ON 
+                            campo.id = marcacao.id_campo
+                            INNER JOIN listagem_atletas_marcacao ON
+                            marcacao.id = listagem_atletas_marcacao.id_marcacao
+                            WHERE clube.id_clube = ".$_SESSION['id']."
+                            AND listagem_atletas_marcacao.votacao != 2
+                            AND marcacao.data_inicio > campo.ultima_manutencao
+                )AND campo_clube.id_clube = ".$_SESSION['id'];
         $msg = "";
         $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $msg .= "<tr class='text-center'>
                 <td>".$row['nome']."</td>
-                <td>".$row['ultima_manutencao']."</td>
-                <td>".ROUND($row['total_horas'], 1)."</td>
-                <td><button type='button' class='btn btn-sm btn-light' data-toggle='modal'
-                  >Alterar</button></td>";
+                <td>".str_replace('.', ',', ROUND($row['total_horas'], 1))."h</td>
+                <td>".date("d/m/Y", strtotime($row['ultima_manutencao']))."</td>";
+                
                 $patamar = ROUND(($row['total_horas'] / 200)*100, 0);
                 if($patamar < 35){
                     $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
                     <div class='progress-bar bg-success' style='width: ".$patamar."%'></div>
                   </div></td>
-                    </tr>";
+                    ";
                 }else if($patamar < 70){
                     $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
                     <div class='progress-bar bg-warning' style='width: ".$patamar."%'></div>
                   </div></td>
-                    </tr>";
+                    ";
                 }else{
                     if($patamar == 100){
                         $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
                         <div class='progress-bar bg-danger' style='width: 100%'></div>
                       </div></td>
-                        </tr>";
+                        ";
                     }
                     else{
                         $msg.="<td><div class='progress' role='progressbar' aria-valuenow='25' aria-valuemin='0' aria-valuemax='200'>
                         <div class='progress-bar bg-danger' style='width: ".$patamar."%'></div>
                       </div></td>
-                        </tr>";
+                        ";
                     }
                 }
+
+                $msg .= "<td><button type='button' class='ms-2 btn btn-warning btn-sm' onclick='editarDataManutencaoCampo(".$row['id'].")'>Alterar</td></tr>";
 
             }
         }
         $conn -> close(); 
         return($msg);
 
+    }
+
+    function editarPrecoHoraCampo($idCampo) {
+
+        global $conn;
+        $msg = "";
+        $sql = "SELECT preco_hora FROM campo WHERE id = ".$idCampo;
+
+        $result = $conn->query($sql);
+        if ($result) {
+            while($row = $result->fetch_assoc()) {
+                $msg = "<div class='modal-header'>
+                        <h1 class='modal-title fs-6' id='modalAlterarPrecoLabel'>Edição de Preço</h1>
+                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+                    </div>
+                    <div class='modal-body' >
+                        <div class='row'>
+                        <div class='col-lg-6'>
+                            <label for='precoCampoClubeAtual' class='form-label'>Preço Atual</label>
+                            <input type='text' class='form-control' disabled value='".$row['preco_hora']."'>
+                        </div>
+                        <div class='col-lg-6'>
+                            <label for='precoCampoClubeAtual' class='form-label'>Novo Preço</label>
+                            <input type='text' class='form-control' id='precoCampoClubeNovo'>
+                        </div>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-primary' data-bs-dismiss='modal' onclick='guardarEditPrecoClube(".$idCampo.")'>Salvar</button>
+                        <button type='button' class='btn btn-light' data-bs-dismiss='modal'>Fechar</button>
+                    </div>";
+            }
+        }
+
+        $conn -> close();
+
+        return($msg);
+    }
+
+    function guardarEditPrecoClube($precoNovo, $idCampo) {
+
+        global $conn;
+        $sql = "UPDATE campo SET preco_hora = ".$precoNovo." WHERE id = ".$idCampo;
+        $title = "Successo";
+        $msg = "Alterado com sucesso!";
+        $icon = "success";
+
+        if (!$conn->query($sql)) {
+            $title = "Erro";
+            $msg = "Não foi possível alterar o preço!";
+            $icon = "error";
+        }
+
+
+        $conn -> close();
+
+        $resp = json_encode(array(
+            'title' => $title,
+            'msg' => $msg,
+            'icon' => $icon
+        ));
+
+        return($resp);
+    }
+
+    function guardarEditDataManutencaoCampo($dataNovaManutencaoCampo, $idCampo) {
+
+        global $conn;
+        $sql = "UPDATE campo SET ultima_manutencao = '".$dataNovaManutencaoCampo."' WHERE id = ".$idCampo;
+        $title = "Successo";
+        $msg = "Alterado com sucesso!";
+        $icon = "success";
+
+        if (!$conn->query($sql)) {
+            $title = "Erro";
+            $msg = "Não foi possível alterar a data!";
+            $icon = "error";
+        }
+
+        $conn -> close();
+
+        $resp = json_encode(array(
+            'title' => $title,
+            'msg' => $msg,
+            'icon' => $icon
+        ));
+
+        return($resp);
     }
 
 }

@@ -499,8 +499,8 @@ if (isset($_SESSION['id'])) {?>
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content rounded-1">
           <div class='d-flex'>
-          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
-          <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+            <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Pesquisa Geral</h4>
           </div>
           <div class='pt-3 pb-2 ps-3 pe-3'>
             <span>

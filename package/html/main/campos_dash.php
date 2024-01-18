@@ -21,18 +21,16 @@ if (isset($_SESSION['id'])) {?>
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
 
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="../../dist/libs/sweetalert/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
 
   <!-- Core Css -->
   <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/Portuguese.json"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
 
 
-  <style>
+  <!--<style>
     body {
       overflow-x: hidden;
     }
@@ -103,7 +101,7 @@ if (isset($_SESSION['id'])) {?>
       border: 1px solid white;
       border-radius: 6px;
     }
-  </style>
+  </style>-->
 
   <style>
     body {
@@ -279,7 +277,7 @@ if (isset($_SESSION['id'])) {?>
 
     <div class="col-lg-7">
       <div class="badge-container2">
-        <div class="row mb-0 mt-5">
+        <div class="row mb-0 mt-3">
           <div class="col-lg-12">
             <div class="card bg-light-info shadow-none position-relative overflow-hidden">
               <div class="card-body px-4 py-3">
@@ -349,10 +347,10 @@ if (isset($_SESSION['id'])) {?>
               <thead>
                 <tr class="text-center">
                   <th scope="col">Nome Campo</th>
-                  <th scope="col">Última Manutenção</th>
                   <th scope="col">Horas de Uso<br>(após ultima manutenção)</th>
-                  <th scope="col">Estado Manutenção</th>
+                  <th scope="col">Última Manutenção</th>
                   <th scope="col">Patamar<br>(limite: 200h)</th>
+                  <th scope="col">Estado Manutenção</th>
                 </tr>
               </thead>
               <tbody id="tableCampos2">
@@ -440,6 +438,41 @@ if (isset($_SESSION['id'])) {?>
       </div>
     </div>
   </div>
+
+
+  <div class="modal fade" id="modalAlterarPreco" tabindex="-1" aria-labelledby="modalAlterarPrecoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" id="corpoModalAlterarPreco">
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalAlterarDataManutencao" tabindex="-1" aria-labelledby="modalAlterarDataManutencaoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class='d-flex'>
+          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+          <h4 class="mb-0 mt-2 ms-2 fs-6 p-1">Edição da última Manutenção</h4>
+        </div>
+        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <label for="" class="form-label">Data</label>
+            <input type="date" class="form-control" id="dataNovaManutencaoCampo">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="botaoSalvarDataManut" aria-label="Close">Salvar</button>
+          <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">Fechar</button>
+        </div>
+    </div>
+  </div>
+</div>
 
 
 
