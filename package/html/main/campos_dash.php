@@ -277,7 +277,7 @@ if (isset($_SESSION['id'])) {?>
 
     <div class="col-lg-7">
       <div class="badge-container2">
-        <div class="row mb-0 mt-3">
+        <div class="row mb-4 mt-3">
           <div class="col-lg-12">
             <div class="card bg-light-info shadow-none position-relative overflow-hidden">
               <div class="card-body px-4 py-3">
