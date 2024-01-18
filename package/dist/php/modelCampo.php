@@ -438,20 +438,26 @@ class Campo
                         <div class='ms-4 d-flex overflow-y-auto scrollbar'>";
                 $horas = array();
                 $sql2 = "SELECT temp.hora_inicio,
-                    CEIL(TIME_TO_SEC(temp.dif_horas)/1800) AS n_blocos        
-                    FROM (
-                    SELECT marcacao.hora_inicio AS hora_inicio, TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio) AS dif_horas
-                    FROM marcacao INNER JOIN campo ON marcacao.id_campo = campo.id INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
-                    clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "' AND marcacao.data_inicio = '" . $_SESSION['data']. "'  AND campo.id = '" . $row['id_campo'] . "'      
-                    ) AS temp";
+                CEIL(TIME_TO_SEC(temp.dif_horas)/1800) AS n_blocos        
+                FROM (
+                SELECT marcacao.hora_inicio AS hora_inicio, TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio) AS dif_horas
+                FROM marcacao INNER JOIN campo ON marcacao.id_campo = campo.id INNER JOIN campo_clube ON campo.id = campo_clube.id_campo INNER JOIN 
+                clube ON campo_clube.id_clube = clube.id_clube WHERE clube.id_clube = '" . $clube . "' AND marcacao.data_inicio = '" . $_SESSION['data']. "'  AND campo.id = '" . $row['id_campo'] . "'      
+                ) AS temp";
                 $result2 = $conn->query($sql2);
                 if ($result2->num_rows > 0) {
                     while ($row2 = $result2->fetch_assoc()) {
-                        array_push($horas, array($row2['hora_inicio'], $row2['n_blocos']));
+                        array_push($horas, $row2['hora_inicio']);
+                        $blocoData = $row2['hora_inicio'];
+                        for($i = 0; $i <  $row2['n_blocos'] - 1; $i ++){
+                            $blocoData = date_create($blocoData);
+                            $blocoData = date_add($blocoData,date_interval_create_from_date_string("30 minutes"));
+                            $blocoData = date_format($blocoData,"H:i:s");
+                            array_push($horas,  $blocoData);
+                        }
                     }
                 }
-
-
+                error_log("arrayMarc: " . print_r($horas, true));
                 $sql3 = "SELECT
                             horario_clube.hora_abertura AS horaAbertura,
                             horario_clube.hora_fecho AS horaFecho
@@ -463,125 +469,102 @@ class Campo
                         (
                             SELECT
                             CASE 
-                                    WHEN DAYOFWEEK(CURDATE()) IN (1, 7) THEN DATE_FORMAT(CURDATE(), '%W', 'pt_PT')
-                                    ELSE CONCAT(DATE_FORMAT(CURDATE(), '%W', 'pt_PT'), '-feira')
+                                    WHEN DAYOFWEEK('".$data."') IN (1, 7) THEN DATE_FORMAT('".$data."', '%W', 'pt_PT')
+                                    ELSE CONCAT(DATE_FORMAT('".$data."', '%W', 'pt_PT'), '-feira')
                             END AS dia_semana
                         );"; 
+
+                
                 
                 $result3 = $conn->query($sql3);
 
-                $texto2 = "";
+                $horaAbertura = "";
                 $horaFecho = "";
-
+                
                 if ($result3->num_rows > 0) {
                     while ($row3 = $result3->fetch_assoc()) {
-                        $texto2 .= $row3['horaAbertura'];
+                        $horaAbertura .= $row3['horaAbertura'];
                         $horaFecho .= $row3['horaFecho'];
                     }
                 }
-
-                $horainicio = date('H', strtotime($texto2));
-                $horainicio = intval($horainicio);
-
-                $minuto = date('i', strtotime($texto2));
-                $minuto = intval($minuto);
-
-                $texto = date('H:i', strtotime($texto2));
-
-
+                $arrayHoras = array(); 
+                $blocoData = $horaAbertura;
+                error_log("blocoData: " . print_r($blocoData, true));
+                error_log("horaFecho: " . print_r($horaFecho, true));
                 $horaActual = "";
                 $horaActual .= date('H:i:s');
                 $dataActual = "";
                 $dataActual .= date('Y-m-d');
-                if( $_SESSION['data'] == $dataActual){
-                    for($k = 0; $k < 32; $k++){
-                        if($texto2 >  $horaActual){
-                            break;
-                        }else{
-                            if ($minuto == 30) {
-                                $horainicio += 1;
-                                $minuto = 0;
-                                if ($horainicio < 10) {
-                                    $texto = "0" . $horainicio . ":0" . $minuto;
-                                    $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
-                                } else {
-                                    $texto = $horainicio . ":0" . $minuto;
-                                    $texto2 = $horainicio . ":0" .$minuto.":00";
-                                }
-                            } else {
-                                $minuto = 30;
-                                if ($horainicio < 10) {
-                                    $texto = "0" . $horainicio . ":" . $minuto;
-                                    $texto2 = "0" . $horainicio . ":" . $minuto.":00";
-                                } else {
-                                    $texto = $horainicio . ":" . $minuto;
-                                    $texto2 = $horainicio . ":" . $minuto.":00";
-                                }
-                            }
-                        }         
-                    }    
-                }
-                for ($i = 0; $i < 32; $i++) {
-                    if ($texto2 == $horaFecho){
-                        break;
+                if($_SESSION['data'] == $dataActual){
+                    while($blocoData != $horaFecho){
+                        $blocoData = date_create($blocoData);
+                        $blocoData = date_add($blocoData,date_interval_create_from_date_string("30 minutes"));
+                        $blocoData = date_format($blocoData,"H:i:s");
+                        array_push($arrayHoras, $blocoData);
                     }
-                    $flag = true;
-                    for ($j = 0; $j < count($horas); $j++) {
-                        if ($horas[$j][0] == $texto2){ 
-                            $flag = false;
-                            for($k = 0; $k < $horas[$j][1]; $k++){
-                                $marcacao .= "<button class='btn btn-primary disabled btn-small me-2 mb-sm-2'>" . $texto . "</button>";
-                                if ($minuto == 30) {
-                                    $horainicio += 1;
-                                    $minuto = 0;
-                                    if ($horainicio < 10) {
-                                        $texto = "0" . $horainicio . ":0" . $minuto;
-                                        $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
-                                    } else {
-                                        $texto = $horainicio . ":0" . $minuto;
-                                        $texto2 = $horainicio . ":0" .$minuto.":00";
-                                    }
-                                } else {
-                                    $minuto = 30;
-                                    if ($horainicio < 10) {
-                                        $texto = "0" . $horainicio . ":" . $minuto;
-                                        $texto2 = "0" . $horainicio . ":" . $minuto.":00";
-                                    } else {
-                                        $texto = $horainicio . ":" . $minuto;
-                                        $texto2 = $horainicio . ":" . $minuto.":00";
+                }
+                if($_SESSION['data'] == $dataActual){
+                    for ($i = 1; $i < count($arrayHoras); $i++){
+                        if( $horaActual < $arrayHoras[$i] &&  $horaActual > $arrayHoras[$i - 1]){
+                            $blocoData = $arrayHoras[$i];
+                            while($blocoData < $horaFecho){
+                                $flag = true;
+                                for($j = 0; $j < count($horas); $j ++){
+                                    if($horas[$j] == $blocoData){
+                                        $flag = false;
                                     }
                                 }
+                                if($flag){
+                                    $dataBotao = date_create($blocoData);
+                                    $dataBotao = date_format($dataBotao,"H:i");
+                                    $txtId = $row['id_campo'].".".$dataBotao;
+                                    $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2' value = '".$txtId."' onclick = 'marcarCampo(this.value)'>" . $dataBotao . "</button>";
+                                    $blocoData = date_create($blocoData);
+                                    $blocoData = date_add($blocoData,date_interval_create_from_date_string("30 minutes"));
+                                    $blocoData = date_format($blocoData,"H:i:s");
+                                }else{
+                                    $dataBotao = date_create($blocoData);
+                                    $dataBotao = date_format($dataBotao,"H:i");
+                                    $txtId = $row['id_campo'].".".$dataBotao;
+                                    $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2' disabled value = '".$txtId."'>" . $dataBotao . "</button>";
+                                    $blocoData = date_create($blocoData);
+                                    $blocoData = date_add($blocoData,date_interval_create_from_date_string("30 minutes"));
+                                    $blocoData = date_format($blocoData,"H:i:s");
+                                }
                             }
-                            
+
                         }
                     }
-                    if ($flag) {
-                        $txtId = "";
-                        $txtId .= $row['id_campo'].".".$texto;
-                        $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2' value = '".$txtId."' onclick = 'marcarCampo(this.value)'>" . $texto . "</button>";
-                        if ($minuto == 30) {                      
-                            $horainicio += 1;
-                            $minuto = 0;    
-                            if ($horainicio < 10) {
-                                $texto = "0" . $horainicio . ":0" . $minuto;
-                                $texto2 = "0" . $horainicio . ":0" . $minuto.":00";
-                            } else {
-                                $texto = $horainicio . ":0" . $minuto;
-                                $texto2 = $horainicio . ":0" .$minuto.":00";
-                            }
-                        } else {
-                            $minuto = 30;
-                            if ($horainicio < 10) {
-                                $texto = "0" . $horainicio . ":" . $minuto;
-                                $texto2 = "0" . $horainicio . ":" . $minuto.":00";
-                            } else {
-                                $texto = $horainicio . ":" . $minuto;
-                                $texto2 = $horainicio . ":" . $minuto.":00";
+                }else{
+                    while($blocoData < $horaFecho){
+                        $flag = true;
+                        for($j = 0; $j < count($horas); $j ++){
+                            if($horas[$j] == $blocoData){
+                                $flag = false;
                             }
                         }
+                        if($flag){
+                        $dataBotao = date_create($blocoData);
+                        $dataBotao = date_format($dataBotao,"H:i");
+                        $txtId = $row['id_campo'].".".$dataBotao;
+                        $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2' value = '".$txtId."' onclick = 'marcarCampo(this.value)'>" . $dataBotao . "</button>";
+                        $blocoData = date_create($blocoData);
+                        $blocoData = date_add($blocoData,date_interval_create_from_date_string("30 minutes"));
+                        $blocoData = date_format($blocoData,"H:i:s");
+                    }else{
+                        $dataBotao = date_create($blocoData);
+                        $dataBotao = date_format($dataBotao,"H:i");
+                        $txtId = $row['id_campo'].".".$dataBotao;
+                        $marcacao .= "<button class='btn btn-primary btn-small me-2 mb-sm-2' disabled value = '".$txtId."'>" . $dataBotao . "</button>";
+                        $blocoData = date_create($blocoData);
+                        $blocoData = date_add($blocoData,date_interval_create_from_date_string("30 minutes"));
+                        $blocoData = date_format($blocoData,"H:i:s");
                     }
-                    
+                    }
+                        
                 }
+            
+            
                 $marcacao .= "</div>
                     </div>
                   </div>
