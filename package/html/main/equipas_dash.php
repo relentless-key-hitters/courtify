@@ -157,14 +157,6 @@ if (isset($_SESSION['id'])) {?>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./calendario_dash.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-calendar"></i>
-                </span>
-                <span class="hide-menu">Calendário</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
               <a class="sidebar-link fs-4" href="./reserva_dash.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-invoice"></i>
@@ -210,14 +202,6 @@ if (isset($_SESSION['id'])) {?>
                   <i class="ti ti-report-money"></i>
                 </span>
                 <span class="hide-menu">Pagamentos</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link fs-4" href="./historico_dash.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-book"></i>
-                </span>
-                <span class="hide-menu">Histórico</span>
               </a>
             </li>
             <li class="sidebar-item">
