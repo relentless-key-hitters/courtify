@@ -298,30 +298,41 @@ if (isset($_SESSION['id'])) {?>
               </div>
             </div>
           </div>
-          <div class="col-12 text-start">
-            <h1 class="mb-0 mb-sm-0 fw-semibold fs-9">Os seus Campos</h1>
-          </div>
         </div>
 
 
-        <div class="row mb-5">
-          <div class="container mt-5">
-            <table class="table" id="tabela">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">Foto</th>
-                  <th scope="col">Nome Campo</th>
-                  <th scope="col">Modalidade</th>
-                  <th scope="col">Preço/Hora</th>
-                  <th scope="col">Reservas</th>
-                </tr>
-              </thead>
-              <tbody id="tableCampos">
+        <div class="card shadow">
+          <div class="card-body">
+          
+          <div class="d-flex justify-content-between">
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
+            <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os seus Campos</h1>
+            <button class="btn btn-primary btn-sm" style="height: 40px;" data-toggle='tooltip' data-placement='top' title='Adicione um novo campo'><i class=" ti ti-plus me-2"></i>Novo Campo</button>
+          </div>
+            <span class="card-subtitle">Consulte e administre informação sobre os seus campos nesta tabela.</span>
+            <div class="card-text">
+              <div class="row">
+                <div class="container mt-5">
+                  <table class="table" id="tabela">
+                    <thead>
+                      <tr class="text-center">
+                        <th scope="col">Foto</th>
+                        <th scope="col">Nome Campo</th>
+                        <th scope="col">Modalidade</th>
+                        <th scope="col">Preço/Hora</th>
+                        <th scope="col">Reservas</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableCampos">
 
-              </tbody>
-            </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
     <div class="col-lg-2"></div>
@@ -334,29 +345,34 @@ if (isset($_SESSION['id'])) {?>
 
     <div class="col-lg-7">
       <div class="badge-container2">
-        <div class="row mb-0 mt-5">
-          <div class="col-12 text-start">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Manutenção</h1>
-          </div>
-        </div>
 
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="d-flex justify-content-start">
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
+              <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Manutenção</h1>
+            </div>
+            <span class="card-subtitle">Consulte informações relativas á utilização dos seus campos, administrando também atualizações de manutenções.</span>
+            <div class="card-text">
+              <div class="row mb-5">
+                <div class="container mt-5">
+                  <table class="table" id="tabela1">
+                    <thead>
+                      <tr class="text-center">
+                        <th scope="col">Nome Campo</th>
+                        <th scope="col">Horas de Uso<br>(após ultima manutenção)</th>
+                        <th scope="col">Última Manutenção</th>
+                        <th scope="col">Patamar<br>(200h)</th>
+                        <th scope="col">Data última Manutenção</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableCampos2">
 
-        <div class="row mb-5">
-          <div class="container mt-5">
-            <table class="table" id="tabela1">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">Nome Campo</th>
-                  <th scope="col">Horas de Uso<br>(após ultima manutenção)</th>
-                  <th scope="col">Última Manutenção</th>
-                  <th scope="col">Patamar<br>(200h)</th>
-                  <th scope="col">Data última Manutenção</th>
-                </tr>
-              </thead>
-              <tbody id="tableCampos2">
-
-              </tbody>
-            </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
