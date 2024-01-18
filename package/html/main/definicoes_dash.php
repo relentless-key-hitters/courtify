@@ -200,7 +200,7 @@ if (isset($_SESSION['id'])) {?>
     <div class="col-lg-10">
       <div class="container">
         <div class="row mt-3">
-          <div class="col-lg-12">
+          <div class="col-lg-12 mb-4">
             <div class="card bg-light-info shadow-none position-relative overflow-hidden">
               <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
