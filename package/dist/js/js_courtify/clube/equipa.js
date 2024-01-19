@@ -1,34 +1,3 @@
-function getEquipasUser() {
-    let dados = new FormData();
-    dados.append("op", 1);
-
-    $.ajax({
-        url: "../../dist/php/clube/controllerEquipa.php",
-        method: "POST",
-        data: dados,
-        dataType: "html",
-        cache: false,
-        contentType: false,
-        processData: false,
-    })
-
-        .done(function (msg) {
-            $("#equipasUser").html(msg);
-            let dados = new FormData();
-            dados.append("op", 1);
-
-        })
-
-
-        .fail(function (jqXHR, textStatus) {
-                    alert("Request failed: " + textStatus);
-        });
-    }
-
-
-
-
-
 function regEquipa() {
 
     let dados = new FormData();
@@ -71,10 +40,6 @@ function regEquipa() {
 
 function getListaEquipa() {
 
-    if ($.fn.DataTable.isDataTable('#tabelaEquipa')) {
-        $('#tabelaEquipa').DataTable().destroy();
-    }
-
     let dados = new FormData();
     dados.append("op", 3);
 
@@ -90,9 +55,14 @@ function getListaEquipa() {
     })
 
         .done(function (msg) {
-
             $('#listaEquipa').html(msg);
-            $('#tabelaEquipa').DataTable();
+            $('#tabelaEquipa').DataTable(
+                {
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/pt-PT.json',
+                    }
+                }
+            );
 
         })
 
@@ -235,7 +205,6 @@ function alerta(titulo, msg, icon) {
 
 
 $(function () {
-    $('#tabelaEquipa').DataTable();
     getListaEquipa();
 
 });

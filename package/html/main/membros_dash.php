@@ -34,7 +34,7 @@ if (isset($_SESSION['id'])) { ?>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
 
 
-    <style>
+    <!--<style>
       body {
         overflow-x: hidden;
       }
@@ -97,7 +97,7 @@ if (isset($_SESSION['id'])) { ?>
         border: 1px solid white;
         border-radius: 6px;
       }
-    </style>
+    </style>-->
 
   </head>
 
@@ -224,119 +224,155 @@ if (isset($_SESSION['id'])) { ?>
       <!--  Main wrapper -->
     </div>
 
-    <div class="body-wrapper">
-      <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-6" style="position: relative;">
-          <div>
-            <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px">
-              Clube de Padel de Évora</h1>
+  <div class="body-wrapper">
+    <div class="row pe-5 mb-3">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-7">
+          <div class="container">
+            <div>
+              <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube"></h1>
+            </div>
           </div>
         </div>
         <div class="col-lg-2"></div>
-      </div>
     </div>
-    <div class="dark-transparent sidebartoggler"></div>
-    <div class="dark-transparent sidebartoggler"></div>
+  </div>
+  <div class="dark-transparent sidebartoggler"></div>
+  <div class="dark-transparent sidebartoggler"></div>
 
 
 
-    <div class="row">
-      <div class="col-lg-3">
-
-      </div>
-
-      <div class="col-lg-7">
-        <div class="badge-container2">
-          <div class="row mb-0 mt-5">
-            <div class="col-12 text-center">
-              <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Membros</h1>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-lg-2">
 
 
-      </div>
 
-      <div class="col-lg-3">
+  <div class="row">
+    <div class="col-lg-3">
 
-
-      </div>
-
-      <div class="col-lg-7">
-        <div class="row mb-5">
-          <div class="container mt-5">
-            <table class="table text-center" id="tabelaMembros">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">ID (NIF)</th>
-                  <th scope="col">Foto</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Data de Nascimento</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Nº Jogos Realizados</th>
-                  <th scope="col">Equipa</th>
-                  <th scope="col">Remover</th>
-                </tr>
-              </thead>
-              <tbody id="tableMembros">
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2"></div>
     </div>
 
-    <div class="modal fade" id="modalRemoverMembro" tabindex="-1" aria-labelledby="modalRemoverMembroLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class='modal-header'>
-            <div class='d-flex'>
-              <img src='../../dist/images/logos/favicon.ico' alt='' height='40' width='40' class='mt-2 ms-2'>
-              <h1 class='mb-0 mt-2 ms-2 fs-6 p-1' id='modalAlterarPrecoLabel'>Remover Membro</h1>
-            </div>
-            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
-          </div>
-          <div class='modal-body'>
-            <div class='row'>
-              <div class='col-lg-12'>
-                <p id ="corpoModalRemoverMembro"></p>
+    <div class="col-lg-7">
+      <div class="badge-container2">
+        <div class="row mb-4 mt-3">
+          <div class="col-lg-12">
+            <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+              <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                  <div class="col-9">
+                    <h3 class="fw-semibold mb-8"><i class="ti ti-soccer-field me-2"></i>Membros</h3>
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Membros</li>
+                      </ol>
+                    </nav>
+                  </div>
+                  <div class="col-3">
+                    
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class='modal-footer'>
-            <button type='button' class='btn btn-primary' data-bs-dismiss='modal' id="botaoGuardar">Salvar</button>
-            <button type='button' class='btn btn-light' data-bs-dismiss='modal'>Fechar</button>
+        </div>
+
+
+        <div class="card shadow">
+          <div class="card-body">
+          
+          <div class="d-flex justify-content-between">
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
+            <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os seus Membros</h1>
+            <button class="btn btn-primary btn-sm" style="height: 40px;" data-toggle='tooltip' data-placement='top' title='Adicione um novo campo'><i class=" ti ti-plus me-2"></i>Adicionar Membro</button>
+          </div>
+            <span class="card-subtitle">Consulte e administre informação sobre os membros das suas equipas nesta tabela.</span>
+            <div class="card-text">
+              <div class="row">
+                <div class="container mt-5">
+                  <table class="table" id="tabelaMembros">
+                    <thead>
+                      <tr class="text-center">
+                        <th scope="col">ID (NIF)</th>
+                        <th scope="col">Foto</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Nº Jogos Realizados</th>
+                        <th scope="col">Equipa</th>
+                        <th scope="col">Remover</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableMembros">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
+    <div class="col-lg-2"></div>
+  </div>
 
 
-    <div class="row">
-      <div class="col-lg-2"></div>
-      <div class="col-lg-9">
-        <div style="margin-left: 60px; margin-right: 60px;">
-          <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
 
-            <a href="#" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-              <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-            </a>
-            <div>
-              <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+
+
+
+
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-9">
+      <div style="margin-left: 60px; margin-right: 60px;">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+
+          <a href="#" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+          </a>
+          <div>
+            <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+          </div>
+
+        </footer>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+
+
+
+
+
+
+  <div class="modal fade" id="modalRemoverMembro" tabindex="-1" aria-labelledby="modalRemoverMembroLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class='modal-header'>
+          <div class='d-flex'>
+            <img src='../../dist/images/logos/favicon.ico' alt='' height='40' width='40' class='mt-2 ms-2'>
+            <h1 class='mb-0 mt-2 ms-2 fs-6 p-1' id='modalAlterarPrecoLabel'>Remover Membro</h1>
+          </div>
+          <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+        </div>
+        <div class='modal-body'>
+          <div class='row'>
+            <div class='col-lg-12'>
+              <p id ="corpoModalRemoverMembro"></p>
             </div>
-
-          </footer>
+          </div>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-primary' data-bs-dismiss='modal' id="botaoGuardar">Salvar</button>
+          <button type='button' class='btn btn-light' data-bs-dismiss='modal'>Fechar</button>
         </div>
       </div>
-      <div class="col-lg-1"></div>
     </div>
-
+  </div>
 
 
     <!--  Import Js Files -->

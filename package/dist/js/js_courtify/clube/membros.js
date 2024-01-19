@@ -18,7 +18,11 @@ function getMembros(){
                 $('#tabelaMembros').DataTable().destroy()
             }
             $("#tableMembros").html(msg)
-            $('#tabelaMembros').DataTable();
+            $('#tabelaMembros').DataTable( {
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/pt-PT.json',
+                }
+            });
         })
         
         .fail(function( jqXHR, textStatus ) {
@@ -63,8 +67,33 @@ function guardaRemoverMembro(idMembro, idEquipa){
 
 }
 
+function getNomeClube() {
+    let dados = new FormData();
+    dados.append("op", 4);
+
+    $.ajax({
+        url: "../../dist/php/controllerClube.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+
+    .done(function (msg) {
+        $("#nomeClube").html("<i class='ti ti-building me-2'></i>" + msg)
+    })
+
+    .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    })
+
+}
+
+
 $(function () {
-    $('#tabelaMembros').DataTable();
     getMembros();
+    getNomeClube();
 
 });
