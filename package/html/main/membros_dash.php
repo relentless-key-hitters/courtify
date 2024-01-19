@@ -412,6 +412,7 @@ if (isset($_SESSION['id'])) {?>
     <!--  current page js files -->
     <script src="../../dist/js/js_courtify/clube/clubeLogout.js"></script>
     <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="../../dist/js/js_courtify/clube/membros.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

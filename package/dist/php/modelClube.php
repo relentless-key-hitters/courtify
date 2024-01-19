@@ -1072,6 +1072,43 @@ class Clube{
 
     }
 
+    function getMembros(){
+        global $conn;
+        $sql = "SELECT comunidade.id, modalidade.descricao
+        FROM comunidade INNER JOIN modalidade ON 
+        modalidade.id = comunidade.id_modalidade 
+        WHERE comunidade.id_atletaHost = ".$_SESSION['id'];
+        $result = $conn -> query($sql);
+        $modalidade= "";
+        if($result -> num_rows >0){
+            while($row = $result -> fetch_assoc()){
+
+
+            }
+        }
+        $sql2 = "SELECT user.nome, user.foto, user.email, atleta.data_nasc, temp.n_jogos
+        FROM user 
+        INNER JOIN atleta ON user.id = atleta.id_atleta 
+        INNER JOIN comunidade_atletas ON atleta.id_atleta = comunidade_atletas.id_atleta
+        INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id,
+        (SELECT info_padel.n_jogos, info_padel.id_atleta 
+        FROM info_padel 
+        WHERE info_padel.id_atleta IN (
+        SELECT user.id
+        FROM user 
+        INNER JOIN atleta ON user.id = atleta.id_atleta 
+        INNER JOIN comunidade_atletas ON atleta.id_atleta = comunidade_atletas.id_atleta
+        INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
+        WHERE comunidade.id_atletaHost = 7 
+        )
+        )AS temp
+        WHERE comunidade.id = 4
+        AND temp.id_atleta = atleta.id_atleta 
+        GROUP BY atleta.id_atleta ";
+
+        $conn -> close();
+    }
+
 }
 
 ?>

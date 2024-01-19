@@ -83,6 +83,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 20){
     $res = $clube -> guardaFotoCampo($_POST['idCampo'], $_FILES);
     echo($res);
+}else if($_POST['op'] == 21){
+    $res = $clube -> getMembros();
+    echo($res);
 }
 
 ?>
