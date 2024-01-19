@@ -277,14 +277,11 @@ if (isset($_SESSION['id'])) {?>
                 <th scope="col">Foto</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Data de Nascimento</th>
-                <th scope="col">Email</th>
-                <th scope="col">Nível</th>
                 <th scope="col">Nº Jogos Realizados</th>
-                <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id= "tableMembros">
 
               <tr class="text-center">
                 <td>18994647</td>
@@ -293,134 +290,10 @@ if (isset($_SESSION['id'])) {?>
                 <td>Pedro Barros</td>
                 <td>1993-01-01</td>
                 <td>pf_barros@outlook.com</td>
-                <td>N3</td>
                 <td>23</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
                 <td><button type="button" class="btn btn-sm ti ti-x text-white"
                     style="background-color: firebrick;"></button></td>
               </tr>
-
-              <tr class="text-center">
-                <td>14748396</td>
-                <td><img src="./../../dist/images/profile/boy10.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Rui Silva</td>
-                <td>1998-08-12</td>
-                <td>rui_silva@gmail.pt</td>
-                <td>N4</td>
-                <td>89</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>17663428</td>
-                <td><img src="./../../dist/images/profile/boy12.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Filipe Serra</td>
-                <td>1995-09-01</td>
-                <td>serra_filipe@outlook.com</td>
-                <td>N2</td>
-                <td>292</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>14537272</td>
-                <td><img src="./../../dist/images/profile/boy2.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Félix Cunha</td>
-                <td>2004-06-18</td>
-                <td>felix_2004@hotmail.com</td>
-                <td>N4</td>
-                <td>16</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>13898092</td>
-                <td><img src="./../../dist/images/profile/boy.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Fernando Gomes</td>
-                <td>1980-03-09</td>
-                <td>frt_gomes@outlook.com</td>
-                <td>N3</td>
-                <td>178</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>14728323</td>
-                <td><img src="./../../dist/images/profile/boy3.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Mário Pato</td>
-                <td>1972-08-29</td>
-                <td>pf_barros@outlook.com</td>
-                <td>N3</td>
-                <td>143</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>14129982</td>
-                <td><img src="./../../dist/images/profile/boy4.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Alexandre Ribeiro</td>
-                <td>1999-01-07</td>
-                <td>alex_0909@outlook.com</td>
-                <td>N4</td>
-                <td>89</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>14538990</td>
-                <td><img src="./../../dist/images/profile/girl.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Ana Torres</td>
-                <td>1998-09-01</td>
-                <td>ana_torres167</td>
-                <td>N5</td>
-                <td>29</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>16729281</td>
-                <td><img src="./../../dist/images/profile/girl2.jpg" alt="Thumbnail 1"
-                    class="object-fit-cover rounded-2" width="30" height="30"></td>
-                <td>Filipa Sousa</td>
-                <td>1993-04-04</td>
-                <td>sousa_fil19@outlook.com</td>
-                <td>N4</td>
-                <td>54</td>
-                <td><button type="button" class="btn btn-sm ti ti-pencil text-white" data-toggle="modal"
-                    data-target="#editMembrosModal" style="background-color: gold;"></button></td>
-                <td><button type="button" class="btn btn-sm ti ti-x text-white"
-                    style="background-color: firebrick;"></button></td>
-              </tr>
-
             </tbody>
           </table>
         </div>
