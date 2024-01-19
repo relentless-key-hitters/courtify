@@ -86,6 +86,9 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 21){
     $res = $clube -> getMembros();
     echo($res);
+}else if($_POST['op'] == 22){
+    $res = $clube -> guardaRemoverMembro($_POST['idMembro'], $_POST['idEquipa']);
+    echo($res);
 }
 
 ?>

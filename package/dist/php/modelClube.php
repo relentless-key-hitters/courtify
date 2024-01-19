@@ -1074,39 +1074,89 @@ class Clube{
 
     function getMembros(){
         global $conn;
-        $sql = "SELECT comunidade.id, modalidade.descricao
+        $sql = "SELECT comunidade.id, modalidade.descricao, comunidade.nome
         FROM comunidade INNER JOIN modalidade ON 
         modalidade.id = comunidade.id_modalidade 
         WHERE comunidade.id_atletaHost = ".$_SESSION['id'];
         $result = $conn -> query($sql);
-        $modalidade= "";
+        $tabela= "";
+        $msg = "";
         if($result -> num_rows >0){
             while($row = $result -> fetch_assoc()){
-
-
+                if($row['descricao'] == "Basquetebol"){
+                    $tabela = "info_basquetebol";
+                }else if($row['descricao'] == "Futsal"){
+                    $tabela = "info_futsal";
+                }else if($row['descricao'] == "Padel"){
+                    $tabela = "info_padel";
+                }else{
+                    $tabela = "info_tenis";
+                }
+                $sql2 = "SELECT user.nome,user.id, user.foto, user.email, atleta.data_nasc, temp.n_jogos, user.nif
+                FROM user 
+                INNER JOIN atleta ON user.id = atleta.id_atleta 
+                INNER JOIN comunidade_atletas ON atleta.id_atleta = comunidade_atletas.id_atleta
+                INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id,
+                (SELECT ".$tabela.".n_jogos, ".$tabela.".id_atleta 
+                FROM ".$tabela."
+                WHERE ".$tabela.".id_atleta IN (
+                SELECT user.id
+                FROM user 
+                INNER JOIN atleta ON user.id = atleta.id_atleta 
+                INNER JOIN comunidade_atletas ON atleta.id_atleta = comunidade_atletas.id_atleta
+                INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
+                WHERE comunidade.id = ".$row['id']."
+                )
+                )AS temp
+                WHERE comunidade.id = ".$row['id']."
+                AND temp.id_atleta = atleta.id_atleta 
+                GROUP BY atleta.id_atleta ";
+                $result2 = $conn -> query($sql2); 
+                if($result2 -> num_rows >0){
+                    while($row2 = $result2 -> fetch_assoc()){
+                        $msg .= "<tr class='text-center'>
+                        <td>".$row2['nif']."</td>
+                        <td><img src='../../dist/".$row2['foto']."' alt='Thumbnail 1'
+                            class='object-fit-cover rounded-2' width='30' height='30'></td>
+                        <td>".$row2['nome']."</td>
+                        <td>".$row2['data_nasc']."</td>
+                        <td>".$row2['email']."</td>
+                        <td>".$row2['n_jogos']."</td>
+                        <td>".$row['nome']."</td>
+                        <td><button type='button' class='btn btn-sm ti ti-x text-white'
+                            style='background-color: firebrick;' onclick=\"removerMembroEquipa(".$row2['id'].", ".$row['id'].", '".$row['nome']."')\"></button></td>
+                    </tr>";
+                    }
+                }
             }
         }
-        $sql2 = "SELECT user.nome, user.foto, user.email, atleta.data_nasc, temp.n_jogos
-        FROM user 
-        INNER JOIN atleta ON user.id = atleta.id_atleta 
-        INNER JOIN comunidade_atletas ON atleta.id_atleta = comunidade_atletas.id_atleta
-        INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id,
-        (SELECT info_padel.n_jogos, info_padel.id_atleta 
-        FROM info_padel 
-        WHERE info_padel.id_atleta IN (
-        SELECT user.id
-        FROM user 
-        INNER JOIN atleta ON user.id = atleta.id_atleta 
-        INNER JOIN comunidade_atletas ON atleta.id_atleta = comunidade_atletas.id_atleta
-        INNER JOIN comunidade ON comunidade_atletas.id_comunidade = comunidade.id
-        WHERE comunidade.id_atletaHost = 7 
-        )
-        )AS temp
-        WHERE comunidade.id = 4
-        AND temp.id_atleta = atleta.id_atleta 
-        GROUP BY atleta.id_atleta ";
 
         $conn -> close();
+        return($msg);
+    }
+
+    function guardaRemoverMembro($idMembro, $idEquipa){
+        global $conn;
+        $sql = "DELETE FROM comunidade_atletas WHERE id_comunidade = ".$idEquipa." AND id_atleta = ".$idMembro."";
+        $title = "Successo";
+        $msg = "Alterado com sucesso!";
+        $icon = "success";
+
+        if (!$conn->query($sql)) {
+            $title = "Erro";
+            $msg = "Não foi possível alterar a data!";
+            $icon = "error";
+        }
+
+        $conn -> close();
+
+        $resp = json_encode(array(
+            'title' => $title,
+            'msg' => $msg,
+            'icon' => $icon
+        ));
+
+        return($resp);
     }
 
 }
