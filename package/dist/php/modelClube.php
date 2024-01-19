@@ -1026,26 +1026,6 @@ class Clube{
         return($resp);
     }
 
-    function alterarFotoCampo($fotoClubeCampoNova) {
-        global $conn;
-        $respUpdate = $this->uploads2($fotoClubeCampoNova, $_SESSION['id']);
-        $respUpdate = json_decode($respUpdate, TRUE);
-        $sql = "UPDATE user SET foto = '" . $respUpdate['target'] . "' WHERE id = " . $_SESSION['id'];
-        $msg = "";
-        $icon = "success";
-        $title = "Sucesso";
-        if ($conn->query($sql) === TRUE) {
-            $msg = "Foto de perfil alterada com sucesso!";
-        } else {
-            $msg = "Não foi possível alterar a sua foto de perfil";
-            $icon = "error";
-            $title = "Erro";
-        }
-        $conn->close();
-        return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
-        
-    }
-
     function alterarFotoCampoClube($id){
 
         global $conn;
