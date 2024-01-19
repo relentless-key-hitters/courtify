@@ -89,6 +89,12 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 22){
     $res = $clube -> guardaRemoverMembro($_POST['idMembro'], $_POST['idEquipa']);
     echo($res);
+}else if($_POST['op'] == 23){
+    $res = $clube -> getReservas();
+    echo($res);
+}else if($_POST['op'] == 24){
+    $res = $clube -> cancelarReserva($_POST['idMarcacao']);
+    echo($res);
 }
 
 ?>

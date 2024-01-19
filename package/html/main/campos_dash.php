@@ -289,7 +289,7 @@ if (isset($_SESSION['id'])) {?>
 
         <div class="card shadow">
           <div class="card-body">
-          
+
           <div class="d-flex justify-content-between">
             <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
             <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os seus Campos</h1>
