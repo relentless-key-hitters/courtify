@@ -260,7 +260,7 @@ if (isset($_SESSION['id'])) { ?>
               <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                   <div class="col-9">
-                    <h3 class="fw-semibold mb-8"><i class="ti ti-soccer-field me-2"></i>Membros</h3>
+                    <h3 class="fw-semibold mb-8"><i class="ti ti-users me-2"></i>Membros</h3>
                     <nav aria-label="breadcrumb">
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
