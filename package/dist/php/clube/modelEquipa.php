@@ -6,7 +6,45 @@ require_once '../connection.php';
 
 class Equipa {
 
-    function regEquipaModel($nome, $mod, $desc, $rank, $estado, $imagem, $tp){
+    function uploads($img, $id){
+
+        $dir = "../images/equipa/".$id."/";
+        $dir1 = "images/equipa/".$id."/";
+        $flag = false;
+        $targetBD = "";
+
+        if(!is_dir($dir)){
+            if(!mkdir($dir, 0777, TRUE)){
+                die ("Erro não é possivel criar o diretório");
+            }
+        }
+        if(array_key_exists('imagemEq', $img)){
+        if(is_array($img)){
+            if(is_uploaded_file($img['imagemEq']['tmp_name'])){
+            $fonte = $img['imagemEq']['tmp_name'];
+            $ficheiro = $img['imagemEq']['name'];
+            $end = explode(".",$ficheiro);
+            $extensao = end($end);
+
+            $newName = "equipa".date("YmdHis").".".$extensao;
+
+            $target = $dir.$newName;
+            $targetBD = $dir1.$newName;
+
+            $flag = move_uploaded_file($fonte, $target);
+            
+            } 
+        }
+        }
+        return (json_encode(array(
+            "flag" => $flag,
+            "target" => $targetBD
+        )));
+
+
+    }
+
+    function regEquipaModel($nome, $mod, $desc, $imagem){
 
         global $conn;
         $msg = "";
@@ -14,7 +52,7 @@ class Equipa {
         $tp = 2;
         $rank = NULL;
 
-        $resp = $this -> uploads($logo, $id);
+        $resp = $this -> uploads($imagem, $id);
         $resp = json_decode($resp, TRUE);
 
         if($resp['flag']){
@@ -179,43 +217,6 @@ class Equipa {
         return($resp);
     }
 
-    function uploads($img, $id){
-
-        $dir = "../images/equipa/".$id."/";
-        $dir1 = "images/equipa/".$id."/";
-        $flag = false;
-        $targetBD = "";
-
-        if(!is_dir($dir)){
-            if(!mkdir($dir, 0777, TRUE)){
-                die ("Erro não é possivel criar o diretório");
-            }
-        }
-        if(array_key_exists('imagemEq', $img)){
-        if(is_array($img)){
-            if(is_uploaded_file($img['imagemEq']['tmp_name'])){
-            $fonte = $img['imagemEq']['tmp_name'];
-            $ficheiro = $img['imagemEq']['name'];
-            $end = explode(".",$ficheiro);
-            $extensao = end($end);
-
-            $newName = "equipa".date("YmdHis").".".$extensao;
-
-            $target = $dir.$newName;
-            $targetBD = $dir1.$newName;
-
-            $flag = move_uploaded_file($fonte, $target);
-            
-            } 
-        }
-        }
-        return (json_encode(array(
-            "flag" => $flag,
-            "target" => $targetBD
-        )));
-
-
-    }
 
 }
 

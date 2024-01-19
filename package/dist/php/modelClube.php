@@ -41,8 +41,9 @@ class Clube{
     function uploads2($img, $id, $nomeClube)
     {
 
-        $dir = "../images/clubes/".$nomeClube."/";
-        $dir1 = "../../dist/images/clubes/".$nomeClube."/";
+        $dir = "../images/clubes/". strtolower(str_replace(' ', '_', $nomeClube)) ."/";
+
+        $dir1 = "../../dist/images/clubes/".strtolower(str_replace(' ', '_', $nomeClube))."/";
         $flag = false;
         $targetBD = "";
 

@@ -19,7 +19,7 @@ if (isset($_SESSION['id'])) { ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--  Favicon -->
     <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
-    
+
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
@@ -285,7 +285,7 @@ if (isset($_SESSION['id'])) { ?>
               <div class="d-flex justify-content-between">
                 <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
                 <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">As suas Equipas</h1>
-                <button class="btn btn-primary btn-sm" style="height: 40px;" data-toggle='tooltip' data-placement='top' title='Adicione um novo campo'><i class=" ti ti-plus me-2"></i>Nova Equipa</button>
+                <button class="btn btn-primary btn-sm" style="height: 40px;" data-toggle='tooltip' data-placement='top' title='Adicione um novo campo' data-bs-toggle="modal" data-bs-target="#teamModal"><i class=" ti ti-plus me-2"></i>Nova Equipa</button>
               </div>
               <span class="card-subtitle">Consulte e administre informação sobre as suas equipas nesta tabela.</span>
               <div class="card-text">
@@ -355,85 +355,60 @@ if (isset($_SESSION['id'])) { ?>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title fs-7" id="teamModalLabel">Criar Equipa</h5>
-            <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal" aria-label="Close">
-              <span> <i class="ti ti-x text-white"></i></span>
-            </button>
+            <div class='d-flex'>
+              <img src='../../dist/images/logos/favicon.ico' alt='' height='40' width='40' class='mt-2 ms-2'>
+              <h1 class='mb-0 mt-2 ms-2 fs-6 p-1' id='teamModalLabel'>Nova Equipa</h1>
+            </div>
+            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
           </div>
-
           <div class="modal-body">
-            <div class="row">
-              <div class="col-md-5 pt-4">
-                <div class="form-group">
-                  <label for="nomeEq">Nome</label>
-                  <input type="text" class="form-control" id="nomeEq">
-                </div>
-              </div>
-
-              <div class="col-md-4 pt-4">
-                <div class="form-group">
-                  <label for="imagemEq">Imagem</label>
-                  <input type="file" class="form-control" id="imagemEq" accept="image/*">
-                  <small class="form-text text-muted">Selecione uma imagem para a equipa</small>
-                </div>
-              </div>
-
-              <div class="col-md-4 pt-4">
-                <div class="form-group">
-                  <label for="modEq">Modalidade</label>
-                  <select class="form-select" id="modEq">
-                    <option class="text-muted" value="" selected disabled>Escolha a modalidade</option>
-                    <option value="3">Padel</option>
-                    <option value="4">Ténis</option>
-                    <option value="1">Basquetebol</option>
-                    <option value="2">Futsal</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2 pt-4">
-                <label for="descEq">Descrição</label>
-              </div>
-            </div>
-
-            <div class="row">
+            <form class="row g-3">
               <div class="col-md-12">
-                <textarea id="descEq" cols="6" rows="3" class="form-control"></textarea>
+                <div class="d-flex flex-column gap-3 align-items-center">
+                  <img src="" class="img-fluid img-thumbnail d-none" width="200" alt="" id="imgNovaEquipa">
+                  <div class="col-md-6 text-center">
+                    <label for="fotoNovaEquipa" class="form-label">Foto</label>
+                    <input type="file" class="form-control" id="fotoNovaEquipa" accept="image/png, image/gif, image/jpeg" onchange="previewImagemNovaEquipa()">
+                    <small class="mb-0">Permitido JPG ou PNG. Tamanho máximo de 10MB.</small>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="rankEq">Ranking</label>
-                <select class="form-select" id="rankEq">
-                  <option class="text-muted" value="" selected disabled>Escolha o ranking da equipa</option>
-                  <option value="sc">Sem Classificação</option>
-                  <option value="n5">N5</option>
-                  <option value="n4">N4</option>
-                  <option value="n3">N3</option>
-                  <option value="n2">N2</option>
-                  <option value="n1">N1</option>
+              <div class="col-md-7">
+                <label for="nomeNovaEquipa" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nomeNovaEquipa">
+              </div>
+              <div class="col-md-5">
+                <label for="modalidadeNovaEquipa" class="form-label">Modalidade</label>
+                <select class="form-select" id="modalidadeNovaEquipa">
+                  <option value="-1" selected disabled>Selecione uma opção</option>
+                  <option value="1">Basquetebol</option>
+                  <option value="2">Futsal</option>
+                  <option value="3">Padel</option>
+                  <option value="4">Ténis</option>
                 </select>
               </div>
-            </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="estadoEq">Estado</label>
-                <select class="form-select" id="estadoEq">
-                  <option class="text-muted" value="" selected disabled>Escolha o estado da equipa</option>
-                  <option value="aberto">Aberto</option>
-                  <option value="fechado">Fechado</option>
-                </select>
+              <div class="col-12">
+                <label for="descricaoNovaEquipa" class="form-label">Descrição</label>
+                <textarea name="" class="form-control" cols="20" rows="8" id="descricaoNovaEquipa" maxlength="500"></textarea>
               </div>
-            </div>
+              <div class="col-12">
+                <h1 class='m-0 fs-5 mb-1 mb-3'>Adicionar Membros</h1>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="card shadow">
+                        <div class="p-3">
+                          
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </form>
           </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success">Guardar</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success">Guardar</button>
+          </div>
         </div>
       </div>
     </div>

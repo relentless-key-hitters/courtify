@@ -1,13 +1,11 @@
 function regEquipa() {
 
     let dados = new FormData();
-    dados.append("op", 2);
-    dados.append("nomeEq", $('#nomeEq').val());
-    dados.append("modEq", $('#modEq').val());
-    dados.append("descEq", $('#descEq').val());
-    dados.append("rankEq", $('#rankEq').val());
-    dados.append("estadoEq", $('#estadoEq').val());
-    dados.append("imagemEq", $('#imagemEq').prop('files')[0]);
+    dados.append("op", 1);
+    dados.append("nomeEq", $('#nomeNovaEquipa').val());
+    dados.append("modEq", $('#modalidadeNovaEquipa').val());
+    dados.append("descEq", $('#descricaoNovaEquipa').val());
+    dados.append("imagemEq", $('#fotoNovaEquipa').prop('files')[0]);
 
 
     $.ajax({
@@ -21,7 +19,6 @@ function regEquipa() {
     })
 
         .done(function (msg) {
-
             let obj = JSON.parse(msg);
             if (obj.flag) {
                 alerta("Equipa", obj.msg, "success");
@@ -29,7 +26,6 @@ function regEquipa() {
             } else {
                 alerta("Equipa", obj.msg, "error");
             }
-
         })
 
         .fail(function (jqXHR, textStatus) {
@@ -41,7 +37,7 @@ function regEquipa() {
 function getListaEquipa() {
 
     let dados = new FormData();
-    dados.append("op", 3);
+    dados.append("op", 2);
 
 
     $.ajax({
@@ -76,7 +72,7 @@ function getDadosEquipa(id) {
 
 
     let dados = new FormData();
-    dados.append("op", 4);
+    dados.append("op", 3);
     dados.append("id", id);
 
     $.ajax({
@@ -116,7 +112,7 @@ function getDadosEquipa(id) {
 function guardaEditEquipa(id) {
 
     let dados = new FormData();
-    dados.append("op", 5);
+    dados.append("op", 4);
     dados.append("idEq", id);
     dados.append("nomeEq", $('#nomeEditEquipa').val());
     dados.append("modEq", $('#modEditEquipa').val());
@@ -159,7 +155,7 @@ function guardaEditEquipa(id) {
 function removerEquipa(id) {
 
     let dados = new FormData();
-    dados.append("op", 6);
+    dados.append("op", 5);
     dados.append("id", id);
 
     $.ajax({
