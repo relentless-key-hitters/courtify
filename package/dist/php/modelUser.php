@@ -2438,8 +2438,10 @@ class User
 
         $sql = "SELECT DISTINCT user.id,
                         user.nome,
+                        0 as tipo_comunidade,
                         user.foto,
                         'N/A' AS descricao,
+                        0 as nomeUser,
                         user.tipo_user,
                         concelho.descricao AS concelho, 
                 IF(amigo_status.are_friends = 1, 1, 0) AS are_friends
@@ -2462,14 +2464,17 @@ class User
 
                 SELECT comunidade.id,
                 comunidade.nome,
+                comunidade.tipo_comunidade,
                 comunidade.foto,
                 modalidade.descricao,
+                user.nome as nomeUser,
                 0 AS tipo_user, 
                 NULL AS descricao,
                 NULL AS are_friends  
                 FROM comunidade
                 INNER JOIN
-                modalidade ON comunidade.id_modalidade = modalidade.id";
+                modalidade ON comunidade.id_modalidade = modalidade.id
+                INNER JOIN user ON comunidade.id_atletaHost = user.id";
 
         $result = $conn->query($sql);
 
@@ -2511,11 +2516,16 @@ class User
                 } else {
                     $msg .= "<li class='p-1 mb-1 bg-hover-light-black'>
                         <div class='d-flex justify-content-between align-items-center'>
-                            <div class='d-flex align-items-center gap-3'>
-                                <i class='ti ti-users fs-5' data-toggle='tooltip' data-bs-placement='top' title='Grupo'></i>
-                                <a href='./grupo.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
-                                <a href='./grupo.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>";
-
+                            <div class='d-flex align-items-center gap-3'>";
+                            if($row['tipo_comunidade'] == 1) {
+                                $msg .= "<i class='ti ti-users fs-5' data-toggle='tooltip' data-bs-placement='top' title='Grupo'></i>
+                                         <a href='./grupo.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
+                                         <a href='./grupo.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>";
+                            } else {
+                                $msg .= "<i class='ti ti-shirt-sport fs-5' data-toggle='tooltip' data-bs-placement='top' title='Equipa'></i>
+                                         <a href='./equipa.php?id=" . $row['id'] . "'><img src='../../dist/" . $row['foto'] . "' class='rounded-circle border border-1 border-primary' width='40' height='40'></a>
+                                         <a href='./equipa.php?id=" . $row['id'] . "'><span class='fs-4 text-black fw-normal d-block'>" . $row['nome'] . "</span></a>";
+                            }
                     if ($row['descricao'] == "Basquetebol") {
                         $msg .= "<span class='badge rounded-pill text-bg-warning'><i
                                     class='ti ti-ball-basketball me-1'></i><small>Basquetebol</small></span>";
@@ -2523,11 +2533,15 @@ class User
                         $msg .= "<span class='badge rounded-pill text-bg-danger'><i
                                     class='ti ti-ball-football me-1'></i><small>Futsal</small></span>";
                     } else if ($row['descricao'] == "Padel") {
-                        $msg .= "<span class='badge rounded-pill text-bg-primary mt-2 fs-5'><i
+                        $msg .= "<span class='badge rounded-pill text-bg-primary'><i
                                     class='ti ti-ball-tennis me-1'></i><small>Padel</small></span>";
                     } else {
-                        $msg .= "<span class='badge rounded-pill text-bg-success mt-2 fs-5'><i
+                        $msg .= "<span class='badge rounded-pill text-bg-success'><i
                                     class='ti ti-ball-tennis me-1'></i><small>Ténis</small></span>";
+                    }
+
+                    if($row['tipo_comunidade'] == 2) {
+                       $msg .= "<span class='d-none d-md-block'><i class='ti ti-building me-1'></i>" . $row['nomeUser'] . "</span>";
                     }
 
                     $msg .= "</div>
