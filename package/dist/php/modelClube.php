@@ -1185,7 +1185,8 @@ class Clube{
                 $horaFim = date_create($row['hora_fim']);
                 $horaInicio = date_format($horaInicio,"H:i");
                 $horaFim = date_format($horaFim,"H:i");
-                $msg .= "<tr class='text-center'>
+                $msg .= "<tr class=''>
+                    <td>".$row['id']."</td>
                     <td>".$row['nomeAtleta']."</td>
                     <td>".$row['data_inicio']."</td>
                     <td>".$horaInicio." - ".$horaFim."</td>
