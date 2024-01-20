@@ -12,7 +12,6 @@ if($_POST['op'] == 1){
         $_POST['descEq'],
         $_FILES
     );
-   
 
     echo($resp);
 
@@ -30,13 +29,13 @@ if($_POST['op'] == 1){
 
 
     $resp = $equipa -> guardaEditEquipaModel(
+        $_POST['idEq'],
         $_POST['nomeEq'],
+        $_POST['modEq'],
         $_POST['descEq'],
-        $_POST['rankEq'],
-        $_POST['estadoEq'],
-        $_FILES
-
+        isset($_FILES['imagemEq']) ? $_FILES['imagemEq'] : null
     );
+
     echo ($resp);
 
 } else if($_POST['op'] == 5){
