@@ -1160,6 +1160,73 @@ class Clube{
         return($resp);
     }
 
+    function getReservas(){
+        global $conn;
+        $sql = "SELECT marcacao.id, marcacao.data_inicio, marcacao.hora_inicio, marcacao.hora_fim, user.nome as nomeAtleta, campo.nome AS nomeCampo
+        FROM marcacao INNER JOIN campo ON 
+        marcacao.id_campo = campo.id 
+        INNER JOIN atleta ON marcacao.id_atleta = atleta.id_atleta
+        INNER JOIN user ON atleta.id_atleta = user.id
+        INNER JOIN listagem_atletas_marcacao ON 
+        listagem_atletas_marcacao.id_marcacao = marcacao.id
+        WHERE campo.id IN (
+            SELECT campo.id
+            FROM campo INNER JOIN campo_clube ON 
+            campo.id = campo_clube.id_campo
+            WHERE campo_clube.id_clube = ".$_SESSION['id']."
+        )AND listagem_atletas_marcacao.votacao = 2";
+        $msg = "";
+        $horaInicio = "";
+        $horaFim = "";
+        $result = $conn -> query($sql);
+        if($result -> num_rows >0){
+            while($row = $result -> fetch_assoc()){
+                $horaInicio = date_create($row['hora_inicio']);
+                $horaFim = date_create($row['hora_fim']);
+                $horaInicio = date_format($horaInicio,"H:i");
+                $horaFim = date_format($horaFim,"H:i");
+                $msg .= "<tr class='text-center'>
+                    <td>".$row['nomeAtleta']."</td>
+                    <td>".$row['data_inicio']."</td>
+                    <td>".$horaInicio." - ".$horaFim."</td>
+                    <td>".$row['nomeCampo']."</td>
+                    <td><button type='button' class='btn btn-sm ti ti-x text-white'
+                        style='background-color: firebrick;' onclick='modalCancelarReserva(".$row['id'].")'></button></td>
+                </tr>";
+            }
+        }
+        $conn -> close();
+        return($msg);
+    }
+
+    function cancelarReserva($idMarcacao){
+        global $conn;
+        $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_marcacao =".$idMarcacao;
+        $title = "Successo";
+        $msg = "Reserva cancelada com sucesso!";
+        $icon = "success";
+        if ($conn->query($sql)) {
+            $sql2 = "DELETE FROM marcacao WHERE id =".$idMarcacao;
+            if (!$conn->query($sql2)) {
+                $title = "Erro";
+                $msg = "Não foi possível cancelar a reserva!";
+                $icon = "error";
+            }
+        }else{
+            $title = "Erro";
+            $msg = "Não foi possível cancelar a reserva!";
+            $icon = "error";
+        }
+        $conn -> close();
+        $resp = json_encode(array(
+            'title' => $title,
+            'msg' => $msg,
+            'icon' => $icon
+        ));
+
+        return($resp);
+    }
+
 }
 
 ?>
