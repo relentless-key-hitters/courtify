@@ -1227,6 +1227,83 @@ class Clube{
         return($resp);
     }
 
+
+    function getMarcacoesPagamentos(){
+        global $conn;
+        $sql = "SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total, marcacao.id, marcacao.data_inicio, marcacao.hora_inicio, marcacao.hora_fim, user.nome AS nomeUser, campo.nome AS nomeCampo, marcacao.pagamento AS pagamento
+        FROM marcacao INNER JOIN campo ON 
+        marcacao.id_campo = campo.id 
+        INNER JOIN atleta ON marcacao.id_atleta = atleta.id_atleta
+        INNER JOIN user ON atleta.id_atleta = user.id
+        INNER JOIN listagem_atletas_marcacao ON 
+        listagem_atletas_marcacao.id_marcacao = marcacao.id
+        WHERE campo.id IN (
+            SELECT campo.id
+            FROM campo INNER JOIN campo_clube ON 
+            campo.id = campo_clube.id_campo
+            WHERE campo_clube.id_clube = ".$_SESSION['id']."
+        )AND listagem_atletas_marcacao.votacao != 2
+        GROUP BY marcacao.id
+        ";
+        $msg = "";
+        $horaInicio = "";
+        $horaFim = "";
+        $result = $conn -> query($sql);
+        if($result -> num_rows >0){
+            while($row = $result -> fetch_assoc()){
+                $horaInicio = date_create($row['hora_inicio']);
+                $horaFim = date_create($row['hora_fim']);
+                $horaInicio = date_format($horaInicio,"H:i");
+                $horaFim = date_format($horaFim,"H:i");
+                $pagamento = "";
+                if($row['pagamento'] == 0){
+                    $pagamento .= "Pendente <i class='ti ti-alert-circle-filled' style='color: firebrick;'></i>";
+                }else{
+                    $pagamento .= "Feito";
+                }
+                $msg .= "<tr class='text-center'>
+                    <td>".$row['nomeUser']."</td>
+                    <td>".$row['data_inicio']."</td>
+                    <td>".$horaInicio." - ".$horaFim."</td>
+                    <td>".$row['nomeCampo']."</td>
+                    <td>".ROUND($row['preco_total'], 2)." €</td>
+                    <td>".$pagamento."</td>";
+                if($row['pagamento'] == 0){
+                    $msg .="<td><button type='button' class='btn btn-sm ti ti-check text-white'
+                    style='background-color: forestgreen;' onclick= 'getModalPagamento(".$row['id'].")'></button></td>
+                    </tr>";
+                }else{
+                    $msg .="<td><button type='button'  disabled class='btn btn-sm ti ti-check text-white'
+                    style='background-color: forestgreen;'></button></td>
+                    </tr>";
+                }
+                
+            }
+        }
+        $conn -> close();
+        return($msg);
+    }
+
+    function validarPagamento($idMarcacao){
+        global $conn;
+        $sql = "UPDATE marcacao SET pagamento = 1 WHERE id =".$idMarcacao;
+        $title = "Successo";
+        $msg = "Pagamento validado com sucesso!";
+        $icon = "success";
+        if (!$conn->query($sql)) {
+            $title = "Erro";
+            $msg = "Não foi possível validar o pagamento!";
+            $icon = "error";
+        }
+        $conn -> close();
+        $resp = json_encode(array(
+            'title' => $title,
+            'msg' => $msg,
+            'icon' => $icon
+        ));
+
+        return($resp);
+    }
 }
 
 ?>

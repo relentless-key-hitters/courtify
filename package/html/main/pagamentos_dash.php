@@ -235,7 +235,7 @@ if (isset($_SESSION['id'])) {?>
       <div class="col-lg-6" style="position: relative;">
         <div>
           <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px">
-            Clube de Padel de Évora</h1>
+            </h1>
         </div>
       </div>
       <div class="col-lg-2"></div>
@@ -251,214 +251,89 @@ if (isset($_SESSION['id'])) {?>
 
     </div>
 
+   
     <div class="col-lg-7">
       <div class="badge-container2">
-        <div class="row mb-0 mt-5">
-          <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Pagamentos</h1>
+        <div class="row mb-4 mt-3">
+          <div class="col-lg-12">
+            <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+              <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                  <div class="col-9">
+                    <h3 class="fw-semibold mb-8"><i class="ti ti-soccer-field me-2"></i>Pagamentos</h3>
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Pagamentos</li>
+                      </ol>
+                    </nav>
+                  </div>
+                  <div class="col-3">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-      </div>
-    </div>
-    <div class="col-lg-2"></div>
-
-    <div class="col-lg-3"></div>
-    <div class="col-lg-7">
-      <div class="row mb-5">
-        <div class="container mt-5">
-          <table class="table" id="tabela">
-            <thead>
-              <tr class="text-center">
-                <th scope="col">ID</th>
-                <th scope="col">Membro</th>
-                <th scope="col">Dia</th>
-                <th scope="col">Hora</th>
-                <th scope="col">Campo</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Pagamento</th>
-                <th scope="col">Validar</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr class="text-center">
-                <td>000919</td>
-                <td>Pedro Barros</td>
-                <td>2024-02-18</td>
-                <td>10:00</td>
-                <td>P2</td>
-                <td>20.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000920</td>
-                <td>Rui Silva</td>
-                <td>2024-02-18</td>
-                <td>16:30</td>
-                <td>P7</td>
-                <td>25.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000921</td>
-                <td>António Silva</td>
-                <td>2024-02-18</td>
-                <td>19:00</td>
-                <td>P4</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000922</td>
-                <td>Ana Teixeira</td>
-                <td>2024-02-18</td>
-                <td>19:00</td>
-                <td>P2</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000923</td>
-                <td>João Fonseca</td>
-                <td>2024-02-12</td>
-                <td>19:00</td>
-                <td>P1</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000924</td>
-                <td>Clara Silva</td>
-                <td>2024-02-18</td>
-                <td>19:00</td>
-                <td>P3</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000925</td>
-                <td>Félix Cunha</td>
-                <td>2024-02-18</td>
-                <td>21:00</td>
-                <td>P8</td>
-                <td>30.00</td>
-                <td>Pendente <i class="ti ti-alert-circle-filled" style="color: firebrick;"></i></td>
-                <td><button type="button" class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000926</td>
-                <td>Sandra Torres</td>
-                <td>2024-02-18</td>
-                <td>21:00</td>
-                <td>P1</td>
-                <td>30.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000927</td>
-                <td>Fábio Costello</td>
-                <td>2024-02-19</td>
-                <td>09:00</td>
-                <td>P6</td>
-                <td>20.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000928</td>
-                <td>Tiago André</td>
-                <td>2024-02-19</td>
-                <td>10:30</td>
-                <td>P5</td>
-                <td>20.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000929</td>
-                <td>Liliana Barros</td>
-                <td>2024-02-19</td>
-                <td>10:30</td>
-                <td>P8</td>
-                <td>20.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000930</td>
-                <td>Filipe Serra</td>
-                <td>2024-02-19</td>
-                <td>15:30</td>
-                <td>P4</td>
-                <td>25.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-              <tr class="text-center">
-                <td>000931</td>
-                <td>Joaquim Pereira</td>
-                <td>2024-02-19</td>
-                <td>16:00</td>
-                <td>P7</td>
-                <td>25.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="text-center">
-                <td>000932</td>
-                <td>Gonçalo Ricardo</td>
-                <td>2024-02-19</td>
-                <td>16:30</td>
-                <td>P6</td>
-                <td>25.00</td>
-                <td>Efetuado <i class="ti ti-circle-check" style="color: forestgreen;"></i></td>
-                <td><button type="button" disabled class="btn btn-sm ti ti-check text-white"
-                  style="background-color: forestgreen;"></button></td>
-              </tr>
-
-            </tbody>
-          </table>
+        <div class="card shadow">
+          <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
+            <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os Seus Pagamentos</h1>
+          </div>
+            <span class="card-subtitle">Consulte as reservas passadas e administre os seus pagamentos.</span>
+            <div class="card-text">
+              <div class="row">
+                <div class="container mt-5">
+                  <table class="table" id="tabelaReservas">
+                    <thead>
+                      <tr class="text-center">
+                        <th scope="col">Membro</th>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Campo</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Pagamento</th>
+                        <th scope="col">Validar Pagamento</th>
+                      </tr>
+                    </thead>
+                    <tbody id="corpoTablePagamentos">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-2"></div>
   </div>
 
+  <div class="modal fade" id="modalValidarPagamento" tabindex="-1" aria-labelledby="modalValidarPagamentoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class='modal-header'>
+          <div class='d-flex'>
+            <img src='../../dist/images/logos/favicon.ico' alt='' height='40' width='40' class='mt-2 ms-2'>
+            <h1 class='mb-0 mt-2 ms-2 fs-6 p-1' id='modalValidarPagamentoLabel'>Validar Pagamento</h1>
+          </div>
+          <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+        </div>
+        <div class='modal-body'>
+          <div class='row'>
+            <div class='col-lg-12'>
+              <p>Tem a certeza que pretende confirmar o pagamento da reserva?</p>
+            </div>
+          </div>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-primary' data-bs-dismiss='modal' id="botaoGuardar">Salvar</button>
+          <button type='button' class='btn btn-light' data-bs-dismiss='modal'>Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-lg-2"></div>
@@ -494,50 +369,10 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/app-style-switcher.js"></script>
   <script src="../../dist/js/sidebarmenu.js"></script>
   <script src="../../dist/js/custom.js"></script>
+  <script src="../../dist/js/js_courtify/clube/pagamentos.js"></script>
 
   <script src="../../dist/js/js_courtify/clube/clubeLogout.js"></script>
     <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-
-
-  <script>
-    $(document).ready(function () {
-      $('#tabela').DataTable({
-        responsive: true,
-        ordering: false,
-        "language": {
-          "sEmptyTable": "Nenhum registo encontrado",
-          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
-          "sInfoEmpty": "Mostrando 0 de 0 registros",
-          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-          "sInfoPostFix": "",
-          "sInfoThousands": ".",
-          "sLengthMenu": "_MENU_ resultados por página",
-          "sLoadingRecords": "Carregando...",
-          "sProcessing": "Processando...",
-          "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, dia, hora, etc...)",
-          "oPaginate": {
-            "sNext": ">",
-            "sPrevious": "<",
-            "sFirst": "Primeiro",
-            "sLast": "Último"
-          },
-          "oAria": {
-            "sSortAscending": ": Ordenar colunas de forma ascendente",
-            "sSortDescending": ": Ordenar colunas de forma descendente"
-          },
-          "select": {
-            "rows": {
-              "_": "Selecionado %d linhas",
-              "0": "Nenhuma linha selecionada",
-              "1": "Selecionado 1 linha"
-            }
-          }
-        }
-      });
-    });
-  </script>
 
 </body>
 

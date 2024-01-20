@@ -95,6 +95,12 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 24){
     $res = $clube -> cancelarReserva($_POST['idMarcacao']);
     echo($res);
+}else if($_POST['op'] == 25){
+    $res = $clube -> getMarcacoesPagamentos();
+    echo($res);
+}else if($_POST['op'] == 26){
+    $res = $clube -> validarPagamento($_POST['idMarcacao']);
+    echo($res);
 }
 
 ?>
