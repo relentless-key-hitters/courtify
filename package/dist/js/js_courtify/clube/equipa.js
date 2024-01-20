@@ -20,12 +20,9 @@ function regEquipa() {
 
         .done(function (msg) {
             let obj = JSON.parse(msg);
-            if (obj.flag) {
-                alerta("Equipa", obj.msg, "success");
-                getListaEquipa();
-            } else {
-                alerta("Equipa", obj.msg, "error");
-            }
+            alerta2(obj.title, obj.msg, obj.icon);
+            setTimeout(function () { location.reload(); }, 3000);
+            
         })
 
         .fail(function (jqXHR, textStatus) {
@@ -70,7 +67,6 @@ function getListaEquipa() {
 
 function getDadosEquipa(id) {
 
-
     let dados = new FormData();
     dados.append("op", 3);
     dados.append("id", id);
@@ -88,17 +84,12 @@ function getDadosEquipa(id) {
         .done(function (msg) {
 
             let obj = JSON.parse(msg);
-            console.log(obj)
-            $('#idEq').val(obj.id);
-            $('#nomeEq').val(obj.nome);
-            /*$('#modEq').val(obj.modalidade);*/
-            /*$('#descEq').val(obj.descricao);*/
-            /*$('#rankEditEquipa').val(obj.ranking);*/
-            /*$('#estadoEq').val(obj.estado);*/
-            /*$('#imagemEq').val(obj.foto);*/
-
+            console.log(obj);
+            $("#imgEquipa").attr("src", "../../dist/" + obj.row.foto);
+            $('#nomeEquipaEdit').val(obj.row.nome);
+            $("#modalidadeEquipaEdit").html(obj.msg);
+            $('#descricaoEquipaEdit').val(obj.row.descricao);
             $('#btnGuardar').attr("onclick", "guardaEditEquipa(" + id + ")")
-
             $('#teamEditModal').modal('show')
         })
 
@@ -114,12 +105,13 @@ function guardaEditEquipa(id) {
     let dados = new FormData();
     dados.append("op", 4);
     dados.append("idEq", id);
-    dados.append("nomeEq", $('#nomeEditEquipa').val());
-    dados.append("modEq", $('#modEditEquipa').val());
-    dados.append("descEq", $('#descEditEquipa').val());
-    dados.append("rankEq", $('#rankEditEquipa').val());
-    dados.append("estadoEq", $('#estadoEditEquipa').val());
-    dados.append("imagemEq", $('#imagemEditEquipa').prop('files')[0]);
+    dados.append("nomeEq", $("#nomeEquipaEdit").val());
+    dados.append("modEq", $("#modalidadeEquipaEdit").val());
+    dados.append("descEq", $("#descricaoEquipaEdit").val());
+    var ficheiro = $('#fotoEquipaEdit').prop('files');
+    if (ficheiro.length > 0) {
+        dados.append("imagemEq", files[0]);
+    }
 
 
     $.ajax({
@@ -133,16 +125,9 @@ function guardaEditEquipa(id) {
     })
 
         .done(function (msg) {
-
             let obj = JSON.parse(msg);
-            if (obj.flag) {
-                alerta("Equipa", obj.msg, "success");
-                $('#editarEquipaModal').modal('hide');
-                getListaEquipa();
-            } else {
-                alerta("Equipa", obj.msg, "error");
-            }
-
+            alerta2(obj.title, obj.msg, obj.icon);
+            setTimeout(function () { location.reload(); }, 3000);
         })
 
         .fail(function (jqXHR, textStatus) {
@@ -171,12 +156,8 @@ function removerEquipa(id) {
         .done(function (msg) {
 
             let obj = JSON.parse(msg);
-            if (obj.flag) {
-                alerta("Equipa", obj.msg, "success");
-                getListaEquipa();
-            } else {
-                alerta("Equipa", obj.msg, "error");
-            }
+            alerta2(obj.title, obj.msg, obj.icon);
+            setTimeout(function () { location.reload(); }, 3000);
 
         })
 
@@ -212,16 +193,58 @@ function getNomeClube() {
 
 }
 
+function previewImagemNovaEquipa() {
+    
+    let input = document.getElementById("fotoNovaEquipa");
+    let image = document.getElementById("imgNovaEquipa");
+  
+    let file = input.files[0];
+  
+    if (file) {
+      let reader = new FileReader();
+  
+      reader.onload = function (e) {
+        image.src = e.target.result;
+        $("#imgNovaEquipa").removeClass("d-none");
+      };
+  
+      reader.readAsDataURL(file);
+    }
+}
 
+function previewImagemEquipa() {
+    
+    let input = document.getElementById("fotoEquipaEdit");
+    let image = document.getElementById("imgEquipa");
+  
+    let file = input.files[0];
+  
+    if (file) {
+      let reader = new FileReader();
+  
+      reader.onload = function (e) {
+        image.src = e.target.result;
+        
+      };
+  
+      reader.readAsDataURL(file);
+    }
+}
 
-function alerta(titulo, msg, icon) {
+function limparInput() {
+    $("#fotoEquipaEdit").val("");
+    $("#fotoNovaEquipa").val("");
+    $("#imgNovaEquipa").attr("src", "");
+}
+
+function alerta2(titulo, msg, icon) {
     Swal.fire({
         position: 'center',
         icon: icon,
         title: titulo,
         text: msg,
-        showConfirmButton: true,
-
+        showConfirmButton: false,
+        timer: 3000
     })
 }
 
