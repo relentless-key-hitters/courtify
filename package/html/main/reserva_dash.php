@@ -225,15 +225,18 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
   <div class="body-wrapper">
-    <div class="row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-6" style="position: relative;">
-        <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px"  id="nomeClube">
-           </h1>
+    <div class="row pe-5 mb-3">
+        <div class="col-lg-3">
+
         </div>
-      </div>
-      <div class="col-lg-2"></div>
+        <div class="col-lg-7">
+          <div class="container">
+            <div>
+              <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube"></h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
     </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
