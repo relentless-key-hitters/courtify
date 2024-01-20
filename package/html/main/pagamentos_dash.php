@@ -32,70 +32,7 @@ if (isset($_SESSION['id'])) {?>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
 
 
-  <style>
-    body {
-      overflow-x: hidden;
-    }
-
-    #tabela.dataTables_wrapper {
-      padding: 10px;
-    }
-
-    #tabela_wrapper .dataTables_filter input {
-      width: 250px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-    }
-
-    #tabela_length select {
-      margin-bottom: 10px;
-      border-radius: 5px;
-    }
-
-
-    #tabela.dataTable thead th {
-      text-align: center;
-      font-weight: 600;
-    }
-
-
-    #tabela.dataTables tbody tr:nth-child(odd) {
-      background-color: #e6e6e6;
-      text-align: center;
-    }
-
-
-    #tabela.dataTables tbody tr.selected {
-      background-color: #c7d4e8;
-      text-align: center;
-    }
-
-
-
-    #tabela_paginate .paginate_button.current {
-      background-color: #e6e6e6;
-      color: white;
-      border: 1px solid white;
-      border-radius: 6px;
-    }
-
-    #tabela_paginate .paginate_button:hover {
-      background-color: #e6e6e6;
-      color: white;
-      border: 1px solid white;
-      border-radius: 6px;
-    }
-
-
-    #tabela_paginate .paginate_button.previous.hover,
-    #tabela_paginate .paginate_button.next:hover,
-    #tabela_paginate .paginate_button:hover {
-      background-color: #e6e6e6;
-      color: white;
-      border: 1px solid white;
-      border-radius: 6px;
-    }
-  </style>
+ 
 
   <style>
     body {
@@ -283,7 +220,7 @@ if (isset($_SESSION['id'])) {?>
           <div class="card-body">
           <div class="d-flex justify-content-between">
             <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
-            <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os Seus Pagamentos</h1>
+            <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os seus Pagamentos</h1>
           </div>
             <span class="card-subtitle">Consulte as reservas passadas e administre os seus pagamentos.</span>
             <div class="card-text">

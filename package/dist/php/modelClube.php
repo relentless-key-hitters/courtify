@@ -1261,7 +1261,7 @@ class Clube{
                 }else{
                     $pagamento .= "Feito";
                 }
-                $msg .= "<tr class='text-center'>
+                $msg .= "<tr class=''>
                     <td>".$row['nomeUser']."</td>
                     <td>".$row['data_inicio']."</td>
                     <td>".$horaInicio." - ".$horaFim."</td>
