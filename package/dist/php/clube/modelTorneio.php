@@ -45,7 +45,7 @@ function getListaTorneioModel(){
     global $conn;
     $msg = "";
 
-    $sql = "SELECT * FROM torneio";
+    $sql = "SELECT * FROM torneio WHERE id_clube = ".$_SESSION['id'];
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -54,8 +54,9 @@ function getListaTorneioModel(){
             $msg .= "<tr>";
             $msg .= "<th scope='row'>".$row['id']."</th>";
             $msg .= "<th scope='row'><img class='img-thumbnail' src='".$row['foto']."'></th>";
-            $msg .= "<th scope='row'>".$row['desc']."</th>";
+            $msg .= "<th scope='row'>".$row['descricao']."</th>";
             $msg .= "<td>".$row['nivel']."</td>";
+            $msg .= "<td>".$row['genero']."</td>";
             $msg .= "<td>".$row['data']."</td>";
             $msg .= "<td>".$row['hora']."</td>";
             $msg .= "<td>".$row['num_entradas']."</td>";

@@ -278,9 +278,6 @@ if (isset($_SESSION['id'])) {?>
                   <th scope="col">Cancelar</th>
                 </tr>
               </thead>
-
-
-
               <tbody id="listaTorneio">
               </tbody>
             </table>
