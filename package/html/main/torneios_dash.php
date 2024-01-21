@@ -273,7 +273,7 @@ if (isset($_SESSION['id'])) {?>
                   <th scope="col">Data</th>
                   <th scope="col">Hora</th>
                   <th scope="col">Entradas</th>
-                  <th scope="col">Preço € (por pax)</th>
+                  <th scope="col">Preço(por pax)</th>
                   <th scope="col">Editar</th>
                   <th scope="col">Cancelar</th>
                 </tr>
@@ -342,12 +342,9 @@ if (isset($_SESSION['id'])) {?>
                 <label for="trNivel">Nível</label>
                 <select name="nivel" class="form-select" id="trNivel">
                   <option class="text-muted" value="" selected disabled>Escolha o nível</option>
-                  <option value="sc">Sem Classificação</option>
-                  <option value="n5">N5</option>
-                  <option value="n4">N4</option>
-                  <option value="n3">N3</option>
-                  <option value="n2">N2</option>
-                  <option value="n1">N1</option>
+                  <option value="Principiante">Principiante</option>
+                  <option value="Intermediário">Intermediário</option>
+                  <option value="Avançado">Avançado</option>
                 </select>
               </div>
             </div>
@@ -445,12 +442,9 @@ if (isset($_SESSION['id'])) {?>
                   <label for="nivelEditTour">Nível</label>
                   <select name="nivel" class="form-select" id="nivelEditTour">
                     <option class="text-muted" value="" selected disabled>Escolha o nível</option>
-                    <option value="editSC">Sem Classificação</option>
-                    <option value="editN5">N5</option>
-                    <option value="editN4">N4</option>
-                    <option value="editN3">N3</option>
-                    <option value="editN2">N2</option>
-                    <option value="editN1">N1</option>
+                    <option value="Principiante">Principiante</option>
+                    <option value="Intermediário">Intermediário</option>
+                    <option value="Avançado">Avançado</option>
                   </select>
                 </div>
               </div>

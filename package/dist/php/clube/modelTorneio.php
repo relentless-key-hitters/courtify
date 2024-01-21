@@ -7,20 +7,12 @@ require_once '../connection.php';
 class Torneio
 {
 
-function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $estado, $imagem, $obs){
+function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $genero, $imagem, $obs){
 
     global $conn;
     $msg = "";
     $flag = true;
-
-    $resp = $this -> uploads($logo, $id);
-    $resp = json_decode($resp, TRUE);
-
-    if($resp['flag']){
-        $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', '".$estado."', '".$resp['target']."', '".$obs."')";
-    }else{
-        $sql = "INSERT INTO torneio (id, id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs) VALUES (NULL, NULL, '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', '".$estado."', '".$obs."')";
-    }
+    $sql = "INSERT INTO torneio (id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs, modalidade, genero) VALUES (".$_SESSION['id'].", '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', 'nc', '".$obs."', , '".$genero."')";
 
     if ($conn->query($sql) === TRUE) {
         $msg = "Registado com sucesso!";
@@ -28,7 +20,8 @@ function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $estado, $im
         $flag = false;
         $msg = "Error: " . $sql . "<br>" . $conn->error;
     }
-
+    $resp = $this -> uploads($logo, $id);
+    $resp = json_decode($resp, TRUE);
     $resp = json_encode(array(
         "flag" => $flag,
         "msg" => $msg
@@ -51,16 +44,18 @@ function getListaTorneioModel(){
     if ($result->num_rows > 0) {
     // output data of each row
         while($row = $result->fetch_assoc()) {
+            $hora = date_create($row['hora']);
+            $hora = date_format($hora,"H:i");
             $msg .= "<tr>";
             $msg .= "<th scope='row'>".$row['id']."</th>";
-            $msg .= "<th scope='row'><img class='img-thumbnail' src='".$row['foto']."'></th>";
+            $msg .= "<th scope='row'><img class='img-thumbnail' style='height: 70px; max-width: 100px;' src='".$row['foto']."'></th>";
             $msg .= "<th scope='row'>".$row['descricao']."</th>";
             $msg .= "<td>".$row['nivel']."</td>";
             $msg .= "<td>".$row['genero']."</td>";
             $msg .= "<td>".$row['data']."</td>";
-            $msg .= "<td>".$row['hora']."</td>";
+            $msg .= "<td>".$hora."</td>";
             $msg .= "<td>".$row['num_entradas']."</td>";
-            $msg .= "<td>".$row['preco']."</td>";
+            $msg .= "<td>".$row['preco']." €</td>";
             $msg .= "<td><button type='button' class='btn btn-sm' onclick ='getDadosTorneio(".$row['id'].")' style='background-color: gold;'> <i class='text-white ti ti-pencil'></i></button></td>";
             $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeTorneio(".$row['id'].")' style='background-color: firebrick;'> <i
             class='text-white ti ti-x'></i></button></td>";
