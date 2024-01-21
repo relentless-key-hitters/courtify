@@ -19,7 +19,7 @@ if (isset($_SESSION['id'])) {?>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
-
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
 
   <!-- Core Css -->
@@ -396,7 +396,7 @@ if (isset($_SESSION['id'])) {?>
           </div>
 
           <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
+            <div class="card w-100 shadow" style="max-height: 300px">
               <div class="card-body">
                 <span class="fs-4 fw-semibold"><i class="me-1 fs-5 ti ti-device-desktop-analytics"></i> Painel de Informação</span>
                 <div class="row">
@@ -431,7 +431,7 @@ if (isset($_SESSION['id'])) {?>
           </div>
 
           <div class="col-sm-6 col-md-6 col-lg-12 col-xl-8 d-flex align-items-stretch">
-            <div class="card w-100 shadow">
+            <div class="card w-100 shadow overflow-y-auto" style="max-height: 300px">
               <div class="card-body">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-3">
                   <div class="mb-3 mb-sm-0">
@@ -439,8 +439,8 @@ if (isset($_SESSION['id'])) {?>
                     <p class="card-subtitle mt-1">Melhores Atletas nas suas Equipas</p>
                   </div>
                 </div>
-                <div class="table-responsive">
-                  <table class="table align-middle text-nowrap mb-0">
+                <div class="">
+                  <table class="table align-middle text-nowrap mb-0" id="tabelaMelhoresAtletas">
                     <thead>
                       <tr class="text-muted fw-semibold text-center">
                         <th scope="col" class="ps-0">Atleta</th>
@@ -511,7 +511,7 @@ if (isset($_SESSION['id'])) {?>
 
 
   <script src="../../dist/js/widgets-charts.js"></script>
-  
+  <script src="../../dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="../../dist/js/js_courtify/clube/clubeLogout.js"></script>
   <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
 

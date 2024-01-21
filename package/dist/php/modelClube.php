@@ -316,7 +316,7 @@ class Clube{
                       </div>
                     </td>
                     <td>
-                      <p class='mb-0 fs-3 fw-semibold text-dark'>".$row2['data_nasc']."</p>
+                      <p class='mb-0 fs-3 fw-semibold text-dark'>".date("m/d/Y", strtotime($row2['data_nasc']))."</p>
                     </td>
                     <td>
                       <p class='mb-0 fs-3 fw-semibold text-dark'>".$row2['n_jogos']."</p>
@@ -324,9 +324,7 @@ class Clube{
                     <td>
                       <p class='fs-3 fw-semibold text-dark mb-0'>".$row2['n_vitorias']."</p>
                     </td>
-                    <td>
-                      <div id='table-chart'></div>
-                    </td>
+
                   </tr>";
                 }
             }
