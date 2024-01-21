@@ -101,6 +101,15 @@ if ($_POST['op'] == 1){
 }else if($_POST['op'] == 26){
     $res = $clube -> validarPagamento($_POST['idMarcacao']);
     echo($res);
+}else if($_POST['op'] == 27){
+    $res = $clube -> getMembrosAdicionar();
+    echo($res);
+}else if($_POST['op'] == 28){
+    $res = $clube -> getEquipasSelectAdicionarMembro($_POST['idUser']);
+    echo($res);
+}else if($_POST['op'] == 29){
+    $res = $clube -> guardaAdicionarMembros($_POST['idUser'], $_POST['idEquipa']);
+    echo($res);
 }
 
 ?>
