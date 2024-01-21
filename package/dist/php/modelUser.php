@@ -1387,8 +1387,10 @@ class User
                         $nomeTabela .= "info_tenis";
                     }
                     $nPontos = $row['n_pontos_set'] + $nPontosSet;
-                    $nVitorias .= $row['n_vitorias'] + 1;
-                    $percVitorias .=  ($nVitorias / $row['n_jogos'] + 1) * 100;
+                    $nVitorias += $row['n_vitorias'] + 1;
+                    if( $row['n_jogos'] > 0){
+                        $percVitorias +=  ($nVitorias / $row['n_jogos'] + 1) * 100;
+                    }
                 } else {
                     if ($modalidade == "Padel") {
                         $sql2 .= "UPDATE info_padel SET n_jogos = " . $row['n_jogos'] . " + 1 , n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . ", n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = " . $ranking . "  WHERE id_atleta = " . $_SESSION['id'];
@@ -1398,8 +1400,10 @@ class User
                         $nomeTabela .= "info_tenis";
                     }
                     $nPontos = $row['n_pontos_set'] + $nPontosSet;
-                    $nVitorias .= $row['n_vitorias'];
-                    $percVitorias .=  ($nVitorias / $row['n_jogos']) * 100;
+                    $nVitorias += $row['n_vitorias'];
+                    if( $row['n_jogos'] > 0){
+                        $percVitorias +=  ($nVitorias / $row['n_jogos'] + 1) * 100;
+                    }
                 }
             }
         }

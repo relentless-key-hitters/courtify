@@ -178,8 +178,9 @@ function guardarVotacaoPT(id, nSets){
     dados.append('id', id);
     dados.append("modalidade", modalidade);
     for(let i = 0; i < nSets; i++){
-        arrRes.push([ $("#resultadoEqSet"+(i+1)).val(), $("resultadoAdvSet"+(i+1)).val()]);
+        arrRes.push([ $("#resultadoEqSet"+(i+1)).val(), $("#resultadoAdvSet"+(i+1)).val()]);
     }
+    console.log(arrRes)
     dados.append('resultados', JSON.stringify(arrRes));
     dados.append("idMvp", idMvp);  
     $.ajax({
