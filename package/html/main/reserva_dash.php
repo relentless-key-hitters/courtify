@@ -307,6 +307,30 @@ if (isset($_SESSION['id'])) {?>
     </div>
   </div>
 
+
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-9">
+      <div style="margin-left: 60px; margin-right: 60px;">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
+
+          <a href="#"
+            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
+          </a>
+          <div>
+            <p class="mb-0 text-muted">Todos os direitos reservados.</p>
+          </div>
+
+        </footer>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+
+
   <div class="modal fade" id="modalCancelarReserva" tabindex="-1" aria-labelledby="modalCancelarReservaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -331,31 +355,6 @@ if (isset($_SESSION['id'])) {?>
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-9">
-      <div style="margin-left: 60px; margin-right: 60px;">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-muted">Copyright © 2023 Courtify</p>
-
-          <a href="#"
-            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="../../../landingpage/dist/images/logos/logo_icone.png" width="50">
-          </a>
-          <div>
-            <p class="mb-0 text-muted">Todos os direitos reservados.</p>
-          </div>
-
-        </footer>
-      </div>
-    </div>
-    <div class="col-lg-1"></div>
-  </div>
-
-
-
-
   
 
 

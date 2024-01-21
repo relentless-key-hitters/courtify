@@ -20,10 +20,8 @@ if (isset($_SESSION['id'])) {?>
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="../../dist/images/logos/logo_icone.png" />
 
-  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
-  <script src="../../dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="../../dist/js/js_courtify/clube/torneio.js"></script>
 
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="../../dist/libs/sweetalert2/dist/sweetalert2.min.css">
 
   <!-- Core Css -->
@@ -32,7 +30,7 @@ if (isset($_SESSION['id'])) {?>
 
 
 
-  <style>
+  <!--<style>
     body {
       overflow-x: hidden;
     }
@@ -96,7 +94,7 @@ if (isset($_SESSION['id'])) {?>
       border: 1px solid white;
       border-radius: 6px;
     }
-  </style>
+  </style>-->
 
   <style>
     body {
@@ -231,15 +229,18 @@ if (isset($_SESSION['id'])) {?>
   </div>
 
   <div class="body-wrapper">
-    <div class="row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-6" style="position: relative;">
-        <div>
-          <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px">
-            Clube de Padel de Évora</h1>
+    <div class="row pe-5 mb-3">
+        <div class="col-lg-3">
+
         </div>
-      </div>
-      <div class="col-lg-2"></div>
+        <div class="col-lg-7">
+          <div class="container">
+            <div>
+              <h1 class="text-dark fw-bolder pt-4" style="letter-spacing: 1px; font-size: 65px" id="nomeClube"></h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
     </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
@@ -254,274 +255,67 @@ if (isset($_SESSION['id'])) {?>
 
     <div class="col-lg-7">
       <div class="badge-container2">
-        <div class="row mb-0 mt-5">
-          <div class="col-12 text-center">
-            <h1 class="mb-0 mb-sm-0 fw-semibold align-items-center fs-9">Torneios</h1>
-          </div>
-        </div>
-
-        <div class="row mb-5">
-          <div class="container mt-5">
-            <table class="table" id="tabelaTorneio">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">ID</th>
-                  <th scope="col">Foto</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Nível</th>
-                  <th scope="col">Gênero</th>
-                  <th scope="col">Data</th>
-                  <th scope="col">Hora</th>
-                  <th scope="col">Entradas</th>
-                  <th scope="col">Preço(por pax)</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Cancelar</th>
-                </tr>
-              </thead>
-              <tbody id="listaTorneio">
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-2"></div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6"></div>
-    <div class="col-lg-3">
-      <h2 class="text-muted fs-5">Criar Torneio <button data-toggle="modal" data-target="#tournamentModal" type="button"
-          class="btn btn-sm fs-4 btn-success"><i class="ti ti-circle-plus text-white"></i></button></h2>
-    </div>
-  </div>
-
-
-  <div class="modal modal-lg fade" id="tournamentModal" tabindex="-1" role="dialog"
-    aria-labelledby="tournamentModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-7" id="tournamentModalLabel">Criar Torneio</h5>
-          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
-            aria-label="Close">
-            <span> <i class="ti ti-x text-white"></i></span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-7 pt-4">
-              <div class="form-group">
-                <label for="trDesc">Nome</label>
-                <input type="text" class="form-control" id="trDesc" placeholder="Digite o nome do torneio">
-              </div>
-            </div>
-
-            <div class="col-md-5 pt-4">
-              <div class="form-group">
-                <label for="trImagem">Imagem</label>
-                <input type="file" class="form-control" id="trImagem" accept="image/*">
-                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="trNmr">Nº Máx participantes</label>
-                <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx participantes">
-              </div>
-            </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="trNivel">Nível</label>
-                <select name="nivel" class="form-select" id="trNivel">
-                  <option class="text-muted" value="" selected disabled>Escolha o nível</option>
-                  <option value="Principiante">Principiante</option>
-                  <option value="Intermediário">Intermediário</option>
-                  <option value="Avançado">Avançado</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="trGen">Gênero</label>
-                <select name="nivel" class="form-select" id="trGen">
-                  <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
-                  <option value="genM;">Masculino</option>
-                  <option value="genF">Feminino</option>
-                  <option value="genMisto">Misto</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-3 pt-4">
-              <div class="form-group">
-                <label for="data">Data:</label>
-                <input type="date" class="form-control" id="trData">
-              </div>
-            </div>
-
-
-            <div class="col-md-3 pt-4">
-              <div class="form-group">
-                <label for="trHora">Hora:</label>
-                <input type="time" class="form-control" id="trHora">
-              </div>
-            </div>
-
-            <div class="col-md-3 pt-4">
-              <div class="form-group">
-                <label for="trPreco">Preço:</label>
-                <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-2 pt-4">
-              <label for="trObs">Observações</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" onclick="regTorneio()">Guardar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog" aria-labelledby="trEditModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-7" id="trEditModalLabel">Editar Torneio</h5>
-          <button type="button" class="btn btn-sm" style="background-color: darkgray;" data-dismiss="modal"
-            aria-label="Close">
-            <span> <i class="ti ti-x text-white"></i></span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="idEditTour">ID</label>
-                <input type="number" disabled class="form-control" id="idEditTour">
-              </div>
-            </div>
-
-            <div class="col-md-8 pt-4">
-              <div class="form-group">
-                <label for="nomeEditTour">Nome</label>
-                <input type="text" class="form-control" id="descEditTour">
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-3 pt-4">
-                <div class="form-group">
-                  <label for="nivelEditTour">Nível</label>
-                  <select name="nivel" class="form-select" id="nivelEditTour">
-                    <option class="text-muted" value="" selected disabled>Escolha o nível</option>
-                    <option value="Principiante">Principiante</option>
-                    <option value="Intermediário">Intermediário</option>
-                    <option value="Avançado">Avançado</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-md-4 pt-4">
-                <div class="form-group">
-                  <label for="genEditTour">Gênero</label>
-                  <select name="genEditTour" class="form-select" id="genEditTour">
-                    <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
-                    <option value="genM;">Masculino</option>
-                    <option value="genF">Feminino</option>
-                    <option value="genMisto">Misto</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-md-3 pt-4">
-                <div class="form-group">
-                  <label for="dataEditTour">Data</label>
-                  <input type="date" class="form-control" id="dataEditTour">
-                </div>
-              </div>
-
-              <div class="col-md-3 pt-4">
-                <div class="form-group">
-                  <label for="timeEditTour">Hora</label>
-                  <input type="time" class="form-control" id="horaEditTour">
-                </div>
-              </div>
-
-              <div class="col-md-3 pt-4">
-                <div class="form-group">
-                  <label for="precoEditTour">Preço</label>
-                  <input type="number" class="form-control" id="precoEditTour">
+        <div class="row mb-4 mt-3">
+          <div class="col-lg-12">
+            <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+              <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                  <div class="col-9">
+                    <h3 class="fw-semibold mb-8"><i class="ti ti-tournament me-2"></i>Torneios</h3>
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="text-muted text-decoration-none" href="./visao_dash.php">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Reservas</li>
+                      </ol>
+                    </nav>
+                  </div>
+                  <div class="col-3">
+                    
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="col-md-4 pt-4">
-              <div class="form-group">
-                <label for="estadoEditTour">Estado</label>
-                <select name="genEditTour" class="form-select" id="estadoEditTour">
-                  <option class="text-muted" value="" selected disabled>Escolha o estado do Torneio</option>
-                  <option value="c">Concluído</option>
-                  <option value="nc">Não concluído</option>
-                </select>
-              </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
+              <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os seus Torneios</h1>
+              <button class="btn btn-primary btn-sm" style="height: 40px;" data-toggle='tooltip' data-placement='top' title='Adicione um novo Torneio' data-bs-toggle="modal" data-bs-target="#tournamentModal"><i class=" ti ti-plus me-2"></i>Novo Torneio</button>
             </div>
-
-            <div class="col-md-5 pt-4">
-              <div class="form-group">
-                <label for="imagem">Imagem</label>
-                <input type="file" class="form-control" id="imagemEditTour" accept="image/*">
-                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
+            <span class="card-subtitle">Consulte e administre informação sobre os seus torneios nesta tabela.</span>
+            <div class="card-text">
+              <div class="row">
+                <div class="container mt-5">
+                  <table class="table" id="tabelaTorneio">
+                    <thead>
+                      <tr class="">
+                        <th scope="col">ID</th>
+                        <th scope="col">Foto</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Nível</th>
+                        <th scope="col">Gênero</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Nº Entradas</th>
+                        <th scope="col">Preço(por pax)</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Cancelar</th>
+                      </tr>
+                    </thead>
+                    <tbody id="listaTorneio">
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2 pt-4">
-                <label for="obsEditTour">Observações</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12">
-                <textarea id="obsEditTour" cols="6" rows="3" class="form-control"></textarea>
-              </div>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success">Guardar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
 
   <div class="row">
@@ -544,13 +338,253 @@ if (isset($_SESSION['id'])) {?>
     </div>
     <div class="col-lg-1"></div>
   </div>
-  <!--  Shopping Cart -->
 
 
+  <div class="modal modal-lg fade" id="tournamentModal" tabindex="-1" role="dialog" aria-labelledby="teamModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class='d-flex'>
+            <img src='../../dist/images/logos/favicon.ico' alt='' height='40' width='40' class='mt-2 ms-2'>
+            <h1 class='mb-0 mt-2 ms-2 fs-6 p-1' id='teamModalLabel'>Novo Torneio</h1>
+          </div>
+          <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <img src="../../dist/images/backgrounds/demonclass.png" class="d-none w-25 img-fluid" id="trImgElem" alt="Imagem">
+          </div>
+
+          <div class="row">
+            <div class="col-md-7 pt-4">
+              <div class="form-group">
+                <label for="trDesc" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="trDesc" placeholder="Digite o nome do torneio" >
+              </div>
+            </div>
+
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="trImagem" class="form-label">Imagem</label>
+                <input type="file" class="form-control" id="trImagem" accept="image/*" onchange="previewImagemNovoTorneio()">
+                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="trNmr" class="form-label">Nº Máx participantes</label>
+                <input type="text" class="form-control" id="trNmr" placeholder="Digite o nº máx participantes">
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="trNivel" class="form-label">Nível</label>
+                <select name="nivel" class="form-select" id="trNivel">
+                  <option class="text-muted" value="" selected disabled>Escolha o nível</option>
+                  <option value="Principiante">Principiante</option>
+                  <option value="Intermediário">Intermediário</option>
+                  <option value="Avançado">Avançado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="trGen" class="form-label">Gênero</label>
+                <select name="nivel" class="form-select" id="trGen">
+                  <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="misto">Misto</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="data" class="form-label">Data:</label>
+                <input type="date" class="form-control" id="trData">
+              </div>
+            </div>
 
 
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trHora" class="form-label">Hora:</label>
+                <input type="time" class="form-control" id="trHora">
+              </div>
+            </div>
 
-  <!--  Import Js Files -->
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trPreco" class="form-label">Preço:</label>
+                <input type="text" class="form-control" id="trPreco" placeholder="Digite o preço">
+              </div>
+            </div>
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trModalidade" class="form-label">Modalidade:</label>
+                <select name="modalidade" class="form-select" id="trModalidade">
+
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2 pt-4">
+              <label for="trObs" class="form-label">Observações</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="trObs" cols="6" rows="3" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="regTorneio()">Registar</button>
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="limparInput()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+  <div class="modal modal-lg fade" id="trEditModal" tabindex="-1" role="dialog" aria-labelledby="trEditModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class='d-flex'>
+            <img src='../../dist/images/logos/favicon.ico' alt='' height='40' width='40' class='mt-2 ms-2'>
+            <h1 class='mb-0 mt-2 ms-2 fs-6 p-1' id='teamModalLabel'>Editar Torneio</h1>
+          </div>
+          <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="text-center">
+            <img class="w-25 img-fluid" id="trImgElemEdit" alt="Imagem">
+          </div>
+          
+          <div class="row">
+            <div class="col-md-7 pt-4">
+              <div class="form-group">
+                <label for="trDescEdit" class="form-label">Descrição:</label>
+                <input type="text" class="form-control" id="trDescEdit" placeholder="Digite o nome do torneio" >
+              </div>
+            </div>
+
+            <div class="col-md-5 pt-4">
+              <div class="form-group">
+                <label for="trImagemEdit" class="form-label">Imagem</label>
+                <input type="file" class="form-control" id="trImagemEdit" accept="image/*" onchange="previewImagemNovoTorneioEdit()">
+                <small class="form-text text-muted">Selecione uma imagem para o torneio</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="trNmrEdit" class="form-label">Nº Máx participantes</label>
+                <input type="text" class="form-control" id="trNmrEdit" placeholder="Digite o nº máx participantes">
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="trNivelEdit" class="form-label">Nível</label>
+                <select name="nivel" class="form-select" id="trNivelEdit">
+                  <option class="text-muted" value="" selected disabled>Escolha o nível</option>
+                  <option value="Principiante">Principiante</option>
+                  <option value="Intermediário">Intermediário</option>
+                  <option value="Avançado">Avançado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-4 pt-4">
+              <div class="form-group">
+                <label for="trGenEdit" class="form-label">Gênero</label>
+                <select name="gen" class="form-select" id="trGenEdit">
+                  <option class="text-muted" value="" selected disabled>Escolha o gênero</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="misto">Misto</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trDataEdit" class="form-label">Data:</label>
+                <input type="date" class="form-control" id="trDataEdit">
+              </div>
+            </div>
+
+
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trHoraEdit" class="form-label">Hora:</label>
+                <input type="time" class="form-control" id="trHoraEdit">
+              </div>
+            </div>
+
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trPrecoEdit" class="form-label">Preço:</label>
+                <input type="text" class="form-control" id="trPrecoEdit" placeholder="Digite o preço">
+              </div>
+            </div>
+            <div class="col-md-3 pt-4">
+              <div class="form-group">
+                <label for="trModalidadeEdit" class="form-label">Modalidade:</label>
+                <select name="modalidade" class="form-select" id="trModalidadeEdit">
+                  <option class="text-muted" value="" selected disabled>Escolha a modalidade</option>
+                  <option value="1">Basquetebol</option>
+                  <option value="2">Futsal</option>
+                  <option value="3">Padel</option>
+                  <option value="4">Ténis</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2 pt-4">
+              <label for="trObsEdit" class="form-label">Observações</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="trObsEdit" cols="6" rows="3" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="botaoGuardarEditTorneio">Guardar</button>
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Import Js Files -->  
+  <script src="../../dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
   <script src="../../dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--  core files -->
@@ -561,51 +595,14 @@ if (isset($_SESSION['id'])) {?>
   <script src="../../dist/js/custom.js"></script>
   <!--  current page js files -->
 
+  <script src="../../dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="../../dist/js/js_courtify/clube/torneio.js"></script>
   <script src="../../dist/js/js_courtify/clube/clubeLogout.js"></script>
   <script src="../../dist/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
-  <script>
-    $(document).ready(function () {
-      $('#tabela').DataTable({
-        responsive: true,
-        ordering: false,
-        "language": {
-          "sEmptyTable": "Nenhum registo encontrado",
-          "sInfo": "Mostrando _END_ de _TOTAL_ registos",
-          "sInfoEmpty": "Mostrando 0 de 0 registros",
-          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-          "sInfoPostFix": "",
-          "sInfoThousands": ".",
-          "sLengthMenu": "_MENU_ resultados por página",
-          "sLoadingRecords": "Carregando...",
-          "sProcessing": "Processando...",
-          "sZeroRecords": "Nenhum registo encontrado",
-          "sSearch": "Pesquisar (nome, nível, etc...)",
-          "oPaginate": {
-            "sNext": "Próximo",
-            "sNext": ">",
-            "sPrevious": "<",
-            "sLast": "Último"
-          },
-          "oAria": {
-            "sSortAscending": ": Ordenar colunas de forma ascendente",
-            "sSortDescending": ": Ordenar colunas de forma descendente"
-          },
-          "select": {
-            "rows": {
-              "_": "Selecionado %d linhas",
-              "0": "Nenhuma linha selecionada",
-              "1": "Selecionado 1 linha"
-            }
-          }
-        }
-      });
-    });
-  </script>
+
 </body>
 
 </html>

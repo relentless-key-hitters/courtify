@@ -27,79 +27,7 @@ if (isset($_SESSION['id'])) { ?>
     <link id="themeColors" rel="stylesheet" href="../../dist/css/style.min.css" />
 
 
-    <!--<style>
-    body {
-      overflow-x: hidden;
-    }
 
-    #tabela2.dataTables_wrapper,
-    #tabela.dataTables_wrapper {
-      padding: 10px;
-    }
-
-    #tabela2_wrapper .dataTables_filter input,
-    #tabela_wrapper .dataTables_filter input {
-      width: 250px;
-      margin-bottom: 10px;
-    }
-
-    #tabela2_length select,
-    #tabela_length select {
-      margin-bottom: 10px;
-    }
-
-
-    #tabela2.dataTable thead th,
-    #tabela.dataTable thead th {
-      text-align: center;
-      font-weight: 600;
-    }
-
-
-    #tabela2.dataTables tbody tr:nth-child(odd),
-    #tabela.dataTables tbody tr:nth-child(odd) {
-      background-color: #e6e6e6;
-      text-align: center;
-    }
-
-
-    #tabela2.dataTables tbody tr.selected,
-    #tabela.dataTables tbody tr.selected {
-      background-color: #c7d4e8;
-      text-align: center;
-    }
-
-
-
-    #tabela2_paginate .paginate_button.current,
-    #tabela_paginate .paginate_button.current {
-      background-color: #e6e6e6;
-      color: white;
-      border: 1px solid white;
-      border-radius: 6px;
-    }
-
-    #tabela2_paginate .paginate_button.hover,
-    #tabela_paginate .paginate_button:hover {
-      background-color: #e6e6e6;
-      color: white;
-      border: 1px solid white;
-      border-radius: 6px;
-    }
-
-
-    #tabela2_paginate .paginate_button.next:hover,
-    #tabela2_paginate .paginate_button.previous.hover,
-    #tabela_paginate .paginate_button.previous.hover,
-    #tabela_paginate .paginate_button.next:hover,
-    #tabela_paginate .paginate_button:hover {
-      background-color: #e6e6e6;
-      color: white;
-      border: 1px solid white;
-      border-radius: 6px;
-
-    }
-  </style>-->
 
   </head>
 

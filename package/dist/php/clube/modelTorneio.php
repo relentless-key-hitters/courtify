@@ -4,158 +4,339 @@ session_start();
 
 require_once '../connection.php';
 
-class Torneio
-{
+class Torneio {
 
-function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $genero, $imagem, $obs){
+    function uploads($img, $id){
 
-    global $conn;
-    $msg = "";
-    $flag = true;
-    $sql = "INSERT INTO torneio (id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs, modalidade, genero) VALUES (".$_SESSION['id'].", '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', 'nc', '".$obs."', , '".$genero."')";
-
-    if ($conn->query($sql) === TRUE) {
-        $msg = "Registado com sucesso!";
-    } else {
+        $dir = "../../images/torneios/" . $id . "/";
+        $dir1 = "../../dist/images/torneios/" . $id . "/";
         $flag = false;
-        $msg = "Error: " . $sql . "<br>" . $conn->error;
+        $targetBD = "";
+
+        if(!is_dir($dir)){
+            if(!mkdir($dir, 0777, TRUE)){
+                die ("Erro não é possivel criar o diretório");
+            }
+        }
+        if(array_key_exists('trImagem', $img)){
+        if(is_array($img)){
+            if(is_uploaded_file($img['trImagem']['tmp_name'])){
+            $fonte = $img['trImagem']['tmp_name'];
+            $ficheiro = $img['trImagem']['name'];
+            $end = explode(".",$ficheiro);
+            $extensao = end($end);
+
+            $newName = "torneio".$id."".date("YmdHis").".".$extensao;
+
+            $target = $dir.$newName;
+            $targetBD = $dir1.$newName;
+
+            $flag = move_uploaded_file($fonte, $target);
+            
+            } 
+        }
+        }
+        return (json_encode(array(
+            "flag" => $flag,
+            "target" => $targetBD
+        )));
+
+
     }
-    $resp = $this -> uploads($logo, $id);
-    $resp = json_decode($resp, TRUE);
-    $resp = json_encode(array(
-        "flag" => $flag,
-        "msg" => $msg
-    ));
-      
-    $conn->close();
 
-    return($resp);
-}
-    
+    function uploads2($img, $id){
 
-function getListaTorneioModel(){
+        $dir = "../../images/torneios/" . $id . "/";
+        $dir1 = "../../dist/images/torneios/" . $id . "/";
+        $flag = false;
+        $targetBD = "";
 
-    global $conn;
-    $msg = "";
+        if(!is_dir($dir)){
+            if(!mkdir($dir, 0777, TRUE)){
+                die ("Erro não é possivel criar o diretório");
+            }
+        }
+        if(array_key_exists('trImagemEdit', $img)){
+        if(is_array($img)){
+            if(is_uploaded_file($img['trImagemEdit']['tmp_name'])){
+            $fonte = $img['trImagemEdit']['tmp_name'];
+            $ficheiro = $img['trImagemEdit']['name'];
+            $end = explode(".",$ficheiro);
+            $extensao = end($end);
 
-    $sql = "SELECT * FROM torneio WHERE id_clube = ".$_SESSION['id'];
-    $result = $conn->query($sql);
+            $newName = "torneio".$id."".date("YmdHis").".".$extensao;
 
-    if ($result->num_rows > 0) {
-    // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $hora = date_create($row['hora']);
-            $hora = date_format($hora,"H:i");
+            $target = $dir.$newName;
+            $targetBD = $dir1.$newName;
+
+            $flag = move_uploaded_file($fonte, $target);
+            
+            } 
+        }
+        }
+        return (json_encode(array(
+            "flag" => $flag,
+            "target" => $targetBD
+        )));
+
+
+    }
+
+    function regTorneioModel($desc, $data, $hora, $nmr, $preco, $nivel, $genero, $imagem, $obs, $trModalidade){
+
+        global $conn;
+        $msg = "Torneio registado com sucesso";
+        $icon = "success";
+        $title = "Sucesso";
+
+
+        $sql = "INSERT INTO torneio (id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs, modalidade, genero) VALUES (".$_SESSION['id'].", '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', 'nc', '".$obs."', '".$trModalidade."', '".$genero."')";
+
+        if ($conn->query($sql) === TRUE) {
+            $ultimoId = mysqli_insert_id($conn);
+
+            $resp = $this -> uploads($imagem, $ultimoId);
+            $resp = json_decode($resp, TRUE);
+
+            if($resp['flag']){
+                $sql = "UPDATE torneio SET foto = '".$resp['target']."' WHERE id =".$ultimoId;
+                if ($conn->query($sql) === FALSE) {
+                    $msg = "Não foi possível registar o Torneio";
+                    $icon = "error";
+                    $title = "Erro";
+                }
+            }
+        } else {
+            $msg = "Não foi possível registar o Torneio";
+            $icon = "error";
+            $title = "Erro";
+        }
+
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "icon" => $icon,
+            "title" => $title
+        ));
+        
+        $conn->close();
+
+        return($resp);
+    }
+        
+    function getListaTorneioModel(){
+
+        global $conn;
+        $msg = "";
+
+        $sql = "SELECT * FROM torneio WHERE id_clube = ".$_SESSION['id'];
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+        // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $hora = date_create($row['hora']);
+                $hora = date_format($hora,"H:i");
+                $msg .= "<tr>";
+                $msg .= "<th scope='row'>".$row['id']."</th>";
+                $msg .= "<th scope='row'><img class='img-thumbnail' style='height: 70px; max-width: 100px;' src='".$row['foto']."'></th>";
+                $msg .= "<th scope='row'>".$row['descricao']."</th>";
+                $msg .= "<td>".$row['nivel']."</td>";
+                $msg .= "<td>" . ucfirst($row['genero']) . "</td>";
+                $msg .= "<td>" . date('d/m/Y', strtotime($row['data'])) . "</td>";
+                $msg .= "<td>" . date('H:i\h', strtotime($row['hora'])) . "</td>";
+                $msg .= "<td>".$row['num_entradas']."</td>";
+                $msg .= "<td>".$row['preco']." €</td>";
+                $msg .= "<td><button type='button' class='btn btn-sm btn-warning' onclick ='getDadosTorneio(".$row['id'].")' > <i class='text-white ti ti-pencil'></i></button></td>";
+                $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeTorneio(".$row['id'].")' style='background-color: firebrick;'> <i
+                class='text-white ti ti-x'></i></button></td>";
+                $msg .= "</tr>";
+            }
+        } else {
             $msg .= "<tr>";
-            $msg .= "<th scope='row'>".$row['id']."</th>";
-            $msg .= "<th scope='row'><img class='img-thumbnail' style='height: 70px; max-width: 100px;' src='".$row['foto']."'></th>";
-            $msg .= "<th scope='row'>".$row['descricao']."</th>";
-            $msg .= "<td>".$row['nivel']."</td>";
-            $msg .= "<td>".$row['genero']."</td>";
-            $msg .= "<td>".$row['data']."</td>";
-            $msg .= "<td>".$hora."</td>";
-            $msg .= "<td>".$row['num_entradas']."</td>";
-            $msg .= "<td>".$row['preco']." €</td>";
-            $msg .= "<td><button type='button' class='btn btn-sm' onclick ='getDadosTorneio(".$row['id'].")' style='background-color: gold;'> <i class='text-white ti ti-pencil'></i></button></td>";
-            $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeTorneio(".$row['id'].")' style='background-color: firebrick;'> <i
-            class='text-white ti ti-x'></i></button></td>";
+            $msg .= "<td>Sem Registos</td>";
+            $msg .= "<th scope='row'></th>";
+            $msg .= "<td></td>";
+            $msg .= "<td></td>";
+            $msg .= "<td></td>";
+            $msg .= "<td></td>";
+            $msg .= "<td></td>";
+            $msg .= "<td></td>";
+            $msg .= "<td></td>";
+            $msg .= "<td></td>";
             $msg .= "</tr>";
         }
-    } else {
-        $msg .= "<tr>";
-        $msg .= "<td>Sem Registos</td>";
-        $msg .= "<th scope='row'></th>";
-        $msg .= "<td></td>";
-        $msg .= "<td></td>";
-        $msg .= "<td></td>";
-        $msg .= "<td></td>";
-        $msg .= "<td></td>";
-        $msg .= "<td></td>";
-        $msg .= "<td></td>";
-        $msg .= "<td></td>";
-        $msg .= "</tr>";
-    }
-    $conn->close();
+        $conn->close();
 
-    return ($msg);
-}
-
-function getDadosTorneioModel($id){
-    global $conn;
-    $msg = "";
-    $row = "";
-
-    $sql = "SELECT * FROM torneio WHERE id =".$id;
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-    // output data of each row
-        $row = $result->fetch_assoc();
+        return ($msg);
     }
 
-    $conn->close();
+    function getDadosTorneioModel($id){
+        global $conn;
+    
+        $msg = "";
+        $idTorneio = "";
+        $idClube = "";
+        $descricao = "";
+        $data = "";
+        $hora = "";
+        $num_entradas = "";
+        $preco = "";
+        $nivel = "";
+        $estado = "";
+        $foto = "";
+        $obs = "";
+        $modalidade = "";
+        $genero = "";
+        $idModalidade = "";
+    
+        $sql = "SELECT 
+                torneio.id as id,
+                torneio.id_clube as idClube,
+                torneio.descricao as descricao,
+                torneio.data as data,
+                torneio.hora as hora,
+                torneio.num_entradas as num_entradas,
+                torneio.preco as preco,
+                torneio.nivel as nivel,
+                torneio.estado as estado,
+                torneio.foto as foto,
+                torneio.obs as obs,
+                torneio.modalidade as idModalidade,
+                modalidade.descricao as modalidade,
+                torneio.genero as genero
+                FROM
+                torneio
+                INNER JOIN
+                modalidade
+                ON torneio.modalidade = modalidade.id
+                WHERE torneio.id = ".$id;
 
-    return (json_encode($row));
 
-}
 
-function guardaEditTorneioModel($id, $desc, $data, $hora, $nmr, $preco, $nivel, $estado, $imagem, $obs){
+        $result = $conn->query($sql);
+    
+        if ($result->num_rows > 0) {
+        // output data of each row
+            while($row = $result->fetch_assoc()) {
+
+                $idTorneio .= $row['id'];
+                $idClube .= $row['idClube'];
+                $descricao .= $row['descricao'];
+                $data .= $row['data'];
+                $hora .= $row['hora'];
+                $num_entradas .= $row['num_entradas'];
+                $preco .= $row['preco'];
+                $nivel .= $row['nivel'];
+                $estado .= $row['estado'];
+                $foto .= $row['foto'];
+                $obs .= $row['obs'];
+                $modalidade .= $row['modalidade'];
+                $genero .= $row['genero'];
+                $idModalidade .= $row['idModalidade'];
+            }
+
+        }
+    
+        $conn->close();
+
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "id" => $idTorneio,
+            "idClube" => $idClube,
+            "descricao" => $descricao,
+            "data" => $data,
+            "hora" => $hora,
+            "num_entradas" => $num_entradas,
+            "preco" => $preco,
+            "nivel" => $nivel,
+            "estado" => $estado,
+            "foto" => $foto,
+            "obs" => $obs,
+            "modalidade" => $modalidade,
+            "genero" => $genero,
+            "idModalidade" => $idModalidade
+        ));
+
+    
+        return ($resp);
+    }
+    
+    function guardaEditTorneioModel($id, $desc, $data, $hora, $nmr, $preco, $gen, $nivel, $imagem, $obs, $modalidade){
+            
+        global $conn;
+        $msg = "Alterações gravadas com sucesso.";
+        $icon = "success";
+        $title = "Sucesso";
         
-    global $conn;
-    $msg = "";
-    $flag = true;
-    $sql = "";
-
-    $resp = $this -> uploads($foto);
-    $resp = json_decode($resp, TRUE);
-
-    if($resp['flag']){
-        $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", obs = '".$obs."', foto = '".$resp['target']."' WHERE id =".$id;
-    }else{
-        $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , tel = '".$telefone."',email = '".$email."',morada = '".$morada."' WHERE num =".$numOld;        $sql = "UPDATE torneio SET desc = '".$desc."' , data = '".$data."' , hora = '".$hora."' , num_entradas = ".$nmr.", preco = ".$preco.", nivel = ".$nivel.", estado = ".$estado.", obs = '".$obs."' WHERE id =".$id;
-    }
-
-    if ($conn->query($sql) === TRUE) {
-        $msg = "Editado com Sucesso";
-    } else {
-        $flag = false;
-        $msg = "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $resp = json_encode(array(
-        "flag" => $flag,
-        "msg" => $msg
-    ));
+        $sql = "UPDATE torneio
+                SET id_clube = '".$_SESSION['id']."',
+                    descricao = '".$desc."', 
+                    data = '".$data."', 
+                    hora = '".$hora."', 
+                    num_entradas = ".$nmr.",
+                    preco = ".$preco.",
+                    nivel = '".$nivel."',
+                    obs = '".$obs."',
+                    modalidade = '".$modalidade."',
+                    genero = '".$gen."'
+                WHERE id = ".$id;
       
-    $conn->close();
 
-    return($resp);
+        if ($conn->query($sql) === TRUE) {
+            
+            $resp = $this -> uploads2($imagem, $id);
+            $resp = json_decode($resp, TRUE);
 
-}
+            if($resp['flag']) {
+                $sql2 = "UPDATE torneio SET foto = '".$resp['target']."' WHERE id = ".$id;
 
-function removeTorneioModel($id){
-    global $conn;
-    $msg = "";
-    $flag = true;
+                if($conn->query($sql2) === FALSE) {
+                    $msg = "Erro ao alterar o torneio.";
+                    $title = "Erro";
+                    $icon = "error";
+                }
+            }
+        } else {
+            $msg = "Erro ao alterar o torneio.";
+            $title = "Erro";
+            $icon = "error";
+        }
 
-    $sql = "DELETE FROM torneio WHERE id = ".$id;
+        $resp = json_encode(array(
+            "msg" => $msg,
+            "title" => $title,
+            "icon" => $icon
+        ));
+        
+        $conn->close();
 
-    if ($conn->query($sql) === TRUE) {
-        $msg = "Removido com Sucesso";
-    } else {
-        $flag = false;
-        $msg = "Error: " . $sql . "<br>" . $conn->error;
+        return($resp);
+
     }
 
-    $resp = json_encode(array(
-        "flag" => $flag,
-        "msg" => $msg
-    ));
-      
-    $conn->close();
+    function removeTorneioModel($id){
+        global $conn;
+        $msg = "";
+        $flag = true;
 
-    return($resp);
-}
+        $sql = "DELETE FROM torneio WHERE id = ".$id;
+
+        if ($conn->query($sql) === TRUE) {
+            $msg = "Removido com Sucesso";
+        } else {
+            $flag = false;
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $resp = json_encode(array(
+            "flag" => $flag,
+            "msg" => $msg
+        ));
+        
+        $conn->close();
+
+        return($resp);
+    }
 
     function updateLogo($diretorio, $id){
         global $conn;
@@ -179,44 +360,27 @@ function removeTorneioModel($id){
         return($resp);
     }
 
-    function uploads($img, $id){
 
-        $dir = "../images/torneio/".$id."/";
-        $dir1 = "images/torneio/".$id."/";
-        $flag = false;
-        $targetBD = "";
-    
-        if(!is_dir($dir)){
-            if(!mkdir($dir, 0777, TRUE)){
-                die ("Erro não é possivel criar o diretório");
+    function getModalidadesNovoTorneio(){
+
+        global $conn;
+        $msg = "<option val='-1' selected disabled>Selecione uma modalidade</option>";
+        
+        $sql = "SELECT * FROM modalidade";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<option value='" . $row['id'] . "'>" . $row['descricao'] . "</option>";
             }
         }
-      if(array_key_exists('trImagem', $img)){
-        if(is_array($img)){
-          if(is_uploaded_file($img['trImagem']['tmp_name'])){
-            $fonte = $img['trImagem']['tmp_name'];
-            $ficheiro = $img['trImagem']['name'];
-            $end = explode(".",$ficheiro);
-            $extensao = end($end);
-    
-            $newName = "torneio".date("YmdHis").".".$extensao;
-    
-            $target = $dir.$newName;
-            $targetBD = $dir1.$newName;
-    
-            $flag = move_uploaded_file($fonte, $target);
-            
-          } 
-        }
-      }
-        return (json_encode(array(
-          "flag" => $flag,
-          "target" => $targetBD
-        )));
-    
-    
-    }
 
+        $conn->close();
+    
+        return($msg);
+    }
 }
 
 

@@ -452,7 +452,7 @@ class Grupo
             AND listagem_atletas_marcacao.estado = 1
             AND comunidade.id = " . $id . "
             AND comunidade.id_modalidade = modalidade.id
-        ORDER BY marcacao.data_inicio ASC";
+        ";
 
         $resultadoContagem = $conn->query($sqlContagem);
         $totalRows = $resultadoContagem->fetch_assoc();
@@ -487,7 +487,7 @@ class Grupo
                     AND listagem_atletas_marcacao.estado = 1
                     AND comunidade.id = " . $id . "
                     AND comunidade.id_modalidade = modalidade.id
-                ORDER BY marcacao.data_inicio ASC
+                ORDER BY marcacao.data_inicio DESC
                 LIMIT " . $offset . ", " . $porPagina;
 
         $result = $conn->query($sql);

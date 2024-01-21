@@ -1119,7 +1119,7 @@ class Clube{
                         <td><img src='../../dist/".$row2['foto']."' alt='Thumbnail 1'
                             class='object-fit-cover rounded-2' width='30' height='30'></td>
                         <td>".$row2['nome']."</td>
-                        <td>".$row2['data_nasc']."</td>
+                        <td>".date('d/m/Y', strtotime($row2['data_nasc']))."</td>
                         <td>".$row2['email']."</td>
                         <td>".$row2['n_jogos']."</td>
                         <td>".$row['nome']."</td>
@@ -1188,7 +1188,7 @@ class Clube{
                 $msg .= "<tr class=''>
                     <td class='fw-bolder'>".$row['id']."</td>
                     <td>".$row['nomeAtleta']."</td>
-                    <td>".$row['data_inicio']."</td>
+                    <td>".date('d/m/Y', strtotime($row['data_inicio']))."</td>
                     <td>".$horaInicio."h - ".$horaFim."h</td>
                     <td>".$row['nomeCampo']."</td>
                     <td><button type='button' class='btn btn-sm ti ti-x text-white'

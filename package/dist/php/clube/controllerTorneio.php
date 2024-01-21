@@ -16,7 +16,8 @@ if($_POST['op'] == 1){
         $_POST['trNivel'],
         $_POST['trGen'],
         $_FILES,
-        $_POST['trObs']
+        $_POST['trObs'],
+        $_POST['trModalidade']
     );
    
 
@@ -38,16 +39,16 @@ if($_POST['op'] == 1){
 
     $resp = $torneio -> guardaEditTorneioModel(
         $_POST['trId'],
-        $_POST['trDesc'],
-        $_POST['trData'],
-        $_POST['trHora'],
-        $_POST['trNmr'],
-        $_POST['trPreco'],
-        $_POST['trNivel'],
-        $_POST['trGen'],
-        $_POST['trEstado'],
+        $_POST['trDescEdit'],
+        $_POST['trDataEdit'],
+        $_POST['trHoraEdit'],
+        $_POST['trNmrEdit'],
+        $_POST['trPrecoEdit'],
+        $_POST['trGenEdit'],
+        $_POST['trNivelEdit'],
         $_FILES,
-        $_POST['trObs']
+        $_POST['trObsEdit'],
+        $_POST['trModalidadeEdit']
 
     );
     echo ($resp);
@@ -57,6 +58,9 @@ if($_POST['op'] == 1){
     $resp = $torneio -> removeTorneioModel($_POST['id']); 
     echo($resp);
 
+} else if($_POST['op'] == 6){
+    $resp = $torneio -> getModalidadesNovoTorneio();
+    echo($resp);
 }
 
 ?>

@@ -207,8 +207,6 @@ class Equipa {
         return $resp;
     }
     
-    
-
     function removeEquipaModel($id){
         global $conn;
         $msg = "Equipa removida com sucesso.";
