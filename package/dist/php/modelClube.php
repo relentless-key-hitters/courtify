@@ -1174,7 +1174,8 @@ class Clube{
             FROM campo INNER JOIN campo_clube ON 
             campo.id = campo_clube.id_campo
             WHERE campo_clube.id_clube = ".$_SESSION['id']."
-        )AND listagem_atletas_marcacao.votacao = 2";
+        )AND listagem_atletas_marcacao.votacao = 2
+        ORDER BY marcacao.data_inicio ASC";
         $msg = "";
         $horaInicio = "";
         $horaFim = "";
@@ -1186,10 +1187,10 @@ class Clube{
                 $horaInicio = date_format($horaInicio,"H:i");
                 $horaFim = date_format($horaFim,"H:i");
                 $msg .= "<tr class=''>
-                    <td>".$row['id']."</td>
+                    <td class='fw-bolder'>".$row['id']."</td>
                     <td>".$row['nomeAtleta']."</td>
                     <td>".$row['data_inicio']."</td>
-                    <td>".$horaInicio." - ".$horaFim."</td>
+                    <td>".$horaInicio."h - ".$horaFim."h</td>
                     <td>".$row['nomeCampo']."</td>
                     <td><button type='button' class='btn btn-sm ti ti-x text-white'
                         style='background-color: firebrick;' onclick='modalCancelarReserva(".$row['id'].")'></button></td>
@@ -1245,6 +1246,7 @@ class Clube{
             WHERE campo_clube.id_clube = ".$_SESSION['id']."
         )AND listagem_atletas_marcacao.votacao != 2
         GROUP BY marcacao.id
+        ORDER BY marcacao.data_inicio DESC
         ";
         $msg = "";
         $horaInicio = "";
