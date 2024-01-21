@@ -2357,14 +2357,9 @@ class User
         FROM badge INNER JOIN
         atleta_badges ON badge.id = atleta_badges.id_badge
         WHERE 
-        id IN (
-        SELECT id_badge
-        FROM atleta_badges
-        WHERE id_atleta = " . $id . "
-        )
+        atleta_badges.id_atleta = ".$id."
         ORDER BY atleta_badges.dataAq ASC
-        LIMIT 6
-        ";
+        LIMIT 6";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {

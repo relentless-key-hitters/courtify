@@ -29,12 +29,12 @@ class Equipa
         WHERE comunidade_atletas.id_atleta = ".$_SESSION['id']."
         AND comunidade_atletas.estado = 1
         AND comunidade.tipo_comunidade = 2
-        LIMIT 12"; 
+        LIMIT 8"; 
         $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $msg .= "<div class='col-12 col-sm-4 col-md-4 col-lg-2'>
+            $msg .= "<div class='col-12 col-sm-4 col-md-4 col-lg-3'>
                         <div class='card hover-img shadow'>
                         <div class='d-flex flex-column p-3 align-items-center mt-3'>
                             <a href='./equipa.php?id=" . $row['idComunidade'] . "'><img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid' style='max-width: 100px;'></a>
@@ -125,14 +125,8 @@ class Equipa
                                         </div>
                                     </div>
                                     <div class = 'row mt-2 text-center text-sm-center text-md-start text-lg-start'>
-                                        <div class='col-md-7 col-lg-7'>
+                                        <div class='col-md-12 col-lg-12'>
                                             <span class='fs-2'>" . $row['descricaoEquipa'] . "</span>
-                                        </div>
-                                        <div class='mt-md-0 col-md-5 col-lg-4 pe-0'>
-                                            <div class= ' text-center'>
-                                                <span class='fs-2'>Ranking</span><br>
-                                                <span class='fs-3 fw-bolder'>12º</span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
