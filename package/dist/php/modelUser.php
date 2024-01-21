@@ -51,9 +51,19 @@ class User
         $msg = "";
         $icon = "success";
         if ($local == 'null') {
-            $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, lat, lon) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', " . $coordsDecode[0] . ", " . $coordsDecode[1] . ")";
+            if($tipo == 2) {
+                $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, lat, lon) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', " . $coordsDecode[0] . ", " . $coordsDecode[1] . ")";
+            } else {
+                $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "')";
+            }
+            
         } else {
-            $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, localidade, lat, lon) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', '" . $local . "', " . $coordsDecode[0] . ", " . $coordsDecode[1] . ")";
+            if($tipo == 2) {
+                $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, localidade, lat, lon) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', '" . $local . "', " . $coordsDecode[0] . ", " . $coordsDecode[1] . ")";
+            } else {
+                $sql = "INSERT INTO user(tipo_user, nome, telemovel, email, nif, morada, codigo_postal, localidade) VALUES ('" . $tipo . "', '" . $nome . "', '" . $telemovel . "', '" . $email . "', '" . $nif . "', '" . $morada . "', '" . $codP . "', '" . $local . "')";
+            }
+            
         }
         $sql2 = "SELECT user.id FROM user WHERE user.email = '" . $email . "'";
         $sql3 = "SELECT user.id FROM user WHERE user.nif = '" . $nif . "'";
@@ -965,6 +975,7 @@ class User
                 INNER JOIN user ON torneio.id_clube = user.id
                 INNER JOIN torneio_atleta ON torneio.id = torneio_atleta.id_torneio
                 WHERE torneio_atleta.id_atleta = " . $_SESSION['id'] . "
+                AND torneio.estado = 'nc'
                 ORDER BY dataMarc ASC, horaMarcInicio ASC
             LIMIT 2 ";
 
