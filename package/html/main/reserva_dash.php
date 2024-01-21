@@ -278,9 +278,9 @@ if (isset($_SESSION['id'])) {?>
           
           <div class="d-flex justify-content-between">
             <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
-            <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">As suas Reservas</h1>
+            <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">As suas Reservas futuras</h1>
           </div>
-            <span class="card-subtitle">Consulte e administre informação sobre as reservas dos seus campos nesta tabela.</span>
+            <span class="card-subtitle">Consulte e administre informação sobre as reservas futuras dos seus campos nesta tabela.</span>
             <div class="card-text">
               <div class="row">
                 <div class="container mt-5">
