@@ -2606,9 +2606,17 @@ class User
         $vals = array();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $percVit = $row['n_vitorias'] / $row['n_jogos'];
-                $percSetGanhos =  $row['n_set_ganhos'] / $row['n_sets'];
-                $percMVP = $row['n_mvp'] / $row['n_jogos'];
+                $percVit = 0;
+                $percSetGanhos = 0;
+                $percMVP = 0;
+                if($row['n_jogos'] > 0){
+                    $percVit = $row['n_vitorias'] / $row['n_jogos'];
+                    $percMVP = $row['n_mvp'] / $row['n_jogos'];
+                }
+                if($row['n_sets'] > 0){
+                    $percSetGanhos =  $row['n_set_ganhos'] / $row['n_sets'];
+                }
+               
                 array_push($vals, array("Padel", round($percVit * 100, 1), round($percSetGanhos * 100, 1), round($percMVP * 100), 1));
             }
         }
@@ -2696,9 +2704,16 @@ class User
         $vals = array();
         if ($result3->num_rows > 0) {
             while ($row3 = $result3->fetch_assoc()) {
-                $percVit = $row3['n_vitorias'] / $row3['n_jogos'];
-                $percSetGanhos =  $row3['n_set_ganhos'] / $row3['n_sets'];
-                $percMVP = $row3['n_mvp'] / $row3['n_jogos'];
+                $percVit = 0;
+                $percSetGanhos = 0;
+                $percMVP = 0;
+                if($row3['n_jogos'] > 0){
+                    $percVit = $row3['n_vitorias'] / $row3['n_jogos'];
+                    $percMVP = $row3['n_mvp'] / $row3['n_jogos'];
+                }
+                if($row3['n_sets'] > 0){
+                    $percSetGanhos =  $row3['n_set_ganhos'] / $row3['n_sets'];
+                }
                 array_push($vals, array("Ténis", round($percVit * 100, 1), round($percSetGanhos * 100, 1), round($percMVP * 100, 1)));
             }
         }
@@ -2786,8 +2801,12 @@ class User
         $result6 = $conn->query($sql6);
         if ($result5->num_rows > 0) {
             while ($row5 = $result5->fetch_assoc()) {
-                $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
-                $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
+                $percVit = 0;
+                $percMVP = 0;
+                if($row5['n_jogos'] > 0){
+                    $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
+                    $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
+                }
                 array_push($vals, array("Basquetebol", round($percVit * 100, 1), round($percMVP * 100, 1)));
             }
         }
@@ -2875,8 +2894,12 @@ class User
         $result6 = $conn->query($sql6);
         if ($result5->num_rows > 0) {
             while ($row5 = $result5->fetch_assoc()) {
-                $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
-                $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
+                $percVit = 0;
+                $percMVP = 0;
+                if($row5['n_jogos'] > 0){
+                    $percVit = $row5['n_vitorias'] / $row5['n_jogos'];
+                    $percMVP = $row5['n_mvp'] / $row5['n_jogos'];
+                }
                 array_push($vals, array("Futsal", round($percVit * 100, 1), round($percMVP * 100, 1)));
             }
         }
