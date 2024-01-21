@@ -101,10 +101,30 @@ function getDadosHoje(){
 
     .done(function (msg) {
         let obj = JSON.parse(msg);
-        $("#horario1").html(obj.HorariosMaisFrequentes[0][0] + "h - " + obj.HorariosMaisFrequentes[0][1] + "h")
-        $("#horario2").html(obj.HorariosMaisFrequentes[1][0] + "h - " + obj.HorariosMaisFrequentes[1][1] + "h")
-        $("#horario3").html(obj.HorariosMaisFrequentes[2][0] + "h - " + obj.HorariosMaisFrequentes[2][1] + "h")
-        $("#nMarcacoesHoje").html(obj.numMarcacoesHoje)
+
+        if (obj.HorariosMaisFrequentes[0] && obj.HorariosMaisFrequentes[0][0] && obj.HorariosMaisFrequentes[0][1]) {
+          $("#horario1").html(obj.HorariosMaisFrequentes[0][0] + "h - " + obj.HorariosMaisFrequentes[0][1] + "h");
+        } else {
+          $("#horario1").html("Sem resultados!");
+        }
+
+
+        if (obj.HorariosMaisFrequentes[1] && obj.HorariosMaisFrequentes[1][0] && obj.HorariosMaisFrequentes[1][1]) {
+          $("#horario2").html(obj.HorariosMaisFrequentes[1][0] + "h - " + obj.HorariosMaisFrequentes[1][1] + "h");
+        } else {
+          $("#horario2").html("Sem resultados!");
+        }
+
+
+        if (obj.HorariosMaisFrequentes[2] && obj.HorariosMaisFrequentes[2][0] && obj.HorariosMaisFrequentes[2][1]) {
+          $("#horario3").html(obj.HorariosMaisFrequentes[2][0] + "h - " + obj.HorariosMaisFrequentes[2][1]);
+        } else {
+          $("#horario3").html("Sem resultados!");
+        }
+
+
+        $("#nMarcacoesHoje").html(obj.numMarcacoesHoje);
+
     })
 
     .fail(function (jqXHR, textStatus) {

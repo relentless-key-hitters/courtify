@@ -229,6 +229,7 @@ if (isset($_SESSION['id'])) {?>
                   <table class="table" id="tabelaReservas">
                     <thead>
                       <tr class="text-center">
+                        <th scope="col">Nº</th>
                         <th scope="col">Host</th>
                         <th scope="col">Dia</th>
                         <th scope="col">Hora</th>

@@ -1261,6 +1261,7 @@ class Clube{
                     $pagamento .= "Feito";
                 }
                 $msg .= "<tr class=''>
+                    <td class='fw-bolder'>".$row['id']."</td>
                     <td>".$row['nomeUser']."</td>
                     <td>".$row['data_inicio']."</td>
                     <td>".$horaInicio." - ".$horaFim."</td>
