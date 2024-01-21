@@ -30,74 +30,10 @@ if (isset($_SESSION['id'])) { ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/Portuguese.json"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
-
-
-    <!--<style>
-      body {
-        overflow-x: hidden;
-      }
-
-      #tabela.dataTables_wrapper {
-        padding: 10px;
-      }
-
-      #tabela_wrapper .dataTables_filter input {
-        width: 250px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-      }
-
-      #tabela_length select {
-        margin-bottom: 10px;
-        border-radius: 5px;
-      }
-
-
-      #tabela.dataTable thead th {
-        text-align: center;
-        font-weight: 600;
-      }
-
-
-      #tabela.dataTables tbody tr:nth-child(odd) {
-        background-color: #e6e6e6;
-        text-align: center;
-      }
-
-
-      #tabela.dataTables tbody tr.selected {
-        background-color: #c7d4e8;
-        text-align: center;
-      }
 
 
 
-      #tabela_paginate .paginate_button.current {
-        background-color: #e6e6e6;
-        color: white;
-        border: 1px solid white;
-        border-radius: 6px;
-      }
 
-      #tabela_paginate .paginate_button:hover {
-        background-color: #e6e6e6;
-        color: white;
-        border: 1px solid white;
-        border-radius: 6px;
-      }
-
-
-      #tabela_paginate .paginate_button.previous.hover,
-      #tabela_paginate .paginate_button.next:hover,
-      #tabela_paginate .paginate_button:hover {
-        background-color: #e6e6e6;
-        color: white;
-        border: 1px solid white;
-        border-radius: 6px;
-      }
-    </style>-->
 
   </head>
 
@@ -284,28 +220,28 @@ if (isset($_SESSION['id'])) { ?>
           <div class="d-flex justify-content-between">
             <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="me-2 mt-1">
             <h1 class="mb-2 fw-semibold fs-9 card-title me-auto">Os seus Membros</h1>
-            <button class="btn btn-primary btn-sm" style="height: 40px;" data-toggle='tooltip' data-placement='top' title='Adicione um novo campo'><i class=" ti ti-plus me-2"></i>Adicionar Membro</button>
+            <button class="btn btn-primary btn-sm" style="height: 40px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-toggle='tooltip' data-placement='top' title='Adicione um novo campo' onclick="getMembrosAdicionar()"><i class=" ti ti-plus me-2"></i>Adicionar Membro</button>
           </div>
             <span class="card-subtitle">Consulte e administre informação sobre os membros das suas equipas nesta tabela.</span>
             <div class="card-text">
               <div class="row">
                 <div class="container mt-5">
                   <table class="table" id="tabelaMembros">
-                    <thead>
-                      <tr class="text-center">
-                        <th scope="col">ID (NIF)</th>
-                        <th scope="col">Foto</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Data de Nascimento</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Nº Jogos Realizados</th>
-                        <th scope="col">Equipa</th>
-                        <th scope="col">Remover</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tableMembros">
-                    </tbody>
-                  </table>
+                      <thead>
+                        <tr class="text-center">
+                          <th scope="col">ID (NIF)</th>
+                          <th scope="col">Foto</th>
+                          <th scope="col">Nome</th>
+                          <th scope="col">Data de Nascimento</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Nº Jogos Realizados</th>
+                          <th scope="col">Equipa</th>
+                          <th scope="col">Remover</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tableMembros">
+                      </tbody>
+                    </table>
                 </div>
               </div>
             </div>
@@ -374,6 +310,48 @@ if (isset($_SESSION['id'])) { ?>
     </div>
   </div>
 
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content rounded-1">
+          <div class='d-flex'>
+          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+          <h4 class="mb-0 mt-2 ms-2 fs-7 p-1">Novo Membro</h4>
+          </div>
+          <div class='pt-3 pb-2 ps-3 pe-3'>
+            <span>
+              Através desta pesquisa, consegue facilmente encontrar Membros para adicionar ás suas Equipas. 
+            </span>
+          </div> 
+          <div class="modal-header border-bottom">
+            <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <input type="text" class="form-control fs-3" placeholder="Introduza um termo de pesquisa..." id="search" name="pesquisa" />
+          </div>
+          <div class="modal-body message-body" data-simplebar="">
+            <h5 class="mb-0 fs-4 p-1">Resultados</h5>
+            <ul class="list mb-0 py-2" id="pesquisaAtletasNavbar">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalAdicionarMembroEquipa" tabindex="-1" aria-labelledby="modalAdicionarMembroEquipaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class='d-flex'>
+          <img src="../../dist/images/logos/favicon.ico" alt="" height="40" width="40" class="mt-2 ms-2">
+          <h4 class="mb-0 mt-2 ms-2 fs-6 p-1">Adicionar Membro</h4>
+        </div>
+        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>
+      </div>
+      <div class="modal-body" id="corpoAdicionarMembroModal">
+
+    </div>
+  </div>
+</div>
+
 
     <!--  Import Js Files -->
     <script src="../../dist/libs/simplebar/dist/simplebar.min.js"></script>
@@ -394,6 +372,7 @@ if (isset($_SESSION['id'])) { ?>
 
 
   </body>
+
 
   </html>
 <?php
