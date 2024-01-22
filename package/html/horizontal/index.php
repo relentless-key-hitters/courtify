@@ -310,7 +310,7 @@ if (isset($_SESSION['id'])) { ?>
                 <h2 class="fs-11 fw-bolder mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                   Comunidade</h2>
                 <p class="mb-0 fs-7 text-dark mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                  Partilha momentos com outros <span class="text-success">Atletas</span></p>
+                  Partilha momentos com outros <span class="text-success">Atletas.</span></p>
               </div>
               <div class="feature col">
                 <div class="">
@@ -320,7 +320,7 @@ if (isset($_SESSION['id'])) { ?>
                 <h3 class="fs-11 fw-bolder mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                   Progressão</h3>
                 <p class="mb-0 fs-7 text-dark mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                  Analisa a tua <span class="text-primary">performance</span> diariamente</p>
+                  Analisa a tua <span class="text-primary">performance</span> diariamente.</p>
               </div>
               <div class="feature col">
                 <div class="">
@@ -330,7 +330,7 @@ if (isset($_SESSION['id'])) { ?>
                 <h3 class="fs-11 fw-bolder mb-4 gap-2" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                   Desporto</h3>
                 <p class="mb-0 fs-7 text-dark mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">A
-                  razão para estares aqui. Pratica e <span class="text-success">Vence</span>
+                  razão para estares aqui. Pratica e <span class="text-success">Vence.</span>
                 </p>
               </div>
             </div>
