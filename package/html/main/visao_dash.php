@@ -278,7 +278,7 @@ if (isset($_SESSION['id'])) {?>
                 <h4 class="fw-semibold" id="nTorneios"><i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i></h4>
                 <div id="expense"></div>
                 <div class="container pt-3">
-                  <a href="./torneios_dash.html"><button type="button"
+                  <a href="./torneios_dash.php"><button type="button"
                       class="btn btn-sm btn-light">Consultar</button></a>
                 </div>
               </div>
