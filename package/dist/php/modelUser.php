@@ -1356,6 +1356,7 @@ class User
         $nVitorias = 0;
         $percVitorias = 0;
         $nomeTabela = "";
+        $sql5 = "";
         for ($i = 0; $i < sizeof($arrRes); $i++) {
             if ($arrRes[$i][0] > $arrRes[$i][1]) {
                 $nVit++;
@@ -1367,8 +1368,10 @@ class User
         }
         if ($modalidade == "Padel") {
             $sql .= "SELECT * FROM info_padel WHERE id_atleta = " . $_SESSION['id'];
+            $sql5 .= "UPDATE info_padel SET n_mvp = n_mvp + 1 WHERE id_atleta = " . $idMvp;
         } else {
             $sql .= "SELECT * FROM info_tenis WHERE id_atleta = " . $_SESSION['id'];
+            $sql5 .= "UPDATE info_tenis SET n_mvp = n_mvp + 1 WHERE id_atleta = " . $idMvp;
         }
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -1416,6 +1419,14 @@ class User
             $msg = "Error: " . $sql3 . "<br>" . $conn->error;
             $icon = "error";
         }
+
+        if ($conn->query($sql5) === TRUE) {
+            $flag = true;
+        } else {
+            $flag = false;
+            $msg .= "Nao foi possível adicionar o mvp";
+        }
+
         $resultadoBadges1 = $this->getBadgesPontos($modalidade,  $nPontos);
         $resultadoBadges2 = $this->getBadgesVitorias($modalidade, $nVitorias);
         $resultadoBadges3 = $this->getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
@@ -2408,7 +2419,7 @@ class User
                 } else if ($row['tipoModalidade'] == "Futsal") {
                     $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-football me-1'></i>Futsal</span>";
                 } else if ($row['tipoModalidade'] == "Basquetebol") {
-                    $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
+                    $msg .= "<span class='badge bg-warning rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
                 } else {
                     $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
                 }

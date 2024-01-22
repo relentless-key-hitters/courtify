@@ -420,7 +420,7 @@ if (isset($_SESSION['id'])) { ?>
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
                           <div>
-                            <h4 class="mb-0 fw-semibold fs-5">Média Jogos Ganhos/Set <span class="ti ti-trophy fs-5"></span></h4>
+                            <h4 class="mb-0 fw-semibold fs-5">Média Vitórias/Set <span class="ti ti-trophy fs-5"></span></h4>
                             <p class="pt-2 fs-9" id="mediaVitSetPadel"></p>
                           </div>
                         </div>
@@ -591,7 +591,7 @@ if (isset($_SESSION['id'])) { ?>
                       <div class="card-body">
                         <div class="d-flex align-items-end justify-content-between">
                           <div>
-                            <h4 class="mb-0 fw-semibold fs-5">Média Jogos Ganhos/Set <span class="ti ti-trophy fs-5"></span></h4>
+                            <h4 class="mb-0 fw-semibold fs-5">Média Vitórias/Set <span class="ti ti-trophy fs-5"></span></h4>
                             <p class="pt-2 fs-9" id="mediaVitSetTenis"></p>
                           </div>
                         </div>

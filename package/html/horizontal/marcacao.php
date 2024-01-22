@@ -221,7 +221,7 @@ if (isset($_SESSION['id'])) { ?>
           </div>
         </div>  
 
-        <div class="card shadow pb-4">
+        <div class="card mb-4 shadow pb-4">
           <div class="card-body">
             <div class="row mt-5 mt-md-0">
               <div class="col-md-6">
@@ -231,18 +231,18 @@ if (isset($_SESSION['id'])) { ?>
             <div class="">
               <form>
                 <div class="row">
-                  <div class="form-group input-group-lg col-md-4 mt-3 mt-md-0">
+                  <div class="form-group  col-md-4 mt-3 mt-md-0">
                     <input type="text" class="form-control" placeholder="Nome, localidade, etc..." id="stringPesquisa">
                   </div>
-                  <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0 col-6">
+                  <div class="form-group  col-md-2 mt-3 mt-md-0 col-6">
                     <select class="form-select" id="pesquisaMarcacaoModalidade">
 
                     </select>
                   </div>
-                  <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0 col-6">
+                  <div class="form-group  col-md-2 mt-3 mt-md-0 col-6">
                     <input type="date" class="form-control" id="currentDateInput">
                   </div>
-                  <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0">
+                  <div class="form-group  col-md-2 mt-3 mt-md-0">
                     <select id="currentTimeInput" class="form-select">
                       <option value="-1" style="color: #c9c9c9;">Hora</option>
                       <option value="07:00:00">07:00</option>
@@ -281,7 +281,7 @@ if (isset($_SESSION['id'])) { ?>
                       <option value="23:30:00">23:30</option>
                     </select>
                   </div>
-                  <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0">
+                  <div class="form-group  col-md-2 mt-3 mt-md-0">
                     <button type="button" class="btn btn-primary" onclick="pesquisarCampos()">Pesquisa</button>
                     <button type="button" class="mt-2 mt-sm-0 mt-xl-0 btn btn-light" onclick="getUserLocation()">Redefinir</button>
                   </div>
@@ -294,7 +294,7 @@ if (isset($_SESSION['id'])) { ?>
         <div class="mb-5 px-5">
           <div class="row">
             <div class="col-md-2">
-              <div class="form-group input-group-lg">
+              <div class="form-group ">
                 <select class="form-select" id="filtroTipo">
                   <option value="-1" selected disabled>Tipo</option>
                   <option value="Cobertura">Coberto</option>
@@ -304,7 +304,7 @@ if (isset($_SESSION['id'])) { ?>
               </div>
             </div>
             <div class="col-md-2 mt-2 mt-md-0">
-              <div class="form-group input-group-lg">
+              <div class="form-group ">
                 <select class="form-select" id="filtroDistancia">
                   <option value="-1" selected disabled>Distância</option>
                   <option value="0-1km">Até 1km</option>
@@ -313,19 +313,19 @@ if (isset($_SESSION['id'])) { ?>
                 </select>
               </div>
             </div>
-            <div class="form-group input-group-lg col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
+            <div class="form-group col-md-2 mt-3 mt-md-0 d-flex align-items-center gap-2">
               <button type="button" class="btn btn-primary btn-sm w-100" onclick="aplicarFiltros()">Filtrar</button>
               <button type="button" class="btn btn-light btn-sm w-100" onclick="removerFiltros()">Remover</button>
             </div>
             <div class="col-md-6 text-end mt-2 mt-md-0 col">
-              <div class="form-check input-group-lg form-switch d-flex align-items-center justify-content-end mb-0">
+              <div class="form-check  form-switch d-flex align-items-center justify-content-end mb-0">
                 <div>
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1" style="width:50px; height: 30px;">
-                  <label class="form-check-label me-5 fs-5" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
+                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked1">
+                  <label class="form-check-label me-5 fs-4" for="flexSwitchCheckDefault">Clubes sem disponibilidade</label>
                 </div>
-                <div class="d-none d-xxl-flex input-group-lg">
-                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked style="width:50px; height: 30px;">
-                  <label class="form-check-label fs-5" for="flexSwitchCheckChecked">Mostrar mapa</label>
+                <div class="d-none d-xxl-flex ">
+                  <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Mostrar mapa</label>
                 </div>
               </div>
             </div>

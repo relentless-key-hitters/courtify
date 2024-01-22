@@ -316,7 +316,7 @@ class Clube{
                       </div>
                     </td>
                     <td>
-                      <p class='mb-0 fs-3 fw-semibold text-dark'>".date("m/d/Y", strtotime($row2['data_nasc']))."</p>
+                      <p class='mb-0 fs-3 fw-semibold text-dark'>".date("d/m/Y", strtotime($row2['data_nasc']))."</p>
                     </td>
                     <td>
                       <p class='mb-0 fs-3 fw-semibold text-dark'>".$row2['n_jogos']."</p>
@@ -1261,6 +1261,7 @@ class Clube{
                     $pagamento .= "Feito";
                 }
                 $msg .= "<tr class=''>
+                    <td class='fw-bolder'>".$row['id']."</td>
                     <td>".$row['nomeUser']."</td>
                     <td>".$row['data_inicio']."</td>
                     <td>".$horaInicio." - ".$horaFim."</td>
