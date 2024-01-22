@@ -20,7 +20,8 @@ function getMarcacoesPagamentos(){
         $('#tabelaReservas').DataTable({
             language: {
                 url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/pt-PT.json',
-            }
+            },
+            order: [[2, 'desc']]
         });
     })
 
