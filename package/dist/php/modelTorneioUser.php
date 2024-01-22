@@ -68,7 +68,7 @@ class TorneioUser {
                         array_push($arrayTorneioFutsal, $row);
                     }
                 } else if($row['modalidadeTorneio'] == 'Basquetebol'){
-                    if(count($$arrayTorneioBasquetebol) < 2){
+                    if(count($arrayTorneioBasquetebol) < 2){
                         array_push($arrayTorneioBasquetebol, $row);
                     }
                 } else if($row['modalidadeTorneio'] == 'Padel'){
