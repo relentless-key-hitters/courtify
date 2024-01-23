@@ -46,7 +46,7 @@ class Grupo
         $msg = "";
         $contagem = 0;
 
-        $sql = "SELECT 
+        $sql = "SELECT
                     marcacao.id AS idMarcacao,
                     user_atleta.foto AS fotoAtletaHost,
                     user_atleta.nome AS nomeAtletaHost,
@@ -101,7 +101,7 @@ class Grupo
                                 FROM comunidade_atletas
                                 WHERE comunidade_atletas.estado = 1
                                 AND comunidade_atletas.id_atleta = " . $_SESSION['id'] . ")
-                        ) ";
+                        ) GROUP BY marcacao.id";
 
 
         $result = $conn->query($sql);
