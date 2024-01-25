@@ -4,7 +4,7 @@ require_once 'connection.php';
 
 class Campo
 {
-    
+    /*Pedro*/
     function getUserLocation()
     {
         $_SESSION['data'] = date('Y-m-d');
@@ -25,7 +25,7 @@ class Campo
         $conn->close();
         return ($localidade);
     }
-
+    /*Pedro*/
     function getModalidadesUtilizadorSelect()
     {
         global $conn;
@@ -42,7 +42,7 @@ class Campo
         $conn->close();
         return ($msg);
     }
-
+    /*Pedro*/
     function getCampo($localidadeUser, $offset, $porPagina)
     {
         global $conn;
@@ -147,7 +147,7 @@ class Campo
         $data = array('html' => $msg, 'dados' => $dados, 'localidadeUser' => $localidadeUser, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual);
         return json_encode($data);
     }
-
+    /*Pedro*/
     function pesquisarCampos($stringPesquisa, $modalidadePesquisa, $dataPesquisa, $horaPesquisa)
     {
 
@@ -244,7 +244,7 @@ class Campo
         $data = array('html' => $msg, 'dados' => $dados);
         return json_encode($data);
     }
-
+    /*Pedro*/
     function getInfoPagCampo($clubeId)
     {
         global $conn;
@@ -406,7 +406,7 @@ class Campo
         ));
         return($resp);
     }
-
+    /*Mariana*/
     function getHorariosCampos($clube, $data)
     {
         global $conn;
@@ -573,7 +573,7 @@ class Campo
         return($marcacao);
 
     }
-
+    /*Mariana*/
     function openModalMarcacao($id){
 
         global $conn;
@@ -719,7 +719,7 @@ class Campo
         $data = array('modal' => $textoModal, 'hora' => $hora, 'idCampo' => $id, 'preco' => $preco);
         return json_encode($data);
     }
-
+    /*Mariana*/
     function guardarMarcacao($id, $duracao, $horas, $tipoMarcacao, $arrayAmigos){
         $arrayAmigosDecode = json_decode($arrayAmigos);
         global $conn;
