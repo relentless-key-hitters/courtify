@@ -89,22 +89,20 @@ function getSets(nSets){
 let idMvp = 0;
 
 function toggleImageSelection(imgElement) {
-    var selectedImage = null;
+    var imagemSelecionada = null;
 
-    // Check if the clicked image is already selected
     if (imgElement.classList.contains('selected-img')) {
         imgElement.classList.remove('selected-img');
-        selectedImage = null;
+        imagemSelecionada = null;
     } else {
-        // Deselect the previously selected image
-        var previouslySelected = document.querySelector('.selected-img');
-        if (previouslySelected) {
-            previouslySelected.classList.remove('selected-img');
+
+        var selecAnterior = document.querySelector('.selected-img');
+        if (selecAnterior) {
+            selecAnterior.classList.remove('selected-img');
         }
 
-        // Select the clicked image
         imgElement.classList.add('selected-img');
-        selectedImage = imgElement;
+        imagemSelecionada = imgElement;
         idMvp = imgElement.id;
     }
 }

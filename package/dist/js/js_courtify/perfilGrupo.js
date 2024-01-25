@@ -70,7 +70,7 @@ function adicionarLinksPaginacaoAtletasGrupo(paginasTotais, paginaAtual) {
 
   const maximoBotoesPagina = 3;
 
-  // Calcular as páginas iniciaius e finais a mostrar consoant a restrição
+  // Calcular as páginas iniciais e finais a mostrar consoant a restrição
   let paginaInicio = Math.max(
     1,
     paginaAtual - Math.floor(maximoBotoesPagina / 2)
@@ -188,7 +188,7 @@ function adicionarLinksPaginacaoMarcacoesConcluidas(paginasTotais, paginaAtual) 
 
   const maximoBotoesPagina = 3;
 
-  // Calcular as páginas iniciaius e finais a mostrar consoant a restrição
+  // Calcular as páginas iniciais e finais a mostrar consoant a restrição
   let paginaInicio = Math.max(
     1,
     paginaAtual - Math.floor(maximoBotoesPagina / 2)

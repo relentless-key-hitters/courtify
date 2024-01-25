@@ -99,7 +99,7 @@ function adicionarLinksPaginacao(paginasTotais, paginaAtual, concelho) {
 
     const maximoBotoesPagina = 5;
 
-    // Calcular as páginas iniciaius e finais a mostrar consoant a restrição
+    // Calcular as páginas iniciais e finais a mostrar consoant a restrição
     let paginaInicio = Math.max(1, paginaAtual - Math.floor(maximoBotoesPagina / 2));
     let paginaFim = Math.min(paginasTotais, paginaInicio + maximoBotoesPagina - 1);
     
@@ -164,7 +164,7 @@ async function constroiMapa(clubeInfo, localidadeUser) {
 
     var markers = [];
 
-    var highlightedCard = null;
+    var cardSeleccionado = null;
     async function createMarkerWithPopup(info) {
         var clubeNome = info.nomeClube;
         var clubeDesc = info.clubeDesc;
@@ -206,21 +206,26 @@ async function constroiMapa(clubeInfo, localidadeUser) {
             
         marker.on('click', function () {
             
-            var cardToHighlight = document.querySelector('[data-id="' + idClube + '"]');
+            var cartaoHighlight = document.querySelector('[data-id="' + idClube + '"]');
         
             
-            if (cardToHighlight) {
-                if (cardToHighlight === highlightedCard) {
+            if (cartaoHighlight) {
+                if (cartaoHighlight === cardSeleccionado
+            ) {
                     
-                    cardToHighlight.classList.remove('border', 'border-1', 'border-primary', 'shadow');
-                    highlightedCard = null;
+                    cartaoHighlight.classList.remove('border', 'border-1', 'border-primary', 'shadow');
+                    cardSeleccionado
+             = null;
                 } else {
                     
-                    if (highlightedCard) {
-                        highlightedCard.classList.remove('border', 'border-1', 'border-primary', 'shadow');
+                    if (cardSeleccionado
+                ) {
+                        cardSeleccionado
+                .classList.remove('border', 'border-1', 'border-primary', 'shadow');
                     }
-                    cardToHighlight.classList.add('border', 'border-1', 'border-primary', 'shadow');
-                    highlightedCard = cardToHighlight;
+                    cartaoHighlight.classList.add('border', 'border-1', 'border-primary', 'shadow');
+                    cardSeleccionado
+             = cartaoHighlight;
                 }
             }
         });
