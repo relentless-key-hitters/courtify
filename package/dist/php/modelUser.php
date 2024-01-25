@@ -4,7 +4,7 @@ require_once 'connection.php';
 
 class User
 {
-
+    /*Mariana*/ 
     function getDistritos()
     {
         global $conn;
@@ -22,7 +22,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Mariana*/ 
     function getConcelhos($distrito)
     {
         global $conn;
@@ -40,7 +40,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Mariana*/ 
     function registarUser($nome, $tipo, $telemovel, $nif, $morada, $codP, $local, $email, $pass, $coords)
     {
         global $conn;
@@ -108,7 +108,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function login($email, $pass)
     {
 
@@ -173,7 +173,7 @@ class User
 
         return ($resp);
     }
-
+     /*Mariana*/ 
     function getModalidades()
     {
 
@@ -194,7 +194,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Mariana*/ 
     function getFutsalInfo()
     {
 
@@ -212,7 +212,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Mariana*/ 
     function getNivelPadel()
     {
         global $conn;
@@ -230,7 +230,7 @@ class User
         return ($msg);
     }
 
-
+    /*Mariana*/ 
     function uploads($img, $id)
     {
 
@@ -263,7 +263,7 @@ class User
             "target" => $targetBD
         )));
     }
-
+    /*Mariana*/ 
     function uploads2($img, $id)
     {
 
@@ -296,7 +296,7 @@ class User
             "target" => $targetBD
         )));
     }
-
+    /*Mariana*/ 
     function contRegisto($dn, $genero, $altura, $peso, $ms, $mi, $fotoPerfil, $bio, $modalidades, $posFutsal, $nivelPadel, $ladoPadel)
     {
 
@@ -373,7 +373,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getInfoPerfil($id)
     {
         global $conn;
@@ -517,7 +517,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+     /*Mariana*/ 
     function altFotoCapa($fotoCapa)
     {
         global $conn;
@@ -530,18 +530,18 @@ class User
 
         if ($respUpdate['flag']) {
 
-            $targetWidth = 1298;
-            $targetHeight = 504;
+            $larguraTarget = 1298;
+            $alturaTarget = 504;
 
 
-            $path_parts = pathinfo("../../dist/" . $respUpdate['target']);
-            $newFilename = $path_parts['dirname'] . '/' . $path_parts['filename'] . '_resized.' . $path_parts['extension'];
+            $partesCaminho = pathinfo("../../dist/" . $respUpdate['target']);
+            $novoNomeFicheiro = $partesCaminho['dirname'] . '/' . $partesCaminho['filename'] . '_resized.' . $partesCaminho['extension'];
 
 
-            $this->resizeImage("../../dist/" . $respUpdate['target'], $newFilename, $targetWidth, $targetHeight);
+            $this->resizeImagem("../../dist/" . $respUpdate['target'], $novoNomeFicheiro, $larguraTarget, $alturaTarget);
 
-            $sql = "UPDATE atleta SET fotoCapa = '" . $newFilename . "' WHERE id_atleta = '" . $_SESSION['id'] . "'";
-            $elemento = "'../../dist/" . $newFilename;
+            $sql = "UPDATE atleta SET fotoCapa = '" . $novoNomeFicheiro . "' WHERE id_atleta = '" . $_SESSION['id'] . "'";
+            $elemento = "'../../dist/" . $novoNomeFicheiro;
 
             if ($conn->query($sql) === TRUE) {
                 $msg = "Alterada com sucesso!";
@@ -565,62 +565,62 @@ class User
         return ($resp);
     }
 
-
-    function resizeImage($sourceFile, $targetFile, $targetWidth, $targetHeight)
+     /*Pedro*/ 
+    function resizeImagem($ficheiroSource, $ficheiroTarget, $larguraTarget, $alturaTarget)
     {
 
-        $imageType = pathinfo($sourceFile, PATHINFO_EXTENSION);
+        $tipoImagem = pathinfo($ficheiroSource, PATHINFO_EXTENSION);
 
 
-        if ($imageType == 'jpeg' || $imageType == 'jpg') {
-            $sourceImage = imagecreatefromjpeg($sourceFile);
-        } elseif ($imageType == 'png') {
-            $sourceImage = imagecreatefrompng($sourceFile);
+        if ($tipoImagem == 'jpeg' || $tipoImagem == 'jpg') {
+            $imagemSource = imagecreatefromjpeg($ficheiroSource);
+        } elseif ($tipoImagem == 'png') {
+            $imagemSource = imagecreatefrompng($ficheiroSource);
         } else {
 
             return false;
         }
 
-        list($sourceWidth, $sourceHeight) = getimagesize($sourceFile);
+        list($sourceLagura, $sourceAltura) = getimagesize($ficheiroSource);
 
 
-        $sourceAspectRatio = $sourceWidth / $sourceHeight;
-        $targetAspectRatio = $targetWidth / $targetHeight;
+        $sourceRacioAspeto = $sourceLagura / $sourceAltura;
+        $targetRacioAspeto = $larguraTarget / $alturaTarget;
 
 
-        $cropWidth = $sourceWidth;
-        $cropHeight = $sourceHeight;
+        $cropLargura = $sourceLagura;
+        $cropAltura = $sourceAltura;
 
 
-        if ($sourceAspectRatio > $targetAspectRatio) {
+        if ($sourceRacioAspeto > $targetRacioAspeto) {
 
-            $cropWidth = $sourceHeight * $targetAspectRatio;
+            $cropLargura = $sourceAltura * $targetRacioAspeto;
         } else {
 
-            $cropHeight = $sourceWidth / $targetAspectRatio;
+            $cropAltura = $sourceLagura / $targetRacioAspeto;
         }
 
 
-        $cropX = ($sourceWidth - $cropWidth) / 2;
-        $cropY = ($sourceHeight - $cropHeight) / 2;
+        $cropX = ($sourceLagura - $cropLargura) / 2;
+        $cropY = ($sourceAltura - $cropAltura) / 2;
 
-        $resizedImage = imagecreatetruecolor($targetWidth, $targetHeight);
-
-
-        imagecopyresampled($resizedImage, $sourceImage, 0, 0, $cropX, $cropY, $targetWidth, $targetHeight, $cropWidth, $cropHeight);
+        $imagemResized = imagecreatetruecolor($larguraTarget, $alturaTarget);
 
 
-        if ($imageType == 'jpeg' || $imageType == 'jpg') {
-            imagejpeg($resizedImage, $targetFile);
-        } elseif ($imageType == 'png') {
-            imagepng($resizedImage, $targetFile);
+        imagecopyresampled($imagemResized, $imagemSource, 0, 0, $cropX, $cropY, $larguraTarget, $alturaTarget, $cropLargura, $cropAltura);
+
+
+        if ($tipoImagem == 'jpeg' || $tipoImagem == 'jpg') {
+            imagejpeg($imagemResized, $ficheiroTarget);
+        } elseif ($tipoImagem == 'png') {
+            imagepng($imagemResized, $ficheiroTarget);
         }
 
 
-        imagedestroy($sourceImage);
-        imagedestroy($resizedImage);
+        imagedestroy($imagemSource);
+        imagedestroy($imagemResized);
     }
-
+    /*Mariana*/ 
     function getEditInfo()
     {
         global $conn;
@@ -656,7 +656,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function guardaEditInfo($nome, $email, $nif, $cp, $tel, $morada, $local, $bio)
     {
 
@@ -689,7 +689,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getNotificacoes()
     {
         global $conn;
@@ -714,7 +714,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Mariana*/ 
     function getModalVot($id)
     {
 
@@ -915,7 +915,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function getMarcacoesNaoConcluidas()
     {
 
@@ -1248,7 +1248,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function  votacaoBasqFuts($id, $modalidade, $resEquipa, $resAdver, $numPontos, $idMvp)
     {
         global $conn;
@@ -1271,6 +1271,7 @@ class User
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 if ($row['n_jogos'] >= 30) {
+                    /*Cálculo de ranking é atualizado cada vez que as estatisticas do utilizador são alteradas. O valor base de nº de jogos é 30.*/
                     $ranking = ($row['n_vitorias'] / $row['n_jogos']) * 0.45 +
                         ($row['n_mvp'] / $row['n_jogos']) * 0.25;
                 } else {
@@ -1311,6 +1312,7 @@ class User
                 }
             }
         }
+        /*A coluna votação tem 3 valores possíveis: 0: jogo terminado mas não votado, 1: jogo terminado e votado, 2: jogo ainda não aconteceu. Após a votação, o valor é atualizado para 1 */
         $sql3 = "UPDATE listagem_atletas_marcacao SET votacao = 1 WHERE id_marcacao = " . $id . " AND id_atleta = " . $_SESSION['id'];
         if ($conn->query($sql2) === TRUE && $conn->query($sql3) === TRUE) {
             $msg .= "Votação feita com sucesso!";
@@ -1327,7 +1329,7 @@ class User
             $flag = false;
             $msg .= "Nao foi possível adicionar o mvp";
         }
-
+        /*A coluna votação tem 3 valores possíveis: 0: jogo terminado mas não votado, 1: jogo terminado e votado, 2: jogo ainda não aconteceu. Após a votação, o valor é atualizado para 1 */
         $resultadoBadges1 = $this->getBadgesPontos($modalidade,  $nPontos);
         $resultadoBadges2 = $this->getBadgesVitorias($modalidade, $nVitorias);
         $resultadoBadges3 = $this->getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
@@ -1340,7 +1342,7 @@ class User
         ));
         return ($resp);
     }
-
+    /*Mariana*/ 
     function votacaoPadelTenis($id, $modalidade, $resultados, $idMvp)
     {
         global $conn;
@@ -1358,6 +1360,7 @@ class User
         $nomeTabela = "";
         $sql5 = "";
         for ($i = 0; $i < sizeof($arrRes); $i++) {
+            /*Comparação dos resultados da equipa do utilizador que fez a votação e a equipa contrária. Caso seja uma vitória, é adicionada ao número de vitórias e, em ambas as possibilidades, o número de pontos por set entram para as suas estatísticas pessoais. */
             if ($arrRes[$i][0] > $arrRes[$i][1]) {
                 $nVit++;
                 $nPontosSet = $nPontosSet + $arrRes[$i][0];
@@ -1377,6 +1380,7 @@ class User
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 if ($row['n_jogos'] >= 30) {
+                     /*Cálculo de ranking é atualizado cada vez que as estatisticas do utilizador são alteradas. O valor base de nº de jogos é 30.*/
                     $ranking = ($row['n_vitorias']/$row['n_jogos'])*0.45 + ($row['n_mvp']/$row['n_jogos'])*0.25 + ($row['n_set_ganhos']/$row['n_sets'])*0.3;
                 }else{
                     $ranking = 0;
@@ -1388,7 +1392,8 @@ class User
                     } else {
                         $sql2 .= "UPDATE info_tenis SET n_jogos = " . $row['n_jogos'] . " + 1 , n_vitorias = " . $row['n_vitorias'] . " + 1, n_pontos_set = " . $row['n_pontos_set'] . " + " . $nPontosSet . ", n_set_ganhos = " . $row['n_set_ganhos'] . " + " . $nVit . " , n_sets =" . $row['n_sets'] . " + " . $nSets . ", ranking = " . $ranking . "  WHERE id_atleta = " . $_SESSION['id'];
                         $nomeTabela .= "info_tenis";
-                    }
+                    } 
+                    /*O numero de pontos, numero de vitorias e percentagem de vitórias são guardados em variáveis para posteriormente as funções de atribuição de badges serem executadas com os novos valores. */
                     $nPontos = $row['n_pontos_set'] + $nPontosSet;
                     $nVitorias += $row['n_vitorias'] + 1;
                     if( $row['n_jogos'] > 0){
@@ -1410,6 +1415,7 @@ class User
                 }
             }
         }
+        /*A coluna votação tem 3 valores possíveis: 0: jogo terminado mas não votado, 1: jogo terminado e votado, 2: jogo ainda não aconteceu. Após a votação, o valor é atualizado para 1 */
         $sql3 = "UPDATE listagem_atletas_marcacao SET votacao = 1 WHERE id_marcacao = " . $id . " AND id_atleta = " . $_SESSION['id'];
         if ($conn->query($sql2) === TRUE && $conn->query($sql3) === TRUE) {
             $msg .= "Votação feita com sucesso!";
@@ -1426,7 +1432,7 @@ class User
             $flag = false;
             $msg .= "Nao foi possível adicionar o mvp";
         }
-
+        /*Cálculo de atribuição de badges para novas estatísticas para enviar para js e gerar um toast com a notificação de conquista de um novo badge. São chamadas 3 funções, que se dividem em categorias diferentes de badges.*/
         $resultadoBadges1 = $this->getBadgesPontos($modalidade,  $nPontos);
         $resultadoBadges2 = $this->getBadgesVitorias($modalidade, $nVitorias);
         $resultadoBadges3 = $this->getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela);
@@ -1439,7 +1445,7 @@ class User
         ));
         return ($resp);
     }
-
+     /*Pedro*/ 
     function getPerfilNavbar()
     {
         global $conn;
@@ -1464,13 +1470,15 @@ class User
         $resp = json_encode(array("fotoPerfil" => $fotoPerfil, "nome" => $nome, "email" => $email, "id" => $_SESSION['id']));
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getEstatisticas($id)
     {
+        /*função geral para construção de arrays de estatísticas de cada modalidade para mostrar do perfil de user.*/
         global $conn;
         $sql = "SELECT modalidade.descricao as modalidade FROM modalidade INNER JOIN atleta_modalidade ON modalidade.id = atleta_modalidade.id_modalidade WHERE atleta_modalidade.id_atleta = '" . $id . "'";
         $result = $conn->query($sql);
         $arrEst = array();
+        /*Pelo facto das estatisticas de modalidades serem divididas em tabelas distintas, a associação do user às suas modalidades é necessária previamente. .*/
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 if ($row['modalidade'] == 'Basquetebol') {
@@ -1492,7 +1500,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getEstatisticasPadel($id)
     {
         global $conn;
@@ -1540,7 +1548,7 @@ class User
         $resp = array("modalidade" => "Padel", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet, "ranking" => $ranking);
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getEstatisticasTenis($id)
     {
         global $conn;
@@ -1588,7 +1596,7 @@ class User
         $resp = array("modalidade" => "Ténis", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nSetsGanhos" => $nSetsGanhos, "nMvp" => $nMvp, "percSets" => $percSetsGanhos, "mediaPontosSet" => $mediaPontosSet, "ranking" => $ranking);
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getEstatisticasBasquetebol($id)
     {
         global $conn;
@@ -1626,7 +1634,7 @@ class User
         $resp = array("modalidade" => "Basquetebol", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nPontos" => $nPontos, "nMvp" => $nMvp, "ranking" => $ranking);
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getEstatisticasFutsal($id)
     {
         global $conn;
@@ -1664,7 +1672,7 @@ class User
         $resp = array("modalidade" => "Futsal", "percVitorias" => $percVitorias, "nJogos" => $nJogos, "nGolos" => $nGolos, "nMvp" => $nMvp, "ranking" => $ranking);
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getNotificacaoConviteMarcacao()
     {
 
@@ -1696,7 +1704,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Mariana*/ 
     function getModalConviteMarcacao($id)
     {
 
@@ -1786,7 +1794,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function aceitarConvite($idMarcacao)
     {
 
@@ -1822,7 +1830,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function rejeitarConvite($idMarcacao)
     {
         global $conn;
@@ -1856,7 +1864,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function adicionarAmigo($idAmigo)
     {
         global $conn;
@@ -1888,7 +1896,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+     /*Pedro*/ 
     function notificacaoPedidoAmizade()
     {
         global $conn;
@@ -1936,7 +1944,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+     /*Pedro*/ 
     function aceitarPedido($id)
     {
 
@@ -1969,7 +1977,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function rejeitarPedido($id)
     {
 
@@ -2002,7 +2010,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function getJogosRecentes($idUser, $offset, $porPagina)
     {
         global $conn;
@@ -2171,7 +2179,8 @@ class User
 
         $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual);
         return json_encode($data);
-    }
+    } 
+    /*Pedro*/ 
     function getModalRemoverAmizade($id)
     {
         $msg = "<button type='button' class='btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3'
@@ -2184,7 +2193,7 @@ class User
                 </button>";
         return ($msg);
     }
-
+     /*Pedro*/ 
     function removerAmizade($idAmigo)
     {
         global $conn;
@@ -2218,7 +2227,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function getBadgesPontos($modalidade, $pontos)
     {
         global $conn;
@@ -2246,7 +2255,7 @@ class User
         }
         return ($arrayRes);
     }
-
+    /*Mariana*/ 
     function getBadgesVitorias($modalidade, $vitorias)
     {
         global $conn;
@@ -2274,7 +2283,7 @@ class User
         }
         return ($arrayRes);
     }
-
+    /*Mariana*/ 
     function getBadgesPercVitorias($modalidade, $percVitorias, $nomeTabela)
     {
         global $conn;
@@ -2305,7 +2314,7 @@ class User
         }
         return ($arrayRes);
     }
-
+    /*Mariana*/ 
     function getBadgesPerfil($modalidades, $id)
     {
         global $conn;
@@ -2335,7 +2344,7 @@ class User
         }
         return ($valBadges);
     }
-
+    /*Mariana*/ 
     function getMelhoresBadges($id)
     {
         global $conn;
@@ -2359,7 +2368,7 @@ class User
 
         return ($melhoresBadges);
     }
-
+    /*Mariana*/ 
     function getBadgesRecentes($id)
     {
         global $conn;
@@ -2380,7 +2389,7 @@ class User
 
         return ($badgesRecentes);
     }
-
+    /*Pedro*/ 
     function getComunidades($idUser)
     {
         global $conn;
@@ -2451,7 +2460,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Pedro*/ 
     function getAtletasPesquisaNavbar()
     {
         global $conn;
@@ -2578,7 +2587,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Mariana*/ 
     function getGraficos($id, $mod)
     {
         global $conn;
@@ -2606,7 +2615,7 @@ class User
         return ($resp);
     }
 
-
+    /*Mariana*/ 
     function getGraficosPadel($id)
     {
         global $conn;
@@ -2704,7 +2713,7 @@ class User
         array_push($vals,  $arrGraf2);
         return ($vals);
     }
-
+    /*Mariana*/ 
     function getGraficosTenis($id)
     {
         global $conn;
@@ -2801,7 +2810,7 @@ class User
         array_push($vals,  $arrGraf2);
         return ($vals);
     }
-
+    /*Mariana*/ 
     function getGraficosBasquetebol($id)
     {
         global $conn;
@@ -2894,7 +2903,7 @@ class User
         array_push($vals,  $arrGraf2);
         return ($vals);
     }
-
+    /*Mariana*/ 
     function getGraficosFutsal($id)
     {
         global $conn;
@@ -2987,7 +2996,7 @@ class User
         array_push($vals,  $arrGraf2);
         return ($vals);
     }
-
+    /*Mariana*/  
     function cancelarMarcacao($idMarcacao)
     {
         global $conn;
@@ -3034,7 +3043,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Mariana*/ 
     function cancelarMarcacaoTorneio($idTorneio)
     {
         global $conn;
@@ -3059,7 +3068,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function getNotificacaoJuntarGrupo()
     {
         global $conn;
@@ -3115,7 +3124,7 @@ class User
         $conn->close();
         return ($msg);
     }
-
+    /*Pedro*/ 
     function aceitarPedidoGrupo($id)
     {
 
@@ -3148,7 +3157,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function rejeitarPedidoGrupo($id)
     {
 
@@ -3181,7 +3190,7 @@ class User
         $conn->close();
         return ($resp);
     }
-
+    /*Pedro*/ 
     function guardaEditFotoPerfil($fotoPerfil)
     {
         global $conn;
