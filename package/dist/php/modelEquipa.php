@@ -4,6 +4,7 @@ require_once 'connection.php';
 
 class Equipa
 {
+    /*Pedro*/ 
     function getEquipasUser(){
         global $conn;
         $msg = "";
@@ -32,42 +33,42 @@ class Equipa
         LIMIT 8"; 
         $result = $conn->query($sql);
     
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $msg .= "<div class='col-12 col-sm-4 col-md-4 col-lg-3'>
-                        <div class='card hover-img shadow'>
-                        <div class='d-flex flex-column p-3 align-items-center mt-3'>
-                            <a href='./equipa.php?id=" . $row['idComunidade'] . "'><img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid' style='max-width: 100px;'></a>
-                            <span class='fs-5 fw-bold'>" . $row['nomeComunidade'] . "</span>
-                            <a href='./clube.php?id=".$row['idAtletaHost']."'><span class='fs-3'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</span></a>
-                            ";
-            $msg .= "<a href='./equipa.php?id=" . $row['idComunidade'] . "'>
-                                <button class='btn btn-primary btn-sm mt-3'>Ver</button>
-                            </a>";
-            if ($row['tipoModalidade'] == "Ténis") {
-                $msg .= "<span class='badge bg-success rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Ténis</span>";
-            } else if ($row['tipoModalidade'] == "Futsal") {
-                $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-football me-1'></i>Futsal</span>";
-            } else if ($row['tipoModalidade'] == "Basquetebol") {
-                $msg .= "<span class='badge bg-warning rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
-            } else {
-                $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $msg .= "<div class='col-12 col-sm-4 col-md-4 col-lg-3'>
+                            <div class='card hover-img shadow'>
+                            <div class='d-flex flex-column p-3 align-items-center mt-3'>
+                                <a href='./equipa.php?id=" . $row['idComunidade'] . "'><img src='../../dist/" . $row['fotoComunidade'] . "' class='img-fluid' style='max-width: 100px;'></a>
+                                <span class='fs-5 fw-bold'>" . $row['nomeComunidade'] . "</span>
+                                <a href='./clube.php?id=".$row['idAtletaHost']."'><span class='fs-3'><i class='ti ti-building me-1'></i>" . $row['nomeClube'] . "</span></a>
+                                ";
+                $msg .= "<a href='./equipa.php?id=" . $row['idComunidade'] . "'>
+                                    <button class='btn btn-primary btn-sm mt-3'>Ver</button>
+                                </a>";
+                if ($row['tipoModalidade'] == "Ténis") {
+                    $msg .= "<span class='badge bg-success rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Ténis</span>";
+                } else if ($row['tipoModalidade'] == "Futsal") {
+                    $msg .= "<span class='badge bg-danger rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-football me-1'></i>Futsal</span>";
+                } else if ($row['tipoModalidade'] == "Basquetebol") {
+                    $msg .= "<span class='badge bg-warning rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-basketball me-1'></i>Basquetebol</span>";
+                } else {
+                    $msg .= "<span class='badge bg-primary rounded-pill position-absolute top-0 end-0 mt-2 me-2'><i class='ti ti-ball-tennis me-1'></i>Padel</span>";
+                }
+
+
+                $msg .= "</div>
+                    </div>
+                </div>";
             }
-
-
-            $msg .= "</div>
-                </div>
-            </div>";
+        } else {
+            $msg .= "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não estás associado a nenhuma Equipa.</p></div>";
         }
-    } else {
-        $msg .= "<div class='text-center mt-3 mb-3'><span class='fs-6 fw-bold'>Sem resultados!</span><p>De momento não estás associado a nenhuma Equipa.</p></div>";
+
+        $conn->close();
+
+        return ($msg);
     }
-
-    $conn->close();
-
-    return ($msg);
-    }
-
+    /*Pedro*/
     function getEquipasLocalidadeUser(){
         global $conn;
         $msg = "";
@@ -155,7 +156,7 @@ class Equipa
         return json_encode(array("msg" => $msg , "localidade" => $local));
 
     }
-
+    /*Pedro*/
     function getAtletasEquipa($id, $offset, $porPagina){
         global $conn;
         $msg = "";
@@ -201,7 +202,7 @@ class Equipa
         $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual, 'total' => $itemsTotais);
         return json_encode($data);
     }
-
+    /*Pedro*/
     function getInfoEquipa($id){
         global $conn;
         $sql = "SELECT
@@ -270,8 +271,7 @@ class Equipa
             "msgClube" => $msgClube
         ));
     }
-
-
+    /*Mariana*/
     function getEstatisticasEquipa($id){
         global $conn;
         $sql = "SELECT modalidade.descricao 
@@ -298,7 +298,7 @@ class Equipa
         $conn->close();
         return json_encode($res); 
     }
-
+    /*Mariana*/
     function getEstatisticasEquipaPadelTenis($id, $nome){
         global $conn;
         $percVit = 0;
@@ -330,8 +330,7 @@ class Equipa
         $percSetsGanhos =  round(($percSetsGanhos / $count)*100, 2, PHP_ROUND_HALF_UP);
         return(array($percVit, $percSetsGanhos, $percMvp));
     }
-
-
+    /*Mariana*/
     function getEstatisticasEquipaBasqFutsal($id, $nome){
         global $conn;
         $percVit = 0;
@@ -358,8 +357,7 @@ class Equipa
         $percMvp = round(($percMvp / $count)*100, 2, PHP_ROUND_HALF_UP);
         return(array($percVit, $percMvp));
     }
-
-
+    /*Mariana*/
     function getTopAltetas($id){
         global $conn;
         $msg = "";

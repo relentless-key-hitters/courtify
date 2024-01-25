@@ -39,7 +39,7 @@ class Grupo
             "target" => $targetBD
         )));
     }
-
+    /*Pedro*/ 
     function getMarcacoesAbertasGrupos()
     {
         global $conn;
@@ -253,7 +253,7 @@ class Grupo
         $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
         return ($resp);
     }
-
+    /*Pedro*/ 
     function getGruposUser()
     {
         global $conn;
@@ -317,7 +317,7 @@ class Grupo
 
         return ($msg);
     }
-
+    /*Pedro*/ 
     function getAtletasGrupo($id, $offset, $porPagina)
     {
         global $conn;
@@ -364,7 +364,7 @@ class Grupo
         $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual, 'total' => $itemsTotais);
         return json_encode($data);
     }
-
+    /*Pedro*/ 
     function getInfoGrupo($idGrupo)
     {
         global $conn;
@@ -430,7 +430,7 @@ class Grupo
         $conn->close();
         return $msg;
     }
-
+    /*Pedro*/ 
     function getMarcacoesConcluidasGrupo($id, $offset, $porPagina)
     {
         global $conn;
@@ -591,7 +591,7 @@ class Grupo
         $data = array('msg' => $msg, 'paginasTotais' => $paginasTotais, 'paginaAtual' => $paginaAtual, 'total' => $itemsTotais);
         return json_encode($data);
     }
-
+    /*Pedro*/ 
     function getBotoesMenus($id)
     {
         global $conn;
@@ -631,7 +631,7 @@ class Grupo
 
         return json_encode(array('userIsHost' => $userIsHost, 'userIsMember' => $userIsMember, 'userIsPending' => $userIsPending));
     }
-
+    /*Pedro*/ 
     function sairGrupo($id)
     {
         global $conn;
@@ -647,7 +647,7 @@ class Grupo
 
         return $msg;
     }
-
+    /*Pedro*/ 
     function juntarGrupo($id)
     {
         global $conn;
@@ -686,7 +686,7 @@ class Grupo
 
         return $msg;
     }
-
+    /*Pedro*/ 
     function getInfoEditGrupo($id)
     {
         global $conn;
@@ -755,7 +755,7 @@ class Grupo
 
         return $resp;
     }
-
+    /*Pedro*/ 
     function guardaEditGrupo($id, $nome, $descricao, $imagem)
     {
         global $conn;
@@ -788,7 +788,7 @@ class Grupo
             "msg" => $msg
         ));
     }
-
+    /*Pedro*/ 
     function apagarGrupo($id)
     {
         global $conn;
@@ -820,7 +820,7 @@ class Grupo
 
         return $resp;
     }
-
+    /*Pedro*/ 
     function getMembrosGrupo($id)
     {
         global $conn;
@@ -896,7 +896,7 @@ class Grupo
 
         return $msg;
     }
-
+    /*Pedro*/ 
     function removerMembroGrupo($idUser, $idGrupo)
     {
         global $conn;
@@ -924,7 +924,7 @@ class Grupo
             "msg" => $msg
         ));
     }
-
+    /*Pedro*/ 
     function registaGrupo($nome, $descricao, $modalidade, $imagem, $estado)
     {
         global $conn;
@@ -974,8 +974,7 @@ class Grupo
             "id" => $lastId
         ));
     }
-
-
+    /*Mariana*/ 
     function getEstatisticasGrupo($idGrupo){
         global $conn;
         $sql = "SELECT modalidade.descricao 
@@ -1002,7 +1001,7 @@ class Grupo
         $conn->close();
         return json_encode($res); 
     }
-
+    /*Mariana*/ 
     function getEstatisticasGrupoPadelTenis($idGrupo, $nome){
         global $conn;
         $percVit = 0;
@@ -1034,8 +1033,7 @@ class Grupo
         $percSetsGanhos =  round(($percSetsGanhos / $count)*100, 2, PHP_ROUND_HALF_UP);
         return(array($percVit, $percSetsGanhos, $percMvp));
     }
-
-
+    /*Mariana*/ 
     function getEstatisticasGrupoBasqFutsal($idGrupo, $nome){
         global $conn;
         $percVit = 0;

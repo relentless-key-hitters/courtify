@@ -6,7 +6,7 @@ require_once 'connection.php';
 
 class Descobrir
 {
-
+    /*Pedro*/
     function getMarcacoesAbertasAmigos()
     {
         global $conn;
@@ -242,7 +242,7 @@ class Descobrir
         $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
         return ($resp);
     }
-
+    /*Pedro*/
     function getMarcacoesAbertasLocalidade()
     {
         global $conn;
@@ -481,7 +481,7 @@ class Descobrir
         $resp = json_encode(array("msg" => $msg, "localidadeUser" => $localidadeUserLogin, "contagem" => $contagem));
         return ($resp);
     }
-
+    /*Pedro*/
     function getMarcacoesAbertasModalidades()
     {
         global $conn;
@@ -702,9 +702,7 @@ class Descobrir
         $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
         return ($resp);
     }
-
-
-
+    /*Pedro*/
     function getModalJuntarMarcacao($idMarcacao) {
         $msg = "<button type='button' class='btn btn-primary text-white font-medium waves-effect text-start mb-3 mt-3'
                     data-bs-dismiss='modal' onclick='juntarMarcacao(".$idMarcacao.")'>
@@ -716,7 +714,7 @@ class Descobrir
                 </button>";
         return ($msg);
     }
-
+    /*Pedro*/
     function juntarMarcacao($idMarcacao) {
         global $conn;
         $msg = "";

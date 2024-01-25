@@ -3,6 +3,7 @@ session_start();
 require_once 'connection.php';
 
 class TorneioUser {
+    /*Pedro*/ 
     function getTorneiosAbertosUser(){
         
         global $conn;
@@ -100,7 +101,7 @@ class TorneioUser {
 
         return ($resp);
     }
-
+    /*Pedro*/ 
     function juntarTorneio($idTorneio) {
 
         global $conn;

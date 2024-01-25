@@ -3,8 +3,9 @@
 require_once 'connection.php';
 
 class Estatistica
-{
-/*Estatísticas gerais Basquebol */
+{    
+    /*Mariana*/ 
+    /*Estatísticas gerais Basquebol */
     function estatisticasBasquetebol(){
         global $conn;
         $sql = " SELECT * FROM info_basquetebol";
@@ -26,8 +27,8 @@ class Estatistica
         $this -> percGeral($nPontos, $numJogos, "mediaPontosJogo", 0.5, "estatisticas_basquetebol");
         $conn -> close();
     }
-
-/*Estatísticas gerais Futsal */
+    /*Mariana*/ 
+    /*Estatísticas gerais Futsal */
     function estatisticasFutsal(){
         global $conn;
         $sql = " SELECT * FROM info_futsal";
@@ -49,7 +50,8 @@ class Estatistica
         $this -> percGeral($nPontos, $numJogos, "mediaPontosJogo", 0.5, "estatisticas_futsal");
         $conn -> close();
     }
- /*Estatísticas gerais Padel */
+    /*Mariana*/ 
+    /*Estatísticas gerais Padel */
     function estatisticasPadel(){
         global $conn;
         $sql = " SELECT * FROM info_padel";
@@ -77,7 +79,8 @@ class Estatistica
         $this -> percGeral($nPontosSet, $numJogos, "mediaPontosJogo", 0.5, "estatisticas_padel");
         $conn -> close();
     }
- /*Estatísticas gerais Ténis */
+    /*Mariana*/ 
+    /*Estatísticas gerais Ténis */
     function estatisticasTenis(){
         global $conn;
         $sql = " SELECT * FROM info_tenis";
@@ -105,7 +108,7 @@ class Estatistica
         $this -> percGeral($nPontosSet, $numJogos, "mediaPontosJogo", 0.5, "estatisticas_tenis");
         $conn -> close();
     }
-
+    /*Mariana*/ 
     /*Cálculo de valor a avaliar com valores atuais de todos os atletas*/
     function calcPercAtual($array1, $array2){
         $percVitMedia = 0;
@@ -115,7 +118,7 @@ class Estatistica
         $percVitMedia = $percVitMedia / count($array1);
         return($percVitMedia);
     }
-
+    /*Mariana*/ 
     /*Avaliação de valor atual com valor antigo. Cálculo da variação de valor e análise de relevância da sua alteração.*/
     function avalPerc($percNova, $variavel, $variancia, $nomeTabela){
         global $conn;
@@ -133,7 +136,7 @@ class Estatistica
         }
         return($flag);
     }
-
+    /*Mariana*/ 
     function percGeral($array1, $array2, $variavel, $variancia, $nomeTabela){
         global $conn;
         $sql = "";

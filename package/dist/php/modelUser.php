@@ -564,30 +564,29 @@ class User
         $conn->close();
         return ($resp);
     }
-
      /*Pedro*/ 
     function resizeImagem($ficheiroSource, $ficheiroTarget, $larguraTarget, $alturaTarget)
     {
-
+        // Obter a extensão do ficheiro da imagem de origem
         $tipoImagem = pathinfo($ficheiroSource, PATHINFO_EXTENSION);
 
-
+        // Criar recurso de imagem com base no tipo de ficheiro
         if ($tipoImagem == 'jpeg' || $tipoImagem == 'jpg') {
             $imagemSource = imagecreatefromjpeg($ficheiroSource);
         } elseif ($tipoImagem == 'png') {
             $imagemSource = imagecreatefrompng($ficheiroSource);
         } else {
 
-            return false;
+            return false; // Devolver falso se o tipo de ficheiro não for suportado
         }
-
+        // Obter as dimensões da imagem de origem
         list($sourceLagura, $sourceAltura) = getimagesize($ficheiroSource);
 
-
+        // Calcular rácios de aspeto
         $sourceRacioAspeto = $sourceLagura / $sourceAltura;
         $targetRacioAspeto = $larguraTarget / $alturaTarget;
 
-
+        // Calcular as dimensões do crop com base nos rácios de aspeto
         $cropLargura = $sourceLagura;
         $cropAltura = $sourceAltura;
 
@@ -600,23 +599,24 @@ class User
             $cropAltura = $sourceLagura / $targetRacioAspeto;
         }
 
-
+        // Calcular as posições do crop
         $cropX = ($sourceLagura - $cropLargura) / 2;
         $cropY = ($sourceAltura - $cropAltura) / 2;
 
+        // Criar um novo recurso de imagem true color
         $imagemResized = imagecreatetruecolor($larguraTarget, $alturaTarget);
 
-
+        // Copiar e redimensionar parte de uma imagem com reamostragem
         imagecopyresampled($imagemResized, $imagemSource, 0, 0, $cropX, $cropY, $larguraTarget, $alturaTarget, $cropLargura, $cropAltura);
 
-
+        // Guardar a imagem redimensionada com base no tipo de ficheiro
         if ($tipoImagem == 'jpeg' || $tipoImagem == 'jpg') {
             imagejpeg($imagemResized, $ficheiroTarget);
         } elseif ($tipoImagem == 'png') {
             imagepng($imagemResized, $ficheiroTarget);
         }
 
-
+        // Libertar memória
         imagedestroy($imagemSource);
         imagedestroy($imagemResized);
     }
@@ -2614,7 +2614,6 @@ class User
         $conn->close();
         return ($resp);
     }
-
     /*Mariana*/ 
     function getGraficosPadel($id)
     {
