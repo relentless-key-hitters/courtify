@@ -349,8 +349,8 @@ class Equipa
             while ($row = $result->fetch_assoc()) {
                 $count++;
                 if($row['n_jogos']!=0){
-                   $percVit .= ($row['n_vitorias']/$row['n_jogos']);
-                   $percMvp .= ($row['n_mvp']/$row['n_jogos']);
+                   $percVit += ($row['n_vitorias']/$row['n_jogos']);
+                   $percMvp += ($row['n_mvp']/$row['n_jogos']);
                 }
             }
         }

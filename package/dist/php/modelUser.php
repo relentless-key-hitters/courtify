@@ -1285,10 +1285,10 @@ class User
                         $nomeTabela .= "info_futsal";
                     }
                     $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
-                    $nPontos .=  $row[$columnNamePontos] + $numPontos;
-                    $nVitorias .= $row['n_vitorias'] + 1;
+                    $nPontos +=  $row[$columnNamePontos] + $numPontos;
+                    $nVitorias += $row['n_vitorias'] + 1;
                     if ($row['n_jogos'] != 0) {
-                        $percVitorias .= ($nVitorias / $row['n_jogos'] + 1) * 100;
+                        $percVitorias += ($nVitorias / $row['n_jogos'] + 1) * 100;
                     } else {
                         $percVitorias = 0;
                     }
@@ -1301,10 +1301,10 @@ class User
                         $nomeTabela .= "info_futsal";
                     }
                     $columnNamePontos = ($modalidade == "Basquetebol") ? 'n_pontos' : 'n_golos';
-                    $nPontos .=  $row[$columnNamePontos] + $numPontos;
-                    $nVitorias .= $row['n_vitorias'];
+                    $nPontos +=  $row[$columnNamePontos] + $numPontos;
+                    $nVitorias += $row['n_vitorias'];
                     if ($row['n_jogos'] != 0) {
-                        $percVitorias .= ($nVitorias / $row['n_jogos'] + 1) * 100;
+                        $percVitorias += ($nVitorias / $row['n_jogos'] + 1) * 100;
                     } else {
                         $percVitorias = 0;
                     }
