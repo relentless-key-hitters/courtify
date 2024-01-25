@@ -70,6 +70,7 @@ class Clube{
             "target" => $targetBD
         )));
     }
+    /*Pedro*/
     function getDistritos($concelhoClube)
     {
 
@@ -115,6 +116,7 @@ class Clube{
 
         return json_encode(array('msg' => $msg, 'msg2' => $msg2));
     }
+    /*Pedro*/
     function getConcelhos($distrito, $concelho)
     {
         global $conn;
@@ -136,6 +138,7 @@ class Clube{
 
         return ($msg);
     }
+    /*Mariana*/
     function getInfoClube(){
 
         global $conn;
@@ -244,6 +247,7 @@ class Clube{
         ));
 
     }
+    /*Mariana*/
     function getMelhoresAtletas(){
         global $conn;
         $sql = "SELECT DISTINCT modalidade.descricao 
@@ -328,6 +332,7 @@ class Clube{
         $conn -> close();
         return($msg);
     }
+    /*Mariana*/
     function getCampoMaisUsadoAno(){
         global $conn;
         $res = array();
@@ -359,6 +364,7 @@ class Clube{
         return(json_encode($res));
 
     }
+    /*Mariana*/
     function getNomeClube() {
         global $conn;
         $nome = "";
@@ -374,6 +380,7 @@ class Clube{
         $conn -> close();
         return $nome;
     }
+    /*Mariana*/
     function getDadosHoje(){
         global $conn;
         $sql = "SELECT COUNT(*) AS contagemHorario, DATE_FORMAT(temp.hora_inicio,'%H:%i') AS hora_inicio, DATE_FORMAT(temp.hora_fim,'%H:%i') AS hora_fim
@@ -422,6 +429,7 @@ class Clube{
         $conn -> close();
         return(json_encode(array("HorariosMaisFrequentes" => $res, "numMarcacoesHoje" => $nMarcacoesHoje)));
     }
+    /*Pedro*/
     function getInfoDefinicoesClube() {
         global $conn;
         $resp = null;
@@ -458,6 +466,7 @@ class Clube{
 
         return json_encode($resp); 
     }
+    /*Pedro*/
     function getHorariosDefinicoesClube() {
         global $conn;
         $resp = array();
@@ -478,6 +487,7 @@ class Clube{
     
         return json_encode($resp);
     }
+    /*Mariana*/
     function getGraficoMarcacao(){
         global $conn;
         $sql = "SELECT temp.cont_marcacao AS n_marcacoes, MONTH(CURRENT_DATE()) AS mes
@@ -560,6 +570,7 @@ class Clube{
         $conn -> close();
         return(json_encode($arrGraficoMarc));
     }
+    /*Mariana*/
     function getGraficoGanhos(){
         global $conn;
         $sql = "SELECT SUM(temp.preco_total) AS total, MONTH(CURRENT_DATE()) AS mes
@@ -658,6 +669,7 @@ class Clube{
         return(json_encode($arrGraficoGanhos));
 
     }
+    /*Mariana*/
     function getCamposClube(){
         global $conn;
         $sql = " SELECT tipo_campo.descricao as descricaoTipoCampo, campo.id, campo.nome, campo.foto, campo.preco_hora, modalidade.descricao
@@ -687,6 +699,7 @@ class Clube{
         return($msg);
 
     }
+    /*Pedro*/
     function alterarFotoClube($fotoClubeEditNova) {
         global $conn;
         $respUpdate = $this->uploads($fotoClubeEditNova, $_SESSION['id']);
@@ -706,6 +719,7 @@ class Clube{
         return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
         
     }
+    /*Pedro*/
     function guardarEditClube(
         $nome, 
         $anoFundacaoClubeEdit, 
@@ -829,6 +843,7 @@ class Clube{
 
         return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
     }
+    /*Mariana*/
     function getCamposManutencao(){
         global $conn;
         $sql = "SELECT SUM(temp.horas) AS total_horas, temp.nome AS nome, temp.ultima_manutencao AS ultima_manutencao, temp.id AS id 
@@ -916,6 +931,7 @@ class Clube{
         return($msg);
 
     }
+    /*Pedro*/
     function editarPrecoHoraCampo($idCampo) {
 
         global $conn;
@@ -956,6 +972,7 @@ class Clube{
 
         return($msg);
     }
+    /*Pedro*/
     function guardarEditPrecoClube($precoNovo, $idCampo) {
 
         global $conn;
@@ -981,6 +998,7 @@ class Clube{
 
         return($resp);
     }
+    /*Pedro*/
     function guardarEditDataManutencaoCampo($dataNovaManutencaoCampo, $idCampo) {
 
         global $conn;
@@ -1005,6 +1023,7 @@ class Clube{
 
         return($resp);
     }
+    /*Mariana*/
     function alterarFotoCampoClube($id){
 
         global $conn;
@@ -1018,6 +1037,7 @@ class Clube{
         }
         return($img);
     }
+    /*Mariana*/
     function guardaFotoCampo($id, $foto){
         
         global $conn;
@@ -1048,6 +1068,7 @@ class Clube{
         return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
 
     }
+    /*Mariana*/
     function getMembros(){
         global $conn;
         $sql = "SELECT comunidade.id, modalidade.descricao, comunidade.nome
@@ -1110,6 +1131,7 @@ class Clube{
         $conn -> close();
         return($msg);
     }
+    /*Mariana*/
     function guardaRemoverMembro($idMembro, $idEquipa){
         global $conn;
         $sql = "DELETE FROM comunidade_atletas WHERE id_comunidade = ".$idEquipa." AND id_atleta = ".$idMembro."";
@@ -1133,6 +1155,7 @@ class Clube{
 
         return($resp);
     }
+    /*Mariana*/
     function getReservas(){
         global $conn;
         $sql = "SELECT marcacao.id, marcacao.data_inicio, marcacao.hora_inicio, marcacao.hora_fim, user.nome as nomeAtleta, campo.nome AS nomeCampo
@@ -1173,6 +1196,7 @@ class Clube{
         $conn -> close();
         return($msg);
     }
+    /*Mariana*/
     function cancelarReserva($idMarcacao){
         global $conn;
         $sql = "DELETE FROM listagem_atletas_marcacao WHERE id_marcacao =".$idMarcacao;
@@ -1200,6 +1224,7 @@ class Clube{
 
         return($resp);
     }
+    /*Mariana*/
     function getMarcacoesPagamentos(){
         global $conn;
         $sql = "SELECT (TIME_TO_SEC(TIMEDIFF(marcacao.hora_fim, marcacao.hora_inicio))/3600)*campo.preco_hora AS preco_total, marcacao.id, marcacao.data_inicio, marcacao.hora_inicio, marcacao.hora_fim, user.nome AS nomeUser, campo.nome AS nomeCampo, marcacao.pagamento AS pagamento
@@ -1257,6 +1282,7 @@ class Clube{
         $conn -> close();
         return($msg);
     }
+    /*Mariana*/
     function validarPagamento($idMarcacao){
         global $conn;
         $sql = "UPDATE marcacao SET pagamento = 1 WHERE id =".$idMarcacao;
@@ -1277,6 +1303,7 @@ class Clube{
 
         return($resp);
     }
+    /*Pedro*/
     function getMembrosAdicionar() {
         global $conn;
         $msg = "";
@@ -1327,6 +1354,7 @@ class Clube{
 
         return($msg);
     }
+    /*Pedro*/
     function getEquipasSelectAdicionarMembro($idUser) {
         global $conn;
         $msg = "<option val='-1' selected disabled>Selecione uma equipa</option>";
@@ -1364,6 +1392,7 @@ class Clube{
         
         return($resp);
     }
+    /*Pedro*/
     function guardaAdicionarMembros($idUser, $idEquipa) {
         global $conn;
         $msg = "Membro adicionado com sucesso";

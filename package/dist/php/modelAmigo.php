@@ -4,6 +4,7 @@ require_once 'connection.php';
 
 class Amigo
 {
+    /*Pedro*/
     function getAmigos($userId) {
         global $conn;
         $msg = "";
@@ -112,7 +113,7 @@ class Amigo
         $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
         return ($resp);
     }
-
+    /*Pedro*/
     function procurarAmigos($userId, $nomeAmigo) {
         global $conn;
         $msg = "";
@@ -211,7 +212,7 @@ class Amigo
         $resp = json_encode(array("msg" => $msg, "contagem" => $contagem));
         return ($resp);
     }
-
+    /*Pedro*/
     function mostrarAmigosModalMarcacao($idCampo) {
         global $conn;
         $msg = "";
