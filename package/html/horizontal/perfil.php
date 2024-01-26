@@ -127,7 +127,7 @@ if (isset($_SESSION['id'])) { ?>
                       <div class="py-3 px-7 pb-0">
                       </div>
                       <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                        <img class="rounded-circle object-fit-cover" width="80" height="80" alt="" id="perfil2" />
+                        <img class="rounded-circle" width="80" height="80" alt="" id="perfil2" />
                         <div class="ms-3">
                           <h5 class="mb-1 fs-3 fw-bolder" id="nome2"></h5>
                           <span class="badge rounded-pill border border-1 border-primary bg-light text-dark fs-3 mt-1">

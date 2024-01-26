@@ -2416,9 +2416,13 @@ class User
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $msg .= "<div class='col-lg-12 col-md-6 col-sm-6'>
-                            <div class='shadow rounded d-flex align-items-center mt-3 position-relative'>
-                                <a href='./grupo.php?id=" . $row['idComunidade'] . "'>
-                                    <img src='../../dist/" . $row['fotoComunidade'] . "' alt='" . $row['nomeComunidade'] . "' class='img-fluid rounded-2 mt-3' width='100' height='100'>
+                            <div class='shadow rounded d-flex align-items-center mt-3 position-relative'>";
+                            if ($row['tipoComunidade'] == "Grupo") {
+                        $msg .= "<a href='./grupo.php?id=" . $row['idComunidade'] . "'>";
+                            } else {
+                        $msg .= "<a href='./equipa.php?id=" . $row['idComunidade'] . "'>";
+                            }
+                        $msg .= "<img src='../../dist/" . $row['fotoComunidade'] . "' alt='" . $row['nomeComunidade'] . "' class='img-fluid rounded-2 mt-3' width='100' height='100'>
                                 </a>
                                 <div class='ms-3 mt-3'>
                                     <p><span class='fw-bolder fs-5'>" . $row['nomeComunidade'] . "</span></p>";
