@@ -1,4 +1,4 @@
-let arrHiden =[];
+let arrHiden = [];
 let obsCampos = [];
 let obsUser = [];
 function getUserLocation() {
@@ -134,38 +134,51 @@ let coords = [];
 let dist = [];
 
 async function constroiMapa(clubeInfo, localidadeUser) {
+    // Inicializar arrays para armazenar coordenadas e distâncias
     coords = [];
     dist = [];
+
+    // Se o mapa existir, removê-lo
     if (typeof map !== 'undefined') {
         map.remove();
     }
 
+    // Construir o URL Nominatim para a localização do utilizador
     var nominatimUrlUser = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(localidadeUser);
 
     try {
+        // Obter os dados de localização do utilizador a partir da API Nominatim
         const response = await fetch(nominatimUrlUser);
         const data = await response.json();
 
+        // Se os dados de localização estiverem disponíveis, configurar o mapa
         if (data.length > 0) {
-            var lat = parseFloat(data[0].lat);
-            var lon = parseFloat(data[0].lon);
-            var coordinates = [lat, lon];
-            coords.push([lat, lon,0]);
-            map = L.map('mapa').setView([coordinates[0], coordinates[1]], 13);
+            var lat = parseFloat(data[0].lat); // Apanhar a latitude em float
+            var lon = parseFloat(data[0].lon); // Apanhar a longitude em float
+            var coordinates = [lat, lon]; // Array com as coordenadas
+            coords.push([lat, lon,0]); // Push pro array inicial lá em cima
+            map = L.map('mapa').setView([coordinates[0], coordinates[1]], 13); // Configura o mapa
         }
     } catch (error) {
-        console.error('Error geocoding:', error);
+        console.error('Error geocoding:', error); 
     }
 
+    // Adicionar a camada tile do OpenStreetMap ao mapa
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
+    // Inicializar array com marcadores
     var markers = [];
 
+    // Inicilizar card selecionado
     var cardSeleccionado = null;
+
+    // Função para criar um marcador com popup para cada clube
     async function createMarkerWithPopup(info) {
+        
+        // Extrair informação do objeto 'info'
         var clubeNome = info.nomeClube;
         var clubeDesc = info.clubeDesc;
         var moradaClube = info.moradaClube;
@@ -174,14 +187,17 @@ async function constroiMapa(clubeInfo, localidadeUser) {
         var latClube = info.latClube;
         var lonClube = info.lonClube;
 
-        
+        // Criar um array coordinate com as coordenadas e dar push para o array "coords" --> ARRAY NO AMBITO GLOBAL
         var coordinates = [latClube, lonClube];
         coords.push([latClube, lonClube, idClube]);
+
+        // Criar um marcador com um popup
         var marker = L.marker(coordinates)
             .bindPopup(
             '<p><strong>' + clubeNome + '</strong></p>' +
             '<p><i class="ti ti-map-pin me-1"></i>' + moradaClube + '</p>'
             );
+            // Manuseamento de marcadores e visibilidade de elementos com base no array "arrHiden" --> ARRAY NO AMBITO GLOBAL
             if(arrHiden.length == 0){
                 markers.push(marker);
                 if($("#clube" + idClube).is(':hidden')){
@@ -205,41 +221,39 @@ async function constroiMapa(clubeInfo, localidadeUser) {
       
             
         marker.on('click', function () {
-            
+
+            // Encontrar o elemento com o atributo data-id igual ao valor idClube
             var cartaoHighlight = document.querySelector('[data-id="' + idClube + '"]');
         
-            
+            // Verificar se existe cartaoHighlight
             if (cartaoHighlight) {
-                if (cartaoHighlight === cardSeleccionado
-            ) {
-                    
+                // Se o cartaoHighlight é o mesmo que o cardSeleccionado
+                if (cartaoHighlight === cardSeleccionado) {
+                    // Remover a borda, a sombra e repor o cardSeleccionado
                     cartaoHighlight.classList.remove('border', 'border-1', 'border-primary', 'shadow');
-                    cardSeleccionado
-             = null;
+                    cardSeleccionado = null;
                 } else {
-                    
-                    if (cardSeleccionado
-                ) {
-                        cardSeleccionado
-                .classList.remove('border', 'border-1', 'border-primary', 'shadow');
+                    // Se o cardSeleccionado existir, remover o seu contorno e sombra
+                    if (cardSeleccionado) {
+                        cardSeleccionado.classList.remove('border', 'border-1', 'border-primary', 'shadow');
                     }
+                    // Adicionar borda e sombra ao cartaoHighlight e defini-lo como cardSeleccionado
                     cartaoHighlight.classList.add('border', 'border-1', 'border-primary', 'shadow');
-                    cardSeleccionado
-             = cartaoHighlight;
+                    cardSeleccionado = cartaoHighlight;
                 }
             }
         });
     }
 
-    
+    // Criar marcadores com popups para cada clube
     for (const info of clubeInfo) {
         await createMarkerWithPopup(info);
     }
 
-    
+    // Adicionar marcadores ao mapa
     var markerLayer = L.layerGroup(markers);
     markerLayer.addTo(map);
-    getDistancias();
+    getDistancias(); // Chama get distancia para obter a distância entre um ponto central na localidade User e todos os clubes dos resultado
 }
 
 function pesquisarCampos() {
@@ -287,16 +301,28 @@ function pesquisarCampos() {
 }
 
 function getDistancias(){
-
+    // Raio da Terra em metros
     let r = 6371e3;
+
+    // Converter a latitude da primeira coordenada em radianos
     let a1= coords[0][0] * Math.PI / 180 ;
+
+    // Percorrer o resto das coordenadas
     for(let i = 1; i < coords.length; i++){
+        // Converter a latitude da coordenada atual em radianos
         let a2= coords[i][0] * Math.PI / 180 ;
+
+        // Calcular a mudança nas longitudes e converter em radianos
         let b1 = (coords[i][0] - coords[0][0]) * Math.PI / 180;
         let b2 = (coords[i][1] - coords[0][1]) * Math.PI / 180;
 
+        // Calcular o ângulo central utilizando a fórmula haversine
         let c = Math.sin(b1/2) * Math.sin(b1/2) + Math.cos(a1) * Math.cos(a2) * Math.sin(b2/2) * Math.sin(b2/2);
+
+        // Calcular a distância utilizando a fórmula haversine
         let d = 2 * Math.atan2(Math.sqrt(c), Math.sqrt(1-c));
+
+        // Push dos valores para o array "dist" --> ARRAY NO ÂMBITO GLOBAL
         dist.push([d * r, coords[i][2]]);
     }
 }

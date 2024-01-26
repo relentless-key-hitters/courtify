@@ -229,7 +229,6 @@ class User
         $conn->close();
         return ($msg);
     }
-
     /*Mariana*/ 
     function uploads($img, $id)
     {
