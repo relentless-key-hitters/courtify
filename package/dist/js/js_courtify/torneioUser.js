@@ -164,7 +164,7 @@ function getTorneiosAbertosUser() {
                                                 <span class="fs-2">Género: <span class="fw-bolder fs-3">${generoTorneio}</span></span>
                                             </div>
 
-                                            <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
+                                            <span class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 mt-2 me-2">
                                             <i class="ti ti-ball-football me-1"></i>
                                             <small>${el.modalidadeTorneio}</small>
                                             </span>
@@ -260,7 +260,7 @@ function getTorneiosAbertosUser() {
                                                 <span class="fs-2">Género: <span class="fw-bolder fs-3">${generoTorneio}</span></span>
                                             </div>
 
-                                            <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
+                                            <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-2 me-2">
                                             <i class="ti ti-ball-football me-1"></i>
                                             <small>${el.modalidadeTorneio}</small>
                                             </span>
@@ -354,7 +354,7 @@ function getTorneiosAbertosUser() {
                                                 <span class="fs-2">Género: <span class="fw-bolder fs-3">${generoTorneio}</span></span>
                                             </div>
 
-                                            <span class="badge rounded-pill text-bg-danger position-absolute top-0 end-0 mt-2 me-2">
+                                            <span class="badge rounded-pill text-bg-success position-absolute top-0 end-0 mt-2 me-2">
                                             <i class="ti ti-ball-football me-1"></i>
                                             <small>${el.modalidadeTorneio}</small>
                                             </span>
