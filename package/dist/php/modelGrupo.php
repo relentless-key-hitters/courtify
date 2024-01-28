@@ -1028,9 +1028,9 @@ class Grupo
                 }
             }
         }
-        $percVit =  round(($percVit / $count)*100, 2, PHP_ROUND_HALF_UP);
-        $percMvp =  round(($percMvp / $count)*100, 2, PHP_ROUND_HALF_UP);
-        $percSetsGanhos =  round(($percSetsGanhos / $count)*100, 2, PHP_ROUND_HALF_UP);
+        $percVit =  round(($percVit / $count)*100, 2, PHP_ROUND_HALF_DOWN);
+        $percMvp =  round(($percMvp / $count)*100, 2, PHP_ROUND_HALF_DOWN);
+        $percSetsGanhos =  round(($percSetsGanhos / $count)*100, 2, PHP_ROUND_HALF_DOWN);
         return(array($percVit, $percSetsGanhos, $percMvp));
     }
     /*Mariana*/ 
