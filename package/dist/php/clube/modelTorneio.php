@@ -89,18 +89,21 @@ class Torneio {
         $icon = "success";
         $title = "Sucesso";
 
+        $sql = "INSERT INTO torneio (id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs, modalidade, genero) VALUES (?, ?, ?, ?, ?, ?, ?, 'nc', ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("isssidsiss", $_SESSION['id'], $desc, $data, $hora, $nmr, $preco, $nivel, $obs, $trModalidade, $genero);
 
-        $sql = "INSERT INTO torneio (id_clube, descricao, data, hora, num_entradas, preco, nivel, estado, obs, modalidade, genero) VALUES (".$_SESSION['id'].", '".$desc."', '".$data."', '".$hora."', '".$nmr."', '".$preco."', '".$nivel."', 'nc', '".$obs."', '".$trModalidade."', '".$genero."')";
-
-        if ($conn->query($sql) === TRUE) {
-            $ultimoId = mysqli_insert_id($conn);
+        if ($stmt->execute()) {
+            $ultimoId = $stmt->insert_id;
 
             $resp = $this -> uploads($imagem, $ultimoId);
             $resp = json_decode($resp, TRUE);
 
             if($resp['flag']){
-                $sql = "UPDATE torneio SET foto = '".$resp['target']."' WHERE id =".$ultimoId;
-                if ($conn->query($sql) === FALSE) {
+                $sql = "UPDATE torneio SET foto = ? WHERE id = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("si", $resp['target'], $ultimoId);
+                if (!$stmt->execute()) {
                     $msg = "Não foi possível registar o Torneio";
                     $icon = "error";
                     $title = "Erro";
@@ -118,37 +121,38 @@ class Torneio {
             "title" => $title
         ));
         
+        $stmt->close();
         $conn->close();
 
         return($resp);
     }
-        
+            
     function getListaTorneioModel(){
-
         global $conn;
         $msg = "";
 
-        $sql = "SELECT * FROM torneio WHERE id_clube = ".$_SESSION['id'];
-        $result = $conn->query($sql);
+        $sql = "SELECT * FROM torneio WHERE id_clube = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $_SESSION['id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-        // output data of each row
             while($row = $result->fetch_assoc()) {
                 $hora = date_create($row['hora']);
                 $hora = date_format($hora,"H:i");
                 $msg .= "<tr>";
-                $msg .= "<th scope='row'>".$row['id']."</th>";
-                $msg .= "<th scope='row'><img class='img-thumbnail' style='height: 70px; max-width: 100px;' src='".$row['foto']."'></th>";
-                $msg .= "<th scope='row'>".$row['descricao']."</th>";
-                $msg .= "<td>".$row['nivel']."</td>";
-                $msg .= "<td>" . ucfirst($row['genero']) . "</td>";
-                $msg .= "<td>" . date('d/m/Y', strtotime($row['data'])) . "</td>";
-                $msg .= "<td>" . date('H:i\h', strtotime($row['hora'])) . "</td>";
-                $msg .= "<td>".$row['num_entradas']."</td>";
-                $msg .= "<td>".$row['preco']." €</td>";
-                $msg .= "<td><button type='button' class='btn btn-sm btn-warning' onclick ='getDadosTorneio(".$row['id'].")' > <i class='text-white ti ti-pencil'></i></button></td>";
-                $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeTorneio(".$row['id'].")' style='background-color: firebrick;'> <i
-                class='text-white ti ti-x'></i></button></td>";
+                $msg .= "<th scope='row'>".htmlspecialchars($row['id'])."</th>";
+                $msg .= "<th scope='row'><img class='img-thumbnail' style='height: 70px; max-width: 100px;' src='".htmlspecialchars($row['foto'])."'></th>";
+                $msg .= "<th scope='row'>".htmlspecialchars($row['descricao'])."</th>";
+                $msg .= "<td>".htmlspecialchars($row['nivel'])."</td>";
+                $msg .= "<td>" . htmlspecialchars(ucfirst($row['genero'])) . "</td>";
+                $msg .= "<td>" . htmlspecialchars(date('d/m/Y', strtotime($row['data']))) . "</td>";
+                $msg .= "<td>" . htmlspecialchars(date('H:i\h', strtotime($row['hora']))) . "</td>";
+                $msg .= "<td>".htmlspecialchars($row['num_entradas'])."</td>";
+                $msg .= "<td>".htmlspecialchars($row['preco'])." €</td>";
+                $msg .= "<td><button type='button' class='btn btn-sm btn-warning' onclick ='getDadosTorneio(".htmlspecialchars($row['id']).")' > <i class='text-white ti ti-pencil'></i></button></td>";
+                $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removeTorneio(".htmlspecialchars($row['id']).")' style='background-color: firebrick;'> <i class='text-white ti ti-x'></i></button></td>";
                 $msg .= "</tr>";
             }
         } else {
@@ -165,14 +169,15 @@ class Torneio {
             $msg .= "<td></td>";
             $msg .= "</tr>";
         }
+        $stmt->close();
         $conn->close();
 
-        return ($msg);
+        return $msg;
     }
 
     function getDadosTorneioModel($id){
         global $conn;
-    
+
         $msg = "";
         $idTorneio = "";
         $idClube = "";
@@ -188,7 +193,7 @@ class Torneio {
         $modalidade = "";
         $genero = "";
         $idModalidade = "";
-    
+
         $sql = "SELECT 
                 torneio.id as id,
                 torneio.id_clube as idClube,
@@ -214,7 +219,7 @@ class Torneio {
 
 
         $result = $conn->query($sql);
-    
+
         if ($result->num_rows > 0) {
         // output data of each row
             while($row = $result->fetch_assoc()) {
@@ -236,7 +241,7 @@ class Torneio {
             }
 
         }
-    
+
         $conn->close();
 
         $resp = json_encode(array(
@@ -257,10 +262,10 @@ class Torneio {
             "idModalidade" => $idModalidade
         ));
 
-    
+
         return ($resp);
     }
-    
+
     function guardaEditTorneioModel($id, $desc, $data, $hora, $nmr, $preco, $gen, $nivel, $imagem, $obs, $modalidade){
             
         global $conn;
@@ -280,7 +285,7 @@ class Torneio {
                     modalidade = '".$modalidade."',
                     genero = '".$gen."'
                 WHERE id = ".$id;
-      
+        
 
         if ($conn->query($sql) === TRUE) {
             
@@ -360,7 +365,6 @@ class Torneio {
         return($resp);
     }
 
-
     function getModalidadesNovoTorneio(){
 
         global $conn;
@@ -378,7 +382,7 @@ class Torneio {
         }
 
         $conn->close();
-    
+
         return($msg);
     }
 }

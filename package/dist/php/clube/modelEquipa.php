@@ -6,8 +6,7 @@ require_once '../connection.php';
 
 class Equipa {
 
-    function uploads($img, $id)
-    {
+    function uploads($img, $id){
 
         $dir = "../../images/equipas/" . $id . "/";
         $dir1 = "images/equipas/" . $id . "/";
@@ -45,18 +44,21 @@ class Equipa {
         $title = "Sucesso";
         $icon = "success";
 
-        $sql = "INSERT INTO comunidade (tipo_comunidade, nome, descricao, id_modalidade, id_atletaHost, estado) VALUES (2, '".$nome."', '".$desc."', ".$mod.", ".$_SESSION['id'].", 'fechado')";
+        $stmt = $conn->prepare("INSERT INTO comunidade (tipo_comunidade, nome, descricao, id_modalidade, id_atletaHost, estado) VALUES (2, ?, ?, ?, ?, 'fechado')");
+        $stmt->bind_param("ssii", $nome, $desc, $mod, $_SESSION['id']);
+        $stmt->execute();
 
-        if($conn -> query($sql) === TRUE) {
-
-            $idEquipaNova = mysqli_insert_id($conn);
-            $resp = $this -> uploads($imagem, $_SESSION['id']);
+        if($stmt->affected_rows > 0) {
+            $idEquipaNova = $stmt->insert_id;
+            $resp = $this->uploads($imagem, $_SESSION['id']);
             $resp = json_decode($resp, TRUE);
-
+    
             if($resp['flag']){
-                $sql2 = "UPDATE comunidade SET foto = '".$resp['target']."' WHERE id = ".$idEquipaNova;
-
-                if($conn -> query($sql2) === FALSE) {
+                $stmt2 = $conn->prepare("UPDATE comunidade SET foto = ? WHERE id = ?");
+                $stmt2->bind_param("si", $resp['target'], $idEquipaNova);
+                $stmt2->execute();
+    
+                if($stmt2->affected_rows === 0) {
                     $msg = "Erro ao registar equipa.";
                     $title = "Erro";
                     $icon = "error";
@@ -71,39 +73,43 @@ class Equipa {
             $title = "Erro";
             $icon = "error";
         }
-
-        $conn -> close();
-
+    
+        $stmt->close();
+        $conn->close();
+    
         $resp = json_encode(array(
             "msg" => $msg,
             "title" => $title,
             "icon" => $icon
         ));
-
+    
         return($resp);
     }
         
-
     function getListaEquipaModel(){
-
         global $conn;
         $msg = "";
 
-        $sql = "SELECT comunidade.*, modalidade.descricao as modalidadeDescricao FROM comunidade INNER JOIN modalidade ON comunidade.id_modalidade = modalidade.id WHERE tipo_comunidade = 2 AND id_atletaHost =".$_SESSION['id'];
-        $result = $conn->query($sql);
+        $sql = "SELECT comunidade.*, modalidade.descricao as modalidadeDescricao 
+                FROM comunidade 
+                INNER JOIN modalidade ON comunidade.id_modalidade = modalidade.id 
+                WHERE tipo_comunidade = 2 AND id_atletaHost = ?";
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $_SESSION['id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-        // output data of each row
             while($row = $result->fetch_assoc()) {
                 $msg .= "<tr>";
-                $msg .= "<th scope='row'>".$row['id']."</th>";
-                $msg .= "<th scope='row'><img class='object-fit-cover rounded' style='max-width: 30px;' src='../../dist/".$row['foto']."'></th>";
-                $msg .= "<th scope='row'>".$row['nome']."</th>";
-                $msg .= "<td>".(strlen($row['descricao']) > 30 ? substr($row['descricao'], 0, 24) . '...' : $row['descricao'])."</td>";
-                $msg .= "<td>".$row['modalidadeDescricao']."</td>";
-                $msg .= "<td><button type='button' class='btn btn-warning btn-sm' onclick ='getDadosEquipa(".$row['id'].")'> <i class='text-white ti ti-pencil'></i></button></td>";
-                $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removerEquipa(".$row['id'].")' style='background-color: firebrick;'> <i
-                class='text-white ti ti-x'></i></button></td>";
+                $msg .= "<th scope='row'>".htmlspecialchars($row['id'])."</th>";
+                $msg .= "<th scope='row'><img class='object-fit-cover rounded' style='max-width: 30px;' src='../../dist/".htmlspecialchars($row['foto'])."'></th>";
+                $msg .= "<th scope='row'>".htmlspecialchars($row['nome'])."</th>";
+                $msg .= "<td>".htmlspecialchars((strlen($row['descricao']) > 30 ? substr($row['descricao'], 0, 24) . '...' : $row['descricao']))."</td>";
+                $msg .= "<td>".htmlspecialchars($row['modalidadeDescricao'])."</td>";
+                $msg .= "<td><button type='button' class='btn btn-warning btn-sm' onclick ='getDadosEquipa(".htmlspecialchars($row['id']).")'> <i class='text-white ti ti-pencil'></i></button></td>";
+                $msg .= " <td><button type='button' class='btn btn-sm' onclick ='removerEquipa(".htmlspecialchars($row['id']).")' style='background-color: firebrick;'> <i class='text-white ti ti-x'></i></button></td>";
                 $msg .= "</tr>";
             }
         } else {
@@ -118,6 +124,7 @@ class Equipa {
             $msg .= "<td></td>";
             $msg .= "</tr>";
         }
+        $stmt->close();
         $conn->close();
 
         return ($msg);
@@ -128,8 +135,11 @@ class Equipa {
         $msg = "<option value='-1' selected>Selecione uma opção</option>";
         $row = "";
 
-        $sql = "SELECT * FROM comunidade WHERE id = ".$id;
-        $result = $conn->query($sql);
+        $sql = "SELECT * FROM comunidade WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
         // output data of each row
@@ -140,7 +150,7 @@ class Equipa {
             $result2 = $conn->query($sql2);
             if($result2->num_rows > 0){
                 while($row2 = $result2->fetch_assoc()){
-                    $msg .= "<option value = ".$row2['id'].">".$row2['descricao']."</option>";
+                    $msg .= "<option value = ".htmlspecialchars($row2['id']).">".htmlspecialchars($row2['descricao'])."</option>";
                 }
             }
         }
@@ -162,28 +172,41 @@ class Equipa {
         $title = "Sucesso";
         $icon = "success";
     
-        $sql = "UPDATE comunidade SET nome = '".$nome."', descricao = '".$desc."'";
-        
-
+        $sql = "UPDATE comunidade SET nome = ?, descricao = ?";
+        $types = "ss";  
+        $params = array(&$nome, &$desc);
+    
         if ($mod != "-1") {
-            $sql .= ", id_modalidade = ".$mod;
+            $sql .= ", id_modalidade = ?";
+            $types .= "i";  
+            $params[] = &$mod;
         }
     
-        $sql .= " WHERE id = ".$id;
+        $sql .= " WHERE id = ?";
+        $types .= "i"; 
+        $params[] = &$id;
     
-        if($conn->query($sql) === TRUE) {
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+    
+        if($stmt->affected_rows > 0) {
             if ($imagem !== null) {
                 $resp = $this->uploads($imagem, $_SESSION['id']);
-                $resp = json_decode($resp, TRUE);
+                $resp = json_decode($resp, true);
     
                 if($resp['flag']) {
-                    $sql2 = "UPDATE comunidade SET foto = '".$resp['target']."' WHERE id = ".$id;
+                    $sql2 = "UPDATE comunidade SET foto = ? WHERE id = ?";
+                    $stmt2 = $conn->prepare($sql2);
+                    $stmt2->bind_param("si", $resp['target'], $id);
+                    $stmt2->execute();
     
-                    if($conn->query($sql2) === FALSE) {
+                    if($stmt2->error) {
                         $msg = "Erro ao alterar a equipa.";
                         $title = "Erro";
                         $icon = "error";
                     }
+                    $stmt2->close();
                 } else {
                     $msg = "Erro ao alterar a equipa.";
                     $title = "Erro";
@@ -196,15 +219,15 @@ class Equipa {
             $icon = "error";
         }
     
+        $stmt->close();
         $conn->close();
     
-        $resp = json_encode(array(
+        $response = array(
             "msg" => $msg,
             "title" => $title,
             "icon" => $icon
-        ));
-    
-        return $resp;
+        );
+        return json_encode($response);
     }
     
     function removeEquipaModel($id){
@@ -213,23 +236,24 @@ class Equipa {
         $title = "Sucesso";
         $icon = "success";
 
-        $sql = "DELETE FROM comunidade_atletas WHERE id_comunidade = ".$id;
+        $sql = "DELETE FROM comunidade_atletas WHERE id_comunidade = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
 
-        if ($conn->query($sql) === TRUE) {
+        if ($stmt->execute()) {
+            $sql2 = "DELETE FROM comunidade WHERE id = ?";
+            $stmt2 = $conn->prepare($sql2);
+            $stmt2->bind_param("i", $id);
 
-            $sql2 = "DELETE FROM comunidade WHERE id = ".$id;
-
-            if ($conn->query($sql2) === FALSE) {
+            if (!$stmt2->execute()) {
                 $msg = "Erro ao remover equipa.";
                 $title = "Erro";
                 $icon = "error";
             }
-
-
         } else {
-            $msg = "Equipa removida com sucesso.";
-            $title = "Sucesso";
-            $icon = "success";
+            $msg = "Erro ao remover equipa.";
+            $title = "Erro";
+            $icon = "error";
         }
 
         $conn->close();
@@ -241,9 +265,6 @@ class Equipa {
         ));
         return($resp);
     }
-
-
-
 }
 
 

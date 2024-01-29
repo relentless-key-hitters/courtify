@@ -104,6 +104,10 @@ function getListaTorneio() {
     .done(function (msg) {
 
         $('#listaTorneio').html(msg);
+        if ( $.fn.DataTable.isDataTable('#tabelaTorneio') ) {
+            $('#tabelaTorneio').DataTable().destroy();
+        }
+
         $("#tabelaTorneio").DataTable({
             language: {
                 url: "//cdn.datatables.net/plug-ins/1.13.7/i18n/pt-PT.json",
@@ -253,11 +257,14 @@ function removeTorneio(id) {
         .done(function (msg) {
 
             let obj = JSON.parse(msg);
+
             if (obj.flag) {
                 alerta("Torneio", obj.msg, "success");
                 getListaTorneio();
+                setTimeout(function () { location.reload() }, 3000);
             } else {
                 alerta("Torneio", obj.msg, "error");
+                setTimeout(function () { location.reload() }, 3000);
             }
 
         })
