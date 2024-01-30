@@ -131,7 +131,7 @@ class Descobrir
                     }
                     $msg .= "<div class='row'>
                                         <div class='col-md-6'>
-                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill'>
+                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill' style='height: 100px; width: 150px'>
                                         </div>
                                         <div class='col-md-6'>
                                         <div class='text-center mt-sm-2'>
@@ -370,7 +370,7 @@ class Descobrir
                     }
                     $msg .= "<div class='row'>
                                     <div class='col-md-6'>
-                                    <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill'>
+                                    <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill' style='height: 100px; width: 150px'>
                                     </div>
                                     <div class='col-md-6'>
                                     <div class='text-center mt-sm-2'>
@@ -591,7 +591,7 @@ class Descobrir
                     }
                     $msg .= "<div class='row'>
                                         <div class='col-md-6'>
-                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill'>
+                                        <img src='" . $row['fotoCampoMarcacao'] . "' alt='Clube 1' class='img-fluid rounded border border-1 border-primary object-fit-fill' style='height: 100px; width: 150px'>
                                         </div>
                                         <div class='col-md-6'>
                                         <div class='text-center mt-sm-2'>
