@@ -1143,6 +1143,7 @@ function getRadar(userId, mod){
                 plotRadarPadelTenis(obj[i][0], obj[i][1], "radarTenis1",  '#45702d', '#73ab54');
                 plotHist(obj[i][2], percVit, "#barTenis3", "#45702d", '#73ab54', "Ténis");
                 plotHist(obj[i][3], percMvp, "#barTenis4", "#45702d", '#73ab54', "Ténis");
+                console.log(obj[i][1]);
             }else if(obj[i][0][0] == "Basquetebol"){
                 plotRadarBasqFutsal(obj[i][0], obj[i][1], "radarBasket1", '#ffae1f', '#fbe47e')
                 plotHist(obj[i][2], percVit, "#barBasket3", "#ffae1f", '#fbe47e', "Basquetebol");
@@ -1177,12 +1178,17 @@ function plotHist(array, val, id, color1 , color2, nome){
     console.log(valUser)
     let color = [];
     for(let i = 0; i< 100; i+=20){
-        if(valUser > i && valUser <= i+20){
+        if(i == 80 && valUser == 100){
             color.push(color1);
-            
         }else{
-            color.push(color2);
+            if(valUser >= i && valUser < i+20){
+                color.push(color1);
+                
+            }else{
+                color.push(color2);
+            }
         }
+        
     }
        var options = {
         series: [{
