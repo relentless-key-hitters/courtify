@@ -110,8 +110,9 @@ function guardaEditEquipa(id) {
     dados.append("descEq", $("#descricaoEquipaEdit").val());
     var ficheiro = $('#fotoEquipaEdit').prop('files');
     if (ficheiro.length > 0) {
-        dados.append("imagemEq", files[0]);
+        dados.append("imagemEq", ficheiro[0]);
     }
+
 
 
     $.ajax({
@@ -127,7 +128,7 @@ function guardaEditEquipa(id) {
         .done(function (msg) {
             let obj = JSON.parse(msg);
             alerta2(obj.title, obj.msg, obj.icon);
-            setTimeout(function () { location.reload(); }, 3000);
+            //setTimeout(function () { location.reload(); }, 3000);
         })
 
         .fail(function (jqXHR, textStatus) {

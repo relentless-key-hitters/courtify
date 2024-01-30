@@ -33,7 +33,7 @@ if($_POST['op'] == 1){
         $_POST['nomeEq'],
         $_POST['modEq'],
         $_POST['descEq'],
-        isset($_FILES['imagemEq']) ? $_FILES['imagemEq'] : null
+        isset($_FILES) ? $_FILES : null
     );
 
     echo ($resp);

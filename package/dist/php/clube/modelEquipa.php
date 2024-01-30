@@ -6,7 +6,7 @@ require_once '../connection.php';
 
 class Equipa {
 
-    function uploads($img, $id){
+    function uploads($img, $id, $idEquipa){
 
         $dir = "../../images/equipas/" . $id . "/";
         $dir1 = "images/equipas/" . $id . "/";
@@ -25,7 +25,7 @@ class Equipa {
                     $ficheiro = $img['imagemEq']['name'];
                     $end = explode(".", $ficheiro);
                     $extensao = end($end);
-                    $newName = "equipa" . $id . "." . $extensao;
+                    $newName = "equipa" . $idEquipa . "." . $extensao;
                     $target = $dir . $newName;
                     $targetBD = $dir1 . $newName;
                     $flag = move_uploaded_file($fonte, $target);
@@ -50,7 +50,7 @@ class Equipa {
 
         if($stmt->affected_rows > 0) {
             $idEquipaNova = $stmt->insert_id;
-            $resp = $this->uploads($imagem, $_SESSION['id']);
+            $resp = $this->uploads($imagem, $_SESSION['id'], $idEquipaNova);
             $resp = json_decode($resp, TRUE);
     
             if($resp['flag']){
@@ -188,12 +188,12 @@ class Equipa {
     
         $stmt = $conn->prepare($sql);
         $stmt->bind_param($types, ...$params);
-        $stmt->execute();
     
-        if($stmt->affected_rows > 0) {
-            if ($imagem !== null) {
-                $resp = $this->uploads($imagem, $_SESSION['id']);
-                $resp = json_decode($resp, true);
+        if($stmt->execute() === TRUE) {
+            if ($imagem != null) {
+                $resp = $this->uploads($imagem, $_SESSION['id'], $id);
+                
+                $resp = json_decode($resp, TRUE);
     
                 if($resp['flag']) {
                     $sql2 = "UPDATE comunidade SET foto = ? WHERE id = ?";
@@ -202,19 +202,19 @@ class Equipa {
                     $stmt2->execute();
     
                     if($stmt2->error) {
-                        $msg = "Erro ao alterar a equipa.";
-                        $title = "Erro";
+                        $msg = "Erro ao alterar a equipa. 1";
+                        $title = "Erro"; 
                         $icon = "error";
                     }
                     $stmt2->close();
                 } else {
-                    $msg = "Erro ao alterar a equipa.";
+                    $msg = "Erro ao alterar a equipa. 2";
                     $title = "Erro";
                     $icon = "error";
                 }
             }
         } else {
-            $msg = "Erro ao alterar a equipa.";
+            $msg = "Erro ao alterar a equipa. 3";
             $title = "Erro";
             $icon = "error";
         }
