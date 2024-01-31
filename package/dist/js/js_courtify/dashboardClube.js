@@ -117,7 +117,7 @@ function getDadosHoje(){
 
 
         if (obj.HorariosMaisFrequentes[2] && obj.HorariosMaisFrequentes[2][0] && obj.HorariosMaisFrequentes[2][1]) {
-          $("#horario3").html(obj.HorariosMaisFrequentes[2][0] + "h - " + obj.HorariosMaisFrequentes[2][1]);
+          $("#horario3").html(obj.HorariosMaisFrequentes[2][0] + "h - " + obj.HorariosMaisFrequentes[2][1] + "h");
         } else {
           $("#horario3").html("Sem resultados!");
         }
