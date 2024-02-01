@@ -774,15 +774,20 @@ class Clube{
             $id = $horario->id;
             $abertura = $horario->abertura;
             $fecho = $horario->fecho;
-        
-            $sql3 = "UPDATE 
-                horario_clube 
-                SET 
+    
+            $sql3 = "UPDATE horario_clube SET 
                 hora_abertura = '".$abertura."', 
                 hora_fecho = '".$fecho."' 
                 WHERE id_dia = ".$id."
                 AND id_clube = " . $_SESSION['id'];
-                
+    
+            // Execute the SQL query for each day
+            if (!$conn->query($sql3)) {
+                $msg = "Erro ao executar a consulta SQL para o dia ".$id;
+                $icon = "error";
+                $title = "Erro";
+                return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
+            }
         }
 
         if ($passwordAtual !== null && $passwordNova !== null && $passwordNova2 !== null) {
@@ -831,7 +836,7 @@ class Clube{
                
                 
 
-        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE && $conn->query($sql3)) {
+        if($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
             $msg = "Informações alteradas com sucesso!";
         } else {
             $msg = "Não foi possível alterar as informações";

@@ -80,17 +80,17 @@ function getHorariosDefinicoesClube() {
         const diasSemana = ['Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado', 'Domingo'];
 
         for (let i = 0; i < obj.length; i++) {
-        const elemento = obj[i];
-        const aberturaId = "#abertura" + diasSemana[i];
-        const fechoId = "#fecho" + diasSemana[i];
+            const elemento = obj[i];
+            const aberturaId = "#abertura" + diasSemana[i];
+            const fechoId = "#fecho" + diasSemana[i];
 
-        if (elemento.horaAbertura != '00:00:00' && elemento.horaFecho != '00:00:00') {
-            $(aberturaId).val(elemento.horaAbertura);
-            $(fechoId).val(elemento.horaFecho);
-        } else {
-            $(aberturaId).val(null).prop("disabled", true);
-            $(fechoId).val(null).prop("disabled", true);
-        }
+            if (elemento.horaAbertura != '00:00:00' && elemento.horaFecho != '00:00:00') {
+                $(aberturaId).val(elemento.horaAbertura);
+                $(fechoId).val(elemento.horaFecho);
+            } else {
+                $(aberturaId).val(null).prop("disabled", true);
+                $(fechoId).val(null).prop("disabled", true);
+            }
         }
 
     })
@@ -207,7 +207,7 @@ async function guardarEditClube() {
         'terca': {
                     'id': 2, 
                     'abertura': $('#aberturaTerca').val() !== '' ? $('#aberturaTerca').val() : "00:00:00", 
-                    'fecho': $('#fechoTerca').val() !== '' ? $('#fechoTerca').val() : "00:00:00"
+                    'fecho': $('#fechoTerca').val() !== '' ? $('#fechoTerca').val() + ":00" : "00:00:00"
                 },
         'quarta': {
                     'id': 3, 
@@ -258,7 +258,7 @@ async function guardarEditClube() {
     .done(function (msg) {
         let obj = JSON.parse(msg);
         alerta(obj.title, obj.msg, obj.icon);
-        setTimeout(function () {location.reload();}, 3000);
+        //setTimeout(function () {location.reload();}, 3000);
     })
 
     .fail(function (jqXHR, textStatus) {
