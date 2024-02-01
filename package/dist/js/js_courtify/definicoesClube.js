@@ -258,7 +258,7 @@ async function guardarEditClube() {
     .done(function (msg) {
         let obj = JSON.parse(msg);
         alerta(obj.title, obj.msg, obj.icon);
-        //setTimeout(function () {location.reload();}, 3000);
+        setTimeout(function () {location.reload();}, 3000);
     })
 
     .fail(function (jqXHR, textStatus) {
