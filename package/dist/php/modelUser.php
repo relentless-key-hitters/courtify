@@ -1760,7 +1760,7 @@ class User
 
                 $msg .= "
                 <div class='d-flex justify-content-center pb-5'>
-                <h4 class='fw-semibold fs-9'>Convite Marcacão</h4>
+                <h4 class='fw-semibold fs-9'>Convite Marcação</h4>
               </div>
               <div class='container-fluid'>
                 <div class='row'>
