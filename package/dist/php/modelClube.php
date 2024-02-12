@@ -1073,7 +1073,7 @@ class Clube{
         return json_encode(array("msg" => $msg, "icon" => $icon, "title" => $title));
 
     }
-    /*Mariana*/
+    /*Mariana-Pedro*/
     function getMembros(){
         global $conn;
         $sql = "SELECT comunidade.id, modalidade.descricao, comunidade.nome
@@ -1081,10 +1081,11 @@ class Clube{
         modalidade.id = comunidade.id_modalidade 
         WHERE comunidade.id_atletaHost = ".$_SESSION['id'];
         $result = $conn -> query($sql);
-        $tabela= "";
         $msg = "";
+        $usersUnicos = array();
         if($result -> num_rows >0){
             while($row = $result -> fetch_assoc()){
+                $tabela= "";
                 if($row['descricao'] == "Basquetebol"){
                     $tabela = "info_basquetebol";
                 }else if($row['descricao'] == "Futsal"){
@@ -1116,18 +1117,21 @@ class Clube{
                 $result2 = $conn -> query($sql2); 
                 if($result2 -> num_rows >0){
                     while($row2 = $result2 -> fetch_assoc()){
-                        $msg .= "<tr class='text-center'>
-                        <td>".$row2['nif']."</td>
-                        <td><img src='../../dist/".$row2['foto']."' alt='Thumbnail 1'
-                            class='object-fit-cover rounded-2' width='30' height='30'></td>
-                        <td>".$row2['nome']."</td>
-                        <td>".date('d/m/Y', strtotime($row2['data_nasc']))."</td>
-                        <td>".$row2['email']."</td>
-                        <td>".$row2['n_jogos']."</td>
-                        <td>".$row['nome']."</td>
-                        <td><button type='button' class='btn btn-sm ti ti-x text-white'
-                            style='background-color: firebrick;' onclick=\"removerMembroEquipa(".$row2['id'].", ".$row['id'].", '".$row['nome']."')\"></button></td>
-                    </tr>";
+                        if (!in_array($row2['id'], $usersUnicos)) {
+                            $usersUnicos[] = $row2['id'];
+                            $msg .= "<tr class='text-center'>
+                            <td>".$row2['nif']."</td>
+                            <td><img src='../../dist/".$row2['foto']."' alt='Thumbnail 1'
+                                class='object-fit-cover rounded-2' width='30' height='30'></td>
+                            <td>".$row2['nome']."</td>
+                            <td>".date('d/m/Y', strtotime($row2['data_nasc']))."</td>
+                            <td>".$row2['email']."</td>
+                            <td>".$row2['n_jogos']."</td>
+                            <td>".$row['nome']."</td>
+                            <td><button type='button' class='btn btn-sm ti ti-x text-white'
+                                style='background-color: firebrick;' onclick=\"removerMembroEquipa(".$row2['id'].", ".$row['id'].", '".$row['nome']."')\"></button></td>
+                        </tr>";
+                        }
                     }
                 }
             }
